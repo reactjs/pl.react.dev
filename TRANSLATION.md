@@ -94,3 +94,35 @@ Lecz jeśli `SharedApplicationState.recordEvent` nie będzie [idempotentny](http
 ```
 
 W przypadku linków, które nie mają odpowiedników (posty ze Stack Overflow, filmiki z YouTube itp.), używaj wersji oryginalnych, angielskich.
+
+# Glosariusz
+
+Oto kilka sugestii dotyczących tłumaczenia terminów powszechnie używanych w tego typu dokumentacji technicznej.
+
+Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich być poprawne tłumaczenie i masz dowód w postaci linku/cytatu z literatury/blogów/poradni językowych, to daj znać [w odpowiednim wątku](https://github.com/reactjs/pl.reactjs.org/issues/3).
+
+| Termin oryginalny | Sugestia (z literatury) |
+| ------------------ | ---------- |
+| array | |
+| arrow function | |
+| bug | |
+| bundler | |
+| camelCase | |
+| callback | |
+| controlled component | |
+| debugging | |
+| framework | |
+| function component | |
+| hook | |
+| key | |
+| lazy initialization | |
+| library | |
+| lowercase | |
+| props | |
+| React element | |
+| render |  |
+| state | |
+| string | |
+| template literals | |
+| uppercase | |
+| uncontrolled component | |
