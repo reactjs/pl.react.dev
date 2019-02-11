@@ -54,7 +54,7 @@ function ActionLink() {
 }
 ```
 
-Zmienna `e` to zdarzenie syntetyczne. React tworzy zdarzenia tego typu zgodnie ze [specyfikacją W3C](https://www.w3.org/TR/DOM-Level-3-Events/), dzięki czemu nie trzeba martwić się o kompatybilność z przeglądarkami. Po więcej informacji sięgnij do specyfikacji obiektu [`SyntheticEvent`](/docs/events.html).
+Zmienna `e` to zdarzenie syntetyczne (ang. *synthetic event*). React tworzy zdarzenia tego typu zgodnie ze [specyfikacją W3C](https://www.w3.org/TR/DOM-Level-3-Events/), dzięki czemu nie trzeba martwić się o kompatybilność z przeglądarkami. Po więcej informacji sięgnij do specyfikacji obiektu [`SyntheticEvent`](/docs/events.html).
 
 W kodzie reactowym nie ma potrzeby dodawania obserwatora zdarzenia (ang. *event listener*) do elementu DOM po jego utworzeniu, poprzez wywoływanie funkcji `addEventListener`. Zamiast tego, wystarczy przekazać go podczas pierwszego renderowania komponentu.
 
@@ -95,7 +95,7 @@ ReactDOM.render(
 
 Należy zwrócić szczególną uwagę na znaczenie `this` funkcjach zwrotnych (ang. *callbacks*) używanych w JSX. W JavaScripcie metody klasy nie są domyślnie [dowiązane](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/Funkcje_strzalkowe) do instancji. Jeśli zapomnisz dowiązać metodę `this.handleClick` i przekażesz ją jako atrybut `onClick`, to `this` przy wywołaniu będzie miało wartość `undefined`.
 
-To zachowanie nie jest specyficzne dla Reacta; [tak właśnie działają funkcje w JavaScripcie](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalnie, jeśli odwołujesz się do metody bez `()` po nazwie, jak na przykład `onClick={this.handleClick}`, pamiętaj, aby zawsze ją dowiązywać do instancji.
+To zachowanie nie jest specyficzne dla Reacta; [tak właśnie działają funkcje w JavaScripcie](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalnie, jeśli odwołujesz się do metody bez `()` po nazwie, jak na przykład `onClick={this.handleClick}`, pamiętaj, aby zawsze dowiązywać ją do instancji.
 
 Jeśli denerwuje Cię ciągłe wywoływanie `bind`, istnieją dwa sposoby na obejście tego problemu. Jeśli używasz eksperymentalnej [składni publicznych pól klasy](https://babeljs.io/docs/plugins/transform-class-properties/), możesz dowiązać metody do instancji poprzez zadeklarowanie ich jako pola klasy:
 
