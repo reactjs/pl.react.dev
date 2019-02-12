@@ -36,7 +36,7 @@ React został zaprojektowany z myślą o stopniowym wdrażaniu. Dzięki temu mo�
 
 ### Online Playgrounds {#online-playgrounds}
 
-Jeśli jesteś zainteresowany wypróbowaniem Reacta, możesz w tym celu użyć playgroundów online. Wypróbuj szablonów Hello World na [CodePen](codepen://hello-world) lub [CodeSandbox](https://codesandbox.io/s/new).
+Jeśli jesteś zainteresowany wypróbowaniem Reacta, możesz w tym celu użyć playgroundów online. Wypróbuj szablon Hello World na [CodePen](codepen://hello-world) lub [CodeSandbox](https://codesandbox.io/s/new).
 
 Jeśli wolisz użyć swojego własnego edytora tekstu, możesz także [ściągnąć ten plik HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edytować go, a następnie otworzyć lokalnie w swojej przeglądarce. Pamiętaj jednak, że wykonuje on podczas uruchomienia dość mozolną transformację kodu, więc zalecamy go jedynie do prostych przykładów.
 
