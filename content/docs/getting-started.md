@@ -75,7 +75,7 @@ Jeśli zaczynając z Reactem przychodzisz ze środowiska graficznego, [te źród
 
 Dokumentacja Reacta zakłada znajomość języka programowania JavaScript na pewnym poziomie. Nie musisz być ekspertem, jednakże nauka zarówno Reacta jak i JavaScriptu w tym samym czasie może być nieco cięższa.
 
-Proponujemy zapoznanie się z [przeglądem informacji o JavaScript](https://developer.mozilla.org/pl/docs/Web/JavaScript/Ponowne_wprowadzenie_do_JavaScript), by sprawdzić swoją wiedzę. Powinno Ci to zająć około 30 minut do godziny, a sprawi, że nauka Reacta będzie bardziej komfortowa.
+Proponujemy zapoznanie się z [przeglądem informacji o JavaScripcie](https://developer.mozilla.org/pl/docs/Web/JavaScript/Ponowne_wprowadzenie_do_JavaScript), by sprawdzić swoją wiedzę. Powinno Ci to zająć około 30 minut do godziny, a sprawi, że nauka Reacta będzie bardziej komfortowa.
 
 >Podpowiedź
 >
