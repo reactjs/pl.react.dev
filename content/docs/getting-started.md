@@ -32,7 +32,7 @@ Ta podstrona to przegląd dokumentacji Reacta oraz powiązanych zasobów.
 
 ## Wypróbuj Reacta {#try-react}
 
-React został zaprojektowany z myślą o stopniowym wdrażaniu. Dzięki temu możesz użyć **tak wiele lub tak mało Reacta, jak tego potrzebujesz.** W zależności czy potrzebujesz jedynie spróbować Reacta i dodać trochę interakcyjności do prostej strony HTML, czy zacząć skomplikowaną aplikację zasilaną Reactem, linki w tej sekcji pomogą Ci zacząć.
+React został zaprojektowany z myślą o stopniowym wdrażaniu. Dzięki temu możesz użyć **tak wiele lub tak mało Reacta, jak tego potrzebujesz.** W zależności czy potrzebujesz jedynie spróbować Reacta i dodać trochę interaktywności do prostej strony HTML, czy zacząć skomplikowaną aplikację zasilaną Reactem, linki w tej sekcji pomogą Ci zacząć.
 
 ### Online Playgrounds {#online-playgrounds}
 
@@ -113,7 +113,7 @@ Ta sekcja dokumentacji jest pożyteczna, jeśli chcesz dowiedzieć się więcej 
 
 [Blog Reacta](/blog/) jest oficjalnym źródłem aktualizacji i newsów od zespołu Reacta. Wszystkie istotne informacje, w tym notki dotyczące nowych wydań oraz informacje o zdezaktualizowanych elementach, znajdą się tam jako pierwsze.
 
-Możesz śledzić [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie Cię nic ważnego, jeśli będziesz obserwować jedynie bloga.
+Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie Cię nic ważnego, jeśli będziesz obserwować jedynie bloga.
 
 Nie każde nowe wydanie Reacta potrzebuje osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md)
 
