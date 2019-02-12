@@ -101,13 +101,13 @@ Czasem ludzie preferują książki i kursy wideo stworzone przez innych użytkow
 
 Kiedy będziesz się już czuć komfortowo z [podstawowymi pojęciami](#main-concepts), a za sobą będziesz mieć trochę zabawy z kodem w Reakcie, możesz być zainteresowany bardziej zaawansowanymi koncepcjami. Ta sekcja zapozna Cię z przydatnymi, acz rzadziej używanymi funkcjonalnościami jak [konteksty (ang. *contexts*)](/docs/context.html) czy [referencjami (ang. *refs*)](/docs/refs-and-the-dom.html).
 
-### Referencje API {#api-reference}
+### Dokumentacja API {#api-reference}
 
-Ta sekcja dokumentacji jest pożyteczna, jeśli chcesz dowiedzieć się więcej o API Reacta. Na przykład, [`React.Component` referencja API](/docs/react-component.html) pozwoli Ci w szczegółach zrozumieć działanie `setState()`, oraz jak działają metody z cyklu życia komponentu.
+Ta sekcja dokumentacji może okazać się przydatna, jeśli chcesz dowiedzieć się więcej o API Reacta. Na przykład, [dokumentacja `React.Component`](/docs/react-component.html) pozwoli Ci w szczegółach zrozumieć działanie `setState()` oraz jak działają metody z cyklu życia komponentu.
 
 ### Słownik i FAQ {#glossary-and-faq}
 
-[Słownik](/docs/glossary.html) zawiera przegląd najczęściej używanych terminów, które napotkasz w dokumentacji Reacta. Istnieje także sekcja FAQ, poświęcona krótkim pytaniom i odpowiedziom na najpopularniejsze tematy, między innymi [wykonywanie zapytań AJAX](/docs/faq-ajax.html), [stan komponentu](/docs/faq-state.html), oraz [struktura plików](/docs/faq-structure.html).
+[Słownik](/docs/glossary.html) zawiera przegląd najczęściej używanych terminów, które napotkasz w dokumentacji Reacta. Istnieje także sekcja FAQ, poświęcona krótkim pytaniom i odpowiedziom na najpopularniejsze tematy, między innymi ["Jak wykonać zapytanie AJAX-owe?"](/docs/faq-ajax.html), ["Co to jest stan komponentu?"](/docs/faq-state.html) oraz ["Jak powinna wyglądać struktura plików?"](/docs/faq-structure.html).
 
 ## Bądź na bieżąco {#staying-informed}
 
