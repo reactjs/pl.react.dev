@@ -113,7 +113,7 @@ Ta sekcja dokumentacji może okazać się przydatna, jeśli chcesz dowiedzieć s
 
 [Blog Reacta](/blog/) jest oficjalnym źródłem aktualizacji i newsów od zespołu Reacta. Wszystkie istotne informacje, w tym notki dotyczące nowych wydań oraz informacje o zdezaktualizowanych elementach, znajdą się tam jako pierwsze.
 
-Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie Cię nic ważnego, jeśli będziesz obserwować jedynie bloga.
+Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie Cię nic ważnego, jeśli będziesz śledzić jedynie bloga.
 
 Nie każde nowe wydanie Reacta potrzebuje osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md)
 
