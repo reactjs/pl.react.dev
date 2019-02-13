@@ -31,7 +31,7 @@ setInterval(tick, 1000);
 
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-W tym rozdziale dowiemy się, jak sprawić, by komponent `Clock` był w pełni hermetyczny i dawał się używać wielokrotnie. Wyposażymy go we własny timer, który będzie aktualizował się co sekundę.
+W tym rozdziale dowiemy się, jak sprawić, by komponent `Clock` był w pełni hermetyczny i zdatny do wielokrotnego użytku. Wyposażymy go we własny timer, który będzie aktualizował się co sekundę.
 
 Zacznijmy od wyizolowania kodu, który odpowiada za wygląd zegara:
 
@@ -57,7 +57,7 @@ setInterval(tick, 1000);
 
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-Brakuje jeszcze fragmentu, który spełniałby kluczowe założenie: inicjalizacja timera i aktualizowanie strony co sekundę powinny być zaimplementowane w komponencie `Clock`.
+Brakuje jeszcze fragmentu, który spełniałby kluczowe założenie: inicjalizacja timera i aktualizowanie UI co sekundę powinny być zaimplementowane w komponencie `Clock`.
 
 Idealnie byłoby móc napisać tylko tyle i oczekiwać, że `Clock` zajmie się resztą:
 
@@ -413,7 +413,7 @@ Scalanie jest płytkie (ang. *shallow*), tzn. `this.setState({comments})` nie zm
 
 ## Dane płyną z góry na dół {#the-data-flows-down}
 
-Ani komponenty-rodzice, ani ich dzieci nie wiedzą, czy jakiś komponent ma stan, czy też nie. Nie powinny się również przejmować tym, czy jest on funkcyjny, czy klasowy.
+Ani komponenty-rodzice, ani ich dzieci nie wiedzą, czy jakiś komponent posiada stan, czy też nie. Nie powinny się również przejmować tym, czy jest on funkcyjny, czy klasowy.
 
 Właśnie z tego powodu stan jest nazywany lokalnym lub enkapsulowanym. Nie mają do niego dostępu żadne komponenty poza tym, który go posiada i modyfikuje.
 
@@ -439,9 +439,9 @@ function FormattedDate(props) {
 
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-Taki przepływ danych nazywany jest powszechnie jednokierunkowym (ang. *unidirectional*) lub "z góry na dół" (ang. *top-down*). Stan jest zawsze własnością konkretnego komponentu i wszelkie dane lub części UI powstałe w oparciu o niego mogą wpłynąć jedynie na komponenty znajdujące się "poniżej" w drzewie.
+Taki przepływ danych nazywany jest powszechnie jednokierunkowym (ang. *unidirectional*) lub "z góry na dół" (ang. *top-down*). Stan jest zawsze własnością konkretnego komponentu i wszelkie dane lub części UI, powstałe w oparciu o niego, mogą wpłynąć jedynie na komponenty znajdujące się "poniżej" w drzewie.
 
-Wyobraź sobie, że drzewo komponentów to wodospad atrybutów. Stan każdego z komponentów to dodatkowe źródło wody, które go zasila, jednocześnie spadając w dół wraz z resztą wody.
+Wyobraź sobie, że drzewo komponentów to wodospad atrybutów, a stan każdego z komponentów to dodatkowe źródło wody, które go zasila, jednocześnie spadając w dół wraz z resztą wody.
 
 Aby pokazać, że wszystkie komponenty są odizolowane od reszty, stwórzmy komponent `App`, który renderuje trzy elementy `<Clock>`:
 
