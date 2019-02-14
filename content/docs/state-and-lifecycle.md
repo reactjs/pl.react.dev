@@ -310,7 +310,7 @@ Podsumujmy, co dzieje się w powyższym kodzie i w jakiej kolejności wywoływan
 
 1) Kiedy element `<Clock />` przekazywany jest do funkcji `ReactDOM.render()`, React wywołuje konstruktor komponentu `Clock`. Jako że `Clock` będzie wyświetlać aktualny czas, musi on zainicjalizować `this.state` obiektem zawierającym aktualną datę. Później ten stan będzie aktualizowany.
 
-2) Następnie React wywołuje na komponencie `Clock` metodę `render()`. W ten sposób uzyskuje informację, co powinno zostać wyświetlone na stronie. Gdy otrzyma odpowiedź, odpowiednio aktualizuje drzewo DOM.
+2) Następnie React wywołuje metodę `render()` komponentu `Clock`. W ten sposób uzyskuje informację, co powinno zostać wyświetlone na stronie. Gdy otrzyma odpowiedź, odpowiednio aktualizuje drzewo DOM.
 
 3) Po wyrenderowaniu komponentu `Clock` do drzewa DOM, React wywołuje metodę cyklu życia o nazwie `componentDidMount()`. W jej ciele komponent `Clock` prosi przeglądarkę o zainicjalizowanie nowego timera, który będzie wywoływać metodę `tick()` co sekundę.
 
@@ -346,7 +346,7 @@ React może zgrupować kilka wywołań metody `setState()` w jedną paczkę w ce
 
 Z racji tego, że zmienne `this.props` i `this.state` mogą być aktualizowane asynchronicznie, nie powinno się polegać na ich wartościach przy obliczaniu nowego stanu.
 
-Na przykład, poniższy kod może nadpisać licznik błędną wartością:
+Na przykład, poniższy kod może nadpisać `counter` błędną wartością:
 
 ```js
 // Źle
