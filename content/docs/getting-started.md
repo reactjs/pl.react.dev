@@ -32,7 +32,7 @@ Ta podstrona to przegląd dokumentacji Reacta oraz powiązanych zasobów.
 
 ## Wypróbuj Reacta {#try-react}
 
-React został zaprojektowany z myślą o stopniowym wdrażaniu. Dzięki temu możesz użyć **tyle Reacta, ile potrzebujesz.** Niezależnie od tego, czy chcesz jedynie wypróbować Reacta i dodać trochę interaktywności do prostej strony HTML, czy też zacząć skomplikowaną aplikację w oparciu o Reacta - linki w tej sekcji pomogą Ci zacząć.
+Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb.  Linki zawarte w tej części przewodnika wprowadzą cię do Reacta. Znajdziesz tu materiały, które pozwolą ci nie tylko dodawać elementy interaktywne do prostych stron HTML, lecz także rozpocząć prace nad bardziej zaawansowanymi aplikacjami bazującymi na Reakcie.
 
 ### Środowisko doświadczalne {#online-playgrounds}
 
