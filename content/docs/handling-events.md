@@ -8,7 +8,7 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Obsługa zdarzeń w Reakcie przypomina tę z drzewa DOM. Istnieje jednak kilka różnic w składni:
+Obsługa zdarzeń w Reakcie jest bardzo podobna do tej z drzewa DOM. Istnieje jednak kilka różnic w składni:
 
 * Zdarzenia reactowe pisane są camelCasem, a nie małymi literami.
 * W JSX jako uchwyt przekazywana jest funkcja, a nie łańcuch znaków.
