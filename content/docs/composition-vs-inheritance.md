@@ -28,7 +28,7 @@ function FancyBorder(props) {
 }
 ```
 
-Pozwala to innym komponentom przekazywać dowolnych potomków poprzez zagnieżdżanie elementów JSX:
+Pozwala to innym komponentom przekazywać dowolnych potomków poprzez zagnieżdżanie elementów JSX-owych:
 
 ```js{4-9}
 function WelcomeDialog() {
