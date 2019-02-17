@@ -52,12 +52,12 @@ Podczas gdy Twoja aplikacja się rozwija, możesz zacząć myśleć o bardziej z
 
 ## Ucz się Reacta {#learn-react}
 
-Ludzie zaczynają przygodę z Reactem, przychodząc z różnych środowisk i z różnymi doświadczeniami programistycznymi. Niezależnie czy preferujesz bardziej techniczne, czy praktyczne podejście, mamy nadzieję, że uznasz tę sekcję za pomocną.
+Ludzie rozpoczynający przygodę z Reactem wywodzą się z najróżniejszych środowisk, mają też różne sposoby uczenia się. Mamy nadzieję, że ta część przewodnika okaże się pomocna zarówno dla osób o zacięciu teoretycznym jak i dla tych którzy mają podejście bardziej praktyczne.
 
-* Jeśli preferujesz **naukę przez praktykę**, zacznij z naszymi [praktycznymi samouczkami](/tutorial/tutorial.html).
-* Jeśli wolisz **naukę pojęć krok po kroku**, najlepiej zacznij przygodę od [przewodnika po głównych pojęciach](/docs/hello-world.html).
+* Jeśli wolisz **naukę przez praktykę**, zacznij od naszego [przewodnika praktycznego](/tutorial/tutorial.html).
+* Jeśli zaś bardziej zależy ci na systematycznym opanowaniu **podstawowych zagadnień**, zacznij swoją przygodę od [przewodnika po głównych zagadnieniach](/docs/hello-world.html).
 
-Jak każda nowa technologia, z którą spotykasz się pierwszy raz, React także ma swoją krzywą uczenia. Przy odrobinie praktyki i cierpliwości *zrozumiesz*, na czym polega.
+Jak każda nowa technologia, z którą spotykasz się po raz pierwszy, React także ma swoją krzywą uczenia się. Jednak przy odrobinie praktyki i cierpliwości *zrozumiesz*, na czym polega.
 
 ### Podstawowe przykłady {#first-examples}
 
@@ -87,11 +87,11 @@ Jeśli preferujesz **naukę przez praktykę**, sprawdź nasze [praktyczne samouc
 
 ### Instrukcja krok po kroku {#step-by-step-guide}
 
-Jeśli wolisz **naukę pojęć krok po kroku**, zacznij od [przewodnika po głównych pojęciach](/docs/hello-world.html). Każdy kolejny rozdział jest tu oparty o wiedzę nabytą w poprzednim, więc radzimy niczego nie pomijać.
+Jeśli wolisz **naukę pojęć krok po kroku**, zacznij od [przewodnika po głównych zagadnieniach](/docs/hello-world.html). Każdy kolejny rozdział jest tu oparty o wiedzę nabytą w poprzednim, więc radzimy niczego nie pomijać.
 
 ### Myślenie po reactowemu {#thinking-in-react}
 
-Wielu użytkowników Reacta doceniło lekturę rozdziału pt. [Myślenie po reactowemu](/docs/thinking-in-react.html), bo dzięki niemu coś im w końcu "zaskoczyło" w głowie. To prawdopodobnie najstarszy przewodnik po Reakcie, jednakże jest on wciąż aktualny.
+Wielu użytkownikom Reacta bardzo pomogła lektura rozdziału pt. [Myślenie po reactowemu](/docs/thinking-in-react.html), bo dzięki niemu coś im w końcu "zaskoczyło" w głowie. To prawdopodobnie najstarszy przewodnik po Reakcie, jednakże jest on wciąż aktualny.
 
 ### Rekomendowane kursy {#recommended-courses}
 
@@ -99,7 +99,7 @@ Czasem ludzie preferują książki i kursy wideo stworzone przez innych użytkow
 
 ### Zaawansowane pojęcia {#advanced-concepts}
 
-Kiedy będziesz się już czuć komfortowo z [podstawowymi pojęciami](#main-concepts), a za sobą będziesz mieć trochę zabawy z kodem w Reakcie, mogą zainteresować Cię bardziej zaawansowane pojęcia. Ta sekcja zapozna Cię z przydatnymi, acz rzadziej używanymi funkcjonalnościami, jak [konteksty (ang. *contexts*)](/docs/context.html) czy [referencje (ang. *refs*)](/docs/refs-and-the-dom.html).
+Kiedy będziesz się już czuć komfortowo z [podstawowymi pojęciami](#main-concepts), a za sobą będziesz mieć trochę zabawy z kodem w Reakcie, mogą zainteresować Cię bardziej zaawansowane zagadnienia. Ta sekcja zapozna Cię z przydatnymi, acz rzadziej używanymi funkcjonalnościami, jak [konteksty (ang. *contexts*)](/docs/context.html) czy [referencje (ang. *refs*)](/docs/refs-and-the-dom.html).
 
 ### Dokumentacja API {#api-reference}
 
@@ -123,4 +123,4 @@ Ta dokumentacja zawsze odzwierciedla najnowszą stabilną wersję Reacta. Począ
 
 ## Czegoś brakuje? {#something-missing}
 
-Jeśli czegoś brakuje w dokumentacji lub któraś część nie jest wystarczająco jasna, proszę [zgłoś to w repozytorium dokumentacji](https://github.com/reactjs/reactjs.org/issues/new) (w wiadomości zamieszczając swoje sugestie) bądź napisz tweeta do [@reactjs](https://twitter.com/reactjs). Chętnie dowiemy się, co myślisz!
+Jeśli brakuje Ci czegoś w dokumentacji lub któraś część nie jest wystarczająco jasna, proszę [zgłoś to w repozytorium dokumentacji](https://github.com/reactjs/reactjs.org/issues/new) (w wiadomości zamieszczając swoje sugestie) bądź napisz tweeta do [@reactjs](https://twitter.com/reactjs). Chętnie dowiemy się, co myślisz!
