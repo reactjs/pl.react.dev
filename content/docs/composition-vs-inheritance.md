@@ -80,7 +80,7 @@ function App() {
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
 
-Elementy reactowe, takie jak `<Contacts />` czy `<Chat />`, są zwykłymi obiektami, dlatego możesz przekazywać je poprzez atrybuty jak każdą inną wartość. To podejście może przypominać koncepcję "slotów" z innych bibliotek, lecz w Reakcie nie ma żadnych ograniczeń co typu wartości przekazywanych w atrybutach.
+Elementy reactowe, takie jak `<Contacts />` czy `<Chat />`, są zwykłymi obiektami, dlatego możesz przekazywać je poprzez atrybuty jak każdą inną wartość. To podejście może przypominać koncepcję "slotów" z innych bibliotek, lecz w Reakcie nie ma żadnych ograniczeń co do typu wartości przekazywanych w atrybutach.
 
 ## Specjalizacja {#specialization}
 
