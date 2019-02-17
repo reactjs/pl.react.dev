@@ -20,7 +20,7 @@ redirect_from:
 
 Ta podstrona to przegląd dokumentacji Reacta oraz powiązanych zasobów.
 
-**React** to biblioteka JavaScript służąca do budowy interfejsów użytkownika. Dowiedz się, czym tak naprawdę jest React, na naszej [stronie głównej](/) lub [w tutorialu](/tutorial/tutorial.html).
+**React** to biblioteka JavaScriptowa służąca do budowania interfejsów użytkownika. Dowiedz się, czym tak naprawdę jest React, na naszej [stronie głównej](/) lub [w tutorialu](/tutorial/tutorial.html).
 
 ---
 
@@ -32,23 +32,23 @@ Ta podstrona to przegląd dokumentacji Reacta oraz powiązanych zasobów.
 
 ## Wypróbuj Reacta {#try-react}
 
-React został zaprojektowany z myślą o stopniowym wdrażaniu. Dzięki temu możesz użyć **tyle Reacta, ile potrzebujesz.** Niezależnie od tego, czy chcesz jedynie wypróbować Reacta i dodać trochę interaktywności do prostej strony HTML, czy też zacząć skomplikowaną aplikację w oparciu o Reacta - linki w tej sekcji pomogą Ci zacząć.
+Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb.  Linki zawarte w tej części przewodnika wprowadzą cię do Reacta. Znajdziesz tu materiały, które pozwolą ci nie tylko dodawać elementy interaktywne do prostych stron HTML, lecz także rozpocząć prace nad bardziej zaawansowanymi aplikacjami bazującymi na Reakcie.
 
-### Online Playgrounds {#online-playgrounds}
+### Środowisko doświadczalne {#online-playgrounds}
 
-Jeśli jesteś zainteresowany wypróbowaniem Reacta, możesz w tym celu użyć playgroundów online. Wypróbuj szablon "Hello World" na [CodePen](codepen://hello-world) lub [CodeSandbox](https://codesandbox.io/s/new).
+Jeśli chcesz wypróbować Reacta, możesz w tym celu użyć środowisk doświadczalnych online. Wypróbuj szablon "Hello World" na [CodePen](codepen://hello-world) lub [CodeSandbox](https://codesandbox.io/s/new).
 
-Jeśli wolisz użyć swojego własnego edytora tekstu, możesz także [ściągnąć ten plik HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edytować go, a następnie otworzyć lokalnie w swojej przeglądarce. Pamiętaj jednak, że wykonuje on podczas uruchomienia dość mozolną transformację kodu, więc zalecamy go jedynie do prostych przykładów.
+Jeśli wolisz używać swojego własnego edytora tekstu, możesz także [ściągnąć ten plik HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edytować go, a następnie otworzyć lokalnie w swojej przeglądarce. Pamiętaj jednak, że wykonuje on podczas uruchomienia dość mozolną transformację kodu, więc zalecamy go jedynie do prostych przykładów.
 
 ### Dodaj Reacta do swojej strony {#add-react-to-a-website}
 
-Możesz [dodać Reacta do swojej strony HTML w ciągu minuty](/docs/add-react-to-a-website.html). Możesz stopniowo rozszerzać ilość kodu lub użyć go do kilku dynamicznych widgetów.
+Możesz [dodać Reacta do swojej strony HTML w ciągu minuty](/docs/add-react-to-a-website.html). Możesz stopniowo zwiększać jego obecność według potrzeb lub użyć go jedynie do kilku dynamicznych widgetów.
 
 ### Stwórz nową aplikację reactową {#create-a-new-react-app}
 
-Gdy zaczynasz projekt w Reakcie, [napisanie prostej strony HTML ze script tagami](/docs/add-react-to-a-website.html) może okazać się najlepszą opcją. Zajmie Ci to tylko minutę!
+Gdy zaczynasz projekt w Reakcie, [napisanie prostej strony w HTMLu ze script tagami](/docs/add-react-to-a-website.html) może okazać się najlepszą opcją. Zajmie Ci to tylko minutę!
 
-Podczas gdy Twoja aplikacja się rozwija, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje [kilka JavaScriptowych narzędzi](/docs/create-a-new-react-app.html), które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli Ci korzystać z pełni mocy systemu Reacta.
+W miarę jak będziesz rozwijać swoją aplikację, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje [kilka JavaScriptowych narzędzi](/docs/create-a-new-react-app.html), które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli Ci korzystać z pełni mocy systemu Reacta.
 
 ## Ucz się Reacta {#learn-react}
 
@@ -61,13 +61,13 @@ Jak każda nowa technologia, z którą spotykasz się po raz pierwszy, React tak
 
 ### Podstawowe przykłady {#first-examples}
 
-[Strona główna](/) Reacta zawiera kilka małych przykładów z edytorem kodu live. Nawet jeśli nie wiesz jeszcze nic o Reakcie, spróbuj zmienić kod i zobaczyć, jakie to przyniesie efekty.
+[Strona główna](/) Reacta zawiera kilka małych przykładów z edytorem kodu live. Nawet jeśli nie wiesz jeszcze nic o Reakcie, spróbuj zmienić kod i zobaczyć, jak wpłynie to na wynik działania aplikacji.
 
 ### React dla początkujących {#react-for-beginners}
 
-Jeśli wydaje Ci się, że dokumentacja Reacta prowadzi Cię w zbyt szybkim tempie, sprawdz [ten przegląd Reacta napisany przez Tanię Rascię](https://www.taniarascia.com/getting-started-with-react/). Wprowadzi Cię on szczegółowo w najistotniejsze zagadnienia Reacta, zachowując styl zrozumiały dla początkujących. Gdy już skończysz, spróbuj ponownie przeczytać naszą dokumentację!
+Jeśli wydaje Ci się, że dokumentacja Reacta prowadzi Cię w zbyt szybkim tempie, sprawdź [ten przegląd Reacta napisany przez Tanię Rascię](https://www.taniarascia.com/getting-started-with-react/). Wprowadzi Cię on szczegółowo w najistotniejsze zagadnienia Reacta, zachowując styl zrozumiały dla początkujących. Gdy już skończysz, spróbuj ponownie przeczytać naszą dokumentację!
 
-### React dla Designerów {#react-for-designers}
+### React dla designerów {#react-for-designers}
 
 Jeśli zaczynając z Reactem przychodzisz ze środowiska grafików i designerów, [te źródła](http://reactfordesigners.com/) mogą okazać się świetnym punktem startowym.
 
@@ -79,7 +79,7 @@ Proponujemy zapoznanie się z [przeglądem informacji o JavaScripcie](https://de
 
 >Podpowiedź
 >
->Gdy tylko poczujesz, że pojęcia z języka JavaScript są zbyt zagmatwane, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) oraz [javascript.info](http://javascript.info/) mogą okazać się świetnymi źródłami  do nauki. Istnieją także [fora internetowe](/community/support.html), na których możesz poprosić o pomoc.
+>Gdy tylko poczujesz, że pojęcia z języka JavaScript są zbyt zagmatwane, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) oraz [javascript.info](http://javascript.info/) mogą okazać się świetnymi źródłami do nauki. Istnieją także [fora internetowe](/community/support.html), na których możesz poprosić o pomoc.
 
 ### Praktyczne samouczki {#practical-tutorial}
 
@@ -95,7 +95,7 @@ Wielu użytkownikom Reacta bardzo pomogła lektura rozdziału pt. [Myślenie po 
 
 ### Rekomendowane kursy {#recommended-courses}
 
-Czasem ludzie preferują książki i kursy wideo stworzone przez innych użytkowników, ponieważ dla nich są one bardziej pomocne. Dla takich osób stworzyliśmy [listę rekomendowanych źródeł](/community/courses.html), z których część jest darmowa.
+Czasem ludzie preferują książki i kursy wideo stworzone przez innych użytkowników, ponieważ są one dla nich bardziej pomocne. Dla takich osób stworzyliśmy [listę rekomendowanych źródeł](/community/courses.html), z których część jest darmowa.
 
 ### Zaawansowane pojęcia {#advanced-concepts}
 
@@ -115,7 +115,7 @@ Ta sekcja dokumentacji może okazać się przydatna, jeśli chcesz dowiedzieć s
 
 Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie Cię nic ważnego, jeśli będziesz śledzić jedynie bloga.
 
-Nie każde nowe wydanie Reacta potrzebuje osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md)
+Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md)
 
 ## Dokumentacje wersji {#versioned-documentation}
 
