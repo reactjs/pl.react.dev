@@ -170,7 +170,7 @@ Jeśli zżera Cię ciekawość, opis funkcji `createElement()` znajdziesz w [dok
 
 Składnia JSX posiada pełną moc JavaScriptu. Między klamry możesz wstawić *dowolny* kod javascriptowy. Każdy element reactowy jest obiektem, który można zapisać do zmiennej i przekazywać dowolnie w swoim programie.
 
-Powyższy komponent `ShoppingList` wyrenderuje jedynie wbudowane komponenty znane z drzewa DOM, jak `<div />` czy `<li />`. Ale równie dobrze możesz wyrenderować w nim inny własny komponent. Na przykład, do całej listy zakupów (ang. *shopping list*) można odwołać się pisząc `<ShoppingList />`. Każdy komponent w Reakcie jest enkapsulowany (ang. *encapsulated*) i może działać niezależnie; pozwala to na budowanie skomplikowanych interfejsów użytkownika przy użyciu prostych komponentów.
+Powyższy komponent `ShoppingList` wyrenderuje jedynie wbudowane komponenty znane z drzewa DOM, jak `<div />` czy `<li />`. Ale równie dobrze możesz wyrenderować w nim inny, własny komponent. Na przykład, do całej listy zakupów (ang. *shopping list*) można odwołać się pisząc `<ShoppingList />`. Każdy komponent w Reakcie jest enkapsulowany (ang. *encapsulated*) i może działać niezależnie; pozwala to na budowanie skomplikowanych interfejsów użytkownika przy użyciu prostych komponentów.
 
 ## Analizowanie szablonu startowego {#inspecting-the-starter-code}
 
@@ -184,7 +184,7 @@ Analizując kod, łatwo zauważyć, że mamy do czynienia z trzema komponentami 
 * Board (plansza)
 * Game (gra)
 
-Komponent `Square` (pole) renderuje pojedynczy element `<button>`, a `Board` (plansza) renderuje 9 takich pól. Z kolei komponent `Game` (gra) renderuje planszę wypełnioną symbolami zastępczymi, które zmodyfikujemy w późniejszym etapie. Aplikacja w obecnym stanie nie posiada żadnej interaktywności.
+Komponent `Square` (pole) renderuje pojedynczy element `<button>`, a `Board` (plansza) renderuje 9 takich pól. Z kolei komponent `Game` (gra) renderuje planszę wypełnioną symbolami zastępczymi, które zmodyfikujemy w późniejszym etapie. Aplikacja w obecnym stanie nie posiada żadnych interaktywnych komponentów.
 
 ### Przekazywanie danych przez atrybuty {#passing-data-through-props}
 
@@ -262,7 +262,7 @@ Teraz gdy klikniemy na polu, przeglądarka powinna wyświetlić wiadomość w ok
 >
 >Zauważ, że za pomocą `onClick={() => alert('klik')}` pod atrybutem `onClick` przekazujemy *funkcję*. Zostanie ona wywołana dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('klik')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
 
-W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Do "pamiętania" rzeczy komponenty używają **stanu**.
+W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty do "pamiętania" rzeczy używają **stanu**.
 
 Komponenty w Reakcie można wyposażyć w stan, przypisując w konstruktorze wartość do właściwości klasy `this.state`. Właściwość `this.state` powinna być traktowana jako prywatna, dostępna tylko dla komponentu, w którym została zdefiniowana. Przypiszmy więc aktualną wartość przycisku do `this.state` i nadpisujmy ją przy kliknięciu.
 
@@ -289,7 +289,7 @@ class Square extends React.Component {
 
 >Uwaga
 >
->W [klasach javascriptowych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) należy zawsze wywoływać specjalną metodę `super` w konstruktorze klasy potomnej. Dlatego wszystkie komponenty reactowe będące klasą, która mają zdefiniowany konstruktor powinny w nim na początku wywoływać `super(props)`.
+>W [klasach javascriptowych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) należy zawsze wywoływać specjalną metodę `super` w konstruktorze klasy potomnej. Dlatego wszystkie komponenty reactowe będące klasą, które mają zdefiniowany konstruktor, powinny w nim na początku wywoływać `super(props)`.
 
 Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby wyświetlał po kliknięciu wartość aktualnego stanu:
 
@@ -297,7 +297,7 @@ Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby wyświetlał
 * Zamień uchwyt zdarzenia `() => alert()` na `() => this.setState({value: 'X'})`.
 * Umieść atrybuty `className` i `onClick` w osobnych liniach dla poprawy czytelności kodu.
 
-Po powyższych zmianach znacznik `<button>`, zwracany przez komponent `Square`, powinien wyglądać następująco:
+Po powyższych zmianach element `<button>`, zwracany przez komponent `Square`, powinien wyglądać następująco:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
