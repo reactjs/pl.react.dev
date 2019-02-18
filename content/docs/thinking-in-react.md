@@ -1,6 +1,6 @@
 ---
 id: thinking-in-react
-title: Myślenie Reaktem
+title: Myślenie reaktowe
 permalink: docs/thinking-in-react.html
 redirect_from:
   - 'blog/2013/11/05/thinking-in-react.html'
@@ -8,10 +8,10 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-Naszym zdaniem biblioteka React dostarcza pierwszorzędnych narzędzi do budowy dużych szybkich aplikacji webowych. Znakomicie sprawdza się na przykład w naszych zastosowaniach na Facebooku i w Instagramie.
+Naszym zdaniem React dostarcza pierwszorzędnych narzędzi do budowy dużych szybkich aplikacji webowych. Znakomicie sprawdza się na przykład w naszych zastosowaniach na Facebooku i w Instagramie.
 
 
-Jedną z wielu zalet Reacta jest to jak React uczy cię myśleć o tworzonych przez ciebie aplikacjach. Poniżej przybliżymy ci proces myślowy towarzyszący budowie przykładowego programu. Będzie to tabela z danymi o produktach z funkcją wyszukiwania zbudowana w Reakcie.
+Jedną z wielu zalet Reacta jest to jak praca z tą biblioteką uczy cię myśleć o tworzonych przez ciebie aplikacjach. Poniżej przybliżymy ci proces myślowy towarzyszący budowie przykładowego programu. Będzie to tabela z danymi o produktach z funkcją wyszukiwania zbudowana w Reakcie.
 
 ## Zacznij od projektu {#start-with-a-mock}
 
@@ -32,7 +32,7 @@ Nasz JSON API dostarcza następujących informacji:
 ];
 ```
 
-## Etap 1: Podziej interfejs użytkownika na zhierarchizowany układ komponentów {#step-1-break-the-ui-into-a-component-hierarchy}
+## Krok 1: Podziej interfejs użytkownika na zhierarchizowany układ komponentów {#step-1-break-the-ui-into-a-component-hierarchy}
 
 
 W pierwszej kolejności zakreśl na projekcie wszystkie komponenty (i komponenty pochodne) oraz nadaj im nazwy. Jeśli współpracujesz z zespołem designerów, możliwe że oni zrobili to już za ciebie. Koniecznie skontaktuj się z nimi. Nazwy komponentów Reacta często biorą się z nazw nadanych warstwom w Photoshopie. 
@@ -65,7 +65,7 @@ Teraz kiedy już określiliśmy, które z elementów projektu mają być kompone
       * `WierszRodzajuProduktu`
       * `WierszProduktu`
 
-## Etap 2: Zbuduj wersję statyczną w Reakcie {#step-2-build-a-static-version-in-react}
+## Krok 2: Zbuduj wersję statyczną w Reakcie {#step-2-build-a-static-version-in-react}
 
 <p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Myślenie Reactem: Krok 2</a> on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -80,15 +80,19 @@ Kończąc ten etap pracy nad aplikacją będziesz miał dostępną bibliotekę k
 
 Jeśli potrzebujesz pomocy w na tym etapie budowy aplikacji zajrzyj do [Dokumentacji Reacta](/docs/).
 
-### Krótki przerywnik: Atrybuty a Stan {#a-brief-interlude-props-vs-state}
+### Krótki przerywnik: atrybuty a stan {#a-brief-interlude-props-vs-state}
 
-W Rakcie wyróżniamy dwa modele danych: atrybuty i stan. To bardzo ważne żebyś rozumiał czym dokładnie się od siebie różnią. Dla przypomnienia rzuć okiem na [oficjalną dokumentajcę Reacta](/docs/interactivity-and-dynamic-uis.html),
+W Reakcie wyróżniamy dwa modele danych: atrybuty i stan. To bardzo ważne żebyś rozumiał czym dokładnie się od siebie różnią. Dla przypomnienia rzuć okiem na [oficjalną dokumentajcę Reacta](/docs/interactivity-and-dynamic-uis.html),
 
-## Etap 3: Określ minimalne (ale kompletne) odwzorowanie stanu interfejsu użytkownika{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
+## Krok 3: Określ minimalne (ale kompletne) odwzorowanie stanu interfejsu użytkownika{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-To make your UI interactive, you need to be able to trigger changes to your underlying data model. React makes this easy with **state**.
+Aby interfejs użytkwnika mógł zawierać elementy interaktywne, musimy mieć możliwośc dokonywania zmian w modelu danych na którym opiera się nasza aplikacja. W Reakcie jest to bardzo łatwe dzięki **stanowi**. 
 
 To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, just keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, simply take the length of the TODO items array.
+
+Poprawna budowa aplikacji wymaga w pierwszej kolejności określenia minimalnego 
+
+
 
 Think of all of the pieces of data in our example application. We have:
 
