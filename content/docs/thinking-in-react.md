@@ -132,19 +132,21 @@ No dobra. Zatem ustaliliśmy, że stan umieścimy w `FilterableProductTable`. Te
 
 Teraz widać już jak będzię działała nasza aplikacja: ustawiamy `filterText` jako `"ball"` i odświeżamy aplikację. Nasza tabela danych poprawnie wyświetla nowe informacje.
 
-## Step 5: Add Inverse Data Flow {#step-5-add-inverse-data-flow}
+## Krok 5: Dodaj przepływ danych w drugą stronę {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Myślenie Reactem: Krok 5</a> on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Zajrzyj na CodePen<a href="https://codepen.io/gaearon/pen/LzWZvb">Myślenie reactowe: Krok 5</a> on <a href="http://codepen.io">CodePen</a>.</p>
 
-So far, we've built an app that renders correctly as a function of props and state flowing down the hierarchy. Now it's time to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+Jak dotąd zbudowaliśmy aplikację, która poprawnie wyświetla informacje dostarczone przez atrybuty i stan spływające w dół hierarchii komponentów. Nadszedł czas aby umożliwić przepływ danych w przeciwnym kierunku: komponentny formularza głęboko wewnątrz hierarchii musza zaktualizować stan `FilterableProductTable`
 
-React makes this data flow explicit to make it easy to understand how your program works, but it does require a little more typing than traditional two-way data binding.
+W Reakcie ten przepływ danych jest jawny. Pozwala to łatwo zobaczyć działanie aplikacji, ale zarazem wymaga trochę więcej kodu niż tradycyjne wiązanie dwukierunkowe.
 
-If you try to type or check the box in the current version of the example, you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+W aktualnej wersji naszej aplikacji jeśli spróbujesz wpisać coś do paska wyszukiwania albo zaznaczyć pole wyboru React zigonoruje dostarczone przez ciebie dane. Jest to działanie zamierzone, które wynika stąd, że wartosć atrybutu `value` dla danych podawanych przez użytkownika `input` ustawiliśmy jako zawsze równą stanowi `state` podanemu z komponentu `FilterableProductTable`.
 
 Let's think about what we want to happen. We want to make sure that whenever the user changes the form, we update the state to reflect the user input. Since components should only update their own state, `FilterableProductTable` will pass callbacks to `SearchBar` that will fire whenever the state should be updated. We can use the `onChange` event on the inputs to be notified of it. The callbacks passed by `FilterableProductTable` will call `setState()`, and the app will be updated.
 
-Though this sounds complex, it's really just a few lines of code. And it's really explicit how your data is flowing throughout the app.
+Zastanówmy się nad tym co chcemy żeby się działo. Chcemy, aby stan aktualizował się i odzwierciedlał treść formularza za każdym razem kiedy użytkownik dokonuja w formularzu zmian. Pnieważ komponenty powinny aktualizować jedynie własny stan `FilterableProductTable` poda funkcję zwrotną do paska wyszukiwania `SearchBar`, która to funkcja zadziała automatycznie przy każdej aktualizacji stanu. Jeśli chcemy być o tym za każdym razem poinformowani, możemy dodać wydażenie `onChange` do elementów naszego formularza. Funkcje zwrotne podane przez `FilterableProductTable` wezwą `setState()` i aplikacja zostanie zaktualizowana.
+
+Może wydawać się, że powyższy proces jest skomplikowany, ale w rzeczywistości to tylko kilka linijek kodu, a przepływ danych w całej aplikacji jest naprawdę jawny, łatwy do prześledzenia.
 
 ## To byłoby na tyle {#and-thats-it}
 
