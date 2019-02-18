@@ -107,30 +107,30 @@ Zatem ostatecznie nasz stan przestawia się następująco:
   * Fraza wyszukiwania podana przez użytkownika
   * Wartość zaznaczonego pola
 
-## Step 4: Identify Where Your State Should Live {#step-4-identify-where-your-state-should-live}
+## Krok 4: Określ gdzie powinien się mieścić stan {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Myślenie Reactem: Krok 4</a> on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Zajrzyj na CodePen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Myślenie reaktowe: Krok 4</a> on <a href="http://codepen.io">CodePen</a>.</p>
 
-OK, so we've identified what the minimal set of app state is. Next, we need to identify which component mutates, or *owns*, this state.
+Mamy zatem określony minimalny zestaw danych stanu aplikacji. Teraz musimy określić, który z naszych komponentów ulega zmianom, czyli do którego komponentu *należy* stan.
 
-Remember: React is all about one-way data flow down the component hierarchy. It may not be immediately clear which component should own what state. **This is often the most challenging part for newcomers to understand,** so follow these steps to figure it out:
+Pamiętaj: Dane w Reakcie płyną tylko w jedną stronę - z góry w dół hierarchii komponentów. Przynależność stanu do danego komponentu nie jest sprawą oczywistą i *często przysparza problemów na początku pracy z Reactem*. Aby to dobrze zrozumieć postępuj zgodnie z następującymi wskazówkami:
 
-For each piece of state in your application:
+Dla każdego elementu stanu w twojej aplikacji:
 
-  * Identify every component that renders something based on that state.
-  * Find a common owner component (a single component above all the components that need the state in the hierarchy).
-  * Either the common owner or another component higher up in the hierarchy should own the state.
-  * If you can't find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.
+  * Określ każdy komponent, który coś renderuje na podstawie danego elementu stanu.
+  * Znajdź wspólnego właściciela stanu (tzn. komponent znajdujący się w hierarchii wyżej od wszystkich pozostałych komponentów wykorzystujących dany element stanu).
+  * Stan powinien należeć do wspólnego właściciela lub po prostu do innego komponentu znajdującego się wyżej w hierarchii komponentów.
+  * Jeśli trudno ci określić właściwe miejsce umieszczenia stanu, stwórz nowy komponent, którego jedynym celem będzie przechowywanie stanu. Ulokuj go w hierarchii komponentów gdzieś powyżej komponentu będącego wspólnym właścicielem.
 
-Let's run through this strategy for our application:
+Zastosujmy tę strategię w pracy nad naszą aplikacją:
 
-  * `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
-  * The common owner component is `FilterableProductTable`.
-  * It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
+  * `ProductTable` wymaga stanu aby filtrować listę produktów.  `SearchBar` wymaga stanu, aby wyświetlać wyszukiwaną frazę i wartosć zaznaczonego pola
+  * Wspólnym właścicielem jest `FilterableProductTable`.
+  * Sensownym rozwiązaniem jest umieszczenie wyszukiwanej frazy i wartości zaznaczonego pola w `FilterableProductTable`
 
-Cool, so we've decided that our state lives in `FilterableProductTable`. First, add an instance property `this.state = {filterText: '', inStockOnly: false}` to `FilterableProductTable`'s `constructor` to reflect the initial state of your application. Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as a prop. Finally, use these props to filter the rows in `ProductTable` and set the values of the form fields in `SearchBar`.
+No dobra. Zatem ustaliliśmy, że stan umieścimy w `FilterableProductTable`. Teraz do konstruktora tego komponentu dodajemy ///instance property/// `this.state = {filterText: '', inStockOnly: false}` aby oddać początkowy stan naszej aplikacji. Następnie za pomocą atrybutów podajemy `filterText` oraz `inStockOnly` do komponentów `ProductTable` i `SearchBar`. Na końcu użyjemy tych atrybutów aby przefiltrować wiersze `ProductTable` i ustawić wartość pola formularza w `SearchBar`.
 
-You can start seeing how your application will behave: set `filterText` to `"ball"` and refresh your app. You'll see that the data table is updated correctly.
+Teraz widać już jak będzię działała nasza aplikacja: ustawiamy `filterText` jako `"ball"` i odświeżamy aplikację. Nasza tabela danych poprawnie wyświetla nowe informacje.
 
 ## Step 5: Add Inverse Data Flow {#step-5-add-inverse-data-flow}
 
