@@ -78,7 +78,7 @@ Jeśli potrzebujesz pomocy w na tym etapie budowy aplikacji zajrzyj do [Dokument
 
 ### Krótki przerywnik: atrybuty a stan {#a-brief-interlude-props-vs-state}
 
-W Reakcie wyróżniamy dwa modele danych: atrybuty i stan. To bardzo ważne żebyś rozumiał czym dokładnie się od siebie różnią. Dla przypomnienia rzuć okiem na [oficjalną dokumentajcę Reacta](/docs/interactivity-and-dynamic-uis.html),
+W Reakcie wyróżniamy dwa modele danych: atrybuty i stan. To bardzo ważne żebyś rozumiał czym dokładnie modele te się różnią. Dla przypomnienia rzuć okiem na [oficjalną dokumentajcę Reacta](/docs/interactivity-and-dynamic-uis.html),
 
 ## Krok 3: Określ minimalne (ale kompletne) odwzorowanie stanu interfejsu użytkownika{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
@@ -86,29 +86,26 @@ Aby interfejs użytkwnika mógł zawierać elementy interaktywne, musimy mieć m
 
 To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, just keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, simply take the length of the TODO items array.
 
-Poprawna budowa aplikacji wymaga w pierwszej kolejności określenia minimalnego 
+Poprawna budowa aplikacji wymaga w pierwszej kolejności określenia minimalnego zmiennego zestawu danych dla stanu aplikacji. Kluczową jest tutaj reguła [DRY: *Don't Repeat Yourself*](https://pl.wikipedia.org/wiki/DRY) [pol. Nie powtarzaj się]. Zadecyduj jak ma wyglądać najprostsze możliwe odwzorowanie stanu aplikacji, a wszystko inne obliczaj gdy pojawi się taka potrzeba. Przykładowo jeśli tworzysz aplikację mającą być Listą rzeczy do zrobienia, zachowaj "pod ręką" jedynie tablicę z rzeczami do zrobienia; nie ma potrzeby tworzenia osobnej zmiennej stanu przechowującej liczbę tych rzeczy. Kiedy zachodzi potrzeba renderowania liczby rzeczy do zrobienia, po prostu pobierz długość tablicy.
 
+Przyjrzyjmy się wszystkim rodzajom informacjom w naszej przykładowej aplikacji. Mamy tutaj:
 
+  * Początkową listę produktów,
+  * Frazę wyszukiwania podaną przez użytkownika,
+  * Wartość odznaczonego pola
+  * Listę produktów spełniających kryteria wyszukiwania
 
-Think of all of the pieces of data in our example application. We have:
+Aby zdecydować która z powyższych informacji zalicza się do stanu, w przypadku każdej z nich musimy zadać sobie trzy pytania:
 
-  * The original list of products
-  * The search text the user has entered
-  * The value of the checkbox
-  * The filtered list of products
+  1. Czy informacja ta jest przekazywana za pomocą atrybutu? Jeśli tak to prawdopodobnie nie wchodzi w skład stanu.
+  2. Czy informacja ta ulega zmianom? Jeśli tak to prawdopodobnie nie wchodzi w skład stanu.
+  3. Czy informację tę można obliczyć na podstawie innego stanu lub atrybutu w danym komponencie. Jeśli tak to nie należy zaliczyć jej do stanu.
 
-Let's go through each one and figure out which one is state. Simply ask three questions about each piece of data:
+Początkowa lista produktów jest przekazywana jako atrybut, zatem nie jest stanem. Wyszukiwana fraza i wartość odznaczonego pola wydają się wchodzić w skład stanu ponieważ mogą ulegać zmianom i nie da się ich w żaden sposób wygenerować. Jeśli chodzi o listę produktów spełniających kryteria wyszukiwania, to nie jest ona stanem ponieważ może być wygenerowana na podstawie wyszukiwanej frazy i wartości odznaczonego pola.
 
-  1. Is it passed in from a parent via props? If so, it probably isn't state.
-  2. Does it remain unchanged over time? If so, it probably isn't state.
-  3. Can you compute it based on any other state or props in your component? If so, it isn't state.
-
-The original list of products is passed in as props, so that's not state. The search text and the checkbox seem to be state since they change over time and can't be computed from anything. And finally, the filtered list of products isn't state because it can be computed by combining the original list of products with the search text and value of the checkbox.
-
-So finally, our state is:
-
-  * The search text the user has entered
-  * The value of the checkbox
+Zatem ostatecznie nasz stan przestawia się następująco:
+  * Fraza wyszukiwania podana przez użytkownika
+  * Wartość zaznaczonego pola
 
 ## Step 4: Identify Where Your State Should Live {#step-4-identify-where-your-state-should-live}
 
