@@ -1,21 +1,37 @@
 ---
 id: hello-world
+<<<<<<< HEAD
 title: Witaj świecie!
+=======
+title: Witaj, świecie!
+>>>>>>> 8343c1492c6f6ea9d6dc0fcde43a306ec2c3d1d4
 permalink: docs/hello-world.html
 prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
+<<<<<<< HEAD
 Poniżej znajdziesz przykład najprostszej aplikacji Reactowej:
 
 ```js
 ReactDOM.render(
   <h1>Witaj świecie!</h1>,
+=======
+Poniżej znajdziesz przykład najprostszej aplikacji reactowej:
+
+```js
+ReactDOM.render(
+  <h1>Witaj, świecie!</h1>,
+>>>>>>> 8343c1492c6f6ea9d6dc0fcde43a306ec2c3d1d4
   document.getElementById('root')
 );
 ```
 
+<<<<<<< HEAD
 Wyświetli ona na stronie nagłówek "Witaj świecie".
+=======
+Wyświetli ona na stronie nagłówek "Witaj, świecie".
+>>>>>>> 8343c1492c6f6ea9d6dc0fcde43a306ec2c3d1d4
 
 **[Spróbuj w CodePen](codepen://hello-world)**
 
@@ -27,8 +43,13 @@ przykłady, które możesz modyfikować.
 
 ## Jak używać tego przewodnika {#how-to-read-this-guide}
 
+<<<<<<< HEAD
 W niniejszym kursie zapoznamy się z podstawowymi elementami aplikacji Reactowej:
 z elementami i komponentami. Korzystając z nich, możesz tworzyć rozbudowane
+=======
+W niniejszym kursie zapoznamy się z podstawowymi elementami aplikacji reactowej:
+elementami i komponentami. Korzystając z nich, możesz tworzyć rozbudowane
+>>>>>>> 8343c1492c6f6ea9d6dc0fcde43a306ec2c3d1d4
 aplikacje w oparciu o mniejsze części, dające się wielokrotnie wykorzystywać.  
 
 >Wskazówka
@@ -43,11 +64,19 @@ Lista dostępnych rozdziałów znajduje się w bocznym pasku nawigacji. Jeśli c
 na urządzeniu mobilnym, możesz przemieszczać się po stronie wciskając przycisk w prawym dolnym
 rogu ekranu.
 
+<<<<<<< HEAD
 Każdy rozdział w tym kursie nadbudowuje wiedzę w oparciu o poprzednie rozdziały.
 **Wielu przypadków użycia Reacta możesz się nauczyć czytając rozdziały
 w sekcji "Główne idee", czytając je w kolejności, w jakiej pojawiają się w pasku 
 nawigacji**. Przykładowo, [“Wprowadzenie do JSX”](/docs/introducing-jsx.html) jest
 kolejnym po tym rozdziałem.
+=======
+Każdy rozdział w tym kursie uzupełnia wiedzę w oparciu o poprzednie rozdziały.
+**Wielu przypadków użycia Reacta możesz się nauczyć czytając rozdziały
+w sekcji "Główne idee", zapoznając się z nimi w kolejności, w jakiej pojawiają się w pasku 
+nawigacji**. Przykładowo, [“Wprowadzenie do JSX”](/docs/introducing-jsx.html) jest
+następnym w kojeności rozdziałem.
+>>>>>>> 8343c1492c6f6ea9d6dc0fcde43a306ec2c3d1d4
 
 
 ## Wymagania początkowe {#knowledge-level-assumptions}
@@ -62,9 +91,15 @@ JavaScriptu i Reacta.
 
 > Zauważ, że...
 > 
+<<<<<<< HEAD
 > W przykładach pojawiających się w naszym poradniku, mogą sporadycznie pojawiać się
 > przykłady oparte o nowszą składnię JavaScriptu. Jeśli od dłuższego czasu nie śledzisz
 > rozwoju języka [te trzy punkty (ang)](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c)
+=======
+> W naszym poradniku mogą sporadycznie pojawiać się przykłady
+> oparte o nowszą składnię JavaScriptu. Jeśli od dłuższego czasu nie śledzisz
+> rozwoju języka, [te trzy punkty (ang.)](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c)
+>>>>>>> 8343c1492c6f6ea9d6dc0fcde43a306ec2c3d1d4
 > mogą okazać się pomocne. 
 
 
