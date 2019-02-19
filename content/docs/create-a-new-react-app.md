@@ -26,14 +26,14 @@ Jeśli powyższe zadania nie przysparzają ci żadnych problemów lub jeśli nie
 
 Jest to **najprostszy sposób zintegrowania Reacta z istniejącą już stroną internetową**. Zestaw narzędziowy możesz zawsze dodać do swojej aplikacji jeśli zajdzie taka potrzeba.
 
-## Recommended Toolchains {#recommended-toolchains}
+## Zalecane zestawy narzędziowe {#recommended-toolchains}
 
-The React team primarily recommends these solutions:
+Zespół Reacta rekomenduje następujące rozwiązania:
 
-- If you're **learning React** or **creating a new [single-page](/docs/glossary.html#single-page-application) app,** use [Create React App](#create-react-app).
-- If you're building a **server-rendered website with Node.js,** try [Next.js](#nextjs).
-- If you're building a **static content-oriented website,** try [Gatsby](#gatsby).
-- If you're building a **component library** or **integrating with an existing codebase**, try [More Flexible Toolchains](#more-flexible-toolchains).
+- Jeśli **uczysz się Reacta** lub jeśli **tworzysz nową aplikację [jednostronicową](/docs/glossary.html#single-page-application),** skorzystaj z [Create React App](#create-react-app).
+- Jeśli tworzysz **stronę internetową renderowaną na serwerze z użyciem Node.js,** spróbuj zastosować [Next.js](#nextjs).
+- Jeśli tworzysz **stronę statyczną, która ma głównie wyświetlać określone treści,** spróbuj zastosować [Gatsby](#gatsby).
+- Jeśli tworzysz **bibliotekę kompnentów** lub **integrujesz z istniejącą bazą kodu,** spróbuj zastosować [bardziej uniwersalne zestwy narzędziowe]
 
 ### Create React App {#create-react-app}
 
