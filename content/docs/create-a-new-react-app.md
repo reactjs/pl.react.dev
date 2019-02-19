@@ -1,6 +1,6 @@
 ---
 id: create-a-new-react-app
-title: Create a New React App
+title: Stwórz nową aplikację w Reakcie
 permalink: docs/create-a-new-react-app.html
 redirect_from:
   - "docs/add-react-to-a-new-app.html"
@@ -8,23 +8,23 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
-Use an integrated toolchain for the best user and developer experience.
+Najwygodniej będzie ci się pracowało jeśli zastosujesz zintegrowany zestaw narzędzi (ang. toolchain). Użycie go pozwoli ci też zapewnić dobre doświadczenie użytkownikom twojej aplikacji.
 
-This page describes a few popular React toolchains which help with tasks like:
+Poniżej przedstawiamy kilka popularnych zestawów narzędziowych używanych w Reakcie. Pomagają one w zadaniach typu:
 
-* Scaling to many files and components.
-* Using third-party libraries from npm.
-* Detecting common mistakes early.
-* Live-editing CSS and JS in development.
-* Optimizing the output for production.
+* Zwiększanie skali projektu do wielu plików i komponentów.
+* Stosowanie dodatkowych bibliotek dostępnych w npm.
+* Wczesne wykrywanie często popełnianych błędów.
+* Ciągła, automatyczna edycja CSS i JS w trakcie tworzenia aplikacji.
+* Optymalizacja kodu przed oddaniem aplikacji do użytku.
 
-The toolchains recommended on this page **don't require configuration to get started**.
+Zestawy narzędziowe, które tutaj podajemy umożliwiają szybkie rozpoczęcie pracy and aplikacją i **nie wymagają żadnej wstępnej konfiguracji**
 
-## You Might Not Need a Toolchain {#you-might-not-need-a-toolchain}
+## Stosowanie zestawu narzędziowego nie jest konieczne {#you-might-not-need-a-toolchain}
 
-If you don't experience the problems described above or don't feel comfortable using JavaScript tools yet, consider [adding React as a plain `<script>` tag on an HTML page](/docs/add-react-to-a-website.html), optionally [with JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
+Jeśli powyższe zadania nie przysparzają ci żadnych problemów lub jeśli nie wiesz jeszcze jak stosować narzędzia JavaScript, możesz [dodać React jako zwykły znacznik `<script>` do strony HTML](/docs/add-react-to-a-website.html), ewentualnie [z użyciem JSX](/docs/add-react-to-a-website.html#optional-try-react-with-jsx).
 
-This is also **the easiest way to integrate React into an existing website.** You can always add a larger toolchain if you find it helpful!
+Jest to **najprostszy sposób zintegrowania Reacta z istniejącą już stroną internetową**. Zestaw narzędziowy możesz zawsze dodać do swojej aplikacji jeśli zajdzie taka potrzeba.
 
 ## Recommended Toolchains {#recommended-toolchains}
 
