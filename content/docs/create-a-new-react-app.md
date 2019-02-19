@@ -33,7 +33,8 @@ Zespół Reacta rekomenduje następujące rozwiązania:
 - Jeśli **uczysz się Reacta** lub jeśli **tworzysz nową aplikację [jednostronicową](/docs/glossary.html#single-page-application),** skorzystaj z [Create React App](#create-react-app).
 - Jeśli tworzysz **stronę internetową renderowaną na serwerze z użyciem Node.js,** spróbuj zastosować [Next.js](#nextjs).
 - Jeśli tworzysz **stronę statyczną, która ma głównie wyświetlać określone treści,** spróbuj zastosować [Gatsby](#gatsby).
-- Jeśli tworzysz **bibliotekę kompnentów** lub **integrujesz z istniejącą bazą kodu,** spróbuj zastosować [bardziej uniwersalne zestwy narzędziowe]
+- Jeśli tworzysz **bibliotekę kompnentów** lub **integrujesz z istniejącą bazą kodu,** spróbuj zastosować [bardziej uniwersalne zestwy narzędziowe](#more-flexible-toolchains).
+
 
 ### Create React App {#create-react-app}
 
