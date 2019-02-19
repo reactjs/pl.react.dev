@@ -8,7 +8,7 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-Naszym zdaniem React dostarcza pierwszorzędnych narzędzi do budowy dużych szybkich aplikacji webowych. Znakomicie sprawdza się na przykład w naszych zastosowaniach na Facebooku i w Instagramie.
+Naszym zdaniem React dostarcza pierwszorzędnych narzędzi do budowy dużych i szybkich aplikacji webowych. Znakomicie sprawdza się na przykład w naszych zastosowaniach na Facebooku i w Instagramie.
 
 Jedną z wielu zalet Reacta jest to jak praca z tą biblioteką uczy cię myśleć o aplikacjach, które tworzysz. Poniżej przybliżymy ci proces myślowy towarzyszący budowie przykładowego programu. Będzie to tabela z danymi o produktach z funkcją wyszukiwania zbudowana w Reakcie.
 
