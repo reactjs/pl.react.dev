@@ -289,7 +289,7 @@ class Square extends React.Component {
 
 >Uwaga
 >
->W [klasach javascriptowych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) należy zawsze wywoływać specjalną metodę `super` w konstruktorze klasy potomnej. Dlatego wszystkie komponenty reactowe będące klasą, które mają zdefiniowany konstruktor, powinny w nim na początku wywoływać `super(props)`.
+>W [klasach javascriptowych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) należy zawsze wywoływać metodę `super` w konstruktorze klasy potomnej. Dlatego wszystkie komponenty reactowe będące klasą, które mają zdefiniowany konstruktor, powinny w nim na początku wywoływać `super(props)`.
 
 Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby po kliknięciu wyświetlał wartość aktualnego stanu:
 
@@ -321,7 +321,7 @@ class Square extends React.Component {
 }
 ```
 
-Wywołując `this.setState` z wnętrza uchwytu dla zdarzenia `onClick` w metodzie `render`, mówimy Reactowi, aby ponownie renderował element `<button>` po każdym kliknięciu. Po aktualizacji, wartość zmiennej `this.state.value` będzie równa `"X"`, dlatego też `X` zostanie wyświetlone na planszy. Kliknięcie na dowolne pole powinno spowodować wyświetlenie w nim litery "X".
+Wywołując `this.setState` z wnętrza uchwytu dla zdarzenia `onClick` w metodzie `render`, mówimy Reactowi, aby po każdym kliknięciu ponownie renderował element `<button>`. Po aktualizacji, wartość zmiennej `this.state.value` będzie równa `"X"`, dlatego też `X` zostanie wyświetlone na planszy. Kliknięcie na dowolne pole powinno spowodować wyświetlenie w nim litery "X".
 
 Gdy w komponencie wywołujesz `setState`, React automatycznie aktualizuje również wszystkie komponenty znajdujące się poniżej w hierarchii.
 
