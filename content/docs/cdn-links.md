@@ -13,7 +13,7 @@ Zarówno React, jak i ReactDOM są dostępne przez CDN.
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-Powyższe wersje są przeznaczone tylko do programowania, nie nadają się na środowiska produkcyjne. Zminifikowane i zoptymalizowane wersje produkcyjne Reacta są dostępne pod adresem:
+Powyższe wersje przeznaczone są do uruchamiania na serwerach deweloperskich, nie nadają się natomiast na środowiska produkcyjne. Zminifikowane i zoptymalizowane wersje produkcyjne Reacta są dostępne pod adresem:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
@@ -34,4 +34,4 @@ Zalecamy również sprawdzenie, czy CDN, z którego korzystasz, zwraca nagłówe
 
 ![Access-Control-Allow-Origin: *](../images/docs/cdn-cors-header.png)
 
-Umożliwi to lepsza [obsługę błędów](/blog/2017/07/26/error-handling-in-react-16.html) w React 16 i późniejszych wersjach.
+Umożliwia to lepszą [obsługę błędów](/blog/2017/07/26/error-handling-in-react-16.html) w Reakcie 16 i późniejszych wersjach.
