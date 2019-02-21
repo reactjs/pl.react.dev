@@ -130,15 +130,15 @@ Teraz widać już, jak będzię działała nasza aplikacja: ustawiamy `filterTex
 
 ## Krok 5: Dodaj przepływ danych w drugą stronę {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Zajrzyj na CodePen<a href="https://codepen.io/gaearon/pen/LzWZvb">Myślenie reactowe: Krok 5</a> on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Zobacz kod dla podrozdziału<a href="https://codepen.io/gaearon/pen/LzWZvb">"Myślenie reaktowe: Krok 5"</a> na <a href="http://codepen.io">CodePen</a>.</p>
 
-Jak dotąd zbudowaliśmy aplikację, która poprawnie wyświetla informacje dostarczone przez atrybuty i stan spływające w dół hierarchii komponentów. Nadszedł czas aby umożliwić przepływ danych w przeciwnym kierunku: komponentny formularza głęboko wewnątrz hierarchii muszą mieć możliwość aktualizowania stanu `FilterableProductTable`
+Jak dotąd zbudowaliśmy aplikację, która poprawnie wyświetla informacje dostarczone przez atrybuty i stan spływające w dół hierarchii komponentów. Nadszedł czas aby umożliwić przepływ danych w przeciwnym kierunku: komponenty formularza głęboko wewnątrz hierarchii muszą mieć możliwość aktualizowania stanu `FilterableProductTable`
 
-W Reakcie ten przepływ danych jest jawny. Pozwala to łatwo zobaczyć działanie aplikacji, ale zarazem wymaga trochę więcej kodu niż tradycyjne wiązanie dwukierunkowe.
+W Reakcie ten przepływ danych jest jawny. Pozwala to łatwo zobaczyć działanie aplikacji, ale zarazem wymaga trochę więcej kodu niż tradycyjne wiązanie dwukierunkowe (ang. *two-way binding*).
 
-W aktualnej wersji naszej aplikacji jeśli spróbujesz wpisać coś do paska wyszukiwania albo zaznaczyć pole wyboru React zigonoruje dostarczone przez ciebie dane. Jest to działanie zamierzone, które wynika stąd, że wartosć atrybutu `value` dla danych podawanych przez użytkownika `input` ustawiliśmy jako zawsze równą stanowi `state` podanemu z komponentu `FilterableProductTable`.
+W aktualnej wersji naszej aplikacji, jeśli spróbujesz wpisać coś do paska wyszukiwania, albo zaznaczyć pole wyboru, React zigonoruje dostarczone przez ciebie dane. Jest to działanie zamierzone, które wynika stąd, że wartość atrybutu `value` dla elementu `input` ustawiliśmy jako zawsze równą stanowi `state` podanemu z komponentu `FilterableProductTable`.
 
-Zastanówmy się nad tym co chcemy żeby się działo. Chcemy, aby stan aktualizował się i odzwierciedlał treść formularza za każdym razem kiedy użytkownik dokonuja w formularzu zmian. Ponieważ komponenty powinny aktualizować jedynie własny stan `FilterableProductTable` poda funkcję zwrotną do paska wyszukiwania `SearchBar`, która to funkcja zadziała automatycznie przy każdej aktualizacji stanu. Jeśli chcemy być o tym za każdym razem poinformowani, możemy dodać wydażenie `onChange` do elementów naszego formularza. Funkcje zwrotne podane przez `FilterableProductTable` wezwą `setState()` i aplikacja zostanie zaktualizowana.
+Zastanówmy się nad tym co chcemy żeby się działo. Chcemy, aby stan aktualizował się i odzwierciedlał treść formularza za każdym razem kiedy użytkownik dokona w formularzu zmian. Ponieważ komponenty powinny aktualizować jedynie własny stan, `FilterableProductTable` poda funkcję zwrotną (ang. *callback*) do paska wyszukiwania `SearchBar`, która to funkcja zostanie wywołana przy każdej aktualizacji stanu. Jeśli chcemy być o tym za każdym razem poinformowani, możemy dodać zdarzenie `onChange` do elementów naszego formularza. Funkcje zwrotne podane przez `FilterableProductTable` wywołają `setState()` i stan aplikacji zostanie zaktualizowany.
 
 Może wydawać się, że powyższy proces jest skomplikowany, ale w rzeczywistości to tylko kilka linijek kodu, a przepływ danych w całej aplikacji jest naprawdę jawny i łatwy do prześledzenia.
 
