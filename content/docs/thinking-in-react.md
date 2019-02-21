@@ -103,13 +103,13 @@ Zatem ostatecznie nasz stan przestawia się następująco:
   * Fraza wyszukiwania podana przez użytkownika
   * Wartość zaznaczonego pola
 
-## Krok 4: Określ gdzie powinien się mieścić stan {#step-4-identify-where-your-state-should-live}
+## Krok 4: Określ, gdzie powinien się mieścić stan {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Zajrzyj na CodePen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Myślenie reaktowe: Krok 4</a> on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Zobacz kod dla podrozdziału<a href="https://codepen.io/gaearon/pen/qPrNQZ">"Myślenie reaktowe: Krok 4"</a> na <a href="http://codepen.io">CodePen</a>.</p>
 
 Mamy zatem określony minimalny zestaw danych stanu aplikacji. Teraz musimy określić, który z naszych komponentów ulega zmianom, czyli do którego komponentu *należy* stan.
 
-Pamiętaj: Dane w Reakcie płyną tylko w jedną stronę - z góry w dół hierarchii komponentów. Przynależność stanu do danego komponentu nie jest sprawą oczywistą i *często przysparza problemów na początku pracy z Reactem*. Aby to dobrze zrozumieć postępuj zgodnie z następującymi wskazówkami:
+Pamiętaj: Dane w Reakcie płyną tylko w jedną stronę - z góry w dół hierarchii komponentów. Przynależność stanu do danego komponentu nie jest sprawą oczywistą i *często przysparza problemów na początku pracy z Reactem*. Aby to dobrze zrozumieć, postępuj zgodnie z następującymi wskazówkami:
 
 Dla każdego elementu stanu w twojej aplikacji:
 
@@ -120,13 +120,13 @@ Dla każdego elementu stanu w twojej aplikacji:
 
 Zastosujmy tę strategię w pracy nad naszą aplikacją:
 
-  * `ProductTable` wymaga stanu aby filtrować listę produktów.  `SearchBar` wymaga stanu, aby wyświetlać wyszukiwaną frazę i wartosć zaznaczonego pola
+  * `ProductTable` wymaga stanu, aby filtrować listę produktów. `SearchBar` wymaga stanu, aby wyświetlać wyszukiwaną frazę i wartość zaznaczonego pola
   * Wspólnym właścicielem jest `FilterableProductTable`.
   * Sensownym rozwiązaniem jest umieszczenie wyszukiwanej frazy i wartości zaznaczonego pola w `FilterableProductTable`
 
-No dobra. Zatem ustaliliśmy, że stan umieścimy w `FilterableProductTable`. Teraz do konstruktora tego komponentu dodajemy ///instance property/// `this.state = {filterText: '', inStockOnly: false}` aby oddać początkowy stan naszej aplikacji. Następnie za pomocą atrybutów podajemy `filterText` oraz `inStockOnly` do komponentów `ProductTable` i `SearchBar`. Na końcu użyjemy tych atrybutów aby przefiltrować wiersze `ProductTable` i ustawić wartość pola formularza w `SearchBar`.
+No dobra. Zatem ustaliliśmy, że stan umieścimy w `FilterableProductTable`. Teraz do konstruktora tego komponentu dodajemy właściwość instancji `this.state = {filterText: '', inStockOnly: false}`, aby ustalić początkowy stan naszej aplikacji. Następnie za pomocą atrybutów podajemy `filterText` oraz `inStockOnly` do komponentów `ProductTable` i `SearchBar`. Na końcu użyjemy tych atrybutów, aby przefiltrować wiersze `ProductTable` i ustawić wartość pola formularza w `SearchBar`.
 
-Teraz widać już jak będzię działała nasza aplikacja: ustawiamy `filterText` jako `"ball"` i odświeżamy aplikację. Nasza tabela danych poprawnie wyświetla nowe informacje.
+Teraz widać już, jak będzię działała nasza aplikacja: ustawiamy `filterText` na ciąg znaków `"ball"` i odświeżamy aplikację. Nasza tabela danych poprawnie wyświetla nowe informacje.
 
 ## Krok 5: Dodaj przepływ danych w drugą stronę {#step-5-add-inverse-data-flow}
 
