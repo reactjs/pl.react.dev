@@ -76,28 +76,28 @@ Jeśli potrzebujesz pomocy na tym etapie budowy aplikacji zajrzyj do [Dokumentac
 
 ### Krótki przerywnik: atrybuty a stan {#a-brief-interlude-props-vs-state}
 
-W Reakcie wyróżniamy dwa modele danych: atrybuty i stan. Bardzo ważne jest, abyś rozumiał czym dokładnie modele te się różnią. Dla przypomnienia rzuć okiem na [oficjalną dokumentajcę Reacta](/docs/interactivity-and-dynamic-uis.html),
+W Reakcie wyróżniamy dwa modele danych: atrybuty i stan. Bardzo ważne jest, abyś rozumiał czym dokładnie modele te się różnią. Dla przypomnienia rzuć okiem na [oficjalną dokumentajcę Reacta](/docs/interactivity-and-dynamic-uis.html).
 
 ## Krok 3: Określ minimalne (ale kompletne) odwzorowanie stanu interfejsu użytkownika{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-Aby interfejs użytkwnika mógł zawierać elementy interaktywne, musimy mieć możliwośc dokonywania zmian w modelu danych na którym opiera się nasza aplikacja. W Reakcie jest to bardzo łatwe dzięki **stanowi**. 
+Aby interfejs użytkwnika mógł zawierać elementy interaktywne, musimy mieć możliwośc dokonywania zmian w modelu danych, na którym opiera się nasza aplikacja. W Reakcie jest to bardzo łatwe dzięki **stanowi**. 
 
-Poprawna budowa aplikacji wymaga w pierwszej kolejności określenia minimalnego zmiennego zestawu danych dla stanu aplikacji. Kluczową jest tutaj reguła [DRY: *Don't Repeat Yourself*](https://pl.wikipedia.org/wiki/DRY) [pol. Nie powtarzaj się]. Zadecyduj jak ma wyglądać najprostsze możliwe odwzorowanie stanu aplikacji, a wszystko inne generuj, gdy pojawi się taka potrzeba. Przykładowo jeśli tworzysz aplikację mającą być Listą rzeczy do zrobienia, zachowaj "pod ręką" jedynie tablicę z rzeczami do zrobienia; nie ma potrzeby tworzenia osobnej zmiennej stanu przechowującej liczbę tych rzeczy. Kiedy zachodzi potrzeba renderowania liczby rzeczy do zrobienia, po prostu pobierz długość tablicy.
+Poprawna budowa aplikacji wymaga w pierwszej kolejności określenia minimalnego zmiennego zestawu danych dla stanu aplikacji. Kluczową jest tutaj reguła [DRY: *Don't Repeat Yourself*](https://pl.wikipedia.org/wiki/DRY) (pol. Nie powtarzaj się). Zadecyduj jak ma wyglądać najprostsze możliwe odwzorowanie stanu aplikacji, a wszystko inne generuj, gdy pojawi się taka potrzeba. Przykładowo jeśli tworzysz aplikację, która ma zarządzać "Listą rzeczy do zrobienia", zachowaj "pod ręką" jedynie tablicę z rzeczami do zrobienia; nie ma potrzeby tworzenia osobnej zmiennej stanu przechowującej liczbę tych rzeczy. Kiedy zachodzi potrzeba renderowania liczby rzeczy do zrobienia, po prostu pobierz długość tablicy.
 
-Przyjrzyjmy się wszystkim rodzajom informacjom w naszej przykładowej aplikacji. Mamy tutaj:
+Przyjrzyjmy się wszystkim rodzajom informacji w naszej przykładowej aplikacji. Mamy tutaj:
 
-  * Początkową listę produktów,
-  * Frazę wyszukiwania podaną przez użytkownika,
+  * Początkową listę produktów
+  * Frazę wyszukiwania podaną przez użytkownika
   * Wartość odznaczonego pola
   * Listę produktów spełniających kryteria wyszukiwania
 
-Aby zdecydować która z powyższych informacji zalicza się do stanu, w przypadku każdej z nich musimy zadać sobie trzy pytania:
+Aby zdecydować, która z powyższych informacji zalicza się do stanu, w przypadku każdej z nich musimy zadać sobie trzy pytania:
 
-  1. Czy informacja ta jest przekazywana za pomocą atrybutu? Jeśli tak to prawdopodobnie nie wchodzi w skład stanu.
-  2. Czy informacja ta może z czasem ulec zmianom? Jeśli tak to prawdopodobnie nie wchodzi w skład stanu.
-  3. Czy informację tę można wygenerować na podstawie innego stanu lub atrybutu w danym komponencie. Jeśli tak to nie należy zaliczyć jej do stanu.
+  1. Czy informacja ta jest przekazywana za pomocą atrybutu? Jeśli tak, to prawdopodobnie nie wchodzi w skład stanu.
+  2. Czy informacja ta może z czasem ulec zmianom? Jeśli tak, to prawdopodobnie nie wchodzi w skład stanu.
+  3. Czy informację tę można wygenerować na podstawie innego stanu lub atrybutu w danym komponencie. Jeśli tak, to nie należy zaliczyć jej do stanu.
 
-Początkowa lista produktów jest przekazywana jako atrybut, zatem nie jest stanem. Wyszukiwana fraza i wartość odznaczonego pola wydają się wchodzić w skład stanu ponieważ mogą ulegać zmianom i nie da się ich w żaden sposób wygenerować. Jeśli chodzi o listę produktów spełniających kryteria wyszukiwania, to nie jest ona stanem ponieważ może być wygenerowana na podstawie wyszukiwanej frazy i wartości odznaczonego pola.
+Początkowa lista produktów jest przekazywana jako atrybut, zatem nie jest stanem. Wyszukiwana fraza i wartość odznaczonego pola wydają się wchodzić w skład stanu, ponieważ mogą ulegać zmianom i nie da się ich w żaden sposób wygenerować. Jeśli chodzi o listę produktów spełniających kryteria wyszukiwania, to nie jest ona stanem, ponieważ może być wygenerowana na podstawie wyszukiwanej frazy i wartości odznaczonego pola.
 
 Zatem ostatecznie nasz stan przestawia się następująco:
   * Fraza wyszukiwania podana przez użytkownika
