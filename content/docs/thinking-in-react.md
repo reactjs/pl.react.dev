@@ -8,17 +8,17 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-Naszym zdaniem React dostarcza pierwszorzędnych narzędzi do budowy dużych i szybkich aplikacji webowych. Znakomicie sprawdza się na przykład w naszych zastosowaniach na Facebooku i w Instagramie.
+Naszym zdaniem React dostarcza pierwszorzędnych narzędzi do budowy dużych, szybkich aplikacji webowych. Znakomicie sprawdza się na przykład w naszych zastosowaniach na Facebooku i w Instagramie.
 
 Jedną z wielu zalet Reacta jest to, jak praca z tą biblioteką uczy cię myśleć o aplikacjach, które tworzysz. Poniżej przybliżymy ci proces myślowy towarzyszący budowie przykładowego programu. Będzie to tabela z danymi o produktach z funkcją wyszukiwania, w całości zbudowana w Reakcie.
 
 ## Zacznij od projektu {#start-with-a-mock}
 
-Załóżmy, że mamy już gotowy JSON API oraz projekt designu. Projekt wygląda następująco:
+Załóżmy, że mamy już gotowy interfejs JSON API oraz projekt graficzny, który wygląda następująco:
 
-![Projekt](../images/blog/thinking-in-react-mock.png)
+![Projekt graficzny](../images/blog/thinking-in-react-mock.png)
 
-Nasz JSON API dostarcza następujących informacji:
+Nasz interface JSON API dostarcza następujących informacji:
 
 ```
 [
@@ -31,33 +31,33 @@ Nasz JSON API dostarcza następujących informacji:
 ];
 ```
 
-## Krok 1: Podziej interfejs użytkownika na zhierarchizowany układ komponentów {#step-1-break-the-ui-into-a-component-hierarchy}
+## Krok 1: Podziel interfejs użytkownika na zhierarchizowany układ komponentów {#step-1-break-the-ui-into-a-component-hierarchy}
 
 W pierwszej kolejności zakreśl na projekcie wszystkie komponenty (i podkomponenty) oraz nadaj im nazwy. Jeśli współpracujesz z zespołem designerów, możliwe że oni zrobili to już za ciebie. Koniecznie skontaktuj się z nimi. Nazwy komponentów Reacta często biorą się z nazw nadanych warstwom w Photoshopie. 
 
-Skąd wiadomo co powinno być komponentem? Zastosuj te same metody, których używamy tworząc nowe funkcje lub objekty. Jedną z takich metod jest [Zasada jednej odpowiedzialności](https://pl.wikipedia.org/wiki/Zasada_jednej_odpowiedzialno%C5%9Bci), zgodnie z którą każdy komponent powinien być odpowiedzialny za tylko jedną rzecz. Jeśli komponent nie spełnia tej zasady i odpowiada za więcej rzeczy, należy go rozłożyć na kilka mniejszych komponentów.
+Skąd wiadomo, co powinno być komponentem? Zastosuj te same metody, których używamy tworząc nowe funkcje lub obiekty. Jedną z takich metod jest [Zasada jednej odpowiedzialności](https://pl.wikipedia.org/wiki/Zasada_jednej_odpowiedzialno%C5%9Bci), zgodnie z którą każdy komponent powinien być odpowiedzialny za tylko jedną rzecz. Jeśli komponent nie spełnia tej zasady i odpowiada za więcej rzeczy, należy go rozbić na kilka mniejszych komponentów.
 
 Model danych wyświetlanych użytkownikowi często odpowiada modelowi zawartemu w plikach JSON. Dlatego jeśli właściwie skonstruujesz swój model, twój interfejs użytkownika (a co za tym idzie także twój układ komponentów) zostanie właściwie zmapowany. Wiąże się to z faktem, że interfejsy użytkownika i modele danych zwykle stosują się do tych samych zasad *architektury informacji*. Wszystko to zaś oznacza, że zadanie podziału interfejsu użytkownika na komponenty jest zwykle zadaniem dziecinnie prostym. Po prostu podziel go tak, aby jednemu elementowi twojego modelu danych odpowiadał jeden komponent.
 
 ![Wykres komponentów](../images/blog/thinking-in-react-components.png)
 
-Zwróć uwagę, że nasza prosta aplikacja składa się z pięciu komponentów. Dane za które odpowiedzialne są poszczególne komponenty zaznaczyliśmy kursywą.
+Zwróć uwagę, że nasza prosta aplikacja składa się z pięciu komponentów. Dane, za które odpowiedzialne są poszczególne komponenty, zaznaczyliśmy kursywą.
 
-  1. **`FilterableProductTable` [pol. tabela produktów z wyszukiwaniem] (pomarańczowy):** mieszczą sie w nim wszystkie pozostałe komponennty
-  2. **`SearchBar` [pol. pasek wyszukiwania] (niebieski):** odbiera wpisane przez użytkownika słowo lub frazę (*szukana fraza*)
-  3. **`ProductTable` [pol. tabela produktów] (zielony):** wyświetla i filtruje *dane zebrane* na podstawie  *szukanej frazy*
-  4. **`ProductCategoryRow` [pol. wiersz rodzaju produktu] (turkusowy):** wyświetla nagłówek dla każdego *rodzaju* produktów
-  5. **`ProductRow` [pol. wiersz produktu] (czerwony):** wyświetla wiersz dla każdego *produktu*
+  1. **`FilterableProductTable` (pol. tabela produktów z wyszukiwaniem; pomarańczowy):** mieszczą się w nim wszystkie pozostałe komponenty
+  2. **`SearchBar` (pol. pasek wyszukiwania; niebieski):** odbiera wpisane przez użytkownika słowo lub frazę (*szukana fraza*)
+  3. **`ProductTable` (pol. tabela produktów; zielony):** wyświetla i filtruje *kolekcję danych* na podstawie  *szukanej frazy*
+  4. **`ProductCategoryRow` (pol. wiersz rodzaju produktu; turkusowy):** wyświetla nagłówek dla każdego *rodzaju* produktów
+  5. **`ProductRow` (pol. wiersz produktu; czerwony):** wyświetla wiersz dla każdego *produktu*
 
 Zauważ, że nagłówek naszej `ProductTable` (zawierający nazwy kolumn "Name" i "Price") nie jest osobnym komponentem chociaż mógłby nim być. W tym przypadku jest to bardziej kwestia naszych indywidualnych preferencji niż zasada ogólna dla tego typu elementów. W naszej przykładowej aplikacji uznaliśmy ten nagłówek za integralną część komponentu `ProductTable` ponieważ wyświetlany jest razem z *danymi zebranymi*, a wyświetlanie *danych zebranych* jest odpowiedzialnością `ProductTable`. Jeśli jednak element ten miałby się w naszej aplikacji rozrosnąć (tzn. gdybyśmy mieli dodać do niego funkcję sortowania), jak najbardziej wskazane byłoby zrobienie z niego osobnego komponentu `ProductTableHeader`.
 
-Teraz kiedy już określiliśmy, które z elementów projektu mają być komponentami, ułożymy je w odpowiedniej hierarchii. Nie jest to zbyt trudne. Komponenty występujące wewnątrz innych komponentów przedstawimy w najszej hierarchii jako komponenty potomne.
+Teraz kiedy już określiliśmy, które z elementów projektu graficznego mają być komponentami, ułożymy je w odpowiedniej hierarchii. Nie jest to zbyt trudne. Komponenty występujące wewnątrz innych komponentów przedstawimy w naszej hierarchii jako komponenty potomne.
 
-  * `FilterableProductTable `
-    * `SearchBar `
+  * `FilterableProductTable`
+    * `SearchBar`
     * `ProductTable`
-      * `ProductCategoryRow `
-      * `ProductRow `
+      * `ProductCategoryRow`
+      * `ProductRow`
 
 ## Krok 2: Zbuduj wersję statyczną w Reakcie {#step-2-build-a-static-version-in-react}
 
