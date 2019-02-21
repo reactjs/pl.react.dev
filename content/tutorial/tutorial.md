@@ -155,7 +155,7 @@ Do tych śmiesznych znaczników XML-owych wrócimy za chwilę. Komponenty pozwal
 
 W powyższym przykładzie `ShoppingList` (pol. *lista zakupów*) jest **reactowym komponentem klasowym**. Na wejściu komponent przyjmuje parametry, nazywane "atrybutami" (ang. *props*; skrót od *properties*), i przy pomocy metody `render` zwraca strukturę widoków do wyświetlenia.
 
-Metoda `render` zwraca *opis* tego, co zostanie wyświetlone na ekranie. React analizuje ten opis i wyświetla wynik końcowy renderowania. Precyzyjniej rzecz ujmując, metoda `render` zwraca **element reactowy**, który jest "lekką" reprezentacją tego, co zostanie wyświetlone na ekranie. Większość programistów reactowych używa specjalnej składni zwanej "JSX", która ułatwia pisanie wspomnianych struktur. Składnia `<div />` podczas budowania jest przekształcana w kod: `React.createElement('div')`. Idąc dalej, powyższy przykład jest równoznaczny z:
+Metoda `render` zwraca *opis* tego, co zostanie wyświetlone na ekranie. React analizuje ten opis i wyświetla wynik końcowy renderowania. Precyzyjniej rzecz ujmując, metoda `render` zwraca **element reactowy**, który jest zwięzłą reprezentacją tego, co zostanie wyświetlone na ekranie. Większość programistów reactowych używa specjalnej składni zwanej "JSX", która ułatwia pisanie wspomnianych struktur. Składnia `<div />` podczas budowania jest przekształcana w kod: `React.createElement('div')`. Idąc dalej, powyższy przykład jest równoznaczny z:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -234,7 +234,7 @@ Najpierw dokonaj zmian w elemencie `<button />` zwracanym przez `Square` w metod
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('klik'); }}>
+      <button className="square" onClick={function() { alert('kliknięto w przycisk'); }}>
         {this.props.value}
       </button>
     );
@@ -252,7 +252,7 @@ Teraz gdy klikniemy na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('klik')}>
+>      <button className="square" onClick={() => alert('kliknięto w przycisk')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -260,7 +260,7 @@ Teraz gdy klikniemy na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >}
 >```
 >
->Zauważ, że za pomocą `onClick={() => alert('klik')}` pod atrybutem `onClick` przekazujemy *funkcję*. Zostanie ona wywołana dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('klik')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
+>Zauważ, że za pomocą `onClick={() => alert('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. Zostanie ona wywołana dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
 
 W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty do "pamiętania" rzeczy używają **stanu**.
 
@@ -279,7 +279,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('klik')}>
+      <button className="square" onClick={() => alert('kliknięto w przycisk')}>
         {this.props.value}
       </button>
     );
