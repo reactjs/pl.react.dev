@@ -79,16 +79,16 @@ Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają wi
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** jest frameworkiem umożliwiającym renderowanie po stronie serwera niewymagającym konfigurowania, ale dającym większy wybór niż Next.js.
 
-## Creating a Toolchain from Scratch {#creating-a-toolchain-from-scratch}
+## Tworzenie zestawu narzędziowego od podstaw {#creating-a-toolchain-from-scratch}
 
-A JavaScript build toolchain typically consists of:
+W skład zestaw narzędziowy w JavaScripcie wchodzą zazwyczaj następujące elementy:
 
-* A **package manager**, such as [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/). It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+* **Menadżer pakietów** np. [Yarn](https://yarnpkg.com/) lub [npm](https://www.npmjs.com/). Umożliwia on korzystanie z ogromnego ekosystemu dodatkowych pakietów. Pozwala łatwo je instalować i aktualizować.
 
-* A **bundler**, such as [webpack](https://webpack.js.org/) or [Parcel](https://parceljs.org/). It lets you write modular code and bundle it together into small packages to optimize load time.
+* **Bundler** np. [webpack](https://webpack.js.org/) lub [Parcel](https://parceljs.org/). Umożliwia on pisanie kodu modularnego i pakowania go w małe pakiety, aby zoptymalizować czas ładowania.
 
-* A **compiler** such as [Babel](https://babeljs.io/). It lets you write modern JavaScript code that still works in older browsers.
+* **Kompilator** np. [Babel](http://babeljs.io/). Pozwala on na stosowanie nowych wersji JavaScript przy zachowaniu kompatybilności ze starszymi przeglądarkami.
 
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality.
+Jeśli chcesz stworzyć swój własny zestaw narzędziowy od podstaw, zajrzyj do [tego przewodnika](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658). Dowiesz się z niego jak odtworzyć niektóre z funkcjonalności Create React App.
 
-Don't forget to ensure your custom toolchain [is correctly set up for production](/docs/optimizing-performance.html#use-the-production-build).
+Nie zapomnij upewnić się, że twój własny zestaw narzędziowy [tworzy właściwą użytkową wersję aplikacji](/docs/optimizing-performance.html#use-the-production-build).
