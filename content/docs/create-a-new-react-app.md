@@ -63,9 +63,9 @@ Zapoznaj się z zestawem narzędziowym Next.js poprzez [oficjalny przewodnik](ht
 
 ### Gatsby {#gatsby}
 
-[Gatsby](https://www.gatsbyjs.org/) is the best way to create **static websites** with React. It lets you use React components, but outputs pre-rendered HTML and CSS to guarantee the fastest load time.
+[Gatsby](https://www.gatsbyjs.org/) zapewnia najlepszy sposób tworzenia **stron statycznych** z Reactem. Ten zestaw narzędziowy umożliwia korzystanie z komponentów reactowych, ale w wyniku jego zastosowania otrzymujemy wstępne renderowanie HTML i CSS co zapewnia najszczybsze możliwe ładowanie strony.
 
-Learn Gatsby from [its official guide](https://www.gatsbyjs.org/docs/) and a [gallery of starter kits](https://www.gatsbyjs.org/docs/gatsby-starters/).
+Zapoznaj się z zestawem narzędziowym Gatsbym poprzez [oficjalny przewodnik](https://www.gatsbyjs.org/docs/) oraz [galerię zestawów startowych](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
 ### More Flexible Toolchains {#more-flexible-toolchains}
 
