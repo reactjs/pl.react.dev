@@ -57,9 +57,9 @@ Kiedy uznasz, że twoja aplikacja jest gotowa do oddania do użytku, zastosuj ko
 
 ### Next.js {#nextjs}
 
-[Next.js](https://nextjs.org/) is a popular and lightweight framework for **static and server‑rendered applications** built with React. It includes **styling and routing solutions** out of the box, and assumes that you're using [Node.js](https://nodejs.org/) as the server environment.
+[Next.js](https://nextjs.org/) jest popularnym, lekkim frameworkiem służącym do budowy aplikacji reactowych **statycznych oraz renderowanych po stronie serwera**. Zestaw ten zawiera **rozwiązania stylizujące  i mechanizmy routingu**. Ponadto, Next.js domyślnie zakłada, że stosujesz [Node.js](https://nodejs.org/) jako środowisko serwera.
 
-Learn Next.js from [its official guide](https://nextjs.org/learn/).
+Zapoznaj się z zestawem narzędziowym Next.js poprzez [oficjalny przewodnik](https://nextjs.org/learn/).
 
 ### Gatsby {#gatsby}
 
