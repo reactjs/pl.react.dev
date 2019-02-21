@@ -51,7 +51,7 @@ npm start
 >Wskazówka
 > `npx` w pierwszej linijce powyżej to nie błąd w druku, to [narzędzie uruchamiające pakiety zawarte w npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
-Create React App nie obsługuje ani logiki backendu ani baz danych; tworzy jedynie front-endowy potok budowania (ang. build pipeline). Dzięki temu możesz go używać z dowolnie wybranym przez siebie backendem. Create React App zawiera [Babel](http://babeljs.io/) i [webpack](https://webpack.js.org/), ale nie musisz nic o nich wiedzieć, aby z powodzeniem używać tego zestawu narzędzi.
+Create React App nie obsługuje ani logiki backendu ani baz danych; tworzy jedynie front-endowy potok budowania (ang. *build pipeline*). Dzięki temu możesz go używać z dowolnie wybranym przez siebie backendem. Create React App zawiera [Babel](http://babeljs.io/) i [webpack](https://webpack.js.org/), ale nie musisz nic o nich wiedzieć, aby z powodzeniem używać tego zestawu narzędzi.
 
 Kiedy uznasz, że twoja aplikacja jest gotowa do oddania do użytku, zastosuj komendę `npm run build`. Dzięki temu uzyskasz zoptymalizowaną wersję swojej aplikacji. Znajdziesz ją w folderze `build`. Więcej informacji na temat Create React App znajdziesz w [pliku README](https://github.com/facebookincubator/create-react-app#create-react-app-) oraz w tym [Przewodniku użytkownika](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
 
@@ -71,9 +71,9 @@ Zapoznaj się z Gatsbym poprzez [oficjalny przewodnik](https://www.gatsbyjs.org/
 
 Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają większą dowolność konfiguracji. Polecamy je bardziej doświadczonym użytkownikom.
 
-- **[Neutrino](https://neutrinojs.org/)** łączy w sobie siłę [webpacku](https://webpack.js.org/) z prostotą ustawień domyślnych oraz zawiera ustawienia domyślne dla [aplikacji reactowych](https://neutrinojs.org/packages/react/) i [komponentów reactowych](https://neutrinojs.org/packages/react-components/).
+- **[Neutrino](https://neutrinojs.org/)** łączy w sobie siłę [webpacku](https://webpack.js.org/) z prostotą ustawień domyślnych. Zestaw ten zawiera ustawienia domyślne dla [aplikacji reactowych](https://neutrinojs.org/packages/react/) i [komponentów reactowych](https://neutrinojs.org/packages/react-components/).
 
-- **[nwb](https://github.com/insin/nwb)** jest zalecany szczególnie dla potrzeb [publikowania komponentów reactowych na npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). Może też [być stosowany] (https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) do tworzenia aplikacji w Reakcie.
+- **[nwb](https://github.com/insin/nwb)** jest zalecany szczególnie dla potrzeb [publikowania komponentów reactowych na npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). Może też [być stosowany](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) do tworzenia aplikacji w Reakcie.
 
 - **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, niewymagającym żadnego konfigurowania dla potrzeb [aplikacji reactowych](https://parceljs.org/recipes.html#react).
 
@@ -87,8 +87,8 @@ W skład zestaw narzędziowy w JavaScripcie wchodzą zazwyczaj następujące ele
 
 * **Bundler** np. [webpack](https://webpack.js.org/) lub [Parcel](https://parceljs.org/). Umożliwia on pisanie kodu modularnego i pakowania go w małe pakiety, aby zoptymalizować czas ładowania.
 
-* **Kompilator** np. [Babel](http://babeljs.io/). Pozwala on na stosowanie nowych wersji JavaScript przy zachowaniu kompatybilności ze starszymi przeglądarkami.
+* **Kompilator** np. [Babel](http://babeljs.io/). Pozwala on na stosowanie nowych wersji JavaScriptu przy zachowaniu kompatybilności ze starszymi przeglądarkami.
 
 Jeśli chcesz stworzyć swój własny zestaw narzędziowy od podstaw, zajrzyj do [tego przewodnika](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658). Dowiesz się z niego jak odtworzyć niektóre z funkcjonalności Create React App.
 
-Nie zapomnij upewnić się, że twój własny zestaw narzędziowy [tworzy właściwą użytkową wersję aplikacji](/docs/optimizing-performance.html#use-the-production-build).
+Pamiętaj aby upewnić się, że twój własny zestaw narzędziowy [tworzy właściwą użytkową wersję aplikacji](/docs/optimizing-performance.html#use-the-production-build).
