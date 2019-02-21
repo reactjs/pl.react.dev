@@ -18,7 +18,7 @@ Załóżmy, że mamy już gotowy interfejs JSON API oraz projekt graficzny, któ
 
 ![Projekt graficzny](../images/blog/thinking-in-react-mock.png)
 
-Nasz interface JSON API dostarcza następujących informacji:
+Nasz interfejs JSON API dostarcza następujących informacji:
 
 ```
 [
