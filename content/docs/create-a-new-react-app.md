@@ -33,7 +33,7 @@ Zespół Reacta rekomenduje następujące rozwiązania:
 - Jeśli **uczysz się Reacta** lub jeśli **tworzysz nową aplikację [jednostronicową](/docs/glossary.html#single-page-application),** skorzystaj z [Create React App](#create-react-app).
 - Jeśli tworzysz **stronę internetową renderowaną na serwerze z użyciem Node.js,** spróbuj zastosować [Next.js](#nextjs).
 - Jeśli tworzysz **stronę statyczną, która ma głównie wyświetlać określone treści,** spróbuj zastosować [Gatsby](#gatsby).
-- Jeśli tworzysz **bibliotekę kompnentów** lub **integrujesz z istniejącą bazą kodu,** spróbuj zastosować [bardziej uniwersalne zestwy narzędziowe](#more-flexible-toolchains).
+- Jeśli tworzysz **bibliotekę kompnentów** lub **integrujesz z istniejącą bazą kodu,** spróbuj zastosować [bardziej elastyczne zestwy narzędziowe](#more-flexible-toolchains).
 
 
 ### Create React App {#create-react-app}
@@ -65,16 +65,17 @@ Zapoznaj się z zestawem narzędziowym Next.js poprzez [oficjalny przewodnik](ht
 
 [Gatsby](https://www.gatsbyjs.org/) zapewnia najlepszy sposób tworzenia **stron statycznych** z Reactem. Ten zestaw narzędziowy umożliwia korzystanie z komponentów reactowych, ale w wyniku jego zastosowania otrzymujemy wstępne renderowanie HTML i CSS co zapewnia najszczybsze możliwe ładowanie strony.
 
-Zapoznaj się z zestawem narzędziowym Gatsbym poprzez [oficjalny przewodnik](https://www.gatsbyjs.org/docs/) oraz [galerię zestawów startowych](https://www.gatsbyjs.org/docs/gatsby-starters/).
+Zapoznaj się z Gatsbym poprzez [oficjalny przewodnik](https://www.gatsbyjs.org/docs/) oraz [galerię zestawów startowych](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
-### More Flexible Toolchains {#more-flexible-toolchains}
+### Bardziej elastyczne zestawy narzędziowe {#more-flexible-toolchains}
 
-The following toolchains offer more flexiblity and choice. We recommend them to more experienced users:
+Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają większą dowolność konfiguracji. Polecamy je bardziej doświadczonym użytkownikom.
 
-- **[Neutrino](https://neutrinojs.org/)** combines the power of [webpack](https://webpack.js.org/) with the simplicity of presets, and includes a preset for [React apps](https://neutrinojs.org/packages/react/) and [React components](https://neutrinojs.org/packages/react-components/).
+- **[Neutrino](https://neutrinojs.org/)** łączy w sobie siłę [webpacku](https://webpack.js.org/) z prostotą ustawień domyślnych oraz zawiera ustawienia domyślne dla [aplikacji reactowych](https://neutrinojs.org/packages/react/) i [komponentów reactowych](https://neutrinojs.org/packages/react-components/).
 
-- **[nwb](https://github.com/insin/nwb)** is particularly great for [publishing React components for npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). It [can be used](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) for creating React apps, too. 
+- **[nwb](https://github.com/insin/nwb)** jest zalecany szczególnie dla potrzeb [publikowania komponentów reactowych na npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). Może też [być stosowany] (https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) do tworzenia aplikacji w Reakcie.
 
+- 
 - **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes.html#react).
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** is a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js.
