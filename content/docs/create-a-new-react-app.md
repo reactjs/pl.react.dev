@@ -77,8 +77,7 @@ Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają wi
 
 - **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, niewymagającym żadnego konfigurowania dla potrzeb [aplikacji reactowych](https://parceljs.org/recipes.html#react).
 
-- 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** is a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** jest frameworkiem umożliwiającym renderowanie po stronie serwera niewymagającym konfigurowania, ale dającym większy wybór niż Next.js.
 
 ## Creating a Toolchain from Scratch {#creating-a-toolchain-from-scratch}
 
