@@ -29,7 +29,11 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
+<<<<<<< HEAD
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+=======
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 W tym rozdziale dowiemy się, jak sprawić, by komponent `Clock` był w pełni hermetyczny i zdatny do wielokrotnego użytku. Wyposażymy go we własny timer, który będzie aktualizował się co sekundę.
 
@@ -55,7 +59,11 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
+<<<<<<< HEAD
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+=======
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Brakuje jeszcze fragmentu, który spełniałby kluczowe założenie: inicjalizacja timera i aktualizowanie UI co sekundę powinny być zaimplementowane w komponencie `Clock`.
 
@@ -101,7 +109,11 @@ class Clock extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+=======
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Komponent `Clock` przestał już być funkcją i od teraz jest klasą.
 
@@ -193,7 +205,11 @@ ReactDOM.render(
 );
 ```
 
+<<<<<<< HEAD
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+=======
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Teraz sprawimy, by komponent `Clock` uruchomił własny timer i aktualizował go co sekundę.
 
@@ -302,7 +318,11 @@ ReactDOM.render(
 );
 ```
 
+<<<<<<< HEAD
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
+=======
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Teraz timer powinien już tykać co sekundę.
 
@@ -437,7 +457,11 @@ function FormattedDate(props) {
 }
 ```
 
+<<<<<<< HEAD
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+=======
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Taki przepływ danych nazywany jest powszechnie jednokierunkowym (ang. *unidirectional*) lub "z góry na dół" (ang. *top-down*). Stan jest zawsze własnością konkretnego komponentu i wszelkie dane lub części UI, powstałe w oparciu o niego, mogą wpłynąć jedynie na komponenty znajdujące się "poniżej" w drzewie.
 
@@ -462,7 +486,11 @@ ReactDOM.render(
 );
 ```
 
+<<<<<<< HEAD
 [**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+=======
+[**Try it on CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Każdy `Clock` tworzy swój własny timer i aktualizuje go niezależnie od pozostałych.
 
