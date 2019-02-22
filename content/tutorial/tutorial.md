@@ -29,7 +29,7 @@ Samouczek podzieliliśmy na kilka części:
 * [Dokończenie gry](#completing-the-game) pokazuje **najczęstsze techniki** programowania w Reakcie,
 * [Dodanie "podróży w czasie"](#adding-time-travel) pozwala **dogłębnie zrozumieć** mocne strony Reacta.
 
-Nie musisz wcale przechodzić przez wszystkie części samouczka naraz, żeby wynieść z niego z cokolwiek. Spróbuj jednak dojść najdalej jak możesz - nawet jeśli będą to tylko dwa rozdziały.
+Nie musisz wcale przechodzić przez wszystkie części samouczka naraz, żeby wynieść z niego cokolwiek. Spróbuj jednak dojść najdalej jak możesz - nawet jeśli będą to tylko dwa rozdziały.
 
 W trakcie wykonywania poleceń możesz kopiować kod do edytora, ale zalecamy pisać go samodzielnie. Pozwoli Ci to wyrobić pamięć mięśniową i lepiej zrozumieć temat.
 
@@ -45,25 +45,25 @@ Gdy już zapoznasz się z grą, możesz ją wyłączyć. Naukę rozpoczniemy od 
 
 ### Wymagania {#prerequisites}
 
-Zakładamy, że HTML i JavaScript nie są Ci obce, ale nawet jeśli to Twoja pierwsza styczność z tymi językami, to samouczek nie powinien przysporzyć Ci większego problemu. Zakładamy również, że znasz takie pojęcia z programowania obiektowego jak "funkcja", "obiekt" czy "tablica", a także przynajmniej w niewielkim stopniu rozumiesz, czym jest "klasa".
+Zakładamy, że HTML i JavaScript nie są ci obce, ale nawet jeśli to twoja pierwsza styczność z tymi językami, to samouczek nie powinien przysporzyć ci większego problemu. Zakładamy również, że znasz takie pojęcia z programowania obiektowego jak "funkcja", "obiekt" czy "tablica", a także przynajmniej w niewielkim stopniu rozumiesz, czym jest "klasa".
 
 Jeśli potrzebujesz odświeżyć sobie wiedzę o JavaScripcie, zalecamy lekturę [tego poradnika](https://developer.mozilla.org/pl/docs/Web/JavaScript/Ponowne_wprowadzenie_do_JavaScript). Zwróć uwagę, że będziemy tu korzystać z niektórych funkcjonalności standardu ES6 - jednej z ostatnich wersji języka JavaScript - takich jak [funkcje strzałkowe](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/Funkcje_strzalkowe) (ang. *arrow functions*), [klasy](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) oraz wyrażenia [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) i [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Możesz skorzystać ze środowiska [Babel REPL](babel://es5-syntax-example), aby sprawdzić, co powstanie w wyniku transpilowania kodu napisanego w standardzie ES6.
 
 ## Konfiguracja pod samouczek {#setup-for-the-tutorial}
 
-Istnieją dwa sposoby na ukończenie tego samouczka: możesz pisać kod w przeglądarce lub możesz skonfigurować lokalne środowisko na swoim komputerze.
+Masz do wyboru dwa sposoby pracy z tym samouczkiem: możesz pisać kod w przeglądarce lub skonfigurować lokalne środowisko na swoim komputerze.
 
 ### Opcja konfiguracyjna nr 1: Pisanie kodu w przeglądarce {#setup-option-1-write-code-in-the-browser}
 
 To zdecydowanie najszybszy i najłatwiejszy sposób na rozpoczęcie przygody z Reactem!
 
-Na początek otwórz w nowej karcie **[szablon startowy](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Twoim oczom powinna ukazać się pusta plansza do gry w "kółko i krzyżyk" oraz panel z kodem reactowym. W tym samouczku będziemy edytować kod w tymże panelu.
+Na początek otwórz w nowej karcie **[szablon startowy](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Twoim oczom powinna ukazać się pusta plansza do gry w "kółko i krzyżyk" oraz panel z kodem reactowym. To tutaj będziemy edytować nasz kod.
 
 Możesz teraz pominąć opcję nr 2 i przejść do rozdziału pt. ["Przegląd"](#overview), w którym przedstawiliśmy ogólne informacje o Reakcie.
 
 ### Opcja konfiguracyjna nr 2: Lokalne środowisko programistyczne {#setup-option-2-local-development-environment}
 
-Ten sposób jest całkowicie opcjonalny i nie jest konieczny do ukończenia tego samouczka!
+Ten sposób pracy z naszym samouczkiem jest całkowicie opcjonalny i nie jest konieczny do jego ukończenia!
 
 <br>
 
@@ -71,20 +71,20 @@ Ten sposób jest całkowicie opcjonalny i nie jest konieczny do ukończenia tego
 
 <summary><b>Opcjonalne: Instrukcje na temat pisania kodu w wybranym przez siebie edytorze tekstu</b></summary>
 
-Ta konfiguracja wymaga więcej wysiłku, lecz pozwala na ukończenie samouczka przy użyciu wybranego przez siebie edytora. Należy kolejno:
+Ta konfiguracja wymaga więcej wysiłku, lecz pozwala na ukończenie samouczka przy użyciu wybranego przez siebie edytora. W tym celu:
 
-1. Sprawdzić, czy posiada się najnowszą wersję [Node.js](https://nodejs.org/en/).
-2. Wykonać [instrukcje instalacji "Create React App"](/docs/create-a-new-react-app.html#create-react-app) w celu zainicjalizowania nowego projektu.
+1. Sprawdź, czy masz najnowszą wersję [Node.js](https://nodejs.org/en/).
+2. Wykonaj [instrukcje instalacji "Create React App"](/docs/create-a-new-react-app.html#create-react-app), aby zainicjalizować projekt.
 
 ```bash
 npx create-react-app moja-aplikacja
 ```
 
-3. Usunąć wszystkie pliki z folderu `src/` w nowo utworzonym projekcie
+3. Usuń wszystkie pliki z folderu `src/` w nowo utworzonym projekcie
 
 > Uwaga:
 >
->**Nie usuwaj całego folderu `src`, tylko znajdujące się wewnątrz pliki.** W następnym kroku podmienimy domyślne pliki źródłowe przykładami z samouczka.
+>**Nie usuwaj całego folderu `src`, tylko znajdujące się w nim pliki.** W następnym kroku podmienimy domyślne pliki źródłowe przykładami z samouczka.
 
 ```bash
 cd moja-aplikacja
@@ -93,10 +93,10 @@ cd src
 # Jeśli używasz Maca lub Linuxa, wpisz:
 rm -f *
 
-# Lub jeśli używasz Windowsa:
+# Jeśli używasz Windowsa:
 del *
 
-# A następnie cofnij się do folderu z projektem
+# A następnie wróć do folderu z projektem
 cd ..
 ```
 
@@ -104,7 +104,7 @@ cd ..
 
 5. W folderze `src/` dodaj plik `index.js` i wstaw do niego [ten kod JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Wstaw te trzy linie na początku pliku `index.js` znajdującego się w folderze `src/`:
+6. Wstaw te trzy wiersze na początku pliku `index.js` znajdującego się w folderze `src/`:
 
 ```js
 import React from 'react';
@@ -114,7 +114,7 @@ import './index.css';
 
 Teraz, gdy w folderze z projektem wykonasz polecenie `npm start`, a następnie wpiszesz w przeglądarce adres `http://localhost:3000`, na ekranie powinna pojawić się pusta plansza do gry w "kółko i krzyżyk".
 
-Zalecamy wykonanie [tych instrukcji](https://babeljs.io/docs/editors/) w celu skonfigurowania narzędzia do podświetlania składni w Twoim edytorze tekstu.
+Zalecamy wykonanie [tych instrukcji](https://babeljs.io/docs/editors/). Pozwoli ci to skonfigurować narzędzia do podświetlania składni w wybranym edytorze tekstu.
 
 </details>
 
@@ -128,7 +128,7 @@ Teraz, gdy już masz wszystko skonfigurowane, czas dowiedzieć się czegoś o Re
 
 ### Czym jest React? {#what-is-react}
 
-React jest deklaratywną, skuteczną i elastyczną biblioteką javascriptową do budowania interfejsów użytkownika. Pozwala na zbudowanie skomplikowanego UI przy użyciu małych i odizolowanych od siebie kawałków kodu, zwanych "komponentami".
+React jest deklaratywną, wydajną i elastyczną biblioteką javascriptową do budowania interfejsów użytkownika. Pozwala na tworzenie złożonych UI przy użyciu małych i odizolowanych od siebie kawałków kodu, zwanych "komponentami".
 
 React rozróżnia kilka rodzajów komponentów, lecz zacznijmy od klas dziedziczących po `React.Component`:
 
@@ -151,7 +151,7 @@ class ShoppingList extends React.Component {
 // Przykład użycia: <ShoppingList name="Marek" />
 ```
 
-Do tych śmiesznych znaczników XML-owych wrócimy za chwilę. Komponenty pozwalają wytłumaczyć Reactowi, co chcemy ujrzeć na ekranie. Gdy zmienią się nasze dane, React w sposób efektywny zaktualizuje i ponownie wyrenderuje komponenty.
+Do tych nietypowych znaczników XML-owych wrócimy za chwilę. Komponenty pozwalają wytłumaczyć Reactowi, co chcemy ujrzeć na ekranie. Gdy zmienią się nasze dane, React w sposób efektywny zaktualizuje i ponownie wyrenderuje komponenty.
 
 W powyższym przykładzie `ShoppingList` (pol. *lista zakupów*) jest **reactowym komponentem klasowym**. Na wejściu komponent przyjmuje parametry, nazywane "atrybutami" (ang. *props*; skrót od *properties*), i przy pomocy metody `render` zwraca strukturę widoków do wyświetlenia.
 
@@ -166,9 +166,9 @@ return React.createElement('div', {className: 'shopping-list'},
 
 [Zobacz pełną wersję kodu](babel://tutorial-expanded-version)
 
-Jeśli zżera Cię ciekawość, opis funkcji `createElement()` znajdziesz w [dokumentacji API](/docs/react-api.html#createelement), aczkolwiek w tym samouczku nie będziemy jej używać. Zamiast tego skorzystamy ze składni JSX.
+Jeśli ciekawość nie daje Ci spokoju, opis funkcji `createElement()` znajdziesz w [dokumentacji API](/docs/react-api.html#createelement), aczkolwiek w tym samouczku nie będziemy jej używać. Zamiast tego skorzystamy ze składni JSX.
 
-Składnia JSX posiada pełną moc JavaScriptu. Między klamry można wstawić *dowolny* kod javascriptowy. Każdy element reactowy jest obiektem, który można przypisać do zmiennej i przekazywać dowolnie w swoim programie.
+Składnia JSX ma pełną moc JavaScriptu. Między klamry można wstawić *dowolny* kod javascriptowy. Każdy element reactowy jest obiektem, który można przypisać do zmiennej i przekazywać dowolnie w swoim programie.
 
 Powyższy komponent `ShoppingList` wyrenderuje jedynie wbudowane komponenty znane z drzewa DOM, jak `<div />` czy `<li />`. Ale równie dobrze można wyrenderować w nim inny, własny komponent. Na przykład, do całej listy zakupów można odwołać się pisząc `<ShoppingList />`. Każdy komponent w Reakcie jest enkapsulowany (ang. *encapsulated*) i może działać niezależnie; pozwala to na budowanie skomplikowanych interfejsów użytkownika przy użyciu prostych komponentów.
 
@@ -184,7 +184,7 @@ Analizując kod, łatwo zauważyć, że mamy do czynienia z trzema komponentami 
 * Board (plansza),
 * Game (gra).
 
-Komponent `Square` (pole) renderuje pojedynczy element `<button>`, a `Board` (plansza) renderuje 9 takich pól. Z kolei komponent `Game` (gra) renderuje planszę wypełnioną symbolami zastępczymi, które podmienimy nieco później. Aplikacja w obecnym stanie nie posiada żadnych interaktywnych komponentów.
+Komponent `Square` (pole) renderuje pojedynczy element `<button>`, a `Board` (plansza) renderuje 9 takich pól. Z kolei komponent `Game` (gra) renderuje planszę wypełnioną symbolami zastępczymi, które podmienimy nieco później. Aplikacja w obecnym stanie nie zawiera żadnych interaktywnych komponentów.
 
 ### Przekazywanie danych przez atrybuty {#passing-data-through-props}
 
@@ -223,11 +223,11 @@ Po zmianie: W każdym wyrenderowanym polu powinien wyświetlać się kolejny num
 
 **[Zobacz dotychczasowy kod](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Gratulacje! Właśnie udało Ci się "przekazać atrybut" z komponentu nadrzędnego `Board` do komponentu potomnego `Square`. Przekazywanie atrybutów to jeden ze sposobów na przepływ danych między rodzicem a dzieckiem w drzewie.
+Gratulacje! Właśnie udało Ci się "przekazać atrybut" z komponentu nadrzędnego `Board` do komponentu potomnego `Square`. Przekazywanie atrybutów to jeden ze sposobów na przepływ danych między rodzicem a komponentem potomnym w drzewie.
 
 ### Tworzenie interaktywnego komponentu {#making-an-interactive-component}
 
-Niech teraz komponent `Square` wypełnia się literą "X" po kliknięciu w niego.
+Teraz sprawmy, aby komponent `Square` wypełniał się literą "X", kiedy w niego klikniemy.
 Najpierw dokonaj zmian w elemencie `<button />` zwracanym przez `Square` w metodzie `render()`:
 
 ```javascript{4}
@@ -262,7 +262,7 @@ Teraz gdy klikniemy na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >
 >Zauważ, że za pomocą `onClick={() => alert('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. Zostanie ona wywołana dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
 
-W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty do "pamiętania" rzeczy używają **stanu**.
+W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty mogą "pamiętać" o różnych rzeczach dzięki **stanowi** (ang. *state*).
 
 Komponenty w Reakcie można wyposażyć w stan, przypisując w konstruktorze odpowiednią wartość do właściwości klasy `this.state`. Właściwość `this.state` powinna być traktowana jako prywatna, dostępna tylko dla komponentu, w którym została zdefiniowana. Przypiszmy więc aktualną wartość przycisku do `this.state` i nadpisujmy ją przy kliknięciu.
 
@@ -297,7 +297,7 @@ Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby po kliknięc
 * zamień uchwyt zdarzenia `() => alert()` na `() => this.setState({value: 'X'})`,
 * umieść atrybuty `className` i `onClick` w osobnych liniach dla lepszej czytelności kodu.
 
-Po powyższych zmianach element `<button>`, zwracany przez komponent `Square`, powinien wyglądać następująco:
+Po wprowadzeniu powyższych zmian, element `<button>`, zwracany przez komponent `Square`, powinien wyglądać następująco:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -335,7 +335,7 @@ Rozszerzenie o nazwie "React Devtools" dla przeglądarek [Chrome](https://chrome
 
 Dzięki temu rozszerzeniu możesz podejrzeć atrybuty i stan dowolnego komponentu w drzewie.
 
-Po zainstalowaniu rozszerzenia wystarczy, że klikniesz prawym przyciskiem myszy na dowolnym elemencie strony i wybierzesz z menu "Zbadaj". W pasku zakładek, jako ostatnia po prawej, powinna pojawić się zakładka "React".
+Po zainstalowaniu rozszerzenia wystarczy, że klikniesz prawym przyciskiem myszy na dowolnym elemencie strony i wybierzesz z menu "Zbadaj" (ang. "Inspect"). W pasku zakładek, jako ostatnia po prawej, powinna pojawić się zakładka "React".
 
 **Jeśli korzystasz z CodePen, potrzebne będą dodatkowe czynności:**
 
@@ -356,7 +356,7 @@ Być może przeszło Ci przez myśl, że to komponent `Board` powinien "pytać" 
 
 **Aby móc zebrać dane z wielu komponentów potomnych lub umożliwić dwóm potomkom komunikowanie się ze sobą, należy zadeklarować ich wspólny stan w rodzicu. Taki rodzic może wtedy przekazać poszczególne wartości potomkom poprzez atrybuty; dzięki temu potomkowie będą zsynchronizowani zarówno ze sobą nawzajem, jak i z rodzicem.**
 
-Wynoszenie stanu w górę struktury to dość częsty zabieg podczas refaktoryzacji (ang. *refactoring*) kodu. Wykorzystajmy zatem okazję do wypróbowania tego schematu. Dodajmy konstruktor do komponentu `Board` i ustawmy w nim stan przechowujący tablicę 9 wartości `null`. Każdy z elementów tej tablicy będzie odpowiadał jednemu polu na planszy:
+Wynoszenie stanu w górę struktury to dość częsty zabieg podczas refaktoryzacji (ang. *refactoring*) kodu. Wykorzystajmy zatem okazję do wypróbowania tego schematu. Dodajmy konstruktor do komponentu `Board` i ustawmy w nim stan przechowujący tablicę dziewięciu wartości `null`. Każdy z elementów tej tablicy będzie odpowiadał jednemu polu na planszy:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -418,7 +418,7 @@ Aktualnie metoda `renderSquare` komponentu `Board` wygląda następująco:
 
 Na początku tego samouczka [przekazaliśmy atrybut `value`](#passing-data-through-props) z komponentu `Board`, aby wyświetlić liczby od 0 do 8 w kolejnych polach planszy. W innym rozdziale zastąpiliśmy liczby literą "X", [określaną na podstawie własnego stanu komponentu `Square`](#making-an-interactive-component). To właśnie dlatego `Square` obecnie ignoruje atrybut `value` przekazywany z nadrzędnego komponentu `Board`.
 
-Teraz z powrotem wrócimy do mechanizmu przekazywania atrybutów. Zmienimy kod komponentu `Board` tak, aby mówił poszczególnym komponentom `Square`, jaką mają wartość (`"X"`, `"O"` lub `null`). Zdefiniowaliśmy już tablicę `squares` (pol. *pola*) w konstruktorze komponentu `Board`, więc teraz zostaje nam zmodyfikować metodę `renderSquare` (pol. *renderuj pole*) tak, aby odczytywała z niej wartości:
+Teraz ponownie zastosujemy mechanizm przekazywania atrybutów. Zmienimy kod komponentu `Board` tak, aby mówił poszczególnym komponentom `Square`, jaką mają wartość (`"X"`, `"O"` lub `null`). Zdefiniowaliśmy już tablicę `squares` (pol. *pola*) w konstruktorze komponentu `Board`, więc teraz zostaje nam zmodyfikować metodę `renderSquare` (pol. *renderuj pole*) tak, aby odczytywała z niej wartości:
 
 ```javascript{2}
   renderSquare(i) {
@@ -428,11 +428,11 @@ Teraz z powrotem wrócimy do mechanizmu przekazywania atrybutów. Zmienimy kod k
 
 **[Zobacz dotychczasowy kod](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Każde pole otrzyma poprzez atrybut `value` odpowiednio: `"X"`, `"O"` lub `null` (jeśli pole jest puste).
+Każde pole otrzyma poprzez atrybut `value` odpowiednio: `"X"`, `"O"` lub `null` (w przypadku pola pustego).
 
-Następnie musimy zmienić zachowanie komponentu `Square` po kliknięciu na nim, ponieważ teraz to `Board` decyduje, które pola są wypełnione. Musimy zatem określić sposób, w jaki komponent `Square` może aktualizować stan swojego rodzica. Jako że stan jest dla komponentu `Board` czymś prywatnym, nie możemy tak po prostu nadpisać jego wartości z poziomu potomka `Square`.
+Następnie musimy zmienić zachowanie komponentu `Square` po kliknięciu na nim, ponieważ teraz to `Board` decyduje, które pola są wypełnione. Musimy zatem określić sposób, w jaki komponent `Square` może aktualizować stan swojego rodzica. Jako że stan komponentu `Board` należy tylko do niego, nie możemy tak po prostu nadpisać jego wartości z poziomu potomka `Square`.
 
-Aby zapewnić prywatność stanowi komponentu `Board`, przekażemy do `Square` odpowiednią funkcję poprzez atrybuty. Funkcja ta będzie wywoływana za każdym razem, gdy ktoś kliknie na pole. Zmieńmy więc metodę `renderSquare` w następujący sposób:
+Aby zapewnić komponentowi `Board` wyłączność na własność jego stanu, do komponentu `Square` przekażemy odpowiednią funkcję za pomocą atrybutów. Funkcja ta będzie wywoływana za każdym razem, gdy ktoś kliknie na pole. Zmieńmy więc metodę `renderSquare` w następujący sposób:
 
 ```javascript{5}
   renderSquare(i) {
@@ -455,7 +455,7 @@ Przekazujemy teraz z komponentu `Board` do `Square` dwa atrybuty: `value` i `onC
 * zamienić `this.setState()` na `this.props.onClick()` w metodzie `render` komponentu `Square`,
 * usunąć konstruktor z klasy `Square`, ponieważ nie będzie ona już przechowywała stanu gry.
 
-Po powyższych zmianach kod komponentu `Square` powinien wyglądać następująco:
+Po wprowadzeniu powyższych zmian, kod komponentu `Square` powinien wyglądać następująco:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -474,7 +474,7 @@ class Square extends React.Component {
 
 Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczona przez komponent `Board`. Dzieje się to dlatego, że:
 
-1. Atrybut `onClick` wbudowanego komponentu DOM `<button>` informuje Reacta, żeby ustawił obserwator (ang. *listener*) na kliknięcie.
+1. Atrybut `onClick` wbudowanego komponentu DOM `<button>` informuje Reacta, żeby zaczął nasłuchiwać kliknięć użytkownika.
 2. Gdy użytkownik kliknie na przycisk, React wywoła uchwyt zdarzenia `onClick` zdefiniowany w metodzie `render()` komponentu `Square`.
 3. Uchwyt ten wywoła funkcję `this.props.onClick()`, czyli atrybut przekazany przez komponent `Board`.
 4. Ponieważ komponent `Board` przekazał swojemu potomkowi atrybut `onClick={() => this.handleClick(i)}`, kliknięcie w `Square` spowoduje w konsekwencji wywołanie `this.handleClick(i)` wewnątrz komponentu `Board`.
@@ -484,7 +484,7 @@ Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczon
 >
 >Atrybut `onClick` elementu DOM `<button>` ma dla Reacta specjalne znaczenie, ponieważ jest to wbudowany komponent. W przypadku własny komponentów, jak `Square`, nazwa tego atrybutu może być dowolna. Moglibyśmy nazwać inaczej zarówno atrybut `onClick` w `Square`, jak i `handleClick` w `Board`. Przyjęło się jednak określać atrybuty odpowiedzialne za wywołanie zdarzenia jako `on[Event]`, a uchwyty obsługujące zdarzenia jako `handle[Event]`.
 
-Gdy spróbujemy kliknąć na pole planszy, naszym oczom ukaże się błąd, ponieważ nie zdefiniowaliśmy jeszcze metody `handleClick`. Dodajmy ją zatem:
+Jeśli teraz klikniemy na polę planszy, otrzymamy błąd, ponieważ nie zdefiniowaliśmy jeszcze metody `handleClick`. Dodajmy ją zatem:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -539,15 +539,15 @@ class Board extends React.Component {
 
 **[Zobacz dotychczasowy kod](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-Po zastosowaniu powyższych zmian znów będziemy mogli klikać w pola planszy. Różnica polega na tym, że teraz stan planszy jest przechowywany w komponencie `Board` zamiast być w każdym z komponentów `Square` z osobna. Gdy stan w `Board` ulegnie zmianie, wszystkie pola zostaną ponownie wyrenderowane. Przechowywanie stanu wszystkich pól w jednym miejscu pozwoli nam w przyszłości wyłonić zwycięzcę rozgrywki.
+Po zastosowaniu powyższych zmian znów będziemy mogli klikać w pola planszy. Różnica polega na tym, że teraz stan planszy jest przechowywany w komponencie `Board`, nie zaś w każdym z komponentów `Square` z osobna. Gdy stan w `Board` ulegnie zmianie, wszystkie pola zostaną ponownie wyrenderowane. Przechowywanie stanu wszystkich pól w jednym miejscu pozwoli nam w przyszłości wyłonić zwycięzcę rozgrywki.
 
 Przenieśliśmy stan z komponentu `Square` do `Board`, przez co każdy `Square` otrzymuje od rodzica swoją wartość i informuje go o kliknięciu. W terminologii reactowej komponenty `Square` są teraz **komponentami kontrolowanymi**. `Board` ma nad nimi pełną kontrolę.
 
-Zauważ, że w metodzie `handleClick` używamy `.slice()` do stworzenia kopii tablicy `squares`, zamiast ją modyfikować bezpośrednio. Odpowiedź dlaczego znajdziesz w następnym podrozdziale.
+Zauważ, że w metodzie `handleClick` używamy `.slice()` do stworzenia kopii tablicy `squares`, zamiast ją modyfikować bezpośrednio. W następnym podrozdziale dowiesz się dlaczego.
 
 ### Dlaczego niezmienność jest istotna {#why-immutability-is-important}
 
-W poprzednim przykładzie zasugerowaliśmy użycie metody `.slice()` do stworzenia kopii tablicy `squares`, zamiast ją bezpośrednio modyfikować. Omówimy teraz niezmienność (ang. *immutability*) oraz powód, dla którego warto ją znać.
+W poprzednim przykładzie zasugerowaliśmy użycie metody `.slice()` do stworzenia kopii tablicy `squares`, zamiast ją bezpośrednio modyfikować. Omówimy teraz bardzo ważne zagadnienie, jakim jest niezmienność (ang. *immutability*).
 
 Ogólnie rzecz biorąc, istnieją dwa sposoby na zmianę danych. Pierwszym z nich jest *mutowanie* (ang. *mutate*) danych poprzez bezpośrednią zmianę ich wartości. Drugim sposobem jest zastąpienie danych ich nową kopią, zawierającą wszystkie potrzebne zmiany.
 
@@ -1017,7 +1017,7 @@ const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Przy pomocy metody `map` możemy przekształcić historię ruchów w listę elementów reactowych reprezentujących przyciski na ekranie, a następnie wyświetlić tę listę na ekranie, by umożliwić "przeskakiwanie" między ruchami.
+Przy pomocy metody `map` możemy przekształcić historię ruchów w listę elementów reactowych reprezentujących przyciski na ekranie, a następnie wyświetlić tę listę, aby umożliwić "przeskakiwanie" między ruchami.
 
 Użyjmy zatem `map` na tablicy `history` wewnątrz metody `render` komponentu `Board`:
 
@@ -1076,7 +1076,7 @@ Ustalmy, co oznacza powyższe ostrzeżenie.
 
 ### Wybieranie odpowiedniego klucza {#picking-a-key}
 
-Gdy renderujemy listę, React zapamiętuje pewne informacje o każdym z wyrenderowanych jej elementów. Kiedy zaktualizujemy listę, React musi wiedzieć, jak określić, które z elementów uległy zmianie. Moglibyśmy przecież dodać, usunąć, przesunąć lub zmienić zawartość dowolnego z elementów listy.
+Gdy renderujemy listę, React zapamiętuje pewne informacje o każdym z jej wyrenderowanych elementów. Kiedy zaktualizujemy listę, React musi wiedzieć, jak określić, które z elementów uległy zmianie. Moglibyśmy przecież dodać, usunąć, przesunąć lub zmienić zawartość dowolnego z elementów listy.
 
 Wyobraź sobie, że taka lista:
 
@@ -1093,13 +1093,13 @@ zmieniłaby się w taką:
 <li>Alicja: pozostało 5 zadań</li>
 ```
 
-Człowiek byłby z łatwością w stanie zauważyć, że oprócz zmiany wartości liczbowych, zamieniliśmy miejscami Alicję z Bartkiem, a także "wcisnęliśmy" Czarka pomiędzy nich. Niestety React jest tylko programem komputerowym i nie zna naszych intencji. Z tego powodu musimy jawnie określić atrybut *key* dla każdego z elementów listy, który wyróżnia go spośród sąsiednich elementów. Jedną z możliwych wartości mógłby być ciąg znaków, np. `alicja`, `bartek`, `czarek`. Gdyby te dane pochodziły z bazy danych, każda z powyższych osób miałaby zapewne przyporządkowany unikalny identyfikator, którego można by użyć jako klucza.
+Człowiek czytający tę listę może z łatwością zauważyć, że oprócz zmiany wartości liczbowych, zamieniliśmy miejscami Alicję z Bartkiem, a także "wcisnęliśmy" Czarka pomiędzy nich. Niestety React jest tylko programem komputerowym i nie zna naszych intencji. Z tego powodu musimy jawnie określić atrybut *key* dla każdego z elementów listy, który wyróżnia go spośród sąsiednich elementów. Jedną z możliwych wartości mógłby być ciąg znaków, np. `alicja`, `bartek`, `czarek`. Gdyby te dane pochodziły z bazy danych, każda z powyższych osób miałaby zapewne przyporządkowany unikalny identyfikator, którego można by użyć jako klucza.
 
 ```html
 <li key={user.id}>{user.name}: pozostało {user.taskCount} zadań</li>
 ```
 
-Gdy lista jest ponownie renderowana, React odczytuje wartość klucza każdego z elementów i wyszukuje po niej odpowiadające elementy na poprzedniej liście. Jeśli nowa lista zawiera klucz, którego wcześniej nie było, element jest tworzony. Jeśli na nowej liście nie ma klucza, który był poprzednio, element jest usuwany. Jeśli uda się dopasować klucze na obydwóch listach, odpowiadający im element jest odpowiednio przesuwany. Klucze informują Reacta o tożsamości każdego z elementów, co pozwala na zarządzanie stanem pomiędzy kolejnymi renderowaniami. Jeśli klucz elementu się zmieni, React usunie ten element i stworzy go na nowo - z nową wartością klucza i nowym stanem.
+Gdy lista jest ponownie renderowana, React odczytuje wartość klucza każdego z elementów i wyszukuje po niej odpowiadające elementy na poprzedniej liście. Jeśli nowa lista zawiera klucz, którego wcześniej na niej nie było, element jest tworzony. Jeśli na nowej liście nie ma klucza, który był na niej poprzednio, element jest usuwany. Jeśli uda się dopasować klucze na obydwóch listach, odpowiadający im element jest odpowiednio przesuwany. Klucze informują Reacta o tożsamości każdego z elementów, co pozwala na zarządzanie stanem pomiędzy kolejnymi renderowaniami. Jeśli klucz elementu się zmieni, React usunie ten element i stworzy go na nowo - z nową wartością klucza i nowym stanem.
 
 `key` jest w Reakcie specjalną i zarezerwowaną właściwością (tak jak `ref` - bardziej zaawansowana funkcjonalność). W momencie gdy element jest tworzony po raz pierwszy, React odczytuje wartość jego atrybutu `key` i zachowuje ją bezpośrednio w renderowanym elemencie. Mimo iż `key` wygląda jak jeden z atrybutów, nie można go odczytać z `this.props.key`. React używa właściwości `key` automatycznie, aby zdecydować, które komponenty wymagają aktualizacji. Zaś sam komponent nie jest w stanie odczytać wartości własnego `key`.
 
