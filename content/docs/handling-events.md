@@ -91,11 +91,7 @@ ReactDOM.render(
 );
 ```
 
-<<<<<<< HEAD
-[**Przetestuj kod na CodePen**](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
 Należy zwrócić szczególną uwagę na znaczenie `this` funkcjach zwrotnych (ang. *callbacks*) używanych w JSX. W JavaScripcie metody klasy nie są domyślnie [dowiązane](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/Funkcje_strzalkowe) do instancji. Jeśli zapomnisz dowiązać metodę `this.handleClick` i przekażesz ją jako atrybut `onClick`, to `this` przy wywołaniu będzie miało wartość `undefined`.
 
