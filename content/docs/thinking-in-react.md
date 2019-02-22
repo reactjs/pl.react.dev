@@ -61,7 +61,7 @@ Teraz kiedy już określiliśmy, które z elementów projektu graficznego mają 
 
 ## Krok 2: Zbuduj wersję statyczną w Reakcie {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Zobacz kod dla podrozdziału<a href="https://codepen.io/gaearon/pen/BwWzwm">Myślenie reactowe: Krok 2"</a> na <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Zobacz kod dla podrozdziału <a href="https://codepen.io/gaearon/pen/BwWzwm">"Myślenie reactowe: Krok 2"</a> na <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Skoro wiemy już, jak wygląda hierarchia naszych komponentów, możemy zacząć ją wdrażać. Budowę aplikacji najłatwiej jest zacząć od od wersji statycznej, tzn. takiej która wyrenderuje interfejs użytkownika na podstawie naszego modelu danych, ale nie będzie zawierała żadnych elementów interaktywnych. Dobrze jest rozdzielić te procesy, ponieważ budowa wersji statycznej wymaga więcej pisania niż myślenia, podczas gdy dodawanie interaktywności wymaga więcej myślenia niż pisania. Za chwilę zobaczysz dlaczego.
@@ -105,7 +105,7 @@ Zatem ostatecznie nasz stan przestawia się następująco:
 
 ## Krok 4: Określ, gdzie powinien się mieścić stan {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Zobacz kod dla podrozdziału<a href="https://codepen.io/gaearon/pen/qPrNQZ">"Myślenie reactowe: Krok 4"</a> na <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Zobacz kod dla podrozdziału <a href="https://codepen.io/gaearon/pen/qPrNQZ">"Myślenie reactowe: Krok 4"</a> na <a href="https://codepen.io">CodePen</a>.</p>
 
 Mamy zatem określony minimalny zestaw danych stanu aplikacji. Teraz musimy określić, który z naszych komponentów ulega zmianom, czyli do którego komponentu *należy* stan.
 
@@ -130,7 +130,7 @@ Teraz widać już, jak będzię działała nasza aplikacja: ustawiamy `filterTex
 
 ## Krok 5: Dodaj przepływ danych w drugą stronę {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Zobacz kod dla podrozdziału<a href="https://codepen.io/gaearon/pen/LzWZvb">"Myślenie reactowe: Krok 5"</a> na <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Myślenie reactowe: Krok 5" class="codepen">Zobacz kod dla podrozdziału<a href="https://codepen.io/gaearon/pen/LzWZvb">"Myślenie reactowe: Krok 5"</a> na <a href="https://codepen.io">CodePen</a>.</p>
 
 Jak dotąd zbudowaliśmy aplikację, która poprawnie wyświetla informacje dostarczone przez atrybuty i stan spływające w dół hierarchii komponentów. Nadszedł czas aby umożliwić przepływ danych w przeciwnym kierunku: komponenty formularza głęboko wewnątrz hierarchii muszą mieć możliwość aktualizowania stanu `FilterableProductTable`
 
