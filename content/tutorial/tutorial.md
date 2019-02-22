@@ -16,7 +16,7 @@ Ten samouczek nie zakłada jakiejkolwiek znajomości Reacta.
 
 ## Zanim zaczniemy się uczyć {#before-we-start-the-tutorial}
 
-W tym samouczku skupimy się na stworzeniu niewielkiej gry. **Być może po tym zdaniu zechcesz go pominąć, bo nie zajmujesz się pisaniem gier - ale mimo wszystko daj mu szansę**. Techniki, których nauczysz się w tym poradniku są fundamentami do zbudowania *dowolnej* aplikacji w Reakcie, a zrozumienie ich zapewni Ci dogłębne poznanie tematu.
+W tym samouczku skupimy się na stworzeniu niewielkiej gry. **Być może po tym zdaniu zechcesz go pominąć, bo nie zajmujesz się pisaniem gier - ale mimo wszystko daj mu szansę**. Techniki, których nauczysz się w tym poradniku są fundamentami do zbudowania *dowolnej* aplikacji w Reakcie, a zrozumienie ich zapewni ci dogłębne poznanie tematu.
 
 >Uwaga
 >
@@ -31,13 +31,13 @@ Samouczek podzieliliśmy na kilka części:
 
 Nie musisz wcale przechodzić przez wszystkie części samouczka naraz, żeby wynieść z niego cokolwiek. Spróbuj jednak dojść najdalej jak możesz - nawet jeśli będą to tylko dwa rozdziały.
 
-W trakcie wykonywania poleceń możesz kopiować kod do edytora, ale zalecamy pisać go samodzielnie. Pozwoli Ci to wyrobić pamięć mięśniową i lepiej zrozumieć temat.
+W trakcie wykonywania poleceń możesz kopiować kod do edytora, ale zalecamy pisać go samodzielnie. Pozwoli ci to wyrobić pamięć mięśniową i lepiej zrozumieć temat.
 
 ### Co będziemy budować? {#what-are-we-building}
 
 W tym samouczku pokażemy, jak przy pomocy Reacta zbudować interaktywną grę w "kółko i krzyżyk".
 
-Na koniec nasz kod będzie wyglądał tak: **[Efekt końcowy](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Być może w tej chwili kod wygląda bez sensu albo nie rozumiesz jego składni, ale bez obaw! Celem tego samouczka jest właśnie pomóc Ci zrozumieć Reacta i jego składnię.
+Na koniec nasz kod będzie wyglądał tak: **[Efekt końcowy](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Być może w tej chwili kod wygląda bez sensu albo nie rozumiesz jego składni, ale bez obaw! Celem tego samouczka jest właśnie pomóc ci zrozumieć Reacta i jego składnię.
 
 Przed dalszą lekturą radzimy uruchomić grę w "kółko i krzyżyk". Jedną z funkcjonalności, znajdującą się na prawo od planszy, jest numerowana lista. Służy ona do wyświetlania historii wszystkich ruchów, jakie wykonano podczas rozgrywki, i jest aktualizowana na bieżąco w trakcie gry.
 
@@ -120,7 +120,7 @@ Zalecamy wykonanie [tych instrukcji](https://babeljs.io/docs/editors/). Pozwoli 
 
 ### Pomocy, nie wiem, co robić! {#help-im-stuck}
 
-Jeśli w którymś momencie się zgubisz, przejrzyj [listę źródeł wsparcia od społeczności](/community/support.html). Zwłaszcza [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) jest znany z szybkiego udzielania pomocy. Jeśli mimo wszystko nie otrzymasz odpowiedzi lub nadal masz z czymś problem, zgłoś nam to, a spróbujemy Ci jakoś pomóc.
+Jeśli w którymś momencie się zgubisz, przejrzyj [listę źródeł wsparcia od społeczności](/community/support.html). Zwłaszcza [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) jest znany z szybkiego udzielania pomocy. Jeśli mimo wszystko nie otrzymasz odpowiedzi lub nadal masz z czymś problem, zgłoś nam to, a spróbujemy ci jakoś pomóc.
 
 ## Przegląd {#overview}
 
@@ -166,7 +166,7 @@ return React.createElement('div', {className: 'shopping-list'},
 
 [Zobacz pełną wersję kodu](babel://tutorial-expanded-version)
 
-Jeśli ciekawość nie daje Ci spokoju, opis funkcji `createElement()` znajdziesz w [dokumentacji API](/docs/react-api.html#createelement), aczkolwiek w tym samouczku nie będziemy jej używać. Zamiast tego skorzystamy ze składni JSX.
+Jeśli ciekawość nie daje ci spokoju, opis funkcji `createElement()` znajdziesz w [dokumentacji API](/docs/react-api.html#createelement), aczkolwiek w tym samouczku nie będziemy jej używać. Zamiast tego skorzystamy ze składni JSX.
 
 Składnia JSX ma pełną moc JavaScriptu. Między klamry można wstawić *dowolny* kod javascriptowy. Każdy element reactowy jest obiektem, który można przypisać do zmiennej i przekazywać dowolnie w swoim programie.
 
@@ -223,7 +223,7 @@ Po zmianie: W każdym wyrenderowanym polu powinien wyświetlać się kolejny num
 
 **[Zobacz dotychczasowy kod](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Gratulacje! Właśnie udało Ci się "przekazać atrybut" z komponentu nadrzędnego `Board` do komponentu potomnego `Square`. Przekazywanie atrybutów to jeden ze sposobów na przepływ danych między rodzicem a komponentem potomnym w drzewie.
+Gratulacje! Właśnie udało ci się "przekazać atrybut" z komponentu nadrzędnego `Board` do komponentu potomnego `Square`. Przekazywanie atrybutów to jeden ze sposobów na przepływ danych między rodzicem a komponentem potomnym w drzewie.
 
 ### Tworzenie interaktywnego komponentu {#making-an-interactive-component}
 
@@ -352,7 +352,7 @@ Zbudowaliśmy solidne fundamenty pod grę w "kółko i krzyżyk". Zostało nam j
 
 W obecnej wersji aplikacji każdy z komponentów `Square` decyduje o własnym stanie. Jednak do rozstrzygnięcia gry potrzebny nam będzie jeden wspólny stan, przechowujący wartości dla wszystkich 9 pól na planszy.
 
-Być może przeszło Ci przez myśl, że to komponent `Board` powinien "pytać" każdy z komponentów `Square` o jego stan. Nawet jeśli jest to możliwe w Reakcie, odradzamy takiego podejścia, ponieważ kod stanie się wtedy bardziej zagmatwany, podatny na błędy i trudny w utrzymaniu. Zamiast tego należy przenieść stan całej planszy do komponentu nadrzędnego - `Board`. Komponent ten, poprzez atrybuty, będzie mówił każdemu z komponentów `Square`, co mają wyrenderować - podobnie jak w jednym z poprzednich podrozdziałów, gdzie [przekazywaliśmy kolejne numery do komponentów `Square`](#passing-data-through-props).
+Być może przeszło ci przez myśl, że to komponent `Board` powinien "pytać" każdy z komponentów `Square` o jego stan. Nawet jeśli jest to możliwe w Reakcie, odradzamy takiego podejścia, ponieważ kod stanie się wtedy bardziej zagmatwany, podatny na błędy i trudny w utrzymaniu. Zamiast tego należy przenieść stan całej planszy do komponentu nadrzędnego - `Board`. Komponent ten, poprzez atrybuty, będzie mówił każdemu z komponentów `Square`, co mają wyrenderować - podobnie jak w jednym z poprzednich podrozdziałów, gdzie [przekazywaliśmy kolejne numery do komponentów `Square`](#passing-data-through-props).
 
 **Aby móc zebrać dane z wielu komponentów potomnych lub umożliwić dwóm potomkom komunikowanie się ze sobą, należy zadeklarować ich wspólny stan w rodzicu. Taki rodzic może wtedy przekazać poszczególne wartości potomkom poprzez atrybuty; dzięki temu potomkowie będą zsynchronizowani zarówno ze sobą nawzajem, jak i z rodzicem.**
 
@@ -1105,7 +1105,7 @@ Gdy lista jest ponownie renderowana, React odczytuje wartość klucza każdego z
 
 **Zalecamy przypisywanie odpowiednich kluczy do każdej tworzonej listy dynamicznej**. Jeśli nie masz do dyspozycji wartości, która nadawałaby się na klucz, zastanów się, czy nie możesz lepiej ustrukturyzować danych.
 
-Jeśli nie podasz klucza, React wyświetli ostrzeżenie w konsoli i domyślnie użyje indeksu elementu. Używanie indeksu jako klucza może przysporzyć Ci kłopotów, gdy zechcesz zmienić kolejność lub dodać/usunąć elementy do listy. Jawne przekazanie `key={i}` "uciszy" ostrzeżenie, jednak problem nadal będzie występował. Takie podejście nie jest zalecane w większości przypadków.
+Jeśli nie podasz klucza, React wyświetli ostrzeżenie w konsoli i domyślnie użyje indeksu elementu. Używanie indeksu jako klucza może przysporzyć ci kłopotów, gdy zechcesz zmienić kolejność lub dodać/usunąć elementy do listy. Jawne przekazanie `key={i}` "uciszy" ostrzeżenie, jednak problem nadal będzie występował. Takie podejście nie jest zalecane w większości przypadków.
 
 Klucze nie muszą być unikalne globalnie; wystarczy, że będą unikalne w ramach danej listy.
 
@@ -1209,7 +1209,7 @@ Teraz jeśli klikniemy na którymkolwiek elemencie listy ruchów, plansza powinn
 
 ### Podsumowanie {#wrapping-up}
 
-Gratulacje! Udało Ci się stworzyć grę w "kółko i krzyżyk", która:
+Gratulacje! Udało ci się stworzyć grę w "kółko i krzyżyk", która:
 
 * umożliwia granie w "kółko i krzyżyk",
 * informuje, gdy któryś z graczy wygra,
@@ -1220,7 +1220,7 @@ Dobra robota! Mamy nadzieję, że czujesz już większą swobodę w pisaniu apli
 
 Sprawdź, jak na koniec powinien wyglądać kod: **[Efekt końcowy](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-Jeśli masz jeszcze trochę wolnego czasu i chcesz poćwiczyć Reacta, mamy dla Ciebie kilka pomysłów na udoskonalenia gry w "kółko i krzyżyk" (w kolejności od najłatwiejszego do najtrudniejszego):
+Jeśli masz jeszcze trochę wolnego czasu i chcesz poćwiczyć Reacta, mamy dla ciebie kilka pomysłów na udoskonalenia gry w "kółko i krzyżyk" (w kolejności od najłatwiejszego do najtrudniejszego):
 
 1. Wyświetl w historii współrzędne dla każdego z ruchów w formacie (kolumna, wiersz).
 2. Zastosuj pogrubienie na aktualnie wyświetlanym elemencie listy ruchów.
