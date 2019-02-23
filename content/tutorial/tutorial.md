@@ -31,7 +31,7 @@ Samouczek podzieliliśmy na kilka części:
 
 Nie musisz wcale przechodzić przez wszystkie części samouczka naraz, żeby wynieść z niego cokolwiek. Spróbuj jednak dojść najdalej jak możesz - nawet jeśli będą to tylko dwa rozdziały.
 
-W trakcie wykonywania poleceń możesz kopiować kod do edytora, ale zalecamy pisać go samodzielnie. Pozwoli ci to wyrobić pamięć mięśniową i lepiej zrozumieć temat.
+W trakcie wykonywania poleceń możesz kopiować kod do edytora, ale zalecamy pisanie go samodzielnie. Pozwoli ci to bardziej skupić się na poszczególnych zagadnieniach, dzięki czemu lepiej je sobie przyswoisz i zrozumiesz.
 
 ### Co będziemy budować? {#what-are-we-building}
 
@@ -39,7 +39,7 @@ W tym samouczku pokażemy, jak przy pomocy Reacta zbudować interaktywną grę w
 
 Na koniec nasz kod będzie wyglądał tak: **[Efekt końcowy](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Być może w tej chwili kod wygląda bez sensu albo nie rozumiesz jego składni, ale bez obaw! Celem tego samouczka jest właśnie pomóc ci zrozumieć Reacta i jego składnię.
 
-Przed dalszą lekturą radzimy uruchomić grę w "kółko i krzyżyk". Jedną z funkcjonalności, znajdującą się na prawo od planszy, jest numerowana lista. Służy ona do wyświetlania historii wszystkich ruchów, jakie wykonano podczas rozgrywki, i jest aktualizowana na bieżąco w trakcie gry.
+Zanim przystąpisz do dalszej lektury, zachęcamy cię do uruchomienia gry w "kółko i krzyżyk". Zwróć uwagę, że jedną z funkcjonalności tej aplikacji jest, znajdująca się na prawo od planszy, numerowana lista. Wyświetla ona na bieżąco wszystkie wykonywane w danej rozgrywce ruchy.
 
 Gdy już zapoznasz się z grą, możesz ją wyłączyć. Naukę rozpoczniemy od prostego szablonu. Naszym następnym krokiem będzie konfiguracja środowiska, aby nadawało się do stworzenia gry.
 
@@ -71,7 +71,7 @@ Ten sposób pracy z naszym samouczkiem jest całkowicie opcjonalny i nie jest ko
 
 <summary><b>Opcjonalne: Instrukcje na temat pisania kodu w wybranym przez siebie edytorze tekstu</b></summary>
 
-Ta konfiguracja wymaga więcej wysiłku, lecz pozwala na ukończenie samouczka przy użyciu wybranego przez siebie edytora. W tym celu:
+Ta konfiguracja wymaga więcej wysiłku, lecz pozwala na ukończenie samouczka przy użyciu dowolnego edytora. W tym celu:
 
 1. Sprawdź, czy masz najnowszą wersję [Node.js](https://nodejs.org/en/).
 2. Wykonaj [instrukcje instalacji "Create React App"](/docs/create-a-new-react-app.html#create-react-app), aby zainicjalizować projekt.
