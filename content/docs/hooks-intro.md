@@ -27,7 +27,7 @@ function Example() {
 
 Funkcja `useState` jest pierwszym "Hookiem", o którym będziemy się uczyć. Przykład ten jest jednak zaledwie zwiastunem. Nie przejmuj się, jeżeli nie ma to jeszcze większego sensu!
 
-**Możesz rozpocząć naukę o Hookach [na następnej stronie](/docs/hooks-overview.html).** Tutaj wyjaśnimy dlaczego dodaliśmy Hooki do Reacta i w jaki sposób pomogą ci one w pisaniu wspaniałych aplikacji.
+**[W kolejnym rozdziale](/docs/hooks-overview.html) możesz rozpocząć naukę o Hookach.** Tutaj wyjaśnimy, dlaczego dodaliśmy Hooki do Reacta i w jaki sposób pomogą ci one w pisaniu wspaniałych aplikacji.
 
 >Notka
 >
@@ -35,7 +35,7 @@ Funkcja `useState` jest pierwszym "Hookiem", o którym będziemy się uczyć. Pr
 
 ## Wprowadzenie wideo {#video-introduction}
 
-Podczas React Conf 2018 Sophie Alpert i Dan Abramov zaprezentowali Hooki. Następnie Ryan Florence zademenstrował, jak przepisać (@todo refactor?) aplikację, by móc ich używać. Zobacz wideo tutaj:
+Podczas React Conf 2018 Sophie Alpert i Dan Abramov zaprezentowali po raz pierwszy Hooki. Następnie Ryan Florence zademonstrował, jak przepisać (@todo refactor?) aplikację, by móc ich używać. Zobacz wideo tutaj:
 
 <br>
 
@@ -43,17 +43,17 @@ Podczas React Conf 2018 Sophie Alpert i Dan Abramov zaprezentowali Hooki. Nastę
 
 ## No Breaking Changes {#no-breaking-changes} (@todo)
 
-Zanim zaczniemy, zauważ że Hooki są:
+Zanim przejdziemy dalej, zauważ że Hooki są:
 
-* **Stosowane całkowicie wedle własnego uznania (@todo opt-in?).** Możesz zacząć używać Hooków w kilku komponentach, bez przepisywania istniejącego kodu. Jeżeli jednak nie masz ochoty, nie musisz ich jeszcze stosować, ani uczyć się o nich. 
+* **Stosowane całkowicie wedle własnego uznania.** Możesz wypróbować Hooki w kilku komponentach, bez przepisywania istniejącego kodu. Jeżeli jednak nie masz ochoty, nie musisz ich jeszcze stosować, ani uczyć się o nich.
 * **100% wstecznie kompatybilne.** Hooki nie zawierają żadnych zmian, które mogłyby zepsuć istniejący kod.
 * **Dostępne już teraz.** Hooki są dostępne wraz z wersją v16.8.0.
 
-**Nie ma planów, na usunięcie klas z Reacta.**. Możesz przeczytać o strategii stopniowego wdrażania Hooków w [kolejnym podrozdziale](#gradual-adoption-strategy) tej strony.
+**Nie ma planów na usunięcie klas z Reacta.**. Możesz przeczytać o strategii stopniowego wdrażania Hooków w [kolejnym podrozdziale](#gradual-adoption-strategy) tej strony.
 
-**Hooki nie zastępują twojej wiedzy na temat Reacta.** Zamiast tego wprowadzają bardziej bezpośredni interfejs API dla konceptów Reacta, które już znasz: atrybutów, stanu, kontekstu, refów (@todo refs?) i cyklu życia (ang. lifecycle). Jak pokażemy dalej, Hooki pozwalają też na łączenie ich w nowy, niezwykle skuteczny sposób.
+**Hooki nie zastępują twojej wiedzy na temat Reacta.** Zamiast tego wprowadzają bardziej bezpośredni interfejs API dla koncepcji Reacta, które już znasz: właściwości (ang. *props*), stanu, kontekstu, refów i cyklu życia (ang. *lifecycle*). Jak pokażemy dalej, Hooki pozwalają też na łączenie ich w nowy, niezwykle skuteczny sposób.
 
-**Jeżeli chcesz rozpocząć naukę o Hookach, [przejdź od razu do następnej strony!](/docs/hooks-overview.html)** Możesz też kontyunować lekturę tej strony, aby dowiedzieć się, dlaczego dodaliśmy Hooki, a także, jak będziemy ich używać, bez potrzeby przepisywania naszych aplikacji.
+**Jeżeli chcesz rozpocząć naukę o Hookach, [przejdź od razu do kolejnego rozdziału!](/docs/hooks-overview.html)** Możesz też kontyunować lekturę tego, aby dowiedzieć się, dlaczego dodaliśmy Hooki, a także, jak będziemy ich używać, bez potrzeby przepisywania naszych aplikacji.
 
 ## Motywacja {#motivation}
 
@@ -61,17 +61,15 @@ Hooki rozwiązują wiele pozornie niepowiązanych ze sobą problemów Reacta, na
 
 ### Ponowne użycie stanowej logiki pomiędzy komponentami jest trudne {#its-hard-to-reuse-stateful-logic-between-components} (@todo)
 
-React nie oferuje sposobu na "dołączenie" powtarzalnego zachowania do komponentu (na przykład, połączenie go z magazynem (ang. *store*)). Jeżeli pracujesz z Reactem już jakiś czas, najprawdopodobniej znasz wzorce, takie jak [właściwość render (ang. *render props*)](/docs/render-props.html) i [komponenty wyższego rzędu (ang. *higher-order components*)](/docs/higher-order-components.html), które próbują rozwiązać ten problem. Wzorce te wymagają jednak  modyfikacji komponentów, w momencie ich użycia, co może być niewygodne i powodować, że kod jest trudniejszy w odbiorze. Jeśli spojrzysz na typową aplikację napisaną w Reakcie, w React DevToolsach, najprawdopodobniej ujrzysz tam "piekło" komponentów opakowujących (ang. *wrapper component*), otoczonych warstwami dostawców (ang. *providers*), konsumentów (ang. *consumers*), komponentów wyższego rzędu, właściwości render i innych abstrakcji. Moglibyśmy, co prawda, [filtrować je w DevToolsach](https://github.com/facebook/react-devtools/pull/503), ale to tylko wskazuje na głębszy problem: React potrzebuje lepszego mechanizmu do współdzielenia stanowej logiki.
+React nie oferuje sposobu na "dołączenie" powtarzalnego zachowania do komponentu (na przykład, połączenie go z magazynem (ang. *store*)). Jeżeli pracujesz z Reactem już jakiś czas, najprawdopodobniej znasz wzorce, takie jak [właściwość render (ang. *render props*)](/docs/render-props.html) i [komponenty wyższego rzędu (ang. *higher-order components*)](/docs/higher-order-components.html), które próbują rozwiązać ten problem. Wzorce te wymagają jednak  modyfikacji komponentów, w momencie ich użycia, co może być niewygodne i powodować, że kod jest trudniejszy w odbiorze. Jeśli spojrzysz na typową aplikację napisaną w Reakcie, w React DevToolsach, najprawdopodobniej ujrzysz tam "piekło" komponentów opakowujących (ang. *wrapper component*), otoczonych warstwami dostawców (ang. *providers*), konsumentów (ang. *consumers*), komponentów wyższego rzędu, właściwości render i innych abstrakcji. Moglibyśmy, co prawda, [filtrować je w DevToolsach](https://github.com/facebook/react-devtools/pull/503), ale to tylko wskazuje na głębszy problem: React potrzebuje lepszego podstawowego mechanizmu do współdzielenia stanowej logiki.
 
-Dzięki Hookom, możesz wydzielić stanową logikę z kompnentu, dzięki czemu może być on niezależnie testowany, a także wieloktrotnie używany. **Hooki pozwalają na ponowne użycie stanowej logiki, bez konieczności zmiany hierarchi komponentów.** Sprawia to, że dzielenie się Hookami pomiędzy wieloma komponentami lub ze społecznością jest proste.
+Korzystając z Hooków, możesz wydzielić stanową logikę z komponentu, dzięki czemu może być on niezależnie testowany, a także wielokrotnie używany. **Hooki pozwalają na ponowne użycie stanowej logiki, bez konieczności zmiany hierarchi komponentów.** Sprawia to, że dzielenie się Hookami pomiędzy wieloma komponentami lub ze społecznością jest proste.
 
 Omówimy ten temat szerzej w rozdziale [Tworzenie własnych Hooków](/docs/hooks-custom.html).
 
 ### Złożone komponenty stają się trudne do zrozumienia {#complex-components-become-hard-to-understand}
 
-Często musieliśmy utrzymywać kompoonenty, które z początku proste, urosły do rangi nieutrzymywalnego bałaganu stanowej logiki i efektów ubocznych (ang. *side effects*).
-
-Każda metoda cyklu życia zawiera zwykle mieszankę niepowiązanej ze sobą logiki. Na przykład, komponenty mogą pobierać dane w `componentDidMount` i `componentDidUpdate`. Jednakże metoda `componentDidMount` może także zawierać logikę, która tworzy słuchaczy zdarzeń, a następnie są oni czyszczeni w `componentWillUnmount`. Wzajemnie powiązany kod, który zmienia się razem zostaje podzielony, a zupełnie niepowiązany kod trafia do jednej metody. Otwiera to zbyt wielkie możliwości, na wprowadzenie błędów i niekonsekwencji.
+Często musieliśmy utrzymywać kompoonenty, które z początku proste, urosły do rangi nieutrzymywalnego bałaganu stanowej logiki i efektów ubocznych (ang. *side effects*). Każda metoda cyklu życia zawiera zwykle mieszankę niepowiązanej ze sobą logiki. Na przykład, komponenty mogą pobierać dane w `componentDidMount` i `componentDidUpdate`. Jednakże metoda `componentDidMount` może także zawierać logikę, która tworzy słuchaczy zdarzeń, a następnie są oni czyszczeni w `componentWillUnmount`. Wzajemnie powiązany kod, który zmienia się razem zostaje podzielony, a zupełnie niepowiązany kod trafia do jednej metody. Otwiera to zbyt wielkie możliwości, na wprowadzenie błędów i niekonsekwencji.
 
 Wielokrotnie zdarza się, że nie ma możliwości rozbicia tych kompoonentów na mniejsze części, ponieważ stanowa logika jest już wszędzie. Trudno jest też je testować. Jest to jeden z powodów, dla któych wielu woli połączyć Reacta z zewnętrzną biblioteką do zarządzania stanem. To jednak często wprowadza zbyt wiele abstrakcji, co zmusza do skakania pomiędzy plikami i utrudnia ponowne użycie komponentów.
 
@@ -94,7 +92,7 @@ Aby rozwiązać te problemy, **Hooki pozwalają na korzystanie z większej liczb
 
 ## Strategia Stopniowego Wdrażania {#gradual-adoption-strategy}
 
->**TLDR: Nie planów na usunięcie klas z Reacta.**
+>**TLDR: Nie ma planów na usunięcie klas z Reacta.**
 
 Zdajemy sobie sprawę, że programiści Reacta są skupieni na dostarczaniu produktów i nie mają czasu przyglądać się każdemu nowemu interfejsowi API, który jest wypuszczany. Hooki są wielką nowością i być może lepiej będzie zaczekać na więcej przykładów i poradników, zanim rozważysz ich naukę lub wdrożenie.
 
