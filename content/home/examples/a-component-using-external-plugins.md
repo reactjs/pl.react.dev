@@ -1,5 +1,5 @@
 ---
-title: Komponent korzystający z zewnętrznej biblioteki
+title: Korzystanie z zewnętrznej biblioteki
 order: 3
 domid: markdown-example
 ---
