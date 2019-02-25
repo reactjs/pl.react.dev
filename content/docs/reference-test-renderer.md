@@ -15,9 +15,9 @@ const TestRenderer = require('react-test-renderer'); // ES5 z zainstalowanym npm
 
 ## Ogólne informacje {#overview}
 
-Paczka ta udostępnia narzędzie dla Reacta, który renderuje komponenty reactowe do czysto javascriptowych obiektów, bez użycia drzewa DOM czy natywnego środowiska mobilnego.
+Paczka ta udostępnia narzędzie, które renderuje komponenty reactowe do czysto javascriptowych obiektów, bez użycia drzewa DOM czy natywnego środowiska mobilnego.
 
-Istotą tej paczki jest łatwość wygenerowania snapshota hierarchii widoków (podobnej do drzewa DOM), wyrenderowanej przez komponent z React DOM lub React Native bez pomocy przeglądarki czy [jsdom](https://github.com/tmpvar/jsdom).
+Istotą tej paczki jest łatwość wygenerowania "migawki" (ang. *snapshot*) hierarchii widoków (podobnej do drzewa DOM), wyrenderowanej przez komponent z React DOM lub React Native bez pomocy przeglądarki czy [jsdom](https://github.com/tmpvar/jsdom).
 
 Przykład:
 
@@ -38,7 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-Przy pomocy funkcjonalności biblioteki Jest do generowania snapshotów można automatycznie zapisać do pliku kopię drzewa w formacie JSON i sprawdzać w teście, czy się ono nie zmieniło [(Więcej informacji na ten temat)](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
+Przy pomocy funkcjonalności biblioteki Jest do generowania snapshotów można automatycznie zapisać do pliku kopię drzewa w formacie JSON, a w teście sprawdzać, czy się ono nie zmieniło [(Więcej informacji na ten temat)](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
 
 Zwrócone drzewo można również przeszukiwać w celu znalezienia konkretnych węzłów i sprawdzenia ich właściwości.
 
@@ -102,7 +102,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Potomek'
 TestRenderer.create(element, options);
 ```
 
-Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. Nie korzysta z prawdziwego drzewa DOM, lecz renderuje całe drzewo komponentów do pamięci, aby można było wykonać na nim sprawdzenia. Zwracana instancja posiada następujące metody i właściwości:
+Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. Nie korzysta z prawdziwego drzewa DOM, lecz renderuje całe drzewo komponentów do pamięci, aby można było wykonać na nim asercje. Zwracana instancja posiada następujące metody i właściwości:
 
 ### `testRenderer.toJSON()` {#testrenderertojson}
 
@@ -150,7 +150,7 @@ Zwraca instancję korzenia drzewa, jeśli takowy istnieje. Nie zadziała, jeśli
 testRenderer.root
 ```
 
-Zwraca "instancję testową" korzenia drzewa. Przydatne do wykonywania sprawdzeń na poszczególnych węzłach drzewa, a także do wyszukiwania innych "instancji testowych" w poddrzewach.
+Zwraca "instancję testową" korzenia drzewa. Przydatne do wykonywania asercji na poszczególnych węzłach drzewa, a także do wyszukiwania innych "instancji testowych" w poddrzewach.
 
 ### `testInstance.find()` {#testinstancefind}
 
