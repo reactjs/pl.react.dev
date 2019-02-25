@@ -133,7 +133,7 @@ class Home extends Component {
                         fontSize: 30,
                       },
                     }}>
-                    biblioteka javascriptowa do tworzenia interfejsów użytkownika
+                    Biblioteka javascriptowa do tworzenia interfejsów użytkownika
                   </p>
                   <Flex
                     valign="center"
@@ -153,7 +153,7 @@ class Home extends Component {
                     </CtaItem>
                     <CtaItem>
                       <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                        Przejdź samouczek
+                        Przejdź do samouczka
                       </ButtonLink>
                     </CtaItem>
                   </Flex>
@@ -290,7 +290,7 @@ class Home extends Component {
                 </CtaItem>
                 <CtaItem>
                   <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                    Przejdź samouczek
+                    Przejdź do samouczka
                   </ButtonLink>
                 </CtaItem>
               </Flex>
