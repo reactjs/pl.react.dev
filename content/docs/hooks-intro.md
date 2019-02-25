@@ -35,13 +35,13 @@ Funkcja `useState` jest pierwszym "Hookiem", o którym będziemy się uczyć. Pr
 
 ## Wprowadzenie wideo {#video-introduction}
 
-Podczas React Conf 2018 Sophie Alpert i Dan Abramov zaprezentowali po raz pierwszy Hooki. Następnie Ryan Florence zademonstrował, jak przepisać (@todo refactor?) aplikację, by móc ich używać. Zobacz wideo tutaj:
+Podczas React Conf 2018 Sophie Alpert i Dan Abramov zaprezentowali po raz pierwszy Hooki. Następnie Ryan Florence zademonstrował, jak przepisać swoją aplikację, by móc ich używać. Zobacz wideo tutaj:
 
 <br>
 
 <iframe width="650" height="366" src="//www.youtube.com/embed/dpw9EHDh2bM" frameborder="0" allowfullscreen></iframe>
 
-## No Breaking Changes {#no-breaking-changes} (@todo)
+## Bez krytycznych zmian {#no-breaking-changes}
 
 Zanim przejdziemy dalej, zauważ że Hooki są:
 
