@@ -182,7 +182,7 @@ Gratulacje! Właśnie dodałeś do swojego projektu **gotowa konfiguracje JSX**.
 
 ### Uruchom preprocesor JSX {#run-jsx-preprocessor}
 
-Utwórz folder o nazwie 'src' i uruchom polecenie w terminalu:
+Utwórz folder o nazwie `src` i uruchom polecenie w terminalu:
 
 '''
 npx babel --watch src --out-dir . --presets react-app/prod
