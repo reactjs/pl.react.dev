@@ -48,7 +48,7 @@ Przypisaliśmy temu znacznikowi `<div>` unikalny atrybut `id`. Pozwoli nam to na
 
 ### Krok 2: Dodaj znaczniki `<script>` {#step-2-add-the-script-tags}
 
-Następnie, dodaj trzy znaczniki '<script>' do strony internetowej tuż przed zamykającym znacznikiem '</body>':
+Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykającym znacznikiem `</body>`:
 
 '''html{5,6,9}
 <!-- ... pozostały kod HTML ... -->
