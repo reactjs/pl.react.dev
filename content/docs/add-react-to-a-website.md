@@ -58,7 +58,7 @@ Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykający
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-<!-- Załaduj nasz komponent React. -->
+<!-- Załaduj nasz komponent reactowy. -->
 <script src="like_button.js"></script>
 
 </body>
