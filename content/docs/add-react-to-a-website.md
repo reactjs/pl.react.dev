@@ -190,7 +190,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 
 >Notatka
 >
->'npx' nie jest literówka -- jest to [narzędzie do uruchamiania pakietów dostępne w npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>`npx` to nie literówka -- jest to [narzędzie do uruchamiania pakietów, dostępne w npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 >
 >Jeśli zobaczysz komunikat o błędzie "Błędnie zainstalowałeś pakiet 'babel'", mogłeś pominąć [poprzedni krok](#add-jsx-to-a-project). Wykonaj go w tym samym folderze, i spróbuj ponownie.
 
