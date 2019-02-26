@@ -66,7 +66,7 @@ Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykający
 
 Pierwsze dwa znaczniki wczytają Reacta. Trzeci załaduje kod twojego komponentu.
 
-### Krok 3: Stwórz komponent Reacta {#step-3-create-a-react-component}
+### Krok 3: Stwórz komponent reactowy {#step-3-create-a-react-component}
 
 Stwórz plik 'like_button.js' w folderze swojej strony.
 
