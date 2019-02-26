@@ -16,7 +16,7 @@ Poniżej przedstawiamy kilka popularnych zestawów narzędziowych używanych w R
 * stosowanie dodatkowych bibliotek dostępnych w npm;
 * wczesne wykrywanie często popełnianych błędów;
 * ciągła, edycja CSS i JS w trakcie tworzenia aplikacji bez konieczności odświeżania strony w przeglądarce;
-* optymalizacja napisanego kodu przed wdrożeniem go do środowiska produkcyjnego.
+* optymalizacja zbudowanego kodu przed wdrożeniem go do środowiska produkcyjnego.
 
 Zestawy narzędziowe, które tutaj podajemy, umożliwiają szybkie rozpoczęcie pracy nad aplikacją i **nie wymagają żadnej wstępnej konfiguracji**
 
