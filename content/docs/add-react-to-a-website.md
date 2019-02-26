@@ -39,7 +39,7 @@ Najpierw otwórz stronę internetową, którą chcesz edytować. Dodaj pusty zna
 <!-- ... istniejący kod HTML ... -->
 '''
 
-Przypisaliśmy temu znacznikowi '<div>' unikalny atrybut 'id'. Pozwoli nam to na późniejsze odnalezienie kodu korzystając z JavaScript oraz na wyświetlenie w nim komponentu React.
+Przypisaliśmy temu znacznikowi `<div>` unikalny atrybut `id`. Pozwoli nam to na późniejsze odnalezienie kodu za pomocą JavaScripta oraz na wyświetlenie w nim komponentu reactowego.
 
 
 >Wskazówka
