@@ -194,7 +194,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 >
 >Jeśli zobaczysz komunikat o błędzie "Błędnie zainstalowałeś pakiet 'babel'", mogłeś pominąć [poprzedni krok](#add-jsx-to-a-project). Wykonaj go w tym samym folderze, i spróbuj ponownie.
 
-Nie czekaj na jego zakończenie -- to polecenie uruchamia automatyczne śledzenie dla JSX.
+Nie czekaj na jego zakończenie -- to polecenie uruchamia skrypt automatycznie śledzący zmiany w kodzie ze składnią JSX.
 
 Jeśli utworzysz teraz plik o nazwie 'src/like_button.js' wraz z **[przykładowym kodem JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, obserwator utworzy przeprocesowany plik 'like_button.js' z kodem JavaScript odpowiednim dla przeglądarki. Gdy edytujesz plik źródłowy, korzystając z JSX, transformacja zostanie ponownie automatycznie uruchomiona.
 
