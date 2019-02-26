@@ -50,7 +50,7 @@ Przypisaliśmy temu znacznikowi `<div>` unikalny atrybut `id`. Pozwoli nam to na
 
 Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykającym znacznikiem `</body>`:
 
-'''html{5,6,9}
+```html{5,6,9}
 <!-- ... pozostały kod HTML ... -->
 
 <!-- Załaduj React. -->
