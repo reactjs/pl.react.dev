@@ -200,4 +200,4 @@ Jeśli utworzysz teraz plik o nazwie 'src/like_button.js' wraz z **[przykładowy
 
 Dodatkowo umożliwi to również korzystanie z nowych składni JavaScript, takich jak klasy, bez obawy o brak kompatybilności ze starszymi przeglądarkami. Narzędzie, które właśnie użyliśmy, nazywa się Babel, i możesz dowiedzieć się więcej na jego temat z [dokumentacji](http://babeljs.io/docs/en/babel-cli/).
 
-Jeśli zauważyłeś, że czujesz się komfortowo z narzędziami do kompilacji i chcesz by robiły dla Ciebie więcej, [następna sekcja](/docs/create-a-new-react-app.html) opisuje niektóre z najbardziej popularnych i przystępnych narzędzi. Jeżeli nie -- znaczniki script będą wystarczające.
+Jeśli uważasz, że czujesz się już komfortowo z narzędziami do kompilacji i chcesz, by robiły za ciebie więcej, zajrzyj do [następnego rozdziału](/docs/create-a-new-react-app.html), w którym opisaliśmy niektóre z najbardziej popularnych i przystępnych narzędzi. Jeżeli nie -- cóż, znaczniki `script` też wystarczą!
