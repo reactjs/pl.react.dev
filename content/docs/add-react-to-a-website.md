@@ -79,7 +79,7 @@ Otwórz **[szablon startowy](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b
 Pod kodem z **[szablonu startowego](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** w pliku `like_button.js` dodaj dwie linijki:
 
 ```js{3,4}
-// ... przykładowy kod, który wkleiłeś ...
+// ... wklejony kod startowy ...
 
 const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
