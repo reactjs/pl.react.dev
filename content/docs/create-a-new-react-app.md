@@ -16,7 +16,7 @@ Poniżej przedstawiamy kilka popularnych zestawów narzędziowych używanych w R
 * stosowanie dodatkowych bibliotek dostępnych w npm;
 * wczesne wykrywanie często popełnianych błędów;
 * ciągła, edycja CSS i JS w trakcie tworzenia aplikacji bez konieczności odświeżania strony w przeglądarce;
-* optymalizacja kodu przed wdrożeniem go do środowiska produkcyjnego.
+* optymalizacja napisanego kodu przed wdrożeniem go do środowiska produkcyjnego.
 
 Zestawy narzędziowe, które tutaj podajemy, umożliwiają szybkie rozpoczęcie pracy nad aplikacją i **nie wymagają żadnej wstępnej konfiguracji**
 
@@ -33,7 +33,7 @@ Zespół Reacta rekomenduje następujące rozwiązania:
 - Jeśli **uczysz się Reacta** lub jeśli **tworzysz nową aplikację [jednostronicową](/docs/glossary.html#single-page-application),** skorzystaj z [Create React App](#create-react-app).
 - Jeśli tworzysz **stronę internetową renderowaną na serwerze z użyciem Node.js,** spróbuj zastosować [Next.js](#nextjs).
 - Jeśli tworzysz **stronę statyczną, która ma głównie wyświetlać określone treści,** spróbuj zastosować [Gatsby](#gatsby).
-- Jeśli tworzysz **bibliotekę kompnentów** lub **dokonujesz integracji z istniejącą bazą kodu,** spróbuj zastosować [bardziej elastyczne zestawy narzędziowe](#more-flexible-toolchains).
+- Jeśli tworzysz **bibliotekę komponentów** lub **dokonujesz integracji z istniejącą bazą kodu,** spróbuj zastosować [bardziej elastyczne zestawy narzędziowe](#more-flexible-toolchains).
 
 
 ### Create React App {#create-react-app}
@@ -77,7 +77,7 @@ Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają wi
 
 - **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, [doskonale współgrającym z Reactem]](https://parceljs.org/recipes.html#react).
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** jest frameworkiem umożliwiającym renderowanie po stronie serwera niewymagającym konfigurowania, ale dającym większy wybór niż Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** jest frameworkiem umożliwiającym renderowanie po stronie serwera bez konieczności konfiguracji, ale zarazem dającym większy wybór niż Next.js.
 
 ## Tworzenie zestawu narzędziowego od podstaw {#creating-a-toolchain-from-scratch}
 
