@@ -29,7 +29,7 @@ Opcjonalnie: [Pobierz cały przykład (2KB po kompresji)](https://gist.github.co
 
 ### Krok 1: Dodaj kontener do HTML {#step-1-add-a-dom-container-to-the-html}
 
-Najpierw otwórz stronę internetowa, która chcesz edytować. Dodaj pusty znacznik '<div>' aby zaznaczyć miejsce w którym chcesz wyświetlić coś za pomocą przycisku React. Na przykład:
+Najpierw otwórz stronę internetową, którą chcesz edytować. Dodaj pusty znacznik `<div>`, aby określić miejsce, w którym React będzie wyświetlał treść. Na przykład:
 
 '''html{3}
 <!-- ... istniejący kod HTML ... -->
