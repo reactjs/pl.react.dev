@@ -89,7 +89,7 @@ Te dwie linijki kodu znajda znacznik '<div>' który dodaliśmy do naszego kodu H
 
 ### To wszystko! {#thats-it}
 
-Nie ma kroku czwartego. **Właśnie dodałeś pierwszy komponent Reacta do swojej strony.**
+Nie ma kroku czwartego. **Właśnie udało ci się dodać do strony pierwszy komponent reactowy.**
 
 Zapoznaj się z następnymi sekcjami, aby uzyskać więcej podpowiedzi na temat integracji w React.
 
