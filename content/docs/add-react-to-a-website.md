@@ -10,7 +10,7 @@ next: create-a-new-react-app.html
 
 Użyj tak mało lub tak dużo Reacta ile potrzebujesz.
 
-Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb. Być może, jedyne co chcesz to dodać trochę interaktywności do istniejącej strony. Komponenty React są świetne do zrobienia tego.
+Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb. Być może chcesz jedynie dodać trochę interaktywności do istniejącej strony. Komponenty reactowe świetnie się do tego nadają.
 
 Większość stron internetowych nie jest i nie musi być aplikacjami jednostronowymi. Z **kilkoma liniami kodu i bez narzędzi kompilacji**, wypróbuj React w małej części Twojej strony. Następnie możesz stopniowo zwiększać jego wykorzystanie lub przechowywać w kilku dynamicznych widżetach.
 
