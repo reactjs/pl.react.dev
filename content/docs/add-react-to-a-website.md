@@ -76,7 +76,7 @@ Otwórz **[przykładowy kod](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b
 >
 >Ten kod definiuje komponent Reakta nazwany 'LikeButton'. Nie przejmuj sie, jeżeli jeszcze tego nie rozumiesz -- wyjaśnimy bloki konstrukcyjne React później w naszym [praktycznym tutorialu](/tutorial/tutorial.html) i [w głównych koncepcjach](/docs/hello-world.html). Na razie pokażmy to na ekranie!
 
-Po **[przykładowym kodzie](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, dodaj dwie linijki na na końcu 'like_button.js':
+Pod kodem z **[szablonu startowego](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** w pliku `like_button.js` dodaj dwie linijki:
 
 '''js{3,4}
 // ... przykładowy kod, który wkleiłeś ...
