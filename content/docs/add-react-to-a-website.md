@@ -64,7 +64,7 @@ Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykający
 </body>
 '''
 
-Pierwsze dwa znaczniki wczytują Reacta. Trzeci załaduje kod Twojego komponentu.
+Pierwsze dwa znaczniki wczytają Reacta. Trzeci załaduje kod twojego komponentu.
 
 ### Krok 3: Stwórz komponent Reacta {#step-3-create-a-react-component}
 
