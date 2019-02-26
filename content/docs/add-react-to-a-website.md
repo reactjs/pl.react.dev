@@ -21,7 +21,7 @@ Większość stron internetowych nie jest i nie musi być aplikacjami jednostro
 
 ## Dodaj Reacta w minutę {#add-react-in-one-minute}
 
-W tej sekcji pokażemy jak dodać komponent Reakta do strony internetowej. Możesz to zrobić korzystając z własnej strony internetowej lub stwórz nową pustą stronę.
+W tej sekcji pokażemy, jak dodać komponent reactowy do strony internetowej. Możesz to zrobić korzystając z własnej strony internetowej lub stworzyć nowy plik HTML.
 
 Nie będziemy instalowali żadnych zależności ani korzystali ze skomplikowanych narzędzi -- **aby ukończyć ten rozdział, będziesz potrzebować jedynie połączenia internetowego i minuty wolnego czasu.**
 
