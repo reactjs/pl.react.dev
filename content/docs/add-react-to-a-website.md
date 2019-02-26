@@ -68,7 +68,7 @@ Pierwsze dwa znaczniki wczytają Reacta. Trzeci załaduje kod twojego komponentu
 
 ### Krok 3: Stwórz komponent reactowy {#step-3-create-a-react-component}
 
-Stwórz plik 'like_button.js' w folderze swojej strony.
+Stwórz plik `like_button.js` w folderze, obok pliku HTML ze stroną.
 
 Otwórz **[przykładowy kod](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** i wklej jego zawartość do pliku, który stworzyłeś.
 
