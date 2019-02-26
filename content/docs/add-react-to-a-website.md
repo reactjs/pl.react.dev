@@ -19,7 +19,7 @@ Większość stron internetowych nie jest i nie musi być aplikacjami jednostro
 - [Dodaj React w minutę](#add-react-in-one-minute)
 - [Opcjonalnie: Wypróbuj React z JSX](#optional-try-react-with-jsx) (bundler nie jest wymagany!)
 
-## Dodaj React w minutę {#add-react-in-one-minute}
+## Dodaj Reacta w minutę {#add-react-in-one-minute}
 
 W tej sekcji pokażemy jak dodać komponent Reakta do strony internetowej. Możesz to zrobić korzystając z własnej strony internetowej lub stwórz nową pustą stronę.
 
