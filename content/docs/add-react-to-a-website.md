@@ -31,7 +31,7 @@ Opcjonalnie: [Pobierz cały przykład (2KB po kompresji)](https://gist.github.co
 
 Najpierw otwórz stronę internetową, którą chcesz edytować. Dodaj pusty znacznik `<div>`, aby określić miejsce, w którym React będzie wyświetlał treść. Na przykład:
 
-'''html{3}
+```html{3}
 <!-- ... istniejący kod HTML ... -->
 
 <div id="like_button_container"></div>
