@@ -25,7 +25,7 @@ W tej sekcji pokażemy jak dodać komponent Reakta do strony internetowej. Może
 
 Nie będziemy korzystali z żadnych skomplikowanych narzędzi lub wymagań instalacyjnych -- **aby ukończyć tę sekcję, jedyne czego potrzebujesz to połączenie internetowe i minuta wolnego czasu.**
 
-Opcjonalnie: [Pobierz cały przykład (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
+Opcjonalnie: [Pobierz cały przykład (2KB po kompresji)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
 
 ### Krok 1: Dodaj kontener do HTML {#step-1-add-a-dom-container-to-the-html}
 
