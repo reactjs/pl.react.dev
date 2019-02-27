@@ -90,7 +90,7 @@ Te dwie linijki kodu znajda znacznik '<div>' który dodaliśmy do naszego kodu H
 
 Nie ma kroku czwartego. **Właśnie udało ci się dodać do strony pierwszy komponent reactowy.**
 
-Zapoznaj się z następnymi sekcjami, aby uzyskać więcej podpowiedzi na temat integracji w React.
+Zapoznaj się z następnymi rozdziałami, aby uzyskać więcej informacji na temat integrowania strony z Reactem.
 
 **[Zobacz przykładowy kod źródłowy](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
 
