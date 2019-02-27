@@ -8,7 +8,7 @@ prev: hooks-intro.html
 
 *Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-Hooki są [kompatybilne wstecznie](/docs/hooks-intro.html#no-breaking-changes). Ten rozdział zawiera przegląd wiedzy o Hookach i przeznaczony jest dla doświadczonych użytkowników Reacta. Szybki przegląd. Jeżeli poczujesz się zagubiony, szukaj żółtych ramek, takich jak ta poniżej:
+Hooki są [kompatybilne wstecznie](/docs/hooks-intro.html#no-breaking-changes). Ten rozdział zawiera przegląd wiedzy o Hookach i przeznaczony jest dla doświadczonych użytkowników Reacta. Naprawdę szybki przegląd. Jeżeli poczujesz się zagubiony, szukaj żółtych ramek, takich jak ta poniżej:
 
 
 >Szczegółowe objaśnienia
@@ -30,7 +30,7 @@ function Example() {
 
   return (
     <div>
-      <p>Kliknąłeś {count} razy</p>
+      <p>Nacisnąłeś {count} razy</p>
       <button onClick={() => setCount(count + 1)}>
         Naciśnij mnie
       </button>
@@ -86,12 +86,12 @@ function Example() {
   // Podobnie jak componentDidMount i componentDidUpdate:
   useEffect(() => {
     // Zaktualizuj tytuł dokumentu, korzystając z interfejsu API przeglądarki
-    document.title = `Kliknąłeś ${count} razy`;
+    document.title = `Nacisnąłeś ${count} razy`;
   });
 
   return (
     <div>
-      <p>Kliknąłeś {count} razy</p>
+      <p>Nacisnąłeś {count} razy</p>
       <button onClick={() => setCount(count + 1)}>
         Naciśnij mnie
       </button>
@@ -137,7 +137,7 @@ Podobnie jak z `useState`, możesz użyć więcej niż jednego efektu w swoim ko
 function FriendStatusWithCounter(props) {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    document.title = `Kliknąłeś ${count} razy`;
+    document.title = `Nacisnąłeś ${count} razy`;
   });
 
   const [isOnline, setIsOnline] = useState(null);
@@ -160,20 +160,20 @@ Hooki pozwalają ci organizować kod wewnątrz komponentu, bazując na powiązan
 >
 >Możesz dowiedzieć się więcej o `useEffect` w rozdiale: ["Używanie Hooka Efektu"](/docs/hooks-effect.html).
 
-## ✌️ Rules of Hooks {#rules-of-hooks}
+## ✌️ Zasady korzystania z Hooków {#rules-of-hooks}
 
-Hooks are JavaScript functions, but they impose two additional rules:
+Hooki są funkcjami JavaScriptowmi, ale narzucają dwie dodatkowe zasady:
 
-* Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
-* Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions. (There is just one other valid place to call Hooks -- your own custom Hooks. We'll learn about them in a moment.)
+* Wywołuj Hooki tylko **z najwyższego poziomu kodu**. Nie wywołuj Hooków z wewnątrz pętli, warunków czy zagnieżdzonych funkcji
+* Wywołuj Hooki tylko **z wewnątrz reactowych komponentów funkcyjnych**. Nie wywołuj Hooków z wewnątrz zwykłych JavaScriptowych funkcji. (Jest jeszcze tylko jedno miejsce, z którego możesz wywoływać Hooki -- twoje własne Hooki. Za chwilę dowiemy się więcej.)
 
-We provide a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to enforce these rules automatically. We understand these rules might seem limiting or confusing at first, but they are essential to making Hooks work well.
+Zapewniliśmy [wtyczkę do lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks), która automatycznie wymusza te zasady. Rozumiemy, że zasady te mogą z początku wydawać się ograniczające i zagmatwane, ale są one niezbędne żeby Hooki działały prawidłowo.
 
->Detailed Explanation
+>Szczegółowe objaśnienia
 >
->You can learn more about these rules on a dedicated page: [Rules of Hooks](/docs/hooks-rules.html).
+>Możesz dowiedzieć się więcej o tych zasadach w rozdziale: ["Zasady korzystania z Hooków"](/docs/hooks-rules.html).
 
-## 💡 Building Your Own Hooks {#building-your-own-hooks}
+## 💡 Tworzenie własnych Hooków {#building-your-own-hooks}
 
 Sometimes, we want to reuse some stateful logic between components. Traditionally, there were two popular solutions to this problem: [higher-order components](/docs/higher-order-components.html) and [render props](/docs/render-props.html). Custom Hooks let you do this, but without adding more components to your tree.
 
@@ -236,13 +236,13 @@ Custom Hooks are more of a convention than a feature. If a function's name start
 
 You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven't considered. We are excited to see what custom Hooks the React community will come up with.
 
->Detailed Explanation
+>Szczegółowe objaśnienia
 >
 >You can learn more about custom Hooks on a dedicated page: [Building Your Own Hooks](/docs/hooks-custom.html).
 
-## 🔌 Other Hooks {#other-hooks}
+## 🔌 Inne Hooki {#other-hooks}
 
-There are a few less commonly used built-in Hooks that you might find useful. For example, [`useContext`](/docs/hooks-reference.html#usecontext) lets you subscribe to React context without introducing nesting:
+Istnieje kilka mniej popularnych, wbudowanych Hooków, które mogą ci się spodobać. Na przykład [`useContext`](/docs/hooks-reference.html#usecontext) pozwala zasubskrybować się do zmian contextu, bez wprowadzania zagnieżdżania:
 
 ```js{2,3}
 function Example() {
@@ -252,7 +252,7 @@ function Example() {
 }
 ```
 
-And [`useReducer`](/docs/hooks-reference.html#usereducer) lets you manage local state of complex components with a reducer:
+Z kolei [`useReducer`](/docs/hooks-reference.html#usereducer) pozwala na zarządzanie lokalny stanem skomplikowanych komponentów przy użyciu reduktora (ang. *reducer*):
 
 ```js{2}
 function Todos() {
@@ -260,14 +260,14 @@ function Todos() {
   // ...
 ```
 
->Detailed Explanation
+>Szczegółowe objaśnienia
 >
->You can learn more about all the built-in Hooks on a dedicated page: [Hooks API Reference](/docs/hooks-reference.html).
+>Więcej informacji o wszystkich wbudowanych Hookach znajdziesz w rozdziale: ["Hooki - interfejs API"](/docs/hooks-reference.html).
 
-## Next Steps {#next-steps}
+## Kolejne kroki {#next-steps}
 
-Phew, that was fast! If some things didn't quite make sense or you'd like to learn more in detail, you can read the next pages, starting with the [State Hook](/docs/hooks-state.html) documentation.
+Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co przeczytałeś nie miału sensu albo chciałbyś po prostu dowiedzieć się więcej, możesz czytać kolejne rozdziały, zaczynając od ["Hook Stanu"](/docs/hooks-state.html).
 
-You can also check out the [Hooks API reference](/docs/hooks-reference.html) and the [Hooks FAQ](/docs/hooks-faq.html).
+Możesz też zerknąć na rozdziały ["Hooki - interfejs API"](/docs/hooks-reference.html) i ["Hooki - FAQ"](/docs/hooks-faq.html).
 
-Finally, don't miss the [introduction page](/docs/hooks-intro.html) which explains *why* we're adding Hooks and how we'll start using them side by side with classes -- without rewriting our apps.
+I na koniec, nie zapomnij o rozdziale ["Wprowadzenie do Hooków"](/docs/hooks-intro.html), w którym wyjaśniliśmy, dlaczego dodaliśmy Hooki i jak zacząć z nich korzystać równolegle z istniejącym kodem - bez przepisywania aplikacji.
