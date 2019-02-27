@@ -84,7 +84,7 @@ const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
 '''
 
-Te dwie linijki kodu znajda znacznik '<div>' który dodaliśmy do naszego kodu HTML w pierwszym kroku i wyświetla nasz przycisk "Like" jako komponent Reacta.
+Te dwie linijki kodu są odpowiedzialne za znalezienie naszego elementu `<div>` z pierwszego kroku i wyświetlenie przycisku `"Like"` pochodzącego z wklejonego komponentu.
 
 ### To wszystko! {#thats-it}
 
