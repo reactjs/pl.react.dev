@@ -174,7 +174,7 @@ Przejdź do folderu projektu i wklej dwie komendy:
 
 >Wskazówka
 >
->Korzystamy z **npm tylko do instalacji preprocesora JSX;** nie będziesz go potrzebował do niczego innego. Zarówno Rect, jak i kod aplikacji mogą pozostać bez zmian w znaczniku '<script>'
+>**Korzystamy tu z `npm` tylko do instalacji preprocesora JSX**; nie będzie on potrzebny do niczego innego. Zarówno React, jak i kod aplikacji mogą pozostać bez zmian w znacznikach `<script>`.```
 
 Gratulacje! Właśnie udało ci się dodać do swojego projektu **konfigurację JSX gotową do wdrożenia na środowisko produkcyjne**.
 
