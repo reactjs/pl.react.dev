@@ -149,7 +149,7 @@ Możesz wypróbować składnię JSX korzystając z [tego konwertera online](http
 
 ### Szybki test składni JSX {#quickly-try-jsx}
 
-Najszybszym sposobem na wyprobowanie JSX w Twoim projekcie jest dodanie znacznika '<script>' do strony:
+Najszybszym sposobem na wypróbowanie składni JSX w projekcie jest dodanie następującego znacznika `<script>` do strony:
 
 '''html
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
