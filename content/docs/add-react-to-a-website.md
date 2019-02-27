@@ -145,7 +145,7 @@ Lubię to!
 
 Te dwa fragmenty kodu są równoważne. Mimo iż **składnia JSX jest [całkowicie opcjonalna](/docs/react-without-jsx.html)**, wiele osób uważa, że jest pomocna przy pisaniu kodu dla UI -- zarówno w Reakcie, jak i z innymi bibliotekami.
 
-Możesz wypróbować JSX korzystając z [tego konwertera online](http://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
+Możesz wypróbować składnię JSX korzystając z [tego konwertera online](http://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
 
 ### Szybko wypróbuj JSX {#quickly-try-jsx}
 
