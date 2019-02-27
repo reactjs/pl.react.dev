@@ -61,7 +61,6 @@ Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykający
 <script src="like_button.js"></script>
 
 </body>
-'''
 
 Pierwsze dwa znaczniki wczytają Reacta. Trzeci załaduje kod twojego komponentu.
 
