@@ -126,7 +126,7 @@ W przykładach powyżej opieramy się tylko na funkcjonalnościach, które są n
 ```js
 const e = React.createElement;
 
-// Wyświetl "Like" <button>
+// Wyświetla przycisk "Lubię to!"
 return e(
 'button',
 { onClick: () => this.setState({ liked: true }) },
