@@ -153,7 +153,6 @@ Najszybszym sposobem na wypróbowanie składni JSX w projekcie jest dodanie nast
 
 ```html
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-'''
 
 Od teraz możesz używać składni JSX wewnątrz dowolnego znacznika `<script>`, który zaopatrzony jest w atrybut `type="text/babel"`. Tutaj jest [przykład pliku HTML z JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), który możesz pobrać i wypróbować.
 
