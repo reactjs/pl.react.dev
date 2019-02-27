@@ -294,7 +294,7 @@ class Square extends React.Component {
 Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby po kliknięciu wyświetlał wartość aktualnego stanu:
 
 * zamień `this.props.value` na `this.state.value` wewnątrz znacznika `<button>`,
-* zamień uchwyt zdarzenia `() => alert()` na `() => this.setState({value: 'X'})`,
+* zamień procedurę obsługi zdarzenia `() => alert()` na `() => this.setState({value: 'X'})`,
 * umieść atrybuty `className` i `onClick` w osobnych liniach dla lepszej czytelności kodu.
 
 Po wprowadzeniu powyższych zmian, element `<button>`, zwracany przez komponent `Square`, powinien wyglądać następująco:
@@ -321,7 +321,7 @@ class Square extends React.Component {
 }
 ```
 
-Wywołując `this.setState` z wnętrza uchwytu dla zdarzenia `onClick` w metodzie `render`, mówimy Reactowi, aby po każdym kliknięciu ponownie renderował element `<button>`. Po aktualizacji, wartość zmiennej `this.state.value` będzie równa `"X"`, dlatego też `X` zostanie wyświetlone na planszy. Kliknięcie na dowolne pole powinno spowodować wyświetlenie w nim litery "X".
+Wywołując `this.setState` z wnętrza procedury obsługi zdarzenia `onClick` w metodzie `render`, mówimy Reactowi, aby po każdym kliknięciu ponownie renderował element `<button>`. Po aktualizacji, wartość zmiennej `this.state.value` będzie równa `"X"`, dlatego też `X` zostanie wyświetlone na planszy. Kliknięcie na dowolne pole powinno spowodować wyświetlenie w nim litery "X".
 
 Gdy w komponencie wywołujesz `setState`, React automatycznie aktualizuje również wszystkie komponenty znajdujące się poniżej w hierarchii.
 
@@ -475,14 +475,14 @@ class Square extends React.Component {
 Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczona przez komponent `Board`. Dzieje się to dlatego, że:
 
 1. Atrybut `onClick` wbudowanego komponentu DOM `<button>` informuje Reacta, żeby zaczął nasłuchiwać kliknięć użytkownika.
-2. Gdy użytkownik kliknie na przycisk, React wywoła uchwyt zdarzenia `onClick` zdefiniowany w metodzie `render()` komponentu `Square`.
-3. Uchwyt ten wywoła funkcję `this.props.onClick()`, czyli atrybut przekazany przez komponent `Board`.
+2. Gdy użytkownik kliknie na przycisk, React wywoła procedurę obsługi zdarzenia `onClick` zdefiniowaną w metodzie `render()` komponentu `Square`.
+3. Procedura ta wywoła funkcję `this.props.onClick()`, czyli atrybut przekazany przez komponent `Board`.
 4. Ponieważ komponent `Board` przekazał swojemu potomkowi atrybut `onClick={() => this.handleClick(i)}`, kliknięcie w `Square` spowoduje w konsekwencji wywołanie `this.handleClick(i)` wewnątrz komponentu `Board`.
 5. Nie zdefiniowaliśmy jeszcze metody `handleClick()`, dlatego aplikacja w tym momencie przestanie działać.
 
 >Uwaga
 >
->Atrybut `onClick` elementu DOM `<button>` ma dla Reacta specjalne znaczenie, ponieważ jest to wbudowany komponent. W przypadku własny komponentów, jak `Square`, nazwa tego atrybutu może być dowolna. Moglibyśmy nazwać inaczej zarówno atrybut `onClick` w `Square`, jak i `handleClick` w `Board`. Przyjęło się jednak określać atrybuty odpowiedzialne za wywołanie zdarzenia jako `on[Event]`, a uchwyty obsługujące zdarzenia jako `handle[Event]`.
+>Atrybut `onClick` elementu DOM `<button>` ma dla Reacta specjalne znaczenie, ponieważ jest to wbudowany komponent. W przypadku własny komponentów, jak `Square`, nazwa tego atrybutu może być dowolna. Moglibyśmy nazwać inaczej zarówno atrybut `onClick` w `Square`, jak i `handleClick` w `Board`. Przyjęło się jednak określać atrybuty odpowiedzialne za wywołanie zdarzenia jako `on[Event]`, a procedury obsługi zdarzeń jako `handle[Event]`.
 
 Jeśli teraz klikniemy na polę planszy, otrzymamy błąd, ponieważ nie zdefiniowaliśmy jeszcze metody `handleClick`. Dodajmy ją zatem:
 

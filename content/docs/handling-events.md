@@ -11,7 +11,7 @@ redirect_from:
 Obsługa zdarzeń w Reakcie jest bardzo podobna do tej z drzewa DOM. Istnieje jednak kilka różnic w składni:
 
 * Zdarzenia reactowe pisane są camelCasem, a nie małymi literami.
-* W JSX jako uchwyt przekazywana jest funkcja, a nie łańcuch znaków.
+* W JSX procedura obsługi zdarzenia przekazywana jest jako funkcja, a nie łańcuch znaków.
 
 Na przykład, poniższy kod HTML:
 
@@ -58,7 +58,7 @@ Zmienna `e` to zdarzenie syntetyczne (ang. *synthetic event*). React tworzy zdar
 
 W kodzie reactowym nie ma potrzeby dodawania obserwatora zdarzenia (ang. *event listener*) do elementu DOM po jego utworzeniu, poprzez wywoływanie funkcji `addEventListener`. Zamiast tego, wystarczy przekazać go podczas pierwszego renderowania komponentu.
 
-Gdy komponent definiowany jest przy użyciu [klasy ze standardu ES6](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes), często definiuje się uchwyt zdarzenia jako metodę tej klasy. Na przykład, poniższy komponent `Toggle` wyświetli przycisk, który pozwala użytkownikowi przełączać się między stanami "WŁĄCZONY" i "WYŁĄCZONY":
+Gdy komponent definiowany jest przy użyciu [klasy ze standardu ES6](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes), często definiuje się procedurę obsługi zdarzenia jako metodę tej klasy. Na przykład, poniższy komponent `Toggle` wyświetli przycisk, który pozwala użytkownikowi przełączać się między stanami "WŁĄCZONY" i "WYŁĄCZONY":
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -140,9 +140,9 @@ class LoggingButton extends React.Component {
 
 Problem z taką składnią polega na tym, że za każdym razem, gdy `LoggingButton` jest renderowany, tworzona jest nowa funkcja. W większości przypadków nie ma to większego znaczenia. Jeśli jednak będzie przekazywana do komponentów osadzonych głębiej w strukturze, będzie niepotrzebnie powodowała ich ponowne renderowanie. Zalecamy więc korzystanie ze składni pól klasy lub wiązanie metod w konstruktorze, aby uniknąć tego typu problemów z wydajnością.
 
-## Przekazywanie argumentów do uchwytów zdarzeń {#passing-arguments-to-event-handlers}
+## Przekazywanie argumentów do procedur obsługi zdarzeń {#passing-arguments-to-event-handlers}
 
-Dość często, na przykład w pętli, potrzebujemy przekazać uchwytowi dodatkowy parametr. Na przykład, jeśli zmienna `id` zawierałaby identyfikator wiersza w tabeli, można by rozwiązać to na dwa sposoby:
+Dość często, na przykład w pętli, potrzebujemy przekazać do procedury obsługi zdarzenia dodatkowy parametr. Na przykład, jeśli zmienna `id` zawierałaby identyfikator wiersza w tabeli, można by rozwiązać to na dwa sposoby:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Usuń wiersz</button>
