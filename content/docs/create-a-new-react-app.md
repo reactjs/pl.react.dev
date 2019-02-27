@@ -49,6 +49,7 @@ npm start
 ```
 
 >Wskazówka
+
 > `npx` w pierwszej linijce powyżej to nie literówka, to [narzędzie uruchamiające pakiety zawarte w npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
 Create React App nie obsługuje ani logiki backendu ani baz danych; tworzy jedynie frontendowy potok budowania (ang. *build pipeline*). Dzięki temu możesz go używać z dowolnie wybranym przez siebie backendem. Create React App zawiera narzędzia takie jak [Babel](http://babeljs.io/) i [webpack](https://webpack.js.org/), ale nie musisz nic o nich wiedzieć, aby z powodzeniem używać ich w swoich projektach.
@@ -75,7 +76,7 @@ Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają wi
 
 - **[nwb](https://github.com/insin/nwb)** jest zalecany szczególnie do [publikowania komponentów reactowych na npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). Może też [być stosowany](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) do tworzenia aplikacji w Reakcie.
 
-- **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, [doskonale współgrającym z Reactem]](https://parceljs.org/recipes.html#react).
+- **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, [doskonale współgrającym z Reactem](https://parceljs.org/recipes.html#react).
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** jest frameworkiem umożliwiającym renderowanie po stronie serwera bez konieczności konfiguracji, ale zarazem dającym większy wybór niż Next.js.
 
