@@ -128,7 +128,7 @@ const e = React.createElement;
 
 // Wyświetla przycisk "Lubię to!"
 return e(
-'button',
+  'button',
 { onClick: () => this.setState({ liked: true }) },
 'Like'
 );
