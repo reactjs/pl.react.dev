@@ -156,7 +156,7 @@ Najszybszym sposobem na wypróbowanie składni JSX w projekcie jest dodanie nast
 
 Od teraz możesz używać składni JSX wewnątrz dowolnego znacznika `<script>`, który zaopatrzony jest w atrybut `type="text/babel"`. Tutaj jest [przykład pliku HTML z JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), który możesz pobrać i wypróbować.
 
-Takie podejście jest dobre do nauki i tworzenia projektów demo. Powoduje to jednak spowolnienie działania strony i **nie jest odpowiednie na środowisko produkcyjne**. Gdy będziesz gotowy, aby przejść dalej, usuń znacznik '<script>' i atrybut 'type="text/babel"' który dodałeś. Zamiast tego, w następnej sekcji skonfigurujesz preprocesor JSX, aby automatycznie konwertować wszystkie znaczniki '<script>'.
+Takie podejście jest dobre do nauki i tworzenia projektów na prezentacje. Powoduje to jednak spowolnienie działania strony i **nie jest odpowiednie dla środowiska produkcyjnego**. Kiedy już zdecydujesz, że możesz iść naprzód z materiałem, usuń ostatnio dodany znacznik `<script>` i atrybuty `type="text/babel"` z innych znaczników. W następnym podrozdziale skonfigurujemy preprocesor składni JSX, który będzie konwertował zawartość wszystkich znaczników `<script>` automatycznie.
 
 ### Dodaj JSX do projektu {#add-jsx-to-a-project}
 
