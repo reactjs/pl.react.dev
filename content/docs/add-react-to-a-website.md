@@ -132,7 +132,6 @@ return e(
   { onClick: () => this.setState({ liked: true }) },
   'Lubię to!'
 );
-'''
 
 Niemniej React oferuje również możliwość użycia składni [JSX](/docs/introducing-jsx.html):
 
