@@ -105,7 +105,7 @@ Często zdarza się, że komponent trzeba wyświetlić na stronie kilka razy. Ot
 
 >Wskazówka
 >
->Ta strategia jest szczegoólnie przydatna gdy części strony oparte na Reackcie sa od siebie odizolowane. Wewnatrz kodu React, łatwiej jest korzystać z [kompozycji komponentow](/docs/components-and-props.html#composing-components).
+>Ta strategia jest szczególnie przydatna, gdy części strony oparte na Reakcie są od siebie odizolowane. W kodzie reactowym łatwiej jest zamiast tego korzystać z [kompozycji komponentów](/docs/components-and-props.html#composing-components).
 
 ### Wskazówka: Minifikuj JavaScript dla środowiska produkcyjnego {#tip-minify-javascript-for-production}
 
