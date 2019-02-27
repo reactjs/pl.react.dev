@@ -96,7 +96,7 @@ Zapoznaj się z następnymi rozdziałami, aby uzyskać więcej informacji na tem
 
 **[Pobierz cały przykład (2KB po kompresji)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
 
-### Wskazówka: Wykorzystaj komponent ponownie {#tip-reuse-a-component}
+### Wskazówka: Korzystaj z komponentów wielokrotnie {#tip-reuse-a-component}
 
 Często możesz chcieć wyświetlić komponent Reacta w wielu miejscach na stronie. Oto przykład, który trzykrotnie wyświetla przycisk "Like" i przekazuje do niego dane:
 
