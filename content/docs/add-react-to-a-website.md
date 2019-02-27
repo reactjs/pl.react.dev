@@ -185,7 +185,6 @@ Utwórz folder o nazwie `src` i uruchom polecenie w terminalu:
 
 '''
 npx babel --watch src --out-dir . --presets react-app/prod
-'''
 
 >Uwaga
 >
