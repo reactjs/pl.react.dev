@@ -136,7 +136,7 @@ return e(
 Niemniej React oferuje również możliwość użycia składni [JSX](/docs/introducing-jsx.html):
 
 ```js
-// Wyświetl "Like" <button>
+// Wyświetla przycisk "Lubię to!"
 return (
 <button onClick={() => this.setState({ liked: true })}>
 Like
