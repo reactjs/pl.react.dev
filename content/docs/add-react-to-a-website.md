@@ -195,7 +195,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 
 Nie czekaj na jego zakończenie -- to polecenie uruchamia skrypt automatycznie śledzący zmiany w kodzie ze składnią JSX.
 
-Jeśli utworzysz teraz plik o nazwie 'src/like_button.js' wraz z **[przykładowym kodem JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, obserwator utworzy przeprocesowany plik 'like_button.js' z kodem JavaScript odpowiednim dla przeglądarki. Gdy edytujesz plik źródłowy, korzystając z JSX, transformacja zostanie ponownie automatycznie uruchomiona.
+Jeśli utworzysz teraz plik o nazwie `src/like_button.js` przy użyciu **[tego przykładowego kodu JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, obserwator (ang. *watcher*) utworzy przetworzony plik o nazwie `like_button.js` zawierający kod javascriptowy zrozumiały dla przeglądarki. Gdy wyedytujesz plik źródłowy z kodem JSX, transformacja zostanie ponownie uruchomiona automatycznie.
 
 Dodatkowo umożliwi to również korzystanie z nowych składni JavaScript, takich jak klasy, bez obawy o brak kompatybilności ze starszymi przeglądarkami. Narzędzie, które właśnie użyliśmy, nazywa się Babel, i możesz dowiedzieć się więcej na jego temat z [dokumentacji](http://babeljs.io/docs/en/babel-cli/).
 
