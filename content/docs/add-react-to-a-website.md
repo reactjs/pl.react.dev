@@ -94,7 +94,7 @@ Zapoznaj się z następnymi rozdziałami, aby uzyskać więcej informacji na tem
 
 **[Zobacz przykładowy kod źródłowy](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605)**
 
-**[Pobierz cały przykład (2KB zipped)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
+**[Pobierz cały przykład (2KB po kompresji)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
 
 ### Wskazówka: Wykorzystaj komponent ponownie {#tip-reuse-a-component}
 
