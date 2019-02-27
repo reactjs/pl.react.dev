@@ -138,7 +138,7 @@ Niemniej React oferuje również możliwość użycia składni [JSX](/docs/intro
 ```js
 // Wyświetla przycisk "Lubię to!"
 return (
-<button onClick={() => this.setState({ liked: true })}>
+  <button onClick={() => this.setState({ liked: true })}>
 Like
 </button>
 );
