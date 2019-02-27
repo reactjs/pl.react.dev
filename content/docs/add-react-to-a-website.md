@@ -147,7 +147,7 @@ Te dwa fragmenty kodu są równoważne. Mimo iż **składnia JSX jest [całkowic
 
 Możesz wypróbować składnię JSX korzystając z [tego konwertera online](http://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
 
-### Szybko wypróbuj JSX {#quickly-try-jsx}
+### Szybki test składni JSX {#quickly-try-jsx}
 
 Najszybszym sposobem na wyprobowanie JSX w Twoim projekcie jest dodanie znacznika '<script>' do strony:
 
