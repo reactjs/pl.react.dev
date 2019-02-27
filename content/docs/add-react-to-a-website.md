@@ -81,7 +81,6 @@ Pod kodem z **[szablonu startowego](https://cdn.rawgit.com/gaearon/0b180827c190f
 
 const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
-'''
 
 Te dwie linijki kodu są odpowiedzialne za znalezienie naszego elementu `<div>` z pierwszego kroku i wyświetlenie przycisku `"Like"` pochodzącego z wklejonego komponentu.
 
