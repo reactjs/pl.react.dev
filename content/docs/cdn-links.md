@@ -1,37 +1,37 @@
 ---
 id: cdn-links
-title: CDN Links
+title: Linki do CDN-ów
 permalink: docs/cdn-links.html
 prev: create-a-new-react-app.html
 next: hello-world.html
 ---
 
-Both React and ReactDOM are available over a CDN.
+Zarówno React, jak i ReactDOM są dostępne przez CDN.
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 ```
 
-The versions above are only meant for development, and are not suitable for production. Minified and optimized production versions of React are available at:
+Powyższe wersje przeznaczone są do uruchamiania na serwerach deweloperskich, nie nadają się natomiast na środowiska produkcyjne. Zminifikowane i zoptymalizowane wersje produkcyjne Reacta są dostępne pod adresem:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-To load a specific version of `react` and `react-dom`, replace `16` with the version number.
+Aby załadować określoną wersję paczki `react` i `react-dom`, zastąp "16" odpowiednim numerem wersji.
 
-### Why the `crossorigin` Attribute? {#why-the-crossorigin-attribute}
+### Dlaczego atrybut `crossorigin`? {#why-the-crossorigin-attribute}
 
-If you serve React from a CDN, we recommend to keep the [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) attribute set:
+Jeśli korzystasz z Reacta z CDN, sugerujemy dodać atrybut [`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) ustawiony na:
 
 ```html
 <script crossorigin src="..."></script>
 ```
 
-We also recommend to verify that the CDN you are using sets the `Access-Control-Allow-Origin: *` HTTP header:
+Zalecamy również sprawdzenie, czy CDN, z którego korzystasz, zwraca nagłówek HTTP `Access-Control-Allow-Origin: *`:
 
 ![Access-Control-Allow-Origin: *](../images/docs/cdn-cors-header.png)
 
-This enables a better [error handling experience](/blog/2017/07/26/error-handling-in-react-16.html) in React 16 and later.
+Umożliwia to lepszą [obsługę błędów](/blog/2017/07/26/error-handling-in-react-16.html) w Reakcie 16 i późniejszych wersjach.
