@@ -100,7 +100,7 @@ function Example() {
 }
 ```
 
-Kiedy wywołujesz funkcję `useEffect`, mówisz Reactowi, żeby uruchomił twój "efekt", gdy zakończy spłukiwanie (ang. *flush*) zmian do drzewa DOM. Efekty są zadeklarowane wewnątrz komponentu, więc mają dostęp do jego właściwości (ang. *props*) i stanu. Domyślnie React uruchomi wszystkie efekty po każdym renderowaniu -- *włącznie* z pierwszym. (Różnice między tym, a metodami cyklu życia komponentów klasowych omówimy w rozdziale [["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
+Kiedy wywołujesz funkcję `useEffect`, mówisz Reactowi, żeby uruchomił twój "efekt", gdy zakończy spłukiwanie (ang. *flush*) kolejki zmian do drzewa DOM. Efekty są zadeklarowane wewnątrz komponentu, więc mają dostęp do jego właściwości (ang. *props*) i stanu. Domyślnie React uruchomi wszystkie efekty po każdym renderowaniu -- *włącznie* z pierwszym. (Różnice między tym, a metodami cyklu życia komponentów klasowych omówimy w rozdziale [["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
 
 Efekty mogą też określać w jaki sposób należy po nich "posprzątać", poprzez zwrócenie funkcji. Na przykład, ten komponent używa efektu, aby zasubskrybować się do informacji o dostępności znajomego. A następnie sprząta po sobie, anulując subskrypcję.
 
