@@ -37,7 +37,6 @@ Najpierw otwórz stronę internetową, którą chcesz edytować. Dodaj pusty zna
 <div id="like_button_container"></div>
 
 <!-- ... istniejący kod HTML ... -->
-'''
 
 Przypisaliśmy temu znacznikowi `<div>` unikalny atrybut `id`. Pozwoli nam to na późniejsze odnalezienie kodu za pomocą JavaScripta oraz na wyświetlenie w nim komponentu reactowego.
 
