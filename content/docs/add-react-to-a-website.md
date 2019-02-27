@@ -142,7 +142,6 @@ return (
 Lubię to!
   </button>
 );
-'''
 
 Te dwa fragmenty kodu są równoważne. Ponieważ **JSX jest [całkowicie opcjonalny](/docs/react-without-jsx.html)**, wiele osób uważa, że jest to pomocne przy pisaniu kodu UI -- zarówno z React, jak i z innymi bibliotekami.
 
