@@ -16,9 +16,9 @@ function Example() {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Nacisnąłeś {count} razy</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Naciśnij mnie
       </button>
     </div>
   );
