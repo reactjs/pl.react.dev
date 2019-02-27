@@ -37,6 +37,7 @@ Najpierw otwórz stronę internetową, którą chcesz edytować. Dodaj pusty zna
 <div id="like_button_container"></div>
 
 <!-- ... istniejący kod HTML ... -->
+```
 
 Przypisaliśmy temu znacznikowi `<div>` unikalny atrybut `id`. Pozwoli nam to na późniejsze odnalezienie kodu za pomocą JavaScripta oraz na wyświetlenie w nim komponentu reactowego.
 
@@ -61,6 +62,7 @@ Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykający
 <script src="like_button.js"></script>
 
 </body>
+```
 
 Pierwsze dwa znaczniki wczytają Reacta. Trzeci załaduje kod twojego komponentu.
 
@@ -81,6 +83,7 @@ Pod kodem z **[szablonu startowego](https://cdn.rawgit.com/gaearon/0b180827c190f
 
 const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
+```
 
 Te dwie linijki kodu są odpowiedzialne za znalezienie naszego elementu `<div>` z pierwszego kroku i wyświetlenie przycisku `"Like"` pochodzącego z wklejonego komponentu.
 
@@ -132,6 +135,7 @@ return e(
   { onClick: () => this.setState({ liked: true }) },
   'Lubię to!'
 );
+```
 
 Niemniej React oferuje również możliwość użycia składni [JSX](/docs/introducing-jsx.html):
 
@@ -142,6 +146,7 @@ return (
 Lubię to!
   </button>
 );
+```
 
 Te dwa fragmenty kodu są równoważne. Mimo iż **składnia JSX jest [całkowicie opcjonalna](/docs/react-without-jsx.html)**, wiele osób uważa, że jest pomocna przy pisaniu kodu dla UI -- zarówno w Reakcie, jak i z innymi bibliotekami.
 
@@ -153,6 +158,7 @@ Najszybszym sposobem na wypróbowanie składni JSX w projekcie jest dodanie nast
 
 ```html
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+```
 
 Od teraz możesz używać składni JSX wewnątrz dowolnego znacznika `<script>`, który zaopatrzony jest w atrybut `type="text/babel"`. Tutaj jest [przykład pliku HTML z JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), który możesz pobrać i wypróbować.
 
@@ -169,7 +175,7 @@ Przejdź do folderu projektu i wywołaj dwie komendy:
 
 >Wskazówka
 >
->**Korzystamy tu z `npm` tylko do instalacji preprocesora JSX**; nie będzie on potrzebny do niczego innego. Zarówno React, jak i kod aplikacji mogą pozostać bez zmian w znacznikach `<script>`.```
+>**Korzystamy tu z `npm` tylko do instalacji preprocesora JSX**; nie będzie on potrzebny do niczego innego. Zarówno React, jak i kod aplikacji mogą pozostać bez zmian w znacznikach `<script>`.
 
 Gratulacje! Właśnie udało ci się dodać do swojego projektu **konfigurację JSX gotową do wdrożenia na środowisko produkcyjne**.
 
@@ -178,7 +184,9 @@ Gratulacje! Właśnie udało ci się dodać do swojego projektu **konfigurację 
 
 Utwórz folder o nazwie `src` i uruchom polecenie w terminalu:
 
+```
 npx babel --watch src --out-dir . --presets react-app/prod
+```
 
 >Uwaga
 >
