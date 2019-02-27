@@ -118,7 +118,7 @@ Jeśli twoje skrypty są już zminifikowane, **aplikacja będzie gotowa dla śro
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
-Jeżeli nie wykonujesz minifikacji dla swoich skryptow, [oto jeden ze sposobów aby to zrobić](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
+Jeżeli nie masz jeszcze skonfigurowanej minifikacji skryotów, [oto jeden ze sposobów, aby to zrobić](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
 
 ## Opcjonalnie: Wypróbuj Reacta z JSX {#optional-try-react-with-jsx}
 
