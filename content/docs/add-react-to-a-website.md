@@ -134,7 +134,7 @@ return e(
 );
 '''
 
-Jednakże React również oferuje możliwość użycia [JSX](/docs/introducing-jsx.html):
+Niemniej React oferuje również możliwość użycia składni [JSX](/docs/introducing-jsx.html):
 
 '''js
 // Wyświetl "Like" <button>
