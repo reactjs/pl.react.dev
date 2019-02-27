@@ -124,7 +124,7 @@ Jeżeli nie masz jeszcze skonfigurowanej minifikacji skryotów, [oto jeden ze sp
 
 W przykładach powyżej opieramy się tylko na funkcjonalnościach, które są natywnie obsługiwane przez przeglądarki. Dlatego wywołaliśmy funkcję javascriptową, aby poinformować Reacta, co ma wyświetlić:
 
-'''js
+```js
 const e = React.createElement;
 
 // Wyświetl "Like" <button>
