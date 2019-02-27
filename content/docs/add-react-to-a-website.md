@@ -162,7 +162,7 @@ Takie podejście jest dobre do nauki i tworzenia projektów na prezentacje. Powo
 
 Dodanie JSX do projektu nie wymaga skomplikowanych narzędzi, takich jak bundler czy serwer deweloperski. Zasadniczo dodawanie JSX **przypomina dodawanie preprocesora CSS**. Jedynym wymaganiem jest posiadanie zainstalowanego na komputerze środowiska [Node.js](https://nodejs.org/).
 
-Przejdź do folderu projektu i wklej dwie komendy:
+Przejdź do folderu projektu i wywołaj dwie komendy:
 
 1. **Krok 1:** Uruchom `npm init -y` (jeżeli wywołanie się nie powiedzie - [tutaj opisano, jak obejść problem](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
 2. **Krok 2:** Uruchom `npm install babel-cli@6 babel-preset-react-app@3`
