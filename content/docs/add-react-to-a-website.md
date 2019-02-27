@@ -140,7 +140,7 @@ Niemniej React oferuje również możliwość użycia składni [JSX](/docs/intro
 return (
   <button onClick={() => this.setState({ liked: true })}>
 Lubię to!
-</button>
+  </button>
 );
 '''
 
