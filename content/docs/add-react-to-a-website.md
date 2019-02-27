@@ -111,7 +111,7 @@ Często zdarza się, że komponent trzeba wyświetlić na stronie kilka razy. Ot
 
 Przed wdrożeniem strony na środowisko produkcyjne, pamiętaj, że niezminifikowany kod javascriptowy może znacznie spowolnić działanie twojej strony.
 
-Jeżeli już zminifikowałeś skrypty aplikacji, **Twoja strona internetowa będzie gotowa dla środowiska produkcyjnego** jeżeli wdrożony kod ładuje wersje Reacta zakonczoną `production.min.js`:
+Jeśli twoje skrypty są już zminifikowane, **aplikacja będzie gotowa dla środowiska produkcyjnego**, jeżeli wdrożony kod będzie ładował wersję Reacta zakończoną `production.min.js`:
 
 ```js
 <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
