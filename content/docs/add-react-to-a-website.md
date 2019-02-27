@@ -160,7 +160,7 @@ Takie podejście jest dobre do nauki i tworzenia projektów na prezentacje. Powo
 
 ### Dodaj JSX do projektu {#add-jsx-to-a-project}
 
-Dodanie JSX do projektu nie wymaga skomplikowanych narzędzi takich jak bundler lub serwer deweloperski. Zasadniczo, dodanie JSX **nie jest jak dodanie preprocesora CSS.** Jedynym wymaganiem jest [Node.js](https://nodejs.org/) zainstalowany na komputerze.
+Dodanie JSX do projektu nie wymaga skomplikowanych narzędzi, takich jak bundler czy serwer deweloperski. Zasadniczo dodawanie JSX **przypomina dodawanie preprocesora CSS**. Jedynym wymaganiem jest posiadanie zainstalowanego na komputerze środowiska [Node.js](https://nodejs.org/).
 
 Przejdź do folderu projektu i wklej dwie komendy:
 
