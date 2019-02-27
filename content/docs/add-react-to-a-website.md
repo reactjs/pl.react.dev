@@ -187,7 +187,7 @@ Utwórz folder o nazwie `src` i uruchom polecenie w terminalu:
 npx babel --watch src --out-dir . --presets react-app/prod
 '''
 
->Notatka
+>Uwaga
 >
 >`npx` to nie literówka -- jest to [narzędzie do uruchamiania pakietów, dostępne w npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 >
