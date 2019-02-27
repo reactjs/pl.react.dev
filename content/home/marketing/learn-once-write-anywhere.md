@@ -1,8 +1,8 @@
 ---
-title: Learn Once, Write Anywhere
+title: Naucz się raz, używaj wszędzie
 order: 2
 ---
 
-We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.
+React działa w izolacji od reszty stosu technologicznego, dzięki czemu możesz w nim tworzyć nowe funkcjonalności, bez konieczności przepisywania istniejącego kodu.
 
-React can also render on the server using Node and power mobile apps using [React Native](https://facebook.github.io/react-native/).
+React potrafi również renderować po stronie serwera przy użyciu Node, a także napędzać aplikacje mobilne za pomocą [React Native](https://facebook.github.io/react-native/).

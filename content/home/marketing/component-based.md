@@ -1,8 +1,8 @@
 ---
-title: Component-Based
+title: Oparty na komponentach
 order: 1
 ---
 
-Build encapsulated components that manage their own state, then compose them to make complex UIs.
+Twórz izolowane komponenty, które zarządzają własnym stanem, a później łącz je w złożony UI.
 
-Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
+Jako że logika komponentów pisana jest w JavaScripcie, a nie w szablonach, przekazywanie skomplikowanych struktur danych i przechowywanie stanu aplikacji poza drzewem DOM staje się łatwiejsze.
