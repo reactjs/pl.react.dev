@@ -169,7 +169,7 @@ Dodanie JSX do projektu nie wymaga skomplikowanych narzędzi takich jak bundler 
 
 Przejdź do folderu projektu i wklej dwie komendy:
 
-1. **Krok 1:** Uruchom 'npm init -y' (jeżeli sie nie uda [tutaj jest opisana poprawka](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
+1. **Krok 1:** Uruchom `npm init -y` (jeżeli wywołanie się nie powiedzie - [tutaj opisano, jak obejść problem](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
 2. **Krok 2:** Uruchom `npm install babel-cli@6 babel-preset-react-app@3`
 
 >Wskazówka
