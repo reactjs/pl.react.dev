@@ -12,7 +12,7 @@ Używaj Reacta wybiórczo w miarę potrzeb.
 
 Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb. Być może chcesz jedynie dodać trochę interaktywności do istniejącej strony. Komponenty reactowe świetnie się do tego nadają.
 
-Większość stron internetowych nie jest i nie musi być aplikacjami jednostronowymi (ang. *single-page apps*). Wypróbuj Reacta w niewielkiej części swojej strony za pomocą **kilku linii kodu i bez narzędzi kompilacji**. Następnie możesz stopniowo zwiększać jego wykorzystanie lub zostać przy kilku dynamicznych widżetach.
+Większość stron internetowych nie jest i nie musi być aplikacjami jednostronicowymi (ang. *single-page apps*). Wypróbuj Reacta na niewielkiej części swojej strony za pomocą **kilku linii kodu i bez narzędzi kompilacji**. Następnie możesz stopniowo zwiększać jego wykorzystanie lub poprzestać na kilku dynamicznych widżetach.
 
 ---
 
