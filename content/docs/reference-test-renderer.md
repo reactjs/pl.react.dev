@@ -110,7 +110,7 @@ Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. 
 testRenderer.toJSON()
 ```
 
-Zwraca obiekt reprezentujący wyrenderowane drzewo. W drzewie znajdą się wyłącznie węzły specyficzne dla platformy, np. `<div>` lub `<View>`, wraz ze swoimi atrybutami. Nie zostaną wyrenderowane natomiast żadne niestandardowe komponenty użytkownika. Funkcja przydaje się przy [testowaniu za pomocą snapshotów](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
+Zwraca obiekt reprezentujący wyrenderowane drzewo. W drzewie znajdą się wyłącznie węzły specyficzne dla platformy, np. `<div>` lub `<View>`, wraz ze swoimi właściwościami. Nie zostaną wyrenderowane natomiast żadne niestandardowe komponenty użytkownika. Funkcja przydaje się przy [testowaniu za pomocą snapshotów](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
@@ -174,7 +174,7 @@ Wyszukuje w poddrzewie dokładnie jedną instancję testową o podanym typie `ty
 testInstance.findByProps(props)
 ```
 
-Wyszukuje w poddrzewie dokładnie jedną instancję testową o podanych atrybutach `props`. Jeśli funkcja znajdzie inną liczbę instancji, rzucony zostanie wyjątek.
+Wyszukuje w poddrzewie dokładnie jedną instancję testową o podanych właściwościach `props`. Jeśli funkcja znajdzie inną liczbę instancji, rzucony zostanie wyjątek.
 
 ### `testInstance.findAll()` {#testinstancefindall}
 
@@ -198,7 +198,7 @@ Wyszukuje w poddrzewie wszystkie instancje testowe o podanym typie `type`.
 testInstance.findAllByProps(props)
 ```
 
-Wyszukuje w poddrzewie wszystkie instancje testowe o podanych atrybutach `props`.
+Wyszukuje w poddrzewie wszystkie instancje testowe o podanych właściwościach `props`.
 
 ### `testInstance.instance` {#testinstanceinstance}
 
@@ -222,7 +222,7 @@ Zwraca typ komponentu powiązanego z daną instancją testową. Przykładowo, ty
 testInstance.props
 ```
 
-Zwraca atrybuty powiązane z daną instancją testową. Przykładowo, atrybutami komponentu `<Button size="small" />` są: `{size: 'small'}`.
+Zwraca atrybuty powiązane z daną instancją testową. Przykładowo, właściwościami komponentu `<Button size="small" />` są: `{size: 'small'}`.
 
 ### `testInstance.parent` {#testinstanceparent}
 
