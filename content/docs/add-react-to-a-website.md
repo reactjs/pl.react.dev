@@ -8,7 +8,7 @@ prev: getting-started.html
 next: create-a-new-react-app.html
 ---
 
-Użyj tak mało lub tak dużo Reacta ile potrzebujesz.
+Używaj Reacta wybiórczo w miarę potrzeb.
 
 Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb. Być może chcesz jedynie dodać trochę interaktywności do istniejącej strony. Komponenty reactowe świetnie się do tego nadają.
 
