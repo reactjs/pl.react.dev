@@ -24,7 +24,7 @@ ReactDOM.render(
 ```
 
 React jest zależny od funkcji `requestAnimationFrame` (nawet w środowiskach testowych).
-Możesz skorzystać z pakietu [raf](https://www.npmjs.com/package/raf) aby dodać `requestAnimationFrame`:
+Możesz ją dodać, korzystając z pakietu [raf](https://www.npmjs.com/package/raf):
 
 ```js
 import 'raf/polyfill';
