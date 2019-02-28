@@ -23,7 +23,7 @@ ReactDOM.render(
 );
 ```
 
-React jest zależny od `requestAnimationFrame` (nawet w środowiskach testowych).
+React jest zależny od funkcji `requestAnimationFrame` (nawet w środowiskach testowych).
 Możesz skorzystać z pakietu [raf](https://www.npmjs.com/package/raf) aby dodać `requestAnimationFrame`:
 
 ```js
