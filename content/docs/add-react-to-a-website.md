@@ -97,7 +97,7 @@ Zapoznaj się z następnymi rozdziałami, aby uzyskać więcej informacji na tem
 
 **[Pobierz cały przykład (2KB po kompresji)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)**
 
-### Wskazówka: Korzystaj z komponentów wielokrotnie {#tip-reuse-a-component}
+### Wskazówka:  Wykorzystuj komponenty wielokrotnie {#tip-reuse-a-component}
 
 Często zdarza się, że komponent trzeba wyświetlić na stronie kilka razy. Oto przykład, który trzykrotnie wyświetla przycisk "Like" i przekazuje do niego dane:
 
