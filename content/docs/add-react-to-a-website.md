@@ -16,7 +16,7 @@ Większość stron internetowych nie jest i nie musi być aplikacjami jednostro
 
 ---
 
-- [Dodaj Reacta w minutę](#add-react-in-one-minute)
+- [Dodaj Reacta w mgnieniu oka](#add-react-in-one-minute)
 - [Opcjonalnie: Wypróbuj Reacta z JSX](#optional-try-react-with-jsx) (bundler nie jest wymagany!)
 
 ## Dodaj Reacta w minutę {#add-react-in-one-minute}
