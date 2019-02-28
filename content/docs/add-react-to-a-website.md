@@ -54,7 +54,7 @@ Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykający
 <!-- ... pozostała część kodu HTML ... -->
 
 <!-- Załaduj Reacta. -->
-<!-- Uwaga: podczas wdrożenia na produkcję, zamień "development.js" na "production.min.js". -->
+<!-- Uwaga: podczas wdrażania aplikacji do środowiska produkcyjnego, zamień "development.js" na "production.min.js". -->
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
