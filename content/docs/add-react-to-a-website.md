@@ -111,7 +111,7 @@ Często zdarza się, że komponent trzeba wyświetlić na stronie kilka razy. Ot
 
 ### Wskazówka: Minifikuj JavaScript dla potrzeb środowiska produkcyjnego {#tip-minify-javascript-for-production}
 
-Przed wdrożeniem strony na środowisko produkcyjne, pamiętaj, że niezminifikowany kod javascriptowy może znacznie spowolnić działanie twojej strony.
+Przed wdrożeniem strony do środowiska produkcyjnego, pamiętaj, że niezminifikowany kod javascriptowy może znacznie spowolnić działanie twojej strony.
 
 Jeśli twoje skrypty są już zminifikowane, **aplikacja będzie gotowa dla środowiska produkcyjnego**, jeżeli wdrożony kod będzie ładował wersję Reacta zakończoną `production.min.js`:
 
