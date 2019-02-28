@@ -109,7 +109,7 @@ Często zdarza się, że komponent trzeba wyświetlić na stronie kilka razy. Ot
 >
 >Ta strategia jest szczególnie przydatna, gdy części strony oparte na Reakcie są od siebie odizolowane. W kodzie reactowym łatwiej jest zamiast tego korzystać z [kompozycji komponentów](/docs/components-and-props.html#composing-components).
 
-### Wskazówka: Minifikuj JavaScript dla środowiska produkcyjnego {#tip-minify-javascript-for-production}
+### Wskazówka: Minifikuj JavaScript dla potrzeb środowiska produkcyjnego {#tip-minify-javascript-for-production}
 
 Przed wdrożeniem strony na środowisko produkcyjne, pamiętaj, że niezminifikowany kod javascriptowy może znacznie spowolnić działanie twojej strony.
 
