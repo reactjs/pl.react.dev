@@ -73,7 +73,7 @@ React dostarcza kilka wbudowanych Hooków, między innymi `useState`. Ale możes
 
 Najprawdopodobniej zdarzyło ci się już pobierać dane, obsługiwać subskrypcje lub ręcznie modyfikować drzewo DOM wewnątrz komponentów reactowych. Tego typu operacje nazywamy ["efektami ubocznymi"](https://pl.wikipedia.org/wiki/Skutek_uboczny_(informatyka)) (ang. *side effects*), ponieważ mogą one wpływać na inne komponenty i nie mogą zostać przeprowadzone podczas renderowania.
 
-Hook Efektu `useEffect` daje możliwość przeprowadzania "efektów ubocznych" z wewnątrz komponentu funkcyjnego. Pełni on taką samą funkcję, jak `componentDidMount`, `componentDidUpdate` i `componentWillUnmount` w komponentach klasowych, ale uproszczoną do jednego interfejsu API. (Różnice między nimi pokażemy na przykładach w rozdziale ["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
+Hook Efektu `useEffect` daje możliwość przeprowadzania "efektów ubocznych" z wewnątrz komponentu funkcyjnego. Pełni on taką samą funkcję, jak `componentDidMount`, `componentDidUpdate` i `componentWillUnmount` w komponentach klasowych, ale uproszczoną do jednego interfejsu API. (Różnice między nimi pokażemy na przykładach w rozdziale pt. ["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
 
 Na przykład, ten komponent ustawia tytuł dokumentu HTML po tym, jak React zaktualizuje drzewo DOM:
 
