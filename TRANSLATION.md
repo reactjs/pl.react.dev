@@ -122,7 +122,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | concept | zagadnienie |
 | controlled component | komponent kontrolowany |
 | data | dane |
-| debugging	debugowanie |
+| debugging	| debugowanie |
 | destructuring assignment | przypisanie destrukturyzujące |
 | Developer Tools | narzędzia programistyczne |
 | development server | serwer deweloperski |
