@@ -103,26 +103,76 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 
 | Termin oryginalny | Sugestia (z literatury) |
 | ------------------ | ---------- |
-| array | |
-| arrow function | |
-| bug | |
-| bundler | |
-| camelCase | |
-| callback | |
-| controlled component | |
-| debugging | |
-| framework | |
-| function component | |
-| hook | |
-| key | |
-| lazy initialization | |
-| library | |
-| lowercase | |
-| props | |
-| React element | |
-| render |  |
-| state | |
-| string | |
-| template literals | |
-| uppercase | |
-| uncontrolled component | |
+| ahead-of-time compilation	| kompilacja z wyprzedzeniem |
+| API reference	| dokumentacja API |
+| array	| tablica |
+| arrow function | funkcja strzałkowa |
+| assertion	| asercja |
+| boilerplate | kod szablonowy |
+| bug | błąd |
+| build pipeline | potok budowania |
+| bundler | bundler |
+| callback | funkcja zwrotna |
+| camelCase	| notacja "camelCase" |
+| child component | komponent potomny |
+| client | klient |
+| clients | klienty |
+| component state | stan komponentu |
+| component wrapping | opakowywanie komponentu |
+| concept | zagadnienie |
+| controlled component | komponent kontrolowany |
+| data | dane |
+| debugging	debugowanie |
+| destructuring assignment | przypisanie destrukturyzujące |
+| Developer Tools | narzędzia programistyczne |
+| development server | serwer deweloperski |
+| dispatcher | dyspozytor |
+| dispatching an event | przesyłanie zdarzenia |
+| dummy component | sztuczny komponent |
+| event handler | procedura obsługi zdarzenia |
+| framework	| framework |
+| function component | komponent funkcyjny |
+| generic 'box' | "pojemnik" ogólnego użytku |
+| glossary | słownik pojęć |
+| hands-on tutorial	| praktyczny tutorial |
+| higher-order components | komponenty wyższego rzędu |
+| hook | hook |
+| HTML entities | encje HTML |
+| idea | zagadnienie |
+| immutable | niezmienny |
+| key | klucz |
+| lazy initialization | leniwa inicjalizacja |
+| library | biblioteka |
+| lowercase	| małymi literami |
+| minify | minifikacja |
+| mocked component | atrapa komponentu |
+| opt-in | (stosowane) wedle własnego uznania |
+| overview | ogólne informacje |
+| polyfill | łatka |
+| primitive	| typ podstawowy |
+| property | właściwość |
+| props	| właściwości |
+| react element	| element reactowy |
+| read-only	| tylko do odczytu |
+| redux store | magazyn (reduxowy) |
+| render | renderować |
+| reusable components | komponenty wielokrotnego użytku |
+| roadmap | plan działania |
+| section | podrozdział |
+| shallow rendering | renderowanie płytkie |
+| SPA | aplikacja jednostronicowa |
+| spread operator | operator rozszczepienia |
+| string | ciąg znaków |
+| tag | znacznik |
+| template literals	| literał szablonowy |
+| term | pojęcie |
+| throws an exception | rzuca wyjątek |
+| to assert	| wykonać sprawdzenie |
+| Try it on CodePen	| Przetestuj kod na CodePen |
+| two-way binding | wiązanie dwukierunkowe |
+| UI | UI |
+| uncontrolled component | komponent niekontrolowany |
+| update | aktualizuje |
+| uppercase	| wielkimi literami |
+| versioned documentation | dokumentacja wersji |
+| wrapper component	| komponent opakowujący |
