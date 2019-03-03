@@ -106,17 +106,17 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | ahead-of-time compilation	| kompilacja z wyprzedzeniem | Za pierwszym razem z dopiskiem (ang. *ahead-of-time compilation*) |
 | API reference	| dokumentacja API | |
 | array	| tablica | |
-| arrow function | funkcja strzałkowa | Za pierwszym razem dopisek (ang. *arrow function*) |
+| arrow function | funkcja strzałkowa | Za pierwszym razem z dopiskiem (ang. *arrow function*) |
 | assertion	| asercja | |
 | boilerplate | kod szablonowy | |
 | bug | błąd | |
-| build pipeline | potok budowania | Za pierwszym razem dopisek (ang. *build pipeline*) |
+| build pipeline | potok budowania | Za pierwszym razem z dopiskiem (ang. *build pipeline*) |
 | bundler | bundler | |
-| callback | funkcja zwrotna | Za pierwszym razem dopisek (ang. *callback*) |
+| callback | funkcja zwrotna | Za pierwszym razem z dopiskiem (ang. *callback*) |
 | camelCase	| notacja "camelCase" | Odmiana: camelCasem, ale: camelCase'owi camelCase'a |
 | child component | komponent potomny | |
 | client | klient | |
-| clients | klienty | NIE: klienci |
+| clients | klienty | Nie: klienci |
 | component state | stan komponentu | |
 | component wrapping | opakowywanie komponentu | |
 | concept | zagadnienie | |
@@ -126,44 +126,44 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | destructuring assignment | przypisanie destrukturyzujące | |
 | Developer Tools | narzędzia programistyczne | |
 | development server | serwer deweloperski | |
-| dispatcher | dyspozytor | Za pierwszym razem dopisek (ang. *dispatcher*) |
+| dispatcher | dyspozytor | Za pierwszym razem z dopiskiem (ang. *dispatcher*) |
 | dispatching an event | przesyłanie zdarzenia | |
 | dummy component | sztuczny komponent | |
 | event handler | procedura obsługi zdarzenia | |
 | framework	| framework | |
 | function component | komponent funkcyjny | |
-| generic 'box' | "pojemnik" ogólnego użytku | mowa o rodzaju komponentów, np. <Dialog /> |
+| generic 'box' | "pojemnik" ogólnego użytku | Mowa o rodzaju komponentów, np. Dialog |
 | glossary | słownik pojęć | |
 | hands-on tutorial	| praktyczny tutorial | |
 | higher-order components | komponenty wyższego rzędu | Za pierwszym razem z dopiskiem (ang. *higher-order components*) |
 | hook | hook | |
 | HTML entities | encje HTML | |
 | idea | zagadnienie | |
-| immutable | niezmienny | Za pierwszym razem dopisek (ang. *immutable*) |
+| immutable | niezmienny | Za pierwszym razem z dopiskiem (ang. *immutable*) |
 | key | klucz | |
 | lazy initialization | leniwa inicjalizacja | |
 | library | biblioteka | |
 | lowercase	| małymi literami | Nie piszemy: "z małej litery" |
 | minify | minifikacja | |
 | minified | zminifikowany | |
-| mocked component | atrapa komponentu | Za pierwszym razem dopisek (ang. *mocked component*) |
+| mocked component | atrapa komponentu | Za pierwszym razem z dopiskiem (ang. *mocked component*) |
 | opt-in | (stosowane) wedle własnego uznania | |
 | overview | ogólne informacje | |
 | polyfill | łatka | Za pierwszym razem z dopiskiem (ang. *polyfill*) |
 | primitive	| typ podstawowy | |
 | property | właściwość | Właściwość obiektu javascriptowego|
-| props	| właściwości | Za pierwszym razem dopisek (ang. *props*) |
+| props	| właściwości | Za pierwszym razem z dopiskiem (ang. *props*) |
 | react element	| element reactowy | |
 | React DevTools | React DevTools | Nazwa rozszerzenia dla przeglądarki |
 | read-only	| tylko do odczytu | |
-| redux store | magazyn (reduxowy) | Za pierwszym razem dopisek (ang. *store*) |
+| redux store | magazyn (reduxowy) | Za pierwszym razem z dopiskiem (ang. *store*) |
 | render | renderować | rzecz. renderowanie, alternatywa: wyświetlać |
 | reusable components | komponenty wielokrotnego użytku | |
 | roadmap | plan działania | |
 | section | podrozdział | Jeśli w ramach tego samego dokumentu, lub rozdział jeśli chodzi o inną stronę |
-| shallow rendering | renderowanie płytkie | Za pierwszym razem dopisek (ang. *shallow rendering*) |
+| shallow rendering | renderowanie płytkie | Za pierwszym razem z dopiskiem (ang. *shallow rendering*) |
 | SPA | aplikacja jednostronicowa | |
-| spread operator | operator rozszczepienia | Za pierwszym razem dopisek (ang. *spread operator*) |
+| spread operator | operator rozszczepienia | Za pierwszym razem z dopiskiem (ang. *spread operator*) |
 | string | ciąg znaków | Lub łańcuch znaków lub napis lub literał znakowy |
 | tag | znacznik | |
 | template literals	| literał szablonowy | |
@@ -177,9 +177,11 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | update | aktualizuje | |
 | uppercase	| wielkimi literami | Nie piszemy: "z wielkiej litery" |
 | versioned documentation | dokumentacja wersji | Dokumentacja dedykowana dla każdej wersji Reacta |
-| wrapper component	| komponent opakowujący | Za pierwszym razem dopisek (ang. *wrapper component*) |
+| wrapper component	| komponent opakowujący | Za pierwszym razem z dopiskiem (ang. *wrapper component*) |
 
 Odmiana przez przypadki (deklinacja):
+
+React
 
 | Przypadek | Przykład |
 | ------------------ | ---------- |
@@ -190,3 +192,27 @@ Odmiana przez przypadki (deklinacja):
 | Narzędnik ((z) kim? (z) czym?) | Reactem |
 | Miejscownik (o kim? o czym?) | Reakcie |
 | Wołacz (o?) | React |
+
+JavaScript
+
+| Przypadek | Przykład |
+| ------------------ | ---------- |
+| Mianownik (kto? co?) | JavaScript |
+| Dopełniacz (kogo? czego?) | JavaScriptu |
+| Celownik (komu? czemu?) | JavaScriptowi |
+| Biernik (kogo? co?) | JavaScriptu |
+| Narzędnik ((z) kim? (z) czym?) | JavaScriptem |
+| Miejscownik (o kim? o czym?) | JavaScripcie |
+| Wołacz (o?) | JavaScript |
+
+Hook
+
+| Przypadek | Przykład |
+| ------------------ | ---------- |
+| Mianownik (kto? co?) | Hook |
+| Dopełniacz (kogo? czego?) | Hooka |
+| Celownik (komu? czemu?) | Hookowi |
+| Biernik (kogo? co?) | Hooka |
+| Narzędnik ((z) kim? (z) czym?) | Hookiem |
+| Miejscownik (o kim? o czym?) | Hooku |
+| Wołacz (o?) | Hooku |
