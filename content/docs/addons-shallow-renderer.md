@@ -15,7 +15,7 @@ var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 z zainstalo
 
 ## Ogólne informacje {#overview}
 
-Podczas pisania testów jednostkowych dla kodu reactowego przydatne może okazać się renderowanie płytkie (ang. *shallow rendering*). Pozwala ono na wyrenderowanie komponentu "jeden poziom w głąb" i wykonanie sprawdzeń na zwróconym drzewie, bez obaw o efekty uboczne komponentów potomnych, które wcale nie są tworzone i renderowane. Proces ten nie wymaga obecności drzewa DOM.
+Podczas pisania testów jednostkowych dla kodu reactowego przydatne może okazać się renderowanie płytkie (ang. *shallow rendering*). Pozwala ono na wyrenderowanie komponentu "jeden poziom w głąb" i wykonanie asercji na zwróconym drzewie, bez obaw o efekty uboczne komponentów potomnych, które wcale nie są tworzone i renderowane. Proces ten nie wymaga obecności drzewa DOM.
 
 Załóżmy, że mamy do czynienia z następującym komponentem:
 
@@ -65,4 +65,4 @@ Testowanie płytkie posiada obecnie pewne ograniczenia, jak choćby brak wsparci
 
 Po wywołaniu `shallowRenderer.render()` należy użyć `shallowRenderer.getRenderOutput()`, aby otrzymać płasko wyrenderowaną strukturę.
 
-Można na niej wykonywać dowolne sprawdzenia.
+Można na niej wykonywać dowolne asercje.
