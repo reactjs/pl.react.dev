@@ -104,7 +104,7 @@ function Example() {
 
 >Uwaga
 >
-> Istnieje kilka specjalnych zasad, które mówią o tym kiedy możesz, a kiedy nie możesz używać Hooków w komponencie. Więcej szczegółów poznamy w rozdziale pt. ["Zasady korzystania z Hooków"](/docs/hooks-rules.html).
+>Istnieje kilka specjalnych zasad, które mówią o tym kiedy możesz, a kiedy nie możesz używać Hooków w komponencie. Więcej szczegółów poznamy w rozdziale pt. ["Zasady korzystania z Hooków"](/docs/hooks-rules.html).
 
 ## Zadeklarowanie zmiennej stanu {#declaring-a-state-variable}
 
@@ -120,7 +120,7 @@ class Example extends React.Component {
   }
 ```
 
-W komponencie funkcyjnym nie mamy dostępu do `this`, więc nie możemmy przypisywać, ani czytać wartości właściwości `this.state`. Zamiast tego wywołamy hook `useState` bezpośrednio z wewnątrz naszego komponentu:
+W komponencie funkcyjnym nie mamy dostępu do `this`, więc nie możemmy przypisywać, ani odczytać wartości właściwości `this.state`. Zamiast tego wywołamy hook `useState` bezpośrednio z wewnątrz naszego komponentu:
 
 ```js{4,5}
 import React, { useState } from 'react';
@@ -150,46 +150,46 @@ Deklarujemy zmienną stanu, którą nazwaliśmy `count` i ustawiamy jej wartoś�
 
 >Uwaga
 >
-> Być może zastanawiasz się -- dlaczego funkcja `useState` (*pol. używaj stanu*) nie nazywa się `createState` (*pol. stwórz stan*)?
+>Być może zastanawiasz się -- dlaczego funkcja `useState` (*pol. używaj stanu*) nie nazywa się `createState` (*pol. stwórz stan*)?
 > 
-> Nazwa "Create" (*pol. stwórz*) nie była by zbyt trafna, ponieważ stan tworzony jest tylko wtedy, gdy komponent renderowany jest za pierwszym razem. Podczas kolejnych renderowań `useState` zwraca  aktualny stan. Gdyby nie to, nie mogło by być mowy o żadnym "stanie" (*ang. state*)! Istnieje też powód, dla którego nazwa Hooka *zawsze* rozpoczyna się od `use`. Więcej na ten temat dowiemy się w rozdziale pt. ["Zasady korzystania z Hooków"](/docs/hooks-rules.html).
+>Nazwa "Create" (*pol. stwórz*) nie była by zbyt trafna, ponieważ stan tworzony jest tylko wtedy, gdy komponent renderowany jest za pierwszym razem. Podczas kolejnych renderowań `useState` zwraca  aktualny stan. Gdyby nie to, nie mogło by być mowy o żadnym "stanie" (*ang. state*)! Istnieje też powód, dla którego nazwa Hooka *zawsze* rozpoczyna się od `use`. Więcej na ten temat dowiemy się w rozdziale pt. ["Zasady korzystania z Hooków"](/docs/hooks-rules.html).
 
-## Reading State {#reading-state}
+## Odczytywanie wartości stanu {#reading-state}
 
-When we want to display the current count in a class, we read `this.state.count`:
-
-```js
-  <p>You clicked {this.state.count} times</p>
-```
-
-In a function, we can use `count` directly:
-
+Jeśli chcemy wyświetlić aktualną wartość stanu licznika w klasie, odczytamy wartość właściwości `this.state.count`:
 
 ```js
-  <p>You clicked {count} times</p>
+  <p>Naciśnięto {this.state.count} razy</p>
 ```
 
-## Updating State {#updating-state}
+Wewnątrz funkcji, możemy użyć bezpośrenio zmiennej `count`:
 
-In a class, we need to call `this.setState()` to update the `count` state:
+
+```js
+  <p>Naciśnięto {count} razy</p>
+```
+
+## Aktualizowanie wartości stanu {#updating-state}
+
+Aby zaktualizować wartość stanu `count` w klasie, musimy wywołać metodę `this.setState()`:
 
 ```js{1}
   <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-    Click me
+    Naciśnij mnie
   </button>
 ```
 
-In a function, we already have `setCount` and `count` as variables so we don't need `this`:
+Wewnątrz funkcji mamy już zadeklarowane zmienne `setCount` i `count`, więc nie potrzebujemy `this`:
 
 ```js{1}
   <button onClick={() => setCount(count + 1)}>
-    Click me
+    Nacśnij mnie
   </button>
 ```
 
-## Recap {#recap}
+## Podsumowanie {#recap}
 
-Let's now **recap what we learned line by line** and check our understanding.
+Teraz **podsumujmy liniijka po linijce to, czego się nauczyliśmy** i sprawdźmy naszą wiedzę.
 
 <!--
   I'm not proud of this line markup. Please somebody fix this.
@@ -212,9 +212,9 @@ Let's now **recap what we learned line by line** and check our understanding.
 14:  }
 ```
 
-* **Line 1:** We import the `useState` Hook from React. It lets us keep local state in a function component.
-* **Line 4:** Inside the `Example` component, we declare a new state variable by calling the `useState` Hook. It returns a pair of values, to which we give names. We're calling our variable `count` because it holds the number of button clicks. We initialize it to zero by passing `0` as the only `useState` argument. The second returned item is itself a function. It lets us update the `count` so we'll name it `setCount`.
-* **Line 9:** When the user clicks, we call `setCount` with a new value. React will then re-render the `Example` component, passing the new `count` value to it.
+* **Linia 1:** We import the `useState` Hook from React. It lets us keep local state in a function component.
+* **Linia 4:** Inside the `Example` component, we declare a new state variable by calling the `useState` Hook. It returns a pair of values, to which we give names. We're calling our variable `count` because it holds the number of button clicks. We initialize it to zero by passing `0` as the only `useState` argument. The second returned item is itself a function. It lets us update the `count` so we'll name it `setCount`.
+* **Linia 9:** When the user clicks, we call `setCount` with a new value. React will then re-render the `Example` component, passing the new `count` value to it.
 
 This might seem like a lot to take in at first. Don't rush it! If you're lost in the explanation, look at the code above again and try to read it from top to bottom. We promise that once you try to "forget" how state works in classes, and look at this code with fresh eyes, it will make sense.
 
