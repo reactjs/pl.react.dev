@@ -266,8 +266,8 @@ function Todos() {
 
 ## Kolejne kroki {#next-steps}
 
-Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co przeczytałeś, nie miału sensu albo chciałbyś po prostu dowiedzieć się więcej, możesz czytać kolejne rozdziały, zaczynając od ["Hook Stanu"](/docs/hooks-state.html).
+Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co napisaliśmy, nie miało dla ciebie sensu lub jeśli chciałbyś po prostu dowiedzieć się więcej, możesz przeczytać kolejne rozdziały, zaczynając od ["Hook Stanu"](/docs/hooks-state.html).
 
 Możesz też zerknąć na rozdziały pt. ["Hooki - interfejs API"](/docs/hooks-reference.html) i ["Hooki - FAQ"](/docs/hooks-faq.html).
 
-I na koniec, nie zapomnij o rozdziale ["Wprowadzenie do Hooków"](/docs/hooks-intro.html), w którym wyjaśniliśmy, dlaczego dodaliśmy Hooki i jak zacząć z nich korzystać równolegle z istniejącym kodem - bez przepisywania aplikacji.
+I na koniec: nie zapomnij o rozdziale pt. ["Wprowadzenie do Hooków"](/docs/hooks-intro.html), w którym wyjaśniliśmy, dlaczego dodaliśmy Hooki i jak zacząć z nich korzystać równolegle z istniejącym kodem -- bez przepisywania aplikacji.
