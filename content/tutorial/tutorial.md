@@ -31,9 +31,13 @@ Samouczek podzieliliśmy na kilka części:
 
 Nie musisz wcale przechodzić przez wszystkie części samouczka naraz, żeby wynieść z niego cokolwiek. Spróbuj jednak dojść najdalej jak możesz - nawet jeśli będą to tylko dwa rozdziały.
 
+<<<<<<< HEAD
 W trakcie wykonywania poleceń możesz kopiować kod do edytora, ale zalecamy pisanie go samodzielnie. Pozwoli ci to bardziej skupić się na poszczególnych zagadnieniach, dzięki czemu lepiej je sobie przyswoisz i zrozumiesz.
 
 ### Co będziemy budować? {#what-are-we-building}
+=======
+### What Are We Building? {#what-are-we-building}
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 W tym samouczku pokażemy, jak przy pomocy Reacta zbudować interaktywną grę w "kółko i krzyżyk".
 
@@ -188,7 +192,13 @@ Komponent `Square` (pole) renderuje pojedynczy element `<button>`, a `Board` (pl
 
 ### Przekazywanie danych przez atrybuty {#passing-data-through-props}
 
+<<<<<<< HEAD
 Na dobry początek, spróbujmy przekazać jakieś dane z komponentu `Board` do `Square`.
+=======
+To get our feet wet, let's try passing some data from our Board component to our Square component.
+
+We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 W metodzie `renderSquare` komponentu `Board` przekaż komponentowi `Square` atrybut o nazwie `value` (pol. *wartość*):
 
@@ -242,7 +252,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Teraz gdy klikniemy na polu, przeglądarka wyświetli wiadomość w oknie dialogowym.
+=======
+If you click on a Square now, you should see an alert in your browser.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 >Uwaga
 >
@@ -260,7 +274,11 @@ Teraz gdy klikniemy na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >}
 >```
 >
+<<<<<<< HEAD
 >Zauważ, że za pomocą `onClick={() => alert('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. Zostanie ona wywołana dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
+=======
+>Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty mogą "pamiętać" o różnych rzeczach dzięki **stanowi** (ang. *state*).
 
@@ -293,9 +311,15 @@ class Square extends React.Component {
 
 Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby po kliknięciu wyświetlał wartość aktualnego stanu:
 
+<<<<<<< HEAD
 * zamień `this.props.value` na `this.state.value` wewnątrz znacznika `<button>`,
 * zamień procedurę obsługi zdarzenia `() => alert()` na `() => this.setState({value: 'X'})`,
 * umieść atrybuty `className` i `onClick` w osobnych liniach dla lepszej czytelności kodu.
+=======
+* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
+* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
+* Put the `className` and `onClick` props on separate lines for better readability.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Po wprowadzeniu powyższych zmian, element `<button>`, zwracany przez komponent `Square`, powinien wyglądać następująco:
 
@@ -356,7 +380,13 @@ Być może przeszło ci przez myśl, że to komponent `Board` powinien "pytać" 
 
 **Aby móc zebrać dane z wielu komponentów potomnych lub umożliwić dwóm potomkom komunikowanie się ze sobą, należy zadeklarować ich wspólny stan w rodzicu. Taki rodzic może wtedy przekazać poszczególne wartości potomkom poprzez atrybuty; dzięki temu potomkowie będą zsynchronizowani zarówno ze sobą nawzajem, jak i z rodzicem.**
 
+<<<<<<< HEAD
 Wynoszenie stanu w górę struktury to dość częsty zabieg podczas refaktoryzacji (ang. *refactoring*) kodu. Wykorzystajmy zatem okazję do wypróbowania tego schematu. Dodajmy konstruktor do komponentu `Board` i ustawmy w nim stan przechowujący tablicę dziewięciu wartości `null`. Każdy z elementów tej tablicy będzie odpowiadał jednemu polu na planszy:
+=======
+Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out.
+
+Add a constructor to the Board and set the Board's initial state to contain an array of 9 nulls corresponding to the 9 squares:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -370,6 +400,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
+<<<<<<< HEAD
 
   render() {
     const status = 'Następny gracz: X';
@@ -399,6 +430,11 @@ class Board extends React.Component {
 ```
 
 Gdy później wypełnimy planszę wartościami, tablica będzie wyglądała mniej więcej tak:
+=======
+```
+
+When we fill the board in later, the `this.state.squares` array will look something like this:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript
 [
@@ -432,7 +468,11 @@ Każde pole otrzyma poprzez atrybut `value` odpowiednio: `"X"`, `"O"` lub `null`
 
 Następnie musimy zmienić zachowanie komponentu `Square` po kliknięciu na nim, ponieważ teraz to `Board` decyduje, które pola są wypełnione. Musimy zatem określić sposób, w jaki komponent `Square` może aktualizować stan swojego rodzica. Jako że stan komponentu `Board` należy tylko do niego, nie możemy tak po prostu nadpisać jego wartości z poziomu potomka `Square`.
 
+<<<<<<< HEAD
 Aby zapewnić komponentowi `Board` wyłączność na własność jego stanu, do komponentu `Square` przekażemy odpowiednią funkcję za pomocą atrybutów. Funkcja ta będzie wywoływana za każdym razem, gdy ktoś kliknie na pole. Zmieńmy więc metodę `renderSquare` w następujący sposób:
+=======
+Instead, we'll pass down a function from the Board to the Square, and we'll have Square call that function when a square is clicked. We'll change the `renderSquare` method in Board to:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript{5}
   renderSquare(i) {
@@ -474,15 +514,27 @@ class Square extends React.Component {
 
 Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczona przez komponent `Board`. Dzieje się to dlatego, że:
 
+<<<<<<< HEAD
 1. Atrybut `onClick` wbudowanego komponentu DOM `<button>` informuje Reacta, żeby zaczął nasłuchiwać kliknięć użytkownika.
 2. Gdy użytkownik kliknie na przycisk, React wywoła procedurę obsługi zdarzenia `onClick` zdefiniowaną w metodzie `render()` komponentu `Square`.
 3. Procedura ta wywoła funkcję `this.props.onClick()`, czyli atrybut przekazany przez komponent `Board`.
 4. Ponieważ komponent `Board` przekazał swojemu potomkowi atrybut `onClick={() => this.handleClick(i)}`, kliknięcie w `Square` spowoduje w konsekwencji wywołanie `this.handleClick(i)` wewnątrz komponentu `Board`.
 5. Nie zdefiniowaliśmy jeszcze metody `handleClick()`, dlatego aplikacja w tym momencie przestanie działać.
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 >Uwaga
 >
+<<<<<<< HEAD
 >Atrybut `onClick` elementu DOM `<button>` ma dla Reacta specjalne znaczenie, ponieważ jest to wbudowany komponent. W przypadku własny komponentów, jak `Square`, nazwa tego atrybutu może być dowolna. Moglibyśmy nazwać inaczej zarówno atrybut `onClick` w `Square`, jak i `handleClick` w `Board`. Przyjęło się jednak określać atrybuty odpowiedzialne za wywołanie zdarzenia jako `on[Event]`, a procedury obsługi zdarzeń jako `handle[Event]`.
+=======
+>The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square's `onClick` prop or Board's `handleClick` method, and the code would work the same. In React, it's conventional to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Jeśli teraz klikniemy na polę planszy, otrzymamy błąd, ponieważ nie zdefiniowaliśmy jeszcze metody `handleClick`. Dodajmy ją zatem:
 
@@ -539,7 +591,11 @@ class Board extends React.Component {
 
 **[Zobacz dotychczasowy kod](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
+<<<<<<< HEAD
 Po zastosowaniu powyższych zmian znów będziemy mogli klikać w pola planszy. Różnica polega na tym, że teraz stan planszy jest przechowywany w komponencie `Board`, nie zaś w każdym z komponentów `Square` z osobna. Gdy stan w `Board` ulegnie zmianie, wszystkie pola zostaną ponownie wyrenderowane. Przechowywanie stanu wszystkich pól w jednym miejscu pozwoli nam w przyszłości wyłonić zwycięzcę rozgrywki.
+=======
+After these changes, we're again able to click on the Squares to fill them, the same as we had before. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Przenieśliśmy stan z komponentu `Square` do `Board`, przez co każdy `Square` otrzymuje od rodzica swoją wartość i informuje go o kliknięciu. W terminologii reactowej komponenty `Square` są teraz **komponentami kontrolowanymi**. `Board` ma nad nimi pełną kontrolę.
 
@@ -581,7 +637,11 @@ Wykrywanie zmian w mutowalnych (ang. *mutable*) obiektach jest trudne, ponieważ
 
 Wykrywanie zmian w niezmiennych (ang. *immutable*) obiektach jest stosunkowo łatwe. Jeśli referencja aktualnego obiektu jest różna od referencji poprzedniego, to znaczy, że nastąpiła jakaś zmiana.
 
+<<<<<<< HEAD
 #### Kiedy ponownie renderować w Reakcie {#determining-when-to-re-render-in-react}
+=======
+#### Determining When to Re-Render in React {#determining-when-to-re-render-in-react}
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Główną korzyścią z niezmienności danych jest możliwość tworzenia w Reakcie tzw. _czystych komponentów_ (ang. *pure components*). Taki komponent w łatwy sposób może sprawdzić, czy nastąpiły jakiekolwiek zmiany i czy w związku z tym powinien się ponownie wyrenderować.
 
@@ -611,7 +671,11 @@ zmieniając przy okazji wszystkie `this.props` na `props`.
 
 >Uwaga
 >
+<<<<<<< HEAD
 >Po przekształceniu `Square` na komponent funkcyjny, zmieniliśmy także `onClick={() => this.props.onClick()}` na krótsze `onClick={props.onClick}` (zwróć uwagę na brak nawiasów okrągłych w *obu* miejscach). W klasie użyliśmy funkcji strzałkowej (ang. *arrow function*), aby odwołać się do właściwego `this`, natomiast w komponencie funkcyjnym nie musimy w ogóle martwić się o `this`.
+=======
+>When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ### Granie na zmianę {#taking-turns}
 
@@ -643,7 +707,13 @@ Za każdym razem, gdy użytkownik wykona ruch, zmienna `xIsNext` (typu zerojedyn
   }
 ```
 
+<<<<<<< HEAD
 Po tej modyfikacji "krzyżyki" i "kółka" będą wykonywać ruchy na zmianę. Zaktualizujmy teraz wartość `status` w metodzie `render`, aby poprawnie wyświetlała, który gracz jest następny:
+=======
+With this change, "X"s and "O"s can take turns. Try it!
+
+Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript{2}
   render() {
@@ -714,7 +784,11 @@ class Board extends React.Component {
 
 ### Ogłaszanie zwycięzcy {#declaring-a-winner}
 
+<<<<<<< HEAD
 Teraz gdy już wyświetlamy, który z graczy będzie wykonywał następny ruch, powinniśmy również ogłaszać zwycięzcę lub wyświetlać informację o braku możliwych ruchów. Do wyłaniania zwycięzcy posłuży nam następujące funkcja pomocnicza, którą należy dodać na końcu pliku:
+=======
+Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript
 function calculateWinner(squares) {
@@ -738,7 +812,13 @@ function calculateWinner(squares) {
 }
 ```
 
+<<<<<<< HEAD
 Funkcję `calculateWinner(squares)` wywołamy w metodzie `render` komponentu `Board`, sprawdzając w ten sposób, czy gracz aktualnie wykonujący ruch jest zwycięzcą. Jeśli odpowiedź będzie pozytywna, możemy wyświetlić tekst w stylu "Wygrywa: X" lub "Wygrywa: O". Podmieńmy `status` w metodzie `render` na:
+=======
+Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+
+We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript{2-8}
   render() {
