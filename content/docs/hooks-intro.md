@@ -49,7 +49,7 @@ Zanim przejdziemy dalej, zauważ że Hooki są:
 * **100% kompatybilne wstecznie.** Hooki nie zawierają żadnych zmian, które mogłyby zepsuć istniejący kod.
 * **Dostępne już teraz.** Hooki są dostępne od wersji 16.8.0.
 
-**Nie ma planów na usunięcie klas z Reacta.**. Możesz przeczytać o strategii stopniowego wdrażania Hooków w [kolejnym podrozdziale](#gradual-adoption-strategy) tej strony.
+**Nie ma planów na usunięcie klas z Reacta.** Możesz przeczytać o strategii stopniowego wdrażania Hooków w [kolejnym podrozdziale](#gradual-adoption-strategy) tej strony.
 
 **Hooki nie zastępują twojej wiedzy na temat Reacta.** Zamiast tego wprowadzają bardziej bezpośredni interfejs API dla mechanizmów Reacta, które już znasz: właściwości (ang. *props*), stanu, kontekstu, referencji (ang. *refs*) i cyklu życia (ang. *lifecycle*). Jak pokażemy dalej, Hooki pozwalają też na łączenie ich w nowy, niezwykle skuteczny sposób.
 
