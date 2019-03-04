@@ -90,7 +90,7 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://introducing-jsx)
+[Przetestuj kod na CodePen](codepen://introducing-jsx)
 
 Dla czytelności, podzieliliśmy kod JSX na kilka linii. Nie jest to wprawdzie 
 wymagane, ale polecamy również otaczanie go w nawiasy. Pozwoli to uniknąć pułapek
