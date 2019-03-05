@@ -13,7 +13,7 @@ Hooki są [kompatybilne wstecznie](/docs/hooks-intro.html#no-breaking-changes). 
 
 >Szczegółowe wyjaśnienie
 >
->>Przeczytaj podrozdział ["Motywacja"](/docs/hooks-intro.html#motivation), aby dowiedzieć się, dlaczego dodaliśmy Hooki
+>Przeczytaj podrozdział ["Motywacja"](/docs/hooks-intro.html#motivation), aby dowiedzieć się, dlaczego dodaliśmy Hooki
 
 **↑↑↑ Każdy podrozdział zakończony jest taką żółtą ramką.** Zawierają one linki do szczegółowych objaśnień.
 
