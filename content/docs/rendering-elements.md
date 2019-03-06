@@ -13,10 +13,11 @@ Elementy to najmniejsze bloki budujące reactowe aplikacje.
 Element opisuje, co chcesz zobaczyć na ekranie:
 
 ```js
-const element = <h1>Hello, world</h1>;
+const element = <h1>Witaj, świecie!</h1>;
 ```
 
-W przeciwieństwie do elementów drzewa DOM w przeglądarce, reactowe elementy są zwykłymi obiektami i mają niski koszt stworzenia.
+W przeciwieństwie do elementów drzewa DOM w przeglądarce, reactowe elementy są zwykłymi obiektami i mają niski koszt tworzenia. React DOM zajmuje się aktualizowaniem drzewa DOM tak, aby odpowiadało strukturze elementów reactowych.
+
 
 >**Wskazówka:**
 >
@@ -40,7 +41,7 @@ Aby wyrenderować reactowy element w węźle drzewa DOM, przekaż oba do `ReactD
 
 [](codepen://rendering-elements/render-an-element)
 
-Na stronie wyświetli się "Hello, world".
+Na stronie wyświetli się napis "Witaj, świecie!".
 
 ## Aktualizowanie wyrenderowanego elementu {#updating-the-rendered-element}
 
