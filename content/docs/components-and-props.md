@@ -235,9 +235,9 @@ function Comment(props) {
 
 Wyciąganie komponentów może z początku wydawać się żmudnym zajęciem, ale posiadanie palety pozwalających na ponowne użycie komponentów jest opłacalne w większych aplikacjach. Dobrą praktyczną zasadą jest, że jeśli część twojego interfejsu użytkownika jest używana wiele razy (`Button`, `Panel`, `Avatar`) lub jest jest ona dostatecznie skomplikowana sama w sobie (`App`, `FeedStory`, `Comment`), jest ona dobrym kandydatem do stania się komponentem wielokrotnego użytku.
 
-## Props are Read-Only {#props-are-read-only}
+## Właściwości są tylko do odczytu {#props-are-read-only}
 
-Whether you declare a component [as a function or a class](#function-and-class-components), it must never modify its own props. Consider this `sum` function:
+Jeśli zadeklarujesz komponent [jako funkcja lub klasa](#function-and-class-components), nie może on nigdy modyfikować swoich właściwości. Rozważ tą funkcję `sum`:
 
 ```js
 function sum(a, b) {
@@ -245,9 +245,9 @@ function sum(a, b) {
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Funkcje tego typu nazywane są ["czystymi"](https://en.wikipedia.org/wiki/Pure_function), dlatego że nie próbują one zmieniać swoich wartości wejściowych i zawsze zwracają ten sam wynik dla tych samych wartości wejściowych.
 
-In contrast, this function is impure because it changes its own input:
+W przeciwieństwie do poprzedniej, ta funkcja nie jest czysta, bo zmienia swoją wartość wejściową.
 
 ```js
 function withdraw(account, amount) {
@@ -255,8 +255,8 @@ function withdraw(account, amount) {
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+React jest bardzo elastyczny, ale ma jedną ścisłą zasadę:
 
-**All React components must act like pure functions with respect to their props.**
+**Wszytkie komponenty muszą zachowywać się jak czyste funkcje w odniesieniu do ich własności.**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+Oczywiście, interfejsy użytkownika aplikacji są dynamiczne i zmieniają się w czasie. W [kolejnym rozdziale](/docs/state-and-lifecycle.html), wprowadzimy nowe pojęcie "stanu". Stan pozwala reactowym komponentom na zmianę swojego wyniku w czasie w odpowiedzi na akcje użytkownika, żądania sieciowe i wszystko inne, bez naruszania tej zasady.
