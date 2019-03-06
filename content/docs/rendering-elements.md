@@ -20,7 +20,7 @@ W przeciwieństwie do elementów drzewa DOM w przeglądarce, reactowe elementy s
 
 >**Wskazówka:**
 >
->Łatwo pomylić elementy z szerzej znaną koncepcją "komponentów". Komponenty przedstawimy w [kolejnej sekcji](/docs/components-and-props.html). Elementy są tym, z czego komponenty "są zbudowane". Zachęcamy do przeczytania tej sekcji przed przejściem dalej.
+>Łatwo pomylić elementy z szerzej znaną koncepcją "komponentów". Komponenty przedstawimy w [kolejnym rozdziale](/docs/components-and-props.html). Elementy są tym, z czego komponenty "są zbudowane". Zachęcamy do przeczytania tego rozdziału przed przejściem dalej.
 
 ## Renderowanie elementu w drzewie DOM {#rendering-an-element-into-the-dom}
 
