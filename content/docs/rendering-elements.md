@@ -44,7 +44,7 @@ Na stronie wyświetli się "Hello, world".
 
 ## Aktualizowanie wyrenderowanego elementu {#updating-the-rendered-element}
 
-Reactowe elementy są [niezmienne](https://en.wikipedia.org/wiki/Immutable_object). Kiedy stworzysz element, nie możesz zmienić jego komponentów potomnych ani właściwości. Element jest jak pojedyncza klatka z filmu: reprezentuje interfejs użytkownika w pewnym punkcie czasu.
+Reactowe elementy są [niezmienne](https://en.wikipedia.org/wiki/Immutable_object) (ang. *immutable*). Kiedy już stworzysz element, nie możesz zmienić jego komponentów potomnych ani właściwości. Element jest jak pojedyncza klatka z filmu: reprezentuje interfejs użytkownika w pewnym punkcie czasu.
 
 Dotychczas z naszą wiedzą, jedynym sposobem aktualizacji interfejsu użytkownika jest stworzenie nowego elementu i przekazanie go do `ReactDOM.render()`.
 
