@@ -31,11 +31,7 @@ Samouczek podzieliliśmy na kilka części:
 
 Nie musisz wcale przechodzić przez wszystkie części samouczka naraz, żeby wynieść z niego cokolwiek. Spróbuj jednak dojść najdalej jak możesz - nawet jeśli będą to tylko dwa rozdziały.
 
-W trakcie wykonywania poleceń możesz kopiować kod do edytora, ale zalecamy pisanie go samodzielnie. Pozwoli ci to bardziej skupić się na poszczególnych zagadnieniach, dzięki czemu lepiej je sobie przyswoisz i zrozumiesz.
-
 ### Co będziemy budować? {#what-are-we-building}
-
-W tym samouczku pokażemy, jak przy pomocy Reacta zbudować interaktywną grę w "kółko i krzyżyk".
 
 Na koniec nasz kod będzie wyglądał tak: **[Efekt końcowy](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Być może w tej chwili kod wygląda bez sensu albo nie rozumiesz jego składni, ale bez obaw! Celem tego samouczka jest właśnie pomóc ci zrozumieć Reacta i jego składnię.
 
@@ -190,6 +186,8 @@ Komponent `Square` (pole) renderuje pojedynczy element `<button>`, a `Board` (pl
 
 Na dobry początek, spróbujmy przekazać jakieś dane z komponentu `Board` do `Square`.
 
+W trakcie wykonywania poleceń zalecamy pisanie kodu samodzielnie. Pozwoli ci to bardziej skupić się na poszczególnych zagadnieniach, dzięki czemu lepiej je sobie przyswoisz i zrozumiesz.
+
 W metodzie `renderSquare` komponentu `Board` przekaż komponentowi `Square` atrybut o nazwie `value` (pol. *wartość*):
 
 ```js{3}
@@ -242,7 +240,7 @@ class Square extends React.Component {
 }
 ```
 
-Teraz gdy klikniemy na polu, przeglądarka wyświetli wiadomość w oknie dialogowym.
+Teraz gdy klikniesz na polu, przeglądarka wyświetli wiadomość w oknie dialogowym.
 
 >Uwaga
 >
@@ -260,7 +258,7 @@ Teraz gdy klikniemy na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >}
 >```
 >
->Zauważ, że za pomocą `onClick={() => alert('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. Zostanie ona wywołana dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
+>Zauważ, że za pomocą `onClick={() => alert('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. React wywoła ją dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
 
 W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty mogą "pamiętać" o różnych rzeczach dzięki **stanowi** (ang. *state*).
 
@@ -294,7 +292,7 @@ class Square extends React.Component {
 Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby po kliknięciu wyświetlał wartość aktualnego stanu:
 
 * zamień `this.props.value` na `this.state.value` wewnątrz znacznika `<button>`,
-* zamień procedurę obsługi zdarzenia `() => alert()` na `() => this.setState({value: 'X'})`,
+* zamień procedurę obsługi zdarzenia `onClick={...}` na `onClick={() => this.setState({value: 'X'})}`,
 * umieść atrybuty `className` i `onClick` w osobnych liniach dla lepszej czytelności kodu.
 
 Po wprowadzeniu powyższych zmian, element `<button>`, zwracany przez komponent `Square`, powinien wyglądać następująco:
@@ -356,7 +354,9 @@ Być może przeszło ci przez myśl, że to komponent `Board` powinien "pytać" 
 
 **Aby móc zebrać dane z wielu komponentów potomnych lub umożliwić dwóm potomkom komunikowanie się ze sobą, należy zadeklarować ich wspólny stan w rodzicu. Taki rodzic może wtedy przekazać poszczególne wartości potomkom poprzez atrybuty; dzięki temu potomkowie będą zsynchronizowani zarówno ze sobą nawzajem, jak i z rodzicem.**
 
-Wynoszenie stanu w górę struktury to dość częsty zabieg podczas refaktoryzacji (ang. *refactoring*) kodu. Wykorzystajmy zatem okazję do wypróbowania tego schematu. Dodajmy konstruktor do komponentu `Board` i ustawmy w nim stan przechowujący tablicę dziewięciu wartości `null`. Każdy z elementów tej tablicy będzie odpowiadał jednemu polu na planszy:
+Wynoszenie stanu w górę struktury to dość częsty zabieg podczas refaktoryzacji (ang. *refactoring*) kodu. Wykorzystajmy zatem okazję do wypróbowania tego schematu. 
+
+Dodaj konstruktor do komponentu `Board` i ustaw w nim stan przechowujący tablicę dziewięciu wartości `null`. Każdy z elementów tej tablicy będzie odpowiadał jednemu polu na planszy:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -370,35 +370,9 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
-
-  render() {
-    const status = 'Następny gracz: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
 ```
 
-Gdy później wypełnimy planszę wartościami, tablica będzie wyglądała mniej więcej tak:
+Gdy później wypełnimy planszę wartościami, tablica `this.state.squares` będzie wyglądała mniej więcej tak:
 
 ```javascript
 [
@@ -432,7 +406,7 @@ Każde pole otrzyma poprzez atrybut `value` odpowiednio: `"X"`, `"O"` lub `null`
 
 Następnie musimy zmienić zachowanie komponentu `Square` po kliknięciu na nim, ponieważ teraz to `Board` decyduje, które pola są wypełnione. Musimy zatem określić sposób, w jaki komponent `Square` może aktualizować stan swojego rodzica. Jako że stan komponentu `Board` należy tylko do niego, nie możemy tak po prostu nadpisać jego wartości z poziomu potomka `Square`.
 
-Aby zapewnić komponentowi `Board` wyłączność na własność jego stanu, do komponentu `Square` przekażemy odpowiednią funkcję za pomocą atrybutów. Funkcja ta będzie wywoływana za każdym razem, gdy ktoś kliknie na pole. Zmieńmy więc metodę `renderSquare` w następujący sposób:
+Zamiast tego, do komponentu `Square` przekażemy odpowiednią funkcję za pomocą atrybutów i sprawimy, by `Square` wywoływał ją za każdym razem, gdy ktoś kliknie na pole. Zmieńmy więc metodę `renderSquare` w następujący sposób:
 
 ```javascript{5}
   renderSquare(i) {
@@ -478,11 +452,11 @@ Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczon
 2. Gdy użytkownik kliknie na przycisk, React wywoła procedurę obsługi zdarzenia `onClick` zdefiniowaną w metodzie `render()` komponentu `Square`.
 3. Procedura ta wywoła funkcję `this.props.onClick()`, czyli atrybut przekazany przez komponent `Board`.
 4. Ponieważ komponent `Board` przekazał swojemu potomkowi atrybut `onClick={() => this.handleClick(i)}`, kliknięcie w `Square` spowoduje w konsekwencji wywołanie `this.handleClick(i)` wewnątrz komponentu `Board`.
-5. Nie zdefiniowaliśmy jeszcze metody `handleClick()`, dlatego aplikacja w tym momencie przestanie działać.
+5. Nie zdefiniowaliśmy jeszcze metody `handleClick()`, dlatego aplikacja w tym momencie przestanie działać. Jeśli klikniesz na dowolne pole, zobaczysz błąd na czerwonym tle, mówiący coś w stylu: "this.handleClick is not a function" (pol. *this.handleClick nie jest funkcją*).
 
 >Uwaga
 >
->Atrybut `onClick` elementu DOM `<button>` ma dla Reacta specjalne znaczenie, ponieważ jest to wbudowany komponent. W przypadku własny komponentów, jak `Square`, nazwa tego atrybutu może być dowolna. Moglibyśmy nazwać inaczej zarówno atrybut `onClick` w `Square`, jak i `handleClick` w `Board`. Przyjęło się jednak określać atrybuty odpowiedzialne za wywołanie zdarzenia jako `on[Event]`, a procedury obsługi zdarzeń jako `handle[Event]`.
+>Atrybut `onClick` elementu DOM `<button>` ma dla Reacta specjalne znaczenie, ponieważ jest to wbudowany komponent. W przypadku własny komponentów, jak `Square`, nazwa tego atrybutu może być dowolna. Moglibyśmy nazwać inaczej zarówno atrybut `onClick` w `Square`, jak i `handleClick` w `Board`, a kod nadal działałby w taki sam sposób. Przyjęło się jednak określać atrybuty odpowiedzialne za wywołanie zdarzenia jako `on[Event]`, a procedury obsługi zdarzeń jako `handle[Event]`.
 
 Jeśli teraz klikniemy na polę planszy, otrzymamy błąd, ponieważ nie zdefiniowaliśmy jeszcze metody `handleClick`. Dodajmy ją zatem:
 
@@ -643,7 +617,9 @@ Za każdym razem, gdy użytkownik wykona ruch, zmienna `xIsNext` (typu zerojedyn
   }
 ```
 
-Po tej modyfikacji "krzyżyki" i "kółka" będą wykonywać ruchy na zmianę. Zaktualizujmy teraz wartość `status` w metodzie `render`, aby poprawnie wyświetlała, który gracz jest następny:
+Po tej modyfikacji "krzyżyki" i "kółka" będą wykonywać ruchy na zmianę. Spróbuj zagrać!
+
+Zaktualizujmy teraz wartość `status` w metodzie `render`, aby poprawnie wyświetlała, który gracz jest następny:
 
 ```javascript{2}
   render() {
@@ -714,7 +690,7 @@ class Board extends React.Component {
 
 ### Ogłaszanie zwycięzcy {#declaring-a-winner}
 
-Teraz gdy już wyświetlamy, który z graczy będzie wykonywał następny ruch, powinniśmy również ogłaszać zwycięzcę lub wyświetlać informację o braku możliwych ruchów. Do wyłaniania zwycięzcy posłuży nam następujące funkcja pomocnicza, którą należy dodać na końcu pliku:
+Teraz gdy już wyświetlamy, który z graczy będzie wykonywał następny ruch, powinniśmy również ogłaszać zwycięzcę lub wyświetlać informację o braku możliwych ruchów. Do wyłaniania zwycięzcy posłuży nam następująca funkcja pomocnicza, którą należy dodać na końcu pliku:
 
 ```javascript
 function calculateWinner(squares) {
@@ -737,6 +713,8 @@ function calculateWinner(squares) {
   return null;
 }
 ```
+
+Dla dowolnej tablicy z dziewięcioma polami sprawdzi ona, który z graczy wygrał, a następnie zwróci odpowiednio: `'X'`, `'O'` lub `null`.
 
 Funkcję `calculateWinner(squares)` wywołamy w metodzie `render` komponentu `Board`, sprawdzając w ten sposób, czy gracz aktualnie wykonujący ruch jest zwycięzcą. Jeśli odpowiedź będzie pozytywna, możemy wyświetlić tekst w stylu "Wygrywa: X" lub "Wygrywa: O". Podmieńmy `status` w metodzie `render` na:
 

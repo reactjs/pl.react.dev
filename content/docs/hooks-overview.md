@@ -1,54 +1,55 @@
 ---
 id: hooks-overview
-title: Hooks at a Glance
+title: Hooki w pigułce
 permalink: docs/hooks-overview.html
 next: hooks-state.html
 prev: hooks-intro.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-Hooks are [backwards-compatible](/docs/hooks-intro.html#no-breaking-changes). This page provides an overview of Hooks for experienced React users. This is a fast-paced overview. If you get confused, look for a yellow box like this:
+Hooki są [kompatybilne wstecznie](/docs/hooks-intro.html#no-breaking-changes). Ten rozdział zawiera szybki przegląd wiedzy o Hookach i przeznaczony jest dla doświadczonych użytkowników Reacta. Jeżeli w którymś momencie się zgubisz, szukaj żółtych ramek, takich jak ta poniżej:
 
->Detailed Explanation
+
+>Szczegółowe wyjaśnienie
 >
->Read the [Motivation](/docs/hooks-intro.html#motivation) to learn why we're introducing Hooks to React.
+>Przeczytaj podrozdział ["Motywacja"](/docs/hooks-intro.html#motivation), aby dowiedzieć się, dlaczego dodaliśmy Hooki
 
-**↑↑↑ Each section ends with a yellow box like this.** They link to detailed explanations.
+**↑↑↑ Każdy podrozdział zakończony jest taką żółtą ramką.** Zawierają one linki do szczegółowych objaśnień.
 
-## 📌 State Hook {#state-hook}
+## 📌 Hook Stanu {#state-hook}
 
-This example renders a counter. When you click the button, it increments the value:
+Ten przykład renderuje licznik. Kiedy wciskasz przycisk, zwiększa on wartość w stanie.
 
 ```js{1,4,5}
 import React, { useState } from 'react';
 
 function Example() {
-  // Declare a new state variable, which we'll call "count"
+  // Zadeklaruj nową zmienną stanu, którą nazwiemy "count"
   const [count, setCount] = useState(0);
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Naciśnięto {count} razy</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Naciśnij mnie
       </button>
     </div>
   );
 }
 ```
 
-Here, `useState` is a *Hook* (we'll talk about what this means in a moment). We call it inside a function component to add some local state to it. React will preserve this state between re-renders. `useState` returns a pair: the *current* state value and a function that lets you update it. You can call this function from an event handler or somewhere else. It's similar to `this.setState` in a class, except it doesn't merge the old and new state together. (We'll show an example comparing `useState` to `this.state` in [Using the State Hook](/docs/hooks-state.html).)
+W tym przykładzie `useState` jest *Hookiem* (za chwilę wyjaśnimy, co to znaczy). Wywołujemy go z wewnątrz komponentu funkcyjnego, aby wzbogacić go o lokalny stan. React zachowa ten stan pomiędzy kolejnymi renderowaniami. `useState` zwraca parę: *aktualną* wartość stanu i funkcję, która pozwala go aktualizować. Możesz wywołać tę funkcję w procedurze obsługi zdarzenia albo z innego miejsca. Działa to mniej więcej tak samo, jak `this.setState` w komponencie klasowym, z tą różnicą, że nie scala on starych i nowych wartości. (Szerzej omawiamy te różnice w rozdziale pt. ["Używanie Hooka Stanu"](/docs/hooks-state.html).)
 
-The only argument to `useState` is the initial state. In the example above, it is `0` because our counter starts from zero. Note that unlike `this.state`, the state here doesn't have to be an object -- although it can be if you want. The initial state argument is only used during the first render.
+Jedynym argumentem funkcji `useState` jest stan początkowy. W przykładzie powyżej jest to `0`, ponieważ nasz licznik startuje od zera. Zauważ, że w przeciwieństwie do `this.state`, stan nie musi być obiektem. Nic jednak nie stoi na przeszkodzie, by nim był. Wartość argumentu ze stanem początkowym jest wykorzystywana tylko przy pierwszym renderze.
 
-#### Declaring multiple state variables {#declaring-multiple-state-variables}
+#### Deklaracja kilku zmiennych stanu {#declaring-multiple-state-variables}
 
-You can use the State Hook more than once in a single component:
+Możesz użyć Hooka Stanu kilka razy w tym samym komponencie:
 
 ```js
 function ExampleWithManyStates() {
-  // Declare multiple state variables!
+  // Zadeklaruj kilka zmiennych stanu!
   const [age, setAge] = useState(42);
   const [fruit, setFruit] = useState('banana');
   const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
@@ -56,25 +57,25 @@ function ExampleWithManyStates() {
 }
 ```
 
-The [array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring) syntax lets us give different names to the state variables we declared by calling `useState`. These names aren't a part of the `useState` API. Instead, React assumes that if you call `useState` many times, you do it in the same order during every render. We'll come back to why this works and when this is useful later.
+Dzięki składni [przypisania destrukturyzującego tablic](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Destructuring_assignment#Destrukturyzacja_tablic) możemy nadać różne nazwy zmiennym stanu, które zadeklarowaliśmy wywołując funkcję `useState`. Nazwy te nie są częścią interfejsu API `useState`. Zamiast tego React zakłada, że jeżeli wywołujesz funckję `useState` wielokrotnie, za każdym razem (przy każdym renderze) robisz to w tej samej kolejności. W dalszej części tego rozdziału omówimy, jak to działa i dlaczego jest to przydatne.
 
-#### But what is a Hook? {#but-what-is-a-hook}
+#### Ale czym jest Hook? {#but-what-is-a-hook}
 
-Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes -- they let you use React without classes. (We [don't recommend](/docs/hooks-intro.html#gradual-adoption-strategy) rewriting your existing components overnight but you can start using Hooks in the new ones if you'd like.)
+Hooki są to funkcje, które pozwalają "zahaczyć się" w mechanizmy stanu i cyklu życia Reacta, z wewnątrz komponentów funkcyjnych. Hooki nie działają w klasach -- zamiast tego pozwalają korzystać z Reacta bez klas. ([Nie zalecamy](/docs/hooks-intro.html#gradual-adoption-strategy) przepisywania istniejących komponentów z dnia na dzień, ale jeżeli masz ochotę, możesz zacząć korzystać z Hooków w nowych komponentach.)
 
-React provides a few built-in Hooks like `useState`. You can also create your own Hooks to reuse stateful behavior between different components. We'll look at the built-in Hooks first.
+React dostarcza kilka wbudowanych Hooków, między innymi `useState`. Ale możesz też stworzyć własne Hooki, by współdzielić zachowanie związane ze stanem pomiędzy komponentami. Najpierw rzućmy jednak okiem na wbudowane Hooki.
 
->Detailed Explanation
+>Szczegółowe wyjaśnienie
 >
->You can learn more about the State Hook on a dedicated page: [Using the State Hook](/docs/hooks-state.html).
+>Hookowi Stanu poświęciliśmy cały rozdział: ["Używanie Hooka Stanu"](/docs/hooks-state.html).
 
-## ⚡️ Effect Hook {#effect-hook}
+## ⚡️ Hook Efektu {#effect-hook}
 
-You've likely performed data fetching, subscriptions, or manually changing the DOM from React components before. We call these operations "side effects" (or "effects" for short) because they can affect other components and can't be done during rendering.
+Najprawdopodobniej zdarzyło ci się już pobierać dane, obsługiwać subskrypcje lub ręcznie modyfikować drzewo DOM wewnątrz komponentów reactowych. Tego typu operacje nazywamy ["efektami ubocznymi"](https://pl.wikipedia.org/wiki/Skutek_uboczny_(informatyka)) (ang. *side effects*), ponieważ mogą one wpływać na inne komponenty i nie mogą zostać przeprowadzone podczas renderowania.
 
-The Effect Hook, `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in React classes, but unified into a single API. (We'll show examples comparing `useEffect` to these methods in [Using the Effect Hook](/docs/hooks-effect.html).)
+Hook Efektu `useEffect` daje możliwość przeprowadzania "efektów ubocznych" z wewnątrz komponentu funkcyjnego. Pełni on taką samą funkcję, jak `componentDidMount`, `componentDidUpdate` i `componentWillUnmount` w komponentach klasowych, ale uproszczoną do jednego interfejsu API. (Różnice między nimi pokażemy na przykładach w rozdziale pt. ["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
 
-For example, this component sets the document title after React updates the DOM:
+Na przykład, ten komponent ustawia tytuł dokumentu HTML po tym, jak React zaktualizuje drzewo DOM:
 
 ```js{1,6-10}
 import React, { useState, useEffect } from 'react';
@@ -82,26 +83,26 @@ import React, { useState, useEffect } from 'react';
 function Example() {
   const [count, setCount] = useState(0);
 
-  // Similar to componentDidMount and componentDidUpdate:
+  // Podobnie jak componentDidMount i componentDidUpdate:
   useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You clicked ${count} times`;
+    // Zaktualizuj tytuł dokumentu, korzystając z interfejsu API przeglądarki
+    document.title = `Naciśnięto ${count} razy`;
   });
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Naciśnięto {count} razy</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Naciśnij mnie
       </button>
     </div>
   );
 }
 ```
 
-When you call `useEffect`, you're telling React to run your "effect" function after flushing changes to the DOM. Effects are declared inside the component so they have access to its props and state. By default, React runs the effects after every render -- *including* the first render. (We'll talk more about how this compares to class lifecycles in [Using the Effect Hook](/docs/hooks-effect.html).)
+Kiedy wywołujesz funkcję `useEffect`, mówisz Reactowi, żeby uruchomił twój "efekt", gdy opróżni (ang. *flush*) bufor zmian do drzewa DOM. Efekty są deklarowane wewnątrz komponentu, więc mają dostęp do jego właściwości (ang. *props*) i stanu (ang. *state*). Domyślnie React uruchamia wszystkie efekty po każdym renderowaniu -- *włącznie* z pierwszym. (Różnice między tym a metodami cyklu życia komponentów klasowych omówimy w rozdziale pt. ["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
 
-Effects may also optionally specify how to "clean up" after them by returning a function. For example, this component uses an effect to subscribe to a friend's online status, and cleans up by unsubscribing from it:
+Poprzez zwrócenie funkcji, efekty mogą też określać, w jaki sposób należy po nich "posprzątać". Na przykład, ten komponent używa efektu, aby zasubskrybować się do informacji o dostępności znajomego. A następnie sprząta po sobie, anulując tę subskrypcję.
 
 ```js{10-16}
 import React, { useState, useEffect } from 'react';
@@ -122,21 +123,21 @@ function FriendStatus(props) {
   });
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Ładowanie...';
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Dostępny' : 'Niedostępny';
 }
 ```
 
-In this example, React would unsubscribe from our `ChatAPI` when the component unmounts, as well as before re-running the effect due to a subsequent render. (If you want, there's a way to [tell React to skip re-subscribing](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) if the `props.friend.id` we passed to `ChatAPI` didn’t change.)
+W tym przykładzie React anuluje subskrypcję naszego `ChatAPI` w momencie, gdy komponent zostaje odmontowany. Zrobi to też przed każdym kolejnym uruchomieniem efektu (które następuje przy każdym kolejnym renderowaniu komponentu). (Jeśli chcesz, możesz [powiedzieć Reactowi żeby tego nie robił](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects), jeśli wartość `props.friend.id`, którą przekazaliśmy do `ChatAPI`, nie uległa zmianie.)
 
-Just like with `useState`, you can use more than a single effect in a component:
+Podobnie jak z `useState`, możesz użyć więcej niż jednego efektu w swoim komponencie:
 
 ```js{3,8}
 function FriendStatusWithCounter(props) {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
+    document.title = `Naciśnięto ${count} razy`;
   });
 
   const [isOnline, setIsOnline] = useState(null);
@@ -153,32 +154,32 @@ function FriendStatusWithCounter(props) {
   // ...
 ```
 
-Hooks let you organize side effects in a component by what pieces are related (such as adding and removing a subscription), rather than forcing a split based on lifecycle methods.
+Hooki pozwalają organizować kod wewnątrz komponentu, bazując na powiązanych ze sobą fragmentach (takich jak dodawanie i anulowanie subskrypcji). Nie wymuszają sztucznego podziału, jak metody cyklu życia (ang. *lifecycle methods*).
 
->Detailed Explanation
+>Szczegółowe wyjaśnienie
 >
->You can learn more about `useEffect` on a dedicated page: [Using the Effect Hook](/docs/hooks-effect.html).
+>Możesz dowiedzieć się więcej o `useEffect` w rozdziale pt. ["Używanie Hooka Efektu"](/docs/hooks-effect.html).
 
-## ✌️ Rules of Hooks {#rules-of-hooks}
+## ✌️ Zasady korzystania z Hooków {#rules-of-hooks}
 
-Hooks are JavaScript functions, but they impose two additional rules:
+Hooki są funkcjami javascriptowymi, ale narzucają dwie dodatkowe zasady:
 
-* Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
-* Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions. (There is just one other valid place to call Hooks -- your own custom Hooks. We'll learn about them in a moment.)
+* Wywołuj Hooki tylko **z najwyższego poziomu kodu**. Nie wywołuj Hooków z wewnątrz pętli, warunków czy zagnieżdżonych funkcji.
+* Wywołuj Hooki tylko **z wewnątrz reactowych komponentów funkcyjnych**. Nie wywołuj Hooków z wewnątrz zwykłych javascriptowych funkcji. (Jest jeszcze tylko jedno miejsce, z którego możesz wywoływać Hooki -- twoje własne Hooki. Za chwilę dowiemy się o tym więcej.)
 
-We provide a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to enforce these rules automatically. We understand these rules might seem limiting or confusing at first, but they are essential to making Hooks work well.
+Stworzyliśmy [wtyczkę do lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks), która automatycznie wymusza te zasady. Rozumiemy, że reguły te mogą z początku wydawać się ograniczające i zagmatwane, ale są one niezbędne do prawidłowego funkcjonowania Hooków.
 
->Detailed Explanation
+>Szczegółowe wyjaśnienie
 >
->You can learn more about these rules on a dedicated page: [Rules of Hooks](/docs/hooks-rules.html).
+>Możesz dowiedzieć się więcej o tych zasadach w rozdziale pt. ["Zasady korzystania z Hooków"](/docs/hooks-rules.html).
 
-## 💡 Building Your Own Hooks {#building-your-own-hooks}
+## 💡 Tworzenie własnych Hooków {#building-your-own-hooks}
 
-Sometimes, we want to reuse some stateful logic between components. Traditionally, there were two popular solutions to this problem: [higher-order components](/docs/higher-order-components.html) and [render props](/docs/render-props.html). Custom Hooks let you do this, but without adding more components to your tree.
+Czasami zdarza się, że chcemy ponownie wykorzystać pewną logikę związaną ze stanem pomiędzy komponentami. W tradycyjnym podejściu mieliśmy do dyspozycji dwa popularne rozwiązania tego problemu: [komponenty wyższego rzędu (ang. *higher-order components*)](/docs/higher-order-components.html) i [właściwości renderujące (ang. *render props*)](/docs/render-props.html). Własne Hooki rozwiązują ten problem, bez konieczności dodawania kolejnych komponentów do drzewa.
 
-Earlier on this page, we introduced a `FriendStatus` component that calls the `useState` and `useEffect` Hooks to subscribe to a friend's online status. Let's say we also want to reuse this subscription logic in another component.
+W jednym z poprzednich podrozdziałów pokazaliśmy komponent `FriendStatus`, który wykorzystuje Hooki `useState` i `useEffect`, aby zasubskrybować się do informacji o dostępności znajomego. Załóżmy, że chcielibyśmy wykorzystać tę logikę w innym komponencie.
 
-First, we'll extract this logic into a custom Hook called `useFriendStatus`:
+Na początek wydzielmy tę logikę do własnego Hooka o nazwie `useFriendStatus`:
 
 ```js{3}
 import React, { useState, useEffect } from 'react';
@@ -201,9 +202,9 @@ function useFriendStatus(friendID) {
 }
 ```
 
-It takes `friendID` as an argument, and returns whether our friend is online.
+Jako argument przyjmuje on zmienną `friendID` i zwraca informację o tym, czy nasz znajomy jest dostępny.
 
-Now we can use it from both components:
+Teraz możemy go użyć w obu naszych komponentach:
 
 
 ```js{2}
@@ -211,9 +212,9 @@ function FriendStatus(props) {
   const isOnline = useFriendStatus(props.friend.id);
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Ładowanie...';
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Dostępny' : 'Niedostępny';
 }
 ```
 
@@ -229,19 +230,19 @@ function FriendListItem(props) {
 }
 ```
 
-The state of these components is completely independent. Hooks are a way to reuse *stateful logic*, not state itself. In fact, each *call* to a Hook has a completely isolated state -- so you can even use the same custom Hook twice in one component.
+Stan obu tych komponentów jest w pełni niezależny. Hooki są metodą na współdzielenie *logiki związanej ze stanem*, nie zaś samego stanu. Tak naprawdę to każde *wywołanie* Hooka tworzy kompletnie wyizolowany stan -- możesz więc użyć tego samego, własnego Hooka kilkukrotnie w jednym komponencie.
 
-Custom Hooks are more of a convention than a feature. If a function's name starts with "`use`" and it calls other Hooks, we say it is a custom Hook. The `useSomething` naming convention is how our linter plugin is able to find bugs in the code using Hooks.
+Własne Hooki są bardziej konwencją niż wbudowanym mechanizmem. Jeżeli nazwa funkcji zaczyna się od "`use`" i wywołuje ona inne Hooki, mówimy że mamy do czynienia z własnym Hookiem. Na tej konwencji nazewnictwa `useSomething` bazuje nasza wtyczka do lintera i pozwala jej to znaleźć błędy w kodzie korzystającym z Hooków.
 
-You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven't considered. We are excited to see what custom Hooks the React community will come up with.
+Możesz pisać własne Hooki, które obejmują szereg różnych przypadków - od obsługi animacji, deklaratywnych subskrypcji, liczników, po wiele innych, o których nie pomyśleliśmy. Nie możemy się doczekać, żeby zobaczyć, na jakie pomysły wykorzystania własnych Hooków wpadnie społeczność Reacta.
 
->Detailed Explanation
+>Szczegółowe wyjaśnienie
 >
->You can learn more about custom Hooks on a dedicated page: [Building Your Own Hooks](/docs/hooks-custom.html).
+>Możesz dowiedzieć się więcej o własnych Hookach w rozdziale pt. ["Budowanie własnych Hooków"](/docs/hooks-custom.html).
 
-## 🔌 Other Hooks {#other-hooks}
+## 🔌 Inne Hooki {#other-hooks}
 
-There are a few less commonly used built-in Hooks that you might find useful. For example, [`useContext`](/docs/hooks-reference.html#usecontext) lets you subscribe to React context without introducing nesting:
+Istnieje kilka mniej popularnych, wbudowanych Hooków, które mogą ci się spodobać. Na przykład [`useContext`](/docs/hooks-reference.html#usecontext) pozwala zasubskrybować się do zmian kontekstu (ang. *context*) bez wprowadzania zagnieżdżania:
 
 ```js{2,3}
 function Example() {
@@ -251,7 +252,7 @@ function Example() {
 }
 ```
 
-And [`useReducer`](/docs/hooks-reference.html#usereducer) lets you manage local state of complex components with a reducer:
+Z kolei [`useReducer`](/docs/hooks-reference.html#usereducer) pozwala na zarządzanie lokalnym stanem skomplikowanych komponentów przy użyciu reduktora (ang. *reducer*):
 
 ```js{2}
 function Todos() {
@@ -259,14 +260,14 @@ function Todos() {
   // ...
 ```
 
->Detailed Explanation
+>Szczegółowe wyjaśnienie
 >
->You can learn more about all the built-in Hooks on a dedicated page: [Hooks API Reference](/docs/hooks-reference.html).
+>Więcej informacji o wszystkich wbudowanych Hookach znajdziesz w rozdziale pt. ["Hooki - interfejs API"](/docs/hooks-reference.html).
 
-## Next Steps {#next-steps}
+## Kolejne kroki {#next-steps}
 
-Phew, that was fast! If some things didn't quite make sense or you'd like to learn more in detail, you can read the next pages, starting with the [State Hook](/docs/hooks-state.html) documentation.
+Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co napisaliśmy, nie miało dla ciebie sensu lub jeśli chcesz po prostu dowiedzieć się więcej, możesz przeczytać kolejne rozdziały, zaczynając od ["Hook Stanu"](/docs/hooks-state.html).
 
-You can also check out the [Hooks API reference](/docs/hooks-reference.html) and the [Hooks FAQ](/docs/hooks-faq.html).
+Możesz też zerknąć na rozdziały pt. ["Hooki - interfejs API"](/docs/hooks-reference.html) i ["Hooki - FAQ"](/docs/hooks-faq.html).
 
-Finally, don't miss the [introduction page](/docs/hooks-intro.html) which explains *why* we're adding Hooks and how we'll start using them side by side with classes -- without rewriting our apps.
+I na koniec: nie zapomnij o rozdziale pt. ["Wprowadzenie do Hooków"](/docs/hooks-intro.html), w którym wyjaśniliśmy, dlaczego dodaliśmy Hooki i jak zacząć z nich korzystać równolegle z istniejącym kodem -- bez przepisywania aplikacji.
