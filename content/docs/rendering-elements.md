@@ -32,7 +32,7 @@ Powiedzmy, że gdzieś w twoim pliku HTML jest `<div>`:
 
 Nazywamy ten węzeł drzewa DOM "korzeniem", bo wszytko, co się w nim znajduje będzie zarządzane przez React DOM.
 
-Aplikacje zbudowane tylko w Reakcie zazwyczaj posiadają pojedynczy węzeł drzewa DOM. Jeśli integrujesz reactową aplikację z już istniejącą aplikacją, możesz mieć tyle odizolowanych "korzeni", ile chcesz.
+Aplikacje zbudowane przy pomocy samego Reacta zazwyczaj posiadają pojedynczy węzeł drzewa DOM. Jeśli natomiast integrujesz reactową aplikację z już istniejącą aplikacją, możesz mieć tyle odizolowanych "korzeni", ile chcesz.
 
 Aby wyrenderować reactowy element w węźle drzewa DOM, przekaż oba do `ReactDOM.render()`:
 
