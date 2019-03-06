@@ -58,7 +58,7 @@ Wywołuje on `ReactDOM.render()` z funkcji zwrotnej [`setInterval()`](https://de
 
 >**Wskazówka:**
 >
->W praktyce, większość reactowych aplikacji przywołuje `ReactDOM.render()` tylko raz. W kolejnych sekcjach dowiemy się jak taki kod zostaje wyhermetyzowany do [stanowych komponentów](/docs/state-and-lifecycle.html).
+>W praktyce większość reactowych aplikacji wywołuje `ReactDOM.render()` tylko raz. W kolejnych rozdziałach dowiemy się, jak taki kod można wyizolować do [komponentów stanowych](/docs/state-and-lifecycle.html).
 >
 >Zalecamy, abyś nie pomijał tematów, ponieważ budują one na sobie.
 
