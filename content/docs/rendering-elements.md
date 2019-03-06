@@ -65,7 +65,7 @@ Wywołuje on `ReactDOM.render()` z funkcji zwrotnej [`setInterval()`](https://de
 
 ## React uaktualnia tylko to, co potrzebne {#react-only-updates-whats-necessary}
 
-React DOM porównuje element i jego potomków do poprzedniego oraz stosuje aktualizacje drzewa DOM konieczne do doprowadzenia go do pożądanego stanu.
+React DOM porównuje element i jego potomków do poprzedniego oraz nakłada tylko te aktualizacje drzewa DOM, które konieczne są do doprowadzenia go do pożądanego stanu.
 
 Możesz to sprawdzić przez zbadanie (ang. *inspect*) [ostatniego przykładu](codepen://rendering-elements/update-rendered-element) przy użyciu narzędzi deweloperskich:
 
