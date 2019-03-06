@@ -31,7 +31,7 @@ Powiedzmy, że gdzieś w twoim pliku HTML jest `<div>`:
 <div id="root"></div>
 ```
 
-Nazywamy ten węzeł drzewa DOM "korzeniem", bo wszytko, co się w nim znajduje będzie zarządzane przez React DOM.
+Ten węzeł drzewa DOM nazywamy "korzeniem", bo wszystko, co się w nim znajduje będzie zarządzane przez React DOM.
 
 Aplikacje zbudowane przy pomocy samego Reacta zazwyczaj posiadają pojedynczy węzeł drzewa DOM. Jeśli natomiast integrujesz reactową aplikację z już istniejącą aplikacją, możesz mieć tyle odizolowanych "korzeni", ile chcesz.
 
