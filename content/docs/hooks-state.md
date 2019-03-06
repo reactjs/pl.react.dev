@@ -212,9 +212,9 @@ Teraz **podsumujmy linijka po linijce to, czego się nauczyliśmy** i sprawdźmy
 14:  }
 ```
 
-* **Linia 1:** We import the `useState` hook from React. It lets us keep local state in a function component.
-* **Linia 4:** Inside the `Example` component, we declare a new state variable by calling the `useState` hook. It returns a pair of values, to which we give names. We're calling our variable `count` because it holds the number of button clicks. We initialize it to zero by passing `0` as the only `useState` argument. The second returned item is itself a function. It lets us update the `count` so we'll name it `setCount`.
-* **Linia 9:** When the user clicks, we call `setCount` with a new value. React will then re-render the `Example` component, passing the new `count` value to it.
+* **Linia 1:** Importujemy Hooka `useState` z biblioteki React. Pozwala nam to na używanie lokalnego stanu w komponencie funkcyjnym.
+* **Linia 4:** Wewnątrz komponentu `Example`, poprzez wywołanie hooka `useState`, deklarujemy nową zmienną stanu. Wywołanie zwraca parę wartości, którym nadajemy nazwy. Naszą zmienną nazywamy `count` (*pol. licznik*), ponieważ przechowuje ona liczbę naciśnięć przycisku. Inicjalizujemy ją z domyślną wartością, poprzez przekazanie `0` jako jedynego argumentu do funkcji `useState`. Jako druga zwrócona jest funkcja, która pozwala aktualizować wartość `count`, więc nazwiemy ją `setCount` (*pol. ustawić licznik*).
+* **Linia 9:** Kiedy użytkownik naciska przycisk wywołujemy funkcję `setCount` z nową wartością. React wyrenderuje ponownie komponent `Example`, przekazując do niego nową wartość zmiennej `count`.
 
 Z początku wszystkie te informacje mogą wydawać się trudne do "przetrawienia". Nie spiesz się! Jeżeli zgubisz się gdzieś czytając wyjaśnienie, spójrz na kod jeszcze raz i spróbuj go przeczytać ponownie od góry do dołu. Obiecujemy, kiedy spróbujesz "zapomnieć", jak działa stan w klasach i spojrzysz na kod świeżym okiem, nabierze to sensu.
 
@@ -277,4 +277,4 @@ Ten rozdział poświęciliśmy jednemu z hooków dostarczanych przez Reacta -- `
 
 Dowiedzieliśmy się też troszeczkę o tym, czym w zasadzie są hooki. Hooki to funkcje, które pozwalają "zahaczyć się" w wewnętrzne mechanizmy Reacta z wewnątrz komponentów funkcyjnych. Ich nazwy muszą zaczynać się od `use` i istnieje szereg innych hooków, których jeszcze nie poznaliśmy.
 
-**Zapoznajmy się więc z [kolejnym hookiem: `useEffect`.](/docs/hooks-effect.html)** Pozwala on na przeprowadzanie "efektów ubocznych" (*ang. side ffects*) w komponentach i jest podobony do metod cyklu życia w klasach.
+**Zapoznajmy się więc z [kolejnym hookiem: `useEffect`.](/docs/hooks-effect.html)** Pozwala on na przeprowadzanie "efektów ubocznych" (*ang. side effects*) w komponentach i jest podobony do metod cyklu życia w klasach.
