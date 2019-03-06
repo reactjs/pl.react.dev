@@ -54,7 +54,7 @@ Rozważ ten przykład tykającego zegara:
 
 [](codepen://rendering-elements/update-rendered-element)
 
-Przywołuje on `ReactDOM.render()` w każdej sekundzie z funkcji zwrotnej [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
+Wywołuje on `ReactDOM.render()` z funkcji zwrotnej [`setInterval()`](https://developer.mozilla.org/pl/docs/Web/API/Window/setInterval) co sekundę.
 
 >**Wskazówka:**
 >
