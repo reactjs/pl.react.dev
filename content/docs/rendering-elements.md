@@ -10,7 +10,7 @@ next: components-and-props.html
 
 Elementy to najmniejsze bloki budujące reactowe aplikacje.
 
-Element opisuje co chcesz zobaczyć na ekranie.
+Element opisuje, co chcesz zobaczyć na ekranie:
 
 ```js
 const element = <h1>Hello, world</h1>;
