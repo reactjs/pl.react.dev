@@ -39,7 +39,7 @@ function Example() {
 }
 ```
 
-W tym przykładzie `useState` jest *Hookiem* (za chwilę wyjaśnimy, co to znaczy). Wywołujemy go z wewnątrz komponentu funkcyjnego, aby wzbogacić go o lokalny stan. React zachowa ten stan pomiędzy kolejnymi renderowaniami. `useState` zwraca parę: *aktualną* wartość stanu i funkcję, która pozwala go aktualizować. Możesz wywołać tę funkcję w procedurze obsługi zdarzenia albo z innego miejsca. Działa to mniej więcej tak samo, jak `this.setState` w komponencie klasowym, z tą różnicą, że nie scala on starych i nowych wartości. (Szerzej omawiamy te różnice w rozdziale pt. ["Używanie Hooka Stanu"](/docs/hooks-state.html).)
+W tym przykładzie `useState` jest *Hookiem* (za chwilę wyjaśnimy, co to znaczy). Wywołujemy go z wewnątrz komponentu funkcyjnego, aby wzbogacić go o lokalny stan. React zachowa ten stan pomiędzy kolejnymi renderowaniami. `useState` zwraca parę: *aktualną* wartość stanu i funkcję, która pozwala go aktualizować. Możesz wywołać tę funkcję w procedurze obsługi zdarzenia albo z innego miejsca. Działa to mniej więcej tak samo, jak `this.setState` w komponencie klasowym, z tą różnicą, że nie scala on starych i nowych wartości. (Szerzej omawiamy te różnice w rozdziale pt. ["Używanie hooka stanu"](/docs/hooks-state.html).)
 
 Jedynym argumentem funkcji `useState` jest stan początkowy. W przykładzie powyżej jest to `0`, ponieważ nasz licznik startuje od zera. Zauważ, że w przeciwieństwie do `this.state`, stan nie musi być obiektem. Nic jednak nie stoi na przeszkodzie, by nim był. Wartość argumentu ze stanem początkowym jest wykorzystywana tylko przy pierwszym renderze.
 
@@ -67,7 +67,7 @@ React dostarcza kilka wbudowanych Hooków, między innymi `useState`. Ale możes
 
 >Szczegółowe wyjaśnienie
 >
->Hookowi Stanu poświęciliśmy cały rozdział: ["Używanie Hooka Stanu"](/docs/hooks-state.html).
+>Hookowi Stanu poświęciliśmy cały rozdział: ["Używanie hooka stanu"](/docs/hooks-state.html).
 
 ## ⚡️ Hook Efektu {#effect-hook}
 
@@ -266,7 +266,7 @@ function Todos() {
 
 ## Kolejne kroki {#next-steps}
 
-Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co napisaliśmy, nie miało dla ciebie sensu lub jeśli chcesz po prostu dowiedzieć się więcej, możesz przeczytać kolejne rozdziały, zaczynając od ["Hook Stanu"](/docs/hooks-state.html).
+Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co napisaliśmy, nie miało dla ciebie sensu lub jeśli chcesz po prostu dowiedzieć się więcej, możesz przeczytać kolejne rozdziały, zaczynając od ["Używanie hooka stanu"](/docs/hooks-state.html).
 
 Możesz też zerknąć na rozdziały pt. ["Hooki - interfejs API"](/docs/hooks-reference.html) i ["Hooki - FAQ"](/docs/hooks-faq.html).
 
