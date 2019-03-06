@@ -66,7 +66,7 @@ Wywołuje on `ReactDOM.render()` z funkcji zwrotnej [`setInterval()`](https://de
 
 React DOM porównuje element i jego potomków do poprzedniego oraz stosuje aktualizacje drzewa DOM konieczne do doprowadzenia go do pożądanego stanu.
 
-Możesz to sprawdzić przez inspekcję [ostatniego przykładu](codepen://rendering-elements/update-rendered-element) w narzędziach przeglądarki:
+Możesz to sprawdzić przez zbadanie (ang. *inspect*) [ostatniego przykładu](codepen://rendering-elements/update-rendered-element) przy użyciu narzędzi deweloperskich:
 
 ![inspektor DOM pokazujący cząstkowe aktualizacje](../images/docs/granular-dom-updates.gif)
 
