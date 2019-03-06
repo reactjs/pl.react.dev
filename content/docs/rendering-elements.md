@@ -31,7 +31,7 @@ Powiedzmy, że gdzieś w twoim pliku HTML jest `<div>`:
 <div id="root"></div>
 ```
 
-Nazywamy ten węzeł drzewa DOM "korzeniem", bo wszytko, co się w nim znajduje będzie zarządzane przez React DOM.
+Ten węzeł drzewa DOM nazywamy "korzeniem", bo wszystko, co się w nim znajduje będzie zarządzane przez React DOM.
 
 Aplikacje zbudowane przy pomocy samego Reacta zazwyczaj posiadają pojedynczy węzeł drzewa DOM. Jeśli natomiast integrujesz reactową aplikację z już istniejącą aplikacją, możesz mieć tyle odizolowanych "korzeni", ile chcesz.
 
@@ -59,13 +59,13 @@ Wywołuje on `ReactDOM.render()` z wewnątrz funkcji zwrotnej [`setInterval()`](
 
 >**Wskazówka:**
 >
->W praktyce większość reactowych aplikacji wywołuje `ReactDOM.render()` tylko raz. W kolejnych rozdziałach dowiemy się, jak taki kod można wyizolować do [komponentów stanowych](/docs/state-and-lifecycle.html).
+>W praktyce większość reactowych aplikacji wywołuje `ReactDOM.render()` tylko raz. W kolejnych rozdziałach dowiemy się, jak można taki kod wyizolować do [komponentów stanowych](/docs/state-and-lifecycle.html).
 >
->Radzimy nie pomijać żadnych tematów, ponieważ kolejne rozdziały oparte są o wiedzę z poprzednich.
+>Radzimy jednak nie pomijać żadnych tematów, ponieważ kolejne rozdziały oparte są o wiedzę z poprzednich.
 
 ## React uaktualnia tylko to, co potrzebne {#react-only-updates-whats-necessary}
 
-React DOM porównuje element i jego potomków do poprzedniego oraz stosuje aktualizacje drzewa DOM konieczne do doprowadzenia go do pożądanego stanu.
+React DOM porównuje element i jego potomków do poprzedniego oraz nakłada tylko te aktualizacje drzewa DOM, które konieczne są do doprowadzenia go do pożądanego stanu.
 
 Możesz to sprawdzić przez zbadanie (ang. *inspect*) [ostatniego przykładu](codepen://rendering-elements/update-rendered-element) przy użyciu narzędzi deweloperskich:
 
