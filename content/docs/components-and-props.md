@@ -16,35 +16,35 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+Komponenty pozwalają ci podzielić interfejs użytkownika na niezależne, pozwalające na ponowne użycie części i myśleć o każdej z nich osobno. Ta strona dostarcza wprowadzenie do pojęcia komponentów. Możesz znaleźć [szczegółowe odniesienie do API komponentów tutaj](/docs/react-component.html).
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Koncepcyjnie, komponenty są jak javascriptowe funkcje. Przyjmują one arbirtalne wkłady (nazywane "właściwościami") i zwracają reactowe elementy opisujące co powinno się pojawić na ekranie.
 
-## Function and Class Components {#function-and-class-components}
+## Komponenty funkcyjne i klasowe {#function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+Najprostszym sposobem na zdefiniowanie komponentu jest napisanie javascriptowej funkcji:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Cześć, {props.name}</h1>;
 }
 ```
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+Ta funkcja jest uzasadnionym reactowym komponentem, bo przyjmuje pojedynczy argument "props" (który oznacza "właściwości" (ang. *properties*)) będący obiektem z danymi i zwraca reactowy element. Nazywamy takie komponenty "komponentami funkcyjnymi", bo są one dosłownie javascriptowymi funkcjami.
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+Możesz również używać [klasy ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) aby zdefiniować komponent:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Cześć, {this.props.name}</h1>;
   }
 }
 ```
 
-The above two components are equivalent from React's point of view.
+Dwa powyższe komponenty są równoważne z punktu widzenia Reacta.
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+Klasy mają kilka dodatkowych cech, które przedyskutujemy w [kolejnych rozdziałach](/docs/state-and-lifecycle.html). Na ten czas bedziemy używać komponentów funkcyjnych dla ich zwięzłości.
 
 ## Rendering a Component {#rendering-a-component}
 
