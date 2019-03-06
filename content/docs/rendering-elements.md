@@ -46,7 +46,7 @@ Na stronie wyświetli się "Hello, world".
 
 Reactowe elementy są [niezmienne](https://en.wikipedia.org/wiki/Immutable_object) (ang. *immutable*). Kiedy już stworzysz element, nie możesz zmienić jego komponentów potomnych ani właściwości. Element jest jak pojedyncza klatka z filmu: reprezentuje interfejs użytkownika w pewnym punkcie czasu.
 
-Dotychczas z naszą wiedzą, jedynym sposobem aktualizacji interfejsu użytkownika jest stworzenie nowego elementu i przekazanie go do `ReactDOM.render()`.
+Przy naszej dotychczasowej wiedzy, jedynym sposobem aktualizacji interfejsu użytkownika jest stworzenie nowego elementu i przekazanie go do `ReactDOM.render()`.
 
 Rozważ ten przykład tykającego zegara:
 
