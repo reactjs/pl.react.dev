@@ -46,27 +46,27 @@ Dwa powyższe komponenty są równoważne z punktu widzenia Reacta.
 
 Klasy mają kilka dodatkowych cech, które przedyskutujemy w [kolejnych rozdziałach](/docs/state-and-lifecycle.html). Na ten czas bedziemy używać komponentów funkcyjnych dla ich zwięzłości.
 
-## Rendering a Component {#rendering-a-component}
+## Renderowanie komponentu {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+Poprzednio, napotykaliśmy reactowe elementy, które reprezentowały tagi drzewa DOM:
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+Natomiast elementy mogą również reprezentować komponenty zdefiniowane przez użytkownika:
 
 ```js
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+Kiedy React widzi element reprezentujący komponent zdefiniowany przez użytkownika, przekazuje on do niego JSX'owe atrybuty jako jeden obiekt. Nazywamy ten obiekt "właściwościami".
 
-For example, this code renders "Hello, Sara" on the page:
+Na przykład, ten kod renderuje "Cześć, Sara" na stronie:
 
 ```js{1,5}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Cześć, {props.name}</h1>;
 }
 
 const element = <Welcome name="Sara" />;
@@ -78,28 +78,28 @@ ReactDOM.render(
 
 [](codepen://components-and-props/rendering-a-component)
 
-Let's recap what happens in this example:
+Podsumujmy, co dzieje się w tym przykładzie:
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. Wywołujemy `ReactDOM.render()` z elementem `<Welcome name="Sara" />`.
+2. React wywołuje komponent `Welcome` z `{name: 'Sara'}` jako właściwości.
+3. Nasz komponent `Welcome` zwraca jako wynik element `<h1>Hello, Sara</h1>`.
+4. React DOM wydajnie uaktualinia drzewo DOM, aby równało się `<h1>Hello, Sara</h1>`.
 
->**Note:** Always start component names with a capital letter.
+>**Wskazówka:** Zawsze zaczynaj nazwy komponentów od dużej litery.
 >
->React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>React traktuje komponenty zaczynające się od małej litery jako tagi drzewa DOM. Na przykład, `<div />` reprezentuje HTML'owy tag div, ale `<Welcome />` reprezentuje komponent i wymaga, aby `Welcome` było w zasięgu.
 >
->To learn more about the reasoning behind this convention, please read [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+>Aby dowiedzieć się więcej o uzasadnieniu tej konwencji, przeczytaj [JSX dogłębnie](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
-## Composing Components {#composing-components}
+## Komponowanie Komponentów {#composing-components}
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+Komponenty mogą odwoływać się do innych komponentów i ich wyników. To pozwala nam na używanie tej samej abstrakcji komponentu na dowolnym poziomie szczegółowości.
 
-For example, we can create an `App` component that renders `Welcome` many times:
+Na przykład możemy stworzyć komponent `App`, który renderuje `Welcome` wiele razy:
 
 ```js{8-10}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Cześć, {props.name}</h1>;
 }
 
 function App() {
@@ -120,7 +120,7 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+Zazwyczaj, nowe reactowe aplikacje mają pojedynczy komponent `App` u samej góry. Natomiast, jeśli będziesz integrował Reacta z istniejącą aplikacją, możesz zacząć od dołu z małymi komponentami jak na przykład `Button` i stopniowo wypracować sobie drogę na szczyt hierarchii widoku.
 
 ## Extracting Components {#extracting-components}
 
