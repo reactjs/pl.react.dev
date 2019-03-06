@@ -32,7 +32,7 @@ function Welcome(props) {
 
 Ta funkcja jest uzasadnionym reactowym komponentem, bo przyjmuje pojedynczy argument "props" (który oznacza "właściwości" (ang. *properties*)) będący obiektem z danymi i zwraca reactowy element. Nazywamy takie komponenty "komponentami funkcyjnymi", bo są one dosłownie javascriptowymi funkcjami.
 
-Możesz również użyć [klasy ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) aby zdefiniować komponent:
+Możesz również użyć [klasy ES6](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) aby zdefiniować komponent:
 
 ```js
 class Welcome extends React.Component {
