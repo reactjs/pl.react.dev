@@ -91,7 +91,7 @@ Podsumujmy, co dzieje się w tym przykładzie:
 >
 >Aby dowiedzieć się więcej o uzasadnieniu tej konwencji, przeczytaj [JSX dogłębnie](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
-## Komponowanie Komponentów {#composing-components}
+## Kompozycja komponentów {#composing-components}
 
 Komponenty mogą odwoływać się do innych komponentów i ich wyników. To pozwala nam na używanie tej samej abstrakcji komponentu na dowolnym poziomie szczegółowości.
 
@@ -122,11 +122,11 @@ ReactDOM.render(
 
 Zazwyczaj, nowe reactowe aplikacje mają pojedynczy komponent `App` u samej góry. Natomiast, jeśli będziesz integrował Reacta z istniejącą aplikacją, możesz zacząć od dołu z małymi komponentami jak na przykład `Button` i stopniowo wypracować sobie drogę na szczyt hierarchii widoku.
 
-## Extracting Components {#extracting-components}
+## Wyciąganie komponentów {#extracting-components}
 
-Don't be afraid to split components into smaller components.
+Nie bój się dzielenia komponentów na mniejsce komponenty.
 
-For example, consider this `Comment` component:
+Na przykład rozważ ten komponent `Commment`:
 
 ```js
 function Comment(props) {
@@ -154,11 +154,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Przyjmuje on `autora` (ang. *author*) - obiekt, `text` - string i `datę` (ang. *date*) jako właściwości, oraz opisuje komentarz na stronie mediów społecznościowych.
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+Zmiana tego komponentu może być zawiła z powodu całego tego zagnieżdżenia, a ponowne użycie jego indywidulnych części jest trudne. Wyciągnijmy z niego kilka komponentów.
 
-First, we will extract `Avatar`:
+Najpierw, wyciągniemy `Avatar`:
 
 ```js{3-6}
 function Avatar(props) {
@@ -171,11 +171,11 @@ function Avatar(props) {
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+`Avatar` nie musi wiedzieć, że jest renderowany w środku komponentu `Comment`. Dlatego też daliśmy jego właściwości bardziej ogólną nazwę: `użytkownik` (ang. *user*) zamiast `autor`.
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+Polecamy nazywać właściwości z własnego punktu widzenia komponentu zamiast kontekstu, w którym jest używany.
 
-We can now simplify `Comment` a tiny bit:
+Możemy teraz dodać do komponentu `Comment` drobne uproszczenie:
 
 ```js{5}
 function Comment(props) {
@@ -198,7 +198,7 @@ function Comment(props) {
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+Następnie wyciągniemy komponent `UserInfo`, który renderuje `Avatar` obok nazwy użytkownika:
 
 ```js{3-8}
 function UserInfo(props) {
@@ -213,7 +213,7 @@ function UserInfo(props) {
 }
 ```
 
-This lets us simplify `Comment` even further:
+To pozwala nam uprościć `Comment` jeszcze bardziej:
 
 ```js{4}
 function Comment(props) {
@@ -233,7 +233,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+Wyciąganie komponentów może z początku wydawać się żmudnym zajęciem, ale posiadanie palety pozwalających na ponowne użycie komponentów jest opłacalne w większych aplikacjach. Dobrą praktyczną zasadą jest, że jeśli część twojego interfejsu użytkownika jest używana wiele razy (`Button`, `Panel`, `Avatar`) lub jest jest ona dostatecznie skomplikowana sama w sobie (`App`, `FeedStory`, `Comment`), jest ona dobrym kandydatem do stania się komponentem wielokrotnego użytku.
 
 ## Props are Read-Only {#props-are-read-only}
 
