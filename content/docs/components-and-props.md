@@ -16,9 +16,9 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Komponenty pozwalają ci podzielić interfejs użytkownika na niezależne, pozwalające na ponowne użycie części i myśleć o każdej z nich osobno. Ta strona dostarcza wprowadzenie do pojęcia komponentów. Możesz znaleźć [szczegółowe odniesienie do API komponentów tutaj](/docs/react-component.html).
+Komponenty pozwalają ci podzielić interfejs użytkownika na niezależne, pozwalające na ponowne użycie części i myśleć o każdej z nich osobno. Ta strona wprowadza do pojęcia komponentów. Możesz znaleźć [szczegółowe odniesienie do API komponentów tutaj](/docs/react-component.html).
 
-Koncepcyjnie, komponenty są jak javascriptowe funkcje. Przyjmują one arbirtalne wkłady (nazywane "właściwościami") i zwracają reactowe elementy opisujące co powinno się pojawić na ekranie.
+Koncepcyjnie, komponenty są jak javascriptowe funkcje. Przyjmują one arbirtalne wartości wkładowe (nazywane "właściwościami") i zwracają reactowe elementy opisujące co powinno się pojawić na ekranie.
 
 ## Komponenty funkcyjne i klasowe {#function-and-class-components}
 
@@ -32,7 +32,7 @@ function Welcome(props) {
 
 Ta funkcja jest uzasadnionym reactowym komponentem, bo przyjmuje pojedynczy argument "props" (który oznacza "właściwości" (ang. *properties*)) będący obiektem z danymi i zwraca reactowy element. Nazywamy takie komponenty "komponentami funkcyjnymi", bo są one dosłownie javascriptowymi funkcjami.
 
-Możesz również używać [klasy ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) aby zdefiniować komponent:
+Możesz również użyć [klasy ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) aby zdefiniować komponent:
 
 ```js
 class Welcome extends React.Component {
@@ -44,7 +44,7 @@ class Welcome extends React.Component {
 
 Dwa powyższe komponenty są równoważne z punktu widzenia Reacta.
 
-Klasy mają kilka dodatkowych cech, które przedyskutujemy w [kolejnych rozdziałach](/docs/state-and-lifecycle.html). Na ten czas bedziemy używać komponentów funkcyjnych dla ich zwięzłości.
+Klasy mają kilka dodatkowych cech, które omówimy w [kolejnych rozdziałach](/docs/state-and-lifecycle.html). Na ten czas bedziemy używać komponentów funkcyjnych dla ich zwięzłości.
 
 ## Renderowanie komponentu {#rendering-a-component}
 
@@ -89,7 +89,7 @@ Podsumujmy, co dzieje się w tym przykładzie:
 >
 >React traktuje komponenty zaczynające się od małej litery jako tagi drzewa DOM. Na przykład, `<div />` reprezentuje HTML'owy tag div, ale `<Welcome />` reprezentuje komponent i wymaga, aby `Welcome` było w zasięgu.
 >
->Aby dowiedzieć się więcej o uzasadnieniu tej konwencji, przeczytaj [JSX dogłębnie](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+>Aby dowiedzieć się więcej o uzasadnieniu tej konwencji, przeczytaj [dogłębną analizę JSX](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
 ## Kompozycja komponentów {#composing-components}
 
@@ -173,7 +173,7 @@ function Avatar(props) {
 
 `Avatar` nie musi wiedzieć, że jest renderowany w środku komponentu `Comment`. Dlatego też daliśmy jego właściwości bardziej ogólną nazwę: `użytkownik` (ang. *user*) zamiast `autor`.
 
-Polecamy nazywać właściwości z własnego punktu widzenia komponentu zamiast kontekstu, w którym jest używany.
+Polecamy nazywać właściwości z punktu widzenia komponentu, a nie kontekstu, w którym jest używany.
 
 Możemy teraz dodać do komponentu `Comment` drobne uproszczenie:
 
@@ -237,7 +237,7 @@ Wyciąganie komponentów może z początku wydawać się żmudnym zajęciem, ale
 
 ## Właściwości są tylko do odczytu {#props-are-read-only}
 
-Jeśli zadeklarujesz komponent [jako funkcja lub klasa](#function-and-class-components), nie może on nigdy modyfikować swoich właściwości. Rozważ tą funkcję `sum`:
+Bez względu na to, czy zadeklarujesz komponent [jako funkcja czy klasa](#function-and-class-components), nie może on nigdy modyfikować swoich właściwości. Rozważ tą funkcję `sum`:
 
 ```js
 function sum(a, b) {
@@ -257,6 +257,6 @@ function withdraw(account, amount) {
 
 React jest bardzo elastyczny, ale ma jedną ścisłą zasadę:
 
-**Wszytkie komponenty muszą zachowywać się jak czyste funkcje w odniesieniu do ich własności.**
+**Wszytkie komponenty muszą zachowywać się jak czyste funkcje w odniesieniu do ich właściwości.**
 
 Oczywiście, interfejsy użytkownika aplikacji są dynamiczne i zmieniają się w czasie. W [kolejnym rozdziale](/docs/state-and-lifecycle.html), wprowadzimy nowe pojęcie "stanu". Stan pozwala reactowym komponentom na zmianę swojego wyniku w czasie w odpowiedzi na akcje użytkownika, żądania sieciowe i wszystko inne, bez naruszania tej zasady.
