@@ -21,15 +21,12 @@ Wyświetli ona na stronie nagłówek "Witaj, świecie".
 
 Kliknij w powyższy link, aby otworzyć edytor kodu w przeglądarce.
 Możesz śmiało dokonywać w nim zmian, zobaczysz też jak wpływają one na to,
-co jest wyświetlane na stronie. Większość stron w tym kursie udostępnia Ci 
-przykłady, które możesz modyfikować.
+co jest wyświetlane na stronie. Na większości stron w tym kursie znajdziesz przykłady, które można modyfikować.
 
 
 ## Jak używać tego przewodnika {#how-to-read-this-guide}
 
-W niniejszym kursie zapoznamy się z podstawowymi elementami aplikacji reactowej:
-elementami i komponentami. Korzystając z nich, możesz tworzyć rozbudowane
-aplikacje w oparciu o mniejsze części, dające się wielokrotnie wykorzystywać.  
+W niniejszym kursie zapoznamy się z podstawowymi składnikami aplikacji reactowej: elementami i komponentami. Korzystając z nich, możesz tworzyć rozbudowane aplikacje w oparciu o mniejsze części, dające się wielokrotnie wykorzystywać.  
 
 >Wskazówka
 >
@@ -46,18 +43,18 @@ rogu ekranu.
 Każdy rozdział w tym kursie uzupełnia wiedzę w oparciu o poprzednie rozdziały.
 **Wielu przypadków użycia Reacta możesz się nauczyć czytając rozdziały
 w sekcji "Główne idee", zapoznając się z nimi w kolejności, w jakiej pojawiają się w pasku 
-nawigacji**. Przykładowo, [“Wprowadzenie do JSX”](/docs/introducing-jsx.html) jest
-następnym w kojeności rozdziałem.
+nawigacji**. Przykładowo, rozdział pt. [“Wprowadzenie do JSX”](/docs/introducing-jsx.html) jest
+następnym w kojeności po tym, który aktualnie czytasz.
 
 
 ## Wymagania początkowe {#knowledge-level-assumptions}
 
-React jest biblioteką JavaScriptową, stąd też zakładamy, że czytelnik dysponuje 
+React jest biblioteką javascriptową, stąd też zakładamy, że czytelnik dysponuje 
 pewną podstawową wiedzą o tym języku. **Jeśli czujesz się niezbyt pewnie, polecamy 
 zapoznanie się z kursem ["Ponowne wprowadzenie do JavaScriptu"](https://developer.mozilla.org/pl/docs/Web/JavaScript/Ponowne_wprowadzenie_do_JavaScript),
-który pozwoli Ci ocenić swoją wiedzę** oraz będzie stanowić bazę do sprawnego 
+który pozwoli ci ocenić swoją wiedzę** oraz będzie stanowić bazę do sprawnego 
 poruszania się po kursie Reacta. Choć zapoznanie się z tamtym kursem może zająć
-Ci około 30-60 minut, to nie będziesz mieć poczucia, że uczysz się jednocześnie
+ci około 30-60 minut, to nie będziesz mieć poczucia, że uczysz się jednocześnie
 JavaScriptu i Reacta.
 
 > Zauważ, że...
