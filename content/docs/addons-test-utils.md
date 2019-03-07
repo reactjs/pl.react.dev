@@ -15,11 +15,11 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 z zainstalowanym np
 
 ## Ogólne informacje {#overview}
 
-`ReactTestUtils` pozwala na łatwiejsze testowanie komponentów reactowych przy pomocy dowolnego frameworka. W Facebooku korzystamy do tego celu z biblioteki [Jest](https://facebook.github.io/jest/), która sprawia, że pisanie testów jest mniej kłopotliwe. Do nauki podstaw Jesta polecamy artykuł pt. ["Samouczek dla Reacta"](https://jestjs.io/docs/tutorial-react), znajdujący się na oficjalnej stronie biblioteki.
+`ReactTestUtils` pozwala na łatwiejsze testowanie komponentów reactowych przy pomocy dowolnego frameworka. W Facebooku korzystamy do tego celu z biblioteki [Jest](https://facebook.github.io/jest/), która sprawia, że pisanie testów jest mniej kłopotliwe. Do nauki podstaw Jesta polecamy [samouczek dla Reacta](https://jestjs.io/docs/tutorial-react), znajdujący się na oficjalnej stronie biblioteki.
 
 > Uwaga:
 >
-> Zalecamy korzystanie z biblioteki [`react-testing-library`](https://git.io/react-testing-library). Została on stworzona w celu propagowania idei pisania testów, które używają komponentów podobnie jak potencjalny użytkownik aplikacji.
+> Zalecamy korzystanie z biblioteki [`react-testing-library`](https://git.io/react-testing-library). Została ona stworzona w celu propagowania idei pisania testów, które używają komponentów podobnie jak potencjalny użytkownik aplikacji.
 >
 > Jako alternatywę, firma Airbnb opublikowała narzędzie do testowania o nazwie [Enzyme](https://airbnb.io/enzyme/), które pozwala na łatwe pisanie asercji, a także manipulowanie i przechodzenie drzewa zwróconego przez komponenty reactowe.
 
@@ -44,7 +44,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 z zainstalowanym np
 
 ### `act()` {#act}
 
-Aby przygotować komponent do testowania, należy kod renderujący i aktualizujący go "opakować" w wywołanie funkcji `act()`. Dzięki temu test zostanie uruchomiony w taki sposób, aby jak najwierniej odtworzyć zachowanie Reacta w przeglądarce.
+Aby przygotować dany komponent do testowania, należy renderujący i aktualizujący go kod "opakować" w wywołanie funkcji `act()`. Dzięki temu test zostanie uruchomiony w taki sposób, aby jak najwierniej odtworzyć zachowanie Reacta w przeglądarce.
 
 >Uwaga
 >
@@ -122,7 +122,7 @@ it('potrafi wyrenderować i aktualizować licznik', () => {
 });
 ```
 
-Zwróć uwagę, że przesyłanie zdarzeń DOM działa tylko wtedy, gdy kontener jest umieszczony w `document`. Możesz w tym celu użyć biblioteki pomocniczej, jak na przykład [`react-testing-library`](https://github.com/kentcdodds/react-testing-library), aby zredukować powtarzający się szablonowy kod.
+Zwróć uwagę, że przesyłanie zdarzeń DOM działa tylko wtedy, gdy kontener jest umieszczony w `document`. Aby uniknąć powtarzania szablonowego kodu, możesz użyć biblioteki pomocniczej, jak na przykład [`react-testing-library`](https://github.com/kentcdodds/react-testing-library).
 
 * * *
 
@@ -221,7 +221,7 @@ scryRenderedDOMComponentsWithClass(
 )
 ```
 
-Wyszukuje wszystkie elementy DOM w wyrenderowanym drzewie, których nazwa klasy CSS pasuje do wartości argumentu `className`.
+Wyszukuje wszystkie elementy DOM w wyrenderowanym drzewie, których nazwa klasy CSS odpowiada wartości argumentu `className`.
 
 * * *
 
