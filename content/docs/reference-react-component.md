@@ -15,7 +15,7 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-This page contains a detailed API reference for the React component class definition. It assumes you're familiar with fundamental React concepts, such as [Components and Props](/docs/components-and-props.html), as well as [State and Lifecycle](/docs/state-and-lifecycle.html). If you're not, read them first.
+Ta strona zawiera szegółowe odniesienie do definicji klasy reactowego komponentu. Zakłada ona, że jesteś zaznajomiony z fundamentalnymi zagadnieniami Reacta, takimi jak [Komponenty i właściwości](/docs/components-and-props.html), jak i [State and Lifecycle](/docs/state-and-lifecycle.html). Jeśli nie jesteś, przeczytaj je najpierw.
 
 ## Overview {#overview}
 
