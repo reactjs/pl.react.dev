@@ -32,7 +32,7 @@ Komponenty reactowe można również zdefiniować jako funkcje, a następnie oto
 
 ### Tworzenie elementów reactowych {#creating-react-elements}
 
-Do opisania wyglądu interfejsu użytkownika polecamy [korzystanie ze składni JSX](/docs/introducing-jsx.html). W JSX elementy są tylko wygodniejszymi odpowiednikami wywołania metody [`React.createElement()`](#createelement). Jeśli korzystasz z JSX, prawdopodobnie nigdy nie przyjdzie ci korzystać z tej metody bezpośrednio.
+Do opisania wyglądu interfejsu użytkownika polecamy [korzystanie ze składni JSX](/docs/introducing-jsx.html). W JSX elementy są tylko wygodniejszymi odpowiednikami wywołania metody [`React.createElement()`](#createelement). Jeśli korzystasz z JSX, prawdopodobnie nigdy nie przyjdzie ci korzystać z tych metody bezpośrednio.
 
 - [`createElement()`](#createelement)
 - [`createFactory()`](#createfactory)
@@ -67,7 +67,7 @@ Aby dowiedzieć się więcej na ten temat, zajrzyj do rozdziału pt. ["React bez
 
 ### Hooki {#hooks}
 
-*Hooki* są nowym dodatkiem do Reacta 16.8. Pozwalają na korzystanie ze stanu oraz innych funkcjonalności Reacta bez konieczności definiowania klas. Hooki mają [dedykowany rozdział w dokumentacji](/docs/hooks-intro.html) oraz osobny interfejs API:
+*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta bez użycia klas. Hooki mają [dedykowany rozdział w dokumentacji](/docs/hooks-intro.html) oraz osobny interfejs API:
 
 - [Podstawowe hooki](/docs/hooks-reference.html#basic-hooks)
   - [`useState`](/docs/hooks-reference.html#usestate)
@@ -88,7 +88,7 @@ Aby dowiedzieć się więcej na ten temat, zajrzyj do rozdziału pt. ["React bez
 
 ### `React.Component` {#reactcomponent}
 
-`React.Component` to podstawowy rodzaj komponentu reaktowego, definiowany przez użycie [klasy ze standardu ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
+`React.Component` to klasa bazowa dla komponentów reaktowych, definiowanych przez użycie [klasy ze standardu ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
 
 ```javascript
 class Greeting extends React.Component {
@@ -104,15 +104,15 @@ Lista metod i właściwości związanych z klasą `React.Component` znajduje si�
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-Klasa `React.PureComponent` jest podobna do [`React.Component`](#reactcomponent). Różnica między nimi jest taka, że [`React.Component`](#reactcomponent) nie posiada implementacji metody [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), natomiast `React.PureComponent` implementuje ją z użyciem płytkiego porównania atrybutów i stanu.
+Klasa `React.PureComponent` jest podobna do [`React.Component`](#reactcomponent). Różnica między nimi jest taka, że [`React.Component`](#reactcomponent) nie posiada implementacji metody [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), natomiast `React.PureComponent` implementuje ją z użyciem płytkiego porównania właściwości (*ang. props*) i stanu.
 
-Jeśli metoda `render()` danego komponentu renderuje ten sam rezultat przy tych samych atrybutach i stanie, możesz przekształcić go na `React.PureComponent`, by poprawić wydajność.
+Jeśli metoda `render()` danego komponentu wyświetla ten sam rezultat przy tych samych właściwościach i stanie, możesz przekształcić go na `React.PureComponent`, by poprawić wydajność.
 
 > Uwaga
 >
-> Metoda `shouldComponentUpdate()` klasy `React.PureComponent` wykonuje jedynie płytkie porównanie obiektów. Jeśli zawierają one skomplikowaną strukturę danych, może to wprowadzić nieprawidłowości podczas zmian na głębszych poziomach struktury. Korzystaj z `PureComponent` tylko, jeśli spodziewasz się prostej struktury atrybutów i stanu, lub użyj [`forceUpdate()`](/docs/react-component.html#forceupdate), jeśli wiesz, że dane umieszczone w strukturze głęboko uległy zmianie. Możesz także zastanowić się nad skorzystaniem z [niezmiennych obiektów (ang. *immutable objects*)](https://facebook.github.io/immutable-js/), by ułatwić szybkie porównanie zagnieżdżonych danych.
+> Metoda `shouldComponentUpdate()` klasy `React.PureComponent` wykonuje jedynie płytkie porównanie obiektów. Jeśli zawierają one skomplikowaną strukturę danych, może to wprowadzić nieprawidłowości podczas zmian na głębszych poziomach struktury. Korzystaj z `PureComponent` tylko, jeśli spodziewasz się prostej struktury właściwości i stanu, lub użyj [`forceUpdate()`](/docs/react-component.html#forceupdate), jeśli wiesz, że dane umieszczone głęboko w strukturze uległy zmianie. Możesz także zastanowić się nad skorzystaniem z [niezmiennych obiektów (ang. *immutable objects*)](https://facebook.github.io/immutable-js/), by ułatwić szybkie porównanie zagnieżdżonych danych.
 >
-> Dodatkowo, `shouldComponentUpdate()` klasy `React.PureComponent` pomija aktualizację atrybutów dla całego poddrzewa komponentu. Upewnij się, że wszystkie komponenty potomne również korzystają z tego rozwiązania.
+> Dodatkowo, `shouldComponentUpdate()` klasy `React.PureComponent` pomija aktualizację właściwości dla całego poddrzewa komponentu. Upewnij się, że wszystkie komponenty potomne również korzystają z tego rozwiązania.
 
 * * *
 
@@ -124,15 +124,15 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` jest [komponentem wyższego rzędu (ang. *higher-order component*](/docs/higher-order-components.html). Jego działanie jest podobne do [`React.PureComponent`](#reactpurecomponent), jednak stosowany jest tylko do komponentów funkcyjnych.
+`React.memo` jest [komponentem wyższego rzędu (ang. *higher-order component*)](/docs/higher-order-components.html). Jego działanie jest podobne do [`React.PureComponent`](#reactpurecomponent), jednak stosowany jest tylko do komponentów funkcyjnych.
 
-Jeśli twój komponent funkcyjny przy takich samych atrybutach zawsze renderuje tę samą strukturę, możesz opakować go w `React.memo` w celu poprawy wydajności. Oznacza to, że React pominie renderowanie tego komponentu i użyje jego ostatnio wyrenderowanej wersji.
+Jeśli twój komponent funkcyjny przy takich samych właściwościach zawsze renderuje tę samą strukturę, możesz opakować go w `React.memo` w celu poprawy wydajności. Oznacza to, że React pominie renderowanie tego komponentu i użyje jego ostatnio wyrenderowanej wersji.
 
-Domyślnie, komponent wykona jedynie płytkie porównanie obiektów przekazanych w atrybutach. Jeśli chcesz zastosować własny mechanizm porównujący, możesz przekazać odpowiednią funkcję jako drugi argument.
+Domyślnie, komponent wykona jedynie płytkie porównanie obiektów przekazanych we właściwościach. Jeśli chcesz zastosować własny mechanizm porównujący, możesz przekazać odpowiednią funkcję jako drugi argument.
 
 ```javascript
 function MyComponent(props) {
-  /* renderuj korzystając z atrybutów */
+  /* renderuj korzystając z właściwości */
 }
 function areEqual(prevProps, nextProps) {
   /*
@@ -148,7 +148,7 @@ Ta metoda wykorzystywana jest jedynie do **[optymalizacji wydajności](/docs/opt
 
 > Uwaga
 >
-> W odróżnieniu od metody [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) w komponencie klasowym, funkcja `areEqual` zwraca `true`, jeśli atrybuty są jednakowe, lub `false`, jeśli nie są. Jest to odwrócona logika metody `shouldComponentUpdate`.
+> W odróżnieniu od metody [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) w komponencie klasowym, funkcja `areEqual` zwraca `true`, jeśli właściwości są jednakowe, lub `false`, jeśli nie są. Jest to odwrócona logika metody `shouldComponentUpdate`.
 
 * * *
 
@@ -162,7 +162,7 @@ React.createElement(
 )
 ```
 
-Tworzy i zwraca nowy [element reactowy](/docs/rendering-elements.html) danego typu. Argument `type` może być zarówno nazwą znacznika HTML (np. `'div'` lub `'span'`), [komponentem reaktowym](/docs/components-and-props.html) (klasa lub funkcja), jak i [fragmentem reaktowym](#reactfragment).
+Tworzy i zwraca nowy [element reactowy](/docs/rendering-elements.html) danego typu. Argument `type` może być zarówno nazwą znacznika HTML (np. `'div'` lub `'span'`), [komponentem reaktowym](/docs/components-and-props.html) (klasą lub funkcją), jak i [fragmentem reaktowym](#reactfragment).
 
 Kod pisany w [JSX](/docs/introducing-jsx.html) jest konwertowany do wywołań funkcji `React.createElement()`. Jeśli korzystasz z JSX, w większości przypadków nie będziesz bezpośrednio wywoływać `React.createElement()`. Przeczytaj rozdział pt. ["React bez JSX"](/docs/react-without-jsx.html), aby dowiedzieć się więcej.
 
@@ -178,7 +178,7 @@ React.cloneElement(
 )
 ```
 
-Zacznij od sklonowania i zwrócenia elementu reactowego przy pomocy funkcji `element`. Nowo utworzony element będzie posiadał pierwotne atrybuty połączone płytko z nowymi. Nowe elementy potomne zastąpią obecne. `key` oraz `ref` z pierwotnego elementu zostaną zachowane.
+Zacznij od sklonowania i zwrócenia elementu reactowego przy pomocy funkcji `element`. Nowo utworzony element będzie posiadał pierwotne właściwości scalone płytko z nowymi. Nowe elementy potomne zastąpią obecne. `key` oraz `ref` z pierwotnego elementu zostaną zachowane.
 
 Wywołanie `React.cloneElement()` jest niemal równoznaczne z napisaniem:
 
@@ -198,7 +198,7 @@ Powyższy interfejs API zastąpił przestarzałą funkcję `React.addons.cloneWi
 React.createFactory(type)
 ```
 
-Zwraca funkcję, która tworzy reaktowy element danego typu. Tak jak [`React.createElement()`](#createElement), argument `type`, może być zarówno nazwą znacznika HTML (np. `'div'` lub `'span'`), [komponentem reactowym](/docs/components-and-props.html) (klasa lub funkcja) lub [fragmentem reactowym](#reactfragment).
+Zwraca funkcję, która tworzy reaktowy element danego typu. Tak jak [`React.createElement()`](#createElement), argument `type`, może być zarówno nazwą znacznika HTML (np. `'div'` lub `'span'`), [komponentem reactowym](/docs/components-and-props.html) (klasą lub funkcją) lub [fragmentem reactowym](#reactfragment).
 
 Ta funkcja pomocnicza jest uznawana za przestarzałą i radzimy korzystać z JSX lub bezpośrednio z `React.createElement()`.
 
@@ -226,7 +226,7 @@ Weryfikuje, czy obiekt jest elementem reactowym. Zwraca `true` lub `false`.
 React.Children.map(children, function[(thisArg)])
 ```
 
-Wywołuje funkcję na każdym bezpośrednim komponencie potomnych zawartym w `children`, z `this` ustawionym na `thisArg`. Jeśli `children` jest tablicą, funkcja zostanie wywołana na każdym elemencie tej tablicy.
+Wywołuje funkcję na każdym bezpośrednim komponencie potomnych zawartym w `children`, z `this` ustawionym na `thisArg`. Jeśli `children` jest tablicą, funkcja zostanie wywołana na każdym elemencie tej tablicy. Jeśli potomek jest wartością `null` lub `undefined`, metoda ta zamiast tablicy zwróci `null` lub `undefined`
 
 > Uwaga
 >
@@ -266,7 +266,7 @@ Weryfikuje, czy `children` ma tylko jednego potomka (element reactowy), i zwraca
 React.Children.toArray(children)
 ```
 
-Zwraca strukturę z `children` jako płaską tablicę z kluczem przypisanym do każdego z potomków. Przydatne, jeśli chcemy manipulować grupą potomków w metodzie renderującej, zwłaszcza jeśli chcemy zmienić ich kolejność lub podzielić przed przekazaniem dalej.
+Zwraca strukturę z `children` jako płaską tablicę, z kluczem przypisanym do każdego z potomków. Przydatne, jeśli chcemy manipulować grupą potomków w metodzie renderującej, zwłaszcza jeśli chcemy zmienić ich kolejność lub podzielić przed przekazaniem dalej.
 
 > Uwaga:
 >
@@ -294,15 +294,15 @@ Możesz także skorzystać ze skróconego zapisu `<></>`. Po więcej informacji 
 
 ### `React.createRef` {#reactcreateref}
 
-`React.createRef` tworzy [referencję](/docs/refs-and-the-dom.html), którą możesz przypiąć do dowolnego elementu reactowego poprzez atrybut `ref`.
+`React.createRef` tworzy [referencję](/docs/refs-and-the-dom.html), którą możesz przypiąć do dowolnego elementu reactowego poprzez właściwość `ref`.
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 ### `React.forwardRef` {#reactforwardref}
 
-`React.forwardRef` tworzy komponent reactowy, który przekazuje atrybut [`ref`](/docs/refs-and-the-dom.html) do kolejnego komponentu w dół drzewa. Ta technika nie jest zbyt popularna, ale przydatna w dwóch konkretnych przypadkach:
+`React.forwardRef` tworzy komponent reactowy, który przekazuje właściwość [`ref`](/docs/refs-and-the-dom.html) do kolejnego komponentu w dół drzewa. Ta technika nie jest zbyt popularna, ale przydatna w dwóch konkretnych przypadkach:
 
-* [Przekazywanie referencji komponentom DOM](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
-* [Przekazywanie referencji komponentom wyższego rzędu](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
+* [Przekazywanie referencji do komponentów DOM](/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
+* [Przekazywanie referencji w komponentach wyższego rzędu](/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
 
 `React.forwardRef` przyjmuje funkcję renderującą jako argument. React wywoła tę funkcję, przekazując `props` oraz `ref` jako argumenty. Funkcja ta powinna zwrócić węzeł reactowy (ang. *React node*).
 
@@ -333,7 +333,7 @@ Pamiętaj, że renderowanie "leniwych komponentów" (ang. *lazy components*) wym
 
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` pozwala zdefiniować wskaźnik ładowania, w razie gdyby któryś z komponentów poniżej nie b ył jeszcze gotowy do wyrenderowania. Obecnie jedynym przypadkiem użycia `<React.Suspense>` jest dynamiczne ładowanie komponentów.
+`React.Suspense` pozwala zdefiniować wskaźnik ładowania, w razie gdyby któryś z komponentów poniżej nie był jeszcze gotowy do wyrenderowania. Obecnie jedynym przypadkiem użycia `<React.Suspense>` jest dynamiczne ładowanie komponentów.
 
 ```js
 // Ten komponent jest ładowany dynamicznie
