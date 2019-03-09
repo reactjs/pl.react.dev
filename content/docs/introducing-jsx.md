@@ -24,7 +24,7 @@ React przyjmuje ideę, że logika związana z prezentacją danych jest z natury 
 
 Zamiast sztucznie rozdzielać *technologie*, umiejscawiając znaczniki oraz logikę aplikacji w osobnych plikach, React wprowadza [podział odpowiedzialności](https://pl.wikipedia.org/wiki/Zasada_jednej_odpowiedzialno%C5%9Bci) poprzez wprowadzenie luźno powiązanych jednostek, nazywanych "komponentami", które zawierają zarówno znaczniki HTML, jak i związaną z nimi logikę.
 
-React [nie wymaga](/docs/react-without-jsx.html) używania JSX, jednakże większość programistów uważa go za przydatne narzędzie unaoczniające to, co dzieje się w kodzie javascriptowym operującym na interfejsach graficznych. Pomaga on również Reactowi wyświetlać bardziej użyteczne informacje o błędach i ostrzeżenia. 
+React [nie wymaga](/docs/react-without-jsx.html) używania JSX, jednakże większość programistów uważa go za przydatne narzędzie, unaoczniające to, co dzieje się w kodzie javascriptowym operującym na interfejsach graficznych. Pomaga on również Reactowi wyświetlać bardziej użyteczne informacje o błędach i ostrzeżenia. 
 
 Pora sprawdzić, jak to działa - do dzieła!
 
