@@ -42,7 +42,7 @@ ReactDOM.render(
 );
 ```
 
-Zauważ, że dowolne [wyrażenie JavaScriptowe (ang.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) możesz osadzić w JSX poprzez otoczenie go klamrami. Przykładowo, możesz użyć `2 + 2`, `user.firstName` czy `formatName(user)`, jako że są to prawidłowe wyrażenia w języku JavaScript. 
+Zauważ, że dowolne [wyrażenie JavaScriptowe](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) możesz osadzić w JSX poprzez otoczenie go klamrami. Przykładowo, możesz użyć `2 + 2`, `user.firstName` czy `formatName(user)`, jako że są to prawidłowe wyrażenia w języku JavaScript. 
 
 W poniższym przykładzie umiejscawiamy wynik wywołania funkcji javascriptowej `formatName(user)` wewnątrz znacznika `<h1>`:
 
@@ -70,7 +70,7 @@ ReactDOM.render(
 
 [Przetestuj kod na CodePen](codepen://introducing-jsx)
 
-Dla czytelności podzieliliśmy kod JSX na kilka linii. Nie jest to wprawdzie wymagane, ale polecamy również otaczanie go w nawiasy. Pozwoli to uniknąć pułapek związanych z [automatycznym wstawianiem średników (ang.)](http://stackoverflow.com/q/2846283) w JavaScripcie.
+Dla czytelności podzieliliśmy kod JSX na kilka linii. Nie jest to wprawdzie wymagane, ale polecamy również otaczanie go w nawiasy. Pozwoli to uniknąć pułapek związanych z [automatycznym wstawianiem średników](http://stackoverflow.com/q/2846283) w JavaScripcie.
 
 ### JSX również jest wyrażeniem {#jsx-is-an-expression-too}
 
@@ -134,7 +134,7 @@ W JSX można bezpiecznie osadzać dane wprowadzone przez użytkownika:
 
 ```js
 const title = response.potencjalnieZlosliweDane;
-// This is safe:
+// To jest bezpieczne:
 const element = <h1>{title}</h1>;
 ```
 
@@ -181,4 +181,4 @@ Więcej o wyświetlaniu elementów reactowych dowiesz się w następnym rozdzial
 
 >**Wskazówka:**
 >
-> Polecamy używanie ["Babela" jako definicji języka (ang.)](http://babeljs.io/docs/editors) w twoim ulubionym edytorze. Pozwoli to na poprawne podświetlanie składni ES6 i JSX. Niniejsza strona używa schematu kolorów [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), który jest z nią kompatybilny.
+> Polecamy używanie ["Babela" jako definicji języka](http://babeljs.io/docs/editors) w twoim ulubionym edytorze. Pozwoli to na poprawne podświetlanie składni ES6 i JSX. Niniejsza strona używa schematu kolorów [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), który jest z nią kompatybilny.
