@@ -103,7 +103,6 @@ const element = <img src={user.avatarUrl}></img>;
 
 Nie otaczaj jednak klamer cudzysłowami, gdy chcesz przekazać wartość jakiegoś wyrażenia do atrybutu. Zalecamy użycie albo cudzysłowów (dla statycznych ciągów znaków), albo klamer (dla wartości wyrażeń), ale nie obydwu naraz (dla tego samego atrybutu). 
 
-
 >**Uwaga:**
 >
 > Jako że składni JSX jest bliżej do JavaScriptu niż do HTML-a, React DOM do nazywania argumentów używa notacji `camelCase` zamiast nazw atrybutów HTML-owych.
