@@ -120,7 +120,7 @@ Jeśli metoda `render()` danego komponentu wyświetla ten sam rezultat przy tych
 
 ```javascript
 const MyComponent = React.memo(function MyComponent(props) {
-  /* renderuj korzystając z atrybutów */
+  /* renderuj korzystając z właściwości */
 });
 ```
 
