@@ -16,7 +16,7 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Komponenty pozwalają ci podzielić interfejs użytkownika na niezależne, pozwalające na ponowne użycie części i myśleć o każdej z nich osobno. Ta strona wprowadza do pojęcia komponentów. Możesz znaleźć [szczegółowe odniesienie do API komponentów tutaj](/docs/react-component.html).
+Komponenty pozwalają podzielić interfejs użytkownika na niezależne, pozwalające na ponowne użycie części i myśleć o każdej z nich osobno. Ta strona wprowadza do pojęcia komponentów. W osobnym rozdziale opisaliśmy [szczegółową dokumentację API komponentów](/docs/react-component.html).
 
 Koncepcyjnie, komponenty są jak javascriptowe funkcje. Przyjmują one arbirtalne wartości wkładowe (nazywane "właściwościami") i zwracają reactowe elementy opisujące co powinno się pojawić na ekranie.
 
