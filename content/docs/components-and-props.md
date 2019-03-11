@@ -54,7 +54,7 @@ Poprzednio napotykaliśmy reactowe elementy, które reprezentowały znaczniki DO
 const element = <div />;
 ```
 
-Natomiast elementy mogą również reprezentować komponenty zdefiniowane przez użytkownika:
+Elementy mogą również reprezentować komponenty zdefiniowane przez użytkownika:
 
 ```js
 const element = <Welcome name="Sara" />;
