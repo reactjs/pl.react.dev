@@ -120,7 +120,7 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Zazwyczaj, nowe reactowe aplikacje mają pojedynczy komponent `App` u samej góry. Natomiast, jeśli będziesz integrował Reacta z istniejącą aplikacją, możesz zacząć od dołu z małymi komponentami jak na przykład `Button` i stopniowo wypracować sobie drogę na szczyt hierarchii widoku.
+Nowe aplikacje reactowe na samej górze drzewa zazwyczaj renderują pojedynczy komponent `App`. Jeśli jednak musisz zintegrować Reacta z istniejącą aplikacją, możesz zacząć od samego dołu, dodając niewielkie komponenty (np. `Button`) i stopniowo przepisywać całą strukturę aż do samej góry.
 
 ## Wyciąganie komponentów {#extracting-components}
 
