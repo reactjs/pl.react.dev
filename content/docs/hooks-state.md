@@ -159,7 +159,7 @@ Deklarujemy zmienną stanu, którą nazwaliśmy `count` i ustawiamy jej wartoś�
 Jeśli chcemy wyświetlić aktualną wartość stanu licznika w klasie, odczytamy wartość właściwości `this.state.count`:
 
 ```js
-  <p>Naciśnięto {this.state.count} razy</p>
+  <p>Kliknięto {this.state.count} razy</p>
 ```
 
 Wewnątrz funkcji, możemy użyć bezpośrednio zmiennej `count`:
