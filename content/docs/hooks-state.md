@@ -232,7 +232,7 @@ Nazwy po lewej nie są częścią interfejsu API Reacta. Możesz nadać własne 
   const [fruit, setFruit] = useState('banan');
 ```
 
-Ta składnia JavaScriptu nazwana jest [przypisaniem destrukturyzującym tablic](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Destructuring_assignment#Destrukturyzacja_tablic). Oznacza to, że tworzymy dwie zmienne `frut` i `setFruit` -- gdzie `fruit` jest pierwszą wartością zwróconą przez `useState`, a `setFruit` drugą. Jest to odpowiednik następującego kodu:
+Ta składnia JavaScriptu nazwana jest [przypisaniem destrukturyzującym tablic](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Destructuring_assignment#Destrukturyzacja_tablic). Oznacza to, że tworzymy dwie zmienne `fruit` i `setFruit` -- gdzie `fruit` jest pierwszą wartością zwróconą przez `useState`, a `setFruit` drugą. Jest to odpowiednik następującego kodu:
 
 ```js
   var fruitStateVariable = useState('banan'); // Zwraca parę
