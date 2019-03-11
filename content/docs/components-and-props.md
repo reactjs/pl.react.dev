@@ -175,7 +175,7 @@ function Avatar(props) {
 
 Zalecamy nadawanie nazw właściwościom z punktu widzenia komponentu, a nie kontekstu, w którym jest używany.
 
-Możemy teraz dodać do komponentu `Comment` drobne uproszczenie:
+Możemy teraz uprościć nieco komponent `Comment`:
 
 ```js{5}
 function Comment(props) {
