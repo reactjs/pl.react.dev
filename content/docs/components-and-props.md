@@ -198,7 +198,7 @@ function Comment(props) {
 }
 ```
 
-Następnie wyciągniemy komponent `UserInfo`, który renderuje `Avatar` obok nazwy użytkownika:
+Następnie wydzielmy komponent `UserInfo`, który wyrenderuje `Avatar` obok nazwy użytkownika:
 
 ```js{3-8}
 function UserInfo(props) {
