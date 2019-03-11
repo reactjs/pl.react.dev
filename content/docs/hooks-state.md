@@ -6,7 +6,7 @@ next: hooks-effect.html
 prev: hooks-overview.html
 ---
 
-*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
+*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one na wykorzystanie stanu i innych funkcjonalności Reacta, bez użycia klas.
 
 W [poprzednim rozdziale](/docs/hooks-intro.html) przedstawiliśmy hooki następującym przykładem:
 
