@@ -183,7 +183,7 @@ Wewnątrz funkcji mamy już zadeklarowane zmienne `setCount` i `count`, więc ni
 
 ```js{1}
   <button onClick={() => setCount(count + 1)}>
-    Nacśnij mnie
+    Kliknij mnie
   </button>
 ```
 
