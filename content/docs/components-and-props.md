@@ -44,7 +44,7 @@ class Welcome extends React.Component {
 
 Obydwa powyższe komponenty są równoważne z punktu widzenia Reacta.
 
-Klasy mają kilka dodatkowych cech, które omówimy w [kolejnych rozdziałach](/docs/state-and-lifecycle.html). Na ten czas bedziemy używać komponentów funkcyjnych dla ich zwięzłości.
+Klasy mają kilka dodatkowych cech, które omówimy w [kolejnych rozdziałach](/docs/state-and-lifecycle.html). Do tego czasu będziemy używać komponentów funkcyjnych ze względu na ich zwięzły zapis.
 
 ## Renderowanie komponentu {#rendering-a-component}
 
@@ -259,4 +259,4 @@ React jest bardzo elastyczny, ale ma jedną ścisłą zasadę:
 
 **Wszytkie komponenty muszą zachowywać się jak czyste funkcje w odniesieniu do ich właściwości.**
 
-Oczywiście, interfejsy użytkownika aplikacji są dynamiczne i zmieniają się w czasie. W [kolejnym rozdziale](/docs/state-and-lifecycle.html), wprowadzimy nowe pojęcie "stanu". Stan pozwala reactowym komponentom na zmianę swojego wyniku w czasie w odpowiedzi na akcje użytkownika, żądania sieciowe i wszystko inne, bez naruszania tej zasady.
+Rzecz jasna, interfejsy użytkownika w aplikacjach są zwykle dynamiczne, zmieniają się w czasie. W [kolejnym rozdziale](/docs/state-and-lifecycle.html) wprowadzimy nowe pojęcie "stanu". Stan pozwala reactowym komponentom na zmianę swojego wyniku w czasie, w odpowiedzi na akcje użytkownika, żądania sieciowe itp. bez naruszania powyższej zasady.
