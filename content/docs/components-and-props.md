@@ -126,7 +126,7 @@ Nowe aplikacje reactowe na samej górze drzewa zazwyczaj renderują pojedynczy k
 
 Nie bój się dzielenia komponentów na mniejsze części.
 
-Na przykład rozważ ten komponent `Commment`:
+Rozważ poniższy komponent `Commment`:
 
 ```js
 function Comment(props) {
