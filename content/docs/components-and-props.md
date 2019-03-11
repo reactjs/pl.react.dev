@@ -42,7 +42,7 @@ class Welcome extends React.Component {
 }
 ```
 
-Dwa powyższe komponenty są równoważne z punktu widzenia Reacta.
+Obydwa powyższe komponenty są równoważne z punktu widzenia Reacta.
 
 Klasy mają kilka dodatkowych cech, które omówimy w [kolejnych rozdziałach](/docs/state-and-lifecycle.html). Na ten czas bedziemy używać komponentów funkcyjnych dla ich zwięzłości.
 
