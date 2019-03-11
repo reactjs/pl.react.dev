@@ -67,7 +67,7 @@ React dostarcza kilka wbudowanych Hooków, między innymi `useState`. Ale możes
 
 >Szczegółowe wyjaśnienie
 >
->Hookowi Stanu poświęciliśmy cały rozdział: ["Używanie hooka stanu"](/docs/hooks-state.html).
+>Hookowi stanu poświęciliśmy cały rozdział: ["Używanie hooka stanu"](/docs/hooks-state.html).
 
 ## ⚡️ Hook Efektu {#effect-hook}
 
