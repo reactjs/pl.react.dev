@@ -108,7 +108,7 @@ function Example() {
 
 ## Zadeklarowanie zmiennej stanu {#declaring-a-state-variable}
 
-W klasie inicjalizujemy stan `count` wartością `0`, poprzez ustawienie właściwości `this.state` na `{ count: 0 }` w konstruktorze.
+W klasie inicjalizujemy stan `count` z wartością `0`, poprzez ustawienie właściwości `this.state` na `{ count: 0 }` w konstruktorze.
 
 ```js{4-6}
 class Example extends React.Component {
