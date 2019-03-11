@@ -173,7 +173,7 @@ function Avatar(props) {
 
 `Avatar` nie musi wiedzieć, że jest renderowany wewnątrz komponentu `Comment`. Dlatego też daliśmy jego właściwości bardziej ogólną nazwę `user` zamiast `author`.
 
-Polecamy nazywać właściwości z punktu widzenia komponentu, a nie kontekstu, w którym jest używany.
+Zalecamy nadawanie nazw właściwościom z punktu widzenia komponentu, a nie kontekstu, w którym jest używany.
 
 Możemy teraz dodać do komponentu `Comment` drobne uproszczenie:
 
