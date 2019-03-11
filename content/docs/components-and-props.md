@@ -154,7 +154,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-Przyjmuje on `autora` (ang. *author*) - obiekt, `text` - string i `datę` (ang. *date*) jako właściwości, oraz opisuje komentarz na stronie mediów społecznościowych.
+Przyjmuje on obiekt `author`, napis `text` i datę `date` jako właściwości i zwraca strukturę opisującą komentarz na portalu mediów społecznościowych.
 
 Zmiana tego komponentu może być zawiła z powodu całego tego zagnieżdżenia, a ponowne użycie jego indywidulnych części jest trudne. Wyciągnijmy z niego kilka komponentów.
 
