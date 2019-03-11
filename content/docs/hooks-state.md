@@ -152,7 +152,7 @@ Deklarujemy zmienną stanu, którą nazwaliśmy `count` i ustawiamy jej wartoś�
 >
 >Być może zastanawiasz się -- dlaczego funkcja `useState` (pol. *używaj stanu*) nie nazywa się `createState` (pol. *stwórz stan*)?
 > 
->Nazwa "Create" (pol. *tworzyć*) nie była by zbyt trafna, ponieważ stan tworzony jest tylko wtedy, gdy komponent renderowany jest za pierwszym razem. Podczas kolejnych renderowań `useState` zwraca  aktualny stan. Gdyby nie to, nie mogło by być mowy o żadnym "stanie" (ang. *state*)! Istnieje też powód, dla którego nazwa hooka *zawsze* rozpoczyna się od `use`. Więcej na ten temat dowiemy się w rozdziale pt. ["Zasady korzystania z hooków"](/docs/hooks-rules.html).
+>Nazwa "Create" (pol. *tworzyć*) nie byłaby zbyt trafna, ponieważ stan tworzony jest tylko wtedy, gdy komponent renderowany jest za pierwszym razem. Podczas kolejnych renderowań `useState` zwraca  aktualny stan. Gdyby nie to, nie mogłoby być mowy o żadnym "stanie" (ang. *state*)! Istnieje też powód, dla którego nazwa hooka *zawsze* rozpoczyna się od `use`. Więcej na ten temat dowiemy się w rozdziale pt. ["Zasady korzystania z hooków"](/docs/hooks-rules.html).
 
 ## Odczytywanie wartości stanu {#reading-state}
 
