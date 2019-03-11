@@ -93,7 +93,7 @@ Podsumujmy, co dzieje się w tym przykładzie:
 
 ## Kompozycja komponentów {#composing-components}
 
-Komponenty mogą odwoływać się do innych komponentów i ich wyników. To pozwala nam na używanie tej samej abstrakcji komponentu na dowolnym poziomie szczegółowości.
+Komponenty przy zwracaniu wyniku mogą mogą odwoływać się do innych komponentów. Pozwala to używać tej samej abstrakcji komponentu na dowolnym poziomie szczegółowości. Przycisk, formularz, okno dialogowe, ekran - w aplikacjach reactowych tego typu składniki są zwykle reprezentowane przez dedykowane komponenty.
 
 Na przykład możemy stworzyć komponent `App`, który renderuje `Welcome` wiele razy:
 
