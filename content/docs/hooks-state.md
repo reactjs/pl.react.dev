@@ -166,7 +166,7 @@ Wewnątrz funkcji, możemy użyć bezpośrednio zmiennej `count`:
 
 
 ```js
-  <p>Naciśnięto {count} razy</p>
+  <p>Kliknięto {count} razy</p>
 ```
 
 ## Aktualizowanie wartości stanu {#updating-state}
