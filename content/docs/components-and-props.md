@@ -62,7 +62,7 @@ const element = <Welcome name="Sara" />;
 
 Kiedy React widzi element reprezentujący komponent zdefiniowany przez użytkownika, przekazuje do niego JSX-owe atrybuty jako jeden obiekt. Obiekt ten nazywamy "właściwościami" komponentu.
 
-Na przykład, ten kod renderuje "Cześć, Sara" na stronie:
+Dla przykładu, poniższy kod renderuje na stronie napis "Cześć, Sara":
 
 ```js{1,5}
 function Welcome(props) {
