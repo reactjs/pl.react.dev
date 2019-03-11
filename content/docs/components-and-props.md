@@ -158,7 +158,7 @@ Przyjmuje on obiekt `author`, napis `text` i datę `date` jako właściwości i 
 
 Zmiana tego komponentu czy ponowne użycie jego poszczególnych części może okazać się skomplikowane z powodu całego tego zagnieżdżenia. Rozbijmy go zatem na kilka mniejszych komponentów.
 
-Najpierw, wyciągniemy `Avatar`:
+Najpierw wydzielmy komponent `Avatar`:
 
 ```js{3-6}
 function Avatar(props) {
