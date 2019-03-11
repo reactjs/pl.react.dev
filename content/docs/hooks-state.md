@@ -48,7 +48,7 @@ class Example extends React.Component {
       <div>
         <p>Kliknięto {this.state.count} razy</p>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-          Naciśnij mnie
+          Kliknij mnie
         </button>
       </div>
     );
