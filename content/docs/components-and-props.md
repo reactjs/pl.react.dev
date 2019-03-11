@@ -83,7 +83,7 @@ Podsumujmy, co dzieje się w tym przykładzie:
 1. Wywołujemy `ReactDOM.render()` z elementem `<Welcome name="Sara" />`.
 2. React wywołuje komponent `Welcome` z właściwościami `{name: 'Sara'}`.
 3. Nasz komponent `Welcome` jako wynik zwraca element `<h1>Cześć, Sara</h1>`.
-4. React DOM wydajnie uaktualinia drzewo DOM, aby równało się `<h1>Hello, Sara</h1>`.
+4. React DOM w optymalny sposób aktualizuje drzewo DOM, aby odpowiadało elementowi `<h1>Cześć, Sara</h1>`.
 
 >**Wskazówka:** Zawsze zaczynaj nazwy komponentów od dużej litery.
 >
