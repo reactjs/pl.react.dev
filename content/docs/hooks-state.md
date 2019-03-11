@@ -212,7 +212,7 @@ Teraz **podsumujmy linijka po linijce to, czego się nauczyliśmy** i sprawdźmy
 14:  }
 ```
 
-* **Linia 1:** Importujemy Hooka `useState` z biblioteki React. Pozwala nam to na używanie lokalnego stanu w komponencie funkcyjnym.
+* **Linia 1:** Importujemy hooka `useState` z biblioteki React. Pozwala nam to na używanie lokalnego stanu w komponencie funkcyjnym.
 * **Linia 4:** Wewnątrz komponentu `Example`, poprzez wywołanie hooka `useState`, deklarujemy nową zmienną stanu. Wywołanie zwraca parę wartości, którym nadajemy nazwy. Naszą zmienną nazywamy `count` (pol. *licznik*), ponieważ przechowuje ona liczbę naciśnięć przycisku. Inicjalizujemy ją z domyślną wartością, poprzez przekazanie `0` jako jedynego argumentu do funkcji `useState`. Jako druga zwrócona jest funkcja, która pozwala aktualizować wartość `count`, więc nazwiemy ją `setCount` (pol. *ustawić licznik*).
 * **Linia 9:** Kiedy użytkownik naciska przycisk wywołujemy funkcję `setCount` z nową wartością. React wyrenderuje ponownie komponent `Example`, przekazując do niego nową wartość zmiennej `count`.
 
