@@ -203,7 +203,7 @@ Teraz **podsumujmy linijka po linijce to, czego się nauczyliśmy** i sprawdźmy
  5:
  6:    return (
  7:      <div>
- 8:        <p>Naciśnięto {count} razy</p>
+ 8:        <p>Kliknięto {count} razy</p>
  9:        <button onClick={() => setCount(count + 1)}>
 10:         Naciśnij mnie
 11:        </button>
