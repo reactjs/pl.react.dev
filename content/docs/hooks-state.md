@@ -46,7 +46,7 @@ class Example extends React.Component {
   render() {
     return (
       <div>
-        <p>Naciśnięto {this.state.count} razy</p>
+        <p>Kliknięto {this.state.count} razy</p>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
           Naciśnij mnie
         </button>
