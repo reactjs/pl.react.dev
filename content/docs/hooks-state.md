@@ -175,7 +175,7 @@ Aby zaktualizować wartość stanu `count` w klasie, musimy wywołać metodę `t
 
 ```js{1}
   <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-    Naciśnij mnie
+    Kliknij mnie
   </button>
 ```
 
