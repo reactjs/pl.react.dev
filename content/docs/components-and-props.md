@@ -237,7 +237,7 @@ Wyciąganie komponentów może z początku wydawać się żmudnym zajęciem, ale
 
 ## Właściwości są tylko do odczytu {#props-are-read-only}
 
-Bez względu na to, czy zadeklarujesz komponent [jako funkcja czy klasa](#function-and-class-components), nie może on nigdy modyfikować swoich właściwości. Rozważ tą funkcję `sum`:
+Bez względu na to, czy zadeklarujesz komponent [jako funkcję czy klasę](#function-and-class-components), nie może on nigdy modyfikować swoich właściwości. Rozważ następującą funkcję `sum`:
 
 ```js
 function sum(a, b) {
