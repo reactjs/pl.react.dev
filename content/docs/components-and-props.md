@@ -87,7 +87,7 @@ Podsumujmy, co dzieje się w tym przykładzie:
 
 >**Wskazówka:** Zawsze zaczynaj nazwy komponentów od dużej litery.
 >
->React traktuje komponenty zaczynające się od małej litery jako tagi drzewa DOM. Na przykład, `<div />` reprezentuje HTML'owy tag div, ale `<Welcome />` reprezentuje komponent i wymaga, aby `Welcome` było w zasięgu.
+>React traktuje komponenty zaczynające się od małej litery jako tagi drzewa DOM. Na przykład, `<div />` reprezentuje HTML-owy znacznik 'div', ale już `<Welcome />` reprezentuje komponent i wymaga, aby `Welcome` było w zasięgu (ang. *scope*).
 >
 >Aby dowiedzieć się więcej o uzasadnieniu tej konwencji, przeczytaj [dogłębną analizę JSX](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
