@@ -245,7 +245,7 @@ function sum(a, b) {
 }
 ```
 
-Funkcje tego typu nazywane są ["czystymi"](https://en.wikipedia.org/wiki/Pure_function), dlatego że nie próbują one zmieniać swoich wartości wejściowych i zawsze zwracają ten sam wynik dla tych samych wartości wejściowych.
+Funkcje tego typu nazywane są ["czystymi"](https://en.wikipedia.org/wiki/Pure_function) (ang. *pure function*), dlatego że nie próbują one zmieniać swoich argumentów i zawsze zwracają ten sam wynik dla tych samych argumentów.
 
 W przeciwieństwie do poprzedniej, ta funkcja nie jest czysta, bo zmienia swoją wartość wejściową.
 
