@@ -124,7 +124,7 @@ Nowe aplikacje reactowe na samej górze drzewa zazwyczaj renderują pojedynczy k
 
 ## Wyciąganie komponentów {#extracting-components}
 
-Nie bój się dzielenia komponentów na mniejsce komponenty.
+Nie bój się dzielenia komponentów na mniejsze części.
 
 Na przykład rozważ ten komponent `Commment`:
 
