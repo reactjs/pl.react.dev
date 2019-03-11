@@ -156,7 +156,7 @@ function Comment(props) {
 
 Przyjmuje on obiekt `author`, napis `text` i datę `date` jako właściwości i zwraca strukturę opisującą komentarz na portalu mediów społecznościowych.
 
-Zmiana tego komponentu może być zawiła z powodu całego tego zagnieżdżenia, a ponowne użycie jego indywidulnych części jest trudne. Wyciągnijmy z niego kilka komponentów.
+Zmiana tego komponentu czy ponowne użycie jego poszczególnych części może okazać się skomplikowane z powodu całego tego zagnieżdżenia. Rozbijmy go zatem na kilka mniejszych komponentów.
 
 Najpierw, wyciągniemy `Avatar`:
 
