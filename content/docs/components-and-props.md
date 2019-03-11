@@ -95,7 +95,7 @@ Podsumujmy, co dzieje się w tym przykładzie:
 
 Komponenty przy zwracaniu wyniku mogą mogą odwoływać się do innych komponentów. Pozwala to używać tej samej abstrakcji komponentu na dowolnym poziomie szczegółowości. Przycisk, formularz, okno dialogowe, ekran - w aplikacjach reactowych tego typu składniki są zwykle reprezentowane przez dedykowane komponenty.
 
-Na przykład możemy stworzyć komponent `App`, który renderuje `Welcome` wiele razy:
+Możemy dla przykładu stworzyć komponent `App`, który wielokrotnie renderuje komponent `Welcome`:
 
 ```js{8-10}
 function Welcome(props) {
