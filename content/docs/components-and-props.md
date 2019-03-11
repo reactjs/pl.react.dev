@@ -30,7 +30,7 @@ function Welcome(props) {
 }
 ```
 
-Ta funkcja jest uzasadnionym reactowym komponentem, bo przyjmuje pojedynczy argument "props" (który oznacza "właściwości" (ang. *properties*)) będący obiektem z danymi i zwraca reactowy element. Nazywamy takie komponenty "komponentami funkcyjnymi", bo są one dosłownie javascriptowymi funkcjami.
+Ta funkcja jest poprawnym reactowym komponentem, ponieważ przyjmuje pojedynczy argument "props" (który oznacza "właściwości" (z ang. *properties*)), będący obiektem z danymi, i zwraca reactowy element. Takie komponenty nazywamy "komponentami funkcyjnymi", gdyż są one dosłownie javascriptowymi funkcjami.
 
 Możesz również użyć [klasy ES6](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) aby zdefiniować komponent:
 
