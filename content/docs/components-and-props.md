@@ -60,7 +60,7 @@ Elementy mogą również reprezentować komponenty zdefiniowane przez użytkowni
 const element = <Welcome name="Sara" />;
 ```
 
-Kiedy React widzi element reprezentujący komponent zdefiniowany przez użytkownika, przekazuje on do niego JSX'owe atrybuty jako jeden obiekt. Nazywamy ten obiekt "właściwościami".
+Kiedy React widzi element reprezentujący komponent zdefiniowany przez użytkownika, przekazuje do niego JSX-owe atrybuty jako jeden obiekt. Obiekt ten nazywamy "właściwościami" komponentu.
 
 Na przykład, ten kod renderuje "Cześć, Sara" na stronie:
 
