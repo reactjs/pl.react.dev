@@ -48,7 +48,7 @@ Klasy mają kilka dodatkowych cech, które omówimy w [kolejnych rozdziałach](/
 
 ## Renderowanie komponentu {#rendering-a-component}
 
-Poprzednio, napotykaliśmy reactowe elementy, które reprezentowały tagi drzewa DOM:
+Poprzednio napotykaliśmy reactowe elementy, które reprezentowały znaczniki DOM:
 
 ```js
 const element = <div />;
