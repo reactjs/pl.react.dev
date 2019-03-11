@@ -15,7 +15,7 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-Ta strona zawiera szegółowe odniesienie do definicji klasy reactowego komponentu. Zakłada ona, że jesteś zaznajomiony z fundamentalnymi zagadnieniami Reacta, takimi jak [Komponenty i właściwości](/docs/components-and-props.html), jak i [State and Lifecycle](/docs/state-and-lifecycle.html). Jeśli nie jesteś, przeczytaj je najpierw.
+Ta strona zawiera szegółowe odniesienie do definicji klasy reactowego komponentu. Zakłada ona, że jesteś zaznajomiony z fundamentalnymi zagadnieniami Reacta, takimi jak [Komponenty i właściwości](/docs/components-and-props.html), jak i [Stan i cykl życia](/docs/state-and-lifecycle.html). Jeśli nie jesteś, przeczytaj je najpierw.
 
 ## Overview {#overview}
 
