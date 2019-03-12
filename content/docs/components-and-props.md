@@ -259,4 +259,4 @@ React jest bardzo elastyczny, ale ma jedną ścisłą zasadę:
 
 **Wszytkie komponenty muszą zachowywać się jak czyste funkcje w odniesieniu do ich właściwości.**
 
-Rzecz jasna, interfejsy użytkownika w aplikacjach są zwykle dynamiczne, zmieniają się w czasie. W [kolejnym rozdziale](/docs/state-and-lifecycle.html) wprowadzimy nowe pojęcie "stanu". Stan pozwala reactowym komponentom na zmianę swojego wyniku w czasie, w odpowiedzi na akcje użytkownika, żądania sieciowe itp. bez naruszania powyższej zasady.
+Rzecz jasna, interfejsy użytkownika w aplikacjach są zwykle dynamiczne, zmieniają się w czasie. W [kolejnym rozdziale](/docs/state-and-lifecycle.html) wprowadzimy nowe pojęcie "stanu". Stan pozwala komponentom reactowym na zmianę swojego wyniku w czasie, w odpowiedzi na akcje użytkownika, żądania sieciowe itp. bez naruszania powyższej zasady.
