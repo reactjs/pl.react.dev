@@ -56,7 +56,7 @@ class Example extends React.Component {
 }
 ```
 
-Stan inicjalizowany jest wartością `{ count: 0 }`, a następnie, kiedy użytkownik naciska przycisk, inkrementujemy właściwość `state.count` , wywołując metodę `this.setState()`. W dalszej części tego rozdziału będziemy posiłkować się fragmentami kodu z tego przykładu.
+Stan inicjalizowany jest wartością `{ count: 0 }`, a następnie, kiedy użytkownik naciska przycisk, inkrementujemy właściwość `state.count`, wywołując metodę `this.setState()`. W dalszej części tego rozdziału będziemy posiłkować się fragmentami kodu z tego przykładu.
 
 >Uwaga
 >
