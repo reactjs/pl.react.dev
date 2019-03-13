@@ -82,7 +82,7 @@ function Example(props) {
 }
 ```
 
-Być może spotkałeś się z nazwą "komponenty bezstanowe". Jako że właśnie przedstawiamy sposób na korzystanie ze stanu z wewnątrz takich komponentów, wolimy nazywać je "komponentami funkcyjnymi". 
+Być może spotkałeś się z nazwą "komponenty bezstanowe". Jako że właśnie przedstawiamy sposób na korzystanie ze stanu wewnątrz takich komponentów, wolimy nazywać je "komponentami funkcyjnymi". 
 
 Hooki **nie** działają w klasach. Ale możesz używać ich zamiast klas.
 
