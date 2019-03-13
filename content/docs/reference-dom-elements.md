@@ -34,7 +34,7 @@ Gdy używasz Reacta z Web Components (co jest rzadkie), użyj atrybutu `class`.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` jest zamiennikiem Reacta dla `innerHTML` w przeglądarkowym DOM. Ogólnie rzecz biorąc, używanie HTML w kodzie jest ryzykowane, ponieważ łatwo jest nieumyślnie narazić użytkowników na atak [cross-site scripting (XSS)](https://pl.wikipedia.org/wiki/Cross-site_scripting). Z tego powodu jedynym sposobem na wstawienie HTML bezpośrednio w Reakcie jest użycie `dangerouslySetInnerHTML` i przekazanie obiektu z kluczem `__html` -- wszystko po to, żeby pamiętać, iż jest to niebezpieczne. Przykład:
+`dangerouslySetInnerHTML` jest reactowym odpowiednikiem dla `innerHTML` z przeglądarkowego DOM. Ogólnie rzecz biorąc, używanie HTML w kodzie jest ryzykowane, ponieważ łatwo jest nieumyślnie narazić użytkowników na atak [cross-site scripting (XSS)](https://pl.wikipedia.org/wiki/Cross-site_scripting). Z tego powodu jedynym sposobem na wstawienie HTML bezpośrednio w Reakcie jest użycie `dangerouslySetInnerHTML` i przekazanie obiektu z kluczem `__html` -- wszystko po to, żeby pamiętać, iż jest to niebezpieczne. Przykład:
 
 ```js
 function createMarkup() {
@@ -64,7 +64,7 @@ Atrybut `selected` jest wspierany przez element `<option>`. Możesz go użyć do
 >
 >Niektóre przykłady w dokumentacji używają `style` dla wygody, ale **używanie atrybutu `style` do stylowania elementów ogólnie nie jest zalecane.** W większości przypadków należy korzystać z atrybutu [`className`](#classname), odnosząc się do klas definiowanych w zewnętrznym arkuszu stylów (ang. *stylesheet*). `style` jest najczęściej używany w aplikacjach reactowych do dodawania stylów dynamicznych, zmieniających się przy kolejnych renderowaniach. Zobacz też [FAQ: Stylowanie i CSS](/docs/faq-styling.html).
 
-Atrybut `style` przyjmuje obiekt JavaScript z właściwościami zapisanymi w notacji camelCase (nie ciągu znaków jak w CSS). Jest to zgodne z właściwością DOM `style` w JavaScripcie, poprawia wydajność i zapobiega dziurom w zabezpieczaniu XSS. Przykład:
+Atrybut `style` przyjmuje javascriptowy obiekt z właściwościami zapisanymi w notacji camelCase (nie ciąg znaków jak w CSS). Jest to zgodne z właściwością DOM `style` w JavaScripcie, poprawia wydajność i zapobiega dziurom w zabezpieczeniach przed XSS. Przykład:
 
 ```js
 const divStyle = {
@@ -77,7 +77,7 @@ function HelloWorldComponent() {
 }
 ```
 
-Zauważ, że style nie mają automatycznie nadawanego prefiksu. Aby zapewnić wspacie dla wsparcia starszych przeglądarek, musisz nadać odpowiednie właściwości:
+Zauważ, że style nie mają automatycznie nadawanego prefiksu. Aby zapewnić wparcie dla starszych przeglądarek, musisz nadać odpowiednie właściwości:
 
 ```js
 const divStyle = {
@@ -90,7 +90,7 @@ function ComponentWithTransition() {
 }
 ```
 
-Nazwy kluczy stylów zapisujemy w notacji camelCase, aby były zgodne z właściwościami węzłów DOM w JS (np. `node.style.backgroundImage`). Prefiksy dostawców (ang. *vendor prefixes*) [inne niż `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) powinny zaczynać się wielką literą. Dlatego `WebkitTransition` zaczyna się od wielkiej litery "W".
+Nazwy kluczy stylów zapisujemy w notacji camelCase, aby były zgodne z właściwościami węzłów DOM w JS (np. `node.style.backgroundImage`). Prefiksy dostawców (ang. *vendor prefixes*) [inne niż `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) powinny zaczynać się od wielkiej litery. Dlatego `WebkitTransition` zaczyna się od wielkiej litery "W".
 
 React automatycznie doda przyrostek "px" (piksele) dla pewnych liczbowych właściwości stylów. Jeśli chcesz użyć innych jednostek niż "px", określ wartość jako ciąg znaków z pożądaną jednostką. Przykład:
 
@@ -110,7 +110,7 @@ Nie wszystkie właściwości stylów są konwertowane do ciągów znaków z przy
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
-Zwykle gdy element posiadający potomków jest oznaczony jako `contentEditable`, pojawia się ostrzeżenie, ponieważ mechanizm ten nie zadziała prawidłowo. Ten atrybut wyłącza to ostrzeżenie. Nie używaj go, chyba że tworzysz bibliotekę zarządzającą właściwością  `contentEditable` manualnie, jak np. [Draft.js](https://facebook.github.io/draft-js/).
+Zwykle gdy element posiadający potomków jest oznaczony jako `contentEditable`, pojawia się ostrzeżenie, ponieważ mechanizm ten nie zadziała prawidłowo. Ten atrybut wyłącza to ostrzeżenie. Nie używaj go, chyba że tworzysz bibliotekę zarządzającą właściwością `contentEditable` manualnie, jak np. [Draft.js](https://facebook.github.io/draft-js/).
 
 ### suppressHydrationWarning {#suppresshydrationwarning}
 
@@ -136,7 +136,7 @@ React od zawsze udostępniał interfejs API jak najbardziej podobny do javascrip
 
 Powyższe właściwości działają podobnie jak odpowiadajce im atrybuty HTML, z wyjątkiem specjalnych przypadków wymienionych powyżej.
 
-Niektóre atrybuty DOM są wspierane przez Reacta, włączając:
+Niektóre atrybuty DOM wspierane przez Reacta to:
 
 ```
 accept acceptCharset accessKey action allowFullScreen alt async autoComplete
@@ -193,4 +193,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-Możesz także używać niestandardowych atrybutów, pod warunkiem, że są one napisane małymi literą.
+Możesz także używać niestandardowych atrybutów, pod warunkiem, że są one napisane małymi literami.
