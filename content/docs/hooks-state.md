@@ -240,7 +240,7 @@ Ta składnia JavaScriptu nazwana jest [przypisaniem destrukturyzującym tablic](
   var setFruit = fruitStateVariable[1]; // Drugi element pary
 ```
 
-Kiedy deklarujemy zmienną stanu, korzystając z funkcji `useState`, zwraca ona parę -- dwuelementową tablicę. Pierwszym elementem jest aktualna wartość, a drugim funkcja,  która pozwala go aktualizować. Używanie zapisu `[0]` i `[1]` do uzyskiwania dostępu do nich jest nieco mylące, ponieważ mają one określone znaczenie. Dlatego używamy składni przypisania destrukturyzującego.
+Kiedy deklarujemy zmienną stanu, korzystając z funkcji `useState`, zwraca ona parę -- dwuelementową tablicę. Pierwszym elementem jest aktualna wartość, a drugim funkcja, która pozwala go aktualizować. Używanie zapisu `[0]` i `[1]` do uzyskiwania dostępu do nich jest nieco mylące, ponieważ mają one określone znaczenie. Dlatego używamy składni przypisania destrukturyzującego.
 
 >Uwaga
 >
