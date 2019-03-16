@@ -53,7 +53,7 @@ Aby przygotować dany komponent do testowania, należy renderujący i aktualizuj
 Dla przykładu, załóżmy, że napisaliśmy następujący komponent `Counter` (pol. *licznik*):
 
 ```js
-class App extends React.Component {
+class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {count: 0};

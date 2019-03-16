@@ -198,17 +198,17 @@ Zobaczmy, jak można stworzyć ten sam komponent przy użyciu hooków.
 
 Być może zastanawiasz się, czy będziemy potrzebować osobnego efektu, aby posprzątać po sobie. Jednakże kod do tworzenia i anulowania subskrypcji jest tak ściśle ze sobą powiązany, że `useEffect` został zaprojektowany tak, aby utrzymać go razem. Jeśli efekt zwróci funkcję, React uruchomi ją, gdy nadejdzie pora na sprzątanie:
 
-```js{10-16}
+```js{6-16}
 import React, { useState, useEffect } from 'react';
 
 function FriendStatus(props) {
   const [isOnline, setIsOnline] = useState(null);
 
-  function handleStatusChange(status) {
-    setIsOnline(status.isOnline);
-  }
-
   useEffect(() => {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+
     ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
     // Określ sposób sprzątania po tym efekcie:
     return function cleanup() {
@@ -237,6 +237,10 @@ Nauczyliśmy się że hook `useEffect` pozwala nam wyrazić różnego rodzaju ef
 
 ```js
   useEffect(() => {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+
     ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
     return () => {
       ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
@@ -317,15 +321,15 @@ function FriendStatusWithCounter(props) {
 
   const [isOnline, setIsOnline] = useState(null);
   useEffect(() => {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+
     ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
     return () => {
       ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
     };
   });
-
-  function handleStatusChange(status) {
-    setIsOnline(status.isOnline);
-  }
   // ...
 }
 ```
@@ -395,6 +399,7 @@ A teraz rozważ wersję tego komponentu, która korzysta z hooków:
 function FriendStatus(props) {
   // ...
   useEffect(() => {
+    // ...
     ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
     return () => {
       ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
@@ -450,8 +455,12 @@ Kiedy renderujemy z wartością `count` zaktualizowaną do `6`, React porówna e
 
 Działa to również w przypadku efektów z fazą czyszczenia:
 
-```js{6}
+```js{10}
 useEffect(() => {
+  function handleStatusChange(status) {
+    setIsOnline(status.isOnline);
+  }
+
   ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
   return () => {
     ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
@@ -463,9 +472,13 @@ W przyszłości drugi argument może zostać automatycznie dodawany w czasie kom
 
 >Uwaga
 >
->Jeśli korzystasz z tej optymalizacji, upewnij się, że tablica zawiera **wszystkie wartości z zewnętrznego zasięgu, które zmieniają się w czasie i które są używane przez efekt**. W przeciwnym razie twój kod odwoła się do starych wartości z poprzednich renderów. Omówimy również inne opcje optymalizacji w rozdziale pt. [„Hooki - interfejs API”](/docs/hooks-reference.html).
+>If you use this optimization, make sure the array includes **all values from the component scope (such as props and state) that change over time and that are used by the effect**. Otherwise, your code will reference stale values from previous renders. Learn more about [how to deal with functions](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) and [what to do when the array changes too often](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
 >
->Jeśli chcesz przeprowadzić efekt i posprzątać po nim tylko raz (podczas montowania i odmontowania), możesz przekazać pustą tablicę (`[]`) jako drugi argument. Dzięki temu React wie, że twój efekt nie zależy od *jakichkolwiek* wartości właściwości lub stanu, więc nigdy nie musi być ponownie uruchamiany. Nie jest to traktowane jako przypadek specjalny -- wynika to bezpośrednio z tego, jak zawsze działa tablica wejść. Pomimo że przekazywanie `[]` jest bliższe temu, co znamy z metod `componentDidMount` i `componentWillUnmount`, sugerujemy, aby nie robić z tego nawyku, ponieważ często prowadzi to do błędów, [jak omówiono powyżej](#explanation-why-effects-run-on-each-update). Nie zapominaj, że React opóźni wywołanie `useEffect`, dopóki przeglądarka nie namaluje widoku, więc dodatkowa praca jest mniejszym problemem.
+>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array (`[]`) as a second argument. This tells React that your effect doesn't depend on *any* values from props or state, so it never needs to re-run. This isn't handled as a special case -- it follows directly from how the inputs array always works.
+>
+>If you pass an empty array (`[]`), the props and state inside the effect will always have their initial values. While passing `[]` as the second argument is closer to the familiar `componentDidMount` and `componentWillUnmount` mental model, there are usually [better](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [solutions](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) to avoid re-running effects too often. Also, don't forget that React defers running `useEffect` until after the browser has painted, so doing extra work is less of a problem.
+>
+>We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
 
 ## Kolejne kroki {#next-steps}
 
