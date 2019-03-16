@@ -6,13 +6,13 @@ layout: docs
 category: Reference
 ---
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+Poniższa dokumentacja dotyczy `SyntheticEvent` (pol. *zdarzenie syntetyczne*) - klasy opakowującej zdarzenia, będącej częścią systemu obsługi zdarzeń Reacta. Samej [obsłudze zdarzeń w Reakcie](/docs/handling-events.html) poświęciliśmy osobny rozdział.
 
-## Overview {#overview}
+## Informacje ogólne {#overview}
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+Napisane przez ciebie procedury obsługi zdarzeń będą otrzymywać jako argument instancję `SyntheticEvent` - klasy opakowującej natywne zdarzenie, niezależnej od przeglądarki. Posiada ona taki sam interfejs jak natywne zdarzenia, wliczając w to metody `stopPropagation()` oraz `preventDefault()`, jednak gwarantuje identyczne działanie na wszystkich przeglądarkach.
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+Jeśli w którymś momencie zechcesz skorzystać z pierwotnego zdarzenia natywnego, możesz odwołać się do niego poprzez właściwość `nativeEvent`. Każdy obiekt klasy `SyntheticEvent` posiada następujące właściwości:
 
 ```javascript
 boolean bubbles
@@ -31,19 +31,19 @@ number timeStamp
 string type
 ```
 
-> Note:
+> Uwaga:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> Od wersji v0.14 wzwyż, zwracanie wartości `false` przez procedurę obsługi nie zatrzymuje propagacji zdarzenia. Zamiast tego należy ręcznie wywoływać odpowiednią metodę: `e.stopPropagation()` lub `e.preventDefault()`.
 
-### Event Pooling {#event-pooling}
+### Pula zdarzeń {#event-pooling}
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+Obiekty `SyntheticEvent` są przechowywane w [puli](https://pl.wikipedia.org/wiki/Pula_obiekt%C3%B3w_(wzorzec_projektowy)). Oznacza to, że są używane wielokrotnie, a ich właściwości są czyszczone zaraz po wywołaniu procedury obsługi zdarzenia.
+Ma to pozytywny wpływ na szybkość działania aplikacji.
+Przez to jednak nie można odczytywać stanu zdarzenia w sposób asynchroniczny.
 
 ```javascript
 function onClick(event) {
-  console.log(event); // => nullified object.
+  console.log(event); // => wyczyszczony obiekt.
   console.log(event.type); // => "click"
   const eventType = event.type; // => "click"
 
@@ -52,54 +52,54 @@ function onClick(event) {
     console.log(eventType); // => "click"
   }, 0);
 
-  // Won't work. this.state.clickEvent will only contain null values.
+  // Nie zadziała. Obiekt this.state.clickEvent będzie zawierał same wartości null.
   this.setState({clickEvent: event});
 
-  // You can still export event properties.
+  // Możesz jednak przekazywać poszczególne właściwości zdarzenia.
   this.setState({eventType: event.type});
 }
 ```
 
-> Note:
+> Uwaga:
 >
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+> Jeśli chcesz odczytać właściwości zdarzenia w sposób asynchroniczny, wywołaj jego metodę `event.persist()`. Zdarzenie to zostanie wyciągnięte z puli zdarzeń, co pozwoli na zachowanie referencji do późniejszego użytku w kodzie.
 
-## Supported Events {#supported-events}
+## Obsługiwane zdarzenia {#supported-events}
 
-React normalizes events so that they have consistent properties across different browsers.
+React normalizuje zdarzenia, tak by ich właściwości były jednakowe w różnych przeglądarkach.
 
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+Przedstawione na liście poniżej procedury obsługi zdarzeń są wywoływane przez zdarzenie w fazie bąbelkowania (ang. *bubbling phase*). Aby zarejestrować procedurę obsługi w fazie przechwytywania (ang. *capturing phase*), dodaj na końcu nazwy `Capture`, np. zamiast `onClick` użyj `onClickCapture`.
 
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
+- [Obsługa schowka](#clipboard-events)
+- [Obsługa kompozycji](#composition-events)
+- [Obsługa klawiatury](#keyboard-events)
+- [Obsługa skupiania](#focus-events)
+- [Obsługa formularzy](#form-events)
+- [Obsługa myszy](#mouse-events)
+- [Obsługa wskaźnika](#pointer-events)
+- [Obsługa zaznaczania](#selection-events)
+- [Obsługa dotyku](#touch-events)
+- [Obsługa interfejsu użytkownika](#ui-events)
+- [Obsługa pokrętła myszy](#wheel-events)
+- [Obsługa mediów](#media-events)
+- [Obsługa obrazów](#image-events)
+- [Obsługa animacji](#animation-events)
+- [Obsługa tranzycji](#transition-events)
+- [Inne zdarzenia](#other-events)
 
 * * *
 
-## Reference {#reference}
+## Dokumentacja {#reference}
 
-### Clipboard Events {#clipboard-events}
+### Obsługa schowka {#clipboard-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onCopy onCut onPaste
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 DOMDataTransfer clipboardData
@@ -107,15 +107,15 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Composition Events {#composition-events}
+### Obsługa kompozycji {#composition-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 string data
@@ -124,15 +124,15 @@ string data
 
 * * *
 
-### Keyboard Events {#keyboard-events}
+### Obsługa klawiatury {#keyboard-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onKeyDown onKeyPress onKeyUp
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 boolean altKey
@@ -149,21 +149,21 @@ boolean shiftKey
 number which
 ```
 
-The `key` property can take any of the values documented in the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+Właściwość `key` przyjmuje dowolną z wartości wymienionych w [specyfikacji Zdarzeń DOM 3. Poziomu](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
-### Focus Events {#focus-events}
+### Obsługa skupiania {#focus-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onFocus onBlur
 ```
 
-These focus events work on all elements in the React DOM, not just form elements.
+Powyższe zdarzenia działają na wszystkich elementach w React DOM, nie tylko na kontrolkach formularza.
 
-Properties:
+Właściwości:
 
 ```javascript
 DOMEventTarget relatedTarget
@@ -171,21 +171,21 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Form Events {#form-events}
+### Obsługa formularzy {#form-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onChange onInput onInvalid onSubmit
 ```
 
-For more information about the onChange event, see [Forms](/docs/forms.html).
+Więcej informacji odnośnie zdarzenia `onChange` opisaliśmy w rozdziale pt. ["Formularze"](/docs/forms.html).
 
 * * *
 
-### Mouse Events {#mouse-events}
+### Obsługa myszy {#mouse-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
@@ -193,9 +193,9 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-The `onMouseEnter` and `onMouseLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Zdarzenia `onMouseEnter` oraz `onMouseLeave`, zamiast zwykłego bąbelkowania, propagowane są z elementu opuszczanego do elementu wskazywanego, a ponadto nie mają fazy przechwytywania (ang. *capture phase*).
 
-Properties:
+Właściwości:
 
 ```javascript
 boolean altKey
@@ -216,20 +216,20 @@ boolean shiftKey
 
 * * *
 
-### Pointer Events {#pointer-events}
+### Obsługa wskaźnika {#pointer-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-The `onPointerEnter` and `onPointerLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Zdarzenia `onPointerEnter` oraz `onPointerLeave`, zamiast zwykłego bąbelkowania, propagowane są z elementu opuszczanego do elementu wskazywanego, a ponadto nie mają fazy przechwytywania (ang. *capture phase*).
 
-Properties:
+Właściwości:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Mouse Events](#mouse-events) with the following properties:
+Zgodnie ze [specyfikacją W3](https://www.w3.org/TR/pointerevents/), zdarzenia wskaźnika rozszerzają [zdarzenia obsługi myszy](#mouse-events) o następujące właściwości:
 
 ```javascript
 number pointerId
@@ -244,17 +244,17 @@ string pointerType
 boolean isPrimary
 ```
 
-A note on cross-browser support:
+Informacja o kompatybilności z przeglądarkami:
 
-Pointer events are not yet supported in every browser (at the time of writing this article, supported browsers include: Chrome, Firefox, Edge, and Internet Explorer). React deliberately does not polyfill support for other browsers because a standard-conform polyfill would significantly increase the bundle size of `react-dom`.
+Zdarzenia wskaźnika nie są jeszcze obsługiwane przez wszystkie przeglądarki (w chwili pisania tego artykułu wspierają je: Chrome, Firefox, Edge i Internet Explorer). React celowo nie dostarcza łatki (ang. *polyfill*) dla pozostałych przeglądarek, ponieważ łatka zgodna ze standardem znacząco zwiększyłaby rozmiar paczki `react-dom`.
 
-If your application requires pointer events, we recommend adding a third party pointer event polyfill.
+Jeśli twoja aplikacja wymaga obsługi wskaźników, zalecamy dołączenie odpowiedniej paczki zewnętrznej.
 
 * * *
 
-### Selection Events {#selection-events}
+### Obsługa zaznaczania {#selection-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onSelect
@@ -262,15 +262,15 @@ onSelect
 
 * * *
 
-### Touch Events {#touch-events}
+### Obsługa dotyku {#touch-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 boolean altKey
@@ -285,15 +285,15 @@ DOMTouchList touches
 
 * * *
 
-### UI Events {#ui-events}
+### Obsługa interfejsu użytkownika {#ui-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onScroll
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 number detail
@@ -302,15 +302,15 @@ DOMAbstractView view
 
 * * *
 
-### Wheel Events {#wheel-events}
+### Obsługa pokrętła myszy {#wheel-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onWheel
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 number deltaMode
@@ -321,9 +321,9 @@ number deltaZ
 
 * * *
 
-### Media Events {#media-events}
+### Obsługa mediów {#media-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
@@ -334,9 +334,9 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Image Events {#image-events}
+### Obsługa obrazów {#image-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onLoad onError
@@ -344,15 +344,15 @@ onLoad onError
 
 * * *
 
-### Animation Events {#animation-events}
+### Obsługa animacji {#animation-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 string animationName
@@ -362,15 +362,15 @@ float elapsedTime
 
 * * *
 
-### Transition Events {#transition-events}
+### Obsługa tranzycji {#transition-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onTransitionEnd
 ```
 
-Properties:
+Właściwości:
 
 ```javascript
 string propertyName
@@ -380,9 +380,9 @@ float elapsedTime
 
 * * *
 
-### Other Events {#other-events}
+### Inne zdarzenia {#other-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onToggle
