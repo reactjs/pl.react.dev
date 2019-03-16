@@ -13,7 +13,7 @@ Hooki są [kompatybilne wstecznie](/docs/hooks-intro.html#no-breaking-changes). 
 
 >Szczegółowe wyjaśnienie
 >
->Przeczytaj podrozdział ["Motywacja"](/docs/hooks-intro.html#motivation), aby dowiedzieć się, dlaczego dodaliśmy Hooki
+>Przeczytaj podrozdział [„Motywacja”](/docs/hooks-intro.html#motivation), aby dowiedzieć się, dlaczego dodaliśmy Hooki
 
 **↑↑↑ Każdy podrozdział zakończony jest taką żółtą ramką.** Zawierają one linki do szczegółowych objaśnień.
 
@@ -25,7 +25,7 @@ Ten przykład renderuje licznik. Kiedy wciskasz przycisk, zwiększa on wartość
 import React, { useState } from 'react';
 
 function Example() {
-  // Zadeklaruj nową zmienną stanu, którą nazwiemy "count"
+  // Zadeklaruj nową zmienną stanu, którą nazwiemy „count”
   const [count, setCount] = useState(0);
 
   return (
@@ -39,7 +39,7 @@ function Example() {
 }
 ```
 
-W tym przykładzie `useState` jest *Hookiem* (za chwilę wyjaśnimy, co to znaczy). Wywołujemy go z wewnątrz komponentu funkcyjnego, aby wzbogacić go o lokalny stan. React zachowa ten stan pomiędzy kolejnymi renderowaniami. `useState` zwraca parę: *aktualną* wartość stanu i funkcję, która pozwala go aktualizować. Możesz wywołać tę funkcję w procedurze obsługi zdarzenia albo z innego miejsca. Działa to mniej więcej tak samo, jak `this.setState` w komponencie klasowym, z tą różnicą, że nie scala on starych i nowych wartości. (Szerzej omawiamy te różnice w rozdziale pt. ["Używanie Hooka Stanu"](/docs/hooks-state.html).)
+W tym przykładzie `useState` jest *Hookiem* (za chwilę wyjaśnimy, co to znaczy). Wywołujemy go z wewnątrz komponentu funkcyjnego, aby wzbogacić go o lokalny stan. React zachowa ten stan pomiędzy kolejnymi renderowaniami. `useState` zwraca parę: *aktualną* wartość stanu i funkcję, która pozwala go aktualizować. Możesz wywołać tę funkcję w procedurze obsługi zdarzenia albo z innego miejsca. Działa to mniej więcej tak samo, jak `this.setState` w komponencie klasowym, z tą różnicą, że nie scala on starych i nowych wartości. (Szerzej omawiamy te różnice w rozdziale pt. [„Używanie Hooka Stanu”](/docs/hooks-state.html).)
 
 Jedynym argumentem funkcji `useState` jest stan początkowy. W przykładzie powyżej jest to `0`, ponieważ nasz licznik startuje od zera. Zauważ, że w przeciwieństwie do `this.state`, stan nie musi być obiektem. Nic jednak nie stoi na przeszkodzie, by nim był. Wartość argumentu ze stanem początkowym jest wykorzystywana tylko przy pierwszym renderze.
 
@@ -61,19 +61,19 @@ Dzięki składni [przypisania destrukturyzującego tablic](https://developer.moz
 
 #### Ale czym jest Hook? {#but-what-is-a-hook}
 
-Hooki są to funkcje, które pozwalają "zahaczyć się" w mechanizmy stanu i cyklu życia Reacta, z wewnątrz komponentów funkcyjnych. Hooki nie działają w klasach -- zamiast tego pozwalają korzystać z Reacta bez klas. ([Nie zalecamy](/docs/hooks-intro.html#gradual-adoption-strategy) przepisywania istniejących komponentów z dnia na dzień, ale jeżeli masz ochotę, możesz zacząć korzystać z Hooków w nowych komponentach.)
+Hooki są to funkcje, które pozwalają „zahaczyć się” w mechanizmy stanu i cyklu życia Reacta, z wewnątrz komponentów funkcyjnych. Hooki nie działają w klasach -- zamiast tego pozwalają korzystać z Reacta bez klas. ([Nie zalecamy](/docs/hooks-intro.html#gradual-adoption-strategy) przepisywania istniejących komponentów z dnia na dzień, ale jeżeli masz ochotę, możesz zacząć korzystać z Hooków w nowych komponentach.)
 
 React dostarcza kilka wbudowanych Hooków, między innymi `useState`. Ale możesz też stworzyć własne Hooki, by współdzielić zachowanie związane ze stanem pomiędzy komponentami. Najpierw rzućmy jednak okiem na wbudowane Hooki.
 
 >Szczegółowe wyjaśnienie
 >
->Hookowi Stanu poświęciliśmy cały rozdział: ["Używanie Hooka Stanu"](/docs/hooks-state.html).
+>Hookowi Stanu poświęciliśmy cały rozdział: [„Używanie Hooka Stanu”](/docs/hooks-state.html).
 
 ## ⚡️ Hook Efektu {#effect-hook}
 
-Najprawdopodobniej zdarzyło ci się już pobierać dane, obsługiwać subskrypcje lub ręcznie modyfikować drzewo DOM wewnątrz komponentów reactowych. Tego typu operacje nazywamy ["efektami ubocznymi"](https://pl.wikipedia.org/wiki/Skutek_uboczny_(informatyka)) (ang. *side effects*), ponieważ mogą one wpływać na inne komponenty i nie mogą zostać przeprowadzone podczas renderowania.
+Najprawdopodobniej zdarzyło ci się już pobierać dane, obsługiwać subskrypcje lub ręcznie modyfikować drzewo DOM wewnątrz komponentów reactowych. Tego typu operacje nazywamy [„efektami ubocznymi”](https://pl.wikipedia.org/wiki/Skutek_uboczny_(informatyka)) (ang. *side effects*), ponieważ mogą one wpływać na inne komponenty i nie mogą zostać przeprowadzone podczas renderowania.
 
-Hook Efektu `useEffect` daje możliwość przeprowadzania "efektów ubocznych" z wewnątrz komponentu funkcyjnego. Pełni on taką samą funkcję, jak `componentDidMount`, `componentDidUpdate` i `componentWillUnmount` w komponentach klasowych, ale uproszczoną do jednego interfejsu API. (Różnice między nimi pokażemy na przykładach w rozdziale pt. ["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
+Hook Efektu `useEffect` daje możliwość przeprowadzania „efektów ubocznych” z wewnątrz komponentu funkcyjnego. Pełni on taką samą funkcję, jak `componentDidMount`, `componentDidUpdate` i `componentWillUnmount` w komponentach klasowych, ale uproszczoną do jednego interfejsu API. (Różnice między nimi pokażemy na przykładach w rozdziale pt. [„Używanie Hooka Efektu”](/docs/hooks-effect.html).)
 
 Na przykład, ten komponent ustawia tytuł dokumentu HTML po tym, jak React zaktualizuje drzewo DOM:
 
@@ -100,9 +100,9 @@ function Example() {
 }
 ```
 
-Kiedy wywołujesz funkcję `useEffect`, mówisz Reactowi, żeby uruchomił twój "efekt", gdy opróżni (ang. *flush*) bufor zmian do drzewa DOM. Efekty są deklarowane wewnątrz komponentu, więc mają dostęp do jego właściwości (ang. *props*) i stanu (ang. *state*). Domyślnie React uruchamia wszystkie efekty po każdym renderowaniu -- *włącznie* z pierwszym. (Różnice między tym a metodami cyklu życia komponentów klasowych omówimy w rozdziale pt. ["Używanie Hooka Efektu"](/docs/hooks-effect.html).)
+Kiedy wywołujesz funkcję `useEffect`, mówisz Reactowi, żeby uruchomił twój „efekt”, gdy opróżni (ang. *flush*) bufor zmian do drzewa DOM. Efekty są deklarowane wewnątrz komponentu, więc mają dostęp do jego właściwości (ang. *props*) i stanu (ang. *state*). Domyślnie React uruchamia wszystkie efekty po każdym renderowaniu -- *włącznie* z pierwszym. (Różnice między tym a metodami cyklu życia komponentów klasowych omówimy w rozdziale pt. [„Używanie Hooka Efektu”](/docs/hooks-effect.html).)
 
-Poprzez zwrócenie funkcji, efekty mogą też określać, w jaki sposób należy po nich "posprzątać". Na przykład, ten komponent używa efektu, aby zasubskrybować się do informacji o dostępności znajomego. A następnie sprząta po sobie, anulując tę subskrypcję.
+Poprzez zwrócenie funkcji, efekty mogą też określać, w jaki sposób należy po nich „posprzątać”. Na przykład, ten komponent używa efektu, aby zasubskrybować się do informacji o dostępności znajomego. A następnie sprząta po sobie, anulując tę subskrypcję.
 
 ```js{10-16}
 import React, { useState, useEffect } from 'react';
@@ -158,7 +158,7 @@ Hooki pozwalają organizować kod wewnątrz komponentu, bazując na powiązanych
 
 >Szczegółowe wyjaśnienie
 >
->Możesz dowiedzieć się więcej o `useEffect` w rozdziale pt. ["Używanie Hooka Efektu"](/docs/hooks-effect.html).
+>Możesz dowiedzieć się więcej o `useEffect` w rozdziale pt. [„Używanie Hooka Efektu”](/docs/hooks-effect.html).
 
 ## ✌️ Zasady korzystania z Hooków {#rules-of-hooks}
 
@@ -171,7 +171,7 @@ Stworzyliśmy [wtyczkę do lintera](https://www.npmjs.com/package/eslint-plugin-
 
 >Szczegółowe wyjaśnienie
 >
->Możesz dowiedzieć się więcej o tych zasadach w rozdziale pt. ["Zasady korzystania z Hooków"](/docs/hooks-rules.html).
+>Możesz dowiedzieć się więcej o tych zasadach w rozdziale pt. [„Zasady korzystania z Hooków”](/docs/hooks-rules.html).
 
 ## 💡 Tworzenie własnych Hooków {#building-your-own-hooks}
 
@@ -232,13 +232,13 @@ function FriendListItem(props) {
 
 Stan obu tych komponentów jest w pełni niezależny. Hooki są metodą na współdzielenie *logiki związanej ze stanem*, nie zaś samego stanu. Tak naprawdę to każde *wywołanie* Hooka tworzy kompletnie wyizolowany stan -- możesz więc użyć tego samego, własnego Hooka kilkukrotnie w jednym komponencie.
 
-Własne Hooki są bardziej konwencją niż wbudowanym mechanizmem. Jeżeli nazwa funkcji zaczyna się od "`use`" i wywołuje ona inne Hooki, mówimy że mamy do czynienia z własnym Hookiem. Na tej konwencji nazewnictwa `useSomething` bazuje nasza wtyczka do lintera i pozwala jej to znaleźć błędy w kodzie korzystającym z Hooków.
+Własne Hooki są bardziej konwencją niż wbudowanym mechanizmem. Jeżeli nazwa funkcji zaczyna się od „`use`” i wywołuje ona inne Hooki, mówimy że mamy do czynienia z własnym Hookiem. Na tej konwencji nazewnictwa `useSomething` bazuje nasza wtyczka do lintera i pozwala jej to znaleźć błędy w kodzie korzystającym z Hooków.
 
 Możesz pisać własne Hooki, które obejmują szereg różnych przypadków - od obsługi animacji, deklaratywnych subskrypcji, liczników, po wiele innych, o których nie pomyśleliśmy. Nie możemy się doczekać, żeby zobaczyć, na jakie pomysły wykorzystania własnych Hooków wpadnie społeczność Reacta.
 
 >Szczegółowe wyjaśnienie
 >
->Możesz dowiedzieć się więcej o własnych Hookach w rozdziale pt. ["Budowanie własnych Hooków"](/docs/hooks-custom.html).
+>Możesz dowiedzieć się więcej o własnych Hookach w rozdziale pt. [„Budowanie własnych Hooków”](/docs/hooks-custom.html).
 
 ## 🔌 Inne Hooki {#other-hooks}
 
@@ -262,12 +262,12 @@ function Todos() {
 
 >Szczegółowe wyjaśnienie
 >
->Więcej informacji o wszystkich wbudowanych Hookach znajdziesz w rozdziale pt. ["Hooki - interfejs API"](/docs/hooks-reference.html).
+>Więcej informacji o wszystkich wbudowanych Hookach znajdziesz w rozdziale pt. [„Hooki - interfejs API”](/docs/hooks-reference.html).
 
 ## Kolejne kroki {#next-steps}
 
-Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co napisaliśmy, nie miało dla ciebie sensu lub jeśli chcesz po prostu dowiedzieć się więcej, możesz przeczytać kolejne rozdziały, zaczynając od ["Hook Stanu"](/docs/hooks-state.html).
+Uff, to był wyczerpująco szybki przegląd! Jeżeli coś z tego, co napisaliśmy, nie miało dla ciebie sensu lub jeśli chcesz po prostu dowiedzieć się więcej, możesz przeczytać kolejne rozdziały, zaczynając od [„Hook Stanu”](/docs/hooks-state.html).
 
-Możesz też zerknąć na rozdziały pt. ["Hooki - interfejs API"](/docs/hooks-reference.html) i ["Hooki - FAQ"](/docs/hooks-faq.html).
+Możesz też zerknąć na rozdziały pt. [„Hooki - interfejs API”](/docs/hooks-reference.html) i [„Hooki - FAQ”](/docs/hooks-faq.html).
 
-I na koniec: nie zapomnij o rozdziale pt. ["Wprowadzenie do Hooków"](/docs/hooks-intro.html), w którym wyjaśniliśmy, dlaczego dodaliśmy Hooki i jak zacząć z nich korzystać równolegle z istniejącym kodem -- bez przepisywania aplikacji.
+I na koniec: nie zapomnij o rozdziale pt. [„Wprowadzenie do Hooków”](/docs/hooks-intro.html), w którym wyjaśniliśmy, dlaczego dodaliśmy Hooki i jak zacząć z nich korzystać równolegle z istniejącym kodem -- bez przepisywania aplikacji.
