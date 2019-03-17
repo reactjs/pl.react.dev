@@ -446,12 +446,12 @@ To wymaganie jest na tyle powszechne, że zostało wbudowane w interfejs API hoo
 ```js{3}
 useEffect(() => {
   document.title = `Klknięto ${count} razy`;
-}, [count]); // Uruchom ponownie efekt, tylko jeśli zmieni się wartość count
+}, [count]); // Uruchom ponownie efekt tylko wtedy, gdy zmieni się wartość count
 ```
 
 W powyższym przykładzie przekazujemy `[count]` jako drugi argument. Co to oznacza? Jeśli `count` ma wartość `5`, a nasz komponent jest ponownie renderowany z `count` wciąż równym `5`, React porówna `[5]` z poprzedniego renderowania i `[5]` z kolejnego renderowania. Ponieważ wszystkie elementy w tablicy są takie same (`5 === 5`), React pominie efekt. Oto nasza optymalizacja.
 
-Kiedy renderujemy z wartością `count` zaktualizowaną do `6`, React porówna elementy tablicy `[5]` z poprzedniego renderowania do elementów w tablicy `[6]` z kolejnego renderowania. Tym razem React ponownie zastosuje efekt, ponieważ `5 !== 6`. Jeśli w tablicy jest wiele elementów, React ponownie uruchomi efekt, nawet jeśli tylko jeden z nich jest inny.
+Kiedy renderujemy z wartością `count` zaktualizowaną do `6`, React porówna elementy tablicy `[5]` z poprzedniego renderowania do elementów w tablicy `[6]` z kolejnego renderowania. Tym razem React ponownie zastosuje efekt, ponieważ `5 !== 6`. Jeśli w tablicy jest wiele elementów, React ponownie uruchomi efekt, nawet jeśli tylko jeden z nich mą inną wartość.
 
 Działa to również w przypadku efektów z fazą czyszczenia:
 
@@ -465,7 +465,7 @@ useEffect(() => {
   return () => {
     ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
   };
-}, [props.friend.id]); // Zasubskrybuj ponownie tylko wtedy, jeśli zmieni się wartość props.friend.id
+}, [props.friend.id]); // Zasubskrybuj ponownie tylko wtedy, gdy zmieni się wartość props.friend.id
 ```
 
 W przyszłości drugi argument może zostać automatycznie dodawany w czasie kompilacji.
