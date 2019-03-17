@@ -1,38 +1,38 @@
 ---
 id: hooks-rules
-title: Rules of Hooks
+title: Zasady korzystania z hooków
 permalink: docs/hooks-rules.html
 next: hooks-custom.html
 prev: hooks-effect.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-Hooks are JavaScript functions, but you need to follow two rules when using them. We provide a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to enforce these rules automatically:
+Hooki są javascryptowymi funkcjami, ale musisz pamiętać o dwóch ważnych zasadach, kiedy z nich korzystasz. Stworzyliśmy [wtyczkę do lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks), która automatycznie wymusza stosowanie tych zasad:
 
-### Only Call Hooks at the Top Level {#only-call-hooks-at-the-top-level}
+### Wywołuj hooki tylko z najwyższego poziomu kodu {#only-call-hooks-at-the-top-level}
 
-**Don't call Hooks inside loops, conditions, or nested functions.** Instead, always use Hooks at the top level of your React function. By following this rule, you ensure that Hooks are called in the same order each time a component renders. That's what allows React to correctly preserve the state of Hooks between multiple `useState` and `useEffect` calls. (If you're curious, we'll explain this in depth [below](#explanation).)
+**Nie wywołuj Hooków z wewnątrz pętli, warunków czy zagnieżdżonych funkcji.** Korzystaj z hooków tylko z najwyższego poziomu kodu twoich komponentów funkcyjnych. Przestrzegając tej zasady zyskujesz pewność, że hooki zostaną wywołane w tej samej kolejności, za każdym razem gdy komponent jest renderowany. To właśnie pozwala Reactowi na właściwe przechowywanie stanu pomiędzy kolejnymi wywołaniami `useState` i `useEffect` (Jeśli jesteś ciekawy, dogłębnie wyjaśnimy to [w kolejnym podrozdziale](#explanation).)
 
-### Only Call Hooks from React Functions {#only-call-hooks-from-react-functions}
+###  Wywołuj Hooki tylko z wewnątrz reactowych komponentów funkcyjnych {#only-call-hooks-from-react-functions}
 
-**Don't call Hooks from regular JavaScript functions.** Instead, you can:
+**Nie wywołuj hooków z wewnątrz zwykłych javascriptowych funkcji.** Zamiast tego możesz:
 
-* ✅ Call Hooks from React function components.
-* ✅ Call Hooks from custom Hooks (we'll learn about them [on the next page](/docs/hooks-custom.html)).
+* ✅ Wywołuj hooki z wewnątrz reactowych komponentów funkcyjnych.
+* ✅ Wywołuj hooki z wewnątrz własnych hooków (więcej o nich dowiemy się [w następnym rozdziale](/docs/hooks-custom.html)).
 
-By following this rule, you ensure that all stateful logic in a component is clearly visible from its source code.
+Przestrzegając tej zasady, upewniasz się, że cała logika związana ze stanem komponentu jest wyraźnie widoczna w jego kodzie źródłowym.
 
-## ESLint Plugin {#eslint-plugin}
+## Wtyczka ESLint {#eslint-plugin}
 
-We released an ESLint plugin called [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) that enforces these two rules. You can add this plugin to your project if you'd like to try it:
+Wydaliśmy wtyczkę do EsLint o nazwie [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), która wymusza stosowanie tych dwóch zasad. Jeśli chcesz ją wypróbować, możesz dodać ją do swojego projektu:
 
 ```bash
 npm install eslint-plugin-react-hooks
 ```
 
 ```js
-// Your ESLint configuration
+// Twoja konfiguracja ESLint
 {
   "plugins": [
     // ...
@@ -40,34 +40,34 @@ npm install eslint-plugin-react-hooks
   ],
   "rules": {
     // ...
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+    "react-hooks/rules-of-hooks": "error", // Sprawdza stosowanie zasad hooków
+    "react-hooks/exhaustive-deps": "warn" // Sprawdza zależności efektów
   }
 }
 ```
 
-In the future, we intend to include this plugin by default into Create React App and similar toolkits.
+W przyszłości zamierzamy dołączyć te wtyczkę do Create React App i podobnych narzędzi.
 
-**You can skip to the next page explaining how to write [your own Hooks](/docs/hooks-custom.html) now.** On this page, we'll continue by explaining the reasoning behind these rules.
+**Możesz teraz przejść do następnego rozdziału, gdzie wyjaśniamy [jak pisać własne hooki](/docs/hooks-custom.html).** W tym rozdziale postaramy się uzasadnić, dlaczego narzucamy takie zasady.
 
-## Explanation {#explanation}
+## Wyjaśnienie {#explanation}
 
-As we [learned earlier](/docs/hooks-state.html#tip-using-multiple-state-variables), we can use multiple State or Effect Hooks in a single component:
+Jak [dowiedzieliśmy się wcześniej](/docs/hooks-state.html#tip-using-multiple-state-variables) możemy używać wielu hooków stanu i efektów w jednym komponencie:
 
 ```js
 function Form() {
-  // 1. Use the name state variable
+  // 1. Użyj zmiennej stanu do przechowania imienia
   const [name, setName] = useState('Mary');
 
-  // 2. Use an effect for persisting the form
+  // 2. Użyj efektu, aby zapisać dane formularza
   useEffect(function persistForm() {
     localStorage.setItem('formData', name);
   });
 
-  // 3. Use the surname state variable
+  // 3. Użyj zmiennej stanu do przechowania nazwiska
   const [surname, setSurname] = useState('Poppins');
 
-  // 4. Use an effect for updating the title
+  // 4. Użyj efektu, aby zaktualizować tytuł strony
   useEffect(function updateTitle() {
     document.title = name + ' ' + surname;
   });
@@ -76,24 +76,24 @@ function Form() {
 }
 ```
 
-So how does React know which state corresponds to which `useState` call? The answer is that **React relies on the order in which Hooks are called**. Our example works because the order of the Hook calls is the same on every render:
+Skąd zatem React wie, jaką wartość stanu zwrócić, przy kolejnych wywołaniach funkcji `useState`? Tajemnica tkwi w tym, że **React polega na kolejności, w jakiej hooki zostały wywołane.** Nasz przykład zadziała ponieważ kolejność wywoływania hooków jest taka sama przy każdym renderze:
 
 ```js
 // ------------
-// First render
+// Pierwsze renderowanie
 // ------------
-useState('Mary')           // 1. Initialize the name state variable with 'Mary'
-useEffect(persistForm)     // 2. Add an effect for persisting the form
-useState('Poppins')        // 3. Initialize the surname state variable with 'Poppins'
-useEffect(updateTitle)     // 4. Add an effect for updating the title
+useState('Mary')           // 1. Zaincializuj zmienną stanu imienia wartością „Mary”
+useEffect(persistForm)     // 2. Dodaj efekt odpowiedzialny za przechowywanie danych formularza
+useState('Poppins')        // 3. Zaincializuj zmienną stanu nazwiska wartością „Poppins”
+useEffect(updateTitle)     // 4. Dodaj efekt odpowiedzialny za aktualizację tytułu
 
 // -------------
-// Second render
+// Drugie renderowanie
 // -------------
-useState('Mary')           // 1. Read the name state variable (argument is ignored)
-useEffect(persistForm)     // 2. Replace the effect for persisting the form
-useState('Poppins')        // 3. Read the surname state variable (argument is ignored)
-useEffect(updateTitle)     // 4. Replace the effect for updating the title
+useState('Mary')           // 1. Odczytaj zmienną stanu przechowującą imię (argument został zignorowany)
+useEffect(persistForm)     // 2. Zastąp efekt odpowiedzialny za przechowywanie danych
+useState('Poppins')        // 3. Odczytaj zmienną stanu przechowującą nazwisko (argument został zignorowany)
+useEffect(updateTitle)     // 4. Zastąp efekt odpowiedzialny za aktualizację tytułu
 
 // ...
 ```
