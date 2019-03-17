@@ -14,7 +14,7 @@ W [poprzednim rozdziale](/docs/hooks-intro.html) przedstawiliśmy hooki następu
 import React, { useState } from 'react';
 
 function Example() {
-  // Zadeklaruj nową zmienną stanu, którą nazwiemy "count"
+  // Zadeklaruj nową zmienną stanu, którą nazwiemy „count”
   const [count, setCount] = useState(0);
 
   return (
@@ -60,7 +60,7 @@ Stan inicjalizowany jest wartością `{ count: 0 }`, a następnie, kiedy użytko
 
 >Uwaga
 >
->Być może zastanawiasz się, dlaczego pokazujemy tutaj licznik zamiast bardziej "życiowego" przykładu. Pozwoli nam to skupić się na samym interfejsie API, póki stawiamy nasze pierwsze kroki z hookami.
+>Być może zastanawiasz się, dlaczego pokazujemy tutaj licznik zamiast bardziej „życiowego” przykładu. Pozwoli nam to skupić się na samym interfejsie API, póki stawiamy nasze pierwsze kroki z hookami.
 
 ## Hooki i komponenty funkcyjne {#hooks-and-function-components}
 
@@ -82,7 +82,7 @@ function Example(props) {
 }
 ```
 
-Być może spotkałeś się z nazwą "komponenty bezstanowe". Jako że właśnie przedstawiamy sposób na korzystanie ze stanu wewnątrz takich komponentów, wolimy nazywać je "komponentami funkcyjnymi". 
+Być może spotkałeś się z nazwą „komponenty bezstanowe”. Jako że właśnie przedstawiamy sposób na korzystanie ze stanu wewnątrz takich komponentów, wolimy nazywać je „komponentami funkcyjnymi”. 
 
 Hooki **nie** działają w klasach. Ale możesz używać ich zamiast klas.
 
@@ -98,13 +98,13 @@ function Example() {
 }
 ```
 
-**Czym jest hook?** Hook jest specjalną funkcją, która pozwala "zahaczyć się" w wewnętrzne mechanizmy Reacta. Na przykład `useState` jest hookiem, który pozwala korzystać ze stanu w komponencie funkcyjnym. W kolejnych rozdziałach poznamy inne hooki.
+**Czym jest hook?** Hook jest specjalną funkcją, która pozwala „zahaczyć się” w wewnętrzne mechanizmy Reacta. Na przykład `useState` jest hookiem, który pozwala korzystać ze stanu w komponencie funkcyjnym. W kolejnych rozdziałach poznamy inne hooki.
 
 **Kiedy powinno się korzystać z hooków?** Jeśli po stworzeniu komponentu funkcyjnego zorientujesz się, że potrzebujesz przechować kilka wartości w stanie, dotychczas musiałeś zamienić taki komponent na klasę. Teraz możesz skorzystać z hooka z wewnątrz istniejącego komponentu funkcyjnego. Zobaczmy jak to działa!
 
 >Uwaga
 >
->Istnieje kilka specjalnych zasad, które mówią o tym kiedy możesz, a kiedy nie możesz używać hooków w komponencie. Więcej szczegółów poznamy w rozdziale pt. ["Zasady korzystania z hooków"](/docs/hooks-rules.html).
+>Istnieje kilka specjalnych zasad, które mówią o tym kiedy możesz, a kiedy nie możesz używać hooków w komponencie. Więcej szczegółów poznamy w rozdziale pt. [„Zasady korzystania z hooków”](/docs/hooks-rules.html).
 
 ## Zadeklarowanie zmiennej stanu {#declaring-a-state-variable}
 
@@ -126,11 +126,11 @@ W komponencie funkcyjnym nie mamy dostępu do `this`, więc nie możemy przypisy
 import React, { useState } from 'react';
 
 function Example() {
-  // Zadeklaruj nową zmienną stanu, którą nazwiemy "count"
+  // Zadeklaruj nową zmienną stanu, którą nazwiemy „count”
   const [count, setCount] = useState(0);
 ```
 
-**Co w zasadzie robi wywołanie `useState`?** Deklaruje ono "zmienną stanu". Nasza zmienna nazywa się `count`, ale możemy nazwać ją, jak tylko chcemy, na przykład `banan`. Jest to sposób na "przechowanie" wartości pomiędzy wywołaniami funkcji -- `useState` jest nowym sposobem, na wykorzystanie dokładnie tych samych możliwości, jakie daje `this.state` w klasach. Zwykle zmienne "znikają" kiedy funkcja kończy działanie, ale zmienne stanu są przechowywane przez Reacta.
+**Co w zasadzie robi wywołanie `useState`?** Deklaruje ono „zmienną stanu”. Nasza zmienna nazywa się `count`, ale możemy nazwać ją, jak tylko chcemy, na przykład `banan`. Jest to sposób na „przechowanie” wartości pomiędzy wywołaniami funkcji -- `useState` jest nowym sposobem, na wykorzystanie dokładnie tych samych możliwości, jakie daje `this.state` w klasach. Zwykle zmienne „znikają” kiedy funkcja kończy działanie, ale zmienne stanu są przechowywane przez Reacta.
 
 **Co przekazujemy do `useState` jako argumenty?** Jedynym argumentem, jaki przyjmuje hook `useState()` jest początkowa wartość stanu. W przeciwieństwie do klas stan nie musi być obiektem. Możemy przechowywać liczbę lub ciąg znaków, jeżeli to wszystko, czego potrzebujemy. W naszym przykładzie chcemy przechować jedynie wartość liczbową, ile razy użytkownik nacisnął przycisk. Dlatego też przekazujemy `0` jako stan początkowy naszej zmiennej. (Jeżeli chcielibyśmy przechować kolejną wartość w stanie, wywołalibyśmy `useState()` po raz drugi.)
 
@@ -142,7 +142,7 @@ Teraz, kiedy wiemy już, co robi hook `useState`, nasz przykład powinien nabra�
 import React, { useState } from 'react';
 
 function Example() {
-  // Zadeklaruj nową zmienną stanu, którą nazwiemy "count"
+  // Zadeklaruj nową zmienną stanu, którą nazwiemy „count”
   const [count, setCount] = useState(0);
 ```
 
@@ -152,7 +152,7 @@ Deklarujemy zmienną stanu, którą nazwaliśmy `count` i ustawiamy jej wartoś�
 >
 >Być może zastanawiasz się -- dlaczego funkcja `useState` (pol. *używaj stanu*) nie nazywa się `createState` (pol. *stwórz stan*)?
 > 
->Nazwa "Create" (pol. *tworzyć*) nie byłaby zbyt trafna, ponieważ stan tworzony jest tylko wtedy, gdy komponent renderowany jest za pierwszym razem. Podczas kolejnych renderowań `useState` zwraca  aktualny stan. Gdyby nie to, nie mogłoby być mowy o żadnym "stanie" (ang. *state*)! Istnieje też powód, dla którego nazwa hooka *zawsze* rozpoczyna się od `use`. Więcej na ten temat dowiemy się w rozdziale pt. ["Zasady korzystania z hooków"](/docs/hooks-rules.html).
+>Nazwa „Create” (pol. *tworzyć*) nie byłaby zbyt trafna, ponieważ stan tworzony jest tylko wtedy, gdy komponent renderowany jest za pierwszym razem. Podczas kolejnych renderowań `useState` zwraca  aktualny stan. Gdyby nie to, nie mogłoby być mowy o żadnym „stanie” (ang. *state*)! Istnieje też powód, dla którego nazwa hooka *zawsze* rozpoczyna się od `use`. Więcej na ten temat dowiemy się w rozdziale pt. [„Zasady korzystania z hooków”](/docs/hooks-rules.html).
 
 ## Odczytywanie wartości stanu {#reading-state}
 
@@ -216,7 +216,7 @@ Teraz **podsumujmy linijka po linijce to, czego się nauczyliśmy** i sprawdźmy
 * **Linia 4:** Wewnątrz komponentu `Example`, poprzez wywołanie hooka `useState`, deklarujemy nową zmienną stanu. Wywołanie zwraca parę wartości, którym nadajemy nazwy. Naszą zmienną nazywamy `count` (pol. *licznik*), ponieważ przechowuje ona liczbę naciśnięć przycisku. Inicjalizujemy ją z domyślną wartością, poprzez przekazanie `0` jako jedynego argumentu do funkcji `useState`. Jako druga zwrócona jest funkcja, która pozwala aktualizować wartość `count`, więc nazwiemy ją `setCount` (pol. *ustawić licznik*).
 * **Linia 9:** Kiedy użytkownik naciska przycisk wywołujemy funkcję `setCount` z nową wartością. React wyrenderuje ponownie komponent `Example`, przekazując do niego nową wartość zmiennej `count`.
 
-Z początku wszystkie te informacje mogą wydawać się trudne do "przetrawienia". Nie spiesz się! Jeżeli zgubisz się gdzieś czytając wyjaśnienie, spójrz na kod jeszcze raz i spróbuj go przeczytać ponownie od góry do dołu. Obiecujemy, kiedy spróbujesz "zapomnieć", jak działa stan w klasach i spojrzysz na kod świeżym okiem, nabierze to sensu.
+Z początku wszystkie te informacje mogą wydawać się trudne do „przetrawienia”. Nie spiesz się! Jeżeli zgubisz się gdzieś czytając wyjaśnienie, spójrz na kod jeszcze raz i spróbuj go przeczytać ponownie od góry do dołu. Obiecujemy, kiedy spróbujesz „zapomnieć”, jak działa stan w klasach i spojrzysz na kod świeżym okiem, nabierze to sensu.
 
 ### Wskazówka: Co oznaczają nawiasy kwadratowe? {#tip-what-do-square-brackets-mean}
 
@@ -244,7 +244,7 @@ Kiedy deklarujemy zmienną stanu, korzystając z funkcji `useState`, zwraca ona 
 
 >Uwaga
 >
->Być może zastanawiasz się, skąd React wie, któremu konkretnie komponentowi odpowiada każde wywołanie `useState`, jeśli nie przekazujemy Reactowi obiektu `this` ani nic podobnego. Na [to pytanie](/docs/hooks-faq.html#how-does-react-associate-hook-calls-with-components) (i wiele innych) odpowiemy w rozdziale pt. "Hooki - FAQ".
+>Być może zastanawiasz się, skąd React wie, któremu konkretnie komponentowi odpowiada każde wywołanie `useState`, jeśli nie przekazujemy Reactowi obiektu `this` ani nic podobnego. Na [to pytanie](/docs/hooks-faq.html#how-does-react-associate-hook-calls-with-components) (i wiele innych) odpowiemy w rozdziale pt. „Hooki - FAQ”.
 
 ### Wskazówka: Używanie kilku zmiennych stanu {#tip-using-multiple-state-variables}
 
@@ -269,12 +269,12 @@ W powyższym komponencie, mamy lokalne zmienne `age`, `fruit` i `todos` i możem
 
 **Nie musisz** używać kilku zmiennych stanu. Zmienne stanu mogą równie dobrze przechowywać obiekty i tablice, więc wciąż możesz grupować powiązane dane. Jednakże, w przeciwieństwie do metody `this.setState` w klasie, aktualizowanie zmiennej stanu zawsze *nadpisuje* jej wartość, zamiast scalać stare i nowe wartości.
 
-W rozdziale pt. ["Hooki - FAQ"](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) wypisaliśmy zalecenia dotyczące podziału niezależnych zmiennych stanu.
+W rozdziale pt. [„Hooki - FAQ”](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables) wypisaliśmy zalecenia dotyczące podziału niezależnych zmiennych stanu.
 
 ## Kolejne kroki {#next-steps}
 
-Ten rozdział poświęciliśmy jednemu z hooków dostarczanych przez Reacta -- `useState`. Czasami będziemy też nazywać go "hookiem stanu". Pozwala on nam dodać lokalny stan do reactowych komponentów funkcyjnych, co zrobiliśmy po raz pierwszy w historii!
+Ten rozdział poświęciliśmy jednemu z hooków dostarczanych przez Reacta -- `useState`. Czasami będziemy też nazywać go „hookiem stanu”. Pozwala on nam dodać lokalny stan do reactowych komponentów funkcyjnych, co zrobiliśmy po raz pierwszy w historii!
 
-Dowiedzieliśmy się też troszeczkę o tym, czym w zasadzie są hooki. Hooki to funkcje, które pozwalają "zahaczyć się" w wewnętrzne mechanizmy Reacta z wewnątrz komponentów funkcyjnych. Ich nazwy muszą zaczynać się od `use` i istnieje szereg innych hooków, których jeszcze nie poznaliśmy.
+Dowiedzieliśmy się też troszeczkę o tym, czym w zasadzie są hooki. Hooki to funkcje, które pozwalają „zahaczyć się” w wewnętrzne mechanizmy Reacta z wewnątrz komponentów funkcyjnych. Ich nazwy muszą zaczynać się od `use` i istnieje szereg innych hooków, których jeszcze nie poznaliśmy.
 
-**Zapoznajmy się więc z [kolejnym hookiem: `useEffect`.](/docs/hooks-effect.html)** Pozwala on na przeprowadzanie "efektów ubocznych" (ang. *side effects*) w komponentach i jest podobony do metod cyklu życia w klasach.
+**Zapoznajmy się więc z [kolejnym hookiem: `useEffect`.](/docs/hooks-effect.html)** Pozwala on na przeprowadzanie „efektów ubocznych” (ang. *side effects*) w komponentach i jest podobony do metod cyklu życia w klasach.
