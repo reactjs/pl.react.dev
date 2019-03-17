@@ -260,15 +260,15 @@ Hook efektów łączy oba przypadki użycia w jednym interfejsie API.
 
 -------------
 
-**Jeżeli czujesz, że masz już przyzwoitą wiedzę na temat hooka efektów albo jeśli czujesz się przytłoczony nadmiarem wiedzy, możesz od razu przejść do kolejnego rozdziału pt. [„Zasady korzystania z Hooków”](/docs/hooks-rules.html).**
+**Jeżeli czujesz, że masz już przyzwoitą wiedzę na temat hooka efektów albo jeśli rozbolała cię głowa od natłoku wiedzy, możesz od razu przejść do kolejnego rozdziału pt. [„Zasady korzystania z Hooków”](/docs/hooks-rules.html).**
 
 -------------
 
 ## Porady dotyczące używania efektów {#tips-for-using-effects}
 
-W dalszej części tego rozdziału przyjrzymy się głębiej niektórym aspektom hooka `useEffect`, które najprawdopodobniej interesują doświadczonych użytkowników Reacta. Nie czuj się zobowiązany do zgłębiania ich teraz. Zawsze możesz wrócić do tego rozdziału kiedy indziej, aby dowiedzieć się więcej o hooku efektów.
+W dalszej części tego rozdziału przyjrzymy się głębiej niektórym aspektom hooka `useEffect`, które najprawdopodobniej zainteresują bardziej doświadczonych użytkowników Reacta. Nie musisz jednak zgłębiać ich wszystkich od razu. Zawsze możesz wrócić do tego rozdziału kiedy indziej i doczytać więcej o hooku efektów.
 
-### Poarada: Użyj wielu efektów do separacji zagadnień {#tip-use-multiple-effects-to-separate-concerns}
+### Porada: Użyj kilku efektów do odseparowania logiki {#tip-use-multiple-effects-to-separate-concerns}
 
 Jednym z problemów, który przedstawiliśmy we wprowadzeniu do hooków, w podrozdziale pt. [„Motywacja”](/docs/hooks-intro.html#complex-components-become-hard-to-understand) jest to, że metody cyklu życia w klasach zazwyczaj zawierają niepowiązaną ze sobą logikę. Z kolei wzajemnie powiązana logika jest podzielona na kilka metod. Oto przykład komponentu, który łączy w sobie zarówno logikę licznika, jak i statusu dostępności znajomego z poprzednich przykładów:
 
@@ -282,7 +282,7 @@ class FriendStatusWithCounter extends React.Component {
   }
 
   componentDidMount() {
-    document.title = `Kliknięto ${this.state.count} times`;
+    document.title = `Kliknięto ${this.state.count} razy`;
     ChatAPI.subscribeToFriendStatus(
       this.props.friend.id,
       this.handleStatusChange
@@ -290,7 +290,7 @@ class FriendStatusWithCounter extends React.Component {
   }
 
   componentDidUpdate() {
-    document.title = `Kliknięto ${this.state.count} times`;
+    document.title = `Kliknięto ${this.state.count} razy`;
   }
 
   componentWillUnmount() {
@@ -308,9 +308,9 @@ class FriendStatusWithCounter extends React.Component {
   // ...
 ```
 
-Zauważ, jako logika ustawiania właściwości `document.title` jest podzielona na metody `componentDidMount` i `componentDidUpdate`. Logika tworzenia subskrypcji jest również rozrzucona pomiędzy `componentDidMount` i `componentWillUnmount`. A metoda `componentDidMount` zawiera kod obu tych zadań.
+Zauważ, jak logika ustawiania właściwości `document.title` jest podzielona pomiędzy metody `componentDidMount` i `componentDidUpdate`. Logika tworzenia subskrypcji jest również rozrzucona pomiędzy `componentDidMount` i `componentWillUnmount`. A metoda `componentDidMount` zawiera kod dla obu tych zadań.
 
-Jak hooki rozwiązują ten problem? Tak samo, [jak możesz używać hooka *stanu* więcej niż raz](/docs/hooks-state.html#tip-using-multiple-state-variables), tak samo możesz używać wielu efektów. Pozwala to na wydzielenie niepowiązanej logiki na osobne efekty:
+Jak hooki rozwiązują ten problem? Podobnie [jak możesz używać hooka *stanu* więcej niż raz](/docs/hooks-state.html#tip-using-multiple-state-variables), możesz też używać wielu efektów. Pozwala to na wydzielenie niepowiązanej logiki na osobne efekty:
 
 ```js{3,8}
 function FriendStatusWithCounter(props) {
@@ -338,9 +338,9 @@ function FriendStatusWithCounter(props) {
 
 ### Wyjaśnienie: Dlaczego efekty działają przy każdej aktualizacji {#explanation-why-effects-run-on-each-update}
 
-Jeżeli przywykłeś do klas, pewnie zastanawiasz się, dlaczego faza sprzątania po efektach następuje przy każdym kolejnym renderze, a nie tylko raz, podczas odmontowywania. Spójrzmy na praktyczny przykład, aby lepiej zrozumieć dlaczego taka konstrukcja pozwala nam tworzyć komponenty z mniejszą ilością błędów.
+Jeżeli zwykle używasz klas, pewnie zastanawiasz się, dlaczego faza sprzątania po efektach następuje przy każdym kolejnym renderowaniu, a nie tylko raz, podczas odmontowywania komponentu. Spójrzmy na praktyczny przykład, aby lepiej zrozumieć dlaczego taka konstrukcja pozwala nam tworzyć komponenty z mniejszą liczbą błędów.
 
-[Wcześniej w tym rozdziale](#example-using-classes-1) pokazaliśmy przykład komponentu `FriendStatus`, który wyświetla status dostępności znajomego. Nasza klasa czyta wartość `friend.id` z właściwości `this.props` i tworzy subskrypcję gdy komponent zostanie zamontowany, a następnie usuwa gdy odmontowywany.
+[Wcześniej w tym rozdziale](#example-using-classes-1) pokazaliśmy przykład komponentu `FriendStatus`, który wyświetla status dostępności znajomego. Nasza klasa czyta wartość `friend.id` z właściwości `this.props` i tworzy subskrypcję, gdy komponent jest montowany, a następnie usuwa ją, gdy jest odmontowywany.
 
 ```js
   componentDidMount() {
@@ -358,9 +358,9 @@ Jeżeli przywykłeś do klas, pewnie zastanawiasz się, dlaczego faza sprzątani
   }
 ```
 
-**Ale co wydarzy się, jeżeli właściwość `friend` zmieni się**, podczas gdy komponent cały czas widnieje na ekranie? Nasz komponent wciąż będzie wyświetlał status dostępności znajomego, ale nie tego, co trzeba. To błąd. Spowodowalibyśmy też wyciek pamięci lub inną katastrofę przy odmontowywaniu, jako że usuwamy subskrypcję ze złym ID znajomego.
+**Ale co wydarzy się, jeżeli właściwość `friend` zmieni się**, podczas gdy komponent cały czas widnieje na ekranie? Nasz komponent wciąż będzie wyświetlał status dostępności znajomego, ale nie tego co trzeba. To błąd. Spowodowalibyśmy też wyciek pamięci lub inną katastrofę przy odmontowywaniu, jako że usuwamy subskrypcję z nieprawidłowym ID znajomego.
 
-W komponencie klasowym powinniśmy dodać metodę `componentDidUpdate` aby obsłużyć ten przypadek:
+W komponencie klasowym powinniśmy dodać metodę `componentDidUpdate`, aby obsłużyć ten przypadek:
 
 ```js{8-19}
   componentDidMount() {
@@ -391,7 +391,7 @@ W komponencie klasowym powinniśmy dodać metodę `componentDidUpdate` aby obsł
   }
 ```
 
-Pomięcie poprawnej obsługi metody `componentDidUpdate` jest częstym źródłem błędów w aplikacjach reactowych.
+Pominięcie poprawnej obsługi metody `componentDidUpdate` jest częstym źródłem błędów w aplikacjach reactowych.
 
 A teraz rozważ wersję tego komponentu, która korzysta z hooków:
 
