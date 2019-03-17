@@ -10,9 +10,9 @@ Poniższa dokumentacja dotyczy `SyntheticEvent` (pol. *zdarzenie syntetyczne*) -
 
 ## Informacje ogólne {#overview}
 
-Napisane przez ciebie procedury obsługi zdarzeń będą otrzymywać jako argument instancję `SyntheticEvent` - klasy opakowującej natywne zdarzenie, niezależnej od przeglądarki. Posiada ona taki sam interfejs jak natywne zdarzenia, wliczając w to metody `stopPropagation()` oraz `preventDefault()`, jednak gwarantuje identyczne działanie na wszystkich przeglądarkach.
+Napisane przez ciebie procedury obsługi zdarzeń będą otrzymywać jako argument instancję `SyntheticEvent` - klasy opakowującej natywne zdarzenie, niezależnej od przeglądarki. Posiada ona taki sam interfejs jak natywne zdarzenia, wliczając w to metody `stopPropagation()` oraz `preventDefault()`, gwarantuje jednak identyczne działanie na wszystkich przeglądarkach.
 
-Jeśli w którymś momencie zechcesz skorzystać z pierwotnego zdarzenia natywnego, możesz odwołać się do niego poprzez właściwość `nativeEvent`. Każdy obiekt klasy `SyntheticEvent` posiada następujące właściwości:
+Jeśli w którymś momencie zechcesz skorzystać z opakowanego, natywnego zdarzenia, możesz odwołać się do niego poprzez właściwość `nativeEvent`. Każdy obiekt klasy `SyntheticEvent` posiada następujące właściwości:
 
 ```javascript
 boolean bubbles
@@ -37,7 +37,7 @@ string type
 
 ### Pula zdarzeń {#event-pooling}
 
-Obiekty `SyntheticEvent` są przechowywane w [puli](https://pl.wikipedia.org/wiki/Pula_obiekt%C3%B3w_(wzorzec_projektowy)). Oznacza to, że są używane wielokrotnie, a ich właściwości są czyszczone zaraz po wywołaniu procedury obsługi zdarzenia.
+Obiekty `SyntheticEvent` są przechowywane w [puli](https://pl.wikipedia.org/wiki/Pula_obiekt%C3%B3w_(wzorzec_projektowy)). Oznacza to, że są one używane wielokrotnie, a ich właściwości są czyszczone zaraz po wywołaniu procedury obsługi zdarzenia.
 Ma to pozytywny wpływ na szybkość działania aplikacji.
 Przez to jednak nie można odczytywać stanu zdarzenia w sposób asynchroniczny.
 
