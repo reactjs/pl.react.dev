@@ -39,7 +39,7 @@ Podczas konferencji „React Conf 2018” Sophie Alpert i Dan Abramov zaprezento
 
 <br>
 
-<iframe width=„650” height=„366” src=„//www.youtube.com/embed/dpw9EHDh2bM” frameborder=„0” allowfullscreen></iframe>
+<iframe width="650" height="366" src="//www.youtube.com/embed/dpw9EHDh2bM" frameborder="0" allowfullscreen></iframe>
 
 ## Bez krytycznych zmian {#no-breaking-changes}
 
