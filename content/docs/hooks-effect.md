@@ -225,7 +225,7 @@ function FriendStatus(props) {
 
 **Dlaczego zwróciliśmy funkcję z naszego efektu?** Jest to opcjonalny mechanizm sprzątania po efektach. Każdy efekt może zwrócić funkcję, która określa sposób, w jaki sposób należy po nim posprzątać. Pozwala nam to na trzymanie logiki dotyczącej tworzenia i usuwania subskrypcji w jednym miejscu. Są one częścią tego samego efektu!
 
-**Kiedy dokładnie React sprząta po naszym efekcie?** React sprząta kiedy komponent jest odmontowywany. Jednakże, jak dowiedzieliśmy się wcześniej, efekty są wywoływane nie raz, ale przy każdym wyrenderowaniu komponentu. Dlatego React *również* sprząta po efektach poprzedniego renderowania, zanim wywoła kolejne efekty. Wyjaśnimy [dlaczego pomaga to uniknąć błędów](#explanation-why-effects-run-on-each-update) i [jak zrezygnować z tego zachowania w przypadku problemów z wydajnością](#tip-optimizing-performance-by-skipping-effects) w dalszej części tego rozdziału.
+**Kiedy dokładnie React sprząta po naszym efekcie?** Dzieje się to wtedy, gdy komponent jest odmontowywany. Jednakże, jak dowiedzieliśmy się wcześniej, efekty są wywoływane nie raz, ale przy każdym wyrenderowaniu komponentu. Dlatego React *również* sprząta po efektach poprzedniego renderowania, zanim wywoła kolejne efekty. Wyjaśnimy [dlaczego pomaga to uniknąć błędów](#explanation-why-effects-run-on-each-update) i [jak zrezygnować z tego zachowania w przypadku problemów z wydajnością](#tip-optimizing-performance-by-skipping-effects) w dalszej części tego rozdziału.
 
 >Uwaga
 >
