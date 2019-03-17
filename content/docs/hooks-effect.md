@@ -33,19 +33,19 @@ function Example() {
 }
 ```
 
-Ten fragment kodu oparty jest o [przykład licznika z poprzedniego rozdziału](/docs/hook-state.html), ale dodaliśmy do niego nową funkcjonalność: ustawiamy tytuł dokumentu na własną wiadomość zawierającą liczbę kliknięć.
+Ten fragment kodu oparty jest na [przykładzie licznika z poprzedniego rozdziału](/docs/hooks-state.html), ale dodaliśmy do niego nową funkcjonalność: ustawiamy tytuł dokumentu na własną wiadomość, zawierającą liczbę kliknięć.
 
 Pobieranie danych, tworzenie subskrypcji czy ręczna ingerencja w drzewo DOM z wewnątrz komponentów - to wszystko przykłady efektów ubocznych. Nie zależnie od tego, czy nazywane „efektami ubocznymi” (lub po prostu „efektami”) najprawdopodobniej przeprowadzałaś(-eś) je wcześniej.
 
 >Wskazówka
 >
->Jeżeli znasz już metody cyklu życia (ang. *lifecycle methods*) Reacta, możesz myśleć o hooku `useEffect`, jako o połączeniu metod `componentDidMount`, `componentDidUpdate` i `componentWillUnmount`.
+>Jeżeli znasz już metody cyklu życia (ang. *lifecycle methods*) Reacta, możesz myśleć o hooku `useEffect` jako o połączeniu metod `componentDidMount`, `componentDidUpdate` i `componentWillUnmount` w jedną.
 
-W komponentach reactowych występują powszechnie dwa rodzaje efektów ubocznych: te po których należy „posprzątać” i te po których nie. Przyjrzyjmy się uważniej temu podziałowi.
+W komponentach reactowych występują powszechnie dwa rodzaje efektów ubocznych: te, po których należy „posprzątać” i te, po których nie. Przyjrzyjmy się uważniej temu podziałowi.
 
-## Efekty bez sprzątania {#effects-without-cleanup}
+## Efekty niewymagające sprzątania {#effects-without-cleanup}
 
-Czasami chcemy **uruchomić jakiś dodatkowy kod, po tym, jak React zaktualizuje drzewo DOM.** Zapytania sieciowe, ręczna modyfikacja drzewa DOM czy logowanie to powszechne przykłady efektów, które nie wymagają sprzątania. Mówimy tak, ponieważ możemy je uruchomić i od razu o nich zapomnieć. Porównajmy teraz, jak klasy i hooki pozwalają na przeprowadzanie takich efektów ubocznych.
+Czasami chcemy **uruchomić jakiś dodatkowy kod po tym, jak React zaktualizuje drzewo DOM.** Zapytania sieciowe, ręczna modyfikacja drzewa DOM czy logowanie to powszechne przykłady efektów, które nie wymagają sprzątania. Mówimy tak, ponieważ możemy je uruchomić i od razu o nich zapomnieć. Porównajmy teraz, jak klasy i hooki pozwalają na przeprowadzanie takich efektów ubocznych.
 
 ### Przykład wykorzystujący klasy {#example-using-classes}
 
@@ -85,9 +85,9 @@ class Example extends React.Component {
 
 Zauważ, że **musieliśmy powtórzyć ten sam kod w dwóch metodach cyklu życia.**
 
-Dzieje się tak dlatego, że w wielu przypadkach chcemy wywołać ten sam efekt uboczny, niezależnie od tego czy komponent właśnie został zamontowany, czy też zaktualizowany. Koncepcja jest taka, żeby działo się to po każdym wyrenderowaniu komponentu. Ale reactowe komponenty klasowe nie mają takiej metody. Moglibyśmy, co prawda, wydzielić osobną metodę, ale wciąż musielibyśmy wywoływać ją z dwóch miejsc.
+Dzieje się tak dlatego, że w wielu przypadkach chcemy wywołać ten sam efekt uboczny, niezależnie od tego czy komponent właśnie został zamontowany, czy też zaktualizowany. Koncepcja jest taka, żeby działo się to po każdym wyrenderowaniu komponentu. Ale reactowe komponenty klasowe nie mają takiej metody. Moglibyśmy, co prawda, wydzielić osobną metodę, ale wciąż musielibyśmy wywoływać ją w dwóch miejscach.
 
-Teraz sprawdźmy, jak osiągnąć to samo, korzystając z hooka `useEffect`.
+Teraz sprawdźmy, jak osiągnąć to samo korzystając z hooka `useEffect`.
 
 ### Przykład wykorzystujący hooki {#example-using-hooks}
 
@@ -114,15 +114,15 @@ function Example() {
 }
 ```
 
-**Co robi wywołanie `useEffect`?** Poprzez użycie tego hooka mówisz Reactowi, że twój komponent musi wykonać jakąś czynność, po jego wyrenderowaniu. React zapamięta funkcję, którą przekazano do hooka (będziemy odnosić się do niej, jako naszego „efektu”), a potem wywoła ją, gdy już zaktualizuje drzewo DOM. W tym przypadku aktualizujemy tytuł dokumentu, ale moglibyśmy także pobrać dane z serwera lub wywołać inne, imperatywne API.
+**Co robi wywołanie `useEffect`?** Poprzez użycie tego hooka mówisz Reactowi, że twój komponent musi wykonać jakąś czynność po jego wyrenderowaniu. React zapamięta funkcję, którą przekazano do hooka (będziemy odtąd odnosić się do niej jako naszego „efektu”), a potem wywoła ją, gdy już zaktualizuje drzewo DOM. W tym przypadku aktualizujemy tytuł dokumentu, ale moglibyśmy równie dobrze pobrać dane z serwera lub wywołać inne, imperatywne API.
 
-**Dlaczego funkcja `useEffect` jest wywoływana wewnątrz komponentu?** Umiejscowienie `useEffect` wewnątrz komponentu daje nam dostęp do zmiennej stanu `count` (oraz wszystkich właściwości (ang. *props*)) z wewnątrz efektu. Nie potrzebujemy specjalnego interfejsu API aby przeczytać te zmienne -- znajdują się one w zasięgu funkcji. Hooki wykorzystują javascriptowe domknięcia (ang. *closure*) i unikają wprowadzania nowych, specyficznych dla Reacta interfejsów API -- JavaScript dostarcza przecież gotowe rozwiązanie.
+**Dlaczego funkcja `useEffect` jest wywoływana wewnątrz komponentu?** Umiejscowienie `useEffect` wewnątrz komponentu daje nam dostęp do zmiennej stanu `count` (oraz wszystkich właściwości (ang. *props*)) z wewnątrz efektu. Nie potrzebujemy specjalnego interfejsu API do odczytania tych zmiennych -- znajdują się one w zasięgu funkcji. Hooki wykorzystują javascriptowe domknięcia (ang. *closure*) i unikają wprowadzania nowych, specyficznych dla Reacta interfejsów API -- JavaScript dostarcza przecież gotowe rozwiązanie.
 
-**Czy `useEffect` działa przy każdym renderze?** Tak! Domyślnie działa on zarówno przy pierwszym wyrenderowaniu komponentu, *oraz* każdej kolejnej jego aktualizacji. (W dalszej części dowiemy się [jak dostosować to zachowanie](#tip-optimizing-performance-by-skipping-effects).) Zamiast myśleć w kategoriach „montowania” i „aktualizacji”, być może łatwiej będzie ci zrozumieć, że efekty wykonywane są „po wyrenderowaniu”. React daje ci gwarancje, że drzewo DOM będzie zaktualizowane, zanim wywoła efekty.
+**Czy `useEffect` działa przy każdym renderze?** Tak! Domyślnie działa on zarówno przy pierwszym wyrenderowaniu komponentu *oraz* każdej kolejnej jego aktualizacji. (W dalszej części dowiemy się, [jak dostosować to zachowanie](#tip-optimizing-performance-by-skipping-effects).) Zamiast myśleć w kategoriach „montowania” i „aktualizacji”, być może łatwiej będzie ci zrozumieć, że efekty wykonywane są „po wyrenderowaniu”. React daje ci gwarancję, że drzewo DOM zostanie zaktualizowane zanim wywoła efekty.
 
 ### Szczegółowe objaśnienie {#detailed-explanation}
 
-Teraz, kiedy wiemy już więcej o efektach, te linijki powinny nabrać sensu:
+Teraz, kiedy wiemy już więcej o efektach, te linijki kodu powinny nabrać sensu:
 
 ```js
 function Example() {
@@ -135,19 +135,19 @@ function Example() {
 
 Deklarujemy zmienną stanu `count` a następnie mówimy Reactowi że będziemy potrzebowali użyć efektu. Przekazujemy funkcję do hooka `useEffect`. Funkcja, którą przekazujemy *jest* naszym efektem. Wewnątrz naszego efektu ustawiamy tytuł dokumentu, korzystając z interfejsu API przeglądarki `document.title`. Możemy przeczytać ostatnią wartość zmiennej `count` z wewnątrz efektu, ponieważ znajduje się ona w zasięgu naszej funkcji. Kiedy React będzie renderował nasz komponent, zapamięta on efekt, który użyliśmy, a następnie wywoła wszystkie efekty, kiedy już zaktualizuje drzewo DOM. Dzieje się to przy każdym wyrenderowaniu, włączając pierwsze.
 
-Doświadczeni programiści języka JavaScript mogli zauważyć, że funkcja, którą przekazujemy do `useEffect` będzie inna przy każdym renderze. Jest to celowe działanie. Właściwie to tylko dzięki temu możemy przeczytać wartość zmiennej `count` z wewnątrz efektu, nie martwiąc się, że będzie ona nieaktualna. Za każdym razem, kiedy ponownie renderujemy komponent, planujemy wykonanie _innego_ efektu, który zastąpi poprzedni. W pewnym sensie sprawia to, że efekty zachowują się jak część wyniku renderowania -- każdy efekt „należy” do konkretnego renderowania. W dalszej [części tego rozdziału](#explanation-why-effects-run-on-each-update) przyjrzymy się dokładniej, dlaczego jest to przydatne.
+Doświadczeni programiści języka JavaScript mogli zauważyć, że funkcja, którą przekazujemy do `useEffect`, będzie inna przy każdym renderze. Jest to celowe działanie. Właściwie to tylko dzięki temu możemy przeczytać wartość zmiennej `count` z wewnątrz efektu, nie martwiąc się, że będzie ona nieaktualna. Za każdym razem, kiedy ponownie renderujemy komponent, planujemy wykonanie _innego_ efektu, który zastąpi poprzedni. W pewnym sensie sprawia to, że efekty zachowują się jak część wyniku renderowania -- każdy efekt „należy” do konkretnego renderowania. W [dalszej części tego rozdziału](#explanation-why-effects-run-on-each-update) przyjrzymy się dokładniej, dlaczego jest to przydatne.
 
 >Wskazówka
 >
->W przeciwieństwie do metod `componentDidMount` i `componentDidUpdate` efekty zaplanowane przy użyciu `useEffect` nie blokują przeglądarki przed odświeżeniem ekranu. Sprawia to wrażenie, że twoja aplikacja działa płynniej. Większość efektów nie musi działać synchronicznie. W sporadycznych przypadkach, gdy muszą to robić (na przykład do pomiaru układu strony (ang. *layout*)) istnieje osobny hook -- [`useLayoutEffect`](/docs/hooks-reference.html#uselayouteffect), z identycznym do `useEffect` interfejsem API.
+>W przeciwieństwie do metod `componentDidMount` i `componentDidUpdate`, efekty zaplanowane przy użyciu `useEffect` nie blokują przeglądarki przed odświeżeniem ekranu. Sprawia to wrażenie, że aplikacja działa płynniej. Większość efektów nie musi działać synchronicznie. W sporadycznych przypadkach, gdy muszą to robić (na przykład do pomiaru układu strony (ang. *layout*)), można skorzystać z dedykowanego hooka -- [`useLayoutEffect`](/docs/hooks-reference.html#uselayouteffect), z identycznym do `useEffect` interfejsem API.
 
-## Efekty ze sprzątaniem {#effects-with-cleanup}
+## Efekty wymagające sprzątania {#effects-with-cleanup}
 
-Wcześniej omówiliśmy, jak wyrazić efekty uboczne, które nie potrzebują po sobie „posprzątać”. Jednakże istnieją efekty, które muszą. Na przykład **możemy chcieć utworzyć subskrypcję** do jakiegoś zewnętrznego źródła danych. W tym przypadku, ważnym jest aby po sobie posprzątać i uniknąć tym samym potencjalnego wycieku pamięci! Porównajmy, jak możemy to zrobić z klasami, a jak z hookami.
+Wcześniej omówiliśmy, jak wyrazić efekty uboczne, które nie potrzebują po sobie „posprzątać”. Jednakże istnieją efekty, które muszą to robić. Na przykład, **możemy chcieć utworzyć subskrypcję** do jakiegoś zewnętrznego źródła danych. W tym przypadku ważne jest, aby po sobie posprzątać i uniknąć tym samym potencjalnego wycieku pamięci! Porównajmy, jak możemy to zrobić z klasami, a jak z hookami.
 
 ### Przykład wykorzystujący klasy {#example-using-classes-1}
 
-W klasowych komponentach reactowych zwykle tworzysz subskrypcję w metodzie `componentDidMount`, a następnie sprzątasz po sobie w metodzie `componentWillUnmount`. Załóżmy, że mamy moduł `ChatAPI`, który pozwala nam utworzyć subskrypcję do statusu dostępności znajomego. Tak moglibyśmy zasubskrybować się i wyświetlać status znajomego przy użyciu klasy:
+W klasowych komponentach reactowych zwykle tworzy się subskrypcję w metodzie `componentDidMount`, a następnie sprząta w metodzie `componentWillUnmount`. Załóżmy, że mamy moduł `ChatAPI`, który pozwala nam zasubskrybować się na zmianę statusu dostępności znajomego. Tak moglibyśmy zasubskrybować się i wyświetlać status znajomego przy użyciu klasy:
 
 ```js{8-26}
 class FriendStatus extends React.Component {
@@ -190,7 +190,7 @@ Zauważ, że metoda `componentDidMount` jest lustrzanym odbiciem metody `compone
 
 >Uwaga
 >
->Czytelnicy o sokolim wzroku mogli zauważyć, że powyższy przykład potrzebuje też metody `componentDidUpdate`, aby działać w pełni poprawnie. Na razie pominiemy to zagadnienie, ale wrócimy do niego [w dalszej części](#explanation-why-effects-run-on-each-update) tego rozdziału.
+>Czytelnicy o sokolim wzroku mogli zauważyć, że powyższy przykład potrzebuje też metody `componentDidUpdate`, aby działać w pełni poprawnie. Na razie pominiemy to zagadnienie, ale wrócimy do niego [w dalszej części tego rozdziału](#explanation-why-effects-run-on-each-update).
 
 ### Przykład wykorzystujący hooki {#example-using-hooks-1}
 
@@ -223,17 +223,17 @@ function FriendStatus(props) {
 }
 ```
 
-**Dlaczego zwróciliśmy funkcję z naszego efektu?** Jest to opcjonalny mechanizm sprzątania po efektach. Każdy efekt może zwrócić funkcję, która określa w jaki sposób ma posprzątać po sobie. Pozwala nam to na trzymanie logiki dotyczącej tworzenia i usuwania subskrypcji w jednym miejscu. Są one częścią tego samego efektu!
+**Dlaczego zwróciliśmy funkcję z naszego efektu?** Jest to opcjonalny mechanizm sprzątania po efektach. Każdy efekt może zwrócić funkcję, która określa sposób, w jaki sposób należy po nim posprzątać. Pozwala nam to na trzymanie logiki dotyczącej tworzenia i usuwania subskrypcji w jednym miejscu. Są one częścią tego samego efektu!
 
 **Kiedy dokładnie React sprząta po naszym efekcie?** React sprząta kiedy komponent jest odmontowywany. Jednakże, jak dowiedzieliśmy się wcześniej, efekty są wywoływane nie raz, ale przy każdym wyrenderowaniu komponentu. Dlatego React *również* sprząta po efektach poprzedniego renderowania, zanim wywoła kolejne efekty. Wyjaśnimy [dlaczego pomaga to uniknąć błędów](#explanation-why-effects-run-on-each-update) i [jak zrezygnować z tego zachowania w przypadku problemów z wydajnością](#tip-optimizing-performance-by-skipping-effects) w dalszej części tego rozdziału.
 
 >Uwaga
 >
->Nie musisz nazywać funkcji zwracanej z efektów. My nazwaliśmy ją `cleanup` (pol. *sprzątać*) aby lepiej wyjaśnić jej zamysł. Możesz po prostu zwrócić funkcję strzałkową (ang. *arrow function*) albo nazwać funkcję inaczej.
+>Nie musisz nazywać funkcji zwracanej z efektów. My nazwaliśmy ją `cleanup` (pol. *posprzątaj*) aby lepiej wyjaśnić jej zamysł. Możesz po prostu zwrócić funkcję strzałkową (ang. *arrow function*) albo nazwać funkcję inaczej.
 
 ## Podsumowanie {#recap}
 
-Nauczyliśmy się że hook `useEffect` pozwala nam wyrazić różnego rodzaju efekty uboczne po wyrenderowaniu komponentu. Niektóre efekty mogą wymagać sprzątania, zwracają  więc funkcję:
+Nauczyliśmy się, że hook `useEffect` pozwala nam wyrazić różnego rodzaju efekty uboczne po wyrenderowaniu komponentu. Niektóre efekty mogą wymagać sprzątania, dlatego zwracają odpowiednią funkcję:
 
 ```js
   useEffect(() => {
