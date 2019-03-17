@@ -12,7 +12,7 @@ Hooki są [kompatybilne wstecznie](/docs/hooks-intro.html#no-breaking-changes). 
 
 >Szczegółowe wyjaśnienie
 >
->Przeczytaj podrozdział [„Motywacja”](/docs/hooks-intro.html#motivation), aby dowiedzieć się, dlaczego dodaliśmy hooki
+>Przeczytaj podrozdział pt. [„Motywacja”](/docs/hooks-intro.html#motivation), aby dowiedzieć się, dlaczego dodaliśmy hooki
 
 **↑↑↑ Każdy podrozdział zakończony jest taką żółtą ramką.** Zawierają one linki do szczegółowych objaśnień.
 
@@ -237,7 +237,7 @@ Możesz pisać własne hooki, które obejmują szereg różnych przypadków - od
 
 >Szczegółowe wyjaśnienie
 >
->Możesz dowiedzieć się więcej o własnych hookach w rozdziale pt. [„Budowanie własnych hooków”](/docs/hooks-custom.html).
+>Możesz dowiedzieć się więcej o własnych hookach w rozdziale pt. [„Tworzenie własnych hooków”](/docs/hooks-custom.html).
 
 ## 🔌 Inne hooki {#other-hooks}
 
