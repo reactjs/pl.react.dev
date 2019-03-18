@@ -12,7 +12,7 @@ import {createLinkBlog} from 'utils/createLink';
 
 const toSectionList = allMarkdownRemark => [
   {
-    title: 'Recent Posts',
+    title: 'Ostatnie posty',
     items: allMarkdownRemark.edges
       .map(({node}) => ({
         id: node.fields.slug,
@@ -20,7 +20,7 @@ const toSectionList = allMarkdownRemark => [
       }))
       .concat({
         id: '/blog/all.html',
-        title: 'All posts ...',
+        title: 'Wszystkie posty...',
       }),
   },
 ];
@@ -35,7 +35,7 @@ const Blog = ({data, location}) => (
       ogDescription={data.markdownRemark.excerpt}
       markdownRemark={data.markdownRemark}
       sectionList={toSectionList(data.allMarkdownRemark)}
-      titlePostfix=" &ndash; React Blog"
+      titlePostfix=" &ndash; blog Reacta"
     />
   </Layout>
 );

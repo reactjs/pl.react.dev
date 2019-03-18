@@ -13,7 +13,7 @@ function replaceArgs(msg: string, argList: Array<string>): string {
   let argIdx = 0;
   return msg.replace(/%s/g, function() {
     const arg = argList[argIdx++];
-    return arg === undefined ? '[missing argument]' : arg;
+    return arg === undefined ? '[brakujący argument]' : arg;
   });
 }
 
@@ -69,8 +69,8 @@ function ErrorResult(props: {|code: ?string, msg: string|}) {
   if (!code) {
     return (
       <p>
-        When you encounter an error, you'll receive a link to this page for that
-        specific error and we'll show you the full error text.
+        Kiedy napotkasz na błąd, otrzymasz link do strony dotyczącej
+        konkretnego błędu. Tutaj wyświetli się jego treść.
       </p>
     );
   }
@@ -78,7 +78,7 @@ function ErrorResult(props: {|code: ?string, msg: string|}) {
   return (
     <div>
       <p>
-        <b>The full text of the error you just encountered is:</b>
+        <b>Pełna treść napotkanego błędu to:</b>
       </p>
       <code>
         <b>{urlify(errorMsg)}</b>
