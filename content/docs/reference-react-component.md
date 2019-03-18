@@ -31,11 +31,11 @@ class Welcome extends React.Component {
 
 Jedyna metoda, która *musi* być zdefiniowana w klasie dziedziczącej po `React.Component` nazywa się [`render()`](#render). Wszystkie inne metody opisane na tej stronie są opcjonalne.
 
-**We strongly recommend against creating your own base component classes.** In React components, [code reuse is primarily achieved through composition rather than inheritance](/docs/composition-vs-inheritance.html).
+**Mocno odradadzamy tworzenie własnych klas bazowych komponentów.** W Reactowych komponentach [wielokrotne użycie kodu jest osiągane przede wszystkim przez kompozycję, a nie dziedziczenie](/docs/composition-vs-inheritance.html).
 
->Note:
+>Uwaga:
 >
->React doesn't force you to use the ES6 class syntax. If you prefer to avoid it, you may use the `create-react-class` module or a similar custom abstraction instead. Take a look at [Using React without ES6](/docs/react-without-es6.html) to learn more.
+>React nie zmusza cię do stosowania składni klasy ze standardu ES6. Jeśli wolisz jej uniknąć, możesz zamiast niej użyć modułu `create-react-class` lub podobnej niestandardowej abstrakcji. Aby dowiedzieć się więcej, zobacz rozdział [React bez ES6](/docs/react-without-es6.html).
 
 ### The Component Lifecycle {#the-component-lifecycle}
 
