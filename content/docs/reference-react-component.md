@@ -37,28 +37,28 @@ Jedyna metoda, która *musi* być zdefiniowana w klasie dziedziczącej po `React
 >
 >React nie zmusza cię do stosowania składni klasy ze standardu ES6. Jeśli wolisz jej uniknąć, możesz zamiast niej użyć modułu `create-react-class` lub podobnej niestandardowej abstrakcji. Aby dowiedzieć się więcej, zobacz rozdział [React bez ES6](/docs/react-without-es6.html).
 
-### The Component Lifecycle {#the-component-lifecycle}
+### Cykl życia komponentu {#the-component-lifecycle}
 
-Each component has several "lifecycle methods" that you can override to run code at particular times in the process. **You can use [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) as a cheat sheet.** In the list below, commonly used lifecycle methods are marked as **bold**. The rest of them exist for relatively rare use cases.
+Każdy komponent ma kilka "metod cyklu życia", które możesz nadpisać, aby uruchomić kod w szczególnych momentach programu. **Możesz użyć [tego diagramu cyklu życia](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) jako ściągawki.** Na liście poniżej, często używane metody cyklu życia zostały **pogrubione**. Reszta z nich istnieje dla stosunkowo rzadkich przypadków użycia.
 
-#### Mounting {#mounting}
+#### Montowanie {#mounting}
 
-These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+Podczas, gdy instancja komponentu zostaje stworzona i włożona do drzewa DOM, w podanej kolejności wywołwane są poniższe metody:
 
 - [**`constructor()`**](#constructor)
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [**`render()`**](#render)
 - [**`componentDidMount()`**](#componentdidmount)
 
->Note:
+>Uwaga:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>Te metody są uznawane za spadek (ang. *legacy*) i powinno się [ich unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
-#### Updating {#updating}
+#### Aktualizacja {#updating}
 
-An update can be caused by changes to props or state. These methods are called in the following order when a component is being re-rendered:
+Aktualizacja może być spowodowana zmianami we właściwościach lub stanie komponentu. Kiedy komponent zostaje ponownie zrenderowany, w podanej kolejności wywołane zostają poniższe metody:
 
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -66,39 +66,39 @@ An update can be caused by changes to props or state. These methods are called i
 - [`getSnapshotBeforeUpdate()`](#getsnapshotbeforeupdate)
 - [**`componentDidUpdate()`**](#componentdidupdate)
 
->Note:
+>Uwaga:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>Te metody są uznawane za spadek i powinno się [ich unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
 >
 >- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 >- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
 
-#### Unmounting {#unmounting}
+#### Odmontowywanie {#unmounting}
 
-This method is called when a component is being removed from the DOM:
+Kiedy komponent zostaje usunięty z drzewa DOM, wywołana zostaje poniższa metoda:
 
 - [**`componentWillUnmount()`**](#componentwillunmount)
 
-#### Error Handling {#error-handling}
+#### Obsługa wyjątków {#error-handling}
 
-These methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
+Poniższe metody zostają wywołane w razie wystąpienia wyjątku podczas renderowania, w metodzie cyklu życia, lub w konstruktorze dowolnych komponentów potomnych.
 
 - [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
 - [`componentDidCatch()`](#componentdidcatch)
 
-### Other APIs {#other-apis}
+### Inne API {#other-apis}
 
-Each component also provides some other APIs:
+Każdy komponent zapewnia też kilka innych API:
 
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
 
-### Class Properties {#class-properties}
+### Właściwości klasy {#class-properties}
 
   - [`defaultProps`](#defaultprops)
   - [`displayName`](#displayname)
 
-### Instance Properties {#instance-properties}
+### Właściwości instancji {#instance-properties}
 
   - [`props`](#props)
   - [`state`](#state)
