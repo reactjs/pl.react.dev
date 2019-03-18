@@ -8,24 +8,24 @@ prev: hooks-effect.html
 
 *Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-Hooki są javascryptowymi funkcjami, ale musisz pamiętać o dwóch ważnych zasadach, kiedy z nich korzystasz. Stworzyliśmy [wtyczkę do lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks), która automatycznie wymusza stosowanie tych zasad:
+Hooki są javascriptowymi funkcjami, ale podczas korzystania z nich musisz pamiętać o dwóch ważnych zasadach. Stworzyliśmy [wtyczkę do lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks), która automatycznie wymusza stosowanie tych zasad:
 
 ### Wywołuj hooki tylko z najwyższego poziomu kodu {#only-call-hooks-at-the-top-level}
 
-**Nie wywołuj Hooków z wewnątrz pętli, warunków czy zagnieżdżonych funkcji.** Korzystaj z hooków tylko z najwyższego poziomu kodu twoich komponentów funkcyjnych. Przestrzegając tej zasady zyskujesz pewność, że hooki zostaną wywołane w tej samej kolejności, za każdym razem gdy komponent jest renderowany. To właśnie pozwala Reactowi na właściwe przechowywanie stanu pomiędzy kolejnymi wywołaniami `useState` i `useEffect` (Jeśli jesteś ciekawy, dogłębnie wyjaśnimy to [w kolejnym podrozdziale](#explanation).)
+**Nie wywołuj Hooków wewnątrz pętli, instrukcji warunkowych czy zagnieżdżonych funkcji.** Korzystaj z hooków tylko z najwyższego poziomu kodu twoich komponentów funkcyjnych. Przestrzegając tej zasady, zyskujesz pewność, że hooki zostaną wywołane w tej samej kolejności, za każdym razem gdy komponent jest renderowany. To właśnie pozwala Reactowi na właściwe przechowywanie stanu pomiędzy kolejnymi wywołaniami `useState` i `useEffect` (Jeśli ciekawi cię ten temat, dogłębnie wyjaśnimy go [w kolejnym podrozdziale](#explanation).)
 
-###  Wywołuj Hooki tylko z wewnątrz reactowych komponentów funkcyjnych {#only-call-hooks-from-react-functions}
+### Wywołuj hooki tylko w komponentach funkcyjnych {#only-call-hooks-from-react-functions}
 
-**Nie wywołuj hooków z wewnątrz zwykłych javascriptowych funkcji.** Zamiast tego możesz:
+**Nie wywołuj hooków wewnątrz zwykłych javascriptowych funkcji.** Zamiast tego możesz:
 
-* ✅ Wywołuj hooki z wewnątrz reactowych komponentów funkcyjnych.
-* ✅ Wywołuj hooki z wewnątrz własnych hooków (więcej o nich dowiemy się [w następnym rozdziale](/docs/hooks-custom.html)).
+* ✅ Wywoływać hooki wewnątrz reactowych komponentów funkcyjnych.
+* ✅ Wywoływać hooki wewnątrz własnych hooków (więcej na ten temat dowiemy się [w następnym rozdziale](/docs/hooks-custom.html)).
 
 Przestrzegając tej zasady, upewniasz się, że cała logika związana ze stanem komponentu jest wyraźnie widoczna w jego kodzie źródłowym.
 
-## Wtyczka ESLint {#eslint-plugin}
+## Wtyczka dla ESLinta {#eslint-plugin}
 
-Wydaliśmy wtyczkę do EsLint o nazwie [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), która wymusza stosowanie tych dwóch zasad. Jeśli chcesz ją wypróbować, możesz dodać ją do swojego projektu:
+Wydaliśmy wtyczkę dla ESLinta o nazwie [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), która wymusza stosowanie tych dwóch zasad. Jeśli chcesz ją wypróbować, możesz dodać ją do swojego projektu w następujący sposób:
 
 ```bash
 npm install eslint-plugin-react-hooks
@@ -48,11 +48,11 @@ npm install eslint-plugin-react-hooks
 
 W przyszłości zamierzamy dołączyć te wtyczkę do Create React App i podobnych narzędzi.
 
-**Możesz teraz przejść do następnego rozdziału, gdzie wyjaśniamy [jak pisać własne hooki](/docs/hooks-custom.html).** W tym rozdziale postaramy się uzasadnić, dlaczego narzucamy takie zasady.
+**Możesz teraz przejść do następnego rozdziału, gdzie wyjaśniamy, [jak pisać własne hooki](/docs/hooks-custom.html).** W tym rozdziale postaramy się uzasadnić, dlaczego narzucamy takie zasady.
 
 ## Wyjaśnienie {#explanation}
 
-Jak [dowiedzieliśmy się wcześniej](/docs/hooks-state.html#tip-using-multiple-state-variables) możemy używać wielu hooków stanu i efektów w jednym komponencie:
+Jak [dowiedzieliśmy się wcześniej](/docs/hooks-state.html#tip-using-multiple-state-variables), w ramach pojedynczego komponentu możemy używać wielu hooków stanu i efektów:
 
 ```js
 function Form() {
@@ -76,15 +76,15 @@ function Form() {
 }
 ```
 
-Skąd zatem React wie, jaką wartość stanu zwrócić, przy kolejnych wywołaniach funkcji `useState`? Tajemnica tkwi w tym, że **React polega na kolejności, w jakiej hooki zostały wywołane.** Nasz przykład zadziała ponieważ kolejność wywoływania hooków jest taka sama przy każdym renderze:
+Skąd zatem React wie, jaką wartość stanu zwrócić przy kolejnych wywołaniach funkcji `useState`? Tajemnica tkwi w tym, że **React polega na kolejności, w jakiej hooki są wywoływane.** Nasz przykład zadziała, ponieważ kolejność wywoływania hooków jest taka sama przy każdym renderowaniu:
 
 ```js
 // ------------
 // Pierwsze renderowanie
 // ------------
-useState('Mary')           // 1. Zaincializuj zmienną stanu imienia wartością „Mary”
+useState('Mary')           // 1. Zainicjalizuj zmienną stanu imienia wartością „Mary”
 useEffect(persistForm)     // 2. Dodaj efekt odpowiedzialny za przechowywanie danych formularza
-useState('Poppins')        // 3. Zaincializuj zmienną stanu nazwiska wartością „Poppins”
+useState('Poppins')        // 3. Zainicjalizuj zmienną stanu nazwiska wartością „Poppins”
 useEffect(updateTitle)     // 4. Dodaj efekt odpowiedzialny za aktualizację tytułu
 
 // -------------
@@ -98,7 +98,7 @@ useEffect(updateTitle)     // 4. Zastąp efekt odpowiedzialny za aktualizację t
 // ...
 ```
 
-Tak długo, jak kolejność wywoływania hooków pozostaje taka sama pomiędzy kolejnymi renderami, React może powiązać lokalny stan z każdym z nich. A co wydarzy się, jeśli umieścimy wywołanie hooka (na przykład efektu `persistForm`) wewnątrz instrukcji warunkowej?
+Tak długo, jak kolejność wywoływania hooków pozostaje taka sama pomiędzy kolejnymi renderowaniami, React może powiązać lokalny stan z każdym z nich. A co wydarzy się, jeśli umieścimy wywołanie hooka (na przykład efektu `persistForm`) wewnątrz instrukcji warunkowej?
 
 ```js
   // 🔴 Łamiemy pierwszą zasadę, używając hooka wewnątrz instrukcji warunkowej
@@ -118,7 +118,7 @@ useState('Poppins')        // 🔴 2 (a był 3). Nie uda się odczytać zmiennej
 useEffect(updateTitle)     // 🔴 3 (a był 4). Nie uda się zastąpić efektu
 ```
 
-React nie wiedziałby co zwrócić, dla drugiego wywołania hooka `useState`. React spodziewał się, że drugie wywołanie hooka w tym komponencie, będzie odpowiadało wywołaniu efektu `persistForm`, tak jak podczas poprzedniego renderowania. Nie jest to już jednak prawdą. Od tej chwili każde kolejne wywołanie hooka, po tym, jak jeden został pominięty, również przesunęłoby się o jeden, prowadząc do błędów.
+React nie wiedziałby, co zwrócić dla drugiego wywołania hooka `useState`. React spodziewał się, że drugie wywołanie hooka w tym komponencie będzie odpowiadało wywołaniu efektu `persistForm`, tak jak podczas poprzedniego renderowania. Nie jest to już jednak prawdą. Od tej chwili każde kolejne wywołanie hooka, po tym, jak jeden został pominięty, również przesunęłoby się o jeden, prowadząc do błędów.
 
 **Dlatego właśnie hooki muszą być wywoływane z najwyższego poziomu kodu komponentów.** Jeśli chcesz, żeby efekt działał pod jakimś warunkiem, możesz umieścić ten warunek *wewnątrz* hooka:
 
@@ -131,7 +131,7 @@ React nie wiedziałby co zwrócić, dla drugiego wywołania hooka `useState`. Re
   });
 ```
 
-**Zauważ że nie musisz się tym przejmować, jeśli użyjesz [dostarczonej przez nas reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks).** Teraz jednak wiesz także *dlaczego* hooki działają w ten sposób i jakim problemom zapobiega stosowanie tej reguły.
+**Zauważ, że nie musisz o tym pamiętać, jeśli użyjesz [dostarczonej przez nas reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks).** Teraz jednak wiesz także, *dlaczego* hooki działają w ten sposób i jakim problemom zapobiega stosowanie tej reguły.
 
 ## Kolejne kroki {#next-steps}
 
