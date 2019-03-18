@@ -15,21 +15,21 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-Ta strona zawiera szegółowe odniesienie do definicji klasy reactowego komponentu. Zakłada ona, że jesteś zaznajomiony z fundamentalnymi zagadnieniami Reacta, takimi jak [Komponenty i właściwości](/docs/components-and-props.html), jak i [Stan i cykl życia](/docs/state-and-lifecycle.html). Jeśli nie jesteś, przeczytaj je najpierw.
+Ta strona zawiera szegółowe odniesienie do definicji klasy reactowego komponentu. Zakłada ona, że znasz fundamentalne zagadnienia Reacta, takie jak [Komponenty i właściwości](/docs/components-and-props.html), i [Stan i cykl życia](/docs/state-and-lifecycle.html). Jeśli nie, przeczytaj je najpierw.
 
-## Overview {#overview}
+## Ogólne informacje {#overview}
 
-React lets you define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page. To define a React component class, you need to extend `React.Component`:
+React pozwala na zdefiniowanie komponentów jako klasy lub funkcje. Komponenty zdefiniowane jako klasy obecnie zapewniają więcej funkcjonalności, które szczegółowo opiszemy na tej stronie. Aby komponent mógł być zdefiniowany jako klasa, musi on dziedziczyć po klasie `React.Component`:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Cześć, {this.props.name}</h1>;
   }
 }
 ```
 
-The only method you *must* define in a `React.Component` subclass is called [`render()`](#render). All the other methods described on this page are optional.
+Jedyna metoda, która *musi* być zdefiniowana w klasie dziedziczącej po `React.Component` nazywa się [`render()`](#render). Wszystkie inne metody opisane na tej stronie są opcjonalne.
 
 **We strongly recommend against creating your own base component classes.** In React components, [code reuse is primarily achieved through composition rather than inheritance](/docs/composition-vs-inheritance.html).
 
