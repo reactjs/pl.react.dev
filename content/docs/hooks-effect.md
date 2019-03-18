@@ -334,7 +334,7 @@ function FriendStatusWithCounter(props) {
 }
 ```
 
-**Hoki pozwalają na dzielenie kodu ze względu na to, za co on odpowiada**, a nie ze względu na nazwę metody cyklu życia. React wywoła *każdy* efekt użyty w komponencie, w kolejności, w jakiej został dodany.
+**Hooki pozwalają na dzielenie kodu na mniejsze fragmenty pod względem ich odpowiedzialności**, a nie ze względu na nazwę metody cyklu życia. React wywoła *każdy* efekt użyty w komponencie w takiej kolejności, w jakiej został dodany.
 
 ### Wyjaśnienie: Dlaczego efekty działają przy każdej aktualizacji {#explanation-why-effects-run-on-each-update}
 
@@ -409,7 +409,7 @@ function FriendStatus(props) {
 
 Nie jest ona podatna na ten błąd. (Ale nie wprowadziliśmy też żadnych zmian.)
 
-Nie ma żadnego specjalnego kodu, na obsługę aktualizacji ponieważ hook `useEffect` obsługuje je *domyślnie*. Czyści on poprzednie efekty, zanim przeprowadzi kolejne. Aby to lepiej zilustrować pokażemy sekwencję tworzenia i usuwania subskrypcji, jakie wywoła ten komponent w określonym czasie:
+Nie ma żadnego specjalnego kodu na obsługę aktualizacji, ponieważ hook `useEffect` obsługuje je *domyślnie*. Czyści on poprzednie efekty, zanim przeprowadzi kolejne. Aby to lepiej zilustrować pokażemy sekwencję tworzenia i usuwania subskrypcji, jakie wywoła ten komponent w określonym czasie:
 
 ```js
 // Zamontowany z właściwościami { friend: { id: 100 } }
