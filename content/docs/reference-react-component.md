@@ -131,7 +131,7 @@ Funkcja `render()` powinna być czysta, to znaczy, że nie modyfikuje stanu komp
 
 Jeśli potrzebujesz wejść w interakcję z przeglądarką, zamiast tego wykonaj swoje instrukcje w `componentDidMount()` lub innych metodach cyklu życia. Utrzymywanie funkcji `render()` w czystości sprawia, że łatwiej jest myśleć o komponentach.
 
-> Uwaga:
+> Uwaga
 >
 > Funkcja `render()` nie zostanie wywołana, jeśli [`shouldComponentUpdate()`](#shouldcomponentupdate) zwróci `false`.
 
@@ -143,47 +143,47 @@ Jeśli potrzebujesz wejść w interakcję z przeglądarką, zamiast tego wykonaj
 constructor(props)
 ```
 
-**If you don't initialize state and you don't bind methods, you don't need to implement a constructor for your React component.**
+**Jeśli nie inicjalizujesz stanu i nie wiążesz (ang. *bind*) metod, nie ma potrzeby, abyś implementował konstruktor w swoim reactowym komponencie.**
 
-The constructor for a React component is called before it is mounted. When implementing the constructor for a `React.Component` subclass, you should call `super(props)` before any other statement. Otherwise, `this.props` will be undefined in the constructor, which can lead to bugs.
+Konstruktor reactowego komponentu jest wywoływany przed jego zamontowaniem. Kiedy implementujesz konstruktor w klasie dziedziczącej po klasie `React.Component`, powinieneś wywołać metodę `super(props)` przed jakąkolwiek inną instrukcją. W innym wypadku, `this.props` będzie miało  w konstruktorze wartość `undefined`, co może prowadzić do błędów.
 
-Typically, in React constructors are only used for two purposes:
+Zazwyczaj, konstruktory są używane tylko w dwóch celach:
 
-* Initializing [local state](/docs/state-and-lifecycle.html) by assigning an object to `this.state`.
-* Binding [event handler](/docs/handling-events.html) methods to an instance.
+* Inicjalizacji [stanu lokalnego](/docs/state-and-lifecycle.html) przez przypisanie obiektu do `this.state`.
+* Związania [metody obsługującej zdarzenia](/docs/handling-events.html) z instancją komponentu.
 
-You **should not call `setState()`** in the `constructor()`. Instead, if your component needs to use local state, **assign the initial state to `this.state`** directly in the constructor:
+**Nie powinieneś wywoływać metody `setState()`** w funkcji `constructor()`. Zamiast tego, jeśli potrzebujesz użyć w komponencie stanu lokalnego, **przydziel początkowy stan do `this.state`** bezpośrednio w konstruktorze:
 
 ```js
 constructor(props) {
   super(props);
-  // Don't call this.setState() here!
+  // Nie wywołuj tutaj this.setState()!
   this.state = { counter: 0 };
   this.handleClick = this.handleClick.bind(this);
 }
 ```
 
-Constructor is the only place where you should assign `this.state` directly. In all other methods, you need to use `this.setState()` instead.
+Konstruktor jest jedynym miejscem, w którym powinieneś przypisywać `this.state` bezpośrednio. Natomiast we wszystkich innych metodach powinieneś używać `this.setState()`.
 
-Avoid introducing any side-effects or subscriptions in the constructor. For those use cases, use `componentDidMount()` instead.
+Unikaj wprowadzania efektów ubocznych lub subskrypcji w konstruktorze. Używaj zamiast tego `componentDidMount()` dla tych przypadków użycia.
 
->Note
+>Uwaga
 >
->**Avoid copying props into state! This is a common mistake:**
+>**Unikaj kopiowania właściwości do stanu! Jest to częsty błąd:**
 >
 >```js
 >constructor(props) {
 >  super(props);
->  // Don't do this!
+>  // Nie rób tego!
 >  this.state = { color: props.color };
 >}
 >```
 >
->The problem is that it's both unnecessary (you can use `this.props.color` directly instead), and creates bugs (updates to the `color` prop won't be reflected in the state).
+>Problem w tym, że jest to jednocześnie niepotrzebne (zamiast tego możesz użyć  `this.props.color` bezpośrednio), i jest przyczyną błędów (aktualizacje właściwości `color` nie będą odzwierciedlane w stanie).
 >
->**Only use this pattern if you intentionally want to ignore prop updates.** In that case, it makes sense to rename the prop to be called `initialColor` or `defaultColor`. You can then force a component to "reset" its internal state by [changing its `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) when necessary.
+>**Używaj tego wzorca tylko jeśli chcesz celowo ignorować aktualizacje właściwości.** W tym wypadku, bedzie miała sens zmiana nazwy właściwości na `initialColor` (ang. *początkowy kolor*) lub `defaultColor` (ang. *domyślny kolor*). Możesz wtedy zmusić komponent do "zresetowania" swojego wewnętrznego stanu przez [zmianę jego właściwości `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) w razie potrzeby.
 >
->Read our [blog post on avoiding derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html) to learn about what to do if you think you need some state to depend on the props.
+>Przeczytaj nasz [wpis na blogu na temat unikania stanu pochodnego](/blog/2018/06/07/you-probably-dont-need-derived-state.html), aby dowiedzieć się co należy zrobić, jeśli wydaje ci się, że potrzebujesz stanu zależnego od właściwości.
 
 
 * * *
