@@ -26,7 +26,7 @@ const Acknowlegements = ({data, location}) => (
           />
 
           <div css={sharedStyles.markdown}>
-            <p>Chcielibyśmy podziękować naszym kontrybutorom:</p>
+            <p>Chcielibyśmy podziękować osobom, które wniosły wkład w powstanie Reacta:</p>
 
             <ul
               css={{
