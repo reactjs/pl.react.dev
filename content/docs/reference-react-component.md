@@ -198,7 +198,7 @@ Metoda `componentDidMount()` jest wywołowana bezpośrednio po zamontowaniu komp
 
 Ta metoda jest dobrym miejscem na przygotowanie dowolnych subskrypcji. Jeśli to zrobisz, nie zapomnij ich zakończyć w metodzie `componentWillUnmount()`.
 
-**Możesz wywołać metodę `setState()` od razu** w `componentDidMount()`. Spowoduje to dodatkowe renderowanie, ale zostanie ono wykonane zanim przeglądarka uaktualni ekran. Jest to gwarancją, że pomimo, iż metoda `render()` będzie w tym przypadku wywołana dwa razy, użytkownik nie zobaczy pośredniego stanu. Używaj tego wzorca uważnie, ponieważ często powoduje on problemy z wydajnością. W większości przypadków, powinieneś zamiast tego mieć możliwość przypisania stanu początkowego w konstruktorze. Może to być natomiast konieczne dla przypadków takich jak okna modalne i okienka podpowiedzi, kiedy przed zrenderowaniem czegoś trzeba zmierzyć węzeł drzewa DOM.
+**Możesz wywołać metodę `setState()` od razu** w `componentDidMount()`. Spowoduje to dodatkowe renderowanie, ale zostanie ono wykonane zanim przeglądarka zaktualizuje ekran. Jest to gwarancją, że pomimo, iż metoda `render()` będzie w tym przypadku wywołana dwa razy, użytkownik nie zobaczy pośredniego stanu. Używaj tego wzorca uważnie, ponieważ często powoduje on problemy z wydajnością. W większości przypadków, powinieneś zamiast tego mieć możliwość przypisania stanu początkowego w konstruktorze. Może to być natomiast konieczne w przypadkach takich jak okna modalne i okienka podpowiedzi, kiedy przed zrenderowaniem czegoś trzeba zmierzyć węzeł drzewa DOM.
 
 * * *
 
@@ -208,26 +208,26 @@ Ta metoda jest dobrym miejscem na przygotowanie dowolnych subskrypcji. Jeśli to
 componentDidUpdate(prevProps, prevState, snapshot)
 ```
 
-`componentDidUpdate()` is invoked immediately after updating occurs. This method is not called for the initial render.
+Metoda `componentDidUpdate()` jest wywoływana bezpośrednio po wystąpieniu aktualizacji. Nie jest ona wywoływana po początkowym zrenderowaniu.
 
-Use this as an opportunity to operate on the DOM when the component has been updated. This is also a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed).
+Używaj tego jako okazji do operacji na drzewie DOM kiedy komponent został zaktualizowany. Jest to także dobre miejsce na wykonywanie zapytań sieciowych tak długo jak porównujesz obecne właściwości z poprzednimi (na przykład, zapytanie może być niepotrzebne jeśli właściwości się nie zmieniły).
 
 ```js
 componentDidUpdate(prevProps) {
-  // Typical usage (don't forget to compare props):
+  // Typowy sposób użycia (nie zapomnij porównać właściwości):
   if (this.props.userID !== prevProps.userID) {
     this.fetchData(this.props.userID);
   }
 }
 ```
 
-You **may call `setState()` immediately** in `componentDidUpdate()` but note that **it must be wrapped in a condition** like in the example above, or you'll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance. If you're trying to "mirror" some state to a prop coming from above, consider using the prop directly instead. Read more about [why copying props into state causes bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+**Możesz wywołać metodę `setState()` od razu** w `componentDidUpdate()`, ale weź pod uwagę, że **musi ona być owinięta instrukcją warunkową** jak w przykładzie powyżej, albo spowodujesz nieskończoną pętlę. Spowodowałoby to również dodatkowe renderowanie które, pomimo że niedostrzegalne dla użytkownika, może negatywnie wpłynąć na wydajność komponentu. Jeśli próbujesz "odzwierciedlić" pewien stan z właściwością pochodzącą z góry, rozważ zamiast tego użycie tej właściwości bezpośrednio. Dowiedz się więcej o tym [dlaczego kopiowanie właściwości do stanu powoduje błędy](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-If your component implements the `getSnapshotBeforeUpdate()` lifecycle (which is rare), the value it returns will be passed as a third "snapshot" parameter to `componentDidUpdate()`. Otherwise this parameter will be undefined.
+Jeśli twój komponent ma zaimplementowaną metodę cyklu życia `getSnapshotBeforeUpdate()` (co jest rzadkie), wartość którą ona zwróci, będzie przekazana jako trzeci parametr ("zrzut" (ang.*snapshot*)) do metody `componentDidUpdate()`. W innym wypadku ten parametr będzie miał wartość `undefined`.
 
-> Note
+> Uwaga
 >
-> `componentDidUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> Metoda `componentDidUpdate()` nie będzie wywołana jeśli [`shouldComponentUpdate()`](#shouldcomponentupdate) zwróci `false`.
 
 * * *
 
