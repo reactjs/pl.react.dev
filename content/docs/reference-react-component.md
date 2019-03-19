@@ -237,15 +237,15 @@ Jeśli twój komponent ma zaimplementowaną metodę cyklu życia `getSnapshotBef
 componentWillUnmount()
 ```
 
-`componentWillUnmount()` is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in `componentDidMount()`.
+Metoda `componentWillUnmount()` jest wywoływana zaraz przed odmontowaniem i zniszczeniem komponentu. Przeprowadź potrzebne czyszczenie w tej metodzie, takie jak unieważnienie liczników czasu, anulowanie zapytań sieciowych, lub czyszczenie subskrypcji, które były rozpoczęte w `componentDidMount()`.
 
-You **should not call `setState()`** in `componentWillUnmount()` because the component will never be re-rendered. Once a component instance is unmounted, it will never be mounted again.
+**Nie powinieneś wywoływać metody `setState()`** w `componentWillUnmount()`, ponieważ ten komponent nie zostanie ponownie zrenderowany. Kiedy instancja komponentu zostaje odmonotowana, nigdy nie będzie zamontowana ponownie.
 
 * * *
 
-### Rarely Used Lifecycle Methods {#rarely-used-lifecycle-methods}
+### Rzadko używane metody cyklu życia {#rarely-used-lifecycle-methods}
 
-The methods in this section correspond to uncommon use cases. They're handy once in a while, but most of your components probably don't need any of them. **You can see most of the methods below on [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) if you click the "Show less common lifecycles" checkbox at the top of it.**
+Metody zawarte w tej sekcji odpowiadają rzadkim przypadkom użycia. Czasem są przydatnę, ale większość twoich komponentów najprawdopodobniej nie będzie ich potrzebowała. **Większość poniższych metod możesz zobaczyć na [tym diagramie cyklu życia](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) po kliknięciu na checkbox "Pokaż rzadziej używane metody" u góry.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
