@@ -35,7 +35,7 @@ function Example() {
 
 Ten fragment kodu oparty jest na [przykładzie licznika z poprzedniego rozdziału](/docs/hooks-state.html), ale dodaliśmy do niego nową funkcjonalność: ustawiamy tytuł dokumentu na własną wiadomość, zawierającą liczbę kliknięć.
 
-Pobieranie danych, tworzenie subskrypcji czy ręczna ingerencja w drzewo DOM z wewnątrz komponentów - to wszystko przykłady efektów ubocznych. Nie zależnie od tego, czy nazywane „efektami ubocznymi” (lub po prostu „efektami”) najprawdopodobniej przeprowadzałaś(-eś) je wcześniej.
+Pobieranie danych, tworzenie subskrypcji czy ręczna ingerencja w drzewo DOM z wewnątrz komponentów - to wszystko przykłady efektów ubocznych. Niezależnie od tego, czy znasz je pod nazwą „efekty uboczne” (lub po prostu „efekty”), najprawdopodobniej masz je zaszyte gdzieś w swoim kodzie.
 
 >Wskazówka
 >
