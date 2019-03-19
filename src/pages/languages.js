@@ -59,7 +59,7 @@ const Languages = ({location}: Props) => (
             <h2>Prace w toku</h2>
             <LanguagesGrid languages={partial} />
 
-            <h2>Potrzebni kontrybutorzy</h2>
+            <h2>Potrzebna pomoc w tłumaczeniu</h2>
             <LanguagesGrid languages={incomplete} />
 
             <p>
