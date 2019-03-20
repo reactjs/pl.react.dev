@@ -6,11 +6,11 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
-Jeśli załadujesz React ze znacznika `<script>`, te interfejsy API najwyższego poziomu są dostępne w globalnym katalogu `ReactDOM`. Jeśli używasz ES6 z npm, możesz napisać `import ReactDOM from 'react-dom'`. Jeśli używasz ES5 z npm, możesz napisać `var ReactDOM = require ('react-dom')`.
+Jeśli załadujesz Reacta za pomocą znacznika `<script>`, wspomniane w tym rozdziale główne interfejsy API będą dostępne poprzez globalną zmienną `ReactDOM`. Jeśli używasz ES6 z npm, wczytaj je za pomocą `import ReactDOM from 'react-dom'`. Jeśli używasz ES5 z npm, możesz napisać `var ReactDOM = require ('react-dom')`.
 
-## Przegląd {#overview}
+## Informacje ogólne {#overview}
 
-Pakiet "react-dom" udostępnia metody specyficzne dla DOM, które mogą być używane na najwyższym poziomie aplikacji i jako kreska ewakuacyjna, aby wyjść poza model React, jeśli zajdzie taka potrzeba. Większość komponentów nie musi używać tego modułu.
+Pakiet "react-dom" udostępnia metody specyficzne dla DOM, które mogą być używane na najwyższym poziomie aplikacji i, w razie potrzeby, jako "wyjście awaryjne" poza model Reacta. Jednak w przypadku większości komponentów użycie tej biblioteki nie będzie konieczne.
 
 - [`render()`](#render)
 - [`hydrate()`](#hydrate)
@@ -18,17 +18,17 @@ Pakiet "react-dom" udostępnia metody specyficzne dla DOM, które mogą być uż
 - [`findDOMNode()`](#finddomnode)
 - [`createPortal()`](#createportal)
 
-### Obsługa Przeglądarki {#browser-support}
+### Wsparcie dla przeglądarek {#browser-support}
 
-React obsługuje wszystkie popularne przeglądarki, w tym Internet Explorer 9 i nowsze wersje, chociaż [niektóre polyfills są wymagane](/docs/javascript-environment-requirements.html) w starszych przeglądarkach, takich jak IE 9 i IE 10.
+React wspiera wszystkie popularne przeglądarki, w tym Internet Explorer 9 i nowsze wersje, chociaż w starszych przeglądarkach, takich jak IE 9 i IE 10, [wymagane są niektóre łatki](/docs/javascript-environment-requirements.html) (ang. *polyfills*).
 
 > Uwaga
 >
->Nie obsługujemy starszych przeglądarek, które nie obsługują metod ES5, ale być może okaże się, że twoje aplikacje działają w starszych przeglądarkach, jeśli używasz takich narzędzi, jak [es5-shim i es5-sham](https://github.com/es-shims/es5-shim) są zawarte na stronie. Jesteś sam, jeśli wybierzesz tę drogę.
+>Nie wspieramy starszych przeglądarek, które nie obsługują metod ze standardu ES5, lecz aplikacja może zadziałać na nich, jeśli użyjesz odpowiednich łatek, jak na przykład [es5-shim i es5-sham](https://github.com/es-shims/es5-shim). Pamiętaj jednak, że pójście tą drogą skazuje cię na całkowitą samodzielność.
 
 * * *
 
-## Odniesienie {#reference}
+## Dokumentacja {#reference}
 
 ### `render()` {#render}
 
@@ -36,23 +36,29 @@ React obsługuje wszystkie popularne przeglądarki, w tym Internet Explorer 9 i 
 ReactDOM.render(element, container[, callback])
 ```
 
-Renderuj element React do DOM w podanym `container` i zwróć [odniesienie](/docs/more-about-refs.html) do komponentu (lub zwróć` null` dla [komponentów bezstanowych](/docs/components-and-props.html#functional-and-class-components)).
+Renderuje element reactowy do drzewa DOM, do kontenera podanego w argumencie `container`, i zwraca [referencję](/docs/more-about-refs.html) do komponentu (lub `null` dla [komponentów bezstanowych](/docs/components-and-props.html#functional-and-class-components)).
 
-Jeśli element React był wcześniej renderowany do `container`, to wykona na nim aktualizację i zmodyfikuje DOM tylko w razie potrzeby, aby odzwierciedlić ostatni element React.
+Jeśli element reactowy był już wcześniej renderowany do kontenera `container`, zostanie on automatycznie zaktualizowany przez Reacta, który odpowiednio zmodyfikuje DOM tak, aby odzwierciedlić najnowszą wersję komponentu.
 
-Jeśli dostępne jest opcjonalne wywołanie zwrotne, zostanie ono wykonane po wyrenderowaniu lub zaktualizowaniu komponentu.
+Jeśli w argumencie `callback` przekażesz funkcję zwrotną, zostanie ona wywołana po wyrenderowaniu lub zaktualizowaniu komponentu.
 
 > Uwaga:
 >
->`ReactDOM.render ()` kontroluje zawartość podanego węzła kontenera. Wszelkie istniejące elementy DOM wewnątrz są wymieniane po pierwszym wywołaniu. Późniejsze wywołania używają algorytmu dyfrakcyjnego DOM React do wydajnych aktualizacji.
+>`ReactDOM.render()` kontroluje zawartość podanego węzła kontenera. Po pierwszym wywołaniu zastępowane są wszystkie elementy DOM wewnątrz niego. Każde kolejne wywołania, z pomocą reactowego algorytmu różnicującego, efektywnie aktualizują drzewo.
+
 >
->`ReactDOM.render ()` nie modyfikuje węzła kontenera (modyfikuje tylko elementy potomne kontenera). Może istnieć możliwość wstawienia komponentu do istniejącego węzła DOM bez nadpisywania istniejących elementów podrzędnych.
+>`ReactDOM.render()` nie modyfikuje węzła kontenera (jedynie jego elementy potomne). Możliwe jest wstawienie komponentu do istniejącego węzła DOM bez nadpisywania istniejących elementów podrzędnych.
+
 >
-> `ReactDOM.render ()` obecnie zwraca odwołanie do głównej instancji `ReactComponent`. Jednak użycie tej wartości powrotnej jest starszą wersją
-> i należy tego unikać, ponieważ przyszłe wersje React mogą w niektórych przypadkach wyrenderować komponenty asynchronicznie. Jeśli potrzebujesz odniesienia do głównej instancji `ReactComponent`, preferowanym rozwiązaniem jest dołączenie
-> [referencyjne wywołanie zwrotne](/docs/more-about-refs.html#the-ref-callback-attribute) do elementu głównego.
+> `ReactDOM.render()` obecnie zwraca referencję do instancji klasy `ReactComponent`, będącej korzeniem drzewa. Jednak używanie tej referencji jest uznawane za przestarzałą praktykę
+
+> i należy jej unikać, ponieważ przyszłe wersje Reacta mogą w niektórych przypadkach renderować komponenty asynchronicznie. Jeśli potrzebujesz referencji do instancji korzenia, sugerujemy przekazanie do niego
+
+> [referencyjnej funkcji zwrotnej](/docs/more-about-refs.html#the-ref-callback-attribute).
+
 >
-> Użycie `ReactDOM.render ()` w celu uwodnienia kontenera renderowanego przez serwer jest przestarzałe i zostanie usunięte w React 17. Zamiast tego użyj [`hydrate ()`](#hydrate).
+>  Używanie `ReactDOM.render()` do odtworzenia (ang. *hydrating*) kontenera renderowanego po stronie serwer jest przestarzałą praktyką i zostanie uniemożliwione w Reakcie 17. Zamiast tego użyj funkcji [`hydrate()`](#hydrate).
+
 
 * * *
 
@@ -62,16 +68,16 @@ Jeśli dostępne jest opcjonalne wywołanie zwrotne, zostanie ono wykonane po wy
 ReactDOM.hydrate(element, container[, callback])
 ```
 
-To samo, co [`render ()`](#render), ale służy do uwadniania kontenera, którego treść HTML została wyrenderowana przez [`ReactDOMServer`](/docs/react-dom-server.html). React podejmie próbę dołączenia detektorów zdarzeń do istniejących znaczników.
+Działa podobnie do funkcji [`render()`](#render), ale służy do odtworzenia kontenera, którego struktura HTML została wyrenderowana przez [`ReactDOMServer`](/docs/react-dom-server.html). React podejmie próbę dołączenia detektorów zdarzeń do istniejących elementów.
 
-React oczekuje, że renderowana treść jest identyczna między serwerem a klientem. Może poprawiać różnice w treści tekstu, ale należy traktować niedopasowania jako błędy i naprawiać je. W trybie programowania React ostrzega przed niedopasowaniem podczas nawodnienia. Nie ma gwarancji, że różnice atrybutów zostaną załatane w przypadku niedopasowania. Jest to ważne ze względu na wydajność, ponieważ w większości aplikacji niedopasowania są rzadkie, a zatem sprawdzenie wszystkich znaczników byłoby zbyt drogie.
+React oczekuje, że renderowana treść będzie identyczna między serwerem a klientem. Potrafi, co prawda, poprawić różnice w treści tekstu, ale należy traktować niedopasowania jako błędy i zawsze je naprawiać. W trybie deweloperskim React ostrzega przed niedopasowaniem podczas procesu odtwarzania struktury. Nie ma gwarancji, że różnice w atrybutach zostaną odpowiednio poprawione w przypadku niedopasowania. Jest to ważne ze względu na wydajność, ponieważ w większości aplikacji niedopasowania są rzadkie, a zatem sprawdzenie wszystkich znaczników byłoby zbyt kosztowne obliczeniowo.
 
-Jeśli atrybut pojedynczego elementu lub treść tekstu jest nieuchronnie różna między serwerem a klientem (na przykład znacznikiem czasu), możesz wyciszyć ostrzeżenie, dodając do niego element `suppressHydrationWarning={true}`. Działa tylko na jednym poziomie głębokości i ma być lukem ewakuacyjnym. Nie nadużywaj tego. Jeśli nie jest to treść tekstowa, React nadal nie będzie próbował tego poprawiać, więc może pozostać niespójny do przyszłych aktualizacji
+Jeśli któryś z atrybutów elementu lub treść tekstu intencjonalnie różnią się między serwerem a klientem (jak w przypadku znacznika czasu), możesz wyciszyć ostrzeżenie, dodając do elementu atrybut `suppressHydrationWarning={true}`. Działa to tylko na tym konkretnym elemencie i jest swego rodzaju "wyjściem awaryjnym". Nie nadużywaj go. O ile nie jest to treść tekstowa, React nie będzie próbował na siłę nanosić poprawek, więc wartość może pozostać niespójna do momentu jej kolejnej aktualizacji.
 
-Jeśli celowo potrzebujesz renderować coś innego na serwerze i kliencie, możesz wykonać renderowanie dwuprzebiegowe. Komponenty, które renderują coś innego na kliencie, mogą odczytać zmienną stanu, taką jak `this.state.isClient`, którą można ustawić na` true` w `componentDidMount ()`. W ten sposób początkowe przejście renderowania będzie renderować tę samą zawartość co serwer, unikając niedopasowania, ale dodatkowe przejście stanie się synchroniczne zaraz po nawodnieniu. Zauważ, że to podejście spowolni działanie komponentów, ponieważ będą musiały być renderowane dwukrotnie, więc używaj go z rozwagą.
+Jeśli potrzebujesz celowo renderować coś innego po stronie serwera i klienta, możesz wykonać renderowanie dwuprzebiegowe. Komponenty, które renderują coś innego po stronie klienta, mogą bazować na zmiennej stanu, np. `this.state.isClient`, którą można ustawić na `true` w metodzie `componentDidMount()`. W ten sposób początkowe renderowania zwróci tę samą zawartość co serwer, unikając niedopasowania. Jednak zaraz po odtworzeniu struktury w sposób synchroniczny nastąpi dodatkowe renderowanie. Zauważ, że to podejście spowolni działanie komponentów, ponieważ będą musiały być renderowane dwukrotnie - dlatego używaj go z rozwagą.
 
-Pamiętaj, aby pamiętać o doświadczeniach użytkowników na wolnych połączeniach. Kod JavaScript może załadować się znacznie później niż początkowy render HTML, więc jeśli renderujesz coś innego w przepustce tylko dla klienta, przejście może być szarpane. Jeśli jednak zostanie dobrze wykonane, może być korzystne renderowanie "powłoki" aplikacji na serwerze i pokazywanie tylko niektórych dodatkowych widżetów na kliencie. Aby dowiedzieć się, jak to zrobić, nie napotykając problemów związanych z niedopasowaniem znaczników, zapoznaj się z wyjaśnieniem w poprzednim akapicie.
-
+Pamiętaj, aby zwrócić uwagę na tzw. "user experience" użytkowników z wolnym połączeniem internetowym. Kod javascriptowy może załadować się znacznie później niż nastąpi pierwsze renderowanie kodu HTML. Z tego powodu, jeśli wyrenderujesz coś innego podczas przebiegu po stronie klienta, strona może się "przycinać". Możliwe, że w tej sytuacji pomoże wyrenderowanie "powłoki" (ang. *shell*) aplikacji po stronie serwera, a w kliencie wyświetlenie jedynie dodatkowych widgetów. Aby dowiedzieć się, jak to zrobić, nie napotykając problemów związanych z niedopasowaniem znaczników, zapoznaj się z wyjaśnieniem zawartym w poprzednim akapicie.
+`false`
 * * *
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
@@ -80,7 +86,7 @@ Pamiętaj, aby pamiętać o doświadczeniach użytkowników na wolnych połącze
 ReactDOM.unmountComponentAtNode(container)
 ```
 
-Usuń zamontowany komponent React z DOM i wyczyść jego procedury obsługi zdarzeń i stan. Jeśli w kontenerze nie zamontowano żadnego komponentu, wywołanie tej funkcji nic nie da. Zwraca `true`, jeśli komponent został odmontowany i `false`, jeśli nie było komponentu do odmontowania.
+Usuń zamontowany składniki wchodzący w reakcję z DOM i wyczyść jego programy obsługi zdarzeń i ustawienia. Jeśli w zasobniku nie zamontowano żadnego elementu, wywoływanie tej funkcji nic nie robi. Zwraca `true` jeśli składnik nie był zamontowany i `false` jeśli nie było składnika do odmontowania.
 
 * * *
 
@@ -88,20 +94,22 @@ Usuń zamontowany komponent React z DOM i wyczyść jego procedury obsługi zdar
 
 > Uwaga:
 >
-> `findDOMNode` to luka ucieczki używana do uzyskania dostępu do podstawowego węzła DOM. W większości przypadków korzystanie z tego luku ewakuacyjnego jest odradzane, ponieważ przenosi abstrakcję składnika. [Został przestarzały w `StrictMode`.](/Docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+> `findDOMNode` jest to tylna furtka używana do uzyskania dostępu do podstawowego węzła DOM. W większości przypadków ta tylna furtka może zniechęcic ponieważ dziurawi składniki abstrakcji. [Została wycofana w `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
 ReactDOM.findDOMNode(component)
 ```
-Jeśli komponent ten został zamontowany w DOM, zwraca odpowiedni element DOM przeglądarki rodzimej. Ta metoda jest przydatna do odczytu wartości z DOM, takich jak wartości pól formularza i wykonywanie pomiarów DOM. **W większości przypadków można dołączyć ref do węzła DOM i unikać używania `findDOMNode` w ogóle.**
 
-Kiedy komponent renderuje do `null` lub` false`, `findDOMNode` zwraca` null`. Kiedy komponent renderuje łańcuch, `findDOMNode` zwraca tekst DOM węzeł zawierający tę wartość. Od Reakcji 16 komponent może zwrócić fragment z wieloma potomkami, w którym to przypadku `findDOMNode` zwróci węzeł DOM odpowiadający pierwszemu niepustemu potomkowi.
+Jeśli ten komponent został zamontowany w DOM, to zwraca odpowiednią macierzystą przeglądarkę elementu DOM. Ta metoda jest użyteczna do odczytywania wartości z DOM, takie jak wartości pól i wykonywanie pomiarów DOM. **W większości przypadków, możesz dołączyć do DOM węzeł i unikaj używania `findDOMNode` w ogóle.**
+
+Kiedy komponent renderuje `null` albo `false`, `findDOMNode` zwraca `null`. Kiedy komponent renderuje ciąg, `findDOMNode` zwraca tekst węzła DOM zawierający tą wartość. Od Reakt 16, komponent może zwrócić część z wieloma dziećmi, w przypadku `findDOMNode` zwróci węzeł DOM odpowiadający pierwszemu nie pustemu dziecku.
 
 > Uwaga:
 >
-> `findDOMNode` działa tylko na zamontowanych komponentach (czyli komponentach, które zostały umieszczone w DOM). Jeśli spróbujesz wywołać to na komponencie, który nie został jeszcze zamontowany (jak wywołanie `findDOMNode ()` w `render ()` na komponencie, który nie został jeszcze utworzony) zostanie zgłoszony wyjątek.
+> `findDOMNode` działa tylko na zamontowanych komponentach (tylko te komponenty które zostały umieszczone w DOM) Jeśli spróbujesz przywołać to na komponencie który nie był jeszcze zamontowany ( jak wywołanie `findDOMNode()` w `render()` na komponencie jeszcze nie stworzonym) zostanie zgłoszony wyjątek.
 >
 > `findDOMNode` nie może być używane w komponentach funkcji.
+
 
 * * *
 
@@ -111,4 +119,4 @@ Kiedy komponent renderuje do `null` lub` false`, `findDOMNode` zwraca` null`. Ki
 ReactDOM.createPortal(child, container)
 ```
 
-Tworzy portal. Portale zapewniają sposób na [renderowanie dzieci do węzła DOM, który istnieje poza hierarchią komponentu DOM](/docs/portals.html).
+Tworzy portal. Portal zapewnia sposób do [przedstawiania dziecka w węźle DOM które istnieje poza hierarchią komponentu DOM](/docs/portals.html).
