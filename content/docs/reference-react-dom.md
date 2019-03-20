@@ -94,7 +94,7 @@ Usuń zamontowany składniki wchodzący w reakcję z DOM i wyczyść jego progra
 
 > Uwaga:
 >
-> `findDOMNode` jest to tylna furtka używana do uzyskania dostępu do podstawowego węzła DOM. W większości przypadków ta tylna furtka może zniechęcic ponieważ dziurawi składniki abstrakcji. [Została wycofana w `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+> `findDOMNode` jest to wyjście awaryjne używana do uzyskania dostępu do podstawowego węzła DOM. W większości przypadków te wyjście awaryjne może zniechęcic ponieważ dziurawi składniki abstrakcji. [Została wycofana w `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
 ReactDOM.findDOMNode(component)
