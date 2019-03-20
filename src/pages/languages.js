@@ -46,29 +46,29 @@ const Languages = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-          <Header>Languages</Header>
-          <TitleAndMetaTags title="React - Languages" />
+          <Header>Języki</Header>
+          <TitleAndMetaTags title="React - Języki" />
 
           <div css={sharedStyles.markdown}>
             <p>
-              The React documentation is available in the following languages:
+              Dokumentacja Reacta jest dostępna w następujących językach:
             </p>
 
             <LanguagesGrid languages={complete} />
 
-            <h2>In Progress</h2>
+            <h2>Prace w toku</h2>
             <LanguagesGrid languages={partial} />
 
-            <h2>Needs Contributors</h2>
+            <h2>Potrzebna pomoc w tłumaczeniu</h2>
             <LanguagesGrid languages={incomplete} />
 
             <p>
-              Don't see your language above?{' '}
+              Nie widzisz swojego języka na liście?{' '}
               <a
                 href="https://github.com/reactjs/reactjs.org-translation#reactjsorg-translation"
                 target="_blank"
                 rel="noopener">
-                Let us know
+                Daj nam o tym znać
               </a>
               .
             </p>
@@ -149,7 +149,7 @@ const Language = ({code, name, status, translatedName}) => {
           href={`https://github.com/reactjs/${prefix}reactjs.org/`}
           target="_blank"
           rel="noopener">
-          Contribute
+          Wspomóż nas
         </a>
       </div>
     </li>
