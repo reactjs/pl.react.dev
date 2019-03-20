@@ -54,7 +54,7 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          Imię:
           <input
             type="text"
             value={this.state.value}
@@ -86,7 +86,7 @@ W HTML-u element `<textarea>` definiuje swój tekst poprzez elementy potomne:
 
 ```html
 <textarea>
-  Cześć, oto tekst w polu tekstowym
+  Cześć, oto przykład tekstu w polu tekstowym.
 </textarea>
 ```
 
@@ -206,7 +206,7 @@ Ponieważ wartość tego elementu jest wartością przeznaczoną tylko do odczyt
 
 ## Obsługa wielu elementów `input` {#handling-multiple-inputs}
 
-Kiedy zachodzi potrzeba obsługi wielu kontrolowanych elementów input, do każdego elementu można dodać atrybut `name` oraz pozwolić funkcji obsługującej (ang. _handler function_) zadecydować o dalszych krokach w zależności od wartości atrybutu `event.target.name`.
+Kiedy zachodzi potrzeba obsługi wielu kontrolowanych elementów `input`, do każdego elementu można dodać atrybut `name` oraz pozwolić funkcji obsługującej (ang. _handler function_) zadecydować o dalszych krokach w zależności od wartości atrybutu `event.target.name`.
 
 Przyjrzyjmy się następującemu przykładowi:
 
