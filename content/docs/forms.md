@@ -35,18 +35,18 @@ Gdybyśmy chcieli sprawić, aby podany wcześniej przykładowy formularz zapisyw
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = {value: ''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
-    alert("Podano następujące imię: " + this.state.value);
+    alert('Podano następujące imię: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -97,7 +97,7 @@ class EssayForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "Proszę napisać wypracowanie o swoim ulubionym elemencie DOM"
+      value: 'Proszę napisać wypracowanie o swoim ulubionym elemencie DOM'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -105,11 +105,11 @@ class EssayForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
-    alert("Wysłano następujące wypracowanie: " + this.state.value);
+    alert('Wysłano następujące wypracowanie: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -148,18 +148,18 @@ Zwróć uwagę na atrybut `selected`, który sprawia, że domyślnie wybraną op
 class FlavorForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "orzechKoko" };
+    this.state = {value: "orzechKoko"};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
-    alert("Twój ulubiony smak to: " + this.state.value);
+    alert('Twój ulubiony smak to: ' + this.state.value);
     event.preventDefault();
   }
 
