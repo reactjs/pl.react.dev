@@ -27,7 +27,7 @@ Powyższy formularz posiada domyślną funkcję automatycznego przekierowania pr
 
 W HTML-u, elementy formularza takie jak `<input>`, `<textarea>` i `<select>` najczęściej zachowują swój własny stan, który jest aktualizowany na podstawie danych wejściowych podawanych przez użytkownika. Natomiast w Reakcie zmienny stan komponentu jest zazwyczaj przechowywany we właściwości _state_ (pol. _stan_) danego komponentu. Jest on aktualizowany jedynie za pomocą funkcji [`setState()`](/docs/react-component.html#setstate).
 
-Możliwe jest łączenie tych dwóch rozwiązań poprzez ustanowienie reaktowego stanu jako "wyłącznego źródła prawdy". Wówczas reaktowy komponent renderujący dany formularz kontroluje również to co zachodzi wewnątrz danego formularza podczas podawania danych wejściowych przez użytkownika. Element _input_ formularza kontrolowany w ten sposób przez Reakta nazywamy "komponentem kontrolowanym"
+Możliwe jest łączenie tych dwóch rozwiązań poprzez ustanowienie reactowego stanu jako "wyłącznego źródła prawdy". Wówczas reactowy komponent renderujący dany formularz kontroluje również to co zachodzi wewnątrz danego formularza podczas podawania danych wejściowych przez użytkownika. Element _input_ formularza kontrolowany w ten sposób przez Reacta nazywamy "komponentem kontrolowanym"
 
 Gdybyśmy chcieli sprawić, aby podany wcześniej przykładowy formularz zapisywał przy wysłaniu podane przez użytkownika imię, możemy zrobić z niego komponent kontrolowany w następujący sposób:
 
@@ -70,7 +70,7 @@ class NameForm extends React.Component {
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Dzięki ustawieniu atrybutu `value` na elemencie formularza, wyświetlane dane zawsze będą odpowiadały `this.state.value`. Tym samym reaktowy stan jest tutaj źródłem prawdy. Ponieważ zaś `handleChange` aktualizuje reaktowy stan przy każdym wciśnięciu klawisza, wyświetlane dane aktualizują się na bieżąco w miarę wpisywania danych przez użytkownika.
+Dzięki ustawieniu atrybutu `value` na elemencie formularza, wyświetlane dane zawsze będą odpowiadały `this.state.value`. Tym samym reactowy stan jest tutaj źródłem prawdy. Ponieważ zaś `handleChange` aktualizuje reactowy stan przy każdym wciśnięciu klawisza, wyświetlane dane aktualizują się na bieżąco w miarę wpisywania danych przez użytkownika.
 
 W komponentach kontrolowanych każda zmiana stanu wynika z działania powiązanej z nim funkcji obsługującej (ang. _handler function_). Ułatwia to modyfikowanie i walidację podawanych przez użytkownika danych wejściowych. Jeśli chcemy na przykład, aby imiona pisane były w całości wielkimi literami nasza funkcja `handleChange` mogłaby wyglądać następująco:
 
@@ -296,7 +296,7 @@ setTimeout(function() {
 
 ## Inne rozwiązania {#alternatives-to-controlled-components}
 
-Stosowanie kontrolowanych komponentów może być niekiedy uciążliwe, ponieważ wymaga nie tylko tworzenia funkcji obsługujących każdą możliwą zmianę twoich danych, lecz także przekazywania stanu elementu `input` poprzez komponent reaktowy. To z kolei może się stać wyjątkowo irytującym doświadczeniem, zwłaszcza gdy konwertujesz istniejący już kod na kod reaktowy lub kiedy integrujesz aplikację reaktową z biblioteką nie-reaktową. W tych sytuacjach warto abyś przyjrzał się [komponentom niekontrolowanym](/docs/uncontrolled-components.html), które stanowią aleternatywną technikę stosowania formularzy.
+Stosowanie kontrolowanych komponentów może być niekiedy uciążliwe, ponieważ wymaga nie tylko tworzenia funkcji obsługujących każdą możliwą zmianę twoich danych, lecz także przekazywania stanu elementu `input` poprzez komponent reactowy. To z kolei może się stać wyjątkowo irytującym doświadczeniem, zwłaszcza gdy konwertujesz istniejący już kod na kod reactowy lub kiedy integrujesz aplikację reactową z biblioteką nie-reactową. W tych sytuacjach warto abyś przyjrzał się [komponentom niekontrolowanym](/docs/uncontrolled-components.html), które stanowią aleternatywną technikę stosowania formularzy.
 
 ## Rozwiązania całościowe {#fully-fledged-solutions}
 
