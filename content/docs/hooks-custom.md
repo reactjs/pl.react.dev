@@ -1,16 +1,16 @@
 ---
 id: hooks-custom
-title: Building Your Own Hooks
+title: Tworzenie własnych hooków
 permalink: docs/hooks-custom.html
 next: hooks-reference.html
 prev: hooks-rules.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one na wykorzystanie stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-Building your own Hooks lets you extract component logic into reusable functions.
+Tworzenie własnych hooków pozwala wydzielić logikę z komponentów do funkcji.
 
-When we were learning about [using the Effect Hook](/docs/hooks-effect.html#example-using-hooks-1), we saw this component from a chat application that displays a message indicating whether a friend is online or offline:
+Podczas nauki o [używaniu hooka efektów](/docs/hooks-effect.html#example-using-hooks-1), poznaliśmy poniższy komponent z aplikacji czatu, który wyświetla wiadomość, informującą o tym, czy znajomy jest dostępny, czy nie:
 
 ```js{4-15}
 import React, { useState, useEffect } from 'react';
@@ -30,13 +30,13 @@ function FriendStatus(props) {
   });
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Ładowanie...';
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Dostępny' : 'Niedostępny';
 }
 ```
 
-Now let's say that our chat application also has a contact list, and we want to render names of online users with a green color. We could copy and paste similar logic above into our `FriendListItem` component but it wouldn't be ideal:
+Załóżmy, że nasza aplikacja posiada też listę kontaktów i chcemy wyświetlić imiona dostępnych użytkowników w kolorze zielonym. Moglibyśmy skopiować i wkleić powyższą logikę do naszego komponentu `FriendListItem`, ale nie byłoby to idealne rozwiązanie:
 
 ```js{4-15}
 import React, { useState, useEffect } from 'react';
@@ -63,15 +63,15 @@ function FriendListItem(props) {
 }
 ```
 
-Instead, we'd like to share this logic between `FriendStatus` and `FriendListItem`.
+Zamiast tego chcielibyśmy współdzielić logikę pomiędzy komponentami `FriendStatus` i `FriendListItem`.
 
-Traditionally in React, we've had two popular ways to share stateful logic between components: [render props](/docs/render-props.html) and [higher-order components](/docs/higher-order-components.html). We will now look at how Hooks solve many of the same problems without forcing you to add more components to the tree.
+ W tradycyjnym podejściu mieliśmy do dyspozycji dwa popularne rozwiązania tego problemu: [komponenty wyższego rzędu (ang. *higher-order components*)](/docs/higher-order-components.html) i [właściwości renderujące (ang. *render props*)](/docs/render-props.html). Przyjrzyjmy się teraz, jak hooki rozwiązują wiele z podobnych problemów, bez konieczności dodawania kolejnych komponentów do drzewa.
 
-## Extracting a Custom Hook {#extracting-a-custom-hook}
+## Wyodrębnianie logiki własnego hooka {#extracting-a-custom-hook}
 
-When we want to share logic between two JavaScript functions, we extract it to a third function. Both components and Hooks are functions, so this works for them too!
+Kiedy chcemy współdzielić logikę pomiędzy dwoma javascriptowymi funkcjami, wyodrębnimy ją do trzeciej funkcji. Zarówno komponenty, jak i hooki są funkcjami, więc zadziała to także dla nich!
 
-**A custom Hook is a JavaScript function whose name starts with "`use`" and that may call other Hooks.** For example, `useFriendStatus` below is our first custom Hook:
+**Własny hook to javascriptowa funkcja, której nazwa zaczyna się od `use` i która może wywoływać inne hooki.** Poniższy przykład `useFriendStatus` to nasz pierwszy własny hook:
 
 ```js{3}
 import React, { useState, useEffect } from 'react';
@@ -94,11 +94,11 @@ function useFriendStatus(friendID) {
 }
 ```
 
-There's nothing new inside of it -- the logic is copied from the components above. Just like in a component, make sure to only call other Hooks unconditionally at the top level of your custom Hook.
+Wewnątrz nie znajdziemy nic nowego -- logika została skopiowana z komponentów wyżej. Pamiętaj żeby, tak jak w komponentach, wywoływać inne hooki tylko z najwyższego poziomu kodu twoich własnych hooków.
 
-Unlike a React component, a custom Hook doesn't need to have a specific signature. We can decide what it takes as arguments, and what, if anything, it should return. In other words, it's just like a normal function. Its name should always start with `use` so that you can tell at a glance that the [rules of Hooks](/docs/hooks-rules.html) apply to it.
+W przeciwieństwie do reactowych komponentów, własny hook nie ma narzuconego określonego kształtu. Sami decydujemy, jakie przyjmuje argumenty i jaką, jeśli jakąkolwiek, wartość powinien zwracać. Innymi słowy zachowuje się jak zwykła funkcja. Jego nazwa powinna zawsze zaczynać się od `use`, aby można było już na pierwszy rzut oka zauważyć, czy stosuje on do [zasad korzystania z hooków](/docs/hooks-rules.html).
 
-The purpose of our `useFriendStatus` Hook is to subscribe us to a friend's status. This is why it takes `friendID` as an argument, and returns whether this friend is online:
+Celem naszego hooka `useFriendStatus` jest zasubskrybowanie się do statusu dostępności znajomego.  Dlatego przyjmuje on wartość `friendID` jako argument i zwraca informację czy znajomy jest dostępny:
 
 ```js
 function useFriendStatus(friendID) {
@@ -110,22 +110,22 @@ function useFriendStatus(friendID) {
 }
 ```
 
-Now let's see how we can use our custom Hook.
+Teraz przyjrzymy się, jak możemy używać własnych hooków.
 
-## Using a Custom Hook {#using-a-custom-hook}
+## Używanie własnych hooków {#using-a-custom-hook}
 
-In the beginning, our stated goal was to remove the duplicated logic from the `FriendStatus` and `FriendListItem` components. Both of them want to know whether a friend is online.
+Przypomnijmy, że naszym celem było usunięcie powielonej logiki z komponentów `FriendStatus` i `FriendListItem`. Oba oczekują informacji o tym czy nasz znajomy jest dostępny.
 
-Now that we've extracted this logic to a `useFriendStatus` hook, we can *just use it:*
+Teraz, kiedy już wyodrębniliśmy tę logikę do hooka `useFriendStatus`, możemy jej *po prostu użyć:*
 
 ```js{2}
 function FriendStatus(props) {
   const isOnline = useFriendStatus(props.friend.id);
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Ładowanie...';
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Dostępny' : 'Niedostępny';
 }
 ```
 
@@ -141,19 +141,19 @@ function FriendListItem(props) {
 }
 ```
 
-**Is this code equivalent to the original examples?** Yes, it works in exactly the same way. If you look closely, you'll notice we didn't make any changes to the behavior. All we did was to extract some common code between two functions into a separate function. **Custom Hooks are a convention that naturally follows from the design of Hooks, rather than a React feature.**
+**Czy ten kod jest równoważny oryginalnym przykładom?** Tak, działą on dokładnie w ten sam sposób. Jeśli przyjrzysz się dokładniej, zauważysz, że nie dokonaliśmy żadnej zmiany w zachowaniu. Wszystko co zrobiliśmy, to wyodrębnienie wspólnego kodu z dwóch funkcji do jednej, osobnej funkcji. **Własne hooki są konwencją, która wynika naturalnie ze sposobu, w jaki zostały zaprojektowane hooki. Nie są one osobną funkcjonalnością Reacta.**
 
-**Do I have to name my custom Hooks starting with “`use`”?** Please do. This convention is very important. Without it, we wouldn't be able to automatically check for violations of [rules of Hooks](/docs/hooks-rules.html) because we couldn't tell if a certain function contains calls to Hooks inside of it.
+**Czy nazwy moich własnych hooków muszą zaczynać się od „`use`”?** Bardzo prosimy. Ta konwencja jest bardzo ważna.  Bez niej nie moglibyśmy automatycznie sprawdzać, czy zostały naruszone [zasady korzystania z hooków](/docs/hooks-rules.html), ponieważ nie bylibyśmy w stanie stwierdzić, czy w danej funkcji znajdują się wywołania hooków.
 
-**Do two components using the same Hook share state?** No. Custom Hooks are a mechanism to reuse *stateful logic* (such as setting up a subscription and remembering the current value), but every time you use a custom Hook, all state and effects inside of it are fully isolated.
+**Czy dwa komponenty, korzystające z tego samego hooka, współdzielą stan?** Nie. Własne hooki to mechanizm pozwalający na współdzielenie *logiki związanej ze stanem* (takiej jak tworzenie subskrypcji i zapamiętywanie bieżącej wartości), ale za każdym razem, kiedy używasz własnego hooka cały stan i efekty wewnątrz niego są całkowicie odizolowane.
 
-**How does a custom Hook get isolated state?** Each *call* to a Hook gets isolated state. Because we call `useFriendStatus` directly, from React's point of view our component just calls `useState` and `useEffect`. And as we [learned](/docs/hooks-state.html#tip-using-multiple-state-variables) [earlier](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns), we can call `useState` and `useEffect` many times in one component, and they will be completely independent.
+**W jaki sposób własny hook otrzymuje odizolowany stan?** Każde *wywołanie* hooka tworzy odizolowany stan. Ponieważ wywołujemy `useFriendStatus` bezpośrednio, z punktu widzenia Reacta nasze komponenty wywołują po prostu funkcje `useState` i `useEffect`. A jak [dowiedzieliśmy się](/docs/hooks-state.html#tip-using-multiple-state-variables) już [wcześniej](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns), możemy w jednym komponencie wywoływać funkcje `useState` i `useEffect` wielokrotnie i będą one całkowicie niezależne.
 
-### Tip: Pass Information Between Hooks {#tip-pass-information-between-hooks}
+### Porada: Przekazywanie informacji pomiędzy hookami {#tip-pass-information-between-hooks}
 
-Since Hooks are functions, we can pass information between them.
+Jako że hooki to funkcje, możemy pomiędzy nimi przekazywać informacje.
 
-To illustrate this, we'll use another component from our hypothetical chat example. This is a chat message recipient picker that displays whether the currently selected friend is online:
+Aby to zilustrować, użyjemy innego komponentu z naszego hipotetycznego przykładu czatu. Jest to rozwijane pole wyboru odbiorcy wiadomości, które wyświetla też, czy aktualnie wybrany znajomy jest dostępny:
 
 ```js{8-9,13}
 const friendList = [
