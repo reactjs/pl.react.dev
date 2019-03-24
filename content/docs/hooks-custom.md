@@ -10,7 +10,7 @@ prev: hooks-rules.html
 
 Tworzenie własnych hooków pozwala wydzielić logikę z komponentów do funkcji.
 
-Podczas nauki o [używaniu hooka efektów](/docs/hooks-effect.html#example-using-hooks-1), poznaliśmy poniższy komponent z aplikacji czatu, który wyświetla wiadomość, informującą o tym, czy znajomy jest dostępny, czy nie:
+Podczas nauki o [używaniu hooka efektów](/docs/hooks-effect.html#example-using-hooks-1), poznaliśmy poniższy komponent aplikacji czatu, wyświetlający wiadomość, informującą o tym, czy znajomy jest dostępny, czy nie:
 
 ```js{4-15}
 import React, { useState, useEffect } from 'react';
@@ -36,7 +36,7 @@ function FriendStatus(props) {
 }
 ```
 
-Załóżmy, że nasza aplikacja posiada też listę kontaktów i chcemy wyświetlić imiona dostępnych użytkowników w kolorze zielonym. Moglibyśmy skopiować i wkleić powyższą logikę do naszego komponentu `FriendListItem`, ale nie byłoby to idealne rozwiązanie:
+Załóżmy, że nasza aplikacja posiada też listę kontaktów i chcemy wyświetlać imiona dostępnych użytkowników w kolorze zielonym. Moglibyśmy skopiować i wkleić powyższą logikę do naszego komponentu `FriendListItem`, ale nie byłoby to idealne rozwiązanie:
 
 ```js{4-15}
 import React, { useState, useEffect } from 'react';
@@ -65,13 +65,13 @@ function FriendListItem(props) {
 
 Zamiast tego chcielibyśmy współdzielić logikę pomiędzy komponentami `FriendStatus` i `FriendListItem`.
 
- W tradycyjnym podejściu mieliśmy do dyspozycji dwa popularne rozwiązania tego problemu: [komponenty wyższego rzędu (ang. *higher-order components*)](/docs/higher-order-components.html) i [właściwości renderujące (ang. *render props*)](/docs/render-props.html). Przyjrzyjmy się teraz, jak hooki rozwiązują wiele z podobnych problemów, bez konieczności dodawania kolejnych komponentów do drzewa.
+ W tradycyjnym podejściu mieliśmy do dyspozycji dwa popularne rozwiązania tego problemu: [komponenty wyższego rzędu (ang. *higher-order components*)](/docs/higher-order-components.html) i [właściwości renderujące (ang. *render props*)](/docs/render-props.html). Przyjrzyjmy się teraz, jak hooki rozwiązują wiele z tych samych problemów, nie zmuszając przy tym do dodawania kolejnych komponentów do drzewa.
 
 ## Wyodrębnianie logiki własnego hooka {#extracting-a-custom-hook}
 
-Kiedy chcemy współdzielić logikę pomiędzy dwoma javascriptowymi funkcjami, wyodrębnimy ją do trzeciej funkcji. Zarówno komponenty, jak i hooki są funkcjami, więc zadziała to także dla nich!
+Kiedy chcemy współdzielić logikę pomiędzy dwoma javascriptowymi funkcjami, wyodrębniamy ją do trzeciej funkcji. Zarówno komponenty, jak i hooki są funkcjami, więc zadziała to także dla nich!
 
-**Własny hook to javascriptowa funkcja, której nazwa zaczyna się od `use` i która może wywoływać inne hooki.** Poniższy przykład `useFriendStatus` to nasz pierwszy własny hook:
+**Własny hook to po prostu javascriptowa funkcja, której nazwa zaczyna się od `use` i która może wywoływać inne hooki.** Poniższy przykład `useFriendStatus` to nasz pierwszy własny hook:
 
 ```js{3}
 import React, { useState, useEffect } from 'react';
@@ -94,9 +94,9 @@ function useFriendStatus(friendID) {
 }
 ```
 
-Wewnątrz nie znajdziemy nic nowego -- logika została skopiowana z komponentów wyżej. Pamiętaj żeby, tak jak w komponentach, wywoływać inne hooki tylko z najwyższego poziomu kodu twoich własnych hooków.
+Wewnątrz nie znajdziemy nic nowego -- logika została skopiowana z komponentów powyżej. Pamiętaj żeby, tak jak w komponentach, wywoływać inne hooki tylko z najwyższego poziomu kodu twoich własnych hooków.
 
-W przeciwieństwie do reactowych komponentów, własny hook nie ma narzuconego określonego kształtu. Sami decydujemy, jakie przyjmuje argumenty i jaką, jeśli jakąkolwiek, wartość powinien zwracać. Innymi słowy zachowuje się jak zwykła funkcja. Jego nazwa powinna zawsze zaczynać się od `use`, aby można było już na pierwszy rzut oka zauważyć, czy stosuje on do [zasad korzystania z hooków](/docs/hooks-rules.html).
+W przeciwieństwie do reactowych komponentów, własny hook nie ma narzuconego określonego kształtu. Sami decydujemy, jakie przyjmuje argumenty i jaką, jeśli jakąkolwiek, wartość zwróci. Innymi słowy zachowuje się jak zwykła funkcja. Jego nazwa powinna zawsze zaczynać się od `use`, aby można było już na pierwszy rzut oka stwierdzić, czy stosuje on do [zasad korzystania z hooków](/docs/hooks-rules.html).
 
 Celem naszego hooka `useFriendStatus` jest zasubskrybowanie się do statusu dostępności znajomego.  Dlatego przyjmuje on wartość `friendID` jako argument i zwraca informację czy znajomy jest dostępny:
 
@@ -141,19 +141,19 @@ function FriendListItem(props) {
 }
 ```
 
-**Czy ten kod jest równoważny oryginalnym przykładom?** Tak, działą on dokładnie w ten sam sposób. Jeśli przyjrzysz się dokładniej, zauważysz, że nie dokonaliśmy żadnej zmiany w zachowaniu. Wszystko co zrobiliśmy, to wyodrębnienie wspólnego kodu z dwóch funkcji do jednej, osobnej funkcji. **Własne hooki są konwencją, która wynika naturalnie ze sposobu, w jaki zostały zaprojektowane hooki. Nie są one osobną funkcjonalnością Reacta.**
+**Czy ten kod jest równoważny oryginalnym przykładom?** Tak, działa on dokładnie w ten sam sposób. Jeśli przyjrzysz się uważniej, zauważysz, że nie dokonaliśmy żadnej zmiany w zachowaniu. Wszystko co zrobiliśmy, to wyodrębnienie wspólnego kodu z dwóch funkcji do jednej, osobnej funkcji. **Własne hooki są konwencją, która wynika naturalnie ze sposobu, w jaki zostały zaprojektowane hooki. Nie są one osobną funkcjonalnością Reacta.**
 
 **Czy nazwy moich własnych hooków muszą zaczynać się od „`use`”?** Bardzo prosimy. Ta konwencja jest bardzo ważna.  Bez niej nie moglibyśmy automatycznie sprawdzać, czy zostały naruszone [zasady korzystania z hooków](/docs/hooks-rules.html), ponieważ nie bylibyśmy w stanie stwierdzić, czy w danej funkcji znajdują się wywołania hooków.
 
 **Czy dwa komponenty, korzystające z tego samego hooka, współdzielą stan?** Nie. Własne hooki to mechanizm pozwalający na współdzielenie *logiki związanej ze stanem* (takiej jak tworzenie subskrypcji i zapamiętywanie bieżącej wartości), ale za każdym razem, kiedy używasz własnego hooka cały stan i efekty wewnątrz niego są całkowicie odizolowane.
 
-**W jaki sposób własny hook otrzymuje odizolowany stan?** Każde *wywołanie* hooka tworzy odizolowany stan. Ponieważ wywołujemy `useFriendStatus` bezpośrednio, z punktu widzenia Reacta nasze komponenty wywołują po prostu funkcje `useState` i `useEffect`. A jak [dowiedzieliśmy się](/docs/hooks-state.html#tip-using-multiple-state-variables) już [wcześniej](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns), możemy w jednym komponencie wywoływać funkcje `useState` i `useEffect` wielokrotnie i będą one całkowicie niezależne.
+**W jaki sposób własny hook otrzymuje odizolowany stan?** Każde *wywołanie* hooka tworzy odizolowany stan. Ponieważ wywołujemy `useFriendStatus` bezpośrednio, z punktu widzenia Reacta nasze komponenty wywołują po prostu funkcje `useState` i `useEffect`. A jak [dowiedzieliśmy się](/docs/hooks-state.html#tip-using-multiple-state-variables) już [wcześniej](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns), możemy w jednym komponencie wielokrotnie wywoływać funkcje `useState` i `useEffect` i będą one całkowicie niezależne.
 
 ### Porada: Przekazywanie informacji pomiędzy hookami {#tip-pass-information-between-hooks}
 
 Jako że hooki to funkcje, możemy pomiędzy nimi przekazywać informacje.
 
-Aby to zilustrować, użyjemy innego komponentu z naszego hipotetycznego przykładu czatu. Jest to rozwijane pole wyboru odbiorcy wiadomości, które wyświetla też, czy aktualnie wybrany znajomy jest dostępny:
+Aby to zilustrować, użyjemy kolejnego komponentu z naszego hipotetycznego przykładu czatu. Jest to rozwijane pole wyboru odbiorcy wiadomości, które wyświetla też, czy aktualnie wybrany znajomy jest dostępny:
 
 ```js{8-9,13}
 const friendList = [
@@ -197,11 +197,11 @@ Dzięki temu wiemy, czy *aktualnie wybrany* znajomy jest dostępny. Jeżeli wybi
 
 ## Użyj wyobraźni {#useyourimagination}
 
-Własne hooki dają możliwość współdzielenia logiki w sposób, w jaki dotychczas nie było to możliwe w reactowych komponentach. Możesz pisać własne hooki, które obejmują szereg różnych przypadków - od obsługi formularzy, animacji, deklaratywnych subskrypcji, liczników, po wiele innych, o których nie pomyśleliśmy. Co więcej, możesz tworzyć hooki, które są równie łatwe w użyciu, jak wbudowane funkcje Reacta.
+Własne hooki dają możliwość współdzielenia logiki w sposób, w jaki dotychczas nie było to możliwe w reactowych komponentach. Możesz pisać własne hooki, które obejmują szereg różnych przypadków użycia - od obsługi formularzy, animacji, deklaratywnych subskrypcji, liczników, po wiele innych, o których nie pomyśleliśmy. Co więcej, możesz tworzyć hooki, które są równie łatwe w użyciu, jak wbudowane funkcje Reacta.
 
-Spróbuj powstrzymać się od zbyt wczesnego dodawania abstrakcji. Teraz, kiedy komponenty funkcyjne mogą znacznie więcej, kod źródłowy twoich komponentów najprawdopodobniej zacznie „puchnąć”. To normalne, nie powinieneś od razu *zmuszać się* do dzielenia go na hooki. Ale zachęcamy też do tego, aby zacząć rozglądać się za przypadkami, gdzie własny hook mógłby ukryć skomplikowaną logikę za prostym interfejsem albo pomóc uprzątnąć zagmatwany komponent.
+Spróbuj jednak powstrzymać się od zbyt wczesnego wprowadzania abstrakcji. Teraz, kiedy komponenty funkcyjne mogą znacznie więcej, twój kod źródłowy takich komponentów najprawdopodobniej zacznie „puchnąć”. To normalne, nie powinieneś od razu *zmuszać się* do dzielenia go na hooki. Ale zachęcamy też do tego, aby zacząć rozglądać się za przypadkami, gdzie własny hook mógłby ukryć skomplikowaną logikę za prostym interfejsem albo pomóc uprzątnąć zagmatwany komponent.
 
-Załóżmy na przykład, że masz w swoim kodzie skomplikowany komponent z dużą ilością zmiennych stanu, zarządzanych ad-hoc. Hook `useState` nie jest wcale rozwiązaniem na łatwą centralizację tej logiki, więc pewnie lepiej będzie ci napisać [reduxowy](https://redux.js.org/) reduktor (ang. *reducer*):
+Załóżmy na przykład, że masz w swoim kodzie skomplikowany komponent z dużą ilością zmiennych stanu, zarządzanych w sposób doraźny. Hook `useState` nie jest wcale rozwiązaniem na łatwą centralizację tej logiki. Pewnie lepiej byłoby ci napisać [reduxowy](https://redux.js.org/) reduktor (ang. *reducer*):
 
 ```js
 function todosReducer(state, action) {
