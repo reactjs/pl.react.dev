@@ -184,24 +184,24 @@ function ChatRecipientPicker() {
 }
 ```
 
-We keep the currently chosen friend ID in the `recipientID` state variable, and update it if the user chooses a different friend in the `<select>` picker.
+Przechowujemy aktualnie wybrany identyfikator znajomego w zmiennej stanu `recipientID` i aktualizujemy ją, gdy użytkownik wybierze innego znajomego z rozwijanego pola wyboru `<select>`.
 
-Because the `useState` Hook call gives us the latest value of the `recipientID` state variable, we can pass it to our custom `useFriendStatus` Hook as an argument:
+Jako że wywołanie hooka `useState` zwraca najnowszą wartość zmiennej stanu `recipientID`, możemy przekazać ją do naszego własnego hooka `useFriendStatus` jako argument:
 
 ```js
   const [recipientID, setRecipientID] = useState(1);
   const isRecipientOnline = useFriendStatus(recipientID);
 ```
 
-This lets us know whether the *currently selected* friend is online. If we pick a different friend and update the `recipientID` state variable, our `useFriendStatus` Hook will unsubscribe from the previously selected friend, and subscribe to the status of the newly selected one.
+Dzięki temu wiemy, czy *aktualnie wybrany* znajomy jest dostępny. Jeżeli wybierzemy innego znajomego, a tym samym zaktualizujemy zmienną stanu `recipientID`, nasz hook `useFriendStatus` anuluje subskrypcję dla poprzednio wybranego znajomego i zasubskrybuje się do statusu nowo wybranego.
 
-## `useYourImagination()` {#useyourimagination}
+## Użyj wyobraźni {#useyourimagination}
 
-Custom Hooks offer the flexibility of sharing logic that wasn't possible in React components before. You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven't considered. What's more, you can build Hooks that are just as easy to use as React's built-in features.
+Własne hooki dają możliwość współdzielenia logiki w sposób, w jaki dotychczas nie było to możliwe w reactowych komponentach. Możesz pisać własne hooki, które obejmują szereg różnych przypadków - od obsługi formularzy, animacji, deklaratywnych subskrypcji, liczników, po wiele innych, o których nie pomyśleliśmy. Co więcej, możesz tworzyć hooki, które są równie łatwe w użyciu, jak wbudowane funkcje Reacta.
 
-Try to resist adding abstraction too early. Now that function components can do more, it's likely that the average function component in your codebase will become longer. This is normal -- don't feel like you *have to* immediately split it into Hooks. But we also encourage you to start spotting cases where a custom Hook could hide complex logic behind a simple interface, or help untangle a messy component.
+Spróbuj powstrzymać się od zbyt wczesnego dodawania abstrakcji. Teraz, kiedy komponenty funkcyjne mogą znacznie więcej, kod źródłowy twoich komponentów najprawdopodobniej zacznie „puchnąć”. To normalne, nie powinieneś od razu *zmuszać się* do dzielenia go na hooki. Ale zachęcamy też do tego, aby zacząć rozglądać się za przypadkami, gdzie własny hook mógłby ukryć skomplikowaną logikę za prostym interfejsem albo pomóc uprzątnąć zagmatwany komponent.
 
-For example, maybe you have a complex component that contains a lot of local state that is managed in an ad-hoc way. `useState` doesn't make centralizing the update logic any easier so might you prefer to write it as a [Redux](https://redux.js.org/) reducer:
+Załóżmy na przykład, że masz w swoim kodzie skomplikowany komponent z dużą ilością zmiennych stanu, zarządzanych ad-hoc. Hook `useState` nie jest wcale rozwiązaniem na łatwą centralizację tej logiki, więc pewnie lepiej będzie ci napisać [reduxowy](https://redux.js.org/) reduktor (ang. *reducer*):
 
 ```js
 function todosReducer(state, action) {
@@ -211,16 +211,16 @@ function todosReducer(state, action) {
         text: action.text,
         completed: false
       }];
-    // ... other actions ...
+    // ... inne akcje ...
     default:
       return state;
   }
 }
 ```
 
-Reducers are very convenient to test in isolation, and scale to express complex update logic. You can further break them apart into smaller reducers if necessary. However, you might also enjoy the benefits of using React local state, or might not want to install another library.
+Reduktory są bardzo wygodne do testowania w izolacji i skalowania w celu wyrażenia skomplikowanej logiki aktualizacji. W razie potrzeby możesz je rozbić na mniejsze reduktory. Tym niemniej, być może wolisz korzystać z zalet lokalnego stanu Reacta albo po prostu nie chcesz instalować kolejnej biblioteki.
 
-So what if we could write a `useReducer` Hook that lets us manage the *local* state of our component with a reducer? A simplified version of it might look like this:
+A co jeśli moglibyśmy napisać hook `useReducer`, który pozwala na zarządzanie *lokalnym* stanem komponentu przy użyciu reduktora? Jego uproszczona wersja mogłaby wyglądać następująco:
 
 ```js
 function useReducer(reducer, initialState) {
@@ -235,7 +235,7 @@ function useReducer(reducer, initialState) {
 }
 ```
 
-Now we could use it in our component, and let the reducer drive its state management:
+Teraz możemy go użyć w naszym komponencie i pozwolić reduktorowi na zarządzanie jego stanem:
 
 ```js{2}
 function Todos() {
@@ -249,4 +249,4 @@ function Todos() {
 }
 ```
 
-The need to manage local state with a reducer in a complex component is common enough that we've built the `useReducer` Hook right into React. You'll find it together with other built-in Hooks in the [Hooks API reference](/docs/hooks-reference.html).
+Potrzeba zarządzania lokalnym stanem złożonego komponentu za pomocą reduktora jest na tyle powszechna, że wbudowaliśmy hook `useReducer` bezpośrednio w Reacta. Jego opis, wraz z innymi wbudowanymi hookami, znajdziesz w rozdziale [Hooki - interfejs API](/docs/hooks-reference.html).
