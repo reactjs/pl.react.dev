@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-W Reakcie elementy formularza HTML działają trochę inaczej niż pozostałe elementy DOM. Wynika to stąd, że elementy formularza same utrzymują swój wewnętrzny stan. Dla przykładu przyjrzyjmy się zwykłemu formularzowi HTML przyjmującemu pojedyncze imię:
+W Reakcie elementy formularza HTML działają trochę inaczej niż pozostałe elementy DOM. Wynika to stąd, że elementy formularza same utrzymują swój wewnętrzny stan. Dla przykładu przyjrzyjmy się zwykłemu formularzowi HTML z jedną wartością - imieniem:
 
 ```html
 <form>
@@ -21,15 +21,15 @@ W Reakcie elementy formularza HTML działają trochę inaczej niż pozostałe el
 </form>
 ```
 
-Powyższy formularz posiada domyślną funkcję automatycznego przekierowania przeglądarki do nowej strony po wysłaniu formularza przez użytkownika. Jeśli zależy ci na tej funkcjonalności, to działa ona również w Reakcie. Jednak w większości przypadków dobrze jest mieć funkcję JavaScriptową, która obsługuje wysyłanie formularza i ma dostęp do podanych przez użytkownika danych. Standardem stała się obsługa formularzy poprzez tzw. "komponentny kontrolowane".
+Powyższy formularz posiada domyślną funkcję automatycznego przekierowania przeglądarki do nowej strony po wysłaniu formularza przez użytkownika. Jeśli zależy ci na tej funkcjonalności, to działa ona również w Reakcie. Jednak w większości przypadków dobrze jest mieć funkcję javascriptową, która obsługuje wysyłanie formularza i ma dostęp do podanych przez użytkownika danych. Standardem stała się obsługa formularzy poprzez tzw. "komponenty kontrolowane".
 
 ## Komponenty kontrolowane {#controlled-components}
 
-W HTML-u, elementy formularza takie jak `<input>`, `<textarea>` i `<select>` najczęściej zachowują swój własny stan, który jest aktualizowany na podstawie danych wejściowych podawanych przez użytkownika. Natomiast w Reakcie zmienny stan komponentu jest zazwyczaj przechowywany we właściwości _state_ (pol. _stan_) danego komponentu. Jest on aktualizowany jedynie za pomocą funkcji [`setState()`](/docs/react-component.html#setstate).
+W HTML-u, elementy formularza takie jak `<input>`, `<textarea>` i `<select>` najczęściej zachowują swój własny stan, który jest aktualizowany na podstawie danych wejściowych podawanych przez użytkownika. Natomiast w Reakcie zmienny stan komponentu jest zazwyczaj przechowywany we właściwości `state` (pol. *stan*) danego komponentu. Jest on aktualizowany jedynie za pomocą funkcji [`setState()`](/docs/react-component.html#setstate).
 
-Możliwe jest łączenie tych dwóch rozwiązań poprzez ustanowienie reactowego stanu jako "wyłącznego źródła prawdy". Wówczas reactowy komponent renderujący dany formularz kontroluje również to co zachodzi wewnątrz danego formularza podczas podawania danych wejściowych przez użytkownika. Element _input_ formularza kontrolowany w ten sposób przez Reacta nazywamy "komponentem kontrolowanym"
+Możliwe jest łączenie tych dwóch rozwiązań poprzez ustanowienie reactowego stanu jako "wyłącznego źródła prawdy". Wówczas reactowy komponent renderujący dany formularz kontroluje również to, co zachodzi wewnątrz niego podczas wypełniania pól przez użytkownika. Element `input` formularza, kontrolowany w ten sposób przez Reacta, nazywamy "komponentem kontrolowanym"
 
-Gdybyśmy chcieli sprawić, aby podany wcześniej przykładowy formularz zapisywał przy wysłaniu podane przez użytkownika imię, możemy zrobić z niego komponent kontrolowany w następujący sposób:
+Gdybyśmy chcieli sprawić, aby podany wcześniej przykładowy formularz wyświetlał przy wysłaniu podane przez użytkownika imię, możemy zrobić z niego komponent kontrolowany w następujący sposób:
 
 ```javascript{4,10-12,24}
 class NameForm extends React.Component {
@@ -70,9 +70,9 @@ class NameForm extends React.Component {
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Dzięki ustawieniu atrybutu `value` na elemencie formularza, wyświetlane dane zawsze będą odpowiadały `this.state.value`. Tym samym reactowy stan jest tutaj źródłem prawdy. Ponieważ zaś `handleChange` aktualizuje reactowy stan przy każdym wciśnięciu klawisza, wyświetlane dane aktualizują się na bieżąco w miarę wpisywania danych przez użytkownika.
+Dzięki ustawieniu atrybutu `value` na elemencie formularza, wyświetlane dane zawsze będą odpowiadały `this.state.value`. Tym samym reactowy stan jest tutaj źródłem prawdy. Ponieważ zaś `handleChange` aktualizuje reactowy stan przy każdym wciśnięciu klawisza, wyświetlane dane aktualizują się na bieżąco w miarę wpisywania ich przez użytkownika.
 
-W komponentach kontrolowanych każda zmiana stanu wynika z działania powiązanej z nim funkcji obsługującej (ang. _handler function_). Ułatwia to modyfikowanie i walidację podawanych przez użytkownika danych wejściowych. Jeśli chcemy na przykład, aby imiona pisane były w całości wielkimi literami nasza funkcja `handleChange` mogłaby wyglądać następująco:
+W komponentach kontrolowanych każda zmiana stanu wynika z działania powiązanej z nim funkcji obsługującej (ang. *handler function*). Ułatwia to modyfikowanie i walidację podawanych przez użytkownika danych wejściowych. Jeśli chcemy na przykład, aby imiona pisane były w całości wielkimi literami, nasza funkcja `handleChange` mogłaby wyglądać następująco:
 
 ```javascript{2}
 handleChange(event) {
@@ -80,7 +80,7 @@ handleChange(event) {
 }
 ```
 
-## Znacznik _textarea_ {#the-textarea-tag}
+## Znacznik *textarea* {#the-textarea-tag}
 
 W HTML-u element `<textarea>` definiuje swój tekst poprzez elementy potomne:
 
@@ -90,7 +90,7 @@ W HTML-u element `<textarea>` definiuje swój tekst poprzez elementy potomne:
 </textarea>
 ```
 
-Natomiast w Reakcie `<textarea>` wykorzystuje w tym celu atrybut `value`. Dzięki temu kod formularza zawierającego `<textarea>` może być podobny do kodu formularza z jednoliniowym elementem _input_:
+Natomiast w Reakcie `<textarea>` wykorzystuje w tym celu atrybut `value`. Dzięki temu kod formularza zawierającego `<textarea>` może być podobny do kodu formularza z jednoliniowym elementem `input`:
 
 ```javascript{4-6,12-14,26}
 class EssayForm extends React.Component {
@@ -129,26 +129,26 @@ class EssayForm extends React.Component {
 
 Zwróć uwagę, że wartość `this.state.value` jest inicjalizowana w konstruktorze, tak aby pole tekstowe zawierało jakiś domyślny tekst.
 
-## Znacznik _select_ {#the-select-tag}
+## Znacznik `select` {#the-select-tag}
 
 W HTML-u element `<select>` tworzy rozwijaną listę. Dla przykładu poniższy kod HTML tworzy rozwijaną listę smaków:
 
 ```html
 <select>
-  <option value="grejpfrut">Grejpfrut</option>
-  <option value="limonka">Limonka</option>
-  <option selected value="orzechKoko">Orzech kokosowy</option>
+  <option value="grejpfrutowy">Grejpfrutowy</option>
+  <option value="limonkowy">Limonkowy</option>
+  <option selected value="kokosowy">Kokosowy</option>
   <option value="mango">Mango</option>
 </select>
 ```
 
-Zwróć uwagę na atrybut `selected`, który sprawia, że domyślnie wybraną opcją jest opcja "Orzech kokosowy". W Reakcie zamiast atrybutu `selected` używamy atrybutu `value` na głównym znaczniku `select`. W przypadku komponentów kontrolowanych jest to rozwiązanie dogodniejsze, ponieważ wartość tego atrybutu aktualizowana jest tylko w jednym miejscu:
+Zwróć uwagę na atrybut `selected`, który sprawia, że opcją wybraną domyślnie jest opcja "Kokosowy". W Reakcie zamiast atrybutu `selected` używamy atrybutu `value` na głównym znaczniku `select`. W przypadku komponentów kontrolowanych jest to rozwiązanie bardziej dogodne, ponieważ wartość tego atrybutu aktualizowana jest tylko w jednym miejscu:
 
 ```javascript{4,10-12,24}
 class FlavorForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: "orzechKoko"};
+    this.state = {value: "kokosowy"};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -169,9 +169,9 @@ class FlavorForm extends React.Component {
         <label>
           Wybierz swój ulubiony smak:
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grejpfrut">Grejpfrut</option>
-            <option value="limonka">Limonka</option>
-            <option value="orzechKoko">Orzech kokosowy</option>
+            <option value="grejpfrutowy">Grejpfrutowy</option>
+            <option value="limonkowy">Limonkowy</option>
+            <option value="kokosowy">Kokosowy</option>
             <option value="mango">Mango</option>
           </select>
         </label>
@@ -188,15 +188,15 @@ Ogólnie elementy `<input type="text">`, `<textarea>`, i `<select>` działają p
 
 > Wskazówka
 >
-> Wartością atrybutu `value` może być także tablica, daje to możliwość wyboru spośród wielu opcji w znaczniku `select`:
-
+> Wartością atrybutu `value` może być także tablica. Daje to możliwość wyboru spośród wielu opcji w znaczniku `select`:
+>
 > ```js
 > <select multiple={true} value={['B', 'C']}>
 > ```
 
-## Znacznik _file input_ {#the-file-input-tag}
+## Znacznik `input` dla plików {#the-file-input-tag}
 
-W HTML-u element `<input type="file">` pozwala użytkownikom wybrać jeden lub więcej plików z pamięci swojego urządzenia, które następnie mogą być wysłane do serwera lub przetworzone z użyciem kodu JavaScript poprzez [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
+W HTML-u element `<input type="file">` pozwala użytkownikom wybrać jeden lub więcej plików z pamięci swojego urządzenia, które następnie mogą być wysłane do serwera lub przetworzone z użyciem kodu JavaScript poprzez [interfejs klasy `File`](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
 
 ```html
 <input type="file" />
@@ -206,7 +206,7 @@ Ponieważ wartość tego elementu jest wartością przeznaczoną tylko do odczyt
 
 ## Obsługa wielu elementów `input` {#handling-multiple-inputs}
 
-Kiedy zachodzi potrzeba obsługi wielu kontrolowanych elementów `input`, do każdego elementu można dodać atrybut `name` oraz pozwolić funkcji obsługującej (ang. _handler function_) zadecydować o dalszych krokach w zależności od wartości atrybutu `event.target.name`.
+Kiedy zachodzi potrzeba obsługi wielu kontrolowanych elementów `input`, do każdego elementu można dodać atrybut `name` oraz pozwolić funkcji obsługującej (ang. *handler function*) zadecydować o dalszych krokach w zależności od wartości atrybutu `event.target.name`.
 
 Przyjrzyjmy się następującemu przykładowi:
 
@@ -278,11 +278,11 @@ partialState[name] = value;
 this.setState(partialState);
 ```
 
-Ponadto ponieważ `setState()` automatycznie [włącza stan częściowy do stanu aktualnego](/docs/state-and-lifecycle.html#state-updates-are-merged), funkcja ta przywoływana jest tylko z nowo dostarczonymi danymi.
+Ponadto ponieważ `setState()` automatycznie [scala podany stan częściowy ze stanem aktualnym](/docs/state-and-lifecycle.html#state-updates-are-merged), funkcja ta wywoływana jest tylko z nowo dostarczonymi danymi.
 
-## Wartość Null w kontrolowanym elemencie `input` " {#controlled-input-null-value}
+## Wartość `null` w kontrolowanym elemencie `input` " {#controlled-input-null-value}
 
-Określenie wartości właściwości (ang. _prop_) [komponentu kontrolowanego](/docs/forms.html#controlled-components) zapobiega niepożądanym zmianom danych wejściowych przez użytkownika. Jeśli określiłeś `value`, a dane wejściowe w dalszym ciągu można edytować, sprawdź czy przez pomyłkę nie nadałeś atrybutowi `value` wartości `undefined` lub `null`.
+Określenie wartości właściwości (ang. *prop*) [komponentu kontrolowanego](/docs/forms.html#controlled-components) zapobiega niepożądanym zmianom danych wejściowych przez użytkownika. Jeśli określisz wartość dla `value`, a dane wejściowe w dalszym ciągu będzie można edytować, sprawdź, czy przez pomyłkę nie przekazujesz wartości `undefined` lub `null`.
 
 Kod poniżej ilustruje ten problem. (Element `input` jest początkowo zablokowany, ale po krótkiej chwili jego zawartość można edytować.)
 
@@ -296,8 +296,8 @@ setTimeout(function() {
 
 ## Inne rozwiązania {#alternatives-to-controlled-components}
 
-Stosowanie kontrolowanych komponentów może być niekiedy uciążliwe, ponieważ wymaga nie tylko tworzenia funkcji obsługujących każdą możliwą zmianę twoich danych, lecz także przekazywania stanu elementu `input` poprzez komponent reactowy. To z kolei może się stać wyjątkowo irytującym doświadczeniem, zwłaszcza gdy konwertujesz istniejący już kod na kod reactowy lub kiedy integrujesz aplikację reactową z biblioteką nie-reactową. W tych sytuacjach warto abyś przyjrzał się [komponentom niekontrolowanym](/docs/uncontrolled-components.html), które stanowią aleternatywną technikę stosowania formularzy.
+Stosowanie kontrolowanych komponentów może być niekiedy uciążliwe, ponieważ wymaga nie tylko tworzenia funkcji obsługujących każdą możliwą zmianę twoich danych, lecz także przekazywania stanu elementu `input` poprzez komponent reactowy. To z kolei może się stać wyjątkowo irytującym doświadczeniem, zwłaszcza gdy konwertujesz istniejący już kod na kod reactowy lub kiedy integrujesz aplikację reactową z biblioteką nie-reactową. W tych sytuacjach warto abyś przyjrzał się [komponentom niekontrolowanym](/docs/uncontrolled-components.html), które stanowią alternatywną technikę stosowania formularzy.
 
 ## Rozwiązania całościowe {#fully-fledged-solutions}
 
-Jeśli szukasz rozwiązania całościowego umożliwiającego walidację, śledzenie odwiedzonych pól oraz obsługę wysyłania danych, często wybieraną opcją jest [Formik](https://jaredpalmer.com/formik). Rozwiązanie to bazuje jednak na tych samych zasadach co komponenty kontrolowane i zarządzanie stanem. Dlatego ważne jest abyś przyswoił sobie te zasady.
+Jeśli szukasz rozwiązania kompleksowego umożliwiającego walidację, śledzenie odwiedzonych pól oraz obsługę wysyłania danych, często wybieraną opcją jest [biblioteka Formik](https://jaredpalmer.com/formik). Rozwiązanie to bazuje jednak na tych samych zasadach co komponenty kontrolowane i zarządzanie stanem. Dlatego bardzo ważne jest, abyś przyswoił sobie te zasady.
