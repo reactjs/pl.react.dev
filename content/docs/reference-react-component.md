@@ -254,17 +254,17 @@ Metody zawarte w tej sekcji odpowiadają rzadkim przypadkom użycia. Czasem są 
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-Use `shouldComponentUpdate()` to let React know if a component's output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
+Używaj metody `shouldComponentUpdate()`, aby dać znać Reactowi, czy obecna zmiana stanu lub właściwości komponentu nie wpłynęła na jego wynik. Domyślnym zachowaniem, na którym powinieneś polegać w większości przypadków, jest ponowne renderowanie przy każdej zmianie stanu.
 
-`shouldComponentUpdate()` is invoked before rendering when new props or state are being received. Defaults to `true`. This method is not called for the initial render or when `forceUpdate()` is used.
+Metoda `shouldComponentUpdate()` jest wywoływana przed renderowaniem, gdy otrzymywane są nowe właściwości lub stan. Domylnie wartość zwracana to `true`. Ta metoda nie jest wywoływana przy początkowym renderowaniu lub kiedy została użyta metoda `forceUpdate()`.
 
-This method only exists as a **[performance optimization](/docs/optimizing-performance.html).** Do not rely on it to "prevent" a rendering, as this can lead to bugs. **Consider using the built-in [`PureComponent`](/docs/react-api.html#reactpurecomponent)** instead of writing `shouldComponentUpdate()` by hand. `PureComponent` performs a shallow comparison of props and state, and reduces the chance that you'll skip a necessary update.
+Ta metoda istnieje tylko jako **[optymalizacja wydajności](/docs/optimizing-performance.html).** Nie polegaj na niej aby "zapobiegać" renderowaniu, co może prowadzić do błędów. Zamiast pisania `shouldComponentUpdate()` własnoręcznie, **rozważ użycie wbudowanej klasy [`PureComponent`](/docs/react-api.html#reactpurecomponent)**. `PureComponent` przeprowadza płytkie porównanie właściwości i stanu, i obniża szansę na pominięcie niezbędnej aktualizacji.
 
-If you are confident you want to write it by hand, you may compare `this.props` with `nextProps` and `this.state` with `nextState` and return `false` to tell React the update can be skipped. Note that returning `false` does not prevent child components from re-rendering when *their* state changes.
+Jeśli jesteś pewny, że chcesz ją napisać własnoręcznie, możesz porównać `this.props` z `nextProps` i `this.state` z `nextState` oraz zwrócić `false`, aby powiadomić Reacta, że aktualizacja może zostać pominięta. Zauważ, że zwrócenie `false` nie zapobiega ponownemu zrenderowaniu komponentów potomnych, gdy *ich* stan się zmienia.
 
-We do not recommend doing deep equality checks or using `JSON.stringify()` in `shouldComponentUpdate()`. It is very inefficient and will harm performance.
+Nie zalecamy wykonywania głębokich porównań lub używania `JSON.stringify()` w metodzie `shouldComponentUpdate()`. Jest to bardzo nieefektywne i negatywnie odbije się na wydajności.
 
-Currently, if `shouldComponentUpdate()` returns `false`, then [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render), and [`componentDidUpdate()`](#componentdidupdate) will not be invoked. In the future React may treat `shouldComponentUpdate()` as a hint rather than a strict directive, and returning `false` may still result in a re-rendering of the component.
+Obecnie, jeśli `shouldComponentUpdate()` zwróci `false`, [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render) i [`componentDidUpdate()`](#componentdidupdate) nie zostana wywołane. W przyszłosci React może traktować `shouldComponentUpdate()` jako wskazówkę, a nie jako ścisłą dyrektywę, a zwrócenie `false` może mimo wszytko skutkować ponownym zrenderowaniem komponentu.
 
 * * *
 
@@ -274,22 +274,22 @@ Currently, if `shouldComponentUpdate()` returns `false`, then [`UNSAFE_component
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or null to update nothing.
+Metoda `getDerivedStateFromProps` jest wywoływana zaraz przed wywołaniem metody render, zarówno przy początkowym montowaniu, jak i przy dalszych aktualizacjach. Powinna zwrócić obiekt, aby zaktualizować stan, lub zwrócić null, aby nie aktualizować nic.
 
-This method exists for [rare use cases](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) where the state depends on changes in props over time. For example, it might be handy for implementing a `<Transition>` component that compares its previous and next children to decide which of them to animate in and out.
+Ta metoda istnieje dla [rzadkich przypadków użycia](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state), w których stan zależy od zmian właściwości w czasie. Na przykład, może okazać się przydatnym komponent `<Transition>`, który porównuje swoje obecne komponenty potomne z poprzednimi, aby zdecydować, króre z nich mają pojawić się z animacją, a które zniknąć.
 
-Deriving state leads to verbose code and makes your components difficult to think about.  
-[Make sure you're familiar with simpler alternatives:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+Derywowanie stanu sprawia, że kod jest rozwlekły i trudno myśli się o komponentach.  
+[Upewnij się, że znasz prostsze alternatywy:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
+* Jeśli potrzebujesz **spowodować efekt uboczny** (na przykład pobranie danych, albo animację) w odpowiedzi na zmianę właściwości, zamiast tego użyj metody cyklu życia [`componentDidUpdate`](#componentdidupdate).
 
-* If you want to **re-compute some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Jeśli chcesz **ponownie obliczyć pewne dane tylko, kiedy zmieni się właściwość**, [zamiast tego użyj pomocniczych technik memoizacyjnych](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
-* If you want to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
+* Jeśli chcesz **"zresetować" stan przy zmianie właściwości**, rozważ zamiast tego uczynienie komponentu [całkowicie kontrolowanym](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) lub [całkowicie niekontrolowanym z właściwością `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 
-This method doesn't have access to the component instance. If you'd like, you can reuse some code between `getDerivedStateFromProps()` and the other class methods by extracting pure functions of the component props and state outside the class definition.
+Ta metoda nie ma dostępu do instancji komponentu. Jeśli chcesz, możesz używać ponownie kod pomiędzy `getDerivedStateFromProps()` innymi metodami klasy poprzez wyodrębnienie czystych funkcji właściwości i stanu komponentu poza definicję klasy.
 
-Note that this method is fired on *every* render, regardless of the cause. This is in contrast to `UNSAFE_componentWillReceiveProps`, which only fires when the parent causes a re-render and not as a result of a local `setState`.
+Zauważ, że metoda ta wywoływana jest przy *każdym* renderowaniu, bez względu na przyczynę. Jest to kontrastem dla metody `UNSAFE_componentWillReceiveProps`, która zostaje wywołana tylko, kiedy komponent nadrzędny powoduje ponowne zrenderowanie, a nie jako wynik lokalnego wywołania metody `setState`.
 
 * * *
 
