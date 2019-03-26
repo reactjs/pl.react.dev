@@ -301,7 +301,7 @@ getSnapshotBeforeUpdate(prevProps, prevState)
 
 Metoda `getSnapshotBeforeUpdate()` jest wywoływana zaraz przed tym, gdy ostatnio zrenderowany wynik zostaje zatwierdzony do np. drzewa DOM. Pozwala to twojemu komponentowi na przejęcie pewnych informacji z drzewa DOM (np. pozycje scrolla) przed ich potencjalną zmianą. Każda wartość zwrócona przez metodę cyklu życia zostanie przekazana jako parametr do metody `componentDidUpdate()`.
 
-Ten przypadek użycia nie jest częsty, ale może wystąpić w interfejsach użytkownika takich jak wątki czatu, które potrzebują liwości zarządzania pozycją scrolla w specjalny sposób.
+Ten przypadek użycia nie jest częsty, ale może wystąpić w interfejsach użytkownika takich jak wątki czatu, które potrzebują możliwości zarządzania pozycją scrolla w specjalny sposób.
 
 Powinna być zwrócona wartość zrzutu (lub `null`).
 
@@ -313,19 +313,19 @@ W powyższych przykładach, ważne jest odczytanie własności `scrollHeight` w 
 
 * * *
 
-### Error boundaries {#error-boundaries}
+### Granice błędów {#error-boundaries}
 
-[Error boundaries](/docs/error-boundaries.html) are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+[Granice błędów](/docs/error-boundaries.html) to reactowe komponenty, które wychwytują javascriptowe wyjątki w dowolnych miejscach swojego drzewa komponentów potomnych, zapisują te wyjątki, i pokazują awaryjny interfejs użytkownika zamiast drzewa komponentów, które rzuciło tym wyjątkiem. Granice błędów wychwytują wyjątki podczas renderowania, w metodach cyklu życia, i w konstruktorach całego drzewa potomnego.
 
-A class component becomes an error boundary if it defines either (or both) of the lifecycle methods `static getDerivedStateFromError()` or `componentDidCatch()`. Updating state from these lifecycles lets you capture an unhandled JavaScript error in the below tree and display a fallback UI.
+Komponent klasowy staje się granicą błędu, jeśli ma zdefiniowaną jedną z (lub obie) metod cyklu życia `static getDerivedStateFromError()` lub `componentDidCatch()`. Aktualizacja stanu z tych metod pozwala na wychwycenie nieobsłużonego javascriptowego wyjątku w drzewie komponentów potomnych i pokazać rezerwowy interfejs użytkownika.
 
-Only use error boundaries for recovering from unexpected exceptions; **don't try to use them for control flow.**
+Używaj granic błędów tylko do rekonwalescencji po nieoczekiwanych wyjątkach; **nie próbuj używać ich do kontrolowania przebiegu programu.**
 
-For more details, see [*Error Handling in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
+Po więcej szczegółów, odwiedź [*Obsługa wyjątków w Reakcie 16*](/blog/2017/07/26/error-handling-in-react-16.html).
 
-> Note
+> Uwaga
 > 
-> Error boundaries only catch errors in the components **below** them in the tree. An error boundary can’t catch an error within itself.
+> Granice błędów wychwytują tylko wyjątki w komponentach z drzewa **pod** nimi. Granica błędów nie może wychwycić wyjątku, który wystąpił w niej samej.
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
 ```javascript
