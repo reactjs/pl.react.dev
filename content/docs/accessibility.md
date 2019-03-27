@@ -16,7 +16,7 @@ React w pełni wspiera budowanie dostępnych dla wszystkich stron internetowych,
 
 [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) dostarcza zbiór wytycznych, jak tworzyć poprawne oraz dostępne dla wszystkich strony internetowe.
 
-Poniższa lista kontrolna WCAG zawiera przegląd:
+Poniższe listy kontrolne WCAG zawierają przegląd:
 
 - [Lista kontrolna WCAG stworzona przez Wuhcag](https://www.wuhcag.com/wcag-checklist/)
 - [Lista kontrolna WCAG stworzona przez WebAIM](https://webaim.org/standards/wcag/checklist)
@@ -26,7 +26,7 @@ Poniższa lista kontrolna WCAG zawiera przegląd:
 
 Dokument [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria)  zawiera listę technik wyspecjalizowanych w budowaniu w pełni dostępnych aplikacji JavaScript. 
 
-Warto zaznaczyć, że wszystkie atrybuty HTML `aria-*` są w pełni wspierane przez JSX. Mimo, że większość tagów oraz atrybutów DOM w Reakcie zapisujemy w formacie camelCase, te związane z dostępnością, powinny być zapisane z wykorzystaniem myślników (znanych również jako kebab-case, lisp-case itp.), ponieważ są one traktowane jak czysty HTML.
+Warto zaznaczyć, że wszystkie atrybuty HTML `aria-*` są w pełni wspierane przez JSX. Mimo, że większość tagów oraz atrybutów DOM w Reakcie zapisujemy w formacie camelCase, to te związane z dostępnością, powinny być zapisane z wykorzystaniem myślników (znanych również jako kebab-case, lisp-case itp.), ponieważ są one traktowane jak czysty HTML.
 
 ```javascript{3,4}
 <input
@@ -161,7 +161,7 @@ Przeczytaj więcej o wykorzystaniu tych elementów w celu zwiększenia dostępno
 
 ### Programowo zarządzaj ostrością {#programmatically-managing-focus}
 
-Nasze aplikacje React nieustannie modyfikują HTML DOM w czasie wykonywania, co chwilami prowadzi do utraty konturu aktywnego elementu lub ustawienia go na nieoczekiwany element. W celu naprawy tego, musimy ręcznie ustawić ostrość we właściwym miejscu. Na przykład przez zresetowanie ostrości z przycisku, który otworzył okno modalne po jego zamknięciu.
+Nasze aplikacje React nieustannie modyfikują HTML DOM w czasie wykonywania, co chwilami prowadzi do utraty konturu aktywnego elementu lub ustawienia go na nieoczekiwany element. W celu naprawy tego, musimy ręcznie ustawić ostrość we właściwym miejscu. Na przykład, przez zresetowanie ostrości z przycisku, który otworzył okno modalne po jego zamknięciu.
 
 Dokumentacja MDN opisuje dokładniej, w jaki sposób możemy tworzyć [widżety JavaScript z obsługą klawiatury](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
@@ -199,7 +199,7 @@ Wówczas, w razie potrzeby możemy przenieść ostrość na inny element naszego
  }
  ```
 
-Czasami komponent nadrzędny musi ustawić ostrość na element komponentu podrzędnego. Możemy to zrobić poprzez [przesłanie referencji "w górę" do komponentu nadrzędnego](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components). Można zrobić to np. przez specjalną właściwość komponentu podrzędnego, która przekazuje rodzicowi ref do węzła DOM wewnątrz dziecka.
+Czasami komponent nadrzędny musi ustawić ostrość na element komponentu podrzędnego. Możemy to zrobić poprzez [przesłanie referencji "w górę" do komponentu nadrzędnego](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components). Można to również zrobić np. przez specjalną właściwość komponentu podrzędnego, która przekazuje rodzicowi ref do węzła DOM wewnątrz dziecka.
 
 ```javascript{4,12,16}
 function NiestandardowePoleTekstowe(props) {
@@ -229,7 +229,7 @@ this.poleTekstowe.current.focus();
 Kiedy używasz HOC (ang. higher order component) do rozszerzenia komponentów, zaleca się [przekazanie ref](/docs/forwarding-refs.html) do opakowanego komponentu przy użyciu funkcji `forwardRef`, która wbudowana jest w Reacta. Jeśli strona trzecia HOC
 nie implementuje przekierowania, powyższy wzorzec może być nadal używany jako rezerwowy.
 
-Doskonałym przykładem zarządzania ostrością jest [react-aria-modal] (https://github.com/davidtheclark/react-aria-modal). Jest to stosunkowo rzadki przykład w pełni dostępnego okna modalnego. Nie tylko ustawia początkową ostrość
+Doskonałym przykładem zarządzania ostrością jest [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Jest to stosunkowo rzadki przykład w pełni dostępnego okna modalnego. Nie tylko ustawia początkową ostrość
 na przycisku zamykającym kontener modalny (ang. modalbox) (uniemożliwiający użytkownikowi klawiatury przypadkowe aktywowanie akcji akceptującej) i zatrzymujący skupienie klawiatury wewnątrz modala, a także po zamknięciu, przywracający ostrość z powrotem do elementu, który początkowo otworzył kontener modalny.
 
 
@@ -240,7 +240,7 @@ na przycisku zamykającym kontener modalny (ang. modalbox) (uniemożliwiający u
 
 ## Zdarzenia myszy oraz wskażnika (ang. mouse and pointer events) {#mouse-and-pointer-events}
 
-Upewnij się, że wszystkie funkcje udostępniane korzystając z myszy lub wskaźnika można również uzyskać za pomocą samej klawiatury. Różnorodność wskaźników prowadzi często do wielu przypadków gdzie użytkownicy klawiatury nie mogą korzystać z aplikacji.
+Upewnij się, że wszystkie funkcje dostępne dla korzystając z myszy lub wskaźnika można również obsługiwalne wyłącznie za pomocą samej klawiatury. Różnorodność wskaźników prowadzi często do wielu przypadków, gdzie użytkownicy klawiatury nie mogą korzystać z aplikacji.
 
 Aby to zilustrować, spójrzmy na przykład zepsutej dostępności spowodowanej wykorzystaniem zdarzenia kliknięcia (ang. click event). Jest to zewnętrzny wzorzec, w którym użytkownik może wyłączyć otwarty `popover`, klikając w miejscu poza elementem.
 
@@ -249,32 +249,32 @@ Aby to zilustrować, spójrzmy na przykład zepsutej dostępności spowodowanej 
 Zazwyczaj jest to implementowane przez dołączenie zdarzenia `click` do obiektu` window`, który zamyka popover:
 
 ```javascript{12-14,26-30}
-class PrzykladKliknięciaNaZewnątrz extends React.Component {
+class PrzykladKliknieciaNaZewnatrz extends React.Component {
 constructor(props) {
     super(props);
 
     this.state = { otwarte: false };
     this.kontener = React.createRef();
 
-    this.uchwytKliknięcie = this.uchwytKliknięcie.bind(this);
-    this.uchwytKliknięcieNaZewnątrz = this.uchwytKliknięcieNaZewnątrz.bind(this);
+    this.uchwytKlikniecie = this.uchwytKlikniecie.bind(this);
+    this.uchwytKlikniecieNaZewnatrz = this.uchwytKlikniecieNaZewnatrz.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('click', this.uchwytKliknięcieNaZewnątrz);
+    window.addEventListener('click', this.uchwytKlikniecieNaZewnatrz);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('click', this.uchwytKliknięcieNaZewnątrz);
+    window.removeEventListener('click', this.uchwytKlikniecieNaZewnatrz);
   }
 
-  uchwytKliknięcie() {
+  uchwytKlikniecie() {
     this.setState(currentState => ({
       otwarte: !currentState.otwarte
     }));
   }
 
-  uchwytKliknięcieNaZewnątrz(event) {
+  uchwytKlikniecieNaZewnatrz(event) {
     if (this.state.otwarte && !this.kontener.current.contains(event.target)) {
       this.setState({ otwarte: false });
     }
@@ -283,7 +283,7 @@ constructor(props) {
   render() {
     return (
       <div ref={this.kontener}>
-        <button onClick={this.uchwytKliknięcie}>Wybierz opcje</button>
+        <button onClick={this.uchwytKlikniecie}>Wybierz opcje</button>
         {this.state.otwarte ? (
           <ul>
             <li>Opcja 1</li>
@@ -395,7 +395,7 @@ Jawnie wskaż ludzki język tekstów zamieszczonych na stronie, ponieważ oprogr
 
 ### Ustawienie tytułu dokumentu {#setting-the-document-title}
 
-Ustaw atrybut `<title>` dokumentu, aby poprawnie opisać bieżącą zawartość strony, ponieważ zapewnia to, że użytkownik pozostaje świadomy bieżącego kontekstu strony:
+Ustaw atrybut `<title>` dokumentu, aby poprawnie opisać bieżącą zawartość strony, ponieważ ułatwia to użytkownikowi, zrozumienie bieżącego kontekstu strony.
 
 - [WCAG - Zrozumienie wymogu tytułu dokumentu](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
 
@@ -409,7 +409,7 @@ Upewnij się, że wszystkie teksty na Twojej stronie mają wystarczający kontra
 - [Wszystko o kontrastie kolorów i dlaczego warto to przemyśleć](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - Czym jest kontrast kolorów](https://a11yproject.com/posts/what-is-color-contrast/)
 
-Ręczne obliczanie odpowiednich kombinacji kolorów dla wszystkich przypadków na swojej stronie internetowej może być nudne, więc zamiast tego [można prześledzić całą dostępną paletę kolorów za pomocą Colorable](https://jxnblk.com/colorable/).
+Ręczne obliczanie odpowiednich kombinacji kolorów dla wszystkich przypadków na swojej stronie internetowej może być nudne, więc zamiast tego [możliwe jest prześledzenie całej dostępnej palety kolorów za pomocą Colorable](https://jxnblk.com/colorable/).
 
 Wymienione poniżej narzędzia aXe i WAVE zawierają również testy kontrastu kolorów i będą zgłaszać błędy kontrastu.
 
@@ -424,7 +424,8 @@ Istnieje wiele narzędzi, których możemy użyć, aby pomóc w tworzeniu przyst
 
 ### Klawiatura {#the-keyboard}
 
-Zdecydowanie najłatwiejszą i jedną z najważniejszych kontroli jest sprawdzenie, czy poruszanie się po całej stronie jest możliwe z wykorzystaniem wyłącznie klawiatury. Instrukcja sprawdzenia aplikacji:
+Zdecydowanie najłatwiejszą i jedną z najważniejszych kontroli jest sprawdzenie, czy poruszanie się po całej stronie jest możliwe z wykorzystaniem wyłącznie klawiatury. 
+Instrukcja sprawdzenia aplikacji:
 
 1. Odłącz myszy.
 1. Używając wyłącznie `Tab` i` Shift + Tab` przeglądaj stronę.
@@ -433,7 +434,7 @@ Zdecydowanie najłatwiejszą i jedną z najważniejszych kontroli jest sprawdzen
 
 ### Pomoc przy tworzeniu {#development-assistance}
 
-Możemy sprawdzić niektóre elementy dostępności bezpośrednio w naszym kodzie JSX. Często kontrole dostępności dla ról, stanów i właściwości ARIA są wbudowane w IDE obsługujące JSX. Dodatkowo, mamy do dyspozycji również inne narzędzia:
+Część testów dostępności możemy wykonać bezpośrednio w naszym kodzie JSX. Często kontrole dostępności dla ról, stanów i właściwości ARIA są wbudowane w IDE obsługujące JSX. Dodatkowo, mamy do dyspozycji również inne narzędzia:
 
 #### eslint-plugin-jsx-a11y {#eslint-plugin-jsx-a11y}
 
@@ -477,7 +478,6 @@ W niektórych przeglądarkach możemy łatwo wyświetlić informacje o przystęp
 ### Czytniki ekranowe {#screen-readers}
 
 Testowanie za pomocą czytnika ekranu powinno stanowić część testów dostępności.
-
 Należy pamiętać, że kombinacje przeglądarka/czytnik ekranu mają bardzo duże naczenie. Zaleca się testowanie aplikacji w przeglądarce rekomendowanej do wybranego czytnika ekranu.
 
 ### Często używane czytniki ekranu {#commonly-used-screen-readers}
