@@ -430,15 +430,15 @@ Poniższe metody cyklu życia są oznaczone jako "przestarzałe". Wciąż dział
 UNSAFE_componentWillMount()
 ```
 
-> Note
+> Uwaga
 >
-> This lifecycle was previously named `componentWillMount`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Ta metoda cyklu życia była wcześniej nazwana `componentWillMount`. Ta nazwa będzie działać do wersji 17. Użyj [codemoda `rename-unsafe-lifecycles`](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles), aby automatycznie zaktualizować swoje komponenty.
 
-`UNSAFE_componentWillMount()` is invoked just before mounting occurs. It is called before `render()`, therefore calling `setState()` synchronously in this method will not trigger an extra rendering. Generally, we recommend using the `constructor()` instead for initializing state.
+Metoda `UNSAFE_componentWillMount()` jest wywoływana zaraz przed nastąpieniem montowania. Jest wywoływana przed `render()`, zatem synchroniczne wywoływanie `setState()` w tej metodzie nie spowoduje dodatkowego renderowania. Generalnie, zamiast tego do inicjalizacji stanu zalecamy używania konstruktora.
 
-Avoid introducing any side-effects or subscriptions in this method. For those use cases, use `componentDidMount()` instead.
+Unikaj wprowadzania skutków ubocznych lub inicjalizowania subskrypcji w tej metodzie. Dla tych przypadków użycia, używaj zamiast tego metody `componentDidMount()`.
 
-This is the only lifecycle method called on server rendering.
+Jest to jedyna metoda cyklu życia wywoływana przy renderowaniu na serwerze.
 
 * * *
 
