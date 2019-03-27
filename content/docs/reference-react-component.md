@@ -448,25 +448,25 @@ Jest to jedyna metoda cyklu życia wywoływana przy renderowaniu na serwerze.
 UNSAFE_componentWillReceiveProps(nextProps)
 ```
 
-> Note
+> Uwaga
 >
-> This lifecycle was previously named `componentWillReceiveProps`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Ta metoda cyklu życia była wcześniej nazwana `componentWillReceiveProps`. Ta nazwa będzie działać do wersji 17. Użyj [codemoda `rename-unsafe-lifecycles`](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles), aby automatycznie zaktualizować swoje komponenty.
 
-> Note:
+> Uwaga:
 >
-> Using this lifecycle method often leads to bugs and inconsistencies
+> Używanie tej metody cyklu życia często prowadzi do błędów i niespójności
 >
-> * If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
-> * If you used `componentWillReceiveProps` for **re-computing some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
-> * If you used `componentWillReceiveProps` to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
+> * Jeśli potrzebujesz **wykonać efekt uboczny** (na przykład, pobieranie danych lub animację) w odpowiedzi na zmianę właściwości, zamiast tego użyj metody cyklu życia [`componentDidUpdate`](#componentdidupdate).
+> * Jeśli używałeś `componentWillReceiveProps` do **ponownego obliczania pewnych danych tylko w przypadku zmiany właściwości**, [zamiast tego użyj pomocniczych technik memoizacyjnych](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+> * Jeśli używałeś `componentWillReceiveProps` do **"resetowania" stanu w przypadku zmiany właściwości**, zamiast tego rozważ uczynienie komponentu [całkowicie kontrolowanym](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) lub [całkowicie niekontrolowanym z właściwością `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key).
 >
-> For other use cases, [follow the recommendations in this blog post about derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+> Dla innych przypadków użycia, [śledź rekomendacje w tym wpisie na blogu na temat stanu pochodnego](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-`UNSAFE_componentWillReceiveProps()` is invoked before a mounted component receives new props. If you need to update the state in response to prop changes (for example, to reset it), you may compare `this.props` and `nextProps` and perform state transitions using `this.setState()` in this method.
+Metoda `UNSAFE_componentWillReceiveProps()` jest wywoływana przed tym, jak zamontowany komponent otrzymuje nowe właściwości. Jeśli potrzebujesz zaktualizować stan w odpowiedzi na zmiany właściwości (na przykład, zresetować go), możesz porównać `this.props` i `nextProps` i wykonać przejście stanu w tej metodzie za pomocą `this.setState()`.
 
-Note that if a parent component causes your component to re-render, this method will be called even if props have not changed. Make sure to compare the current and next values if you only want to handle changes.
+Zauważ, że jeśli komponent nadrzędny powoduje ponowne zrenderowanie twojego komponentu, ta metoda będzie wywołana nawet jeśli właściwości nie uległy zmianie. Jeśli chcesz tylko obsłużyć zmiany, upewnij się, że porównujesz poprzednie i obecne wartości.
 
-React doesn't call `UNSAFE_componentWillReceiveProps()` with initial props during [mounting](#mounting). It only calls this method if some of component's props may update. Calling `this.setState()` generally doesn't trigger `UNSAFE_componentWillReceiveProps()`.
+React nie wywołuje metody `UNSAFE_componentWillReceiveProps()` z początkowymi właściwościami podczas [montowania](#mounting). Wywołuje ją tylko, kiedy właściwości któregoś z komponentów mogą zostać zaktualizowane. Wywołanie metody `this.setState()` przeważnie nie powoduje wywołania `UNSAFE_componentWillReceiveProps()`.
 
 * * *
 
