@@ -52,7 +52,7 @@ Podczas, gdy instancja komponentu zostaje stworzona i włożona do drzewa DOM, w
 
 >Uwaga:
 >
->Te metody są uznawane za spadek (ang. *legacy*) i powinno się [ich unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
+>Te metody są uznawane za przestarzałe (ang. *legacy*) i powinno się [ich unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
@@ -361,7 +361,7 @@ class ErrorBoundary extends React.Component {
 > Uwaga
 >
 > Metoda `getDerivedStateFromError()` jest wywoływana podczas fazy "render", więc nie są w niej dozwolone skutki uboczne.
-Dla tych przypadków użycia, zamiast tego użyj metody `componentDidCatch()`.
+Zamiast tego, dla tych przypadków użycia użyj metody `componentDidCatch()`.
 
 * * *
 
@@ -371,15 +371,15 @@ Dla tych przypadków użycia, zamiast tego użyj metody `componentDidCatch()`.
 componentDidCatch(error, info)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives two parameters:
+Ta metoda cyklu życia jest wywoływana po wyrzuceniu wyjątku przez komponent potomny.
+Otrzymuje on dwa argumenty:
 
-1. `error` - The error that was thrown.
-2. `info` - An object with a `componentStack` key containing [information about which component threw the error](/docs/error-boundaries.html#component-stack-traces).
+1. `error` - Wyjątek, który został wyrzucony.
+2. `info` - Obiekt z kluczem `componentStack` zawierający [informację o tym, który komponent wyrzucił ten wyjątek](/docs/error-boundaries.html#component-stack-traces).
 
 
-`componentDidCatch()` is called during the "commit" phase, so side-effects are permitted.
-It should be used for things like logging errors:
+Metoda `componentDidCatch()` jest wywoływana w fazie "commit", więc dozwolone są w niej skutki uboczne.
+Powinna być używana do czynności takich jak zapisywanie błędów:
 
 ```js{12-19}
 class ErrorBoundary extends React.Component {
@@ -389,12 +389,12 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Aktualizacja stanu, aby kolejne zrenderowanie pokazało awaryjny interfejs użytkownika.
     return { hasError: true };
   }
 
   componentDidCatch(error, info) {
-    // Example "componentStack":
+    // Przykładowy "componentStack":
     //   in ComponentThatThrows (created by App)
     //   in ErrorBoundary (created by App)
     //   in div (created by App)
@@ -404,8 +404,8 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      // Możesz zrenderować dowolny spersonalizowany interfejs użytkownika
+      return <h1>Coś poszło nie tak.</h1>;
     }
 
     return this.props.children; 
@@ -413,16 +413,16 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-> Note
+> Uwaga
 > 
-> In the event of an error, you can render a fallback UI with `componentDidCatch()` by calling `setState`, but this will be deprecated in a future release.
-> Use `static getDerivedStateFromError()` to handle fallback rendering instead.
+> W razie wyjątku, możesz zrenderować awaryjny interfejs użytkownika za pomocą metody `componentDidCatch()` poprzez wywołanie metody `setState`, ale możliwość ta będzie przestarzała w przyszłych wersjach.
+> Do obsługi renderowania awaryjnego używaj zamiast tego metody `static getDerivedStateFromError()`.
 
 * * *
 
-### Legacy Lifecycle Methods {#legacy-lifecycle-methods}
+### Przestarzałe metody cyklu życia {#legacy-lifecycle-methods}
 
-The lifecycle methods below are marked as "legacy". They still work, but we don't recommend using them in the new code. You can learn more about migrating away from legacy lifecycle methods in [this blog post](/blog/2018/03/27/update-on-async-rendering.html).
+Poniższe metody cyklu życia są oznaczone jako "przestarzałe". Wciąż działają, zalecamy jednak nie używać ich w nowym kodzie. Możesz dowiedzieć się więcej o migracji od przestarzałych metod cyklu życia [w tym wpisie na blogu](/blog/2018/03/27/update-on-async-rendering.html).
 
 ### `UNSAFE_componentWillMount()` {#unsafe_componentwillmount}
 
