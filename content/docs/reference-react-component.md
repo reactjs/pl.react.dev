@@ -303,7 +303,7 @@ Metoda `getSnapshotBeforeUpdate()` jest wywoływana zaraz przed tym, gdy ostatni
 
 Ten przypadek użycia nie jest częsty, ale może wystąpić w interfejsach użytkownika takich jak wątki czatu, które potrzebują możliwości zarządzania pozycją scrolla w specjalny sposób.
 
-Powinna być zwrócona wartość zrzutu (lub `null`).
+Powinna być zwrócona wartość snapshotu (lub `null`).
 
 Dla przykładu:
 
@@ -332,8 +332,8 @@ Po więcej szczegółów, odwiedź [*Obsługa wyjątków w Reakcie 16*](/blog/20
 static getDerivedStateFromError(error)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives the error that was thrown as a parameter and should return a value to update state.
+Ta metoda cyklu życia jest wywoływana po wyrzuceniu wyjątku przez komponent potomny.
+Wyrzucony wyjątek zostaje do niej przekazany jako argument, jej wynikiem powinna być wartość, która pozwoli na zaktualizowanie stanu.
 
 ```js{7-10,13-16}
 class ErrorBoundary extends React.Component {
@@ -343,25 +343,25 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Aktualizacja stanu, aby kolejne zrenderowanie pokazało awaryjny interfejs użytkownika.
     return { hasError: true };
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
+      // Możesz zrenderować dowolny spersonalizowany interfejs użytkownika
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
 
-> Note
+> Uwaga
 >
-> `getDerivedStateFromError()` is called during the "render" phase, so side-effects are not permitted.
-For those use cases, use `componentDidCatch()` instead.
+> Metoda `getDerivedStateFromError()` jest wywoływana podczas fazy "render", więc nie są w niej dozwolone skutki uboczne.
+Dla tych przypadków użycia, zamiast tego użyj metody `componentDidCatch()`.
 
 * * *
 

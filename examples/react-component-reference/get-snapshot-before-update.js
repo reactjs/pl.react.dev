@@ -15,9 +15,9 @@ class ScrollingList extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    // Jeśli mamy zrzut, to znaczy, że właśnie dodaliśmy nowe pozycje.
+    // Jeśli mamy snapshot, to znaczy, że właśnie dodaliśmy nowe pozycje.
     // Dopasujmy scroll, aby te nowe pozycje nie wypchnęły starych z widoku.
-    // (zrzut jest tutaj wartością zwróconą z metody getSnapshotBeforeUpdate)
+    // (snapshot jest tutaj wartością zwróconą z metody getSnapshotBeforeUpdate)
     if (snapshot !== null) {
       const list = this.listRef.current;
       list.scrollTop = list.scrollHeight - snapshot;
