@@ -1,22 +1,22 @@
 ---
 id: hooks-reference
-title: Hooks API Reference
+title: Hooki - interfejs API
 permalink: docs/hooks-reference.html
 prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-This page describes the APIs for the built-in Hooks in React.
+Ten rozdział opisuje interfejs API hooków wbudowanych w Reacta.
 
-If you're new to Hooks, you might want to check out [the overview](/docs/hooks-overview.html) first. You may also find useful information in the [frequently asked questions](/docs/hooks-faq.html) section.
+Jeżeli pierwszy raz stykasz się z hookami, możesz najpierw sprawdzić rozdział pt. [„Hooki w pigułce”](/docs/hooks-overview.html). W rozdziale z [najczęściej zadawanymi pytaniami](/docs/hooks-faq.html) możesz znaleźć inne przydatne informacje.
 
-- [Basic Hooks](#basic-hooks)
+- [Podstawowe hooki](#basic-hooks)
   - [`useState`](#usestate)
   - [`useEffect`](#useeffect)
   - [`useContext`](#usecontext)
-- [Additional Hooks](#additional-hooks)
+- [Zaawansowane hooki](#additional-hooks)
   - [`useReducer`](#usereducer)
   - [`useCallback`](#usecallback)
   - [`useMemo`](#usememo)
@@ -25,7 +25,7 @@ If you're new to Hooks, you might want to check out [the overview](/docs/hooks-o
   - [`useLayoutEffect`](#uselayouteffect)
   - [`useDebugValue`](#usedebugvalue)
 
-## Basic Hooks {#basic-hooks}
+## Podstawowe hooki {#basic-hooks}
 
 ### `useState` {#usestate}
 
@@ -33,33 +33,33 @@ If you're new to Hooks, you might want to check out [the overview](/docs/hooks-o
 const [state, setState] = useState(initialState);
 ```
 
-Returns a stateful value, and a function to update it.
+Zwraca zmienną przechowującą lokalny stan i funkcję pozwalającą go zaktualizować.
 
-During the initial render, the returned state (`state`) is the same as the value passed as the first argument (`initialState`).
+Podczas pierwszego renderowania zwrócona wartość stanu (`state`) jest taka sama, jak wartość przekazana jako pierwszy argument (`initialState`).
 
-The `setState` function is used to update the state. It accepts a new state value and enqueues a re-render of the component.
+Funkcja `setState` jest używana do aktualizacji stanu. Przyjmuje ona nową wartość stanu i kolejkuje ponowne renderowanie komponentu.
 
 ```js
 setState(newState);
 ```
 
-During subsequent re-renders, the first value returned by `useState` will always be the most recent state after applying updates.
+Podczas kolejnych ponownych renderowań pierwszą wartością zwracaną przez `useState` będzie zawsze najnowszy, zaktualizowany stan.
 
->Note
+>Uwaga
 >
->React guarantees that `setState` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
+>React daje gwarancje, że funkcja `setState` jest tożsamościowa i że nie zmienia się podczas kolejnych renderowań. Dlatego też można bezpiecznie pominąć ją w liście zależności `useEffect` i `useCallback`.
 
-#### Functional updates {#functional-updates}
+#### Aktualizacje funkcyjne {#functional-updates}
 
-If the new state is computed using the previous state, you can pass a function to `setState`. The function will receive the previous value, and return an updated value. Here's an example of a counter component that uses both forms of `setState`:
+Jeżeli nowy stan wyliczany jest z poprzedniego, możesz przekazać funkcję jako argument do `setState`. Funkcja otrzymuje poprzednią wartość stanu, a zwraca nową, zaktualizowaną wartość. Oto przykład komponentu licznika, który wykorzystuje obie formy `setState`:
 
 ```js
 function Counter({initialCount}) {
   const [count, setCount] = useState(initialCount);
   return (
     <>
-      Count: {count}
-      <button onClick={() => setCount(initialCount)}>Reset</button>
+      Licznik: {count}
+      <button onClick={() => setCount(initialCount)}>Zresetuj</button>
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
     </>
@@ -67,9 +67,9 @@ function Counter({initialCount}) {
 }
 ```
 
-The "+" and "-" buttons use the functional form, because the updated value is based on the previous value. But the "Reset" button uses the normal form, because it always sets the count back to 0.
+Przyciski „+” i „-” wykorzystują formę funkcyjną, ponieważ zaktualizowana wartość bazuje na poprzedniej. Z kolei przycisk „Zresetuj” używa normalnej formy, ponieważ zawsze przywraca początkową wartość.
 
-> Note
+> Uwaga
 >
 > Unlike the `setState` method found in class components, `useState` does not automatically merge update objects. You can replicate this behavior by combining the function updater form with object spread syntax:
 >
@@ -159,7 +159,7 @@ useEffect(
 
 Now the subscription will only be recreated when `props.source` changes.
 
->Note
+>Uwaga
 >
 >If you use this optimization, make sure the array includes **all values from the component scope (such as props and state) that change over time and that are used by the effect**. Otherwise, your code will reference stale values from previous renders. Learn more about [how to deal with functions](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) and what to do when the [array values change too often](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
 >
@@ -196,7 +196,7 @@ A component calling `useContext` will always re-render when the context value ch
 >
 >`useContext(MyContext)` only lets you *read* the context and subscribe to its changes. You still need a `<MyContext.Provider>` above in the tree to *provide* the value for this context.
 
-## Additional Hooks {#additional-hooks}
+## Zaawansowane hooki {#additional-hooks}
 
 The following Hooks are either variants of the basic ones from the previous section, or only needed for specific edge cases. Don't stress about learning them up front.
 
@@ -238,7 +238,7 @@ function Counter({initialState}) {
 }
 ```
 
->Note
+>Uwaga
 >
 >React guarantees that `dispatch` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
 
@@ -253,7 +253,7 @@ There’s two different ways to initialize `useReducer` state. You may choose ei
   );
 ```
 
->Note
+>Uwaga
 >
 >React doesn’t use the `state = initialState` argument convention popularized by Redux. The initial value sometimes needs to depend on props and so is specified from the Hook call instead. If you feel strongly about this, you can call `useReducer(reducer, undefined, reducer)` to emulate the Redux behavior, but it's not encouraged.
 
@@ -320,7 +320,7 @@ Pass an inline callback and an array of dependencies. `useCallback` will return 
 
 `useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`.
 
-> Note
+> Uwaga
 >
 > The array of dependencies is not passed as arguments to the callback. Conceptually, though, that's what they represent: every value referenced inside the callback should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
 >
@@ -342,7 +342,7 @@ If no array is provided, a new value will be computed on every render.
 
 **You may rely on `useMemo` as a performance optimization, not as a semantic guarantee.** In the future, React may choose to "forget" some previously memoized values and recalculate them on next render, e.g. to free memory for offscreen components. Write your code so that it still works without `useMemo` — and then add it to optimize performance.
 
-> Note
+> Uwaga
 >
 > The array of dependencies is not passed as arguments to the function. Conceptually, though, that's what they represent: every value referenced inside the function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
 >
