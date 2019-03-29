@@ -72,13 +72,7 @@ Aby tak się stało, musimy dodać do komponentu "stan".
 
 Stan przypomina trochę atrybuty (ang. *props*), jednak jest prywatny i w pełni kontrolowany przez dany komponent.
 
-<<<<<<< HEAD
-[Wspomnieliśmy wcześniej](/docs/components-and-props.html#functional-and-class-components), że komponenty klasowe mają dodatkowe cechy. Lokalny stan to właśnie jedna z nich, dostępna tylko dla klas.
-
 ## Przekształcanie funkcji w klasę {#converting-a-function-to-a-class}
-=======
-## Converting a Function to a Class {#converting-a-function-to-a-class}
->>>>>>> d0f2db967a38e358bd59c65e981862cdf38f3d0b
 
 Proces przekształcania komponentu funkcyjnego (takiego jak nasz `Clock`) w klasę można opisać w pięciu krokach:
 
