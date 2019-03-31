@@ -34,7 +34,7 @@ Gdy używasz Reacta z Web Components (co jest rzadkie), stosuj atrybut `class`.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` jest reactowym odpowiednikiem dla `innerHTML` z przeglądarkowego DOM. Ogólnie rzecz biorąc, używanie HTML w kodzie jest ryzykowane, ponieważ łatwo jest nieumyślnie narazić użytkowników na atak [cross-site scripting (XSS)](https://pl.wikipedia.org/wiki/Cross-site_scripting). Z tego powodu jedynym sposobem na wstawienie HTML bezpośrednio w Reakcie jest użycie `dangerouslySetInnerHTML` i przekazanie obiektu z kluczem `__html` -- wszystko po to, żeby pamiętać, iż jest to niebezpieczne. Przykład:
+`dangerouslySetInnerHTML` jest reactowym odpowiednikiem dla `innerHTML` z przeglądarkowego DOM. Ogólnie rzecz biorąc, używanie HTML w kodzie jest ryzykowne, ponieważ łatwo jest nieumyślnie narazić użytkowników na atak [cross-site scripting (XSS)](https://pl.wikipedia.org/wiki/Cross-site_scripting). Z tego powodu jedynym sposobem na wstawienie HTML bezpośrednio w Reakcie jest użycie właściwości `dangerouslySetInnerHTML` i przekazanie obiektu z kluczem `__html` -- wszystko po to, żeby pamiętać, iż jest to niebezpieczne. Przykład:
 
 ```js
 function createMarkup() {
