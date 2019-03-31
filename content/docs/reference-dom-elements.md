@@ -106,7 +106,7 @@ React automatycznie doda przyrostek "px" (piksele) dla pewnych liczbowych właś
 </div>
 ```
 
-Nie wszystkie właściwości stylów są konwertowane do ciągów znaków z przyrostkiem 'px'. Niektóre z nich pozostają bez jednostek (np. `zoom`, `order`, `flex`). Pełna lista jest dostępna [tutaj](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+Nie wszystkie właściwości stylów są konwertowane do ciągów znaków z przyrostkiem 'px'. Niektóre z nich pozostają bez jednostek (np. `zoom`, `order`, `flex`). Pełna lista wyjątków jest dostępna [tutaj](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
