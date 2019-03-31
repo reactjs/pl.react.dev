@@ -24,7 +24,7 @@ W Reakcie kilka atrybutów działa inaczej niż w HTML-u:
 
 ### checked {#checked}
 
-Atrybut `checked` jest wspierany przez element `<input>` typu `checkbox` lub `radio`.  Za jego pomocą można dany element ustawić jako odznaczony. Jest to przydatne podczas budowania kontrolowanych komponentów. `defaultChecked` jest niekontrolowanym odpowiednikiem, który określa, czy komponent ma być odznaczony przy pierwszym zamontowaniu.
+Atrybut `checked` jest wspierany przez element `<input>` typu `checkbox` lub `radio`.  Za jego pomocą można dany element ustawić jako odznaczony. Jest to przydatne podczas budowania kontrolowanych komponentów. W przypadku komponentów niekontrolowanych należy używać `defaultChecked`, który określa, czy komponent ma być odznaczony przy pierwszym zamontowaniu.
 
 ### className {#classname}
 
