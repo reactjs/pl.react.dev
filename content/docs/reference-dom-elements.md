@@ -52,7 +52,7 @@ Jako że `for` jest zarezerwowanym słowem w JavaScripcie, React używa zamiast 
 
 ### onChange {#onchange}
 
-Zdarzenie `onChange` przebiega zgodnie z oczekiwaniami: jest aktywowane za każdym razem, gdy zmienia się wartość w polu formularza. Specjalnie nie używamy implementacji przeglądarkowej, ponieważ `onChange` ma nazwę nieadekwatną do zachowania. React natomiast używa tego zdarzenia do obsłużenia w czasie rzeczywistym zmian w danych wejściowych użytkownika.
+Zdarzenie `onChange` przebiega zgodnie z oczekiwaniami: jest aktywowane za każdym razem, gdy zmienia się wartość w polu formularza. Specjalnie nie używamy implementacji przeglądarkowej, ponieważ `onChange` ma nazwę nieadekwatną do zachowania. React natomiast używa tego zdarzenia do obsłużenia w czasie rzeczywistym zmian w danych wejściowych kontrolki formularza.
 
 ### selected {#selected}
 
