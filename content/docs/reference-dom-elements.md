@@ -14,7 +14,7 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-Dla poprawy wydajności oraz kompatybilności między przeglądarkami React wprowadza niezależny od przeglądarki system DOM. Dało to nam możliwość naprawienia pewnych usterek występujących w przeglądarkowych implementacjach DOM.
+Dla poprawy wydajności oraz kompatybilności między przeglądarkami, React wprowadza niezależny od przeglądarki system DOM. Dało to nam możliwość naprawienia pewnych usterek występujących w przeglądarkowych implementacjach DOM.
 
 W Reakcie wszystkie właściwości i atrybuty DOM (włącznie z obsługą zdarzeń) powinny być zapisane w notacji camelCase. Dla przykładu, atrybut HTML `tabindex` odpowiada atrybutowi `tabIndex` w Reakcie. Wyjątkiem są atrybuty `aria-*` oraz `data-*`, które powinny być zapisywane małą literą, na przykład, `aria-label` pozostaje `aria-label`.
 
