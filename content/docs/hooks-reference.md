@@ -178,23 +178,23 @@ The array of dependencies is not passed as arguments to the effect function. Con
 const value = useContext(MyContext);
 ```
 
-Accepts a context object (the value returned from `React.createContext`) and returns the current context value for that context. The current context value is determined by the `value` prop of the nearest `<MyContext.Provider>` above the calling component in the tree.
+Przyjmuje obiekt kontekstu (wartość zwróconą przez `React.createContext`) i zwraca jego aktualną wartość. Wartość kontekstu jest określana przez właściwość (ang. *prop*) `value` najbliższego rodzica `<MyContext.Provider>` wywołującego komponentu.
 
-When the nearest `<MyContext.Provider>` above the component updates, this Hook will trigger a rerender with the latest context `value` passed to that `MyContext` provider.
+Kiedy najbliższy rodzic `<MyContext.Provider>` zostanie zaktualizowany, ten hook wywoła ponowne renderowanie komponentu z najnowszym kontekstem `value` przekazanym dostawcy (ang. *provider*) `MyContext`.
 
-Don't forget that the argument to `useContext` must be the *context object itself*:
+Pamiętaj, że argument przekazany do `useContest` musi być *samym obiektem kontekstu*:
 
- * **Correct:** `useContext(MyContext)`
- * **Incorrect:** `useContext(MyContext.Consumer)`
- * **Incorrect:** `useContext(MyContext.Provider)`
+ * **Poprawnie:** `useContext(MyContext)`
+ * **Niepoprawnie:** `useContext(MyContext.Consumer)`
+ * **Niepoprawnie:** `useContext(MyContext.Provider)`
 
-A component calling `useContext` will always re-render when the context value changes. If re-rendering the component is expensive, you can [optimize it by using memoization](https://github.com/facebook/react/issues/15156#issuecomment-474590693).
+Komponent wywołujący `useContext` będzie zawsze ponownie renderowany jeśli zmieni się wartość kontekstu. Jeżeli ponowne renderowanie danego komponentu jest kosztowne, możesz [zoptymalizować to zachowanie](https://github.com/facebook/react/issues/15156#issuecomment-474590693), używając techniki zapamiętywania (ang. *memoization*).
 
->Tip
+>Podpowiedź
 >
->If you're familiar with the context API before Hooks, `useContext(MyContext)` is equivalent to `static contextType = MyContext` in a class, or to `<MyContext.Consumer>`.
+>Jeśli znasz już interfejs API kontekstu -- `useContext(MyContext)` jest odpowiednikiem klasowego `static contextType = MyContext` lub też `<MyContext.Consumer>`.
 >
->`useContext(MyContext)` only lets you *read* the context and subscribe to its changes. You still need a `<MyContext.Provider>` above in the tree to *provide* the value for this context.
+>`useContext(MyContext)` pozwala tylko na *czytanie* kontekstu i nasłuchiwanie jego zmian. Wciąż wymagane jest aby w drzewie, ponad komponentem, znalazł się `<MyContext.Provider>` by mógł  *dostarczyć* (ang. *provide*) wartość tego kontekstu.
 
 ## Zaawansowane hooki {#additional-hooks}
 
@@ -414,7 +414,7 @@ The signature is identical to `useEffect`, but it fires synchronously after all 
 
 Prefer the standard `useEffect` when possible to avoid blocking visual updates.
 
-> Tip
+> Podpowiedź
 >
 > If you're migrating code from a class component, note `useLayoutEffect` fires in the same phase as `componentDidMount` and `componentDidUpdate`. However, **we recommend starting with `useEffect` first** and only trying `useLayoutEffect` if that causes a problem.
 >
@@ -446,7 +446,7 @@ function useFriendStatus(friendID) {
 }
 ```
 
-> Tip
+> Podpowiedź
 >
 > We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
 
