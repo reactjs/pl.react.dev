@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
-Jeśli załadujesz Reacta za pomocą znacznika `<script>`, wspomniane w tym rozdziale główne interfejsy API będą dostępne poprzez globalną zmienną `ReactDOM`. Jeśli używasz ES6 z npm, wczytaj je za pomocą `import ReactDOM from 'react-dom'`. Jeśli używasz ES5 z npm, możesz napisać `var ReactDOM = require ('react-dom')`.
+Jeśli załadujesz Reacta za pomocą znacznika `<script>`, wspomniane w tym rozdziale główne interfejsy API będą dostępne poprzez globalną zmienną `ReactDOM`. Jeśli używasz ES6 z npm, wczytaj je za pomocą `import ReactDOM from 'react-dom'`. Jeśli używasz ES5 z npm, możesz napisać `var ReactDOM = require('react-dom')`.
 
 ## Informacje ogólne {#overview}
 
@@ -72,12 +72,12 @@ Działa podobnie do funkcji [`render()`](#render), ale służy do odtworzenia ko
 
 React oczekuje, że renderowana treść będzie identyczna między serwerem a klientem. Potrafi, co prawda, poprawić różnice w treści tekstu, ale należy traktować niedopasowania jako błędy i zawsze je naprawiać. W trybie deweloperskim React ostrzega przed niedopasowaniem podczas procesu odtwarzania struktury. Nie ma gwarancji, że różnice w atrybutach zostaną odpowiednio poprawione w przypadku niedopasowania. Jest to ważne ze względu na wydajność, ponieważ w większości aplikacji niedopasowania są rzadkie, a zatem sprawdzenie wszystkich znaczników byłoby zbyt kosztowne obliczeniowo.
 
-Jeśli któryś z atrybutów elementu lub treść tekstu intencjonalnie różnią się między serwerem a klientem (jak w przypadku znacznika czasu), możesz wyciszyć ostrzeżenie, dodając do elementu atrybut `suppressHydrationWarning={true}`. Działa to tylko na tym konkretnym elemencie i jest swego rodzaju "wyjściem awaryjnym". Nie nadużywaj go. O ile nie jest to treść tekstowa, React nie będzie próbował na siłę nanosić poprawek, więc wartość może pozostać niespójna do momentu jej kolejnej aktualizacji.
+Jeśli któryś z atrybutów elementu lub treść tekstu intencjonalnie różnią się między serwerem a klientem (jak w przypadku znacznika czasu), możesz wyłączyć ostrzeżenie, dodając do elementu atrybut `suppressHydrationWarning={true}`. Działa to tylko na tym konkretnym elemencie i jest swego rodzaju "wyjściem awaryjnym". Nie nadużywaj go. O ile nie jest to treść tekstowa, React nie będzie próbował na siłę nanosić poprawek, więc wartość może pozostać niespójna do momentu jej kolejnej aktualizacji.
 
 Jeśli potrzebujesz celowo renderować coś innego po stronie serwera i klienta, możesz wykonać renderowanie dwuprzebiegowe. Komponenty, które renderują coś innego po stronie klienta, mogą bazować na zmiennej stanu, np. `this.state.isClient`, którą można ustawić na `true` w metodzie `componentDidMount()`. W ten sposób początkowe renderowania zwróci tę samą zawartość co serwer, unikając niedopasowania. Jednak zaraz po odtworzeniu struktury w sposób synchroniczny nastąpi dodatkowe renderowanie. Zauważ, że to podejście spowolni działanie komponentów, ponieważ będą musiały być renderowane dwukrotnie - dlatego używaj go z rozwagą.
 
 Pamiętaj, aby zwrócić uwagę na tzw. "user experience" użytkowników z wolnym połączeniem internetowym. Kod javascriptowy może załadować się znacznie później niż nastąpi pierwsze renderowanie kodu HTML. Z tego powodu, jeśli wyrenderujesz coś innego podczas przebiegu po stronie klienta, strona może się "przycinać". Możliwe, że w tej sytuacji pomoże wyrenderowanie "powłoki" (ang. *shell*) aplikacji po stronie serwera, a w kliencie wyświetlenie jedynie dodatkowych widgetów. Aby dowiedzieć się, jak to zrobić, nie napotykając problemów związanych z niedopasowaniem znaczników, zapoznaj się z wyjaśnieniem zawartym w poprzednim akapicie.
-`false`
+
 * * *
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
@@ -86,7 +86,7 @@ Pamiętaj, aby zwrócić uwagę na tzw. "user experience" użytkowników z wolny
 ReactDOM.unmountComponentAtNode(container)
 ```
 
-Usuń zamontowany składniki wchodzący w reakcję z DOM i wyczyść jego programy obsługi zdarzeń i ustawienia. Jeśli w zasobniku nie zamontowano żadnego elementu, wywoływanie tej funkcji nic nie robi. Zwraca `true` jeśli składnik nie był zamontowany i `false` jeśli nie było składnika do odmontowania.
+Usuwa zamontowany komponent z drzewa DOM, usuwając jego stan i procedury obsługi zdarzeń. Jeśli we wskazanym kontenerze nie zamontowano jeszcze żadnego elementu, wywoływanie tej funkcji nie daje żadnego efektu. Zwraca `true`, jeśli komponent został odmontowany lub `false`, jeśli kontener był pusty.
 
 * * *
 
@@ -94,22 +94,21 @@ Usuń zamontowany składniki wchodzący w reakcję z DOM i wyczyść jego progra
 
 > Uwaga:
 >
-> `findDOMNode` jest to wyjście awaryjne używana do uzyskania dostępu do podstawowego węzła DOM. W większości przypadków te wyjście awaryjne może zniechęcic ponieważ dziurawi składniki abstrakcji. [Została wycofana w `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+>> `findDOMNode` jest swego rodzaju "wyjściem awaryjnym", za pomocą którego możemy uzyskać dostęp do szukanego węzła DOM. Odradzamy korzystania z tej funkcji, ponieważ zaburza ona abstrakcję struktury komponentów. [Została wycofana w `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
 ReactDOM.findDOMNode(component)
 ```
 
-Jeśli ten komponent został zamontowany w DOM, to zwraca odpowiednią macierzystą przeglądarkę elementu DOM. Ta metoda jest użyteczna do odczytywania wartości z DOM, takie jak wartości pól i wykonywanie pomiarów DOM. **W większości przypadków, możesz dołączyć do DOM węzeł i unikaj używania `findDOMNode` w ogóle.**
+Jeśli wskazany komponent został zamontowany w drzewie DOM, funkcja zwróci odpowiadający mu natywny element DOM. Przydaje się do odczytywania wartości z drzewa DOM, np. danych z pól formularza lub wymiarów interfejsu. **W większości przypadków wystarczy jednak "podpiąć" się do węzła DOM za pomocą właściwości `ref`, całkowicie unikając stosowania funkcji `findDOMNode`.**
 
-Kiedy komponent renderuje `null` albo `false`, `findDOMNode` zwraca `null`. Kiedy komponent renderuje ciąg, `findDOMNode` zwraca tekst węzła DOM zawierający tą wartość. Od Reakt 16, komponent może zwrócić część z wieloma dziećmi, w przypadku `findDOMNode` zwróci węzeł DOM odpowiadający pierwszemu nie pustemu dziecku.
+Jeśli komponent renderuje `null` lub `false`, `findDOMNode` zwróci `null`. Jeśli renderuje ciąg znaków, `findDOMNode` zwróci tekst danego węzła DOM. Od Reakta w wersji 16 w górę komponenty mogą również zwracać tzw. fragmenty, zawierające kilku potomków. W takim przypadku `findDOMNode` zwróci węzeł DOM odpowiadający pierwszemu niepustemu potomkowi.
 
 > Uwaga:
 >
-> `findDOMNode` działa tylko na zamontowanych komponentach (tylko te komponenty które zostały umieszczone w DOM) Jeśli spróbujesz przywołać to na komponencie który nie był jeszcze zamontowany ( jak wywołanie `findDOMNode()` w `render()` na komponencie jeszcze nie stworzonym) zostanie zgłoszony wyjątek.
+> `findDOMNode` działa tylko na zamontowanych komponentach (czyli takich, które zostały umieszczone w drzewie DOM). Jeśli spróbujesz wywołać tę funkcję na niezamontowanym komponencie (np. jeśli wywołasz `findDOMNode()` w metodzie `render` komponentu, który jeszcze nie został utworzony), zostanie zgłoszony wyjątek.
 >
-> `findDOMNode` nie może być używane w komponentach funkcji.
-
+> `findDOMNode` nie może być używane w komponentach funkcyjnych.
 
 * * *
 
@@ -119,4 +118,4 @@ Kiedy komponent renderuje `null` albo `false`, `findDOMNode` zwraca `null`. Kied
 ReactDOM.createPortal(child, container)
 ```
 
-Tworzy portal. Portal zapewnia sposób do [przedstawiania dziecka w węźle DOM które istnieje poza hierarchią komponentu DOM](/docs/portals.html).
+Tworzy portal. Portale zapewniają sposób na [renderowanie potomków do węzła DOM znajdującej się poza hierarchią danego komponentu](/docs/portals.html).
