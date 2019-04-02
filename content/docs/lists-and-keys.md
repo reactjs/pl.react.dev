@@ -43,7 +43,7 @@ ReactDOM.render(
  
 [**Wypróbuj na CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
  
-Ten kod wyświetla wypunktowaną listę numerów pomiędzy 1 i 5.
+Ten kod wyświetla wypunktowaną listę liczb od 1 do 5.
  
 ### Podstawowy komponent listy {#basic-list-component}
  
