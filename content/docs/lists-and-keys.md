@@ -97,7 +97,7 @@ ReactDOM.render(
  
 ## Klucze {#keys}
  
-Klucze pomagają Reaktowi zidentyfikować które elementy uległy zmianie, zostały dodane lub usunięte. Klucze powinny zostać nadane elementom wewnątrz tablic aby zyskały stabilną tożsamość:
+Klucze pomagają Reaktowi zidentyfikować, które elementy uległy zmianie, zostały dodane lub usunięte. Klucze powinny zostać nadane elementom wewnątrz tablicy, aby elementy zyskały stabilną tożsamość:
  
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
