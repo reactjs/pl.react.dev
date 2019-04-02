@@ -122,7 +122,7 @@ Kiedy nie będziesz miał stabilnych identyfikatorów dla wyświetlanych element
  
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
-  // Rób to tylko w przypadku gdy elementy nie mają stabilnego identyfikatorów
+  // Rób to tylko w przypadku, gdy elementy nie mają stabilnych identyfikatorów
   <li key={index}>
     {todo.text}
   </li>
