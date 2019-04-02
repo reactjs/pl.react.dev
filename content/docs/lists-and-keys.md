@@ -21,7 +21,7 @@ W Reakcie przekształcanie tablic w listy [elementów](/docs/rendering-elements.
  
 ### Wyświetlanie wielu komponentów {#rendering-multiple-components}
  
-Możesz zbudować kolekcje elementów i [dodać je do JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) używając  klamrowych nawiasów `{}`.
+Możesz zbudować kolekcje elementów i [dodać je do JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) używając nawiasów klamrowych `{}`.
  
 Poniżej, iterujemy tablicę `liczb` używając funkcji [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) JavaScript. Zwracamy element `<li>` dla każdego elementu tablicy. Na koniec, przypisujemy wynikową tablie do `listItems`:
  
