@@ -129,7 +129,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
  
-Nie zalecamy używania indeksów jako klucze jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robin Pokorny na temat [szczegółowego wyjaśnienia negatywnych aspektów używania indeksu jako klucz](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie użyje indeksów jako klucze.
+Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robina Pokorny'ego ze [szczegółowym wyjaśnieniem negatywnych aspektów używania indeksu jako klucza](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie użyje indeksów jako kluczy.
  
 Jeżeli chciałbyś dowiedzieć się wiecej, to tutaj znajdziesz [szczegółowe wyjaśnienie dlaczego klucze są niezbędne](/docs/reconciliation.html#recursing-on-children).
  
