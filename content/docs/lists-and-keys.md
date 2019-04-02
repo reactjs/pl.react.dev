@@ -247,48 +247,7 @@ ReactDOM.render(
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
  
-Klucze służą Reaktowi jako wskazówka, ale nie są one przekazywane do twoich komponentów. Jeżeli potrzebujesz tych wartości w swoim komponencie, przekaż je jawnie poprzez właściwość z inną nazwą:
- 
-```js{3,4}
-const content = posts.map((post) =>
-  <Post
-    key={post.id}
-    id={post.id}
-    title={post.title} />
-);
-```
- 
-W powyższym przykładzie, komponent `Post` może odczytać `props.id`, ale nie `props.key`.
- 
-### Użycie map() wewnątrz JSX {#embedding-map-in-jsx}
- 
-W poprzednich przykładach zadeklarowaliśmy oddzielną zmienną `listItems` wewnątrz JSX:
- 
-```js{3-6}
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <ListItem key={number.toString()}
-              value={number} />
-  );
-  return (
-    <ul>
-      {listItems}
-    </ul>
-  );
-}
-```
- 
-JSX pozwala na [wbudowanie każdego wyrażenia](/docs/introducing
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
-```
- 
-[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
- 
-Klucze służą Reaktowi jako wskazówka, ale nie są one przekazywane do twoich komponentów. Jeżeli potrzebujesz tych wartości w swoim komponencie, przekaż je jawnie poprzez właściwość z inną nazwą:
+Klucze służą Reactowi jako wskazówka, ale nie są one przekazywane do twoich komponentów. Jeżeli potrzebujesz tych wartości w swoim komponencie, przekaż je jawnie poprzez właściwość o innej nazwie:
  
 ```js{3,4}
 const content = posts.map((post) =>
