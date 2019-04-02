@@ -6,7 +6,7 @@ prev: conditional-rendering.html
 next: forms.html
 ---
  
-Na początku, przyjrzymy się jak przekształca się listy w JavaScript.
+Na początku przyjrzymy się, jak przekształca się listy w JavaScripcie.
  
 W kodzie poniżej, użyliśmy funkcji [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) aby wziąć tablicę `liczb`i podwoić och wartość. Następnie przypisujemy nową tablice zwróconą z funkcji `map()` do zmiennej `doubled` i wyświetlamy ją:
 ```javascript{2}
