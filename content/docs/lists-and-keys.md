@@ -203,7 +203,7 @@ ReactDOM.render(
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
  
-Podstawową regułą jest to że elementy wewnątrz wywołania `map()` potrzebują kluczy.
+Podstawową regułą jest to, że elementy wewnątrz wywołania `map()` potrzebują kluczy.
  
 ### Klucze muszą być unikalne tylko spośród rodzeństwa {#keys-must-only-be-unique-among-siblings}
  
@@ -279,7 +279,7 @@ function NumberList(props) {
 }
 ```
  
-JSX pozwala na [wbudowanie każdego wyrażenia](/docs/introducing-jsx.html#embedding-expressions-in-jsx) wewnątrz nawiasów klamrowych, dzięki temu możemy użyć wyniku funkcji `map()` bez przypisywania zmiennej:
+JSX pozwala na [wstawienie dowolnego wyrażenia](/docs/introducing-jsx.html#embedding-expressions-in-jsx) wewnątrz nawiasów klamrowych, dzięki temu możemy użyć wyniku funkcji `map()` bez przypisywania go do zmiennej:
  
 ```js{5-8}
 function NumberList(props) {
