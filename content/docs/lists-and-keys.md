@@ -71,7 +71,7 @@ ReactDOM.render(
  
 Kiedy uruchomisz powyższy kod, dostaniesz ostrzeżenie o tym, że do elementów listy należy dostarczyć właściwość klucza. „Klucz” (ang. *key*) jest specjalnym atrybutem o typie łańcucha znaków, który musisz dodać podczas tworzenia elementów listy. O tym, dlaczego jest to ważne, opowiemy w następnej sekcji.
  
-Przypiszmy `klucz` do naszych elementów listy wewnątrz `numbers.map()` czym naprawimy problem z brakującym kluczem.
+Przypiszmy właściwość `key` do naszych elementów listy wewnątrz `numbers.map()`, czym naprawimy problem brakującego klucza.
  
 ```javascript{4}
 function NumberList(props) {
