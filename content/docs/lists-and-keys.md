@@ -8,7 +8,7 @@ next: forms.html
  
 Na początku przyjrzymy się, jak przekształca się listy w JavaScripcie.
  
-W kodzie poniżej, użyliśmy funkcji [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) aby wziąć tablicę `liczb`i podwoić och wartość. Następnie przypisujemy nową tablice zwróconą z funkcji `map()` do zmiennej `doubled` i wyświetlamy ją:
+W kodzie poniżej, użyliśmy funkcji [`map()`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/map), aby podwoić wartość liczb w tablicy `numbers`. Następnie przypisaliśmy nową tablicę zwróconą z funkcji `map()` do zmiennej `doubled` i wyświetliliśmy ją w konsoli:
 ```javascript{2}
 const numbers = [1, 2, 3, 4, 5];
 const doubled = numbers.map((number) => number * 2);
