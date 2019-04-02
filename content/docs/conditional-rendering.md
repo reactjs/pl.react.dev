@@ -44,7 +44,7 @@ ReactDOM.render(
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
 
- Powitanie renderowane przez kod w powyższym przykładzie zależy od wartości właściwości `isLoggedIn`.
+Powitanie renderowane przez kod w powyższym przykładzie zależy od wartości właściwości `isLoggedIn`.
 
 ### Zmienne elementowe {#element-variables}
 
@@ -73,7 +73,6 @@ function LogoutButton(props) {
 W przykładzie poniżej zbudujemy [komponent ze stanem](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) o nazwie `LoginControl` (pol. *kontrola logowania*)
 
 W zależności od aktualnego stanu, będzie on renderował przycisk logowania (`<LoginButton />`) lub wylogowania `<LogoutButton />` . Będzie on również renderował komponent `<Greeting />` z poprzedniego przykładu:
-
 
 ```javascript{20-25,29,30}
 class LoginControl extends React.Component {
@@ -120,7 +119,6 @@ ReactDOM.render(
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
 Deklarowanie zmiennej oraz stosowanie instrukcji `if` to dobry sposób na warunkowe renderowanie komponentu. Czasem jednak przydaje się nieco krótsza składnia. JSX umożliwia kilka różnych opcji warunków wewnątrzliniowych. Przedstawiamy je poniżej.
-
 
 ### Wewnątrzliniowy warunek `if` z użyciem logicznego operatora `&&` {#inline-if-with-logical--operator}
 
@@ -187,15 +185,14 @@ render() {
   );
 }
 ```
+
 Czytelność takich wyrażeń jest oczywiście nieco mniejsza. Podobnie jak w JavaScripcie, wybór odpowiedniego stylu zależy od preferencji twoich i twojego zespołu. Jednocześnie należy pamiętać, że kiedy warunki stają się nazbyt złożone, dobrze jest rozważyć możliwość [wydzielenia osobnego komponentu](/docs/components-and-props.html#extracting-components)
 
 ### Zapobieganie renderowaniu komponentu {#preventing-component-from-rendering}
 
 W sporadycznych przypadkach może zachodzić potrzeba ukrycia się komponentu, mimo iż został on już wyrenderowany przez inny komponent. Aby to umożliwić, należy zwrócić zamiast niego wartość `null`.
 
-
 W przykładzie poniżej, renderowanie baneru ostrzegawczego `<WarningBanner />` jest uzależnione od wartości właściwości o nazwie `warn` (pol. *ostrzeż*). Jeśli jest ona równa `false`, wówczas komponent ten nie jest renderowany.
-
 
 ```javascript{2-4,29}
 function WarningBanner(props) {
