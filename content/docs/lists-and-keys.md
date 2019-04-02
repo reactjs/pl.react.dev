@@ -119,7 +119,7 @@ const todoItems = todos.map((todo) =>
 );
 ```
  
-Kiedy nie będziesz miał stabilnych identyfikatorów dla wyświetlanych elementów, w skrajnym przypadku możesz użyć indeksu jako klucza:
+Jeśli w danych nie masz stabilnych identyfikatorów dla wyświetlanych elementów, w skrajnym przypadku do określenia klucza możesz użyć indeksu elementu tablicy:
  
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
