@@ -24,7 +24,7 @@ W Reakcie przekształcanie tablic w listy [elementów](/docs/rendering-elements.
  
 Możesz zbudować kolekcje elementów i [dodać je do JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) używając nawiasów klamrowych `{}`.
  
-Poniżej iterujemy tablicę liczb `numbers` używając javascriptowej funkcji [`map()`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/map). Zwracamy element `<li>` dla każdego elementu tablicy. Na koniec przypisujemy wynikową tablicę do `listItems`:
+Poniżej iterujemy tablicę liczb `numbers` używając javascriptowej funkcji [`map()`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/map). Zwracamy element `<li>` dla każdego elementu tablicy. Na koniec przypisujemy powstałą w ten sposób tablicę do zmiennej `listItems`:
  
 ```javascript{2-4}
 const numbers = [1, 2, 3, 4, 5];
