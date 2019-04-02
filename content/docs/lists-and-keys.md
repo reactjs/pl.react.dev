@@ -338,4 +338,4 @@ function NumberList(props) {
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
  
-Czasami dzięki temu kod jest bardziej przejrzysty, jednak ten sposób może być również nadużywany. Tak samo jak w JavaScript, wybór należy do Ciebie czy warto wyodrębnić zmienną aby zwiększyć czytelność. Zapamiętaj że jeżeli in ciało funkcji `map()` jest zbyt zagnieżdżone, to może być dobry czas aby [wyodrębnić komponent](/docs/components-and-props.html#extracting-components).
+Czasami dzięki temu kod staje się bardziej przejrzysty, jednak łatwo doprowadzić do nadużywania tego sposobu. Tak samo jak w JavaScripcie, wybór należy do Ciebie, czy warto wyodrębnić zmienną, aby zwiększyć czytelność. Zapamiętaj, że jeżeli ciało funkcji `map()` jest zbyt zagnieżdżone, może to być odpowiedni moment na [wyodrębnienie komponentu](/docs/components-and-props.html#extracting-components).
