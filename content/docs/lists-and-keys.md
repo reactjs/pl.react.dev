@@ -17,7 +17,7 @@ console.log(doubled);
  
 Ten kod wyświetla w konsoli `[2, 4, 6, 8, 10]`.
  
-W Reakcie, przekształcanie tablic do list [elementów](/docs/rendering-elements.html) jest niemalże identyczne
+W Reakcie przekształcanie tablic w listy [elementów](/docs/rendering-elements.html) jest niemalże identyczne.
  
 ### Wyświetlanie wielu komponentów {#rendering-multiple-components}
  
