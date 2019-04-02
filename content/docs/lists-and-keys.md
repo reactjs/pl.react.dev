@@ -15,7 +15,7 @@ const doubled = numbers.map((number) => number * 2);
 console.log(doubled);
 ```
  
-Ten kod wyświetla w konsoli `[2, 4, 6, 8, 10]`.
+Kod ten wyświetla w konsoli `[2, 4, 6, 8, 10]`.
  
 W Reakcie przekształcanie tablic w listy [elementów](/docs/rendering-elements.html) jest niemalże identyczne.
  
@@ -131,7 +131,7 @@ const todoItems = todos.map((todo, index) =>
  
 Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robina Pokorny'ego ze [szczegółowym wyjaśnieniem negatywnych aspektów używania indeksu jako klucza](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie użyje indeksów jako kluczy.
  
-Jeżeli chciałbyś dowiedzieć się wiecej, to tutaj znajdziesz [szczegółowe wyjaśnienie dlaczego klucze są niezbędne](/docs/reconciliation.html#recursing-on-children).
+Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśnienie, dlaczego klucze są niezbędne](/docs/reconciliation.html#recursing-on-children).
  
 ### Wydrębnianie komponentów z kluczami {#extracting-components-with-keys}
  
@@ -176,7 +176,7 @@ ReactDOM.render(
  
 ```javascript{2,3,9,10}
 function ListItem(props) {
-  // Dobrze! Nie ma potrzeby ustawiania klucza tutaj:
+  // Dobrze! Nie ma potrzeby definiowania klucza tutaj:
   return <li>{props.value}</li>;
 }
  
