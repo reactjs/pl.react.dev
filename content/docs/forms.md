@@ -55,11 +55,7 @@ class NameForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Imię:
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Wyślij" />
       </form>
@@ -80,7 +76,7 @@ handleChange(event) {
 }
 ```
 
-## Znacznik *textarea* {#the-textarea-tag}
+## Znacznik `textarea` {#the-textarea-tag}
 
 W HTML-u element `<textarea>` definiuje swój tekst poprzez elementy potomne:
 
@@ -241,8 +237,7 @@ class Reservation extends React.Component {
             name="wybieraSie"
             type="checkbox"
             checked={this.state.wybieraSie}
-            onChange={this.handleInputChange}
-          />
+            onChange={this.handleInputChange} />
         </label>
         <br />
         <label>
@@ -251,8 +246,7 @@ class Reservation extends React.Component {
             name="liczbaGosci"
             type="number"
             value={this.state.liczbaGosci}
-            onChange={this.handleInputChange}
-          />
+            onChange={this.handleInputChange} />
         </label>
       </form>
     );

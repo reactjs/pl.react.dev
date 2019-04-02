@@ -8,9 +8,9 @@ redirect_from:
   - "tips/false-in-jsx.html"
 ---
 
-React umożliwia tworzenie odrębnych komponentów, które hermetyzują (ang. *encapsulate*) pożądane przez ciebie metody. Następnie zrenderowane mogą być wybrane komponenty, w zależności od stanu twojej aplikacji.
+React umożliwia tworzenie odrębnych komponentów, które hermetyzują (ang. *encapsulate*) pożądane przez ciebie metody. Wybrane komponenty mogą być renderowane bądź nie, w zależności od stanu twojej aplikacji.
 
-Renderowanie warunkowe działa w Reakcie tak samo jak warunki JavaScriptowe. Aby stworzyć elementy odzwierciedlające aktualny stan aplikacji, należy użyć operatora takiego jak [if](https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/JavaScript_basics#Warunki) lub [operatora warunkowego](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_warunkowy) oraz pozwolić Reactowi je dopasować poprzez aktualizację interfejsu użytkownika.
+Renderowanie warunkowe działa w Reakcie tak samo, jak instrukcje warunkowe w javascripcie. Aby stworzyć elementy odzwierciedlające aktualny stan aplikacji, należy użyć instrukcji [if](https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/JavaScript_basics#Warunki) lub [operatora warunkowego](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_warunkowy) oraz pozwolić Reactowi je dopasować poprzez aktualizację interfejsu użytkownika.
 
 Rozważmy następujące dwa komponenty:
 
@@ -20,11 +20,11 @@ function UserGreeting(props) {
 }
 
 function GuestGreeting(props) {
-  return <h1>Proszę się zapisać.</h1>;
+  return <h1>Proszę się zarejestrować.</h1>;
 }
 ```
 
-Stworzymy komponent `Greeting` (ang. *Powitanie*), który wyświetlał będzie jeden lub drugi z powyższych komponentów w zależności od tego czy użytkownik jest zalogowany.
+Stworzymy komponent `Greeting` (pol. *Powitanie*), który wyświetlał będzie pierwszy lub drugi z powyższych komponentów w zależności od tego czy użytkownik jest zalogowany.
 
 ```javascript{3-7,11,12}
 function Greeting(props) {
@@ -36,7 +36,7 @@ function Greeting(props) {
 }
 
 ReactDOM.render(
-  // Try changing to isLoggedIn={true}:
+  // Spróbuj zmienić na isLoggedIn={true}:
   <Greeting isLoggedIn={false} />,
   document.getElementById('root')
 );
@@ -44,13 +44,13 @@ ReactDOM.render(
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
 
- Powitanie renderowane przez kod w powyższym przykładzie zależy of wartości właściwości `isLoggedIn`.
+Powitanie renderowane przez kod w powyższym przykładzie zależy od wartości właściwości `isLoggedIn`.
 
 ### Zmienne elementowe {#element-variables}
 
-Elementy mogą być przechowywane w zmiennych. Pozwala to na warunkowe renderowanie określonej części, komponentu podczas gdy pozostałe dane wyjściowe nie ulegają zmianie.
+Elementy mogą być przechowywane w zmiennych. Pozwala to na warunkowe renderowanie określonej części komponentu, podczas gdy pozostałe dane wyjściowe nie ulegają zmianie.
 
-Przyjrzyjmy się dwóm nowym komponentom tworzącym przyciski logowania Zaloguj się (ang. *Login*) oraz Wyloguj się (ang. *Logout*):
+Przyjrzyjmy się dwóm nowym komponentom tworzącym przyciski logowania "Zaloguj się" (ang. *Login*) oraz "Wyloguj się" (ang. *Logout*):
 
 ```js
 function LoginButton(props) {
@@ -72,8 +72,7 @@ function LogoutButton(props) {
 
 W przykładzie poniżej zbudujemy [komponent ze stanem](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) o nazwie `LoginControl` (pol. *kontrola logowania*)
 
-W zależności od aktualnego stanu będzie on renderował przycisk logowania (`<LoginButton />`) lub wylogowania `<LogoutButton />` . Będzie on również renderował komponent `<Greeting />` z poprzedniego przykładu:
-
+W zależności od aktualnego stanu, będzie on renderował przycisk logowania (`<LoginButton />`) lub wylogowania `<LogoutButton />` . Będzie on również renderował komponent `<Greeting />` z poprzedniego przykładu:
 
 ```javascript{20-25,29,30}
 class LoginControl extends React.Component {
@@ -119,12 +118,11 @@ ReactDOM.render(
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-Deklarowanie zmiennej oraz stosowanie warunku `if` to dobry sposób na warunkowe renderowanie komponentu. Czasem jednak przydaje się nieco krótsza składnia. JSX umożliwia kilka różnych opcji warunków wewnątrz liniowych. Przedstawiamy je poniżej.
+Deklarowanie zmiennej oraz stosowanie instrukcji `if` to dobry sposób na warunkowe renderowanie komponentu. Czasem jednak przydaje się nieco krótsza składnia. JSX umożliwia kilka różnych opcji warunków wewnątrzliniowych. Przedstawiamy je poniżej.
 
+### Wewnątrzliniowy warunek `if` z użyciem logicznego operatora `&&` {#inline-if-with-logical--operator}
 
-### Wewnątrz liniowy warunek `if` z użyciem logicznego operatora `&&` {#inline-if-with-logical--operator}
-
-JSX umożliwia stosowanie w nawiasach klamrowych [wszelkich wyrażeń](/docs/introducing-jsx.html#embedding-expressions-in-jsx), łącznie z JavaScriptowym operatorem logicznym `&&`. Jest to przydatne do warunkowego załączania elementu.
+JSX umożliwia stosowanie w nawiasach klamrowych [wszelkich wyrażeń](/docs/introducing-jsx.html#embedding-expressions-in-jsx), łącznie z javascriptowym operatorem logicznym `&&`. Jest to przydatne, gdy chcemy jakiś element dołączyć warunkowo.
 
 ```js{6-10}
 function Mailbox(props) {
@@ -150,15 +148,15 @@ ReactDOM.render(
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
 
-Powyższy kod działa ponieważ w JavaScripcie `true && wyrażenie` zawsze jest ewaluowane jako `wyrażenie`, natomiast `false && wyrażenie` jako `false`.
+Powyższy kod działa, ponieważ w JavaScripcie `true && *wyrażenie*` zawsze jest ewaluowane jako `wyrażenie`, natomiast `false && wyrażenie` jako `false`.
 
-Zatem jeśli warunek jest `true`, element następujący bezpośrednio po `&&` zostanie ukazany w danych wyjściowych. Natomiast jeśli warunek jest `fałszywy`, React zignoruje go i pominie przy renderowaniu.
+Zatem jeśli warunek zwraca `true`, element następujący bezpośrednio po operatorze `&&` zostanie uwzględniony w danych wyjściowych. Natomiast jeśli warunek zwróci `false`, React zignoruje go i pominie przy renderowaniu.
 
-### Warunek if-else z operatorem warunkowym {#inline-if-else-with-conditional-operator}
+### Skrócona forma `if-else` z operatorem warunkowym {#inline-if-else-with-conditional-operator}
 
-Kolejną metodą renderowania warunkowego wewnątrz liniowego jest stosowanie JavaScriptowego operatora warunkowego [`warunek ? true : false`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_warunkowy).
+Kolejną metodą renderowania warunkowego wewnątrz wyrażenia jest stosowanie javascriptowego operatora warunkowego [`warunek ? true : false`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_warunkowy).
 
-W przykładzie poniżej używamy go, aby warunkowo zrenderować mały blok tekstu.
+W przykładzie poniżej używamy go, aby warunkowo wyrenderować niewielki blok tekstu.
 
 ```javascript{5}
 render() {
@@ -187,16 +185,14 @@ render() {
   );
 }
 ```
-Czytelność takich wyrażeń jest oczywiście nieco mniejsza. Podobnie jak w JavaScripcie, wybór odpowiedniego stylu zależy od preferencji twoich i twojego zespołu. Jednocześnie należy pamiętać, że kiedy warunki stają się nazbyt złożone, dobrze jest roważyć możliwość [stworzenia osobnego komponentu](/docs/components-and-props.html#extracting-components)
 
+Czytelność takich wyrażeń jest oczywiście nieco mniejsza. Podobnie jak w JavaScripcie, wybór odpowiedniego stylu zależy od preferencji twoich i twojego zespołu. Jednocześnie należy pamiętać, że kiedy warunki stają się nazbyt złożone, dobrze jest rozważyć możliwość [wydzielenia osobnego komponentu](/docs/components-and-props.html#extracting-components)
 
 ### Zapobieganie renderowaniu komponentu {#preventing-component-from-rendering}
 
-W sporadycznych przypadkach, może zachodzić potrzeba ukrycia się komponentu mimo, iż został on zrenderowany przez inny komponent. Aby to umożliwić należy zastosować wartość `null` zamiast jego renderowanych danych wyjściowych.
+W sporadycznych przypadkach może zachodzić potrzeba ukrycia się komponentu, mimo iż został on już wyrenderowany przez inny komponent. Aby to umożliwić, należy zwrócić zamiast niego wartość `null`.
 
-
-W przykładzie poniżej, renderowanie baneru ostrzegawczego `<WarningBanner />` jest uzależnione od wartości właściwości o nazwie `warn` (ang. *ostrzeż*). Jeśli wartość tej właściwości jest `false`, wówczas komponent ten nie jest renderowany.
-
+W przykładzie poniżej, renderowanie baneru ostrzegawczego `<WarningBanner />` jest uzależnione od wartości właściwości o nazwie `warn` (pol. *ostrzeż*). Jeśli jest ona równa `false`, wówczas komponent ten nie jest renderowany.
 
 ```javascript{2-4,29}
 function WarningBanner(props) {
@@ -244,4 +240,4 @@ ReactDOM.render(
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
 
-Zwrócenie wartości `null` z metody `render` danego komponentu nie ma wpływu na wywoływanie metod cyklu życia tego komponentu. To znaczy, że np. metoda `componentDidUpdate` w dalszym ciągu zostanie wywołana.
+Zwrócenie wartości `null` w metodzie `render` danego komponentu nie ma wpływu na wywoływanie metod cyklu życia tego komponentu. To znaczy, że np. metoda `componentDidUpdate` w dalszym ciągu zostanie wywołana.
