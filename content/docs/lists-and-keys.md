@@ -207,7 +207,7 @@ Podstawową regułą jest to że elementy wewnątrz wywołania `map()` potrzebuj
  
 ### Klucze muszą być unikalne tylko spośród rodzeństwa {#keys-must-only-be-unique-among-siblings}
  
-Klucze używane wewnątrz tablic powinny być unikalne w kontekście swojego rodzeństwa. Jednakże nie muszą one być unikatowe globalnie. Możemy użyć tych samych kluczy gdy tworzymy dwie różne tablice:
+Klucze używane wewnątrz tablic powinny być unikalne w kontekście swojego rodzeństwa. Jednakże nie muszą one być niepowtarzalne globalnie. Możemy użyć tych samych kluczy, gdy tworzymy dwie różne tablice:
  
 ```js{2,5,11,12,19,21}
 function Blog(props) {
