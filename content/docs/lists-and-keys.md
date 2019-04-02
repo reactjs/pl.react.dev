@@ -47,9 +47,9 @@ Ten kod wyświetla wypunktowaną listę liczb od 1 do 5.
  
 ### Podstawowy komponent listy {#basic-list-component}
  
-Zazwyczaj będziesz chciał wyświetlić listę wewnątrz [komponentu](/docs/components-and-props.html).
+Zazwyczaj będziesz wyświetlać listy wewnątrz [komponentu](/docs/components-and-props.html).
  
-Możemy zmienić poprzedni przykład w komponent który akceptuje tablicę `liczb` i zwraca listę elementów.
+Możemy zmienić poprzedni przykład w komponent który akceptuje tablicę liczb `numbers` i zwraca listę elementów.
  
 ```javascript{3-5,7,13}
 function NumberList(props) {
