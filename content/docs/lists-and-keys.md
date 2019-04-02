@@ -108,7 +108,7 @@ const listItems = numbers.map((number) =>
 );
 ```
  
-Najlepszym sposobem wyboru klucza jest użycie unikatowego ciągu znaków który jednoznacznie identyfikuje element listy spośród jego rodzeństwa. Jako klucze często będziesz używał identyfikatór (*ang.* IDs) ze swoich danych:
+Najlepszym sposobem wyboru klucza jest użycie unikatowego ciągu znaków, który jednoznacznie identyfikuje element listy spośród jego rodzeństwa. Jako kluczy często będziesz używać identyfikatorów (ang. *IDs*) ze swoich danych:
  
 ```js{2}
 const todoItems = todos.map((todo) =>
