@@ -137,7 +137,7 @@ Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśn
  
 Klucze mają sens tylko w kontekście otaczającej tablicy.
  
-Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, powinieneś trzymać klucz na elementach `<ListItem />`wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz elementu `ListItem`.
+Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, trzymaj klucz na elementach `<ListItem />` wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz komponentu `ListItem`.
  
 **Przykłaď: Niepoprawne użycie klucza**
  
