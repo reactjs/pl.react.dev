@@ -41,7 +41,7 @@ ReactDOM.render(
 );
 ```
  
-[**Wypróbuj na CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
  
 Ten kod wyświetla wypunktowaną listę liczb od 1 do 5.
  
@@ -93,7 +93,7 @@ ReactDOM.render(
 );
 ```
  
-[**Wypróbuj na CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
  
 ## Klucze {#keys}
  
@@ -201,7 +201,7 @@ ReactDOM.render(
 );
 ```
  
-[**Wypróbuj na CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
  
 Podstawową regułą jest to że elementy wewnątrz wywołania `map()` potrzebują kluczy.
  
@@ -245,7 +245,7 @@ ReactDOM.render(
 );
 ```
  
-[**Wypróbuj na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
  
 Klucze służą Reaktowi jako wskazówka, ale nie są one przekazywane do twoich komponentów. Jeżeli potrzebujesz tych wartości w swoim komponencie, przekaż je jawnie poprzez właściwość z inną nazwą:
  
@@ -286,7 +286,7 @@ ReactDOM.render(
 );
 ```
  
-[**Wypróbuj na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
  
 Klucze służą Reaktowi jako wskazówka, ale nie są one przekazywane do twoich komponentów. Jeżeli potrzebujesz tych wartości w swoim komponencie, przekaż je jawnie poprzez właściwość z inną nazwą:
  
@@ -336,6 +336,6 @@ function NumberList(props) {
 }
 ```
  
-[**Wypróbuj na CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
  
 Czasami dzięki temu kod jest bardziej przejrzysty, jednak ten sposób może być również nadużywany. Tak samo jak w JavaScript, wybór należy do Ciebie czy warto wyodrębnić zmienną aby zwiększyć czytelność. Zapamiętaj że jeżeli in ciało funkcji `map()` jest zbyt zagnieżdżone, to może być dobry czas aby [wyodrębnić komponent](/docs/components-and-props.html#extracting-components).
