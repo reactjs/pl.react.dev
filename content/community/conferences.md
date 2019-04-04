@@ -27,7 +27,7 @@ April 12, 2019 in Amsterdam, The Netherlands
 
 [Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam)
 
-### ReactJS Girls Conference 
+### ReactJS Girls Conference {#reactjs-girls-conference}
 May 3, 2019 in London, UK
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
@@ -52,7 +52,7 @@ June 21, 2019 Chicago, Illinois USA
 
 [Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
 
-### React Rally 2019
+### React Rally 2019 {#react-rally-2019}
 August 22-23, 2019. Salt Lake City, USA.
 
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)

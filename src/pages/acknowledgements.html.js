@@ -26,7 +26,10 @@ const Acknowlegements = ({data, location}) => (
           />
 
           <div css={sharedStyles.markdown}>
-            <p>Chcielibyśmy podziękować osobom, które wniosły wkład w powstanie Reacta:</p>
+            <p>
+              Chcielibyśmy podziękować osobom, które wniosły wkład w powstanie
+              Reacta:
+            </p>
 
             <ul
               css={{
@@ -47,24 +50,32 @@ const Acknowlegements = ({data, location}) => (
             <p>Oprócz tego, jesteśmy wdzięczni:</p>
             <ul>
               <li>
-                <a href="https://github.com/jeffbski">Jeffowi Barczewskiemu</a> za pozwolenie nam na wykorzystanie nazwy{' '}
-                <a href="https://www.npmjs.com/package/react">react</a> dla naszej paczki w rejestrze NPM.
+                <a href="https://github.com/jeffbski">Jeffowi Barczewskiemu</a>{' '}
+                za pozwolenie nam na wykorzystanie nazwy{' '}
+                <a href="https://www.npmjs.com/package/react">react</a> dla
+                naszej paczki w rejestrze NPM.
               </li>
               <li>
-                <a href="https://christopheraue.net/">Christopherowi Aue</a> za pozwolenie nam na wykorzystanie domeny{' '}
+                <a href="https://christopheraue.net/">Christopherowi Aue</a> za
+                pozwolenie nam na wykorzystanie domeny{' '}
                 <a href="https://reactjs.com/">reactjs.com</a> oraz nazwy{' '}
                 <a href="https://twitter.com/reactjs">@reactjs</a> na Twitterze.
               </li>
               <li>
-                <a href="https://github.com/ProjectMoon">ProjectMoon</a> za pozwolenie nam na wykorzystanie nazwy{' '}
-                <a href="https://www.npmjs.com/package/flux">flux</a> dla naszej paczki w rejestrze NPM.
+                <a href="https://github.com/ProjectMoon">ProjectMoon</a> za
+                pozwolenie nam na wykorzystanie nazwy{' '}
+                <a href="https://www.npmjs.com/package/flux">flux</a> dla naszej
+                paczki w rejestrze NPM.
               </li>
               <li>
                 Shane'owi Andersonowi za pozwolenie nam na wykorzystanie nazwy{' '}
-                <a href="https://github.com/react">react</a> dla organizacji na GitHubie.
+                <a href="https://github.com/react">react</a> dla organizacji na
+                GitHubie.
               </li>
               <li>
-                <a href="https://github.com/voronianski">Dmitriowi Voronianskiemu</a>{' '}
+                <a href="https://github.com/voronianski">
+                  Dmitriowi Voronianskiemu
+                </a>{' '}
                 za pozwolenie nam na wykorzystanie motywu{' '}
                 <a href="https://labs.voronianski.com/oceanic-next-color-scheme/">
                   Oceanic Next

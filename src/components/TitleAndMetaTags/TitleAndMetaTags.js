@@ -8,7 +8,8 @@
 import Helmet from 'react-helmet';
 import React from 'react';
 
-const defaultDescription = 'Biblioteka javascriptowa do tworzenia interfejsów użytkownika';
+const defaultDescription =
+  'Biblioteka javascriptowa do tworzenia interfejsów użytkownika';
 
 type Props = {
   title: string,

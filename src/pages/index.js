@@ -133,7 +133,8 @@ class Home extends Component {
                         fontSize: 30,
                       },
                     }}>
-                    Biblioteka javascriptowa do tworzenia interfejsów użytkownika
+                    Biblioteka javascriptowa do tworzenia interfejsów
+                    użytkownika
                   </p>
                   <Flex
                     valign="center"

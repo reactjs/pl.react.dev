@@ -65,9 +65,9 @@ class CodeEditor extends Component {
           Nie można załadować Babela.
           <br />
           <br />
-          Może to być spowodowane wtyczką blokującą reklamy. Jeśli używasz takiej,
-          rozważ dodanie strony reactjs.org do listy wyjątków. Bez tego edytory
-          kodu nie będą działały.
+          Może to być spowodowane wtyczką blokującą reklamy. Jeśli używasz
+          takiej, rozważ dodanie strony reactjs.org do listy wyjątków. Bez tego
+          edytory kodu nie będą działały.
         </span>
       );
     } else if (error != null) {
