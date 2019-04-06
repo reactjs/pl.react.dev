@@ -134,7 +134,7 @@ Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów mo�
  
 Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśnienie, dlaczego klucze są niezbędne](/docs/reconciliation.html#recursing-on-children).
  
-### Wydrębnianie komponentów z kluczami {#extracting-components-with-keys}
+### Wyodrębnianie komponentów z kluczami {#extracting-components-with-keys}
  
 Klucze mają sens tylko w kontekście otaczającej tablicy.
  
