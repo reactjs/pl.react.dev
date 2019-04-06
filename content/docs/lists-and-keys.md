@@ -206,7 +206,7 @@ ReactDOM.render(
  
 Podstawową regułą jest to, że elementy wewnątrz wywołania `map()` potrzebują kluczy.
  
-### Klucze muszą być unikalne tylko spośród rodzeństwa {#keys-must-only-be-unique-among-siblings}
+### Klucze muszą być unikalne tylko wśród rodzeństwa {#keys-must-only-be-unique-among-siblings}
  
 Klucze używane wewnątrz tablic powinny być unikalne w kontekście swojego rodzeństwa. Jednakże nie muszą one być niepowtarzalne globalnie. Możemy użyć tych samych kluczy, gdy tworzymy dwie różne tablice:
  
