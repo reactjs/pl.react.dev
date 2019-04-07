@@ -15,7 +15,7 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-Ta strona zawiera szegółowe odniesienie do definicji klasy reactowego komponentu. Zakłada ona, że znasz fundamentalne zagadnienia Reacta, takie jak [Komponenty i właściwości](/docs/components-and-props.html), i [Stan i cykl życia](/docs/state-and-lifecycle.html). Jeśli nie, przeczytaj je najpierw.
+Ta strona zawiera szegółowe odniesienie do definicji klasy reactowego komponentu. Zakłada ona, że znasz fundamentalne zagadnienia Reacta, takie jak [Komponenty i właściwości](/docs/components-and-props.html), i [Stan i cykl życia](/docs/state-and-lifecycle.html). Jeśli nie, zapoznaj się najpierw z nimi.
 
 ## Ogólne informacje {#overview}
 
@@ -31,7 +31,7 @@ class Welcome extends React.Component {
 
 Jedyna metoda, która *musi* być zdefiniowana w klasie dziedziczącej po `React.Component` nazywa się [`render()`](#render). Wszystkie inne metody opisane na tej stronie są opcjonalne.
 
-**Mocno odradadzamy tworzenie własnych klas bazowych komponentów.** W Reactowych komponentach [wielokrotne użycie kodu jest osiągane przede wszystkim przez kompozycję, a nie dziedziczenie](/docs/composition-vs-inheritance.html).
+**Stanowczo odradadzamy tworzenie własnych klas bazowych komponentów.** W Reactowych komponentach [wielokrotne użycie kodu jest osiągane przede wszystkim przez kompozycję, a nie dziedziczenie](/docs/composition-vs-inheritance.html).
 
 >Uwaga:
 >
@@ -68,7 +68,7 @@ Aktualizacja może być spowodowana zmianami we właściwościach lub stanie kom
 
 >Uwaga:
 >
->Te metody są uznawane za spadek i powinno się [ich unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
+>Te metody są uznawane za przestarzałe i powinno się [ich unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
 >
 >- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 >- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
