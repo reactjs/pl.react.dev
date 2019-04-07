@@ -52,7 +52,7 @@ Jeśli w argumencie `callback` przekażesz funkcję zwrotną, zostanie ona wywo�
 > i należy jej unikać, ponieważ przyszłe wersje Reacta mogą w niektórych przypadkach renderować komponenty asynchronicznie. Jeśli potrzebujesz referencji do instancji korzenia, sugerujemy przekazanie do niego
 > [referencyjnej funkcji zwrotnej](/docs/more-about-refs.html#the-ref-callback-attribute).
 >
->  Używanie `ReactDOM.render()` do odtworzenia (ang. *hydrating*) kontenera renderowanego po stronie serwer jest przestarzałą praktyką i zostanie uniemożliwione w Reakcie 17. Zamiast tego użyj funkcji [`hydrate()`](#hydrate).
+> Używanie `ReactDOM.render()` do odtworzenia (ang. *hydrating*) kontenera renderowanego po stronie serwer jest przestarzałą praktyką i zostanie uniemożliwione w Reakcie 17. Zamiast tego użyj funkcji [`hydrate()`](#hydrate).
 
 * * *
 
@@ -111,4 +111,4 @@ Jeśli komponent renderuje `null` lub `false`, `findDOMNode` zwróci `null`. Je�
 ReactDOM.createPortal(child, container)
 ```
 
-Tworzy portal. Portale zapewniają sposób na [renderowanie potomków do węzła DOM znajdującej się poza hierarchią danego komponentu](/docs/portals.html).
+Tworzy portal. Portale pozwalają na [renderowanie do węzła DOM potomków znajdujących się poza hierarchią danego komponentu](/docs/portals.html).
