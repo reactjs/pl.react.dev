@@ -623,13 +623,13 @@ Napis `displayName` jest używany w komunikatach debugowania. Przeważnie, nie m
 
 * * *
 
-## Instance Properties {#instance-properties-1}
+## Właściwości instancji {#instance-properties-1}
 
 ### `props` {#props}
 
-`this.props` contains the props that were defined by the caller of this component. See [Components and Props](/docs/components-and-props.html) for an introduction to props.
+`this.props` zawiera właściwości, które zostały zdefiniowane przez przywołującego tego komponentu. Po wprowadzenie do właściwości, odwiedź [Komponenty i właściwości](/docs/components-and-props.html).
 
-In particular, `this.props.children` is a special prop, typically defined by the child tags in the JSX expression rather than in the tag itself.
+W szczególności, `this.props.children` jest specjalną właściwością, zazwyczaj zdefiniowaną poprzez potomne tagi w wyrażeniu JSX, a nie w samym tagu instancji.
 
 ### `state` {#state}
 
