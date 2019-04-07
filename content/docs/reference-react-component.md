@@ -583,11 +583,11 @@ Przeważnie powinieneś unikać jakichkolwiek form użycia `forceUpdate()` i odc
 
 * * *
 
-## Class Properties {#class-properties-1}
+## Właściwości Klasy {#class-properties-1}
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props. For example:
+`defaultProps` może być zdefiniowana jako własność na samej klasie komponentu, aby ustawić domyślne właściwości dla tej klasy. Jest ona używana dla właściwości równych `undefined`, ale nie `null`. Dla przykładu:
 
 ```js
 class CustomButton extends React.Component {
@@ -599,11 +599,11 @@ CustomButton.defaultProps = {
 };
 ```
 
-If `props.color` is not provided, it will be set by default to `'blue'`:
+Jeśli `props.color` nie jest podany, zostanie domyślnie ustawiony na `'blue'`:
 
 ```js
   render() {
-    return <CustomButton /> ; // props.color will be set to blue
+    return <CustomButton /> ; // props.color zostanie ustawiony na blue
   }
 ```
 
@@ -611,7 +611,7 @@ If `props.color` is set to null, it will remain null:
 
 ```js
   render() {
-    return <CustomButton color={null} /> ; // props.color will remain null
+    return <CustomButton color={null} /> ; // props.color pozostanie równy null
   }
 ```
 
