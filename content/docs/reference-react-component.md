@@ -607,7 +607,7 @@ Jeśli `props.color` nie jest podany, zostanie domyślnie ustawiony na `'blue'`:
   }
 ```
 
-If `props.color` is set to null, it will remain null:
+Jeśli `props.color` zostanie ustawiony jako `null`, pozostanie nim:
 
 ```js
   render() {
@@ -619,7 +619,7 @@ If `props.color` is set to null, it will remain null:
 
 ### `displayName` {#displayname}
 
-The `displayName` string is used in debugging messages. Usually, you don't need to set it explicitly because it's inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component, see [Wrap the Display Name for Easy Debugging](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) for details.
+Napis `displayName` jest używany w komunikatach debugowania. Przeważnie, nie musisz jawnie go definiować, ponieważ jest on wywnioskowany z nazwy funkcji lub klasy, w której zdefiniowany jest ten komponent. Możesz chcieć jawnie go zdefiniować, jeśli chcesz wyświetlić inną nazwę komponentu przy debugowaniu lub kiedy stworzysz komponent wyższego rzędu, po szczegóły odwiedź [Owiń nazwę wyświetlenia dla łatwego debugowania](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging).
 
 * * *
 
