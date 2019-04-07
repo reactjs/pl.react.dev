@@ -633,10 +633,10 @@ W szczególności, `this.props.children` jest specjalną właściwością, zazwy
 
 ### `state` {#state}
 
-The state contains data specific to this component that may change over time. The state is user-defined, and it should be a plain JavaScript object.
+Stan zawiera dane specyficzne dla tego komponentu, które mogą zmieniać się w czasie. Stan jest definiowany przez użytkownika i powinien być zwykłym javascriptowym obiektem.
 
-If some value isn't used for rendering or data flow (for example, a timer ID), you don't have to put it in the state. Such values can be defined as fields on the component instance.
+Jeśli jakaś wartość nie jest używana do renderowania ani przepływu danych (na przykład, ID licznika czasu), nie musisz umieszczać jej w stanie. Wartości tego typu mogą być zdefiniowane jako pola składowe instancji komponentu.
 
-See [State and Lifecycle](/docs/state-and-lifecycle.html) for more information about the state.
+Po informacje na temat stanu, odwiedź [Stan i cykl życia](/docs/state-and-lifecycle.html).
 
-Never mutate `this.state` directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
+Nigdy nie zmieniaj `this.state` bezpośrednio, gdyż późniejsze wywołanie `setState()` może zastąpić wykonaną przez ciebie zmianę. Traktuj `this.state` jako niezmienny.
