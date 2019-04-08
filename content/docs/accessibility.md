@@ -174,7 +174,7 @@ class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
     // Stwórz referencję do elementu DOM
-    this.poleTekstowe = React.createRef();
+    this.textInput= React.createRef();
   }
   render() {
   // Użyj funkcji zwrotnej `ref`, aby zapisać referencję do pola tekstowego
