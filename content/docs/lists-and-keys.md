@@ -1,30 +1,30 @@
 ---
 id: lists-and-keys
-title: Lists and Keys
+title: Listy i klucze
 permalink: docs/lists-and-keys.html
 prev: conditional-rendering.html
 next: forms.html
 ---
  
-First, let's review how you transform lists in JavaScript.
+Na początku przyjrzymy się, jak przekształca się listy w JavaScripcie.
  
-Given the code below, we use the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function to take an array of `numbers` and double their values. We assign the new array returned by `map()` to the variable `doubled` and log it:
- 
+W kodzie poniżej, użyliśmy funkcji [`map()`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/map), aby podwoić wartość liczb w tablicy `numbers`. Następnie przypisaliśmy nową tablicę zwróconą z funkcji `map()` do zmiennej `doubled` i wyświetliliśmy ją w konsoli:
+
 ```javascript{2}
 const numbers = [1, 2, 3, 4, 5];
 const doubled = numbers.map((number) => number * 2);
 console.log(doubled);
 ```
  
-This code logs `[2, 4, 6, 8, 10]` to the console.
+Kod ten wyświetla w konsoli `[2, 4, 6, 8, 10]`.
  
-In React, transforming arrays into lists of [elements](/docs/rendering-elements.html) is nearly identical.
+W Reakcie przekształcanie tablic w listy [elementów](/docs/rendering-elements.html) przebiega niemalże identyczne.
  
-### Rendering Multiple Components {#rendering-multiple-components}
+### Wyświetlanie wielu komponentów {#rendering-multiple-components}
  
-You can build collections of elements and [include them in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) using curly braces `{}`.
+Możesz zbudować kolekcje elementów i [dodać je do JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) używając nawiasów klamrowych `{}`.
  
-Below, we loop through the `numbers` array using the JavaScript [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. We return a `<li>` element for each item. Finally, we assign the resulting array of elements to `listItems`:
+Poniżej iterujemy tablicę liczb `numbers` używając javascriptowej funkcji [`map()`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/map). Zwracamy element `<li>` dla każdego elementu tablicy. Na koniec przypisujemy powstałą w ten sposób tablicę do zmiennej `listItems`:
  
 ```javascript{2-4}
 const numbers = [1, 2, 3, 4, 5];
@@ -33,7 +33,7 @@ const listItems = numbers.map((number) =>
 );
 ```
  
-We include the entire `listItems` array inside a `<ul>` element, and [render it to the DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+Umieszczamy całą tablicę `listItems` wewnątrz elementu `<ul>` i [wyświetlamy ją w DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
  
 ```javascript{2}
 ReactDOM.render(
@@ -42,15 +42,15 @@ ReactDOM.render(
 );
 ```
  
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
  
-This code displays a bullet list of numbers between 1 and 5.
+Ten kod wyświetla wypunktowaną listę liczb od 1 do 5.
  
-### Basic List Component {#basic-list-component}
+### Podstawowy komponent listy {#basic-list-component}
  
-Usually you would render lists inside a [component](/docs/components-and-props.html).
+Zazwyczaj będziesz wyświetlać listy wewnątrz [komponentu](/docs/components-and-props.html).
  
-We can refactor the previous example into a component that accepts an array of `numbers` and outputs a list of elements.
+Możemy przekształcić poprzedni przykład w komponent, który akceptuje tablicę liczb `numbers` i zwraca listę elementów.
  
 ```javascript{3-5,7,13}
 function NumberList(props) {
@@ -70,9 +70,9 @@ ReactDOM.render(
 );
 ```
  
-When you run this code, you'll be given a warning that a key should be provided for list items. A "key" is a special string attribute you need to include when creating lists of elements. We'll discuss why it's important in the next section.
+Kiedy uruchomisz powyższy kod, dostaniesz ostrzeżenie o tym, że do elementów listy należy dostarczyć właściwość klucza. „Klucz” (ang. *key*) jest specjalnym atrybutem o typie łańcucha znaków, który musisz dodać podczas tworzenia elementów listy. O tym, dlaczego jest to ważne, opowiemy w następnej sekcji.
  
-Let's assign a `key` to our list items inside `numbers.map()` and fix the missing key issue.
+Przypiszmy właściwość `key` do naszych elementów listy wewnątrz `numbers.map()`, czym naprawimy problem brakującego klucza.
  
 ```javascript{4}
 function NumberList(props) {
@@ -94,11 +94,11 @@ ReactDOM.render(
 );
 ```
  
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
  
-## Keys {#keys}
+## Klucze {#keys}
  
-Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
+Klucze pomagają Reaktowi zidentyfikować, które elementy uległy zmianie, zostały dodane lub usunięte. Klucze powinny zostać nadane elementom wewnątrz tablicy, aby elementy zyskały stabilną tożsamość:
  
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
@@ -109,7 +109,7 @@ const listItems = numbers.map((number) =>
 );
 ```
  
-The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys:
+Najlepszym sposobem wyboru klucza jest użycie unikatowego ciągu znaków, który jednoznacznie identyfikuje element listy spośród jego rodzeństwa. Jako kluczy często będziesz używać identyfikatorów (ang. *IDs*) ze swoich danych:
  
 ```js{2}
 const todoItems = todos.map((todo) =>
@@ -119,34 +119,34 @@ const todoItems = todos.map((todo) =>
 );
 ```
  
-When you don't have stable IDs for rendered items, you may use the item index as a key as a last resort:
+Jeśli w danych nie masz stabilnych identyfikatorów dla wyświetlanych elementów, w skrajnym przypadku do określenia klucza możesz użyć indeksu elementu tablicy:
  
 ```js{2,3}
 const todoItems = todos.map((todo, index) =>
-  // Only do this if items have no stable IDs
+  // Rób to tylko w przypadku, gdy elementy nie mają stabilnych identyfikatorów
   <li key={index}>
     {todo.text}
   </li>
 );
 ```
  
-We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robina Pokorny'ego ze [szczegółowym wyjaśnieniem negatywnych aspektów używania indeksu jako klucza](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie użyje indeksów jako kluczy.
  
-Here is an [in-depth explanation about why keys are necessary](/docs/reconciliation.html#recursing-on-children) if you're interested in learning more.
+Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśnienie, dlaczego klucze są niezbędne](/docs/reconciliation.html#recursing-on-children).
  
-### Extracting Components with Keys {#extracting-components-with-keys}
+### Wyodrębnianie komponentów z kluczami {#extracting-components-with-keys}
  
-Keys only make sense in the context of the surrounding array.
+Klucze mają sens tylko w kontekście otaczającej tablicy.
  
-For example, if you [extract](/docs/components-and-props.html#extracting-components) a `ListItem` component, you should keep the key on the `<ListItem />` elements in the array rather than on the `<li>` element in the `ListItem` itself.
+Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, trzymaj klucz na elementach `<ListItem />` wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz komponentu `ListItem`.
  
-**Example: Incorrect Key Usage**
+**Przykłaď: Niepoprawne użycie klucza**
  
 ```javascript{4,5,14,15}
 function ListItem(props) {
   const value = props.value;
   return (
-    // Wrong! There is no need to specify the key here:
+    // Źle! Nie ma potrzeby definiowania klucza tutaj:
     <li key={value.toString()}>
       {value}
     </li>
@@ -156,7 +156,7 @@ function ListItem(props) {
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Wrong! The key should have been specified here:
+    // Źle! Klucz powinien zostać określony w tym miejscu:
     <ListItem value={number} />
   );
   return (
@@ -173,18 +173,18 @@ ReactDOM.render(
 );
 ```
  
-**Example: Correct Key Usage**
+**Przykład: Poprawne użycie klucza**
  
 ```javascript{2,3,9,10}
 function ListItem(props) {
-  // Correct! There is no need to specify the key here:
+  // Dobrze! Nie ma potrzeby definiowania klucza tutaj:
   return <li>{props.value}</li>;
 }
  
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    // Correct! Key should be specified inside the array.
+    // Dobrze! Klucz powinien zostać ustawiony na elementach wewnątrz tablicy.
     <ListItem key={number.toString()}
               value={number} />
   );
@@ -202,13 +202,13 @@ ReactDOM.render(
 );
 ```
  
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
  
-A good rule of thumb is that elements inside the `map()` call need keys.
+Podstawową regułą jest to, że elementy wewnątrz wywołania `map()` potrzebują kluczy.
  
-### Keys Must Only Be Unique Among Siblings {#keys-must-only-be-unique-among-siblings}
+### Klucze muszą być unikalne tylko wśród rodzeństwa {#keys-must-only-be-unique-among-siblings}
  
-Keys used within arrays should be unique among their siblings. However they don't need to be globally unique. We can use the same keys when we produce two different arrays:
+Klucze używane wewnątrz tablic powinny być unikalne w kontekście swojego rodzeństwa. Jednakże nie muszą one być niepowtarzalne globalnie. Możemy użyć tych samych kluczy, gdy tworzymy dwie różne tablice:
  
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -237,8 +237,8 @@ function Blog(props) {
 }
  
 const posts = [
-  {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
-  {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+  {id: 1, title: 'Witaj Świecie', content: 'Witamy uczących się Reacta!'},
+  {id: 2, title: 'Instalacja', content: 'Możesz zainstalować Reacta używając npm.'}
 ];
 ReactDOM.render(
   <Blog posts={posts} />,
@@ -246,9 +246,9 @@ ReactDOM.render(
 );
 ```
  
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
  
-Keys serve as a hint to React but they don't get passed to your components. If you need the same value in your component, pass it explicitly as a prop with a different name:
+Klucze służą Reactowi jako wskazówka, ale nie są one przekazywane do twoich komponentów. Jeżeli potrzebujesz tych wartości w swoim komponencie, przekaż je jawnie poprzez właściwość o innej nazwie:
  
 ```js{3,4}
 const content = posts.map((post) =>
@@ -259,11 +259,11 @@ const content = posts.map((post) =>
 );
 ```
  
-With the example above, the `Post` component can read `props.id`, but not `props.key`.
+W powyższym przykładzie, komponent `Post` może odczytać `props.id`, ale nie `props.key`.
  
-### Embedding map() in JSX {#embedding-map-in-jsx}
+### Użycie map() wewnątrz JSX {#embedding-map-in-jsx}
  
-In the examples above we declared a separate `listItems` variable and included it in JSX:
+W poprzednich przykładach zadeklarowaliśmy oddzielną zmienną `listItems` wewnątrz JSX:
  
 ```js{3-6}
 function NumberList(props) {
@@ -280,7 +280,7 @@ function NumberList(props) {
 }
 ```
  
-JSX allows [embedding any expression](/docs/introducing-jsx.html#embedding-expressions-in-jsx) in curly braces so we could inline the `map()` result:
+JSX pozwala na [wstawienie dowolnego wyrażenia](/docs/introducing-jsx.html#embedding-expressions-in-jsx) wewnątrz nawiasów klamrowych, dzięki temu możemy użyć wyniku funkcji `map()` bez przypisywania go do zmiennej:
  
 ```js{5-8}
 function NumberList(props) {
@@ -296,6 +296,6 @@ function NumberList(props) {
 }
 ```
  
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
  
-Sometimes this results in clearer code, but this style can also be abused. Like in JavaScript, it is up to you to decide whether it is worth extracting a variable for readability. Keep in mind that if the `map()` body is too nested, it might be a good time to [extract a component](/docs/components-and-props.html#extracting-components).
+Czasami dzięki temu kod staje się bardziej przejrzysty, jednak łatwo doprowadzić do nadużywania tego sposobu. Tak samo jak w JavaScripcie, wybór należy do Ciebie, czy warto wyodrębnić zmienną, aby zwiększyć czytelność. Zapamiętaj, że jeżeli ciało funkcji `map()` jest zbyt zagnieżdżone, może to być odpowiedni moment na [wyodrębnienie komponentu](/docs/components-and-props.html#extracting-components).
