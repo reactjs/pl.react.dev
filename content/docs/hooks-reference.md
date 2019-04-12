@@ -82,7 +82,7 @@ Przyciski „+” i „-” wykorzystują formę funkcyjną, ponieważ zaktualiz
 >
 > Inną opcją jest hook `useReducer`, który jest bardziej odpowiedni do zarządzania obiektami stanów, zawierającymi wiele pod-wartości.
 
-#### Leniwa inicjalizacja state {#lazy-initial-state}
+#### Leniwa inicjalizacja stanu {#lazy-initial-state}
 
 Argument `initialState` jest wartością stanu używaną podczas pierwszego rendera. W kolejnych renderowaniach jest on pomijany. Jeśli początkowy stan jest wynikiem kosztownych obliczeń, możesz zamiast tego przekazać funkcję, która zostanie wykonana tylko przy pierwszym renderowaniu:
 
@@ -242,9 +242,9 @@ function Counter({initialState}) {
 >
 >React daje gwarancje, że funkcja `dispatch` jest tożsamościowa i że nie zmienia się podczas kolejnych renderowań. Dlatego też można ją bezpiecznie pominąć na liście zależności `useEffect` i `useCallback`.
 
-#### Specifying the initial state {#specifying-the-initial-state}
+#### Określanie stanu początkowego {#specifying-the-initial-state}
 
-There’s two different ways to initialize `useReducer` state. You may choose either one depending on the use case. The simplest way to pass the initial state as a second argument:
+Istnieją dwa sposoby na inicjalizację stanu `useReducer`. W zależności od potrzeb, możesz wybrać jeden z nich. Najprostszym sposobem jest przekazanie początkowego stanu, jako drugi argument:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -255,13 +255,13 @@ There’s two different ways to initialize `useReducer` state. You may choose ei
 
 >Uwaga
 >
->React doesn’t use the `state = initialState` argument convention popularized by Redux. The initial value sometimes needs to depend on props and so is specified from the Hook call instead. If you feel strongly about this, you can call `useReducer(reducer, undefined, reducer)` to emulate the Redux behavior, but it's not encouraged.
+>React nie używa spopularyzowanej przez Reduxa konwencji argumentu `state = initialState`. Może się zdarzyć, że początkowa wartość zależy od właściwości (ang. *props*), a więc jest ona określana przy wywoływaniu hooka. Nie zalecamy, ale jeśli naprawdę musisz, możesz wywołać `useReducer(reducer, undefined, reducer)`, aby zasymulować zachowanie Reduxa.
 
-#### Lazy initialization {#lazy-initialization}
+#### Leniwa inicjalizacja {#lazy-initialization}
 
-You can also create the initial state lazily. To do this, you can pass an `init` function as the third argument. The initial state will be set to `init(initialArg)`.
+Możesz też leniwe zainicjalizować stan początkowy. Aby to zrobić, musisz przekazać funkcję inicjalizującą `init`, jako trzeci argument. Początkowy stan zostanie ustawiony na wynik wywołania `init(initialArg)`.
 
-It lets you extract the logic for calculating the initial state outside the reducer. This is also handy for resetting the state later in response to an action:
+Pozwala to na wyodrębnić logikę dotyczącą obliczania stanu początkowego poza reduktor. Jest to też przydatne do późniejszego resetowania stanu, w odpowiedzi na akcję:
 
 ```js{1-3,11-12,19,24}
 function init(initialCount) {
@@ -288,7 +288,7 @@ function Counter({initialCount}) {
       Licznik: {state.count}
       <button
         onClick={() => dispatch({type: 'reset', payload: initialCount})}>
-        Reset
+        Zresetuj
       </button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
@@ -297,11 +297,11 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Bailing out of a dispatch {#bailing-out-of-a-dispatch}
+#### Wycofanie się z posłania akcji {#bailing-out-of-a-dispatch}
 
-If you return the same value from a Reducer Hook as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+Jeżeli reduktor zwróci tę samą wartość, jaką aktualnie przyjmuje stan, React „wymiga się” od  aktualizacji potomków i uruchomienia efektów. (React używa [algorytmu porównywania `Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Pamiętaj, że React może nadal wymagać wyrenderowania tego konkretnego komponentu, zanim wymiga się od dalszych zmian. Nie powinno to być problemem, ponieważ React nie będzie niepotrzebnie wchodził „głębiej” w drzewo. Jeśli wykonujesz kosztowne obliczenia podczas renderowania, możesz je zoptymalizować za pomocą `useMemo`.
 
 ### `useCallback` {#usecallback}
 
