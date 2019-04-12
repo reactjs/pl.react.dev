@@ -168,7 +168,7 @@ Now the subscription will only be recreated when `props.source` changes.
 >If you pass an empty array (`[]`), the props and state as inside the effect will always have their initial values. While passing `[]` as the second argument is closer to the familiar `componentDidMount` and `componentWillUnmount` mental model, there are usually [better](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [solutions](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) to avoid re-running effects too often. Also, don't forget that React defers running `useEffect` until after the browser has painted, so doing extra work is less of a problem.
 >
 >
->We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+>Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
 The array of dependencies is not passed as arguments to the effect function. Conceptually, though, that's what they represent: every value referenced inside the effect function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
 
@@ -198,7 +198,7 @@ Komponent wywołujący `useContext` będzie zawsze ponownie renderowany jeśli z
 
 ## Zaawansowane hooki {#additional-hooks}
 
-The following Hooks are either variants of the basic ones from the previous section, or only needed for specific edge cases. Don't stress about learning them up front.
+Poniższe hooki są albo są wariantami   tych podstawowych, z poprzedniego podrozdziału, albo są stosowane tylko w określonych skrajnych wypadkach. Nie stresuj się na myśl o nauce o nich.
 
 ### `useReducer` {#usereducer}
 
@@ -314,17 +314,17 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) callback.
+Zwraca [zapamiętaną](https://en.wikipedia.org/wiki/Memoization) (ang *memoized*) funkcję zwrotną (ang. *callback*).
 
-Pass an inline callback and an array of dependencies. `useCallback` will return a memoized version of the callback that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders (e.g. `shouldComponentUpdate`).
+Przekaż funkcję zwrotną i tablicę zależności. `useCallback` zwróci zapamiętaną wersję funkcji, która zmieni się tylko wtedy, gdy zmieni się któraś z zależności. Jest to przydatne podczas przekazywania funkcji zwrotnych do zoptymalizowanych komponentów podrzędnych, które opierają się na równości referencji, aby zapobiec niepotrzebnym renderowaniom (np. `shouldComponentUpdate`).
 
-`useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`.
+`useCallback(fn, deps)` jest równoważne `useMemo(() => fn, deps)`.
 
 > Uwaga
 >
-> The array of dependencies is not passed as arguments to the callback. Conceptually, though, that's what they represent: every value referenced inside the callback should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+> Tablica zależności nie jest przekazywana jako argumenty do funkcji zwrotnej. Koncepcyjnie jednak to właśnie przedstawiają: każda wartość, do której odwołuje się funkcja zwrotna, powinna również pojawić się w tablicy zależności. W przyszłości dostatecznie zaawansowany kompilator mógłby automatycznie tworzyć tę tablicę.
 >
-> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+> Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
 ### `useMemo` {#usememo}
 
@@ -332,21 +332,21 @@ Pass an inline callback and an array of dependencies. `useCallback` will return 
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) value.
+Zwraca [zapamiętaną](https://en.wikipedia.org/wiki/Memoization) (ang *memoized*) wartość.
 
-Pass a "create" function and an array of dependencies. `useMemo` will only recompute the memoized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.
+Przekaż funkcję tworzącą i tablicę zależności. `useMemo` obliczy ponownie zapamiętaną wartość tylko wtedy, gdy zmieni się któraś z zależności. Ta optymalizacja pozwala uniknąć kosztownych obliczeń przy każdym renderowaniu.
 
-Remember that the function passed to `useMemo` runs during rendering. Don't do anything there that you wouldn't normally do while rendering. For example, side effects belong in `useEffect`, not `useMemo`.
+Pamiętaj, że funkcja przekazana do `useMemo` uruchamiana jest podczas renderowania. Nie należy w niej robić niczego, czego normalnie nie robiono by podczas renderowania. Na przykład wszelkie efekty uboczne przynależą do `useEffect`, a nie `useMemo`.
 
-If no array is provided, a new value will be computed on every render.
+Jeśli nie zostanie przekazana żadna tablica, nowa wartość będzie obliczana przy każdym renderowaniu.
 
-**You may rely on `useMemo` as a performance optimization, not as a semantic guarantee.** In the future, React may choose to "forget" some previously memoized values and recalculate them on next render, e.g. to free memory for offscreen components. Write your code so that it still works without `useMemo` — and then add it to optimize performance.
+**Możesz traktować `useMemo` jako metodę optymalizacji wydajności, nie jako semantyczną gwarancję.** W przyszłości React może zdecydować się „zapomnieć” niektóre z wcześniej zapamiętanych wartości i ponownie obliczyć je przy następnym renderowaniu, np. aby zwolnić pamięć dla komponentów znajdujących się poza ekranem. Pisz swój kod tak, aby działał bez użycia hooka `useMemo`, a następnie dodaj go aby zoptymalizować wydajność.
 
 > Uwaga
 >
-> The array of dependencies is not passed as arguments to the function. Conceptually, though, that's what they represent: every value referenced inside the function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+> Tablica zależności nie jest przekazywana jako argumenty do funkcji zwrotnej. Koncepcyjnie jednak to właśnie przedstawiają: każda wartość, do której odwołuje się funkcja zwrotna, powinna również pojawić się w tablicy zależności. W przyszłości dostatecznie zaawansowany kompilator mógłby automatycznie tworzyć tę tablicę.
 >
-> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+> Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
 ### `useRef` {#useref}
 
