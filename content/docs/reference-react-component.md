@@ -313,7 +313,7 @@ W powyższych przykładach, ważne jest odczytanie własności `scrollHeight` w 
 
 * * *
 
-### Granice błędów {#error-boundaries}
+### Granice błędu {#error-boundaries}
 
 [Granice błędów](/docs/error-boundaries.html) to reactowe komponenty, które wychwytują javascriptowe wyjątki w dowolnych miejscach swojego drzewa komponentów potomnych, zapisują te wyjątki, i pokazują awaryjny interfejs użytkownika zamiast drzewa komponentów, które rzuciło tym wyjątkiem. Granice błędów wychwytują wyjątki podczas renderowania, w metodach cyklu życia, i w konstruktorach całego drzewa potomnego.
 
