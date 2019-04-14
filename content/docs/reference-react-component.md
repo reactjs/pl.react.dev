@@ -349,7 +349,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // Możesz zrenderować dowolny spersonalizowany interfejs użytkownika
+      // Możesz zrenderować dowolny awaryjny interfejs użytkownika
       return <h1>Something went wrong.</h1>;
     }
 
