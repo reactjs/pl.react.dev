@@ -264,7 +264,7 @@ Jeśli jesteś pewny, że chcesz ją napisać własnoręcznie, możesz porówna�
 
 Nie zalecamy wykonywania głębokich porównań lub używania `JSON.stringify()` w metodzie `shouldComponentUpdate()`. Jest to bardzo nieefektywne i negatywnie odbije się na wydajności.
 
-Obecnie, jeśli `shouldComponentUpdate()` zwróci `false`, [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render) i [`componentDidUpdate()`](#componentdidupdate) nie zostana wywołane. W przyszłosci React może traktować `shouldComponentUpdate()` jako wskazówkę, a nie jako ścisłą dyrektywę, a zwrócenie `false` może mimo wszytko skutkować ponownym zrenderowaniem komponentu.
+Obecnie, jeśli `shouldComponentUpdate()` zwróci `false`, [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render) i [`componentDidUpdate()`](#componentdidupdate) nie zostana wywołane. W przyszłosci React może traktować `shouldComponentUpdate()` jako wskazówkę, a nie jako ścisłą dyrektywę, a zwrócenie `false` może mimo wszytko skutkować ponownym wyrenderowaniem komponentu.
 
 * * *
 
