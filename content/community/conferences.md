@@ -12,7 +12,6 @@ Do you know of a local React.js conference? Add it here! (Please keep the list c
 
 ## Upcoming Conferences {#upcoming-conferences}
 
-<<<<<<< HEAD
 ### Reactathon 2019 {#reactathon-2019}
 March 30-31, 2019 in San Francisco, USA
 
@@ -29,9 +28,6 @@ April 12, 2019 in Amsterdam, The Netherlands
 [Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam)
 
 ### ReactJS Girls Conference {#reactjs-girls-conference}
-=======
-### ReactJS Girls Conference
->>>>>>> d211df89290c85261614e6180b82c68fb4bd1058
 May 3, 2019 in London, UK
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
