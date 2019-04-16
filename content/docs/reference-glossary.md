@@ -1,106 +1,106 @@
 ---
 id: glossary
-title: Glossary of React Terms
+title: Słownik terminów reactowych
 layout: docs
 category: Reference
 permalink: docs/glossary.html
 
 ---
 
-## Single-page Application {#single-page-application}
+## Aplikacja jednostronicowa {#single-page-application}
 
-A single-page application is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded.
+Aplikacja jednostronicowa to taka, która wczytuje pojedynczą stronę HTML i wszystkie zasoby (takie jak JavaScript czy CSS) potrzebne do uruchomienia aplikacji. Wszelkie interakcje ze stroną i poszczególnymi podstronami nie wymagają ponownego łączenia z serwerem, co oznacza, że strona nie jest przeładowywana.
 
-Though you may build a single-page application in React, it is not a requirement. React can also be used for enhancing small parts of existing websites with additional interactivity. Code written in React can coexist peacefully with markup rendered on the server by something like PHP, or with other client-side libraries. In fact, this is exactly how React is being used at Facebook.
+Pomimo tego, że aplikacje jednostronicowe można tworzyć za pomocą Reacta, nie jest on do tego konieczny. React może posłużyć do wzbogacania niewielkich fragmentów istniejących stron o dodatkową interaktywność. Napisany kod reactowy może z powodzeniem działać razem z kodem wygenerowanym po stronie serwera np. w PHP, lub innymi bibliotekami klienckimi. Prawdę mówiąc, właśnie w ten sposób React jest używany w Facebooku.
 
-## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
+## ES6, ES2015, ES2016 itp. {#es6-es2015-es2016-etc}
 
-These acronyms all refer to the most recent versions of the ECMAScript Language Specification standard, which the JavaScript language is an implementation of. The ES6 version (also known as ES2015) includes many additions to the previous versions such as: arrow functions, classes, template literals, `let` and `const` statements. You can learn more about specific versions [here](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Skróty te odnoszą się do najnowszych wersji standardu specyfikacji języka ECMAScript, którego implementacją jest język JavaScript. Wersja ES6 (znana również jako ES2015) zawiera wiele dodatkowych mechanizmów, jak np. funkcje strzałkowe, klasy, literały szablonowe, a także wyrażenia `let` oraz `const`. Po więcej informacji na temat poszczególnych wersji sięgnij do [Wikipedii](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
-## Compilers {#compilers}
+## Kompilatory {#compilers}
 
-A JavaScript compiler takes JavaScript code, transforms it and returns JavaScript code in a different format. The most common use case is to take ES6 syntax and transform it into syntax that older browsers are capable of interpreting. [Babel](https://babeljs.io/) is the compiler most commonly used with React.
+Kompilator javascriptowy wczytuje kod javascriptowy, przekształca go i zwraca go w innym formacie. Najczęściej stosuje się go przekształcania składni ES6 w kod zrozumiały dla starszych przeglądarek. [Babel](https://babeljs.io/) jest najbardziej powszechnym kompilatorem używanym wraz z Reactem.
 
-## Bundlers {#bundlers}
+## Bundlery {#bundlers}
 
-Bundlers take JavaScript and CSS code written as separate modules (often hundreds of them), and combine them together into a few files better optimized for the browsers. Some bundlers commonly used in React applications include [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/).
+Bundlery wczytują kod JavaScript i CSS, napisany w formie odrębnych modułów (często liczonych w setkach) i łączą je w kilka plików zoptymalizowanych pod przeglądarki. W środowisku reactowym do najczęściej używanych bundlerów zaliczane są [Webpack](https://webpack.js.org/) oraz [Browserify](http://browserify.org/).
 
-## Package Managers {#package-managers}
+## Menedżery pakietów {#package-managers}
 
-Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
+Menedżery pakietów to narzędzia pozwalające zarządzać zależnościami projektu. W aplikacjach reactowych najczęściej używane są [npm](https://www.npmjs.com/) oraz [Yarn](https://yarnpkg.com/), przy czym obydwa są klientami tego samego rejestru pakietów npm.
 
 ## CDN {#cdn}
 
-CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe. 
+CDN to skrót od Content Delivery Network (pol. *sieć dostarczania zawartości*). CDN-y dostarczają statyczną zawartość przechowywaną w pamięci podręcznej poprzez sieć serwerów rozproszonych po całej kuli ziemskiej.
 
 ## JSX {#jsx}
 
-JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to `React.createElement()` calls which return plain JavaScript objects called "React elements". To get a basic introduction to JSX [see the docs here](/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [here](/docs/jsx-in-depth.html).
+JSX jest rozszerzeniem składni JavaScript. Przypomina języki szablonów, jednak posiada pełną moc JavaScriptu. Kod napisany w JSX jest kompilowany do wywołań funkcji `React.createElement()`, które zwracają obiekty javascriptowe zwane "elementami reactowymi". Aby dowiedzieć się więcej, przeczytaj [wstęp do składni JSX](/docs/introducing-jsx.html) lub [szczegółowy samouczek](/docs/jsx-in-depth.html).
 
-React DOM uses camelCase property naming convention instead of HTML attribute names. For example, `tabindex` becomes `tabIndex` in JSX. The attribute `class` is also written as `className` since `class` is a reserved word in JavaScript:
+React DOM do nazywania właściwości używa konwencji camelCase zamiast nazw atrybutów HTML. Na przykład, `tabindex` jest zapisywany w składni JSX jako `tabIndex`. Z kolei atrybut `class` piszemy jako `className` ze względu na fakt, iż `class` jest w JavaScripcie zarezerwowanym słowem kluczowym:
 
 ```js
-const name = 'Clementine';
+const name = 'Klementyna';
 ReactDOM.render(
-  <h1 className="hello">My name is {name}!</h1>,
+  <h1 className="hello">Mam na imię {name}!</h1>,
   document.getElementById('root')
 );
 ```  
 
-## [Elements](/docs/rendering-elements.html) {#elements}
+## [Elementy](/docs/rendering-elements.html) {#elements}
 
-React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+Elementy reactowe są częściami składowymi aplikacji pisanych za pomocą Reacta. Nietrudno pomylić je z szerzej znanym pojęciem "komponentów". Element opisuje to, co zostanie wyświetlone na ekranie. Elementy reactowe są niezmienne (ang. *immutable*).
 
 ```js
-const element = <h1>Hello, world</h1>;
+const element = <h1>Witaj, świecie</h1>;
 ```
 
-Typically, elements are not used directly, but get returned from components.
+Zazwyczaj jednak elementów nie używa się bezpośrednio jako wartości, lecz zwraca w komponentach.
 
-## [Components](/docs/components-and-props.html) {#components}
+## [Komponenty](/docs/components-and-props.html) {#components}
 
-React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+Komponenty reactowe są niewielkimi kawałkami kodu, często wielokrotnego użytku, które zwracają element reactowy, który ma zostać wyrenderowany na stronie. Najprostszym wariantem reactowego komponentu jest javascriptowa funkcja, która zwraca element reactowy.:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Witaj, {props.name}</h1>;
 }
 ```
 
-Components can also be ES6 classes:
+Komponenty mogą także być klasami ze standardu ES6:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Witaj, {this.props.name}</h1>;
   }
 }
 ```
 
-Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (`<Wrapper/>` **not** `<wrapper/>`). See [this documentation](/docs/components-and-props.html#rendering-a-component) for more information on rendering components. 
+Komponenty można podzielić na unikalne fragmenty funkcjonalności, a następnie używać wewnątrz innych komponentów. Komponenty mogą zwracać inne komponenty, ale także tablice, napisy czy liczby. Należy kierować się zasadą, że jeśli jakiś fragment interfejsu użytkownika jest używany wielokrotnie (np. przycisk, panel, awatar) lub sam w sobie jest dość złożony (np. aplikacja, news, komentarz), staje się odpowiednim kandydatem do bycia komponentem wielokrotnego użytku. Nazwy komponentów powinny zaczynać się od wielkiej litery (`<Wrapper/>`, a **nie** `<wrapper/>`). Po więcej informacji sięgnij do [dokumentacji dotyczącej renderowania komponentów](/docs/components-and-props.html#rendering-a-component). 
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
-`props` are inputs to a React component. They are data passed down from a parent component to a child component.
+`props` (od ang. *properties* = pol. *właściwości*) są danymi wejściowymi dla reactowych komponentów. Przekazuje się je z komponentów nadrzędnych do ich potomków.
 
-Remember that `props` are readonly. They should not be modified in any way:
+Pamiętaj, że właściwości `props` są tylko do odczytu. Nie należy ich w jakikolwiek sposób modyfikować:
 
 ```js
-// Wrong!
+// Źle!
 props.number = 42;
 ```
 
-If you need to modify some value in response to user input or a network response, use `state` instead.
+Jeśli potrzebujesz zmienić którąś wartość w odpowiedzi na akcję użytkownika lub zapytanie do serwera, skorzystaj ze `stanu`.
 
 ### `props.children` {#propschildren}
 
-`props.children` is available on every component. It contains the content between the opening and closing tags of a component. For example:
+Właściwość `props.children` jest dostępna w każdym komponencie. Zawiera wszystko, co znajdzie się między znacznikiem otwierającym i zamykającym danego komponentu, na przykład:
 
 ```js
-<Welcome>Hello world!</Welcome>
+<Welcome>Witaj, świecie!</Welcome>
 ```
 
-The string `Hello world!` is available in `props.children` in the `Welcome` component:
+Napis `Witaj, świecie!` znajdzie się we właściwości `props.children` komponentu `Welcome`:
 
 ```js
 function Welcome(props) {
@@ -108,7 +108,7 @@ function Welcome(props) {
 }
 ```
 
-For components defined as classes, use `this.props.children`:
+W przypadku komponentów zdefiniowanych jako klasy należy skorzystać z `this.props.children`:
 
 ```js
 class Welcome extends React.Component {
