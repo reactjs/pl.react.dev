@@ -42,7 +42,7 @@
     - id: code-splitting
       title: Dzielenie kodu
     - id: context
-      title: Context
+       title: Konteksty
     - id: error-boundaries
       title: Error Boundaries
     - id: forwarding-refs
