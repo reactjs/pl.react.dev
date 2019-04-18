@@ -66,7 +66,7 @@
     - id: reconciliation
       title: Reconciliation
     - id: refs-and-the-dom
-      title: Refs i system DOM
+      title: Referencje a DOM
     - id: render-props
       title: Renderowanie właściwości
     - id: static-type-checking
