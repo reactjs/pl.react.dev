@@ -103,7 +103,7 @@
     - id: javascript-environment-requirements
       title: Wymagania środowiska JavaScript
     - id: glossary
-      title: Glosariusz
+      title: Słownik pojęć
 - title: Hooki (Nowość)
   isOrdered: true
   items:
