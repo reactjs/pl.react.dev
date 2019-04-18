@@ -46,7 +46,7 @@
     - id: error-boundaries
        title: Granice błędów
     - id: forwarding-refs
-      title: Zwracanie Refs
+      title: Przekazywanie referencji
     - id: fragments
       title: Fragments
     - id: higher-order-components
