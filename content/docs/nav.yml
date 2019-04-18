@@ -97,7 +97,7 @@
     - id: test-utils
       title: Narzędzia do testowania
     - id: shallow-renderer
-      title: Shallow Renderer
+      title: Renderowanie płytkie
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
