@@ -82,7 +82,7 @@
 - title: Interfejs API
   items:
     - id: react-api
-      title: Główne API Reacta
+      title: React
       subitems:
         - id: react-component
           title: React.Component
