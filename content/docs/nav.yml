@@ -68,7 +68,7 @@
     - id: refs-and-the-dom
       title: Referencje a DOM
     - id: render-props
-      title: Renderowanie właściwości
+      title: Właściwości renderujące
     - id: static-type-checking
       title: Statyczne typowanie
     - id: strict-mode
