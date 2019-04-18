@@ -79,7 +79,7 @@
       title: Niekontrolowane komponenty
     - id: web-components
       title: Web Components
-- title: Interfejs API
+- title: Dokumentacja API
   items:
     - id: react-api
       title: React
