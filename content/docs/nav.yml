@@ -1,85 +1,85 @@
-- title: Installation
+- title: Instalacja
   items:
     - id: getting-started
-      title: Getting Started
+      title: Podstawowe informacje
     - id: add-react-to-a-website
-      title: Add React to a Website
+      title: Dodaj Reacta do swojej strony
     - id: create-a-new-react-app
-      title: Create a New React App
+      title: Stwórz nową aplikację w Reakcie
     - id: cdn-links
-      title: CDN Links
-- title: Main Concepts
+      title: Linki do CDN-ów
+- title: Podstawowe informacje
   isOrdered: true
   items:
     - id: hello-world
-      title: Hello World
+      title: Witaj, świecie
     - id: introducing-jsx
-      title: Introducing JSX
+      title: Wprowadzenie do JSX
     - id: rendering-elements
-      title: Rendering Elements
+      title: Renderowanie elementów
     - id: components-and-props
-      title: Components and Props
+      title: Komponenty i właściwości
     - id: state-and-lifecycle
-      title: State and Lifecycle
+      title: Stan i cykl życia
     - id: handling-events
-      title: Handling Events
+      title: Obsługa zdarzeń
     - id: conditional-rendering
-      title: Conditional Rendering
+      title: Renderowanie warunkowe
     - id: lists-and-keys
-      title: Lists and Keys
+      title: Listy i klucze
     - id: forms
-      title: Forms
+      title: Formularze
     - id: lifting-state-up
-      title: Lifting State Up
+      title: Wynoszenie stanu w górę
     - id: composition-vs-inheritance
-      title: Composition vs Inheritance
+      title: Kompozycja a dziedziczenie
     - id: thinking-in-react
-      title: Thinking In React
-- title: Advanced Guides
+      title: Myślenie reactowe
+- title: Zaawansowane informacje
   items:
     - id: accessibility
-      title: Accessibility
+      title: Dostępność
     - id: code-splitting
-      title: Code-Splitting
+      title: Dzielenie kodu
     - id: context
-      title: Context
+      title: Konteksty
     - id: error-boundaries
-      title: Error Boundaries
+      title: Granice błędów
     - id: forwarding-refs
-      title: Forwarding Refs
+      title: Przekazywanie referencji
     - id: fragments
-      title: Fragments
+      title: Fragmenty
     - id: higher-order-components
-      title: Higher-Order Components
+      title: Komponenty wyższego rzędu
     - id: integrating-with-other-libraries
-      title: Integrating with Other Libraries
+      title: Integracja z innymi bibliotekami
     - id: jsx-in-depth
-      title: JSX In Depth
+      title: JSX w szczegółach
     - id: optimizing-performance
-      title: Optimizing Performance
+      title: Optymalizacja wydajności
     - id: portals
-      title: Portals
+      title: Portale
     - id: react-without-es6
-      title: React Without ES6
+      title: React bez ES6
     - id: react-without-jsx
-      title: React Without JSX
+      title: React bez JSX
     - id: reconciliation
       title: Reconciliation
     - id: refs-and-the-dom
-      title: Refs and the DOM
+      title: Referencje a DOM
     - id: render-props
-      title: Render Props
+      title: Właściwości renderujące
     - id: static-type-checking
-      title: Static Type Checking
+      title: Statyczne typowanie
     - id: strict-mode
       title: Strict Mode
     - id: typechecking-with-proptypes
-      title: Typechecking With PropTypes
+      title: Sprawdzanie typów z PropTypes
     - id: uncontrolled-components
-      title: Uncontrolled Components
+      title: Niekontrolowane komponenty
     - id: web-components
       title: Web Components
-- title: API Reference
+- title: Dokumentacja API
   items:
     - id: react-api
       title: React
@@ -91,63 +91,63 @@
     - id: react-dom-server
       title: ReactDOMServer
     - id: dom-elements
-      title: DOM Elements
+      title: Elementy DOM
     - id: events
       title: SyntheticEvent
     - id: test-utils
-      title: Test Utilities
+      title: Narzędzia do testowania
     - id: shallow-renderer
-      title: Shallow Renderer
+      title: Renderowanie płytkie
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
-      title: JS Environment Requirements
+      title: Wymagania środowiska JavaScript
     - id: glossary
-      title: Glossary
-- title: Hooks (New)
+      title: Słownik pojęć
+- title: Hooki (Nowość)
   isOrdered: true
   items:
       - id: hooks-intro
-        title: Wprowadzenie do Hooków
+        title: Wprowadzenie do hooków
       - id: hooks-overview
         title: Hooki w pigułce
       - id: hooks-state
-        title: Using the State Hook
+        title: Używanie hooka stanu
       - id: hooks-effect
-        title: Using the Effect Hook
+        title: Używanie hooka efektów
       - id: hooks-rules
-        title: Rules of Hooks
+        title: Zasady korzystania z hooków
       - id: hooks-custom
-        title: Building Your Own Hooks
+        title: Tworzenie własnych hooków
       - id: hooks-reference
-        title: Hooks API Reference
+        title: Hooki - interfejs API
       - id: hooks-faq
-        title: Hooks FAQ
-- title: Contributing
+        title: Hooki - FAQ
+- title: Współpraca
   items:
   - id: how-to-contribute
-    title: How to Contribute
+    title: Jak możesz pomóc
   - id: codebase-overview
-    title: Codebase Overview
+    title: Przegląd kodu
   - id: implementation-notes
-    title: Implementation Notes
+    title: Noty implementacyjne
   - id: design-principles
-    title: Design Principles
+    title: Zasady projektowe
 - title: FAQ
   items:
     - id: faq-ajax
-      title: AJAX and APIs
+      title: AJAX i API
     - id: faq-build
-      title: Babel, JSX, and Build Steps
+      title: Babel, JSX i budowanie aplikacji
     - id: faq-functions
-      title: Passing Functions to Components
+      title: Przekazywanie funkcji do komponentów
     - id: faq-state
-      title: Component State
+      title: Stan komponentu
     - id: faq-styling
-      title: Styling and CSS
+      title: Style i CSS
     - id: faq-structure
-      title: File Structure
+      title: Struktura plików
     - id: faq-versioning
-      title: Versioning Policy
+      title: Polityka wersji
     - id: faq-internals
-      title: Virtual DOM and Internals
+      title: Wirtualny model DOM
