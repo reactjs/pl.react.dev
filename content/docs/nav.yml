@@ -42,13 +42,13 @@
     - id: code-splitting
       title: Dzielenie kodu
     - id: context
-       title: Konteksty
+      title: Konteksty
     - id: error-boundaries
-       title: Granice błędów
+      title: Granice błędów
     - id: forwarding-refs
       title: Przekazywanie referencji
     - id: fragments
-       title: Fragmenty
+      title: Fragmenty
     - id: higher-order-components
       title: Komponenty wyższego rzędu
     - id: integrating-with-other-libraries
