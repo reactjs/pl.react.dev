@@ -49,7 +49,7 @@ npm start
 ```
 
 >Wskazówka
-
+>
 > `npx` w pierwszej linijce powyżej to nie literówka, to [narzędzie uruchamiające pakiety zawarte w npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
 Create React App nie obsługuje ani logiki backendu ani baz danych; tworzy jedynie frontendowy potok budowania (ang. *build pipeline*). Dzięki temu możesz go używać z dowolnie wybranym przez siebie backendem. Create React App zawiera narzędzia takie jak [Babel](http://babeljs.io/) i [webpack](https://webpack.js.org/), ale nie musisz nic o nich wiedzieć, aby z powodzeniem używać ich w swoich projektach.
