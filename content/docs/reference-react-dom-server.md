@@ -22,7 +22,7 @@ Następujące metody mogą zostać użyte zarówno na serwerze, jak i w przeglą
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-Kolejne metody zależą od pakietu (`stream`), który **jest dostępny tylko na serwerze** i nie zadziałają w przeglądarce.
+Kolejne metody zależą od pakietu (`stream`), który **dostępny jest tylko na serwerze** i nie zadziałają w przeglądarce.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
@@ -49,7 +49,7 @@ Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na
 ReactDOMServer.renderToStaticMarkup(element)
 ```
 
-Działa analogicznie do [`renderToString`](#rendertostring), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, których React używa wewnętrznie, takich jak` data-reactroot`. Jest to przydatne jeżeli chcesz używać Reacta, jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
+Działa analogicznie do [`renderToString`](#rendertostring), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, takich jak` data-reactroot` (używanych wewnętrznie przez Reacta). Jest to przydatne, jeśli chcesz używać Reacta jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
 Jeżeli planujesz używać Reacta po stronie klienta aby dodać znacznikom interaktywności nie używaj tej metody. Zamiast tego użyj [`renderToString`](#rendertostring) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
 
@@ -79,7 +79,7 @@ Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na
 ReactDOMServer.renderToStaticNodeStream(element)
 ```
 
-Działa analogicznie do [`renderToNodeStream`](#rendertonodestream), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, których React używa wewnętrznie, takich jak` data-reactroot`. Jest to przydatne jeżeli chcesz używać Reacta, jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
+Działa analogicznie do [`renderToNodeStream`](#rendertonodestream), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, takich jak` data-reactroot` (używanych wewnętrznie przez Reacta). Jest to przydatne, jeśli chcesz używać Reacta jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
 Zwrócony przez strumień kod HTML jest identyczny do tego, co zwróciłoby [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
 
