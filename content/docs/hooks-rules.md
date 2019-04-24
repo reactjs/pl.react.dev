@@ -28,7 +28,7 @@ Przestrzegając tej zasady, upewniasz się, że cała logika związana ze stanem
 Wydaliśmy wtyczkę dla ESLinta o nazwie [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), która wymusza stosowanie tych dwóch zasad. Jeśli chcesz ją wypróbować, możesz dodać ją do swojego projektu w następujący sposób:
 
 ```bash
-npm install eslint-plugin-react-hooks
+npm install eslint-plugin-react-hooks --save-dev
 ```
 
 ```js
