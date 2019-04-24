@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/react-dom-server.html
 ---
 
-The `ReactDOMServer` object enables you to render components to static markup. Typically, it's used on a Node server:
+Obiekt `ReactDOMServer` pozwala na renderowanie komponentów do statycznych znaczników. Zazwyczaj jest używany na serwerze Node:
 
 ```js
 // ES modules
@@ -15,21 +15,21 @@ import ReactDOMServer from 'react-dom/server';
 var ReactDOMServer = require('react-dom/server');
 ```
 
-## Overview {#overview}
+## Ogólne informacje {#overview}
 
-The following methods can be used in both the server and browser environments:
+Następujące metody mogą zostać użyte zarówno na serwerze, jak i w przeglądarce:
 
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-These additional methods depend on a package (`stream`) that is **only available on the server**, and won't work in the browser.
+Kolejne metody zależą od pakietu (`stream`), który **jest dostępny tylko na serwerze** i nie zadziałają w przeglądarce.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
 
 * * *
 
-## Reference {#reference}
+## Dokumentacja {#reference}
 
 ### `renderToString()` {#rendertostring}
 
@@ -37,9 +37,9 @@ These additional methods depend on a package (`stream`) that is **only available
 ReactDOMServer.renderToString(element)
 ```
 
-Render a React element to its initial HTML. React will return an HTML string. You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.
+Renderuje reactowy element do jego początkowego kodu HTML. React zwróci ciąg znaków HTML. Możesz użyć tej metody do wygenerowania kodu HTML po stronie serwera, a następnie odesłania znaczników, jako odpowiedzi na początkowe zapytanie, aby przyśpieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowania stron w celach SEO.
 
-If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
+Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Co poprawi wydajność i wrażenia z pierwszego ładowania.
 
 * * *
 
@@ -49,9 +49,9 @@ If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that 
 ReactDOMServer.renderToStaticMarkup(element)
 ```
 
-Similar to [`renderToString`](#rendertostring), except this doesn't create extra DOM attributes that React uses internally, such as `data-reactroot`. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.
+Działa analogicznie do [`renderToString`](#rendertostring), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, których React używa wewnętrznie, takich jak` data-reactroot`. Jest to przydatne jeżeli chcesz używać Reacta, jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
-If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToString`](#rendertostring) on the server and [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on the client.
+Jeżeli planujesz używać Reacta po stronie klienta aby dodać znacznikom interaktywności nie używaj tej metody. Zamiast tego użyj [`renderToString`](#rendertostring) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
 
 * * *
 
@@ -61,15 +61,15 @@ If you plan to use React on the client to make the markup interactive, do not us
 ReactDOMServer.renderToNodeStream(element)
 ```
 
-Render a React element to its initial HTML. Returns a [Readable stream](https://nodejs.org/api/stream.html#stream_readable_streams) that outputs an HTML string. The HTML output by this stream is exactly equal to what [`ReactDOMServer.renderToString`](#rendertostring) would return. You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.
+Renderuje reactowy element do jego początkowego kodu HTML. Zwraca [strumień do odczytu](https://nodejs.org/api/stream.html#stream_readable_streams), który na wyjściu zwróci ciąg znaków HTML. Zwrócony przez strumień kod HTML jest identyczny do tego, co zwróciłoby [`ReactDOMServer.renderToString`](#rendertostring). Możesz użyć tej metody do wygenerowania kodu HTML po stronie serwera, a następnie odesłania znaczników, jako odpowiedzi na początkowe zapytanie, aby przyśpieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowania stron w celach SEO.
 
-If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
+Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Co poprawi wydajność i wrażenia z pierwszego ładowania.
 
-> Note:
+> Uwaga:
 >
-> Server-only. This API is not available in the browser.
+> Do użycia tylko po stronie serwera. Ten interfejs API nie jest dostępny w przeglądarce.
 >
-> The stream returned from this method will return a byte stream encoded in utf-8. If you need a stream in another encoding, take a look at a project like [iconv-lite](https://www.npmjs.com/package/iconv-lite), which provides transform streams for transcoding text.
+> Strumień zwrócony z tej metody zwróci strumień bajtów zakodowany w utf-8. Jeśli potrzebujesz strumienia w innym kodowaniu, sprawdź projekt taki jak [iconv-lite](https://www.npmjs.com/package/iconv-lite), który dostarcza strumienie transformacji do transkodowania tekstu.
 
 * * *
 
@@ -79,14 +79,14 @@ If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that 
 ReactDOMServer.renderToStaticNodeStream(element)
 ```
 
-Similar to [`renderToNodeStream`](#rendertonodestream), except this doesn't create extra DOM attributes that React uses internally, such as `data-reactroot`. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.
+Działa analogicznie do [`renderToNodeStream`](#rendertonodestream), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, których React używa wewnętrznie, takich jak` data-reactroot`. Jest to przydatne jeżeli chcesz używać Reacta, jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
-The HTML output by this stream is exactly equal to what [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup) would return.
+Zwrócony przez strumień kod HTML jest identyczny do tego, co zwróciłoby [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
 
-If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToNodeStream`](#rendertonodestream) on the server and [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on the client.
+Jeżeli planujesz używać Reacta po stronie klienta aby dodać znacznikom interaktywności nie używaj tej metody. Zamiast tego użyj [`renderToNodeStream`](#rendertonodestream) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
 
-> Note:
+> Uwaga:
 >
-> Server-only. This API is not available in the browser.
+> Do użycia tylko po stronie serwera. Ten interfejs API nie jest dostępny w przeglądarce.
 >
-> The stream returned from this method will return a byte stream encoded in utf-8. If you need a stream in another encoding, take a look at a project like [iconv-lite](https://www.npmjs.com/package/iconv-lite), which provides transform streams for transcoding text.
+> Strumień zwrócony z tej metody zwróci strumień bajtów zakodowany w utf-8. Jeśli potrzebujesz strumienia w innym kodowaniu, sprawdź projekt taki jak [iconv-lite](https://www.npmjs.com/package/iconv-lite), który dostarcza strumienie transformacji do transkodowania tekstu.
