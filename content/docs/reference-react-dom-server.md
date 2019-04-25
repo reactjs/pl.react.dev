@@ -61,7 +61,7 @@ Jeżeli planujesz używać Reacta po stronie klienta aby dodać znacznikom inter
 ReactDOMServer.renderToNodeStream(element)
 ```
 
-Renderuje reactowy element do jego początkowego kodu HTML. Zwraca [strumień do odczytu](https://nodejs.org/api/stream.html#stream_readable_streams), który na wyjściu zwróci ciąg znaków HTML. Zwrócony przez strumień kod HTML jest identyczny do tego, co zwróciłoby [`ReactDOMServer.renderToString`](#rendertostring). Możesz użyć tej metody do wygenerowania kodu HTML po stronie serwera, a następnie odesłania znaczników, jako odpowiedzi na początkowe zapytanie, aby przyśpieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowania stron w celach SEO.
+Renderuje reactowy element do jego początkowego kodu HTML. Zwraca [strumień do odczytu](https://nodejs.org/api/stream.html#stream_readable_streams), który na wyjściu zwróci ciąg znaków HTML. Zwrócony przez strumień kod HTML jest identyczny z tym, co zwróciłoby [`ReactDOMServer.renderToString`](#rendertostring). Możesz użyć tej metody do wygenerowania kodu HTML po stronie serwera, a następnie odesłania znaczników, jako odpowiedzi na początkowe zapytanie, aby przyśpieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowania stron w celach pozycjonowania (ang. SEO).
 
 Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Co poprawi wydajność i wrażenia z pierwszego ładowania.
 
