@@ -49,7 +49,7 @@ Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na
 ReactDOMServer.renderToStaticMarkup(element)
 ```
 
-Działa analogicznie do [`renderToString`](#rendertostring), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, takich jak` data-reactroot` (używanych wewnętrznie przez Reacta). Jest to przydatne, jeśli chcesz używać Reacta jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
+Działa analogicznie do [`renderToString`](#rendertostring), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, takich jak `data-reactroot` (używanych wewnętrznie przez Reacta). Jest to przydatne, jeśli chcesz używać Reacta jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
 Jeżeli planujesz używać Reacta po stronie klienta aby dodać znacznikom interaktywności nie używaj tej metody. Zamiast tego użyj [`renderToString`](#rendertostring) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
 
@@ -81,7 +81,7 @@ ReactDOMServer.renderToStaticNodeStream(element)
 
 Działa analogicznie do [`renderToNodeStream`](#rendertonodestream), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, takich jak` data-reactroot` (używanych wewnętrznie przez Reacta). Jest to przydatne, jeśli chcesz używać Reacta jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
-Zwrócony przez strumień kod HTML jest identyczny do tego, co zwróciłoby [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
+Zwrócony przez strumień kod HTML jest identyczny z tym, co zwróciłoby [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
 
 Jeżeli planujesz używać Reacta po stronie klienta aby dodać znacznikom interaktywności nie używaj tej metody. Zamiast tego użyj [`renderToNodeStream`](#rendertonodestream) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
 
