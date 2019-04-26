@@ -54,7 +54,11 @@ npm start
 
 Create React App nie obsługuje ani logiki backendu ani baz danych; tworzy jedynie frontendowy potok budowania (ang. *build pipeline*). Dzięki temu możesz go używać z dowolnie wybranym przez siebie backendem. Create React App zawiera narzędzia takie jak [Babel](http://babeljs.io/) i [webpack](https://webpack.js.org/), ale nie musisz nic o nich wiedzieć, aby z powodzeniem używać ich w swoich projektach.
 
+<<<<<<< HEAD
 Kiedy uznasz, że twoja aplikacja jest gotowa do wdrożenia do środowiska produkcyjnego, zastosuj komendę `npm run build`. Dzięki temu uzyskasz zoptymalizowaną wersję swojej aplikacji. Znajdziesz ją w folderze `build`. Więcej informacji na temat Create React App znajdziesz w [pliku README](https://github.com/facebookincubator/create-react-app#create-react-app-) oraz w tym [Przewodniku użytkownika](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
+=======
+When you're ready to deploy to production, running `npm run build` will create an optimized build of your app in the `build` folder. You can learn more about Create React App [from its README](https://github.com/facebookincubator/create-react-app#create-react-app--) and the [User Guide](https://facebook.github.io/create-react-app/).
+>>>>>>> 4244fc646618de6bae934686f93dd04c9000d9ae
 
 ### Next.js {#nextjs}
 
@@ -70,7 +74,11 @@ Zapoznaj się z Gatsbym poprzez [oficjalny przewodnik](https://www.gatsbyjs.org/
 
 ### Bardziej elastyczne zestawy narzędziowe {#more-flexible-toolchains}
 
+<<<<<<< HEAD
 Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają większą dowolność konfiguracji. Polecamy je bardziej doświadczonym użytkownikom.
+=======
+The following toolchains offer more flexibility and choice. We recommend them to more experienced users:
+>>>>>>> 4244fc646618de6bae934686f93dd04c9000d9ae
 
 - **[Neutrino](https://neutrinojs.org/)** łączy w sobie siłę [webpacka](https://webpack.js.org/) z prostotą ustawień domyślnych. Zestaw ten zawiera ustawienia domyślne dla [aplikacji reactowych](https://neutrinojs.org/packages/react/) i [komponentów reactowych](https://neutrinojs.org/packages/react-components/).
 
