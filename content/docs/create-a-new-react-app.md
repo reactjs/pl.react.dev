@@ -70,7 +70,7 @@ Zapoznaj się z Gatsbym poprzez [oficjalny przewodnik](https://www.gatsbyjs.org/
 
 ### Bardziej elastyczne zestawy narzędziowe {#more-flexible-toolchains}
 
-Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają większą dowolność konfiguracji. Polecamy je bardziej doświadczonym użytkownikom.
+Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają większą dowolność konfiguracji. Polecamy je bardziej doświadczonym użytkownikom:
 
 - **[Neutrino](https://neutrinojs.org/)** łączy w sobie siłę [webpacka](https://webpack.js.org/) z prostotą ustawień domyślnych. Zestaw ten zawiera ustawienia domyślne dla [aplikacji reactowych](https://neutrinojs.org/packages/react/) i [komponentów reactowych](https://neutrinojs.org/packages/react-components/).
 

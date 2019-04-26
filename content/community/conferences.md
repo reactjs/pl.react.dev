@@ -17,7 +17,7 @@ April 24-26 in Helsinki, Finland
 
 [Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
 
-### ReactJS Girls Conference
+### ReactJS Girls Conference {#reactjs-girls-conference}
 May 3, 2019 in London, UK
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
