@@ -81,12 +81,12 @@ ReactDOMServer.renderToStaticNodeStream(element)
 
 Działa analogicznie do [`renderToNodeStream`](#rendertonodestream), z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, takich jak` data-reactroot` (używanych wewnętrznie przez Reacta). Przydaje się, jeśli chcesz używać Reacta jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
-Zwrócony przez strumień kod HTML jest identyczny z tym, co zwróciłoby [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
+Kod HTML zwrócony przez strumień jest identyczny z tym, jaki zwróciłaby funkcja [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
 
-Jeżeli planujesz używać Reacta po stronie klienta aby dodać znacznikom interaktywności nie używaj tej metody. Zamiast tego użyj [`renderToNodeStream`](#rendertonodestream) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
+Jeżeli planujesz używać Reacta po stronie klienta w celu dodania znacznikom interaktywności, nie używaj tej metody. Zamiast niej użyj [`renderToNodeStream`](#rendertonodestream) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
 
 > Uwaga:
 >
 > Do użycia tylko po stronie serwera. Ten interfejs API nie jest dostępny w przeglądarce.
 >
-> Strumień zwrócony z tej metody zwróci strumień bajtów zakodowany w utf-8. Jeśli potrzebujesz strumienia w innym kodowaniu, sprawdź projekt taki jak [iconv-lite](https://www.npmjs.com/package/iconv-lite), który dostarcza strumienie transformacji do transkodowania tekstu.
+> Strumień zwrócony przez tę metodę zwróci strumień bajtów zakodowany w utf-8. Jeśli potrzebujesz strumienia z innym kodowaniem, skorzystaj na przykład z paczki [iconv-lite](https://www.npmjs.com/package/iconv-lite), która dostarcza strumienie transformujące do transkodowania tekstu.
