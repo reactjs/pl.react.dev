@@ -115,11 +115,7 @@ Ta sekcja dokumentacji może okazać się przydatna, jeśli chcesz dowiedzieć s
 
 Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie cię nic ważnego, jeśli będziesz śledzić jedynie bloga.
 
-<<<<<<< HEAD
-Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md)
-=======
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release [in the `CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/master/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
->>>>>>> 4244fc646618de6bae934686f93dd04c9000d9ae
+Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md), a także na [liście opublikowanych wersji](https://github.com/facebook/react/releases).
 
 ## Dokumentacje wersji {#versioned-documentation}
 

@@ -198,11 +198,7 @@ Powyższy interfejs API zastąpił przestarzałą funkcję `React.addons.cloneWi
 React.createFactory(type)
 ```
 
-<<<<<<< HEAD
-Zwraca funkcję, która tworzy reaktowy element danego typu. Tak jak [`React.createElement()`](#createElement), argument `type`, może być zarówno nazwą znacznika HTML (np. `'div'` lub `'span'`), [komponentem reactowym](/docs/components-and-props.html) (klasą lub funkcją) lub [fragmentem reactowym](#reactfragment).
-=======
-Return a function that produces React elements of a given type. Like [`React.createElement()`](#createelement), the type argument can be either a tag name string (such as `'div'` or `'span'`), a [React component](/docs/components-and-props.html) type (a class or a function), or a [React fragment](#reactfragment) type.
->>>>>>> 4244fc646618de6bae934686f93dd04c9000d9ae
+Zwraca funkcję, która tworzy reaktowy element danego typu. Tak jak [`React.createElement()`](#createElement), argument `type` może być zarówno nazwą znacznika HTML (np. `'div'` lub `'span'`), [komponentem reactowym](/docs/components-and-props.html) (klasą lub funkcją) lub [fragmentem reactowym](#reactfragment).
 
 Ta funkcja pomocnicza jest uznawana za przestarzałą i radzimy korzystać z JSX lub bezpośrednio z `React.createElement()`.
 
