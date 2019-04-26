@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/react-dom-server.html
 ---
 
-Obiekt `ReactDOMServer` pozwala na renderowanie komponentów do statycznych znaczników. Zazwyczaj jest używany na serwerze Node:
+Obiekt `ReactDOMServer` pozwala na renderowanie komponentów do statycznych znaczników. Zazwyczaj jest używany na serwerze Node'owym:
 
 ```js
 // ES modules
@@ -22,7 +22,7 @@ Następujące metody mogą zostać użyte zarówno na serwerze, jak i w przeglą
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-Kolejne metody zależą od pakietu (`stream`), który **dostępny jest tylko na serwerze** i nie zadziałają w przeglądarce.
+Kolejne metody zależą od pakietu (`stream`), który **dostępny jest tylko na serwerze**, i nie zadziałają w przeglądarce.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
@@ -37,7 +37,7 @@ Kolejne metody zależą od pakietu (`stream`), który **dostępny jest tylko na 
 ReactDOMServer.renderToString(element)
 ```
 
-Renderuje reactowy element do jego początkowego kodu HTML. React zwróci ciąg znaków HTML. Możesz użyć tej metody do wygenerowania kodu HTML po stronie serwera, a następnie odesłania znaczników, jako odpowiedzi na początkowe zapytanie, aby przyśpieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowania stron w celach SEO.
+Renderuje reactowy element do jego początkowego kodu HTML, zwracając go w formie ciągu znaków. Możesz użyć tej metody, aby wygenerować kod HTML po stronie serwera, a następnie wysłać znaczniki jako odpowiedzi na pierwsze żądanie, aby przyspieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowanie jej w celach SEO.
 
 Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Co poprawi wydajność i wrażenia z pierwszego ładowania.
 
