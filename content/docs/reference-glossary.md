@@ -120,47 +120,47 @@ class Welcome extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-A component needs `state` when some data associated with it changes over time. For example, a `Checkbox` component might need `isChecked` in its state, and a `NewsFeed` component might want to keep track of `fetchedPosts` in its state.
+Komponent potrzebuje własnego stanu (`state`), gdy powiązane z nim dane zmieniają się w czasie. Na przykład, komponent `Checkbox` w zmiennej `isChecked` mógłby śledzić, czy jest zaznaczony, a komponent `NewsFeed` mógłby przechowywać pobrane posty w `fetchedPosts`.
 
-The most important difference between `state` and `props` is that `props` are passed from a parent component, but `state` is managed by the component itself. A component cannot change its `props`, but it can change its `state`.
+Najistotniejszą różnicą pomiędzy `state` i `props` jest to, że właściwości `props` są dostarczane przez komponent nadrzędny, a stanem `state` zarządza sam komponent. Komponent nie może modyfikować swoich właściwości `props`, ale może zmieniać swój stan `state`.
 
-For each particular piece of changing data, there should be just one component that "owns" it in its state. Don't try to synchronize states of two different components. Instead, [lift it up](/docs/lifting-state-up.html) to their closest shared ancestor, and pass it down as props to both of them.
+Dla każdego fragmentu danych zmieniających się w czasie powinien istnieć tylko jeden komponent, które taki stan "posiada" na wyłączność. Nie próbuj synchronizować stanów dwóch komponentów. Zamiast tego [wynieś stan w górę](/docs/lifting-state-up.html) do najbliższego przodka i z niego przekaż stan w dół za pomocą właściwości `props`.
 
-## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
+## [Metody cyklu życia](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
-Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM ([mounting](/docs/react-component.html#mounting)), when the component updates, and when the component gets unmounted or removed from the DOM.
+Metody cyklu życia to specjalne funkcje uruchamiane w trakcie różnych faz życia komponentu. Istnieją takie, które uruchamiane są podczas tworzenia komponentu i wstawiania go do drzewa DOM (tzw. [montowanie](/docs/react-component.html#mounting)), inne gdy komponent jest aktualizowany, a jeszcze inne gdy jest odmontowywany lub usuwany z drzewa DOM.
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Kontrolowane](/docs/forms.html#controlled-components) vs. [niekontrolowane komponenty](/docs/uncontrolled-components.html)
 
-React has two different approaches to dealing with form inputs. 
+React zapewnia dwa różne podejścia do obsługi pól formularza.
 
-An input form element whose value is controlled by React is called a *controlled component*. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+Pole formularza, którego wartością zarządza React, jest nazywane *komponentem kontrolowanym*. Gdy użytkownik wprowadzi do niego dane, wywoływana jest odpowiednia procedura obsługi zdarzenia i to twój kod decyduje, czy wartość jest poprawna (poprzez ponowne wyrenderowanie z nową wartością). Jeśli samodzielnie nie wyrenderujesz ponownie danego pola, nie zmieni się ono na ekranie.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
+Z kolej *komponent niekontrolowany* działa tak, jak wszystkie pola formularza istniejące poza Reactem. Gdy użytkownik wprowadzi do takiego pola (np. pola tekstowego, pola wyboru itp.), zmiana jego wartości następuje automatycznie, bez konieczności obsługiwania tego w kodzie Reactowym. Oznacza to również, że nie możesz wymusić określonej wartości pola.
 
-In most cases you should use controlled components.
+W większości przypadków zalecamy korzystanie z komponentów kontrolowanych.
 
-## [Keys](/docs/lists-and-keys.html) {#keys}
+## [Klucze](/docs/lists-and-keys.html) {#keys}
 
-A "key" is a special string attribute you need to include when creating arrays of elements. Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside an array to give the elements a stable identity.
+Klucz `key` to specjalny atrybut tekstowy, wymagany przy tworzeniu tablic elementów. Klucze pozwalają Reactowi zidentyfikować, które elementy listy zostały zmienione, dodane bądź usunięte. Służą również do nadania elementom tablicy stabilnego identyfikatora.
 
-Keys only need to be unique among sibling elements in the same array. They don't need to be unique across the whole application or even a single component.
+Klucze muszą być unikalne tylko pośród "rodzeństwa" z tej samej tablicy, lecz mogą się powtarzać w ramach całej aplikacji czy nawet wewnątrz tego samego komponentu.
 
-Don't pass something like `Math.random()` to keys. It is important that keys have a "stable identity" across re-renders so that React can determine when items are added, removed, or re-ordered. Ideally, keys should correspond to unique and stable identifiers coming from your data, such as `post.id`.
+Do określania kluczy nie używaj wartości typu `Math.random()`. Ważne jest, by klucze były "stabilnymi identyfikatorami" w kolejnych renderowaniach. Dzięki temu React może wykryć, które elementy zostały dodane, usunięte lub zmieniły kolejność. Najlepiej nadają się do tego unikalne, stabilne identifykatory pochodzące z danych, np. `post.id`.
 
-## [Refs](/docs/refs-and-the-dom.html) {#refs}
+## [Referencje `ref`](/docs/refs-and-the-dom.html) {#refs}
 
-React supports a special attribute that you can attach to any component. The `ref` attribute can be an object created by [`React.createRef()` function](/docs/react-api.html#reactcreateref) or a callback function, or a string (in legacy API). When the `ref` attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
+React wspiera specjalny atrybut, którego można użyć na dowolnym komponencie. Atrybut `ref` może być obiektem utworzonym przy użyciu [`funkcji React.createRef()`](/docs/react-api.html#reactcreateref), dowolną funkcją zwrotną lub ciągiem znaków (w starym API). Gdy `ref` jest funkcją zwrotną, jest ona wywoływana jednym argumentem: elementem DOM odpowiadającym komponentowi lub instancją klasy (w zależności od typu komponentu). Pozwala to na bezpośredni dostęp do API elementu DOM lub instancji klasy.
 
-Use refs sparingly. If you find yourself often using refs to "make things happen" in your app, consider getting more familiar with [top-down data flow](/docs/lifting-state-up.html).
+Z referencji korzystaj sporadycznie. Jeśli zauważysz, że używasz ich dość często do sprawienia, żeby "coś zaczęło działać", sugerujemy zapoznać się z [przepływem danych z góry na dół](/docs/lifting-state-up.html).
 
-## [Events](/docs/handling-events.html) {#events}
+## [Zdarzenia](/docs/handling-events.html) {#events}
 
-Handling events with React elements has some syntactic differences:
+Obsługa zdarzeń w elementach reactowych ma kilka różnic składniowych:
 
-* React event handlers are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* Nazwy procedur obsługi zdarzeń używają konwencji camelCase, a nie są pisane małymi literami.
+* W składni JSX procedury obsługi zdarzeń przekazuje się jako funkcje, a nie jako ciągi znaków.
 
-## [Reconciliation](/docs/reconciliation.html) {#reconciliation}
+## [Rekoncyliacja](/docs/reconciliation.html) {#reconciliation}
 
 When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called "reconciliation".
