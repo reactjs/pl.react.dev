@@ -163,4 +163,4 @@ Obsługa zdarzeń w elementach reactowych ma kilka różnic składniowych:
 
 ## [Rekoncyliacja](/docs/reconciliation.html) {#reconciliation}
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called "reconciliation".
+Gdy zmieniają się właściwości lub stan komponentu, React decyduje, czy konieczna jest aktualizacja drzewa DOM, poprzez porównanie nowo zwróconego elementu z jego poprzednią wersją. Jeśli elementy różnią się, drzewo DOM jest aktualizowane. Proces ten nazywany jest "rekoncyliacją" (ang. *reconciliation*).
