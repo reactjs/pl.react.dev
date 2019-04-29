@@ -99,7 +99,7 @@ Czasem ludzie preferują książki i kursy wideo stworzone przez innych użytkow
 
 ### Zaawansowane pojęcia {#advanced-concepts}
 
-Kiedy będziesz się już czuć komfortowo z [podstawowymi pojęciami](#main-concepts), a za sobą będziesz mieć trochę zabawy z kodem w Reakcie, mogą zainteresować cię bardziej zaawansowane zagadnienia. Ta sekcja zapozna cię z przydatnymi, acz rzadziej używanymi funkcjonalnościami, jak [konteksty (ang. *contexts*)](/docs/context.html) czy [referencje (ang. *refs*)](/docs/refs-and-the-dom.html).
+Kiedy będziesz się już czuć komfortowo z [podstawowymi pojęciami](/docs/hello-world.html), a za sobą będziesz mieć trochę zabawy z kodem w Reakcie, mogą zainteresować cię bardziej zaawansowane zagadnienia. Ta sekcja zapozna cię z przydatnymi, acz rzadziej używanymi funkcjonalnościami, jak [konteksty (ang. *contexts*)](/docs/context.html) czy [referencje (ang. *refs*)](/docs/refs-and-the-dom.html).
 
 ### Dokumentacja API {#api-reference}
 
