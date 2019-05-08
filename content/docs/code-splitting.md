@@ -156,10 +156,10 @@ Powyższy kod automatycznie załaduje paczkę zawierającą `OtherComponent` pod
 Musi ona zwrócić obiekt (`Promise`) (pol. *obietnicę*), która rozwiązuje się do modułu z eksportem domyślnym (`default`) zawierającym
 komponent reactowy.
 
-### Zawieszenie {#suspense}
+### Zawieszenie (ang. *Suspense*) {#suspense}
 
-Jeśli moduł zawierający `OtherComponent` nie zostanie jeszcze załadowany na czas renderowania
-`MyComponent`, musimy wyświetlić zapasową zawartość, dopóki trwa ładowanie - na przykład 
+Jeśli moduł zawierający `OtherComponent` nie zostanie załadowany przed renderowaniem komponentu
+`MyComponent`, musimy wyświetlić alternatywną zawartość, dopóki trwa ładowanie - na przykład 
 wskaźnik ładowania. Robimy to za pomocą komponentu `Suspense`.
 
 ```js
@@ -168,7 +168,7 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 function MyComponent() {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Wczytywanie...</div>}>
         <OtherComponent />
       </Suspense>
     </div>
@@ -176,10 +176,10 @@ function MyComponent() {
 }
 ```
 
-Props `fallback` akceptuje wszystkie elementy reactowe, które chcesz wyświetlić
+Właściwość `fallback` tego komponentu akceptuje dowolny element reactowy, który będzie wyświetlany
  w trakcie oczekiwania na załadowanie komponentu. Możesz umieścić komponent `Suspense` 
- w dowolnym miejscu nad "leniwym" komponentem. Możesz nawet zawijać wiele "leniwych komponentów"
- za pomocą jednego komponentu `Suspense`.
+ w dowolnym miejscu nad "leniwym" (ang. *lazy*) komponentem. Możesz nawet opakować kilka "leniwych" komponentów
+ w jeden komponent `Suspense`.
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -201,10 +201,10 @@ function MyComponent() {
 
 ### Granice błędów {#error-boundaries}
 
-Jeśli inny moduł się nie doładuje (na przykład z powodu awarii sieci), spowoduje to błąd. 
-Możesz je obsługiwać aby zapewnić najlepsze doświadczenia użytkownika i zarządzać ratunkiem z pomocą 
-[Granic Błędów](/docs/error-boundaries.html). Po utworzeniu granic możesz ich użyć w dowolnym
-miejscu nad "leniwymi" komponentami, aby wyświetlić stan błędu gdy sieć jest niedostępna.
+Jeśli inny moduł nie wczyta się poprawnie (na przykład z powodu awarii sieci), spowoduje to błąd. 
+Możesz go obsłużyć aby zapewnić użytkownikowi lepsze doświadczenie, a także aby określić sposób obsługi błędu za pomocą 
+[granicy błędu](/docs/error-boundaries.html). Taką granicę błędu możesz umieścić w dowolnym
+miejscu ponad "leniwymi" komponentami i, na przykład, aby wyświetlić stan błędu, gdy połączenie z siecią zostanie zerwane.
 
 ```js
 import MyErrorBoundary from './MyErrorBoundary';
@@ -225,19 +225,18 @@ const MyComponent = () => (
 );
 ```
 
-## Podział kodu na podstawie szlaku (Route-based) {#route-based-code-splitting}
+## Podział kodu na podstawie ścieżki URL {#route-based-code-splitting}
 
-Decydowanie gdzie w twojej aplikacji użyć podziału kodu może być nieco skomplikowane.
-Chcesz mieć pewność, że wybierasz miejsca, które równomiernie podzielą twoje pakiety,
-ale nie chcesz naruszyć doświadczeń użytkownika.
+Decyzja o tym, w których miejscach podzielić kod aplikacji, może okazać się kłopotliwa.
+Zależy ci na miejscach, że wybierasz miejsca, które równomiernie podzielą twoje pakiety,
+ale nie chcesz zepsuć doświadczeń użytkownika.
 
-Dobrym miejscem do rozpoczęcia są trasy (routes). Większość osób w sieci jest przywyczajona
-do przechodzenia między stronami, które wymaga pewnego czasu. Jest także trend ponownego
-renderowania całej strony, więc uzytkownicy raczej nie będą wchodzić w inną interakcje
-w tym samym czasie.
+Dobrym punktem startowym są ścieżki (ang. *routes*) w aplikacji. Większość ludzi korzystających z Internetu przyzwyczajona jest,
+że przejście pomiędzy stronami zajmuje trochę czasu. Dodatkowo, zazwyczaj podczas takiego przejścia spora część ekranu jest renderowana ponownie
+Można więc założyć, że użytkownik nie będzie wykonywał żadnych akcji na interfejsie podczas ładowania.
 
-Oto przykład konfiguracji dzielenia kodu w twojej aplikacji opartej na trasach za pomoca 
-bibliotek takich jak [React Router](https://reacttraining.com/react-router/) wraz z `React.lazy`.
+Oto przykład skonfigurowania dzielenia kodu aplikacji opartego na ścieżkach, przy użyciu 
+biblioteki [React Router](https://reacttraining.com/react-router/) wraz z funkcją `React.lazy`.
 
 ```js
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -248,7 +247,7 @@ const About = lazy(() => import('./routes/About'));
 
 const App = () => (
   <Router>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Wczytywanie...</div>}>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
@@ -258,12 +257,11 @@ const App = () => (
 );
 ```
 
-## Eksport nazw {#named-exports}
+## Eksporty nazwane {#named-exports}
 
-`React.lazy` obecnie obsługuje tylko domyślne eksporty. Jeśli moduł, który chcesz zaimportowac,
+`React.lazy` obecnie obsługuje tylko domyślne eksporty. Jeśli moduł, który chcesz zaimportować,
 używa nazwanych eksportów, możesz utworzyć moduł pośredni, który ponownie eksportuje je jako
-domyślny eksport. Gwarantuje to, utrzymanie działającego drzewa oraz niepobieranie nieuzywanych 
-komponentów.
+domyślny eksport. Gwarantuje to działanie mechanizmu "tree-shaking" (pol. *potrząsanie drzewem*), a także zapobiega pobieraniu nieużywanych komponentów.
 
 ```js
 // ManyComponents.js
