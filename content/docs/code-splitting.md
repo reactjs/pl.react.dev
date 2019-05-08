@@ -6,14 +6,14 @@ permalink: docs/code-splitting.html
 
 ## Pakowanie {#bundling}
 
-Większość Reactowych aplikacji będzie "dołączała" swoje pliki przez narzędzia takie jak
+Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak
 [Webpack](https://webpack.js.org/) czy [Browserify](http://browserify.org/).
-Pakowanie to proces śledzenia zaimportowanych plików i łączenia je w pojedynczy plik "bundle". 
-Tak zbudowany pakiet jest gotowy do umieszczenia na stronie aby załadować całą aplikację.
+Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik "bundle" (pol. *paczka*).
+Tak zbudowany pakiet jest gotowy do umieszczenia na stronie w celu załadowania całej aplikacji naraz.
 
 #### Przykład {#example}
 
-**App:**
+**Kod aplikacji:**
 
 ```js
 // app.js
@@ -29,7 +29,7 @@ export function add(a, b) {
 }
 ```
 
-**Bundle:**
+**Paczka:**
 
 ```js
 function add(a, b) {
@@ -39,23 +39,23 @@ function add(a, b) {
 console.log(add(16, 26)); // 42
 ```
 
-> Notatka:
+> Uwaga:
 >
-> Twoje pakiety prawdopodobnie będą wyglądać znacznie inaczej 
+> Twoje paczki prawdopodobnie będą się znacząco różnić. 
 
 Jeśli używasz [Create React App](https://github.com/facebookincubator/create-react-app), 
-[Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/), 
-lub innego podobnego narzędzia, będziesz miał gotową do pakowania konfigurację Webpacka.
+[Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/) 
+lub innego podobnego narzędzia, Webpack powinien być już skonfigurowany i gotowy do użytku.
 
-Jeśli nie, będziesz potrzebował samodzielnie skonfigurować webpacka. 
-Dla przykładu zerknij na przewodnik po 
-[Instalacji](https://webpack.js.org/guides/installation/) oraz
-[Podstawowe informacje](https://webpack.js.org/guides/getting-started/) zawarte w dokumentacji
+Jeśli nie, musisz skonfigurować Webpacka samodzielnie. 
+Przykłady znajdziesz w 
+[przewodniku po instalacji](https://webpack.js.org/guides/installation/) oraz
+w sekcji pt. ["Podstawowe informacje"](https://webpack.js.org/guides/getting-started/) zawartych w dokumentacji
 Webpacka.
 
 ## Dzielenie kodu {#code-splitting}
 
-Pakowanie jest świetne, ale wraz ze wzrostem twojej aplikacji, rośnie również paczka.
+Tworzenie paczek jest świetne, ale wraz ze wzrostem objętości kodu twojej aplikacji, rośnie również objętość paczek.
 Zwłaszcza gdy dołączasz do projektu duże, zewnętrzne biblioteki.
 Musisz pilnować, aby twój pakiet nie był zbyt duży, ponieważ wtedy aplikacja 
 będzie się długo ładowała.
@@ -64,17 +64,17 @@ Aby uniknąć problemu zbyt dużego pakietu, warto już na początku o tym pomy�
 i rozpocząć "dzielenie" swojej paczki.
  [Dzielenie kodu](https://webpack.js.org/guides/code-splitting/) to funkcja 
 wspierana przez narzędzia takie jak Webpack oraz Browserify (przez
-[factor-bundle](https://github.com/browserify/factor-bundle)) które mogą tworzyć 
-wiele dynamicznie ładujących się pakietów w czasie wykonania.
+[factor-bundle](https://github.com/browserify/factor-bundle)), które mogą tworzyć 
+wiele pakietów doładowywanych dynamicznie w czasie wykonania kodu aplikacji.
 
 Dzielenie kodu ułatwi ci "leniwe ładowanie" tylko aktualnie wymaganych przez 
 użytkownika zasobów, co może znacznie poprawić wydajność twojej aplikacji.
-Mimo, że sumarycznie nie zmniejszasz ilości kodu, unikasz ładowania 
-w danym momencie zbędnych dla użytkownika funkcji, co przekłada się na mniejszą ilość kodu do pobrania.
+Mimo że nie zmniejszysz w ten sposób sumarycznej ilości kodu, unikniesz ładowania
+funkcjonalności zbędnych dla użytkownika w danym momencie, co przełoży się na mniejszą ilość kodu do pobrania na starcie aplikacji.
 
 ## `import()` {#import}
 
-Najlepszym sposobem na wprowadzenie podziału kodu do twojej aplikacji jest dynamiczna składnia
+Najlepszym sposobem na wprowadzenie podziału kodu do twojej aplikacji jest użycie dynamicznego wariantu funkcji
 `import()`.
 
 **Przed:**
@@ -93,34 +93,34 @@ import("./math").then(math => {
 });
 ```
 
-> Notatka:
+> Uwaga:
 >
-> Dynamiczna składnia `import()` to [propozycja](https://github.com/tc39/proposal-dynamic-import) 
-> ECMAScript (JavaScript), która aktualnie nie jest częścią standardu językowego. Oczekuje się natomiast,
-> że wkrótce zostanie zaakceptowana jako powszechny standard.
+> Dynamiczny `import()` to [propozycja](https://github.com/tc39/proposal-dynamic-import) 
+> dla ECMAScript (JavaScript), która aktualnie nie jest częścią standardu językowego. Oczekuje się jednak,
+> że wkrótce zostanie zaakceptowana.
 
-Gdy Webpack natknie się na taką składnie, automatycznie zacznie dzielić kod w twojej aplikacji.
+Gdy Webpack natknie się na taką składnię, automatycznie zacznie dzielić kod w twojej aplikacji.
 Jeśli używasz Create React App, posiadasz już gotową konfigurację i możesz natychmiast
-[zacząć z niego korzystać](https://facebook.github.io/create-react-app/docs/code-splitting).
-Również gotowo obsługuje to [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+[zacząć z niej korzystać](https://facebook.github.io/create-react-app/docs/code-splitting).
+Jest ona również obsługiwana domyślnie przez [Next.js](https://github.com/zeit/next.js/#dynamic-import).
 
-Jeśli konfigurujesz Webpacka samodzielnie, prawdopodobnie chcesz przeczytać
-[przewodnik po dzieleniu kodu Webpack](https://webpack.js.org/guides/code-splitting/). 
-Twoja konfiguracja Webpacka powinna wyglądać podobnie [do tego](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
+Jeśli konfigurujesz Webpacka samodzielnie, zalecamy przeczytać
+[przewodnik po dzieleniu kodu](https://webpack.js.org/guides/code-splitting/). 
+Twoja konfiguracja Webpacka powinna wyglądać podobnie [do tej](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
-Kiedy używasz [Babel](https://babeljs.io/), musisz się upewnić, że Babel może analizować dynamiczną
-składnie importu, ale jej nie przekształca. Do tego będziesz potrzebować [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
+Kiedy używasz [Babela](https://babeljs.io/), musisz się upewnić, że jest on w stanie sparsować
+składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W tym celu skorzystaj z pluginu [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
 
 ## `React.lazy` {#reactlazy}
 
-> Notatka:
+> Uwaga:
 >
-> `React.lazy` i Suspense nie jest jeszcze dostępne dla renderowania po stronie serwera
-> Jeśli chcesz dzielić kod dla aplikacji renderowanej na serwerze zalecamy [Komponenty Ładowalne 
-> (Loadable Components)](https://github.com/smooth-code/loadable-components). 
-> Mają przyjemny [przewodnik do dzielenia pakietów przy renderowaniu po stronie serwera](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
+> `React.lazy` i Suspense są jest jeszcze dostępne dla renderowania po stronie serwera.
+> Jeśli chcesz dzielić kod dla aplikacji renderowanej na serwerze, sugerujemy skorzystać 
+> z pakietu [Loadable Components](https://github.com/smooth-code/loadable-components).  
+> Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
 
-Funkcja `React.lazy` pozwala ci dynamicznie renderować importy jako regularne komponenty.
+Funkcja `React.lazy` pozwala renderować dynamicznie importowane komponenty jak zwykłe komponenty.
 
 **Przed:**
 
@@ -150,11 +150,11 @@ function MyComponent() {
 }
 ```
 
-To automatycznie załaduje paczke zawierającą `OtherComponent` kiedy komponent będzie renderowany.
+Powyższy kod automatycznie załaduje paczkę zawierającą `OtherComponent` podczas renderowania komponentu.
 
-`React.lazy` przyjmuje funkcję, która dynamicznie woła `import()`. 
-Musi zwrócić obietnicę (`Promise`) który rozstrzyga moduł z domyślnym (`default`) eksportem zawierający
-komponent Reactowy.
+`React.lazy` jako argument przyjmuje funkcję, która wywołuje dynamiczny `import()`.
+Musi ona zwrócić obiekt (`Promise`) (pol. *obietnicę*), która rozwiązuje się do modułu z eksportem domyślnym (`default`) zawierającym
+komponent reactowy.
 
 ### Zawieszenie {#suspense}
 
@@ -176,7 +176,7 @@ function MyComponent() {
 }
 ```
 
-Props `fallback` akceptuje wszystkie elementy Reactowe, które chcesz wyświetlić
+Props `fallback` akceptuje wszystkie elementy reactowe, które chcesz wyświetlić
  w trakcie oczekiwania na załadowanie komponentu. Możesz umieścić komponent `Suspense` 
  w dowolnym miejscu nad "leniwym" komponentem. Możesz nawet zawijać wiele "leniwych komponentów"
  za pomocą jednego komponentu `Suspense`.
