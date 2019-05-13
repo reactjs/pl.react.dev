@@ -8,8 +8,8 @@ permalink: docs/code-splitting.html
 
 Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak
 [Webpack](https://webpack.js.org/) czy [Browserify](http://browserify.org/).
-Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik "bundle" (pol. *paczka*).
-Tak zbudowany pakiet jest gotowy do umieszczenia na stronie w celu załadowania całej aplikacji naraz.
+Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik tzw. "bundle" (pol. *paczka*).
+Taka paczka może zostać umieszczona na stronie w celu załadowania całej aplikacji naraz.
 
 #### Przykład {#example}
 
@@ -67,7 +67,7 @@ wspierana przez narzędzia takie jak Webpack oraz Browserify (przez
 [factor-bundle](https://github.com/browserify/factor-bundle)), które mogą tworzyć 
 wiele pakietów doładowywanych dynamicznie w czasie wykonania kodu aplikacji.
 
-Dzielenie kodu ułatwi ci "leniwe ładowanie" tylko aktualnie wymaganych przez 
+Dzielenie kodu twojej aplikacji ułatwi ci użycie "leniwego ładowania" do wczytywania jedynie tych zasobów które są aktualnie wymagane przez 
 użytkownika zasobów, co może znacznie poprawić wydajność twojej aplikacji.
 Mimo że nie zmniejszysz w ten sposób sumarycznej ilości kodu, unikniesz ładowania
 funkcjonalności zbędnych dla użytkownika w danym momencie, co przełoży się na mniejszą ilość kodu do pobrania na starcie aplikacji.
