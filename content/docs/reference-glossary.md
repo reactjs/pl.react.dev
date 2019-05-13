@@ -1,106 +1,106 @@
 ---
 id: glossary
-title: Glossary of React Terms
+title: Słownik terminów reactowych
 layout: docs
 category: Reference
 permalink: docs/glossary.html
 
 ---
 
-## Single-page Application {#single-page-application}
+## Aplikacja jednostronicowa {#single-page-application}
 
-A single-page application is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded.
+Aplikacja jednostronicowa to taka, która wczytuje pojedynczą stronę HTML i wszystkie zasoby (takie jak JavaScript czy CSS) potrzebne do uruchomienia aplikacji. Wszelkie interakcje ze stroną i poszczególnymi podstronami nie wymagają ponownego łączenia z serwerem, co oznacza, że strona nie jest przeładowywana.
 
-Though you may build a single-page application in React, it is not a requirement. React can also be used for enhancing small parts of existing websites with additional interactivity. Code written in React can coexist peacefully with markup rendered on the server by something like PHP, or with other client-side libraries. In fact, this is exactly how React is being used at Facebook.
+Pomimo tego, że aplikacje jednostronicowe można tworzyć za pomocą Reacta, nie jest on do tego konieczny. React może posłużyć do wzbogacania niewielkich fragmentów istniejących stron o dodatkową interaktywność. Napisany kod reactowy może z powodzeniem działać razem z kodem wygenerowanym po stronie serwera np. w PHP, lub innymi bibliotekami klienckimi. Prawdę mówiąc, właśnie w ten sposób React jest używany w Facebooku.
 
-## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
+## ES6, ES2015, ES2016 itp. {#es6-es2015-es2016-etc}
 
-These acronyms all refer to the most recent versions of the ECMAScript Language Specification standard, which the JavaScript language is an implementation of. The ES6 version (also known as ES2015) includes many additions to the previous versions such as: arrow functions, classes, template literals, `let` and `const` statements. You can learn more about specific versions [here](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Skróty te odnoszą się do najnowszych wersji standardu specyfikacji języka ECMAScript, którego implementacją jest język JavaScript. Wersja ES6 (znana również jako ES2015) zawiera wiele dodatkowych mechanizmów, jak np. funkcje strzałkowe, klasy, literały szablonowe, a także wyrażenia `let` oraz `const`. Po więcej informacji na temat poszczególnych wersji sięgnij do [Wikipedii](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
-## Compilers {#compilers}
+## Kompilatory {#compilers}
 
-A JavaScript compiler takes JavaScript code, transforms it and returns JavaScript code in a different format. The most common use case is to take ES6 syntax and transform it into syntax that older browsers are capable of interpreting. [Babel](https://babeljs.io/) is the compiler most commonly used with React.
+Kompilator javascriptowy wczytuje kod javascriptowy, przekształca go i zwraca go w innym formacie. Najczęściej stosuje się go przekształcania składni ES6 w kod zrozumiały dla starszych przeglądarek. [Babel](https://babeljs.io/) jest najbardziej powszechnym kompilatorem używanym wraz z Reactem.
 
-## Bundlers {#bundlers}
+## Bundlery {#bundlers}
 
-Bundlers take JavaScript and CSS code written as separate modules (often hundreds of them), and combine them together into a few files better optimized for the browsers. Some bundlers commonly used in React applications include [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/).
+Bundlery wczytują kod JavaScript i CSS, napisany w formie odrębnych modułów (często liczonych w setkach) i łączą je w kilka plików zoptymalizowanych pod przeglądarki. W środowisku reactowym do najczęściej używanych bundlerów zaliczane są [Webpack](https://webpack.js.org/) oraz [Browserify](http://browserify.org/).
 
-## Package Managers {#package-managers}
+## Menedżery pakietów {#package-managers}
 
-Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
+Menedżery pakietów to narzędzia pozwalające zarządzać zależnościami projektu. W aplikacjach reactowych najczęściej używane są [npm](https://www.npmjs.com/) oraz [Yarn](https://yarnpkg.com/), przy czym obydwa są klientami tego samego rejestru pakietów npm.
 
 ## CDN {#cdn}
 
-CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe. 
+CDN to skrót od Content Delivery Network (pol. *sieć dostarczania zawartości*). CDN-y dostarczają statyczną zawartość przechowywaną w pamięci podręcznej poprzez sieć serwerów rozproszonych po całej kuli ziemskiej.
 
 ## JSX {#jsx}
 
-JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to `React.createElement()` calls which return plain JavaScript objects called "React elements". To get a basic introduction to JSX [see the docs here](/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [here](/docs/jsx-in-depth.html).
+JSX jest rozszerzeniem składni JavaScript. Przypomina języki szablonów, jednak posiada pełną moc JavaScriptu. Kod napisany w JSX jest kompilowany do wywołań funkcji `React.createElement()`, które zwracają obiekty javascriptowe zwane "elementami reactowymi". Aby dowiedzieć się więcej, przeczytaj [wstęp do składni JSX](/docs/introducing-jsx.html) lub [szczegółowy samouczek](/docs/jsx-in-depth.html).
 
-React DOM uses camelCase property naming convention instead of HTML attribute names. For example, `tabindex` becomes `tabIndex` in JSX. The attribute `class` is also written as `className` since `class` is a reserved word in JavaScript:
+React DOM do nazywania właściwości używa konwencji camelCase zamiast nazw atrybutów HTML. Na przykład, `tabindex` jest zapisywany w składni JSX jako `tabIndex`. Z kolei atrybut `class` piszemy jako `className` ze względu na fakt, iż `class` jest w JavaScripcie zarezerwowanym słowem kluczowym:
 
 ```js
-const name = 'Clementine';
+const name = 'Klementyna';
 ReactDOM.render(
-  <h1 className="hello">My name is {name}!</h1>,
+  <h1 className="hello">Mam na imię {name}!</h1>,
   document.getElementById('root')
 );
 ```  
 
-## [Elements](/docs/rendering-elements.html) {#elements}
+## [Elementy](/docs/rendering-elements.html) {#elements}
 
-React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+Elementy reactowe są częściami składowymi aplikacji pisanych za pomocą Reacta. Nietrudno pomylić je z szerzej znanym pojęciem "komponentów". Element opisuje to, co zostanie wyświetlone na ekranie. Elementy reactowe są niezmienne (ang. *immutable*).
 
 ```js
-const element = <h1>Hello, world</h1>;
+const element = <h1>Witaj, świecie</h1>;
 ```
 
-Typically, elements are not used directly, but get returned from components.
+Zazwyczaj jednak elementów nie używa się bezpośrednio jako wartości, lecz zwraca w komponentach.
 
-## [Components](/docs/components-and-props.html) {#components}
+## [Komponenty](/docs/components-and-props.html) {#components}
 
-React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+Komponenty reactowe są niewielkimi kawałkami kodu, często wielokrotnego użytku, które zwracają element reactowy, który ma zostać wyrenderowany na stronie. Najprostszym wariantem reactowego komponentu jest javascriptowa funkcja, która zwraca element reactowy.:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Witaj, {props.name}</h1>;
 }
 ```
 
-Components can also be ES6 classes:
+Komponenty mogą także być klasami ze standardu ES6:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Witaj, {this.props.name}</h1>;
   }
 }
 ```
 
-Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (`<Wrapper/>` **not** `<wrapper/>`). See [this documentation](/docs/components-and-props.html#rendering-a-component) for more information on rendering components. 
+Komponenty można podzielić na unikalne fragmenty funkcjonalności, a następnie używać wewnątrz innych komponentów. Komponenty mogą zwracać inne komponenty, ale także tablice, napisy czy liczby. Należy kierować się zasadą, że jeśli jakiś fragment interfejsu użytkownika jest używany wielokrotnie (np. przycisk, panel, awatar) lub sam w sobie jest dość złożony (np. aplikacja, news, komentarz), staje się odpowiednim kandydatem do bycia komponentem wielokrotnego użytku. Nazwy komponentów powinny zaczynać się od wielkiej litery (`<Wrapper/>`, a **nie** `<wrapper/>`). Po więcej informacji sięgnij do [dokumentacji dotyczącej renderowania komponentów](/docs/components-and-props.html#rendering-a-component). 
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
-`props` are inputs to a React component. They are data passed down from a parent component to a child component.
+`props` (od ang. *properties* = pol. *właściwości*) są danymi wejściowymi dla reactowych komponentów. Przekazuje się je z komponentów nadrzędnych do ich potomków.
 
-Remember that `props` are readonly. They should not be modified in any way:
+Pamiętaj, że właściwości `props` są tylko do odczytu. Nie należy ich w jakikolwiek sposób modyfikować:
 
 ```js
-// Wrong!
+// Źle!
 props.number = 42;
 ```
 
-If you need to modify some value in response to user input or a network response, use `state` instead.
+Jeśli potrzebujesz zmienić którąś wartość w odpowiedzi na akcję użytkownika lub zapytanie do serwera, skorzystaj ze `stanu`.
 
 ### `props.children` {#propschildren}
 
-`props.children` is available on every component. It contains the content between the opening and closing tags of a component. For example:
+Właściwość `props.children` jest dostępna w każdym komponencie. Zawiera wszystko, co znajdzie się między znacznikiem otwierającym i zamykającym danego komponentu, na przykład:
 
 ```js
-<Welcome>Hello world!</Welcome>
+<Welcome>Witaj, świecie!</Welcome>
 ```
 
-The string `Hello world!` is available in `props.children` in the `Welcome` component:
+Napis `Witaj, świecie!` znajdzie się we właściwości `props.children` komponentu `Welcome`:
 
 ```js
 function Welcome(props) {
@@ -108,7 +108,7 @@ function Welcome(props) {
 }
 ```
 
-For components defined as classes, use `this.props.children`:
+W przypadku komponentów zdefiniowanych jako klasy należy skorzystać z `this.props.children`:
 
 ```js
 class Welcome extends React.Component {
@@ -120,47 +120,47 @@ class Welcome extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-A component needs `state` when some data associated with it changes over time. For example, a `Checkbox` component might need `isChecked` in its state, and a `NewsFeed` component might want to keep track of `fetchedPosts` in its state.
+Komponent potrzebuje własnego stanu (`state`), gdy powiązane z nim dane zmieniają się w czasie. Na przykład, komponent `Checkbox` w zmiennej `isChecked` mógłby śledzić, czy jest zaznaczony, a komponent `NewsFeed` mógłby przechowywać pobrane posty w `fetchedPosts`.
 
-The most important difference between `state` and `props` is that `props` are passed from a parent component, but `state` is managed by the component itself. A component cannot change its `props`, but it can change its `state`.
+Najistotniejszą różnicą pomiędzy `state` i `props` jest to, że właściwości `props` są dostarczane przez komponent nadrzędny, a stanem `state` zarządza sam komponent. Komponent nie może modyfikować swoich właściwości `props`, ale może zmieniać swój stan `state`.
 
-For each particular piece of changing data, there should be just one component that "owns" it in its state. Don't try to synchronize states of two different components. Instead, [lift it up](/docs/lifting-state-up.html) to their closest shared ancestor, and pass it down as props to both of them.
+Dla każdego fragmentu danych zmieniających się w czasie powinien istnieć tylko jeden komponent, które taki stan "posiada" na wyłączność. Nie próbuj synchronizować stanów dwóch komponentów. Zamiast tego [wynieś stan w górę](/docs/lifting-state-up.html) do najbliższego przodka i z niego przekaż stan w dół za pomocą właściwości `props`.
 
-## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
+## [Metody cyklu życia](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
-Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM ([mounting](/docs/react-component.html#mounting)), when the component updates, and when the component gets unmounted or removed from the DOM.
+Metody cyklu życia to specjalne funkcje uruchamiane w trakcie różnych faz życia komponentu. Istnieją takie, które uruchamiane są podczas tworzenia komponentu i wstawiania go do drzewa DOM (tzw. [montowanie](/docs/react-component.html#mounting)), inne gdy komponent jest aktualizowany, a jeszcze inne gdy jest odmontowywany lub usuwany z drzewa DOM.
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Kontrolowane](/docs/forms.html#controlled-components) vs. [niekontrolowane komponenty](/docs/uncontrolled-components.html)
 
-React has two different approaches to dealing with form inputs. 
+React zapewnia dwa różne podejścia do obsługi pól formularza.
 
-An input form element whose value is controlled by React is called a *controlled component*. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+Pole formularza, którego wartością zarządza React, jest nazywane *komponentem kontrolowanym*. Gdy użytkownik wprowadzi do niego dane, wywoływana jest odpowiednia procedura obsługi zdarzenia i to twój kod decyduje, czy wartość jest poprawna (poprzez ponowne wyrenderowanie z nową wartością). Jeśli samodzielnie nie wyrenderujesz ponownie danego pola, nie zmieni się ono na ekranie.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
+Z kolej *komponent niekontrolowany* działa tak, jak wszystkie pola formularza istniejące poza Reactem. Gdy użytkownik wprowadzi do takiego pola (np. pola tekstowego, pola wyboru itp.), zmiana jego wartości następuje automatycznie, bez konieczności obsługiwania tego w kodzie Reactowym. Oznacza to również, że nie możesz wymusić określonej wartości pola.
 
-In most cases you should use controlled components.
+W większości przypadków zalecamy korzystanie z komponentów kontrolowanych.
 
-## [Keys](/docs/lists-and-keys.html) {#keys}
+## [Klucze](/docs/lists-and-keys.html) {#keys}
 
-A "key" is a special string attribute you need to include when creating arrays of elements. Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside an array to give the elements a stable identity.
+Klucz `key` to specjalny atrybut tekstowy, wymagany przy tworzeniu tablic elementów. Klucze pozwalają Reactowi zidentyfikować, które elementy listy zostały zmienione, dodane bądź usunięte. Służą również do nadania elementom tablicy stabilnego identyfikatora.
 
-Keys only need to be unique among sibling elements in the same array. They don't need to be unique across the whole application or even a single component.
+Klucze muszą być unikalne tylko pośród "rodzeństwa" z tej samej tablicy, lecz mogą się powtarzać w ramach całej aplikacji czy nawet wewnątrz tego samego komponentu.
 
-Don't pass something like `Math.random()` to keys. It is important that keys have a "stable identity" across re-renders so that React can determine when items are added, removed, or re-ordered. Ideally, keys should correspond to unique and stable identifiers coming from your data, such as `post.id`.
+Do określania kluczy nie używaj wartości typu `Math.random()`. Ważne jest, by klucze były "stabilnymi identyfikatorami" w kolejnych renderowaniach. Dzięki temu React może wykryć, które elementy zostały dodane, usunięte lub zmieniły kolejność. Najlepiej nadają się do tego unikalne, stabilne identifykatory pochodzące z danych, np. `post.id`.
 
-## [Refs](/docs/refs-and-the-dom.html) {#refs}
+## [Referencje `ref`](/docs/refs-and-the-dom.html) {#refs}
 
-React supports a special attribute that you can attach to any component. The `ref` attribute can be an object created by [`React.createRef()` function](/docs/react-api.html#reactcreateref) or a callback function, or a string (in legacy API). When the `ref` attribute is a callback function, the function receives the underlying DOM element or class instance (depending on the type of element) as its argument. This allows you to have direct access to the DOM element or component instance.
+React wspiera specjalny atrybut, którego można użyć na dowolnym komponencie. Atrybut `ref` może być obiektem utworzonym przy użyciu [`funkcji React.createRef()`](/docs/react-api.html#reactcreateref), dowolną funkcją zwrotną lub ciągiem znaków (w starym API). Gdy `ref` jest funkcją zwrotną, jest ona wywoływana jednym argumentem: elementem DOM odpowiadającym komponentowi lub instancją klasy (w zależności od typu komponentu). Pozwala to na bezpośredni dostęp do API elementu DOM lub instancji klasy.
 
-Use refs sparingly. If you find yourself often using refs to "make things happen" in your app, consider getting more familiar with [top-down data flow](/docs/lifting-state-up.html).
+Z referencji korzystaj sporadycznie. Jeśli zauważysz, że używasz ich dość często do sprawienia, żeby "coś zaczęło działać", sugerujemy zapoznać się z [przepływem danych z góry na dół](/docs/lifting-state-up.html).
 
-## [Events](/docs/handling-events.html) {#events}
+## [Zdarzenia](/docs/handling-events.html) {#events}
 
-Handling events with React elements has some syntactic differences:
+Obsługa zdarzeń w elementach reactowych ma kilka różnic składniowych:
 
-* React event handlers are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* Nazwy procedur obsługi zdarzeń używają konwencji camelCase, a nie są pisane małymi literami.
+* W składni JSX procedury obsługi zdarzeń przekazuje się jako funkcje, a nie jako ciągi znaków.
 
-## [Reconciliation](/docs/reconciliation.html) {#reconciliation}
+## [Rekoncyliacja](/docs/reconciliation.html) {#reconciliation}
 
-When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called "reconciliation".
+Gdy zmieniają się właściwości lub stan komponentu, React decyduje, czy konieczna jest aktualizacja drzewa DOM, poprzez porównanie nowo zwróconego elementu z jego poprzednią wersją. Jeśli elementy różnią się, drzewo DOM jest aktualizowane. Proces ten nazywany jest "rekoncyliacją" (ang. *reconciliation*).

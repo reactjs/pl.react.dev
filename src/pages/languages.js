@@ -50,9 +50,7 @@ const Languages = ({location}: Props) => (
           <TitleAndMetaTags title="React - Języki" />
 
           <div css={sharedStyles.markdown}>
-            <p>
-              Dokumentacja Reacta jest dostępna w następujących językach:
-            </p>
+            <p>Dokumentacja Reacta jest dostępna w następujących językach:</p>
 
             <LanguagesGrid languages={complete} />
 

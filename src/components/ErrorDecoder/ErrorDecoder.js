@@ -69,8 +69,8 @@ function ErrorResult(props: {|code: ?string, msg: string|}) {
   if (!code) {
     return (
       <p>
-        Kiedy napotkasz na błąd, otrzymasz link do strony dotyczącej
-        konkretnego błędu. Tutaj wyświetli się jego treść.
+        Kiedy napotkasz na błąd, otrzymasz link do strony dotyczącej konkretnego
+        błędu. Tutaj wyświetli się jego treść.
       </p>
     );
   }

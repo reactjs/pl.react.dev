@@ -55,6 +55,12 @@ const Header = ({location}: {location: Location}) => (
             },
 
             [media.greaterThan('small')]: {
+              width: 'calc(100% / 7)',
+            },
+            [media.greaterThan('large')]: {
+              width: 'calc(100% / 8)',
+            },
+            [media.greaterThan('xxlarge')]: {
               width: 'calc(100% / 6)',
             },
             [media.lessThan('small')]: {

@@ -76,7 +76,7 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://components-and-props/rendering-a-component)
+[Przetestuj kod na CodePen](codepen://components-and-props/rendering-a-component)
 
 Podsumujmy, co dzieje się w tym przykładzie:
 
@@ -118,11 +118,11 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://components-and-props/composing-components)
+[Przetestuj kod na CodePen](codepen://components-and-props/composing-components)
 
 Nowe aplikacje reactowe na samej górze drzewa zazwyczaj renderują pojedynczy komponent `App`. Jeśli jednak musisz zintegrować Reacta z istniejącą aplikacją, możesz zacząć od samego dołu, dodając niewielkie komponenty (np. `Button`) i stopniowo przepisywać całą strukturę aż do samej góry.
 
-## Wyciąganie komponentów {#extracting-components}
+## Wyodrębnianie komponentów {#extracting-components}
 
 Nie bój się dzielenia komponentów na mniejsze części.
 
@@ -152,7 +152,7 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components)
+[Przetestuj kod na CodePen](codepen://components-and-props/extracting-components)
 
 Przyjmuje on obiekt `author`, napis `text` i datę `date` jako właściwości i zwraca strukturę opisującą komentarz na portalu mediów społecznościowych.
 
@@ -231,9 +231,9 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components-continued)
+[Przetestuj kod na CodePen](codepen://components-and-props/extracting-components-continued)
 
-Wyciąganie komponentów może z początku wydawać się żmudnym zajęciem, ale posiadanie palety pozwalających na ponowne użycie komponentów jest opłacalne w większych aplikacjach. Dobrą praktyczną zasadą jest, że jeśli część twojego interfejsu użytkownika jest używana wielokrotnie (np. `Button`, `Panel`, `Avatar`) lub jest ona dostatecznie skomplikowana sama w sobie (np. `App`, `FeedStory`, `Comment`), jest ona dobrym kandydatem do stania się komponentem wielokrotnego użytku.
+Wyodrębnianie komponentów może z początku wydawać się żmudnym zajęciem, ale posiadanie palety pozwalających na ponowne użycie komponentów jest opłacalne w większych aplikacjach. Dobrą praktyczną zasadą jest, że jeśli część twojego interfejsu użytkownika jest używana wielokrotnie (np. `Button`, `Panel`, `Avatar`) lub jest ona dostatecznie skomplikowana sama w sobie (np. `App`, `FeedStory`, `Comment`), jest ona dobrym kandydatem do stania się komponentem wielokrotnego użytku.
 
 ## Właściwości są tylko do odczytu {#props-are-read-only}
 

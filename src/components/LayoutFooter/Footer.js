@@ -131,9 +131,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
             <MetaTitle onDark={true}>Więcej</MetaTitle>
             <FooterLink to="/tutorial/tutorial.html">Samouczek</FooterLink>
             <FooterLink to="/blog/">Blog</FooterLink>
-            <FooterLink to="/acknowledgements.html">
-              Podziękowania
-            </FooterLink>
+            <FooterLink to="/acknowledgements.html">Podziękowania</FooterLink>
             <ExternalFooterLink
               href="https://facebook.github.io/react-native/"
               target="_blank"

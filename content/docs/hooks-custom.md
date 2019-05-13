@@ -96,7 +96,7 @@ function useFriendStatus(friendID) {
 
 Wewnątrz nie znajdziemy nic nowego -- logika została skopiowana z komponentów powyżej. Pamiętaj żeby, tak jak w komponentach, wywoływać inne hooki tylko z najwyższego poziomu kodu twoich własnych hooków.
 
-W przeciwieństwie do reactowych komponentów, własny hook nie ma narzuconego określonego kształtu. Sami decydujemy, jakie przyjmuje argumenty i jaką, jeśli jakąkolwiek, wartość zwróci. Innymi słowy zachowuje się jak zwykła funkcja. Jego nazwa powinna zawsze zaczynać się od `use`, aby można było już na pierwszy rzut oka stwierdzić, czy stosuje on do [zasad korzystania z hooków](/docs/hooks-rules.html).
+W przeciwieństwie do reactowych komponentów, własny hook nie ma narzuconego określonego kształtu. Sami decydujemy, jakie przyjmuje argumenty i jaką, jeśli jakąkolwiek, wartość zwróci. Innymi słowy, zachowuje się jak zwykła funkcja. Jego nazwa powinna zawsze zaczynać się od `use`, aby można było już na pierwszy rzut oka stwierdzić, czy mają dla niego zastosowanie [zasady korzystania z hooków](/docs/hooks-rules.html).
 
 Celem naszego hooka `useFriendStatus` jest zasubskrybowanie się do statusu dostępności znajomego.  Dlatego przyjmuje on wartość `friendID` jako argument i zwraca informację, czy znajomy jest dostępny:
 

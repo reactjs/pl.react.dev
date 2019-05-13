@@ -1,6 +1,6 @@
 ---
 id: dom-elements
-title: DOM Elements
+title: Elementy DOM
 layout: docs
 category: Reference
 permalink: docs/dom-elements.html
@@ -14,31 +14,31 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+Dla poprawy wydajności oraz kompatybilności między przeglądarkami, React wprowadza niezależny od przeglądarki system DOM. Dało to nam możliwość naprawienia pewnych usterek występujących w przeglądarkowych implementacjach DOM.
 
-In React, all DOM properties and attributes (including event handlers) should be camelCased. For example, the HTML attribute `tabindex` corresponds to the attribute `tabIndex` in React. The exception is `aria-*` and `data-*` attributes, which should be lowercased. For example, you can keep `aria-label` as `aria-label`.
+W Reakcie wszystkie właściwości i atrybuty DOM (włącznie z obsługą zdarzeń) powinny być zapisywane w notacji camelCase. Dla przykładu, atrybut HTML `tabindex` w Reakcie zapisujemy jako `tabIndex`. Wyjątkiem są atrybuty `aria-*` oraz `data-*`, które powinny być zapisywane małą literą, na przykład, `aria-label` pozostaje `aria-label`.
 
-## Differences In Attributes {#differences-in-attributes}
+## Różnice w atrybutach {#differences-in-attributes}
 
-There are a number of attributes that work differently between React and HTML:
+W Reakcie kilka atrybutów działa inaczej niż w HTML-u:
 
 ### checked {#checked}
 
-The `checked` attribute is supported by `<input>` components of type `checkbox` or `radio`. You can use it to set whether the component is checked. This is useful for building controlled components. `defaultChecked` is the uncontrolled equivalent, which sets whether the component is checked when it is first mounted.
+Atrybut `checked` jest wspierany przez element `<input>` typu `checkbox` lub `radio`.  Za jego pomocą można dany element ustawić jako odznaczony. Jest to przydatne podczas budowania kontrolowanych komponentów. W przypadku komponentów niekontrolowanych należy używać `defaultChecked`, który określa, czy komponent ma być odznaczony przy pierwszym zamontowaniu.
 
 ### className {#classname}
 
-To specify a CSS class, use the `className` attribute. This applies to all regular DOM and SVG elements like `<div>`, `<a>`, and others.
+Aby przypisać klasę CSS, należy użyć atrybutu `className`. Dotyczy to wszystkich standardowych elementów DOM oraz SVG, takich jak `<div>`, `<a>` i innych.
 
-If you use React with Web Components (which is uncommon), use the `class` attribute instead.
+Gdy używasz Reacta z Web Components (co jest rzadkie), stosuj atrybut `class`.
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` is React's replacement for using `innerHTML` in the browser DOM. In general, setting HTML from code is risky because it's easy to inadvertently expose your users to a [cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) attack. So, you can set HTML directly from React, but you have to type out `dangerouslySetInnerHTML` and pass an object with a `__html` key, to remind yourself that it's dangerous. For example:
+`dangerouslySetInnerHTML` jest reactowym odpowiednikiem dla `innerHTML` z przeglądarkowego DOM. Ogólnie rzecz biorąc, używanie HTML w kodzie jest ryzykowne, ponieważ łatwo jest nieumyślnie narazić użytkowników na atak [cross-site scripting (XSS)](https://pl.wikipedia.org/wiki/Cross-site_scripting). Z tego powodu jedynym sposobem na wstawienie HTML bezpośrednio w Reakcie jest użycie właściwości `dangerouslySetInnerHTML` i przekazanie obiektu z kluczem `__html` -- wszystko po to, żeby pamiętać, iż jest to niebezpieczne. Przykład:
 
 ```js
 function createMarkup() {
-  return {__html: 'First &middot; Second'};
+  return {__html: 'Pierwszy &middot; Drugi'};
 }
 
 function MyComponent() {
@@ -48,23 +48,23 @@ function MyComponent() {
 
 ### htmlFor {#htmlfor}
 
-Since `for` is a reserved word in JavaScript, React elements use `htmlFor` instead.
+Jako że `for` jest zarezerwowanym słowem w JavaScripcie, React używa zamiast niego `htmlFor`.
 
 ### onChange {#onchange}
 
-The `onChange` event behaves as you would expect it to: whenever a form field is changed, this event is fired. We intentionally do not use the existing browser behavior because `onChange` is a misnomer for its behavior and React relies on this event to handle user input in real time.
+Zdarzenie `onChange` przebiega zgodnie z oczekiwaniami: jest aktywowane za każdym razem, gdy zmienia się wartość w polu formularza. Specjalnie nie używamy implementacji przeglądarkowej, ponieważ `onChange` ma nazwę nieadekwatną do zachowania. React natomiast używa tego zdarzenia do obsłużenia w czasie rzeczywistym zmian w danych wejściowych kontrolki formularza.
 
 ### selected {#selected}
 
-The `selected` attribute is supported by `<option>` components. You can use it to set whether the component is selected. This is useful for building controlled components.
+Atrybut `selected` jest wspierany przez element `<option>`. Można go użyć, aby odznaczyć wybrany przez użytkownika element listy. Przydaje się to podczas budowania kontrolowanych komponentów.
 
 ### style {#style}
 
->Note
+>Wskazówka
 >
->Some examples in the documentation use `style` for convenience, but **using the `style` attribute as the primary means of styling elements is generally not recommended.** In most cases, [`className`](#classname) should be used to reference classes defined in an external CSS stylesheet. `style` is most often used in React applications to add dynamically-computed styles at render time. See also [FAQ: Styling and CSS](/docs/faq-styling.html).
+>Niektóre przykłady w dokumentacji używają `style` dla wygody, ale ogólnie rzecz biorąc, **używanie atrybutu `style` do stylowania elementów nie jest zalecane.** W większości przypadków należy korzystać z atrybutu [`className`](#classname), odnosząc się do klas definiowanych w zewnętrznym arkuszu stylów (ang. *stylesheet*). `style` jest najczęściej używany w aplikacjach reactowych do dodawania stylów dynamicznych, zmieniających się przy kolejnych renderowaniach. Zobacz też [FAQ: Stylowanie i CSS](/docs/faq-styling.html).
 
-The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM `style` JavaScript property, is more efficient, and prevents XSS security holes. For example:
+Atrybut `style` zamiast zwykłego ciągu znaków przyjmuje javascriptowy obiekt z właściwościami CSS zapisanymi w notacji camelCase (nie ciąg znaków jak w CSS). Jest to zgodne z właściwością DOM `style` w JavaScripcie, poprawia wydajność i zapobiega dziurom w zabezpieczeniach przed XSS. Przykład:
 
 ```js
 const divStyle = {
@@ -73,70 +73,70 @@ const divStyle = {
 };
 
 function HelloWorldComponent() {
-  return <div style={divStyle}>Hello World!</div>;
+  return <div style={divStyle}>Witaj, świecie</div>;
 }
 ```
 
-Note that styles are not autoprefixed. To support older browsers, you need to supply corresponding style properties:
+Zauważ, że style nie mają automatycznie nadawanego prefiksu. Aby zapewnić kompatybilność ze starszymi przeglądarkami, musisz nadać im odpowiednie właściwości:
 
 ```js
 const divStyle = {
-  WebkitTransition: 'all', // note the capital 'W' here
-  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+  WebkitTransition: 'all', // zwróć uwagę na wielką literę 'W'
+  msTransition: 'all' // 'ms' jest jedynym prefiksem zapisywanym małą literą
 };
 
 function ComponentWithTransition() {
-  return <div style={divStyle}>This should work cross-browser</div>;
+  return <div style={divStyle}>To powinno działać na wielu przeglądarkach</div>;
 }
 ```
 
-Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. `node.style.backgroundImage`). Vendor prefixes [other than `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) should begin with a capital letter. This is why `WebkitTransition` has an uppercase "W".
+Nazwy kluczy obiektu stylów zapisujemy w notacji camelCase, aby były zgodne z właściwościami węzłów DOM w JS (np. `node.style.backgroundImage`). Prefiksy dostawców (ang. *vendor prefixes*) [inne niż `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) powinny zaczynać się od wielkiej litery. Dlatego `WebkitTransition` zaczyna się od wielkiej litery "W".
 
-React will automatically append a "px" suffix to certain numeric inline style properties. If you want to use units other than "px", specify the value as a string with the desired unit. For example:
+React automatycznie doda przyrostek "px" (piksele) dla pewnych liczbowych właściwości stylów. Jeśli chcesz użyć innych jednostek niż "px", określ wartość jako ciąg znaków z pożądaną jednostką. Przykład:
 
 ```js
-// Result style: '10px'
+// Rezultat: '10px'
 <div style={{ height: 10 }}>
-  Hello World!
+  Witaj, świecie!
 </div>
 
-// Result style: '10%'
+// Rezultat: '10%'
 <div style={{ height: '10%' }}>
-  Hello World!
+  Witaj, świecie!
 </div>
 ```
 
-Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg `zoom`, `order`, `flex`). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+Nie wszystkie właściwości stylów są konwertowane do ciągów znaków z przyrostkiem 'px'. Niektóre z nich pozostają bez jednostek (np. `zoom`, `order`, `flex`). Pełna lista wyjątków jest dostępna [tutaj](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
-Normally, there is a warning when an element with children is also marked as `contentEditable`, because it won't work. This attribute suppresses that warning. Don't use this unless you are building a library like [Draft.js](https://facebook.github.io/draft-js/) that manages `contentEditable` manually.
+Zwykle gdy element posiadający potomka jest oznaczony jako `contentEditable`, pojawia się ostrzeżenie, ponieważ mechanizm ten nie zadziała prawidłowo. Ten atrybut wyłącza to ostrzeżenie. Nie używaj go, chyba że tworzysz bibliotekę ręcznie zarządzającą właściwością `contentEditable`, jak np. [Draft.js](https://facebook.github.io/draft-js/).
 
 ### suppressHydrationWarning {#suppresshydrationwarning}
 
-If you use server-side React rendering, normally there is a warning when the server and the client render different content. However, in some rare cases, it is very hard or impossible to guarantee an exact match. For example, timestamps are expected to differ on the server and on the client.
+Gdy używasz renderowania po stronie serwera (ang. *server-side*), zwykle pojawia się ostrzeżenie, gdy serwer i klient renderują inną zawartość. Jednakże, w niektórych rzadkich przypadkach, dokładne dopasowanie jest bardzo trudne lub niemożliwe do osiągnięcia. Na przykład, znaczniki czasu zwykle różnią się między serwerem i klientem.
 
-If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrate()` documentation](/docs/react-dom.html#hydrate).
+Jeżeli ustawisz właściwość `suppressHydrationWarning` na `true`, React nie ostrzeże cię o niedopasowaniu atrybutów i zawartości tego elementu. Działa to tylko na jednym poziomie zagłębienia i jest używane jako "wyjście awaryjne" z problemu. Nie nadużywaj go. Możesz poczytać więcej o odtwarzaniu struktury (ang. *hydration*) w [dokumentacji funkcji `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
 ### value {#value}
 
-The `value` attribute is supported by `<input>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+Atrybut `value` jest wspierany przez elementy `<input>` oraz `<textarea>`. Możesz go użyć do ustawienia wartości komponentu. Jest to przydatne do budowania kontrolowanych komponentów. `defaultValue` jest niekontrolowanym odpowiednikiem tego atrybutu, który określa, jaką wartość powinien mieć komponent przy pierwszym montowaniu.
 
-## All Supported HTML Attributes {#all-supported-html-attributes}
+## Wszystkie wspierane atrybuty HTML {#all-supported-html-attributes}
 
-As of React 16, any standard [or custom](/blog/2017/09/08/dom-attributes-in-react-16.html) DOM attributes are fully supported.
+Poczynając od wersji 16-stej React wspiera wszystkie standardowe i [niestandardowe](/blog/2017/09/08/dom-attributes-in-react-16.html) atrybuty DOM.
 
-React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, React uses the `camelCase` convention just like the DOM APIs:
+React od zawsze udostępniał interfejs API jak najbardziej podobny do javascriptowego interfejsu DOM. Z racji tego, że komponenty reactowe często przyjmują zarówno właściwości niestandardowe, jak i te związane z modelem DOM, React używa notacji `camelCase`, zupełnie jak interfejs DOM:
 
 ```js
-<div tabIndex="-1" />      // Just like node.tabIndex DOM API
-<div className="Button" /> // Just like node.className DOM API
-<input readOnly={true} />  // Just like node.readOnly DOM API
+<div tabIndex="-1" />      // Dokładnie jak node.tabIndex w DOM API
+<div className="Button" /> // Dokładnie jak node.className w DOM API
+<input readOnly={true} />  // Dokładnie jak node.readOnly w DOM API
 ```
 
-These props work similarly to the corresponding HTML attributes, with the exception of the special cases documented above.
+Powyższe właściwości działają podobnie jak odpowiadajce im atrybuty HTML, z wyjątkiem specjalnych przypadków wymienionych powyżej.
 
-Some of the DOM attributes supported by React include:
+Niektóre atrybuty DOM wspierane przez Reacta to:
 
 ```
 accept acceptCharset accessKey action allowFullScreen alt async autoComplete
@@ -154,7 +154,7 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-Similarly, all SVG attributes are fully supported:
+Podobnie, wspierane są wszystkie atrybuty SVG:
 
 ```
 accentHeight accumulate additive alignmentBaseline allowReorder alphabetic
@@ -193,4 +193,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-You may also use custom attributes as long as they're fully lowercase.
+Możesz także używać niestandardowych atrybutów, pod warunkiem, że są one napisane małymi literami.

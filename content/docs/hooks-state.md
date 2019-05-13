@@ -8,7 +8,7 @@ prev: hooks-overview.html
 
 *Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one na wykorzystanie stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-W [poprzednim rozdziale](/docs/hooks-intro.html) przedstawiliśmy hooki następującym przykładem:
+We [wstępie](/docs/hooks-intro.html) przedstawiliśmy hooki za pomocą następującego przykładu:
 
 ```js{4-5}
 import React, { useState } from 'react';

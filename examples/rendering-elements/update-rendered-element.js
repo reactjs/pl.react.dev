@@ -2,7 +2,9 @@ function tick() {
   const element = (
     <div>
       <h1>Witaj świecie!</h1>
-      <h2>Aktualny czas: {new Date().toLocaleTimeString()}.</h2>
+      <h2>
+        Aktualny czas: {new Date().toLocaleTimeString()}.
+      </h2>
     </div>
   );
   // highlight-next-line

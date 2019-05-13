@@ -99,7 +99,7 @@ Czasem ludzie preferują książki i kursy wideo stworzone przez innych użytkow
 
 ### Zaawansowane pojęcia {#advanced-concepts}
 
-Kiedy będziesz się już czuć komfortowo z [podstawowymi pojęciami](#main-concepts), a za sobą będziesz mieć trochę zabawy z kodem w Reakcie, mogą zainteresować cię bardziej zaawansowane zagadnienia. Ta sekcja zapozna cię z przydatnymi, acz rzadziej używanymi funkcjonalnościami, jak [konteksty (ang. *contexts*)](/docs/context.html) czy [referencje (ang. *refs*)](/docs/refs-and-the-dom.html).
+Kiedy będziesz się już czuć komfortowo z [podstawowymi pojęciami](/docs/hello-world.html), a za sobą będziesz mieć trochę zabawy z kodem w Reakcie, mogą zainteresować cię bardziej zaawansowane zagadnienia. Ta sekcja zapozna cię z przydatnymi, acz rzadziej używanymi funkcjonalnościami, jak [konteksty (ang. *contexts*)](/docs/context.html) czy [referencje (ang. *refs*)](/docs/refs-and-the-dom.html).
 
 ### Dokumentacja API {#api-reference}
 
@@ -115,7 +115,7 @@ Ta sekcja dokumentacji może okazać się przydatna, jeśli chcesz dowiedzieć s
 
 Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie cię nic ważnego, jeśli będziesz śledzić jedynie bloga.
 
-Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md)
+Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md), a także na [liście opublikowanych wersji](https://github.com/facebook/react/releases).
 
 ## Dokumentacje wersji {#versioned-documentation}
 

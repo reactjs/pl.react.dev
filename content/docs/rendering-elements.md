@@ -39,7 +39,7 @@ Aby wyrenderować reactowy element w węźle drzewa DOM, przekaż oba do `ReactD
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+[Przetestuj kod na CodePen](codepen://rendering-elements/render-an-element)
 
 Na stronie wyświetli się napis "Witaj, świecie!".
 
@@ -53,7 +53,7 @@ Rozważ ten przykład tykającego zegara:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+[Przetestuj kod na CodePen](codepen://rendering-elements/update-rendered-element)
 
 Wywołuje on `ReactDOM.render()` z wewnątrz funkcji zwrotnej [`setInterval()`](https://developer.mozilla.org/pl/docs/Web/API/Window/setInterval) co sekundę.
 
