@@ -427,9 +427,9 @@ Kiedy to tylko możliwe używaj `useEffect` aby uniknąć blokujących aktualiza
 useDebugValue(value)
 ```
 
-`useDebugValue` can be used to display a label for custom hooks in React DevTools.
+`useDebugValue` może zostać użyty do wyświetlania etykiet dla własnych hooków w narzędziu React DevTools.
 
-For example, consider the `useFriendStatus` custom Hook described in ["Building Your Own Hooks"](/docs/hooks-custom.html):
+Rozważ na przykład własny hook `useFriendStatus` opisywany w rozdziale ["Tworzenie własnych hooków"](/docs/hooks-custom.html):
 
 ```js{6-8}
 function useFriendStatus(friendID) {
@@ -437,8 +437,8 @@ function useFriendStatus(friendID) {
 
   // ...
 
-  // Show a label in DevTools next to this Hook
-  // e.g. "FriendStatus: Online"
+  // Wyświetl etykietę w narzędziu DevTools obok tego hooka
+  // np. "FriendStatus: Online"
   useDebugValue(isOnline ? 'Online' : 'Offline');
 
   return isOnline;
@@ -447,15 +447,15 @@ function useFriendStatus(friendID) {
 
 > Podpowiedź
 >
-> We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
+> Nie zalecamy dodawania „debugowych” wartości każdemu własnemu hookowi. Jest to najbardziej przydatne w przypadku hooków będących częścią współdzielonych bibliotek.
 
-#### Defer formatting debug values {#defer-formatting-debug-values}
+#### Odroczenie formatowania „debugowych” wartości {#defer-formatting-debug-values}
 
-In some cases formatting a value for display might be an expensive operation. It's also unnecessary unless a Hook is actually inspected.
+W pewnych przypadkach formatowanie wartości może być kosztowną operacją. Jest też zbędne, dopóki hook nie jest rzeczywiście sprawdzany w narzędziach deweloperskich.
 
-For this reason `useDebugValue` accepts a formatting function as an optional second parameter. This function is only called if the Hooks are inspected. It receives the debug value as a parameter and should return a formatted display value.
+Dlatego też `useDebugValue` przyjmuje opcjonalnie jako drugi argument funkcję formatującą. Funkcja ta jest wywoływana tylko wtedy, gdy hooki są sprawdzane w narzędziach deweloperskich. Przyjmuje jako argument „debugową” wartość, a powinna zwrócić sformatowaną wartość. 
 
-For example a custom Hook that returned a `Date` value could avoid calling the `toDateString` function unnecessarily by passing the following formatter:
+Na przykład własny hook zwracający obiekt `Date` mógłby uniknąć niepotrzebnego wywołania funkcji `toDateString` poprzez przekazanie następującej funkcji formatującej:
 
 ```js
 useDebugValue(date, date => date.toDateString());
