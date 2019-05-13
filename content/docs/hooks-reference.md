@@ -115,7 +115,7 @@ Domyślnie efekty są uruchamiane po każdym wyrenderowaniu komponentu, ale moż
 
 #### Czyszczenie po efekcie {#cleaning-up-an-effect}
 
-Często efekty tworzą zasoby, np. subskrypcja lub ID licznika, które muszą być uprzątnięte, zanim komponent opuści ekran. Aby to uczynić funkcja przekazywana do `useEffect` może zwracać funkcję czyszczącą. Na przykład aby stworzyć subskrypcję:
+Często efekty tworzą zasoby, np. subskrypcja lub ID licznika, które muszą być uprzątnięte, zanim komponent opuści ekran. Aby to uczynić funkcja przekazywana do `useEffect` może zwracać funkcję czyszczącą. Na przykład przy tworzeniu subskrypcji:
 
 ```js
 useEffect(() => {
@@ -127,7 +127,7 @@ useEffect(() => {
 });
 ```
 
-The clean-up function runs before the component is removed from the UI to prevent memory leaks. Additionally, if a component renders multiple times (as they typically do), the **previous effect is cleaned up before executing the next effect**. In our example, this means a new subscription is created on every update. To avoid firing an effect on every update, refer to the next section.
+Aby zapobiec wyciekom pamięci, funkcja czyszcząca wywoływana jest zanim komponent zostanie usunięty z interfejsu użytkownika. Dodatkowo jeśli komponent jest renderowany kilkukrotnie (co zwykle ma miejsce), **poprzedni efekt jest czyszczony przed wywołaniem kolejnego efektu**. W naszym przykładzie oznacza to, że nowa subskrypcja tworzona jest przy każdej aktualizacji. W kolejnym podrozdziale opisujemy, jak uniknąć wywoływania efektów przy każdej aktualizacji.
 
 #### Timing of effects {#timing-of-effects}
 
@@ -169,7 +169,7 @@ Now the subscription will only be recreated when `props.source` changes.
 >
 >Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
-The array of dependencies is not passed as arguments to the effect function. Conceptually, though, that's what they represent: every value referenced inside the effect function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+Tablica zależności nie jest przekazywana jako argumenty do funkcji efektu. Koncepcyjnie jednak to właśnie przedstawiają: każda wartość, do której odwołuje się funkcja efektu, powinna również pojawić się w tablicy zależności. W przyszłości dostatecznie zaawansowany kompilator mógłby automatycznie tworzyć tę tablicę.
 
 ### `useContext` {#usecontext}
 
@@ -375,13 +375,13 @@ function TextInputWithFocusButton() {
 
 Zasadniczo `useRef` jest jak „pudełko”, które może przechowywać mutowalną wartość w swojej właściwości `.current`.
 
-You might be familiar with refs primarily as a way to [access the DOM](/docs/refs-and-the-dom.html). If you pass a ref object to React with `<div ref={myRef} />`, React will set its `.current` property to the corresponding DOM node whenever that node changes.
+Być może znasz już referencje (ang. *ref*) jako sposób na [dostęp do drzewa DOM](/docs/refs-and-the-dom.html). Jeśli przekażesz obiekt referencji do Reacta, korzystając ze składni `<div ref={myRef} />`, React ustawi jego właściwość `.current` na odpowiedni węzeł drzewa DOM przy każdej zmianie tego węzła.
 
-However, `useRef()` is useful for more than the `ref` attribute. It's [handy for keeping any mutable value around](/docs/hooks-faq.html#is-there-something-like-instance-variables) similar to how you'd use instance fields in classes.
+Jednakże hook `useRef()` jest przydatny nie tylko jako atrybut `ref`. Jest też [przydatną metodą na przechowywanie mutowalnej wartości](/docs/hooks-faq.html#is-there-something-like-instance-variables), podobną do właściwości instancji w przypadku komponentów klasowych.
 
-This works because `useRef()` creates a plain JavaScript object. The only difference between `useRef()` and creating a `{current: ...}` object yourself is that `useRef` will give you the same ref object on every render.
+Sposób ten zadziała ponieważ `useRef` tworzy czysty javascriptowy obiekt. Jedyną różnicą pomiędzy wywołaniem `useRef()`, a samodzielnym tworzeniem obiektu `{current: ...}` jest to, że `useRef` zwróci referencję tego samego obiektu przy każdym renderowaniu.
 
-Keep in mind that `useRef` *doesn't* notify you when its content changes. Mutating the `.current` property doesn't cause a re-render. If you want to run some code when React attaches or detaches a ref to a DOM node, you may want to use a [callback ref](/docs/hooks-faq.html#how-can-i-measure-a-dom-node) instead.
+Miej na uwadze fakt, że `useRef` *nie* informuje o tym, że jego wartość się zmieniła. Zmiana (mutowanie) właściwości `.current` nie spowoduje ponownego renderowania. Jeżeli chcesz uruchomić jakiś kod, w momencie gdy React dopina i odpina referencje do węzła DOM, możesz zamiast tego użyć [funkcji zwrotnej](/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
 
 
 ### `useImperativeHandle` {#useimperativehandle}
@@ -390,7 +390,7 @@ Keep in mind that `useRef` *doesn't* notify you when its content changes. Mutati
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
-`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. As always, imperative code using refs should be avoided in most cases. `useImperativeHandle` should be used with `forwardRef`:
+`useImperativeHandle` dostosowuje wartość instancji, jaka przekazywana jest komponentom przodków, kiedy używają właściwości `ref`. Jak zwykle zalecamy aby w większości przypadków unikać imperatywnego kodu korzystającego z referencji. `useImperativeHandle` powinien być użyty w parze z `forwardRef`:
 
 ```js
 function FancyInput(props, ref) {
@@ -405,21 +405,21 @@ function FancyInput(props, ref) {
 FancyInput = forwardRef(FancyInput);
 ```
 
-In this example, a parent component that renders `<FancyInput ref={fancyInputRef} />` would be able to call `fancyInputRef.current.focus()`.
+W tym przykładzie komponent rodzica, który renderuje `<FancyInput ref={fancyInputRef} />` będzie w stanie wywołać `fancyInputRef.current.focus()`.
 
 ### `useLayoutEffect` {#uselayouteffect}
 
-The signature is identical to `useEffect`, but it fires synchronously after all DOM mutations. Use this to read layout from the DOM and synchronously re-render. Updates scheduled inside `useLayoutEffect` will be flushed synchronously, before the browser has a chance to paint.
+Sygnatura funkcji jest taka sama, jak `useEffect`, ale jest ona wywoływana jest synchronicznie po nałożeniu zmian na drzewo DOM. Użyj tego hooka aby odczytać układ (ang. *layout*) z drzewa DOM i synchronicznie wyrenderować komponent ponownie. Bufor `useLayoutEffect` zostanie opróżniony synchronicznie, zanim przeglądarka będzie miała szansę na malowanie.
 
-Prefer the standard `useEffect` when possible to avoid blocking visual updates.
+Kiedy to tylko możliwe używaj `useEffect` aby uniknąć blokujących aktualizacji wizualnych.
 
 > Podpowiedź
 >
-> If you're migrating code from a class component, note `useLayoutEffect` fires in the same phase as `componentDidMount` and `componentDidUpdate`. However, **we recommend starting with `useEffect` first** and only trying `useLayoutEffect` if that causes a problem.
+> Jeżeli przeprowadzasz migrację kodu z komponentu klasowego musisz wiedzieć, że `useLayoutEffect` uruchamiany jest w tych samych fazach, co `componentDidMount` i `componentDidUpdate`. Jednakże **zalecamy zacząć od `useEffect`** i używać `useLayoutEffect` tylko, jeżeli tamta metoda spowoduje jakieś problemy.
 >
->If you use server rendering, keep in mind that *neither* `useLayoutEffect` nor `useEffect` can run until the JavaScript is downloaded. This is why React warns when a server-rendered component contains `useLayoutEffect`. To fix this, either move that logic to `useEffect` (if it isn't necessary for the first render), or delay showing that component until after the client renders (if the HTML looks broken until `useLayoutEffect` runs).
+>Jeżeli używasz renderowania po stronie serwera pamiętaj, że *ani* `useLayoutEffect`, *ani* `useEffect` nie może działać dopóki kod JavaScript nie zostanie pobrany. Dlatego React ostrzega jeżeli komponent renderowany po stronie serwera zawiera `useLayoutEffect`. Aby to naprawić możesz albo przenieść logikę korzystającą z `useEffect` (jeżeli nie jest niezbędna przy pierwszym renderze), albo opóźnić wyświetlanie tego komponentu do czasu renderowania po stronie klienta (jeżeli kod HTML wygląda na popsuty przed uruchomieniem `useLayoutEffect`).
 >
->To exclude a component that needs layout effects from the server-rendered HTML, render it conditionally with `showChild && <Child />` and defer showing it with `useEffect(() => { setShowChild(true); }, [])`. This way, the UI doesn't appear broken before hydration.
+>Aby wyłączyć komponent, który korzysta z tego rodzaju efektów z wyrenderowanego po stronie serwera kodu HTML, wyrenderuj go warunkowo, korzystając z zapisu `showChild && <Child />` i opóźnij jego wyświetlanie przy użyciu `useEffect(() => { setShowChild(true); }, [])`. W ten sposób interfejs użytkownika nie będzie wyglądał na zepsuty przed odtworzeniem (ang. *hydration*).
 
 ### `useDebugValue` {#usedebugvalue}
 
