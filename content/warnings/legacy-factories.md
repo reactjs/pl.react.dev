@@ -4,19 +4,19 @@ layout: single
 permalink: warnings/legacy-factories.html
 ---
 
-You probably came here because your code is calling your component as a plain function call. This is now deprecated:
+Jesteś tu najprawdopodobniej z tego powodu, że wywołujesz w kodzie komponent jak zwykłą funkcję. Poniższy kod jest uznawany za przestarzały:
 
 ```javascript
 var MyComponent = require('MyComponent');
 
 function render() {
-  return MyComponent({ foo: 'bar' });  // WARNING
+  return MyComponent({ foo: 'bar' });  // OSTRZEŻENIE
 }
 ```
 
 ## JSX {#jsx}
 
-React components can no longer be called directly like this. Instead [you can use JSX](/docs/jsx-in-depth.html).
+Nie można już w ten sposób wywoływać komponentów reactowych. Zamiast tego [użyj składni JSX](/docs/jsx-in-depth.html).
 
 ```javascript
 var React = require('react');
@@ -27,9 +27,9 @@ function render() {
 }
 ```
 
-## Without JSX {#without-jsx}
+## Bez JSX {#without-jsx}
 
-If you don't want to, or can't use JSX, then you'll need to wrap your component in a factory before calling it:
+Jeśli nie chcesz (lub nie możesz) skorzystać ze składni JSX, przed wywołaniem komponentu opakuj go w fabrykę (ang. *factory*):
 
 ```javascript
 var React = require('react');
@@ -40,11 +40,11 @@ function render() {
 }
 ```
 
-This is an easy upgrade path if you have a lot of existing function calls.
+Ten sposób umożliwia łatwą aktualizację kodu, w którym jest pełno wywołań funkcyjnych.
 
-## Dynamic components without JSX {#dynamic-components-without-jsx}
+## Dynamiczne komponenty bez JSX {#dynamic-components-without-jsx}
 
-If you get a component class from a dynamic source, then it might be unnecessary to create a factory that you immediately invoke. Instead you can just create your element inline:
+Jeśli otrzymujesz klasę komponentu z dynamicznego źródła, tworzenie fabryki i jej wywoływanie może okazać się zbyteczne. Zamiast tego stwórz komponent bezpośrednio:
 
 ```javascript
 var React = require('react');
@@ -54,6 +54,6 @@ function render(MyComponent) {
 }
 ```
 
-## In Depth {#in-depth}
+## Więcej szczegółów {#in-depth}
 
-[Read more about WHY we're making this change.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
+[Przeczytaj o tym, DLACZEGO wprowadziliśmy taką zmianę.](https://gist.github.com/sebmarkbage/d7bce729f38730399d28)
