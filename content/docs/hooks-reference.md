@@ -129,21 +129,21 @@ useEffect(() => {
 
 Aby zapobiec wyciekom pamięci, funkcja czyszcząca wywoływana jest zanim komponent zostanie usunięty z interfejsu użytkownika. Dodatkowo jeśli komponent jest renderowany kilkukrotnie (co zwykle ma miejsce), **poprzedni efekt jest czyszczony przed wywołaniem kolejnego efektu**. W naszym przykładzie oznacza to, że nowa subskrypcja tworzona jest przy każdej aktualizacji. W kolejnym podrozdziale opisujemy, jak uniknąć wywoływania efektów przy każdej aktualizacji.
 
-#### Timing of effects {#timing-of-effects}
+#### Harmonogram efektów {#timing-of-effects}
 
-Unlike `componentDidMount` and `componentDidUpdate`, the function passed to `useEffect` fires **after** layout and paint, during a deferred event. This makes it suitable for the many common side effects, like setting up subscriptions and event handlers, because most types of work shouldn't block the browser from updating the screen.
+W przeciwieństwie do metod `componentDidMount` i `componentDidUpdate` funkcja przekazana do  `useEffect` wywoływana zostanie **po tym** jak skomponowany i namalowany zostanie układ strony. Sprawia to, że nadaje się ona do obsługi wielu typowych efektów ubocznych, takich jak tworzenie subskrypcji czy obsługa zdarzeń. Większość tego typu operacji nie powinna powstrzymywać przeglądarki przed odświeżeniem widoku.
 
-However, not all effects can be deferred. For example, a DOM mutation that is visible to the user must fire synchronously before the next paint so that the user does not perceive a visual inconsistency. (The distinction is conceptually similar to passive versus active event listeners.) For these types of effects, React provides one additional Hook called [`useLayoutEffect`](#uselayouteffect). It has the same signature as `useEffect`, and only differs in when it is fired.
+Jednakże nie wszystkie efekty mogą zostać odroczone. Na przykład manipulacja drzewem DOM, widoczna dla użytkownika, musi zostać wywołana synchronicznie przed każdym malowaniem, tak aby użytkownik nie dostrzegł wizualnej niespójności. (Rozróżnienie to w swej koncepcji podobne jest do pasywnych i aktywnych obserwatorów zdarzeń (ang. *event listeners*).) Dla tego typu efektów React przewiduje dodatkowy hook, nazwany [`useLayoutEffect`](#uselayouteffect). Ma on tę samą sygnaturę co `useEffect`, różnie się jedynie tym, kiedy jest wywoływany.
 
-Although `useEffect` is deferred until after the browser has painted, it's guaranteed to fire before any new renders. React will always flush a previous render's effects before starting a new update.
+Pomimo, że wywołanie `useEffect` jest odraczane do czasu, kiedy przeglądarka zakończy malowanie, jest zagwarantowane, że zostanie wykonane przed każdym nowym renderem. React opróżni bufor efektów z poprzednich renderów, zanim rozpocznie nową aktualizację.
 
-#### Conditionally firing an effect {#conditionally-firing-an-effect}
+#### Warunkowe uruchamianie efektów {#conditionally-firing-an-effect}
 
-The default behavior for effects is to fire the effect after every completed render. That way an effect is always recreated if one of its dependencies changes.
+Domyślnym zachowaniem efektów jest ich uruchamianie po każdym pomyślnym renderze. W ten sposób efekt jest zawsze tworzony na nowo, jeśli zmieni się jedna z jego zależności.
 
-However, this may be overkill in some cases, like the subscription example from the previous section. We don't need to create a new subscription on every update, only if the `source` props has changed.
+Jednakże w pewnych przypadkach może się to okazać zabójcze - choćby w przykładzie subskrypcji z poprzedniego podrozdziału. Nie ma potrzeby tworzyć nowej subskrypcji przy każdej aktualizacji, a jedynie wtedy gdy zmieni się właściwość `source`.
 
-To implement this, pass a second argument to `useEffect` that is the array of values that the effect depends on. Our updated example now looks like this:
+Aby zaimplementować takie zachowanie należy przekazać do `useEffect` drugi argument, będący tablicą wartości, od których zależy efekt. Nasz zaktualizowany przykład wygląda następująco:
 
 ```js
 useEffect(
@@ -157,7 +157,7 @@ useEffect(
 );
 ```
 
-Now the subscription will only be recreated when `props.source` changes.
+Teraz subskrypcja zostanie stworzona ponownie tylko wtedy, gdy zmieni się właściwość `props.source`.
 
 >Uwaga
 >
