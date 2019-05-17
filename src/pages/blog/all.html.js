@@ -30,8 +30,13 @@ const AllBlogPosts = ({data, location}: Props) => (
         <div css={sharedStyles.articleLayout.content}>
           <Header>Wszystkie posty</Header>
           <TitleAndMetaTags
+<<<<<<< HEAD
             ogUrl={`${urlRoot}/blog/all.html`}
             title="React - Wszystkie posty"
+=======
+            canonicalUrl={`${urlRoot}/blog/all.html`}
+            title="React - All Posts"
+>>>>>>> 06deefa56756f8dac13af59ee657186a81d28151
           />
           <ul
             css={{
