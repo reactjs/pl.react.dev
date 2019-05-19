@@ -47,16 +47,11 @@ const Languages = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-<<<<<<< HEAD
           <Header>Języki</Header>
-          <TitleAndMetaTags title="React - Języki" />
-=======
-          <Header>Languages</Header>
           <TitleAndMetaTags
             canonicalUrl={`${urlRoot}/languages/`}
-            title="React - Languages"
+            title="React - Języki"
           />
->>>>>>> 06deefa56756f8dac13af59ee657186a81d28151
 
           <div css={sharedStyles.markdown}>
             <p>Dokumentacja Reacta jest dostępna w następujących językach:</p>

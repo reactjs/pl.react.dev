@@ -25,16 +25,11 @@ const Versions = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-<<<<<<< HEAD
           <Header>Wersje Reacta</Header>
-          <TitleAndMetaTags title="React - Wersje" />
-=======
-          <Header>React Versions</Header>
           <TitleAndMetaTags
             canonicalUrl={`${urlRoot}/versions/`}
-            title="React - Versions"
+            title="React - Wersje"
           />
->>>>>>> 06deefa56756f8dac13af59ee657186a81d28151
           <div css={sharedStyles.markdown}>
             <p>
               Kompletna historia wypuszczonych wersji Reacta jest dostępna{' '}

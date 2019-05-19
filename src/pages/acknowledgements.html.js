@@ -21,13 +21,8 @@ const Acknowlegements = ({data, location}) => (
         <div css={sharedStyles.articleLayout.content}>
           <Header>Podziękowania</Header>
           <TitleAndMetaTags
-<<<<<<< HEAD
-            ogUrl={`${urlRoot}/acknowledgements.html`}
-            title="React - Podziękowania"
-=======
             canonicalUrl={`${urlRoot}/acknowledgements.html`}
-            title="React - Acknowledgements"
->>>>>>> 06deefa56756f8dac13af59ee657186a81d28151
+            title="React - Podziękowania"
           />
 
           <div css={sharedStyles.markdown}>
