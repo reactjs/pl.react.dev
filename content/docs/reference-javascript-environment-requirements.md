@@ -11,8 +11,8 @@ React 16 opiera się na typach kolekcji [Map](https://developer.mozilla.org/en-U
 Środowisko, w którym zastosowano łatki dla Reacta 16 korzystając z core-js, może wyglądać tak:
 
 ```js
-import 'core-js/es6/map';
-import 'core-js/es6/set';
+import 'core-js/es/map';
+import 'core-js/es/set';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
