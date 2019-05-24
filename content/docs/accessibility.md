@@ -149,7 +149,11 @@ Jeśli decydujesz się na usunięcie konturu, np. ustawiając właściwość CSS
 
 Zapewnij mechanizm umożliwiający użytkownikom pominięcie sekcji nawigacji na stronie, ponieważ ułatwia on i przyspiesza nawigowanie z wykorzystaniem klawiatury.
 
+<<<<<<< HEAD
 Łącza typu "Przejdź do treści" lub "Pomiń nawigację" to specjalne, ukryte linki nawigacyjne, które stają się widoczne tylko wtedy, gdy użytkownicy klawiatury wchodzą w interakcję ze stroną. Są bardzo łatwe w implementacji z wykorzystaniem wewnętrznych kotwic oraz odrobiny stylowania:
+=======
+Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with internal page anchors and some styling:
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 - [WebAIM - łącza pomijające nawigację](https://webaim.org/techniques/skipnav/)
 
@@ -161,7 +165,11 @@ Przeczytaj więcej o wykorzystaniu tych elementów w celu zwiększenia dostępno
 
 ### Programowe zarządzanie fokusem {#programmatically-managing-focus}
 
+<<<<<<< HEAD
 Nasze aplikacje Reactowe nieustannie modyfikują HTML DOM w czasie działania, co chwilami prowadzi do utraty konturu aktywnego elementu lub ustawienia go na nieoczekiwany element. Aby to naprawić, musimy ręcznie ustawić fokus we właściwym miejscu. Przykładowo, jeśli użytkownik zamknie okno modalne, fokus mógłby zostać przeniesiony na przycisk, który to okno otworzył.
+=======
+Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this, we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 Dokumentacja MDN opisuje dokładniej, w jaki sposób możemy tworzyć [widżety javascriptowe z obsługą klawiatury](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
@@ -199,7 +207,11 @@ Wówczas, w razie potrzeby, możemy przenieść fokus na inny element naszego ko
  }
  ```
 
+<<<<<<< HEAD
 Czasami komponent nadrzędny musi ustawić fokus na element komponentu podrzędnego. Możemy to zrobić poprzez [przesłanie referencji "w górę" do komponentu nadrzędnego](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) za pomocą specjalnej właściwości nadanej komponentowi podrzędnemu.
+=======
+Sometimes a parent component needs to set focus to an element in a child component. We can do this by [exposing DOM refs to parent components](/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components) through a special prop on the child component that forwards the parent's ref to the child's DOM node.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 ```javascript{4,12,16}
 function CustomTextInput(props) {
@@ -226,12 +238,19 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Kiedy używasz HOC-a (ang. higher order component) do rozszerzenia komponentów, zaleca się [przekazanie referencji](/docs/forwarding-refs.html) do opakowanego komponentu przy użyciu funkcji `forwardRef`, która wbudowana jest w Reacta. Jeśli wybrany HOC z którejś zewnętrznej biblioteki
 nie implementuje takiego przekierowania, można użyć powyższego wzorca jako wyjście awaryjne.
 
 Doskonałym przykładem zarządzania fokusem jest biblioteka [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Jest to stosunkowo rzadki przykład w pełni dostępnego okna modalnego. Nie tylko ustawia początkowy fokus
 na przycisku zamykającym okno (uniemożliwiając tym samym użytkownikowi klawiatury przypadkowe aktywowanie akcji akceptującej) i zatrzymuje fokus klawiaturowy wewnątrz okna, lecz dodatkowo po zamknięciu przywraca fokus z powrotem na element, który zainicjował otwarcie okna.
 
+=======
+When using a HOC to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+
+A great focus management example is the [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on
+the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that initially triggered the modal.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 >Uwaga:
 >
@@ -240,7 +259,11 @@ na przycisku zamykającym okno (uniemożliwiając tym samym użytkownikowi klawi
 
 ## Zdarzenia myszy i wskaźnika {#mouse-and-pointer-events}
 
+<<<<<<< HEAD
 Upewnij się, że wszystkie funkcje dostępne dla korzystających z myszy lub wskaźnika są również osiągalne za pomocą samej klawiatury. Poleganie na samych urządzeniach wskazujących prowadzi często do sytuacji, w których użytkownicy klawiatury nie mogą w ogóle korzystać z aplikacji.
+=======
+Ensure that all functionality exposed through a mouse or pointer event can also be accessed using the keyboard alone. Depending only on the pointer device will lead to many cases where keyboard users cannot use your application.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 Aby to zilustrować, spójrzmy na przykład zepsutej dostępności spowodowanej obsługą wyłącznie zdarzenia kliknięcia. Dotyczy to sytuacji, w której użytkownik może zamknąć otwarty "dymek" poprzez kliknięcie gdzieś poza nim.
 
@@ -297,8 +320,12 @@ constructor(props) {
 }
 ```
 
+<<<<<<< HEAD
 Powyższy przykład działa poprawnie dla użytkowników korzystających ze wskaźników, takich jak np. mysz. Jednakże, obsługiwanie za pomocą samej klawiatury prowadzi do problemu przy przechodzeniu do następnego elementu listy za pomocą tabulatora. Dzieje się tak, ponieważ obiekt `window` nigdy nie otrzymuje zdarzenia` click`. Może to doprowadzić do uniemożliwienia użytkownikom korzystania z aplikacji.
 
+=======
+This may work fine for users with pointer devices, such as a mouse, but operating this with the keyboard alone leads to broken functionality when tabbing to the next element as the `window` object never receives a `click` event. This can lead to obscured functionality which blocks users from using your application.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="Przycisk pokazujący dymek z listą, ukrywany poprzez kliknięcie poza dymkiem. Obsługiwany za pomocą klawiatury, co skutkuje nie zamknięciem dymku po utracie fokusa, powodując trwałe przysłonięcie innych elementów interfejsu." />
 
@@ -365,17 +392,29 @@ class BlurExample extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Ten kod udostępnia funkcje użytkownikom zarówno urządzeń wskaźnikowych, jak i klawiatury. Zwróć także uwagę na właściwości `aria- *` dodane w celu obsłużenia czytników ekranu. Dla uproszczenia kodu nie zostały zaimplementowane zdarzenia klawiaturowe pozwalające na interakcję z dymkiem za pomocą klawiszy strzałek.
+=======
+This code exposes the functionality to both pointer device and keyboard users. Also note the added `aria-*` props to support screen-reader users. For simplicity's sake the keyboard events to enable `arrow key` interaction of the popover options have not been implemented.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 <img src="../images/docs/blur-popover-close.gif" alt="Lista poprawnie zamykająca się zarówno dla użytkowników myszy, jak i klawiatury." />
 
+<<<<<<< HEAD
 Jest to tylko jeden przykład z wielu przypadków, w których poleganie jedynie na zdarzeniach wskaźnika i myszy możemy uniemożliwić poruszanie się po aplikacji użytkownikom korzystającym z samej klawiatury.
 Każdorazowe testowanie aplikacji za pomocą klawiatury pozwala na sprawne wyszukiwanie problemów, którym można zaradzić poprzez dodanie obsługi zdarzeń klawiaturowych.
+=======
+This is one example of many cases where depending on only pointer and mouse events will break functionality for keyboard users. Always testing with the keyboard will immediately highlight the problem areas which can then be fixed by using keyboard aware event handlers.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 ## Bardziej złożone widżety {#more-complex-widgets}
 
+<<<<<<< HEAD
 Bardziej złożone scenariusze niekoniecznie muszą być mniej dostępne dla użytkowników. Dostępność najłatwiej osiągnąć poprzez trzymanie się jak najbliżej wzorców znanych z natywnego HTML-a.
 Nawet najbardziej złożony widżet może być przyjazny dla użytkownika.
+=======
+A more complex user experience should not mean a less accessible one. Whereas accessibility is most easily achieved by coding as close to HTML as possible, even the most complex widget can be coded accessibly.
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 Wymagamy tutaj znajomości standardu ARIA, m.in. [ról](https://www.w3.org/TR/wai-aria/#roles) oraz [stanów i właściwości](https://www.w3.org/TR/wai-aria/#states_and_properties).
 Są to "skrzynki narzędziowe" wypełnione atrybutami HTML, które są w pełni obsługiwane przez JSX i umożliwiają nam tworzenie w pełni dostępnych, wysoce funkcjonalnych komponentów reactowych.
@@ -434,6 +473,7 @@ Instrukcja sprawdzenia aplikacji:
 
 ### Pomoc przy tworzeniu {#development-assistance}
 
+<<<<<<< HEAD
 Część testów dostępności możemy wykonać bezpośrednio w naszym kodzie JSX. Często kontrole dostępności dla ról, stanów i właściwości ARIA są wbudowane w środowisko IDE obsługujące JSX. Dodatkowo, mamy do dyspozycji również inne narzędzia:
 
 #### eslint-plugin-jsx-a11y {#eslint-plugin-jsx-a11y}
@@ -442,6 +482,17 @@ Wtyczka [eslint-plugin-jsx-a11y] (https://github.com/evcohen/eslint-plugin-jsx-a
  problemach z dostępnością bezpośrednio z narzędziami do analizy kodu i oknami edytorów.
 
 [Create React App](https://github.com/facebookincubator/create-react-app) ma tę wtyczkę domyślnie zainstalowaną z aktywnymi niektórymi regułami. Jeśli chcesz włączyć dodatkowe reguły dotyczące dostępności, możesz utworzyć plik `.eslintrc` w katalogu głównym swojego projektu z następującą zawartością:
+=======
+### Development assistance {#development-assistance}
+
+We can check some accessibility features directly in our JSX code. Often intellisense checks are already provided in JSX aware IDE's for the ARIA roles, states and properties. We also have access to the following tool:
+
+#### eslint-plugin-jsx-a11y {#eslint-plugin-jsx-a11y}
+
+The [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin for ESLint provides AST linting feedback regarding accessibility issues in your JSX. Many IDE's allow you to integrate these findings directly into code analysis and source code windows.
+
+[Create React App](https://github.com/facebookincubator/create-react-app) has this plugin with a subset of rules activated. If you want to enable even more accessibility rules, you can create an `.eslintrc` file in the root of your project with this content:
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
   ```json
   {

@@ -201,7 +201,11 @@ Własne hooki dają możliwość współdzielenia logiki w sposób, w jaki dotyc
 
 Spróbuj jednak powstrzymać się od zbyt wczesnego wprowadzania abstrakcji. Teraz, kiedy komponenty funkcyjne mogą znacznie więcej, twój kod źródłowy takich komponentów najprawdopodobniej zacznie „puchnąć”. To normalne, nie *zmuszaj się* od razu do dzielenia go na hooki. Ale zachęcamy też do tego, aby zacząć rozglądać się za przypadkami, gdzie własny hook mógłby ukryć skomplikowaną logikę za prostym interfejsem albo pomóc uprzątnąć zagmatwany komponent.
 
+<<<<<<< HEAD
 Załóżmy na przykład, że masz w swoim kodzie skomplikowany komponent z dużą ilością zmiennych stanu, zarządzanych w sposób doraźny. Hook `useState` nie jest wcale rozwiązaniem na łatwą centralizację tej logiki. Pewnie lepiej byłoby ci napisać [reduxowy](https://redux.js.org/) reduktor (ang. *reducer*):
+=======
+For example, maybe you have a complex component that contains a lot of local state that is managed in an ad-hoc way. `useState` doesn't make centralizing the update logic any easier so you might prefer to write it as a [Redux](https://redux.js.org/) reducer:
+>>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
 
 ```js
 function todosReducer(state, action) {
