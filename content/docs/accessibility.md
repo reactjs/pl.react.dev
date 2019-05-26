@@ -299,7 +299,6 @@ constructor(props) {
 
 Powyższy przykład działa poprawnie dla użytkowników korzystających ze wskaźników, takich jak np. mysz. Jednakże, obsługiwanie za pomocą samej klawiatury prowadzi do problemu przy przechodzeniu do następnego elementu listy za pomocą tabulatora. Dzieje się tak, ponieważ obiekt `window` nigdy nie otrzymuje zdarzenia` click`. Może to doprowadzić do uniemożliwienia użytkownikom korzystania z aplikacji.
 
-
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="Przycisk pokazujący dymek z listą, ukrywany poprzez kliknięcie poza dymkiem. Obsługiwany za pomocą klawiatury, co skutkuje nie zamknięciem dymku po utracie fokusa, powodując trwałe przysłonięcie innych elementów interfejsu." />
 
 Ta sama funkcjonalność może zostać uzyskana poprzez użycie odpowiednich procedur obsługi zdarzeń, takich jak `onBlur` i` onFocus`:
