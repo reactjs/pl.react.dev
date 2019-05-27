@@ -431,14 +431,7 @@ Instrukcja sprawdzenia aplikacji:
 3. Używaj klawisza `Enter` do aktywowania elementów.
 4. W razie potrzeby używaj klawiszy strzałek do interakcji z niektórymi elementami, takimi jak menu i listy rozwijane.
 
-<<<<<<< HEAD
 ### Pomoc przy tworzeniu {#development-assistance}
-=======
-1. Disconnecting your mouse.
-1. Using `Tab` and `Shift+Tab` to browse.
-1. Using `Enter` to activate elements.
-1. Where required, using your keyboard arrow keys to interact with some elements, such as menus and dropdowns.
->>>>>>> 23b242edc4c7eeee5798953ba205e36cc71016b8
 
 Część testów dostępności możemy wykonać bezpośrednio w naszym kodzie JSX. Często kontrole dostępności dla ról, stanów i właściwości ARIA są wbudowane w środowisko IDE obsługujące JSX. Dodatkowo, mamy do dyspozycji również inne narzędzia:
 
