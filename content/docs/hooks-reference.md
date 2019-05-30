@@ -107,7 +107,7 @@ useEffect(didUpdate);
 
 Przyjmuje funkcję zawierającą imperatywny kod, mogący zawierać efekty uboczne.
 
-W ciele głównej funkcji komponentu (określanej jako _faza renderowania_ Reacta) nie jest dozwolone mutowanie danych, tworzenie subskrypcji, liczników, logowanie i inne efekty uboczne. Robiąc tak należy spodziewać się mylących błędów i niespójności w interfejsie użytkownika.
+W ciele głównej funkcji komponentu (określanej jako _faza renderowania_ Reacta) nie jest dozwolone mutowanie danych, tworzenie subskrypcji, timerów, logowanie i inne efekty uboczne. Robiąc tak należy spodziewać się mylących błędów i niespójności w interfejsie użytkownika.
 
 Zamiast tego użyj `useEffect`. Funkcja przekazana do `useEffect` zostanie uruchomiona po tym, jak  zmiany zostaną wyświetlone się na ekranie. Traktuj efekty jako furtkę pomiędzy czysto funkcyjnym światem Reacta, a imperatywnym światem.
 
@@ -115,7 +115,7 @@ Domyślnie efekty są uruchamiane po każdym wyrenderowaniu komponentu, ale moż
 
 #### Czyszczenie po efekcie {#cleaning-up-an-effect}
 
-Często efekty tworzą zasoby, tj. subskrypcja czy ID licznika, które muszą być uprzątnięte, zanim komponent opuści ekran. Aby to uczynić funkcja przekazywana do `useEffect` może zwracać funkcję czyszczącą. Na przykład przy tworzeniu subskrypcji:
+Często efekty tworzą zasoby (np. subskrypcję czy ID timera), które należy uprzątnąć zanim komponent opuści ekran. Aby to uczynić funkcja przekazywana do `useEffect` może zwracać funkcję czyszczącą. Na przykład przy tworzeniu subskrypcji:
 
 ```js
 useEffect(() => {
