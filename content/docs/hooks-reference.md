@@ -115,7 +115,7 @@ Domyślnie efekty są uruchamiane po każdym wyrenderowaniu komponentu, ale moż
 
 #### Czyszczenie po efekcie {#cleaning-up-an-effect}
 
-Często efekty tworzą zasoby, np. subskrypcja lub ID licznika, które muszą być uprzątnięte, zanim komponent opuści ekran. Aby to uczynić funkcja przekazywana do `useEffect` może zwracać funkcję czyszczącą. Na przykład przy tworzeniu subskrypcji:
+Często efekty tworzą zasoby, tj. subskrypcja czy ID licznika, które muszą być uprzątnięte, zanim komponent opuści ekran. Aby to uczynić funkcja przekazywana do `useEffect` może zwracać funkcję czyszczącą. Na przykład przy tworzeniu subskrypcji:
 
 ```js
 useEffect(() => {
