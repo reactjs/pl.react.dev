@@ -1,22 +1,22 @@
 ---
 id: hooks-reference
-title: Hooks API Reference
+title: Hooki - interfejs API
 permalink: docs/hooks-reference.html
 prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
 
-This page describes the APIs for the built-in Hooks in React.
+Ten rozdział opisuje interfejs API hooków wbudowanych w Reacta.
 
-If you're new to Hooks, you might want to check out [the overview](/docs/hooks-overview.html) first. You may also find useful information in the [frequently asked questions](/docs/hooks-faq.html) section.
+Jeżeli pierwszy raz stykasz się z hookami, możesz najpierw sprawdzić rozdział pt. [„Hooki w pigułce”](/docs/hooks-overview.html). W rozdziale z [najczęściej zadawanymi pytaniami](/docs/hooks-faq.html) możesz znaleźć inne przydatne informacje.
 
-- [Basic Hooks](#basic-hooks)
+- [Podstawowe hooki](#basic-hooks)
   - [`useState`](#usestate)
   - [`useEffect`](#useeffect)
   - [`useContext`](#usecontext)
-- [Additional Hooks](#additional-hooks)
+- [Zaawansowane hooki](#additional-hooks)
   - [`useReducer`](#usereducer)
   - [`useCallback`](#usecallback)
   - [`useMemo`](#usememo)
@@ -25,7 +25,7 @@ If you're new to Hooks, you might want to check out [the overview](/docs/hooks-o
   - [`useLayoutEffect`](#uselayouteffect)
   - [`useDebugValue`](#usedebugvalue)
 
-## Basic Hooks {#basic-hooks}
+## Podstawowe hooki {#basic-hooks}
 
 ### `useState` {#usestate}
 
@@ -33,33 +33,33 @@ If you're new to Hooks, you might want to check out [the overview](/docs/hooks-o
 const [state, setState] = useState(initialState);
 ```
 
-Returns a stateful value, and a function to update it.
+Zwraca zmienną przechowującą lokalny stan i funkcję do jego aktualizacji.
 
-During the initial render, the returned state (`state`) is the same as the value passed as the first argument (`initialState`).
+Podczas pierwszego renderowania zwrócona wartość stanu (`state`) jest taka sama, jak wartość przekazana jako pierwszy argument (`initialState`).
 
-The `setState` function is used to update the state. It accepts a new state value and enqueues a re-render of the component.
+Funkcja `setState` jest używana do aktualizacji stanu. Przyjmuje ona nową wartość stanu i kolejkuje ponowne renderowanie komponentu.
 
 ```js
 setState(newState);
 ```
 
-During subsequent re-renders, the first value returned by `useState` will always be the most recent state after applying updates.
+Podczas kolejnych ponownych renderowań pierwszą wartością zwracaną przez `useState` będzie zawsze najnowszy, zaktualizowany stan.
 
->Note
+>Uwaga
 >
->React guarantees that `setState` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
+>React daje gwarancje, że funkcja `setState` jest tożsamościowa i że nie zmienia się podczas kolejnych renderowań. Dlatego też można ją bezpiecznie pominąć na liście zależności `useEffect` i `useCallback`.
 
-#### Functional updates {#functional-updates}
+#### Aktualizacje funkcyjne {#functional-updates}
 
-If the new state is computed using the previous state, you can pass a function to `setState`. The function will receive the previous value, and return an updated value. Here's an example of a counter component that uses both forms of `setState`:
+Jeżeli nowy stan wyliczany jest z poprzedniego, możesz przekazać funkcję jako argument do `setState`. Funkcja otrzymuje poprzednią wartość stanu, a zwraca nową, zaktualizowaną wartość. Oto przykład komponentu licznika, który wykorzystuje obie formy `setState`:
 
 ```js
 function Counter({initialCount}) {
   const [count, setCount] = useState(initialCount);
   return (
     <>
-      Count: {count}
-      <button onClick={() => setCount(initialCount)}>Reset</button>
+      Licznik: {count}
+      <button onClick={() => setCount(initialCount)}>Zresetuj</button>
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
     </>
@@ -67,24 +67,24 @@ function Counter({initialCount}) {
 }
 ```
 
-The "+" and "-" buttons use the functional form, because the updated value is based on the previous value. But the "Reset" button uses the normal form, because it always sets the count back to the initial value.
+Przyciski „+” i „-” wykorzystują formę funkcyjną, ponieważ zaktualizowana wartość bazuje na poprzedniej. Z kolei przycisk „Zresetuj” używa normalnej formy, ponieważ zawsze przywraca początkową wartość.
 
-> Note
+> Uwaga
 >
-> Unlike the `setState` method found in class components, `useState` does not automatically merge update objects. You can replicate this behavior by combining the function updater form with object spread syntax:
+> W przeciwieństwie do metody `setState` znanej z komponentów klasowych, funkcja `useState` nie scala automatycznie obiektów reprezentujących aktualizację. Możesz powielić to zachowanie, łącząc formę aktualizacji funkcyjnej ze składnią operatora rozszczepienia (ang. *spread operator*) obiektu:
 >
 > ```js
 > setState(prevState => {
->   // Object.assign would also work
+>   // Object.assign również zadziała
 >   return {...prevState, ...updatedValues};
 > });
 > ```
 >
-> Another option is `useReducer`, which is more suited for managing state objects that contain multiple sub-values.
+> Inną opcją jest hook `useReducer`, który jest bardziej odpowiedni do zarządzania obiektami stanów, zawierającymi wiele pod-wartości.
 
-#### Lazy initial state {#lazy-initial-state}
+#### Leniwa inicjalizacja stanu {#lazy-initial-state}
 
-The `initialState` argument is the state used during the initial render. In subsequent renders, it is disregarded. If the initial state is the result of an expensive computation, you may provide a function instead, which will be executed only on the initial render:
+Argument `initialState` jest wartością stanu używaną podczas pierwszego rendera. W kolejnych renderowaniach jest on pomijany. Jeśli początkowy stan jest wynikiem kosztownych obliczeń, możesz zamiast tego przekazać funkcję, która zostanie wykonana tylko przy pierwszym renderowaniu:
 
 ```js
 const [state, setState] = useState(() => {
@@ -93,11 +93,11 @@ const [state, setState] = useState(() => {
 });
 ```
 
-#### Bailing out of a state update {#bailing-out-of-a-state-update}
+#### Wycofanie się z aktualizacji stanu {#bailing-out-of-a-state-update}
 
-If you update a State Hook to the same value as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+Jeżeli zaktualizujesz hook stanu do takiej samej wartości, jaka jest aktualnie przechowywana w stanie, React „wymiga się”, nie aktualizując potomków i nie uruchamiając efektów. (React używa [algorytmu porównywania `Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Pamiętaj, że React może nadal wymagać wyrenderowania tego konkretnego komponentu, zanim wymiga się od dalszych zmian. Nie powinno to być problemem, ponieważ React nie będzie niepotrzebnie wchodził „głębiej” w drzewo. Jeśli wykonujesz kosztowne obliczenia podczas renderowania, możesz je zoptymalizować za pomocą `useMemo`.
 
 ### `useEffect` {#useeffect}
 
@@ -105,45 +105,45 @@ Note that React may still need to render that specific component again before ba
 useEffect(didUpdate);
 ```
 
-Accepts a function that contains imperative, possibly effectful code.
+Przyjmuje funkcję zawierającą imperatywny kod, mogący zawierać efekty uboczne.
 
-Mutations, subscriptions, timers, logging, and other side effects are not allowed inside the main body of a function component (referred to as React's _render phase_). Doing so will lead to confusing bugs and inconsistencies in the UI.
+W ciele głównej funkcji komponentu (określanej jako _faza renderowania_ Reacta) nie jest dozwolone mutowanie danych, tworzenie subskrypcji, timerów, logowanie i inne efekty uboczne. Robiąc tak należy spodziewać się mylących błędów i niespójności w interfejsie użytkownika.
 
-Instead, use `useEffect`. The function passed to `useEffect` will run after the render is committed to the screen. Think of effects as an escape hatch from React's purely functional world into the imperative world.
+Zamiast tego użyj `useEffect`. Funkcja przekazana do `useEffect` zostanie uruchomiona po tym, jak  zmiany zostaną wyświetlone się na ekranie. Traktuj efekty jako furtkę pomiędzy czysto funkcyjnym światem Reacta, a imperatywnym światem.
 
-By default, effects run after every completed render, but you can choose to fire it [only when certain values have changed](#conditionally-firing-an-effect).
+Domyślnie efekty są uruchamiane po każdym wyrenderowaniu komponentu, ale możesz sprawić, że uruchomią się [tylko jeżeli zmienią się jakieś wartości](#conditionally-firing-an-effect).
 
-#### Cleaning up an effect {#cleaning-up-an-effect}
+#### Czyszczenie po efekcie {#cleaning-up-an-effect}
 
-Often, effects create resources that need to be cleaned up before the component leaves the screen, such as a subscription or timer ID. To do this, the function passed to `useEffect` may return a clean-up function. For example, to create a subscription:
+Często efekty tworzą zasoby (np. subskrypcję czy ID timera), które należy uprzątnąć zanim komponent opuści ekran. Aby to uczynić funkcja przekazywana do `useEffect` może zwracać funkcję czyszczącą. Na przykład przy tworzeniu subskrypcji:
 
 ```js
 useEffect(() => {
   const subscription = props.source.subscribe();
   return () => {
-    // Clean up the subscription
+    // Uprzątnij subskrypcję
     subscription.unsubscribe();
   };
 });
 ```
 
-The clean-up function runs before the component is removed from the UI to prevent memory leaks. Additionally, if a component renders multiple times (as they typically do), the **previous effect is cleaned up before executing the next effect**. In our example, this means a new subscription is created on every update. To avoid firing an effect on every update, refer to the next section.
+Aby zapobiec wyciekom pamięci, funkcja czyszcząca wywoływana jest zanim komponent zostanie usunięty z interfejsu użytkownika. Dodatkowo jeśli komponent jest renderowany kilkukrotnie (co zwykle ma miejsce), **poprzedni efekt jest czyszczony przed wywołaniem kolejnego efektu**. W naszym przykładzie oznacza to, że nowa subskrypcja tworzona jest przy każdej aktualizacji. W kolejnym podrozdziale opisujemy, jak uniknąć wywoływania efektów przy każdej aktualizacji.
 
-#### Timing of effects {#timing-of-effects}
+#### Harmonogram efektów {#timing-of-effects}
 
-Unlike `componentDidMount` and `componentDidUpdate`, the function passed to `useEffect` fires **after** layout and paint, during a deferred event. This makes it suitable for the many common side effects, like setting up subscriptions and event handlers, because most types of work shouldn't block the browser from updating the screen.
+W przeciwieństwie do metod `componentDidMount` i `componentDidUpdate` funkcja przekazana do  `useEffect` wywoływana zostanie **po tym** jak skomponowany i namalowany zostanie układ strony. Sprawia to, że nadaje się ona do obsługi wielu typowych efektów ubocznych, takich jak tworzenie subskrypcji czy obsługa zdarzeń. Większość tego typu operacji nie powinna powstrzymywać przeglądarki przed odświeżeniem widoku.
 
-However, not all effects can be deferred. For example, a DOM mutation that is visible to the user must fire synchronously before the next paint so that the user does not perceive a visual inconsistency. (The distinction is conceptually similar to passive versus active event listeners.) For these types of effects, React provides one additional Hook called [`useLayoutEffect`](#uselayouteffect). It has the same signature as `useEffect`, and only differs in when it is fired.
+Jednakże nie wszystkie efekty mogą zostać odroczone. Na przykład manipulacja drzewem DOM, widoczna dla użytkownika, musi zostać wywołana synchronicznie przed każdym malowaniem, tak aby użytkownik nie dostrzegł wizualnej niespójności. (Rozróżnienie to w swej koncepcji podobne jest do pasywnych i aktywnych obserwatorów zdarzeń (ang. *event listeners*).) Dla tego typu efektów React przewiduje dodatkowy hook, nazwany [`useLayoutEffect`](#uselayouteffect). Ma on tę samą sygnaturę co `useEffect`, różnie się jedynie tym, kiedy jest wywoływany.
 
-Although `useEffect` is deferred until after the browser has painted, it's guaranteed to fire before any new renders. React will always flush a previous render's effects before starting a new update.
+Pomimo, że wywołanie `useEffect` jest odraczane do czasu, kiedy przeglądarka zakończy malowanie, jest zagwarantowane, że zostanie wykonane przed każdym nowym renderem. React opróżni bufor efektów z poprzednich renderów, zanim rozpocznie nową aktualizację.
 
-#### Conditionally firing an effect {#conditionally-firing-an-effect}
+#### Warunkowe uruchamianie efektów {#conditionally-firing-an-effect}
 
-The default behavior for effects is to fire the effect after every completed render. That way an effect is always recreated if one of its dependencies changes.
+Domyślnym zachowaniem efektów jest ich uruchamianie po każdym pomyślnym renderze. W ten sposób efekt jest zawsze tworzony na nowo, jeśli zmieni się jedna z jego zależności.
 
-However, this may be overkill in some cases, like the subscription example from the previous section. We don't need to create a new subscription on every update, only if the `source` props has changed.
+Jednakże w pewnych przypadkach może się to okazać zabójcze - choćby w przykładzie subskrypcji z poprzedniego podrozdziału. Nie ma potrzeby tworzyć nowej subskrypcji przy każdej aktualizacji, a jedynie wtedy gdy zmieni się właściwość `source`.
 
-To implement this, pass a second argument to `useEffect` that is the array of values that the effect depends on. Our updated example now looks like this:
+Aby zaimplementować takie zachowanie należy przekazać do `useEffect` drugi argument, będący tablicą wartości, od których zależy efekt. Nasz zaktualizowany przykład wygląda następująco:
 
 ```js
 useEffect(
@@ -157,20 +157,19 @@ useEffect(
 );
 ```
 
-Now the subscription will only be recreated when `props.source` changes.
+Teraz subskrypcja zostanie stworzona ponownie tylko wtedy, gdy zmieni się właściwość `props.source`.
 
->Note
+>Uwaga
 >
->If you use this optimization, make sure the array includes **all values from the component scope (such as props and state) that change over time and that are used by the effect**. Otherwise, your code will reference stale values from previous renders. Learn more about [how to deal with functions](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) and what to do when the [array values change too often](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
+>Jeśli korzystasz z tej techniki optymalizacji, upewnij się, że przekazywana tablica zawiera **wszystkie wartości z zasięgu komponentu (takie jak właściwości (ang. *props*) i stan), które zmieniają się w czasie i które są używane przez efekt.** W przeciwnym razie twój kod odwoła się do starych wartości z poprzednich renderowań. Przeczytaj też, [jak radzić sobie z funkcjami](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) i [co robić, gdy tablica zmienia się zbyt często](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
 >
->If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array (`[]`) as a second argument. This tells React that your effect doesn't depend on *any* values from props or state, so it never needs to re-run. This isn't handled as a special case -- it follows directly from how the dependencies array always works.
+>Jeśli chcesz przeprowadzić efekt i posprzątać po nim tylko raz (podczas montowania i odmontowania), możesz przekazać pustą tablicę (`[]`) jako drugi argument. Dzięki temu React wie, że twój efekt nie zależy od *jakichkolwiek* wartości właściwości lub stanu, więc nigdy nie musi być ponownie uruchamiany. Nie jest to traktowane jako przypadek specjalny -- wynika to bezpośrednio z tego, jak zawsze działa tablica wejść.
 >
->If you pass an empty array (`[]`), the props and state as inside the effect will always have their initial values. While passing `[]` as the second argument is closer to the familiar `componentDidMount` and `componentWillUnmount` mental model, there are usually [better](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [solutions](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) to avoid re-running effects too often. Also, don't forget that React defers running `useEffect` until after the browser has painted, so doing extra work is less of a problem.
+>Jeśli przekażesz pustą tablicę (`[]`) właściwości i stan wewnątrz efektu zawsze przyjmą swoje początkowe wartości. Pomimo że przekazywanie `[]` jest bliższe temu, co znamy z metod `componentDidMount` i `componentWillUnmount`, zwykle istnieją [lepsze](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [rozwiązania](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) pomagające uniknąć zbyt częstego powtarzania efektów. Nie zapominaj też, że React opóźni wywołanie `useEffect` do momentu, aż przeglądarka nie skończy rysować widoku, więc dodatkowa praca tutaj nie jest dużym problemem.
 >
->
->We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+>Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
-The array of dependencies is not passed as arguments to the effect function. Conceptually, though, that's what they represent: every value referenced inside the effect function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+Tablica zależności nie jest przekazywana jako argumenty do funkcji efektu. Koncepcyjnie jednak to właśnie przedstawiają: każda wartość, do której odwołuje się funkcja efektu, powinna również pojawić się w tablicy zależności. W przyszłości dostatecznie zaawansowany kompilator mógłby automatycznie tworzyć tę tablicę.
 
 ### `useContext` {#usecontext}
 
@@ -178,27 +177,27 @@ The array of dependencies is not passed as arguments to the effect function. Con
 const value = useContext(MyContext);
 ```
 
-Accepts a context object (the value returned from `React.createContext`) and returns the current context value for that context. The current context value is determined by the `value` prop of the nearest `<MyContext.Provider>` above the calling component in the tree.
+Przyjmuje obiekt kontekstu (wartość zwróconą przez `React.createContext`) i zwraca jego aktualną wartość. Wartość kontekstu jest określana przez właściwość (ang. *prop*) `value` najbliższego rodzica `<MyContext.Provider>` wywołującego komponentu.
 
-When the nearest `<MyContext.Provider>` above the component updates, this Hook will trigger a rerender with the latest context `value` passed to that `MyContext` provider.
+Kiedy najbliższy rodzic `<MyContext.Provider>` zostanie zaktualizowany, ten hook wywoła ponowne renderowanie komponentu z najnowszym kontekstem `value` przekazanym dostawcy (ang. *provider*) `MyContext`.
 
-Don't forget that the argument to `useContext` must be the *context object itself*:
+Pamiętaj, że argument przekazany do `useContest` musi być *samym obiektem kontekstu*:
 
- * **Correct:** `useContext(MyContext)`
- * **Incorrect:** `useContext(MyContext.Consumer)`
- * **Incorrect:** `useContext(MyContext.Provider)`
+ * **Poprawnie:** `useContext(MyContext)`
+ * **Niepoprawnie:** `useContext(MyContext.Consumer)`
+ * **Niepoprawnie:** `useContext(MyContext.Provider)`
 
-A component calling `useContext` will always re-render when the context value changes. If re-rendering the component is expensive, you can [optimize it by using memoization](https://github.com/facebook/react/issues/15156#issuecomment-474590693).
+Komponent wywołujący `useContext` będzie zawsze ponownie renderowany jeśli zmieni się wartość kontekstu. Jeżeli ponowne renderowanie danego komponentu jest kosztowne, możesz [zoptymalizować to zachowanie](https://github.com/facebook/react/issues/15156#issuecomment-474590693), używając techniki zapamiętywania (ang. *memoization*).
 
->Tip
+>Podpowiedź
 >
->If you're familiar with the context API before Hooks, `useContext(MyContext)` is equivalent to `static contextType = MyContext` in a class, or to `<MyContext.Consumer>`.
+>Jeśli znasz już interfejs API kontekstu -- `useContext(MyContext)` jest odpowiednikiem klasowego `static contextType = MyContext` lub też `<MyContext.Consumer>`.
 >
->`useContext(MyContext)` only lets you *read* the context and subscribe to its changes. You still need a `<MyContext.Provider>` above in the tree to *provide* the value for this context.
+>`useContext(MyContext)` pozwala tylko na *czytanie* kontekstu i nasłuchiwanie jego zmian. Wciąż wymagane jest aby w drzewie, ponad komponentem, znalazł się `<MyContext.Provider>` by mógł  *dostarczyć* (ang. *provide*) wartość tego kontekstu.
 
-## Additional Hooks {#additional-hooks}
+## Zaawansowane hooki {#additional-hooks}
 
-The following Hooks are either variants of the basic ones from the previous section, or only needed for specific edge cases. Don't stress about learning them up front.
+Poniższe hooki są albo są wariantami   tych podstawowych, z poprzedniego podrozdziału, albo są stosowane tylko w określonych skrajnych wypadkach. Nie stresuj się na myśl o nauce o nich.
 
 ### `useReducer` {#usereducer}
 
@@ -206,11 +205,11 @@ The following Hooks are either variants of the basic ones from the previous sect
 const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
-An alternative to [`useState`](#usestate). Accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a `dispatch` method. (If you're familiar with Redux, you already know how this works.)
+Alternatywa dla hooka [`useState`](#usestate). Przyjmuje reduktor (ang *reducer*), będący funkcją o sygnaturze `(stan, akcja) => nowyStan`, a zwraca aktualny stan w parze z metodą `dispatch`. (Jeżeli znasz bibliotekę Redux, wiesz już, jak to działa.)
 
-`useReducer` is usually preferable to `useState` when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one. `useReducer` also lets you optimize performance for components that trigger deep updates because [you can pass `dispatch` down instead of callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+`useReducer` sprawdza się lepiej od `useState` tam, gdzie występuje skomplikowana logika związana ze stanem, obejmująca wiele pod-wartości lub gdy następny stan zależy od poprzedniego. `useReducer` pozwala też zoptymalizować wydajność komponentów uruchamiających głębokie aktualizacje, ponieważ zamiast przekazywać funkcje zwrotne (ang. *callback*), [możesz przekazać funkcję `dispatch` w dół drzewa](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
 
-Here's the counter example from the [`useState`](#usestate) section, rewritten to use a reducer:
+Oto przykład licznika z podrozdziału [`useState`](#usestate) przepisany z użyciem reduktora:
 
 ```js
 const initialState = {count: 0};
@@ -230,7 +229,7 @@ function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-      Count: {state.count}
+      Licznik: {state.count}
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
     </>
@@ -238,13 +237,13 @@ function Counter() {
 }
 ```
 
->Note
+>Uwaga
 >
->React guarantees that `dispatch` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
+>React daje gwarancje, że funkcja `dispatch` jest tożsamościowa i że nie zmienia się podczas kolejnych renderowań. Dlatego też można ją bezpiecznie pominąć na liście zależności `useEffect` i `useCallback`.
 
-#### Specifying the initial state {#specifying-the-initial-state}
+#### Określanie stanu początkowego {#specifying-the-initial-state}
 
-There’s two different ways to initialize `useReducer` state. You may choose either one depending on the use case. The simplest way to pass the initial state as a second argument:
+Istnieją dwa sposoby na inicjalizację stanu `useReducer`. W zależności od potrzeb, możesz wybrać jeden z nich. Najprostszym sposobem jest przekazanie początkowego stanu, jako drugi argument:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -253,15 +252,15 @@ There’s two different ways to initialize `useReducer` state. You may choose ei
   );
 ```
 
->Note
+>Uwaga
 >
->React doesn’t use the `state = initialState` argument convention popularized by Redux. The initial value sometimes needs to depend on props and so is specified from the Hook call instead. If you feel strongly about this, you can call `useReducer(reducer, undefined, reducer)` to emulate the Redux behavior, but it's not encouraged.
+>React nie używa spopularyzowanej przez Reduxa konwencji argumentu `state = initialState`. Może się zdarzyć, że początkowa wartość zależy od właściwości (ang. *props*), a więc jest ona określana przy wywoływaniu hooka. Nie zalecamy, ale jeśli naprawdę musisz, możesz wywołać `useReducer(reducer, undefined, reducer)`, aby zasymulować zachowanie Reduxa.
 
-#### Lazy initialization {#lazy-initialization}
+#### Leniwa inicjalizacja {#lazy-initialization}
 
-You can also create the initial state lazily. To do this, you can pass an `init` function as the third argument. The initial state will be set to `init(initialArg)`.
+Możesz też leniwe zainicjalizować stan początkowy. Aby to zrobić, musisz przekazać funkcję inicjalizującą `init`, jako trzeci argument. Początkowy stan zostanie ustawiony na wynik wywołania `init(initialArg)`.
 
-It lets you extract the logic for calculating the initial state outside the reducer. This is also handy for resetting the state later in response to an action:
+Pozwala to na wyodrębnić logikę dotyczącą obliczania stanu początkowego poza reduktor. Jest to też przydatne do późniejszego resetowania stanu, w odpowiedzi na akcję:
 
 ```js{1-3,11-12,19,24}
 function init(initialCount) {
@@ -285,10 +284,10 @@ function Counter({initialCount}) {
   const [state, dispatch] = useReducer(reducer, initialCount, init);
   return (
     <>
-      Count: {state.count}
+      Licznik: {state.count}
       <button
         onClick={() => dispatch({type: 'reset', payload: initialCount})}>
-        Reset
+        Zresetuj
       </button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
@@ -297,11 +296,11 @@ function Counter({initialCount}) {
 }
 ```
 
-#### Bailing out of a dispatch {#bailing-out-of-a-dispatch}
+#### Wycofanie się z posłania akcji {#bailing-out-of-a-dispatch}
 
-If you return the same value from a Reducer Hook as the current state, React will bail out without rendering the children or firing effects. (React uses the [`Object.is` comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+Jeżeli reduktor zwróci tę samą wartość, jaką aktualnie przyjmuje stan, React „wymiga się” od  aktualizacji potomków i uruchomienia efektów. (React używa [algorytmu porównywania `Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Pamiętaj, że React może nadal wymagać wyrenderowania tego konkretnego komponentu, zanim wymiga się od dalszych zmian. Nie powinno to być problemem, ponieważ React nie będzie niepotrzebnie wchodził „głębiej” w drzewo. Jeśli wykonujesz kosztowne obliczenia podczas renderowania, możesz je zoptymalizować za pomocą `useMemo`.
 
 ### `useCallback` {#usecallback}
 
@@ -314,17 +313,17 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) callback.
+Zwraca [zapamiętaną](https://en.wikipedia.org/wiki/Memoization) (ang *memoized*) funkcję zwrotną (ang. *callback*).
 
-Pass an inline callback and an array of dependencies. `useCallback` will return a memoized version of the callback that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders (e.g. `shouldComponentUpdate`).
+Przekaż funkcję zwrotną i tablicę zależności. `useCallback` zwróci zapamiętaną wersję funkcji, która zmieni się tylko wtedy, gdy zmieni się któraś z zależności. Jest to przydatne podczas przekazywania funkcji zwrotnych do zoptymalizowanych komponentów podrzędnych, które opierają się na równości referencji, aby zapobiec niepotrzebnym renderowaniom (np. `shouldComponentUpdate`).
 
-`useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`.
+`useCallback(fn, deps)` jest równoważne `useMemo(() => fn, deps)`.
 
-> Note
+> Uwaga
 >
-> The array of dependencies is not passed as arguments to the callback. Conceptually, though, that's what they represent: every value referenced inside the callback should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+> Tablica zależności nie jest przekazywana jako argumenty do funkcji zwrotnej. Koncepcyjnie jednak to właśnie przedstawiają: każda wartość, do której odwołuje się funkcja zwrotna, powinna również pojawić się w tablicy zależności. W przyszłości dostatecznie zaawansowany kompilator mógłby automatycznie tworzyć tę tablicę.
 >
-> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+> Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
 ### `useMemo` {#usememo}
 
@@ -332,21 +331,21 @@ Pass an inline callback and an array of dependencies. `useCallback` will return 
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) value.
+Zwraca [zapamiętaną](https://en.wikipedia.org/wiki/Memoization) (ang *memoized*) wartość.
 
-Pass a "create" function and an array of dependencies. `useMemo` will only recompute the memoized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.
+Przekaż funkcję tworzącą i tablicę zależności. `useMemo` obliczy ponownie zapamiętaną wartość tylko wtedy, gdy zmieni się któraś z zależności. Ta optymalizacja pozwala uniknąć kosztownych obliczeń przy każdym renderowaniu.
 
-Remember that the function passed to `useMemo` runs during rendering. Don't do anything there that you wouldn't normally do while rendering. For example, side effects belong in `useEffect`, not `useMemo`.
+Pamiętaj, że funkcja przekazana do `useMemo` uruchamiana jest podczas renderowania. Nie należy w niej robić niczego, czego normalnie nie robiono by podczas renderowania. Na przykład wszelkie efekty uboczne przynależą do `useEffect`, a nie `useMemo`.
 
-If no array is provided, a new value will be computed on every render.
+Jeśli nie zostanie przekazana żadna tablica, nowa wartość będzie obliczana przy każdym renderowaniu.
 
-**You may rely on `useMemo` as a performance optimization, not as a semantic guarantee.** In the future, React may choose to "forget" some previously memoized values and recalculate them on next render, e.g. to free memory for offscreen components. Write your code so that it still works without `useMemo` — and then add it to optimize performance.
+**Możesz traktować `useMemo` jako metodę optymalizacji wydajności, nie jako semantyczną gwarancję.** W przyszłości React może zdecydować się „zapomnieć” niektóre z wcześniej zapamiętanych wartości i ponownie obliczyć je przy następnym renderowaniu, np. aby zwolnić pamięć dla komponentów znajdujących się poza ekranem. Pisz swój kod tak, aby działał bez użycia hooka `useMemo`, a następnie dodaj go aby zoptymalizować wydajność.
 
-> Note
+> Uwaga
 >
-> The array of dependencies is not passed as arguments to the function. Conceptually, though, that's what they represent: every value referenced inside the function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+> Tablica zależności nie jest przekazywana jako argumenty do funkcji zwrotnej. Koncepcyjnie jednak to właśnie przedstawiają: każda wartość, do której odwołuje się funkcja zwrotna, powinna również pojawić się w tablicy zależności. W przyszłości dostatecznie zaawansowany kompilator mógłby automatycznie tworzyć tę tablicę.
 >
-> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+> Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
 ### `useRef` {#useref}
 
@@ -354,35 +353,35 @@ If no array is provided, a new value will be computed on every render.
 const refContainer = useRef(initialValue);
 ```
 
-`useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument (`initialValue`). The returned object will persist for the full lifetime of the component.
+`useRef` zwraca mutowalny (ang. *mutable*) obiekt, którego właściwość `.current` jest inicjalizowana wartością przekazaną jako argument (`initialValue`). Zwrócony obiekt będzie trwał przez cały cykl życia komponentu.
 
-A common use case is to access a child imperatively:
+Częstym przypadkiem użycia jest imperatywny dostęp do potomka:
 
 ```js
 function TextInputWithFocusButton() {
   const inputEl = useRef(null);
   const onButtonClick = () => {
-    // `current` points to the mounted text input element
+    // `current` wskazuje na zamontowany element kontrolki formularza
     inputEl.current.focus();
   };
   return (
     <>
       <input ref={inputEl} type="text" />
-      <button onClick={onButtonClick}>Focus the input</button>
+      <button onClick={onButtonClick}>Ustaw skupienie na kontrolce formularza</button>
     </>
   );
 }
 ```
 
-Essentially, `useRef` is like a "box" that can hold a mutable value in its `.current` property.
+Zasadniczo `useRef` jest jak „pudełko”, które może przechowywać mutowalną wartość w swojej właściwości `.current`.
 
-You might be familiar with refs primarily as a way to [access the DOM](/docs/refs-and-the-dom.html). If you pass a ref object to React with `<div ref={myRef} />`, React will set its `.current` property to the corresponding DOM node whenever that node changes.
+Być może znasz już referencje (ang. *ref*) jako sposób na [dostęp do drzewa DOM](/docs/refs-and-the-dom.html). Jeśli przekażesz obiekt referencji do Reacta, korzystając ze składni `<div ref={myRef} />`, React ustawi jego właściwość `.current` na odpowiedni węzeł drzewa DOM przy każdej zmianie tego węzła.
 
-However, `useRef()` is useful for more than the `ref` attribute. It's [handy for keeping any mutable value around](/docs/hooks-faq.html#is-there-something-like-instance-variables) similar to how you'd use instance fields in classes.
+Jednakże hook `useRef()` jest przydatny nie tylko jako atrybut `ref`. Jest też [przydatną metodą na przechowywanie mutowalnej wartości](/docs/hooks-faq.html#is-there-something-like-instance-variables), podobną do właściwości instancji w przypadku komponentów klasowych.
 
-This works because `useRef()` creates a plain JavaScript object. The only difference between `useRef()` and creating a `{current: ...}` object yourself is that `useRef` will give you the same ref object on every render.
+Sposób ten zadziała ponieważ `useRef` tworzy czysty javascriptowy obiekt. Jedyną różnicą pomiędzy wywołaniem `useRef()`, a samodzielnym tworzeniem obiektu `{current: ...}` jest to, że `useRef` zwróci referencję tego samego obiektu przy każdym renderowaniu.
 
-Keep in mind that `useRef` *doesn't* notify you when its content changes. Mutating the `.current` property doesn't cause a re-render. If you want to run some code when React attaches or detaches a ref to a DOM node, you may want to use a [callback ref](/docs/hooks-faq.html#how-can-i-measure-a-dom-node) instead.
+Miej na uwadze fakt, że `useRef` *nie* informuje o tym, że jego wartość się zmieniła. Zmiana (mutowanie) właściwości `.current` nie spowoduje ponownego renderowania. Jeżeli chcesz uruchomić jakiś kod, w momencie gdy React dopina i odpina referencje do węzła DOM, możesz zamiast tego użyć [funkcji zwrotnej](/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
 
 
 ### `useImperativeHandle` {#useimperativehandle}
@@ -391,7 +390,7 @@ Keep in mind that `useRef` *doesn't* notify you when its content changes. Mutati
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
-`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. As always, imperative code using refs should be avoided in most cases. `useImperativeHandle` should be used with `forwardRef`:
+`useImperativeHandle` dostosowuje wartość instancji, jaka przekazywana jest komponentom przodków, kiedy używają właściwości `ref`. Jak zwykle zalecamy aby w większości przypadków unikać imperatywnego kodu korzystającego z referencji. `useImperativeHandle` powinien być użyty w parze z `forwardRef`:
 
 ```js
 function FancyInput(props, ref) {
@@ -406,21 +405,21 @@ function FancyInput(props, ref) {
 FancyInput = forwardRef(FancyInput);
 ```
 
-In this example, a parent component that renders `<FancyInput ref={fancyInputRef} />` would be able to call `fancyInputRef.current.focus()`.
+W tym przykładzie komponent rodzica, który renderuje `<FancyInput ref={fancyInputRef} />` będzie w stanie wywołać `fancyInputRef.current.focus()`.
 
 ### `useLayoutEffect` {#uselayouteffect}
 
-The signature is identical to `useEffect`, but it fires synchronously after all DOM mutations. Use this to read layout from the DOM and synchronously re-render. Updates scheduled inside `useLayoutEffect` will be flushed synchronously, before the browser has a chance to paint.
+Sygnatura funkcji jest taka sama, jak `useEffect`, ale jest ona wywoływana jest synchronicznie po nałożeniu zmian na drzewo DOM. Użyj tego hooka aby odczytać układ (ang. *layout*) z drzewa DOM i synchronicznie wyrenderować komponent ponownie. Bufor `useLayoutEffect` zostanie opróżniony synchronicznie, zanim przeglądarka będzie miała szansę na malowanie.
 
-Prefer the standard `useEffect` when possible to avoid blocking visual updates.
+Kiedy to tylko możliwe używaj `useEffect` aby uniknąć blokujących aktualizacji wizualnych.
 
-> Tip
+> Podpowiedź
 >
-> If you're migrating code from a class component, note `useLayoutEffect` fires in the same phase as `componentDidMount` and `componentDidUpdate`. However, **we recommend starting with `useEffect` first** and only trying `useLayoutEffect` if that causes a problem.
+> Jeżeli przeprowadzasz migrację kodu z komponentu klasowego musisz wiedzieć, że `useLayoutEffect` uruchamiany jest w tych samych fazach, co `componentDidMount` i `componentDidUpdate`. Jednakże **zalecamy zacząć od `useEffect`** i używać `useLayoutEffect` tylko, jeżeli tamta metoda spowoduje jakieś problemy.
 >
->If you use server rendering, keep in mind that *neither* `useLayoutEffect` nor `useEffect` can run until the JavaScript is downloaded. This is why React warns when a server-rendered component contains `useLayoutEffect`. To fix this, either move that logic to `useEffect` (if it isn't necessary for the first render), or delay showing that component until after the client renders (if the HTML looks broken until `useLayoutEffect` runs).
+>Jeżeli używasz renderowania po stronie serwera pamiętaj, że *ani* `useLayoutEffect`, *ani* `useEffect` nie może działać dopóki kod JavaScript nie zostanie pobrany. Dlatego React ostrzega jeżeli komponent renderowany po stronie serwera zawiera `useLayoutEffect`. Aby to naprawić możesz albo przenieść logikę korzystającą z `useEffect` (jeżeli nie jest niezbędna przy pierwszym renderze), albo opóźnić wyświetlanie tego komponentu do czasu renderowania po stronie klienta (jeżeli kod HTML wygląda na popsuty przed uruchomieniem `useLayoutEffect`).
 >
->To exclude a component that needs layout effects from the server-rendered HTML, render it conditionally with `showChild && <Child />` and defer showing it with `useEffect(() => { setShowChild(true); }, [])`. This way, the UI doesn't appear broken before hydration.
+>Aby wyłączyć komponent, który korzysta z tego rodzaju efektów z wyrenderowanego po stronie serwera kodu HTML, wyrenderuj go warunkowo, korzystając z zapisu `showChild && <Child />` i opóźnij jego wyświetlanie przy użyciu `useEffect(() => { setShowChild(true); }, [])`. W ten sposób interfejs użytkownika nie będzie wyglądał na zepsuty przed odtworzeniem (ang. *hydration*).
 
 ### `useDebugValue` {#usedebugvalue}
 
@@ -428,9 +427,9 @@ Prefer the standard `useEffect` when possible to avoid blocking visual updates.
 useDebugValue(value)
 ```
 
-`useDebugValue` can be used to display a label for custom hooks in React DevTools.
+`useDebugValue` może zostać użyty do wyświetlania etykiet dla własnych hooków w narzędziu React DevTools.
 
-For example, consider the `useFriendStatus` custom Hook described in ["Building Your Own Hooks"](/docs/hooks-custom.html):
+Rozważ na przykład własny hook `useFriendStatus` opisywany w rozdziale ["Tworzenie własnych hooków"](/docs/hooks-custom.html):
 
 ```js{6-8}
 function useFriendStatus(friendID) {
@@ -438,25 +437,25 @@ function useFriendStatus(friendID) {
 
   // ...
 
-  // Show a label in DevTools next to this Hook
-  // e.g. "FriendStatus: Online"
+  // Wyświetl etykietę w narzędziu DevTools obok tego hooka
+  // np. "FriendStatus: Online"
   useDebugValue(isOnline ? 'Online' : 'Offline');
 
   return isOnline;
 }
 ```
 
-> Tip
+> Podpowiedź
 >
-> We don't recommend adding debug values to every custom Hook. It's most valuable for custom Hooks that are part of shared libraries.
+> Nie zalecamy dodawania „debugowych” wartości każdemu własnemu hookowi. Jest to najbardziej przydatne w przypadku hooków będących częścią współdzielonych bibliotek.
 
-#### Defer formatting debug values {#defer-formatting-debug-values}
+#### Odroczenie formatowania „debugowych” wartości {#defer-formatting-debug-values}
 
-In some cases formatting a value for display might be an expensive operation. It's also unnecessary unless a Hook is actually inspected.
+W pewnych przypadkach formatowanie wartości może być kosztowną operacją. Jest też zbędne, dopóki hook nie jest rzeczywiście sprawdzany w narzędziach deweloperskich.
 
-For this reason `useDebugValue` accepts a formatting function as an optional second parameter. This function is only called if the Hooks are inspected. It receives the debug value as a parameter and should return a formatted display value.
+Dlatego też `useDebugValue` przyjmuje opcjonalnie jako drugi argument funkcję formatującą. Funkcja ta jest wywoływana tylko wtedy, gdy hooki są sprawdzane w narzędziach deweloperskich. Przyjmuje jako argument „debugową” wartość, a powinna zwrócić sformatowaną wartość. 
 
-For example a custom Hook that returned a `Date` value could avoid calling the `toDateString` function unnecessarily by passing the following formatter:
+Na przykład własny hook zwracający obiekt `Date` mógłby uniknąć niepotrzebnego wywołania funkcji `toDateString` poprzez przekazanie następującej funkcji formatującej:
 
 ```js
 useDebugValue(date, date => date.toDateString());
