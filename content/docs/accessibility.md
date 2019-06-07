@@ -301,11 +301,7 @@ Powyższy przykład działa poprawnie dla użytkowników korzystających ze wska
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="Przycisk pokazujący dymek z listą, ukrywany poprzez kliknięcie poza dymkiem. Obsługiwany za pomocą klawiatury, co skutkuje nie zamknięciem dymku po utracie fokusa, powodując trwałe przysłonięcie innych elementów interfejsu." />
 
-<<<<<<< HEAD
 Ta sama funkcjonalność może zostać uzyskana poprzez użycie odpowiednich procedur obsługi zdarzeń, takich jak `onBlur` i` onFocus`:
-=======
-The same functionality can be achieved by using appropriate event handlers instead, such as `onBlur` and `onFocus`:
->>>>>>> 957f0b3a4067a9ba46d1ffda898658925ffa0549
 
 ```javascript{19-29,31-34,37-38,40-41}
 class BlurExample extends React.Component {
