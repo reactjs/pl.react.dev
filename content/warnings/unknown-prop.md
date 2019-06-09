@@ -11,7 +11,7 @@ Istnieje kilka prawdopodobnych powodów pojawienia się tego ostrzeżenia:
 
 2. Używasz niestandardowego atrybutu DOM na natywnym węźle drzewa DOM, na przykład, aby przekazać mu jakieś dane. Jeśli chcesz zapisać w elemencie DOM dane, użyj odpowiedniego atrybutu, jak opisano [na MDN](https://developer.mozilla.org/pl/docs/Learn/HTML/Howto/Use_data_attributes).
 
-3. React jeszcze nie rozpoznaje podanego przez ciebie atrybutu. Istnieje szansa, że zostanie to naprawione w przyszłych wersjach. Obecnie jednak React usuwa wszystkie nieznane atrybuty, wobec czego nie zostaną one przekazane do renderowanego elementu DOM.
+3. React jeszcze nie rozpoznaje podanego przez ciebie atrybutu. Istnieje szansa, że zostanie to naprawione w przyszłych wersjach. Obecnie React usuwa wszystkie nieznane atrybuty, wobec czego nie zostaną one przekazane do renderowanego elementu DOM.
 
 4. Używasz komponentu reactowego, pisząc jego nazwę małymi literami. React interpretuje taki zapis jako znacznik DOM, ponieważ [transformacja składni JSX w Reakcie rozpoznaje własne komponenty po wielkich literach](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
