@@ -9,7 +9,7 @@ Istnieje kilka prawdopodobnych powodów pojawienia się tego ostrzeżenia:
 
 1. Używasz składni `{...this.props}` lub `cloneElement(element, this.props)`? Twój komponent przekazuje w ten sposób wszystkie swoje właściwości (ang. *props*) do elementu potomnego ([przykład](/docs/transferring-props.html)). Przy przekazywaniu właściwości w dół musisz upewnić się, że przez pomyłkę nie uwzględniasz właściwości, które miały trafić tylko do komponentu nadrzędnego.
 
-2. Używasz niestandardowego atrybutu DOM na natywnym węźle drzewa DOM, na przykład aby przekazać mu jakieś dane. Jeśli chcesz zapisać w elemencie DOM dane, użyj odpowiedniego atrybutu, jak opisano [na MDN](https://developer.mozilla.org/pl/docs/Learn/HTML/Howto/Use_data_attributes).
+2. Używasz niestandardowego atrybutu DOM na natywnym węźle drzewa DOM, na przykład, aby przekazać mu jakieś dane. Jeśli chcesz zapisać w elemencie DOM dane, użyj odpowiedniego atrybutu, jak opisano [na MDN](https://developer.mozilla.org/pl/docs/Learn/HTML/Howto/Use_data_attributes).
 
 3. React jeszcze nie rozpoznaje podanego przez ciebie atrybutu. Istnieje szansa, że zostanie to naprawione w przyszłych wersjach. Obecnie jednak React usuwa wszystkie nieznane atrybuty, wobec czego nie zostaną one przekazane do renderowanego elementu DOM.
 
