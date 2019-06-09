@@ -5,7 +5,7 @@ permalink: warnings/unknown-prop.html
 ---
 Ostrzeżenie o nieznanej właściwości (ang. *unknown prop*) pojawi się, gdy spróbujesz wyrenderować element DOM z właściwością, której React nie rozpoznaje jako poprawną dla DOM. Upewnij się, że twoje komponenty nie przekazują do elementów DOM żadnych własnych atrybutów.
 
-Istnieje kilka powodów pojawienia się tego ostrzeżenia:
+Istnieje kilka prawdopodobnych powodów pojawienia się tego ostrzeżenia:
 
 1. Używasz składni `{...this.props}` lub `cloneElement(element, this.props)`? Twój komponent przekazuje w ten sposób wszystkie swoje właściwości (ang. *props*) do elementu potomnego ([przykład](/docs/transferring-props.html)). Przy przekazywaniu właściwości w dół musisz upewnić się, że przez pomyłkę nie uwzględniasz właściwości, które miały trafić tylko do komponentu nadrzędnego.
 
