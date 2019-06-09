@@ -19,7 +19,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 z zainstalowanym np
 
 > Uwaga:
 >
-> Zalecamy korzystanie z biblioteki [`react-testing-library`](https://git.io/react-testing-library). Została ona stworzona w celu propagowania idei pisania testów, które używają komponentów podobnie jak potencjalny użytkownik aplikacji.
+> Zalecamy korzystanie z biblioteki [React Testing Library](https://testing-library.com/react). Została ona stworzona w celu propagowania idei pisania testów, które używają komponentów podobnie jak potencjalny użytkownik aplikacji.
 >
 > Jako alternatywę, firma Airbnb opublikowała narzędzie do testowania o nazwie [Enzyme](https://airbnb.io/enzyme/), które pozwala na łatwe pisanie asercji, a także manipulowanie i przechodzenie drzewa zwróconego przez komponenty reactowe.
 
