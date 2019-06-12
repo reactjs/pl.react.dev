@@ -284,13 +284,13 @@ class OuterClickExample extends React.Component {
     return (
       <div ref={this.toggleContainer}>
         <button onClick={this.onClickHandler}>Wybierz opcję</button>
-        {this.state.isOpen ? (
+        {this.state.isOpen && (
           <ul>
             <li>Opcja 1</li>
             <li>Opcja 2</li>
             <li>Opcja 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
@@ -351,13 +351,13 @@ class BlurExample extends React.Component {
                 aria-expanded={this.state.isOpen}>
           Wybierz opcję
         </button>
-        {this.state.isOpen ? (
+        {this.state.isOpen && (
           <ul>
             <li>Opcja 1</li>
             <li>Opcja 2</li>
             <li>Opcja 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
