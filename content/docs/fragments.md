@@ -38,7 +38,7 @@ class Table extends React.Component {
 }
 ```
 
-Komponent `<Columns />` może chcieć zwrócić kilka elementów `<td>` w celu zapewnienia poprawności wyrenderowanego kodu HTML. Gdyby komórki tabeli, zwracane przez funkcję `render()` komponentu `<Columns />`, otoczyć np. elementem `<div>`, powstały w ten sposób kod HTML byłby nieprawidłowy.
+Aby zapewnić poprawność wyrenderowanego kodu HTML, komponent `<Columns />` powinien zwrócić kilka elementów `<td>`. Gdyby komórki tabeli, zwracane przez funkcję `render()` komponentu `<Columns />`, otoczyć np. elementem `<div>`, powstały w ten sposób kod HTML byłby nieprawidłowy.
 
 ```jsx
 class Columns extends React.Component {
@@ -68,7 +68,7 @@ daje w rezultacie następującą strukturę dla komponentu `<Table />`:
 
 Fragmenty rozwiązują ten problem.
 
-## Zasady używania {#usage}
+## Użycie {#usage}
 
 ```jsx{4,7}
 class Columns extends React.Component {
