@@ -1,28 +1,50 @@
 ---
 id: error-boundaries
-title: Error Boundaries
+title: Granice błędów
 permalink: docs/error-boundaries.html
 ---
 
-In the past, JavaScript errors inside components used to corrupt React’s internal state and cause it to [emit](https://github.com/facebook/react/issues/4026) [cryptic](https://github.com/facebook/react/issues/6895) [errors](https://github.com/facebook/react/issues/8579) on next renders. These errors were always caused by an earlier error in the application code, but React did not provide a way to handle them gracefully in components, and could not recover from them.
+W przeszłości, błędy JavaScriptowe w komponentach psuły wewnętrzny state
+Reacta i [wywoływały](https://github.com/facebook/react/issues/4026)
+[enigmatyczne](https://github.com/facebook/react/issues/6895)
+[błędy](https://github.com/facebook/react/issues/8579) w kolejnych
+renderach. Były one następstwem wcześniejszego błędu w kodzie aplikacji,
+którego React nie był w stanie obsłużyć.
 
 
-## Introducing Error Boundaries {#introducing-error-boundaries}
+## Przedstawiamy Granice Błędów {#introducing-error-boundaries}
 
-A JavaScript error in a part of the UI shouldn’t break the whole app. To solve this problem for React users, React 16 introduces a new concept of an “error boundary”.
+Błąd JavaScriptu w jednej z części interfejsu użytkownika (UI) nie
+powinien psuć całej aplikacji. Aby rozwiązać ten problem, React 16
+wprowadza koncepcję granic błędów (ang. error boundary).
 
-Error boundaries are React components that **catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI** instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+Granice błędów to komponenty Reactowe, które **wyłapują, logują i
+wyświetlają błędy JavaScriptu we wszystkich swoich podrzędnych
+komponentach, a także wyświetlają zastępcze fragmenty interfejsu**
+zamiast pokazywać te niepoprawnie działające. Granice błędów działają
+podczas renderowania, w metodach cyklu życia komponentów, a także w
+konstruktorach całego podrzędnego drzewa komponentów.
 
-> Note
+> Uwaga
 >
-> Error boundaries do **not** catch errors for:
+> Granice błędów **nie obsługują** błędów w:
 >
-> * Event handlers ([learn more](#how-about-event-handlers))
-> * Asynchronous code (e.g. `setTimeout` or `requestAnimationFrame` callbacks)
-> * Server side rendering
-> * Errors thrown in the error boundary itself (rather than its children)
+> * Uchwytach zdarzeń (ang. event handlers)
+>   ([więcej](#how-about-event-handlers))
+> * Asynchronicznym kodzie (np. w metodach: `setTimeout` lub w
+>   callbackach `requestAnimationFrame`)
+> * Komponentach renderowanych po stronie serwera
+> * Błędach rzuconych w samych granicach błędów (a nie w ich podrzędnych
+>   komponentach)
 
-A class component becomes an error boundary if it defines either (or both) of the lifecycle methods [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) or [`componentDidCatch()`](/docs/react-component.html#componentdidcatch). Use `static getDerivedStateFromError()` to render a fallback UI after an error has been thrown. Use `componentDidCatch()` to log error information.
+Aby komponent klasowy był granicą błędu musi zdefiniować jedną lub obie
+metody cyklu życia:
+[`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror)
+lub
+[`componentDidCatch()`](/docs/react-component.html#componentdidcatch).
+Należy używać `static getDerivedStateFromError()` do wyrenderowania
+zastępczego UI po rzuceniu błędu, a `componentDidCatch()`, aby zalogować
+informacje o błędzie.
 
 ```js{7-10,12-15,18-21}
 class ErrorBoundary extends React.Component {
@@ -32,18 +54,18 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Aktualizacja stanu - w następnym renderze zostanie pokazane UI zastępcze
     return { hasError: true };
   }
 
   componentDidCatch(error, info) {
-    // You can also log the error to an error reporting service
+    // componentDidCatch pozwala zalogować błąd do zewnętrznego serwisu
     logErrorToMyService(error, info);
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
+      // Jeżeli wystąpił błąd wyświetlamy dowolne zastępcze komponenty
       return <h1>Something went wrong.</h1>;
     }
 
@@ -52,7 +74,7 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-Then you can use it as a regular component:
+Po zdefiniowaniu, granicy błędu można używać jak normalnego komponentu:
 
 ```js
 <ErrorBoundary>
