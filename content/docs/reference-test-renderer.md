@@ -38,7 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-Przy pomocy funkcjonalności biblioteki Jest do generowania snapshotów można automatycznie zapisać do pliku kopię drzewa w formacie JSON, a w teście sprawdzać, czy się ono nie zmieniło [(Więcej informacji na ten temat)](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
+Przy pomocy funkcjonalności biblioteki Jest do generowania snapshotów można automatycznie zapisać do pliku kopię drzewa w formacie JSON, a w teście sprawdzać, czy się ono nie zmieniło [(Więcej informacji na ten temat)](https://jestjs.io/docs/en/snapshot-testing).
 
 Zwrócone drzewo można również przeszukiwać w celu znalezienia konkretnych węzłów i sprawdzenia ich właściwości.
 
