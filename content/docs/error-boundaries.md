@@ -156,9 +156,10 @@ If you don’t use Create React App, you can add [this plugin](https://www.npmjs
 > Component names displayed in the stack traces depend on the [`Function.name`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name) property. If you support older browsers and devices which may not yet provide this natively (e.g. IE 11), consider including a `Function.name` polyfill in your bundled application, such as [`function.name-polyfill`](https://github.com/JamesMGreene/Function.name). Alternatively, you may explicitly set the [`displayName`](/docs/react-component.html#displayname) property on all your components.
 
 
-## How About try/catch? {#how-about-trycatch}
+## A co z try/catch? {#how-about-trycatch}
 
-`try` / `catch` is great but it only works for imperative code:
+`try` / `catch` jest świetnym rozwiązaniem ale działa tylko dla
+imperatywnego kodu:
 
 ```js
 try {
@@ -168,21 +169,29 @@ try {
 }
 ```
 
-However, React components are declarative and specify *what* should be rendered:
+Jednakże komponenty Reacta są deklaratywne i określają *co* powinno być
+wyrenderowane:
 
 ```js
 <Button />
 ```
 
-Error boundaries preserve the declarative nature of React, and behave as you would expect. For example, even if an error occurs in a `componentDidUpdate` method caused by a `setState` somewhere deep in the tree, it will still correctly propagate to the closest error boundary.
+Granice błędów wspierają deklaratywną naturę React'a. Na przykład,
+jeżeli w metodzie `componentDidUpdate` wystąpi błąd podczas aktualizacji
+stanu, aplikacja poprawnie zpropaguje błąd do najbliższej granicy
+błędów.
 
-## How About Event Handlers? {#how-about-event-handlers}
+## A co z uchwytami zdarzeń? {#how-about-event-handlers}
 
-Error boundaries **do not** catch errors inside event handlers.
+Granice błędów nie obsługują błędów wewnątrz uchwytów zdarzeń.
 
-React doesn't need error boundaries to recover from errors in event handlers. Unlike the render method and lifecycle methods, the event handlers don't happen during rendering. So if they throw, React still knows what to display on the screen.
+React nie potrzebuje granic błędów żeby obsłużyć błędy pochodzące z
+uchwytów zdarzeń. W przeciwieństwie do metod cyklu życia komponentu lub
+renderu, uchwyty zdarzeń nie są wywoływane w trakcie renderowania. To
+powoduje, że nawet w przypadku błędu React wie co wyświetlić na
+ekranie.
 
-If you need to catch an error inside event handler, use the regular JavaScript `try` / `catch` statement:
+Aby obsłużyć błąd w uchwycie zdarzeń należy użyć JavaScriptowego `try` / `catch`:
 
 ```js{9-13,17-20}
 class MyComponent extends React.Component {
@@ -194,7 +203,7 @@ class MyComponent extends React.Component {
 
   handleClick() {
     try {
-      // Do something that could throw
+      // Kod, który rzuci wyjątek
     } catch (error) {
       this.setState({ error });
     }
@@ -209,10 +218,16 @@ class MyComponent extends React.Component {
 }
 ```
 
-Note that the above example is demonstrating regular JavaScript behavior and doesn't use error boundaries.
+Powyższy przykład prezentuje normalne zachowanie JavaScriptu i nie używa
+granic błędów.
 
-## Naming Changes from React 15 {#naming-changes-from-react-15}
+## Zmiany nazewnictwa od Reacta w wersji 15 {#naming-changes-from-react-15}
 
-React 15 included a very limited support for error boundaries under a different method name: `unstable_handleError`. This method no longer works, and you will need to change it to `componentDidCatch` in your code starting from the first 16 beta release.
+React 15 zawierał bardzo okrojoną obsługę granic błędów za pomocą metody
+o nazwie: `unstable_handleError`. Ta metoda nie jest już obsługiwana i
+należy zmienić jej nazwę na `componentDidCatch` począwszy od pierwszych
+beta wersji Reacta 16.
 
-For this change, we’ve provided a [codemod](https://github.com/reactjs/react-codemod#error-boundaries) to automatically migrate your code.
+Ze względu na tą zmianę stworzyliśmy
+[codemod](https://github.com/reactjs/react-codemod#error-boundaries),
+aby automatycznie dostosować kod.
