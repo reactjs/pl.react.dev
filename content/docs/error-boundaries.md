@@ -106,23 +106,38 @@ To jak bardzo szczegółowo zostanie pokryty kod za pomocą granic błędów
 jest kwestią preferencji. Możliwe jest na przykład opakowanie granicą
 błędów najwyższego poziomu komponenty odpowiedzialne za routing
 aplikacji, aby wyświetlić informację: "Coś poszło nie tak", tak jak ma
-to często miejsce w frameworkach po stronie serwera. Możliwe jest
-również opakowanie pojedynczych widżetów, aby uchronić pozostałą część
-aplikacji od błędów.
+to często miejsce w frameworkach po stronie serwera. Można również
+opakować pojedyncze fragmenty aplikacji, aby uchronić jej pozostałą
+część od błędów.
 
 
-## New Behavior for Uncaught Errors {#new-behavior-for-uncaught-errors}
+## Nowe zachowanie nieobsłużonych błędów {#new-behavior-for-uncaught-errors}
 
-This change has an important implication. **As of React 16, errors that were not caught by any error boundary will result in unmounting of the whole React component tree.**
+Wprowadzenie granic błędów ma ważne następstwo. **Od Reacta w wersji 16,
+błędy, które nie zostały obsłużone za pomocą granicy błędów, sprawią, że
+zostanie odmontowane całe drzewo komponentów Reactowych.**
 
-We debated this decision, but in our experience it is worse to leave corrupted UI in place than to completely remove it. For example, in a product like Messenger leaving the broken UI visible could lead to somebody sending a message to the wrong person. Similarly, it is worse for a payments app to display a wrong amount than to render nothing.
+Omawialiśmy tą zmianę i z naszego doświadczenia wynika, że lepiej jest
+usunąć całe drzewo komponentów niż wyświetlać zepsute fragmenty UI. Na
+przykład w produkcie takim jak Messenger pozostawienie wyświetlonego
+zepsutego kawałka UI może sprawić, że ktoś nieświadomie wyśle wiadomość
+do innej osoby. Również w aplikacjach finansowych wyświetlanie złego
+stanu konta jest gorszą sytuacją niż niewyświetlenie niczego.
 
-This change means that as you migrate to React 16, you will likely uncover existing crashes in your application that have been unnoticed before. Adding error boundaries lets you provide better user experience when something goes wrong.
+Ta zmiana oznacza, że wraz z migracją do nowej wersji Reacta odkryte
+zostaną potencjalne błędy w aplikacjach, które do tej pory nie zostały
+zauważone. Dodanie granic błędów zapewni lepszy user experience gdy coś
+pójdzie nie tak.
 
-For example, Facebook Messenger wraps content of the sidebar, the info panel, the conversation log, and the message input into separate error boundaries. If some component in one of these UI areas crashes, the rest of them remain interactive.
+Przykładowo, Facebook Messenger opakowuje w osobne granice błędów
+następujące fragmenty aplikacji: zawartość paska bocznego, panel z
+informacjami o konwersacji, listę konwersacji i pole tekstowe na
+wiadomość. Jeżeli jeden z tych elementów zadziała nieprawidłowo, reszta
+pozostanie interaktywa i działająca.
 
-We also encourage you to use JS error reporting services (or build your own) so that you can learn about unhandled exceptions as they happen in production, and fix them.
-
+Zachęcamy również do używania (lub zbudowania własnego) narzędzia do
+raportowania błędów, dzięki czemu będzie możliwe poznanie nieobsłużonych
+błędów występujących w środowisku produkcyjnym.
 
 ## Component Stack Traces {#component-stack-traces}
 
