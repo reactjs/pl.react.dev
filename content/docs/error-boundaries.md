@@ -15,8 +15,8 @@ którego React nie był w stanie obsłużyć.
 ## Przedstawiamy Granice Błędów {#introducing-error-boundaries}
 
 Błąd JavaScriptu w jednej z części interfejsu użytkownika (UI) nie
-powinien psuć całej aplikacji. Aby rozwiązać ten problem, React 16
-wprowadza koncepcję granic błędów (ang. error boundary).
+powinien psuć całej aplikacji. Aby rozwiązać ten problem, w React 16
+wprowadzono koncepcję granic błędów (ang. error boundary).
 
 Granice błędów to komponenty Reactowe, które **wyłapują, logują i
 wyświetlają błędy JavaScriptu we wszystkich swoich podrzędnych
@@ -82,18 +82,33 @@ Po zdefiniowaniu, granicy błędu można używać jak normalnego komponentu:
 </ErrorBoundary>
 ```
 
-Error boundaries work like a JavaScript `catch {}` block, but for components. Only class components can be error boundaries. In practice, most of the time you’ll want to declare an error boundary component once and use it throughout your application.
+Granice błędów działają jak bloki `catch {}` tyle, że dla komponentów.
+Można je zdefiniować tylko w komponentach klasowych. W praktyce w
+większości przypadków wystarczające będzie zdefiniowanie pojedynczego
+komponentu granicy błędu i używanie go w całej aplikacji.
 
-Note that **error boundaries only catch errors in the components below them in the tree**. An error boundary can’t catch an error within itself. If an error boundary fails trying to render the error message, the error will propagate to the closest error boundary above it. This, too, is similar to how catch {} block works in JavaScript.
+Należy pamiętać, że **granice błędów wyłapują błędy w
+komponentach-dzieciach**. Nie są one jednak w stanie obsłużyć własnych
+błędów. W takim przypadku, jeżeli granica błędu nie będzie w stanie
+wyświetlić komunikatu błędu, zostanie on przekazany do kolejnej
+najbliższej granicy błędu wyżej w strukturze komponentów. Jest to
+zachowanie podobne do tego znanego z JavaScriptowych bloków `catch {}`.
 
-## Live Demo {#live-demo}
+## Demo {#live-demo}
 
-Check out [this example of declaring and using an error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) with [React 16](/blog/2017/09/26/react-v16.0.html).
+[Przykład tworzenia i używania granicy błędów](https://codepen.io/gaearon/pen/wqvxGa?editors=0010)
+z wykorzystaniem [Reacta 16](/blog/2017/09/26/react-v16.0.html).
 
 
-## Where to Place Error Boundaries {#where-to-place-error-boundaries}
+## Gdzie umiejscowić granice błędów {#where-to-place-error-boundaries}
 
-The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like server-side frameworks often handle crashes. You may also wrap individual widgets in an error boundary to protect them from crashing the rest of the application.
+To jak bardzo szczegółowo zostanie pokryty kod za pomocą granic błędów
+jest kwestią preferencji. Możliwe jest na przykład opakowanie granicą
+błędów najwyższego poziomu komponenty odpowiedzialne za routing
+aplikacji, aby wyświetlić informację: "Coś poszło nie tak", tak jak ma
+to często miejsce w frameworkach po stronie serwera. Możliwe jest
+również opakowanie pojedynczych widżetów, aby uchronić pozostałą część
+aplikacji od błędów.
 
 
 ## New Behavior for Uncaught Errors {#new-behavior-for-uncaught-errors}
