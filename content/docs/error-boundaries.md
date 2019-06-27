@@ -84,21 +84,21 @@ Przykładowo, Facebook Messenger opakowuje w osobne granice błędów następuj�
 
 Zachęcamy również do używania (lub zbudowania własnego) narzędzia do raportowania błędów, dzięki czemu będzie możliwe poznanie nieobsłużonych błędów występujących w środowisku produkcyjnym.
 
-## Component Stack Traces {#component-stack-traces}
+## Ślad stosu komponentów {#component-stack-traces}
 
-React 16 prints all errors that occurred during rendering to the console in development, even if the application accidentally swallows them. In addition to the error message and the JavaScript stack, it also provides component stack traces. Now you can see where exactly in the component tree the failure has happened:
+React 16, w trakcie developmentu, wyświetla w konsoli wszystkie błędy złapane podczas renderowania, nawet jeżeli aplikacja przypadkowo je przejmie. Oprócz wiadomości błędu i stosu JavaScriptu dostępny jest również stos komponentów. Dzięki temu widoczne jest gdzie dokładnie w drzewie komponentów wystąpił błąd:
 
-<img src="../images/docs/error-boundaries-stack-trace.png" style="max-width:100%" alt="Error caught by Error Boundary component">
+<img src="../images/docs/error-boundaries-stack-trace.png" style="max-width:100%" alt="Błąd złapany w komponencie będącym Granicą błędów">
 
-You can also see the filenames and line numbers in the component stack trace. This works by default in [Create React App](https://github.com/facebookincubator/create-react-app) projects:
+W drzewie komponentów widoczne są również numery linii i nazwy plików. Ten mechanizm domyślnie działa w aplikacjach stworzyonych przy użyciu [Create React App](https://github.com/facebookincubator/create-react-app):
 
-<img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Error caught by Error Boundary component with line numbers">
+<img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Błąd złapany w komponencie będącym Granicą błędów wraz z numerami linii">
 
-If you don’t use Create React App, you can add [this plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) manually to your Babel configuration. Note that it’s intended only for development and **must be disabled in production**.
+Jeżeli nie używasz Create React App, możesz ręcznie dodać [ten plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) do swojej konfiguracji Babela. Jest on stworzony do użycia tylko podczas developmentu i **powinien zostać wyłączony w środowisku produkcyjnym**
 
-> Note
+> Uwaga
 >
-> Component names displayed in the stack traces depend on the [`Function.name`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name) property. If you support older browsers and devices which may not yet provide this natively (e.g. IE 11), consider including a `Function.name` polyfill in your bundled application, such as [`function.name-polyfill`](https://github.com/JamesMGreene/Function.name). Alternatively, you may explicitly set the [`displayName`](/docs/react-component.html#displayname) property on all your components.
+> Nazwy komponentów wyświetlane w śladzie stosu zależą od własności [`Function.name`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name). Jeżeli obsługujesz starsze przeglądarki, które nie dostarczają jej natywnie (np. IE 11), możesz dodać łatkę taką jak [`function.name-polyfill`](https://github.com/JamesMGreene/Function.name). Alternatywą jest zadeklarowanie wprost [`displayName`](/docs/react-component.html#displayname) we wszystkich komponentach.
 
 
 ## A co z try/catch? {#how-about-trycatch}
