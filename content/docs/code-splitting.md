@@ -118,7 +118,7 @@ składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W t
 > `React.lazy` i `Suspense` nie są jeszcze dostępne dla renderowania po stronie serwera.
 > Jeśli chcesz dzielić kod dla aplikacji renderowanej na serwerze, sugerujemy skorzystać 
 > z pakietu [Loadable Components](https://github.com/smooth-code/loadable-components).  
-> Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).\
+> Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
 
 Funkcja `React.lazy` pozwala renderować dynamicznie importowane komponenty jak zwykłe komponenty.
 
