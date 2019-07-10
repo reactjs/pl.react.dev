@@ -469,7 +469,13 @@ Możesz również użyć modułu [react-axe](https://github.com/dylanb/react-axe
 
 [The Accessibility Tree](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) jest podzbiorem drzewa DOM. Zawiera wszystkie dostępne dla technologii wspomagających obiekty, odpowiadające każdemu elementowi modelu DOM.
 
+<<<<<<< HEAD
 W niektórych przeglądarkach możemy łatwo wyświetlić informacje o dostępności dla każdego elementu w drzewie DOM:
+=======
+- [Using the Accessibility Inspector in Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
+- [Using the Accessibility Inspector in Chrome](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
+- [Using the Accessibility Inspector in OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
+>>>>>>> e1abbdecfd1a5a804bd38852e88373f54ddde014
 
 - [Korzystanie z Inspektora dostępności w Firefoksie](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
 - [Korzystanie z Inspektora dostępności w Chromie](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
