@@ -16,11 +16,7 @@ Ten samouczek nie zakłada jakiejkolwiek znajomości Reacta.
 
 ## Zanim zaczniemy się uczyć {#before-we-start-the-tutorial}
 
-<<<<<<< HEAD
 W tym samouczku skupimy się na stworzeniu niewielkiej gry. **Być może po tym zdaniu zechcesz go pominąć, bo nie zajmujesz się pisaniem gier - ale mimo wszystko daj mu szansę**. Techniki, których nauczysz się w tym poradniku są fundamentami do zbudowania *dowolnej* aplikacji w Reakcie, a zrozumienie ich zapewni ci dogłębne poznanie tematu.
-=======
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React app, and mastering it will give you a deep understanding of React.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 
 >Uwaga
 >
