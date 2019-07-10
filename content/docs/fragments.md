@@ -113,8 +113,6 @@ class Columns extends React.Component {
 
 Możesz używać `<></>` tak samo, jak innych komponentów. Nie możesz jednak przekazywać do niego klucza (`key`) ani żadnych innych właściwości.
 
-Zwróć uwagę, że **[wiele narzędzi nie posiada jeszcze wsparcia dla tego zapisu](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**. Do czasu jego dodania pisz po prostu `<React.Fragment>`.
-
 ### Fragmenty z kluczem {#keyed-fragments}
 
 Fragmenty zadeklarowane jawnie przy użyciu składni `<React.Fragment>` mogą posiadać klucze. Ma to zastosowanie, gdy zechcesz przemapować kolekcję na tablicę fragmentów -- na przykład do stworzenia listy opisów:
