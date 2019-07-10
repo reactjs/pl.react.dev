@@ -40,7 +40,7 @@ Zespół Reacta rekomenduje następujące rozwiązania:
 
 [Create React App](http://github.com/facebookincubator/create-react-app) zapewnia bardzo dogodne środowisko pracy sprzyjające **nauce Reacta**. Jest to najlepszy sposób, aby zacząć tworzyć **nową [jednostronicową](/docs/glossary.html#single-page-application) aplikację** w Reakcie.
 
-Środowisko pracy stworzone przez Create React App nie tylko umożliwi ci stosowanie najnowszych funkcjonalności języka JavaScript, lecz także zoptymalizuje twój kod przed oddaniem go do użytku i ogólnie znacznie usprawni twoją pracę. Aby móc skorzystać z tego rozwiązania na swoim komputerze, będziesz potrzebować Node >= 6 oraz npm >= 5.2. Stworzenie projektu umożliwią ci następujące komendy:
+Środowisko pracy stworzone przez Create React App nie tylko umożliwi ci stosowanie najnowszych funkcjonalności języka JavaScript, lecz także zoptymalizuje twój kod przed oddaniem go do użytku i ogólnie znacznie usprawni twoją pracę. Aby móc skorzystać z tego rozwiązania na swoim komputerze, będziesz potrzebować Node >= 8.10 oraz npm >= 5.6. Stworzenie projektu umożliwią ci następujące komendy:
 
 ```bash
 npx create-react-app moja-aplikacja

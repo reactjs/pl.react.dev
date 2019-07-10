@@ -18,7 +18,7 @@ render() {
 }
 ```
 
-Istnieje również nowy [skrócony zapis](#short-syntax) do deklarowania fragmentów, jednak nie jest on jeszcze wspierany przez wszystkie popularne narzędzia.
+Istnieje również nowy [skrócony zapis](#short-syntax) do deklarowania fragmentów.
 
 ## Motywacja {#motivation}
 
@@ -112,8 +112,6 @@ class Columns extends React.Component {
 ```
 
 Możesz używać `<></>` tak samo, jak innych komponentów. Nie możesz jednak przekazywać do niego klucza (`key`) ani żadnych innych właściwości.
-
-Zwróć uwagę, że **[wiele narzędzi nie posiada jeszcze wsparcia dla tego zapisu](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)**. Do czasu jego dodania pisz po prostu `<React.Fragment>`.
 
 ### Fragmenty z kluczem {#keyed-fragments}
 
