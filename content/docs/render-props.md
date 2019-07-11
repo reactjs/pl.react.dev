@@ -16,13 +16,13 @@ Komponent z właściwością renderującą przyjmuje funkcję, zwracającą elem
 
 Biblioteki używające właściwości renderujących to m.in. [React Router](https://reacttraining.com/react-router/web/api/Route/render-func) i [Downshift](https://github.com/paypal/downshift).
 
-W tym dokumencie przedyskutujemy przydatność właściwości renderujących i dowiemy się, jak napisać je samemu.
+W tym dokumencie przedyskutujemy przydatność właściwości renderujących i dowiemy się, jak napisać je samodzielnie.
 
 ## Użycie właściwości renderujących przy zagadnieniach przekrojowych (ang. *cross-cutting concerns*) {#use-render-props-for-cross-cutting-concerns}
 
-Komponenty są podstawową jednostką reużywalności kodu w Reakcie. Nie zawsze jednak jest oczywiste, jak należy współdzielić stan czy zachowanie enkapsulowane przez jeden komponent, tak aby miały do nich dostęp inne komponenty.
+Komponenty są podstawowym sposobem na wielokrotne używanie funkcjonalności w Reakcie. Nie zawsze jednak jest oczywiste, jak należy współdzielić stan czy zachowanie zawarte w jednym komponencie, tak aby miały do nich dostęp inne komponenty.
 
-Dla przykładu, poniższy komponent śledzi pozycje myszki w aplikacji internetowej:
+Za przykład niech posłuży komponent śledzący pozycję kursora w aplikacji internetowej:
 
 ```js
 class MouseTracker extends React.Component {
@@ -43,7 +43,7 @@ class MouseTracker extends React.Component {
     return (
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
         <h1>Porusz myszką!</h1>
-        <p>Aktualna pozycja myszki to ({this.state.x}, {this.state.y})</p>
+        <p>Aktualna pozycja kursora to ({this.state.x}, {this.state.y})</p>
       </div>
     );
   }
@@ -52,12 +52,12 @@ class MouseTracker extends React.Component {
 
 Podczas gdy kursor przemieszcza się po ekranie, komponent wyświetla jego koordynaty (x, y) wewnątrz znacznika `<p>`.
 
-Pytanie brzmi: jak użyć ponownie tego zachowania w innym komponencie? Innymi słowy, jeżeli inny komponent potrzebuje wiedzieć o pozycji kursora, czy możemy enkapsulować to zachowanie tak, abyśmy mogli łatwo współdzielić je z tym komponentem?
+Pytanie brzmi: jak użyć ponownie tego zachowania w innym komponencie? Innymi słowy, jeżeli inny komponent potrzebuje współrzędnych pozycji kursora, czy możemy zaimplementować to zachowanie tak, abyśmy mogli łatwo współdzielić je z tym komponentem?
 
-Ponieważ komponenty są podstawową jednostką reużywalności w Reakcie, spróbujmy zrefaktoryzować trochę powyższy kod, tak aby wykorzystać komponent `<Mouse>`, który enkapsuluje zachowanie wymagane przez inny komponent.
+Ponieważ komponenty są podstawowym sposobem na wielokrotne używanie funkcjonalności w Reakcie, spróbujmy przekształcić trochę powyższy kod tak, aby wykorzystać komponent `<Mouse>` zawierający w sobie zachowanie wymagane przez inny komponent.
 
 ```js
-// Komponent <Mouse> enkapsuluje zachowanie, którego potrzebujemy...
+// Komponent <Mouse> posiada funkcjonalność, której potrzebujemy...
 class Mouse extends React.Component {
   constructor(props) {
     super(props);
@@ -95,9 +95,9 @@ class MouseTracker extends React.Component {
 }
 ```
 
-Teraz komponent `<Mouse>` enkapsuluje wszystkie zachowania związane z nasłuchiwaniem na zdarzenia `mousemove` i przechowuje pozycję kursora (x, y), jednak nie jest jeszcze w pełni reużywalny.
+Teraz komponent `<Mouse>` implementuje wszystkie zachowania związane z nasłuchiwaniem na zdarzenie `mousemove` i przechowuje pozycję kursora (x, y), jednak nie jest jeszcze w pełni reużywalny.
 
-Dla przykładu, powiedzmy że mamy komponent `<Cat>` który renderuje obrazek kota goniącego myszkę na ekranie. Moglibyśmy użyć właściwości `<Cat mouse={{ x, y }}>` aby przekazać komponentowi koordynaty kursora, tak aby wiedział, gdzie umieścić obrazek kota.
+Dla przykładu, powiedzmy że mamy komponent `<Cat>`, który renderuje obrazek kota goniącego kursor na ekranie. Moglibyśmy użyć właściwości `<Cat mouse={{ x, y }}>`, aby przekazać komponentowi koordynaty kursora, tak aby wiedział, gdzie umieścić obrazek kota.
 
 Początkowo możesz chcieć wyrenderować komponent `<Cat>` *wewnątrz metody `render` komponentu `<Mouse>`*, na przykład w ten sposób:
 
@@ -130,10 +130,10 @@ class MouseWithCat extends React.Component {
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
 
         {/*
-          Moglibyśmy w tym miejscu po prostu zamienić <p> na <Cat> ... ale później
+          Moglibyśmy w tym miejscu po prostu zamienić <p> na <Cat>... ale później
           musielibyśmy stworzyć oddzielny komponent <MouseWithSomethingElse>
-          za każdym razem, gdy chcielibyśmy go użyć, dlatego też <MouseWithCat>
-          nie jest jeszcze naprawdę reużywalny.
+          dla każdego przypadku użycia, dlatego też <MouseWithCat>
+          nie jest jeszcze w pełni używalny wielokrotnie.
         */}
         <Cat mouse={this.state} />
       </div>
@@ -153,7 +153,7 @@ class MouseTracker extends React.Component {
 }
 ```
 
-To podejście zadziałałoby w naszym specyficznym przypadku, ale nie osiągneliśmy prawdziwego celu, jakim jest enkapsulacja zachowania w taki sposób, aby można było je wykorzystywać wielokrotnie. Teraz za każdym razem, gdybyśmy potrzebowali pozycji myszki dla innego przypadku, musielibyśmy stworzyć nowy komponent (innymi słowy kolejny `<MouseWithCat>`), który wyrenderuje coś konkretnego dla danego przypadku.
+To podejście zadziałałoby w naszym specyficznym przypadku, ale nie osiągneliśmy prawdziwego celu, jakim jest hermetyzacja zachowania w taki sposób, aby można było je wykorzystywać wielokrotnie. W takim przypadku, za każdym razem gdy potrzebowalibyśmy inaczej wyświetlić coś na podstawie pozycji kursora, musielibyśmy stworzyć nowy komponent (innymi słowy, kolejny `<MouseWithCat>`), który wyrenderuje coś w odpowiedni sposób.
 
 I tutaj do akcji wkracza właściwość renderująca. Zamiast na stałe osadzać `<Cat>` wewnątrz komponentu `<Mouse>`, jednocześnie zmieniając wyrenderowany przez niego wynik, możemy dostarczyć do komponentu `<Mouse>` właściwość będącą funkcją. Funkcja ta w sposób dynamiczny będzie określać, co powinno zostać wyrenderowane.
 
@@ -209,17 +209,17 @@ class MouseTracker extends React.Component {
 }
 ```
 
-Teraz, zamiast faktycznie klonować komponent `<Mouse>` i na stałe wpisywać coś innego w jego metodzie `render` dla poszczególnych przypadków, dostarczamy właściwość `render`, którą komponent `<Mouse>` może użyć do dynamicznego określenia renderowanego wyniku.
+Teraz, zamiast faktycznie klonować komponent `<Mouse>` i na stałe wpisywać coś innego w jego metodzie `render` dla poszczególnych przypadków, dostarczamy właściwość `render`, której komponent `<Mouse>` może użyć do dynamicznego określenia renderowanego wyniku.
 
 Konkretnie rzecz ujmując, **właściwość renderująca jest funkcją, której komponent używa, aby wiedzieć, co ma wyrenderować.**
 
-Ta technika powoduje, że zachowanie, które chcemy współdzielić, staje się niezwykle przenośne. Aby uzyskać to zachowanie, wyrenderuj komponent `<Mouse>` wraz z właściwością `render`, która określi, co powinno zostać wyrenderowane, biorąc pod uwagę aktualną pozycję (x, y) kursora myszy.
+Ta technika powoduje, że zachowanie, które chcemy współdzielić, staje się niezwykle przenośne. Aby uzyskać zamierzony efekt, wyrenderuj komponent `<Mouse>` wraz z właściwością `render`, która określi, co powinno zostać wyrenderowane biorąc pod uwagę aktualną pozycję (x, y) kursora myszy.
 
-Ciekawostką, o której warto wspomnieć podczas opisywania właściwości renderujących, jest to, że większość [komponentów wyższego rzędu (ang. *higher-order components*)](/docs/higher-order-components.html) (HOC) można zaimplementować przy użyciu zwykłego komponentu z właściwością renderującą. Dla przykładu, jeżeli preferujesz korzystanie z komponent wyższego rzędu `withMouse` zamiast komponentu `<Mouse>`, możesz z łatwością go stworzyć przy użyciu `<Mouse>` z właściwością renderującą:
+Ciekawostką, o której warto wspomnieć podczas opisywania właściwości renderujących, jest to, że większość [komponentów wyższego rzędu (ang. *higher-order components*, *HOC*)](/docs/higher-order-components.html) można zaimplementować przy użyciu zwykłego komponentu z właściwością renderującą. Dla przykładu, jeżeli wolisz korzystać z komponentu wyższego rzędu `withMouse` zamiast komponentu `<Mouse>`, możesz z łatwością go stworzyć przy użyciu `<Mouse>` z właściwością renderującą:
 
 ```js
 // Jeżeli z jakiegoś powodu naprawdę potrzebujesz HOC-a, możesz go łatwo
-// stworzyć, używając zwykłego komponentu z właściwością renderującą!
+// stworzyć używając zwykłego komponentu z właściwością renderującą!
 function withMouse(Component) {
   return class extends React.Component {
     render() {
@@ -239,20 +239,20 @@ Użycie właściwości renderującej powoduje, że jest możliwe użycie obu wzo
 
 Pamiętaj, że pomimo iż wzorzec nosi nazwę "właściwości renderującej" (ang. *render prop*), nie musisz *używać właściwości o nazwie `render`, aby go zastosować*. W zasadzie [*każda* właściwość, która jest funkcją służącą do określenia, co powinno zostać wyrenderowane, jest technicznie rzecz ujmując "właściwością renderującą"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce).
 
-Pomimo że powyższe przykłady używają `render`, moglibyśmy po prostu użyć właściwości `children`!
+Pomimo że powyższe przykłady używają nazwy `render`, moglibyśmy po prostu użyć właściwości `children`!
 
 ```js
 <Mouse children={mouse => (
-  <p>Pozycja myszki to {mouse.x}, {mouse.y}</p>
+  <p>Pozycja kursora to {mouse.x}, {mouse.y}</p>
 )}/>
 ```
 
-Pamiętaj że właściwości `children` nie musisz przekazywać na liście "atrybutów" twojego elementu JSX. Zamiast tego możesz ją umieścić bezpośrednio *wewnątrz* znacznika!
+Pamiętaj, że w JSX właściwości `children` nie musisz przekazywać na liście "atrybutów" twojego elementu. Zamiast tego możesz ją umieścić bezpośrednio *wewnątrz* znacznika!
 
 ```js
 <Mouse>
   {mouse => (
-    <p>Pozycja myszki to {mouse.x}, {mouse.y}</p>
+    <p>Pozycja kursora to {mouse.x}, {mouse.y}</p>
   )}
 </Mouse>
 ```
@@ -273,7 +273,7 @@ Mouse.propTypes = {
 
 Jeżeli stworzysz funkcję wewnątrz metody `render`, użycie właściwości renderującej może zniwelować korzyści płynące z użycia [`React.PureComponent`](/docs/react-api.html#reactpurecomponent). Dzieje się tak ponieważ płytkie porównanie (ang. *shallow comparison*) dla nowych właściwości zawsze będzie zwracać wartość `false`, a w tym przypadku każde wywołanie `render` będzie generować nową wartość dla właściwości renderującej.
 
-Dla przykładu, kontynując z komponentem `<Mouse>`, jeżeli `Mouse` rozszerzałaby klasę `React.PureComponent` zamiast `React.Component`, nasz przykład wyglądałby tak:
+Dla przykładu, kontynuując z komponentem `<Mouse>`, jeżeli `Mouse` rozszerzałaby klasę `React.PureComponent` zamiast `React.Component`, nasz przykład wyglądałby tak:
 
 ```js
 class Mouse extends React.PureComponent {
