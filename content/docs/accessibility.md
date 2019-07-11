@@ -472,7 +472,7 @@ Możesz również użyć modułu [react-axe](https://github.com/dylanb/react-axe
 W niektórych przeglądarkach możemy łatwo wyświetlić informacje o dostępności dla każdego elementu w drzewie DOM:
 
 - [Korzystanie z Inspektora dostępności w Firefoksie](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
-- [Korzystanie z Inspektora dostępności w Chromie](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
+- [Korzystanie z Inspektora dostępności w Chromie](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
 - [Korzystanie z Inspektora dostępności w OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
 ### Czytniki ekranowe {#screen-readers}
