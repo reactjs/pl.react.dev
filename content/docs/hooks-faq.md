@@ -24,7 +24,7 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [Hooków](/docs/
   * [Co mogę zrobić z Hookami czego nie mogłem zrobić z klasami?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
   * [Jaka część mojej wiedzy o Reakcie jest nadal aktualna?](#how-much-of-my-react-knowledge-stays-relevant)
   * [Powinienem używać Hooków, klas, a może mieszać oba sposoby?](#should-i-use-hooks-classes-or-a-mix-of-both)
-  * [Czy Hooki pokrywają wszystkie przypadki użycia dostępne dla klas?](#do-hooks-cover-all-use-cases-for-classes)
+  * [Czy Hooki zapewniają wszystkie przypadki użycia, które są dostępne dla klas?](#do-hooks-cover-all-use-cases-for-classes)
   * [Czy Hooki zastępują właściwości renderujące i komponenty wyższego rzędu?](#do-hooks-replace-render-props-and-higher-order-components)
   * [Co Hooki oznaczają dla popularnych API takich jak Redux connect() i React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [Czy Hooki współpracują ze statycznym typowaniem?](#do-hooks-work-with-static-typing)
@@ -90,23 +90,23 @@ Hooki same w sobie, posiadają pewną krzywą uczenia się. Jeżeli brakuje czeg
 
 Jeżeli jesteś gotowy, zachęcamy do spróbowania Hooków w nowych komponentach, które piszesz. Upewnij się że wszyscy z twojego zespołu, wiedzą jak ich używać i są zapoznani z tą dokumentacją. Nie zalecamy przepisywania twoich istniejących klas do Hooków, chyba że z jakiegoś powodu i tak planowałeś je przepisać (na przykład aby naprawić błędy).
 
-You can't use Hooks *inside* of a class component, but you can definitely mix classes and function components with Hooks in a single tree. Whether a component is a class or a function that uses Hooks is an implementation detail of that component. In the longer term, we expect Hooks to be the primary way people write React components.
+Nie możesz używać Hooków *wewnątrz* komponentów klasowych, jednakże bez obaw możesz mieszać komponenty klasowe i funkcyjne z Hookami w pojedynczym drzewie. To czy komponent jest klasowy, czy funkcyjny i używa Hooków jest detalem implementacyjnym tego komponentu. W dłuższej perspektywie oczekujemy, że Hooki będą głównym sposobem pisania komponentów Reacta.
 
-### Do Hooks cover all use cases for classes? {#do-hooks-cover-all-use-cases-for-classes}
+### Czy Hooki zapewniają wszystkie przypadki użycia, które są dostępne dla klas? {#do-hooks-cover-all-use-cases-for-classes}
 
-Our goal is for Hooks to cover all use cases for classes as soon as possible. There are no Hook equivalents to the uncommon `getSnapshotBeforeUpdate` and `componentDidCatch` lifecycles yet, but we plan to add them soon.
+Naszym celem dla Hooków jest zapewnienie wszystkich przypadków użycia, które zapewniają klasy, tak szybko jak to tylko możliwe. Nie ma jeszcze odpowiednika w Hookach dla rzadkich cyklów życia komponentu takich jak `getSnapshotBeforeUpdate` i `componentDidCatch`, ale zamierzamy je wkrótce dodać.
 
-It is an early time for Hooks, and some third-party libraries might not be compatible with Hooks at the moment.
+Ze względu na to, że jest to wczesny czas dla Hooków, niektóre biblioteki firm trzecich mogą być z nimi niekompatybilne.
 
-### Do Hooks replace render props and higher-order components? {#do-hooks-replace-render-props-and-higher-order-components}
+### Czy Hooki zastępują właściwości renderujące i komponenty wyższego rzędu? {#do-hooks-replace-render-props-and-higher-order-components}
 
-Often, render props and higher-order components render only a single child. We think Hooks are a simpler way to serve this use case. There is still a place for both patterns (for example, a virtual scroller component might have a `renderItem` prop, or a visual container component might have its own DOM structure). But in most cases, Hooks will be sufficient and can help reduce nesting in your tree.
+Zazwyczaj, właściwości renderujace i komponenty wyższego rzędu renderują tylko pojedyncze dziecko. Sądzimy że Hooki są prostszym sposobem do obsługi tego przypadku użycia. Nadal jest miejsce dla obu wzorców (dla przykładu, wirtualny komponent do obsługi suwaka może mieć właściwość `renderItem` lub widoczny komponent kontenera może mieć swoją własną strukturę DOM). Jednak w większości przypadków, Hooki będą wystarczające i pomogą zmniejszyć zagnieżdżenia w drzewie.
 
-### What do Hooks mean for popular APIs like Redux `connect()` and React Router? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
+### Co Hooki oznaczają dla popularnych API takich jak Redux connect() i React Router?{#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
-You can continue to use the exact same APIs as you always have; they'll continue to work.
+Nadal możesz używać tych samych API, których używałeś do tej pory; będą nadal działać.
 
-In the future, new versions of these libraries might also export custom Hooks such as `useRedux()` or `useRouter()` that let you use the same features without needing wrapper components.
+W przyszłości, nowe wersje tych bibliotek mogą również eksportować spersalizowane hooki, takie jak `useRedux()` czy `useRouter()`, które pozwolą na użycie tych samych funkcjonalności bez potrzeby opakowywania komponentów.
 
 ### Do Hooks work with static typing? {#do-hooks-work-with-static-typing}
 
