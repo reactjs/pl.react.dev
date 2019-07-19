@@ -104,7 +104,7 @@ Zazwyczaj, właściwości renderujace i komponenty wyższego rzędu renderują t
 
 ### Co hooki oznaczają dla popularnych API takich jak Redux connect() i React Router?{#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
-Nadal możesz używać tych samych API, których używałeś do tej pory; będą nadal działać.
+Możesz używać tych samych API, co do tej pory; będą nadal działać.
 
 W przyszłości, nowe wersje tych bibliotek mogą również eksportować spersalizowane hooki, takie jak `useRedux()` czy `useRouter()`, które pozwolą na użycie tych samych funkcjonalności bez potrzeby opakowywania komponentów.
 
