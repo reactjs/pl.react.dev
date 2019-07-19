@@ -110,34 +110,34 @@ W przyszłości nowe wersje tych bibliotek mogą również eksportować spersona
 
 ### Czy hooki współpracują ze statycznym typowaniem? {#do-hooks-work-with-static-typing}
 
-Hooks were designed with static typing in mind. Because they're functions, they are easier to type correctly than patterns like higher-order components. The latest Flow and TypeScript React definitions include support for React Hooks.
+Hooki zostały zaprojektowane z myślą o statycznym typowaniu. Dzięki temu że są funkcjami, łatwiej jest je poprawnie otypować w odróżnieniu od wzorców jak na przykład komponenty wyższego rzędu. Najnowsze definicje Reacta dla Flow i TypeScripta wspierają hooki.
 
-Importantly, custom Hooks give you the power to constrain React API if you'd like to type them more strictly in some way. React gives you the primitives, but you can combine them in different ways than what we provide out of the box.
+Co ważne, spersonalizowane hooki dają możliwość ograniczenia API Reacta, jeżeli tylko zechcesz możesz je otypować bardziej ściśle. React udostępnia podstawy, ale możesz je łączyć na różne sposoby, odmienne od tych które dostarczyliśmy w standardzie.
 
-### How to test components that use Hooks? {#how-to-test-components-that-use-hooks}
+### Jak testować komponenty które używają hooków? {#how-to-test-components-that-use-hooks}
 
-From React's point of view, a component using Hooks is just a regular component. If your testing solution doesn't rely on React internals, testing components with Hooks shouldn't be different from how you normally test components.
+Z punktu widzenia Reacta, komponent który wykorzystuje hooki jest zwyczajnym komponentem. Jeżeli rozwiązanie które testujesz, nie opiera się na wnętrzu Reacta, to podejście dotyczące testowania komponentów, które używają hooków, nie powinno się różnić od tego jak robisz to zazwyczaj.
 
-For example, let's say we have this counter component:
+Dla przykładu, załóżmy że mamy komponent licznika:
 
 ```js
 function Example() {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
+    document.title = `Kliknięto ${count} razy`;
   });
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Kliknięto {count} razy</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Kliknij mnie
       </button>
     </div>
   );
 }
 ```
 
-We'll test it using React DOM. To make sure that the behavior matches what happens in the browser, we'll wrap the code rendering and updating it into [`ReactTestUtils.act()`](/docs/test-utils.html#act) calls:
+Przetestujemy to, używając React DOM. Aby upewnić się, że zachowanie odpowiada temu co się dzieje w przeglądarce, opakujemy kod renderujący i aktualizujący, wywołaniem funkcji [`ReactTestUtils.act()`](/docs/test-utils.html#act):
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -157,41 +157,41 @@ afterEach(() => {
   container = null;
 });
 
-it('can render and update a counter', () => {
-  // Test first render and effect
+it('potrafi wyrenderować i aktualizować licznik', () => {
+  // Testuje pierwsze renderowanie i efekt
   act(() => {
     ReactDOM.render(<Counter />, container);
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');
-  expect(label.textContent).toBe('You clicked 0 times');
-  expect(document.title).toBe('You clicked 0 times');
+  expect(label.textContent).toBe('Kliknięto 0 razy');
+  expect(document.title).toBe('Kliknięto 0 razy');
 
-  // Test second render and effect
+  // Testuje drugie renderowanie i efekt
   act(() => {
     button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
   });
-  expect(label.textContent).toBe('You clicked 1 times');
-  expect(document.title).toBe('You clicked 1 times');
+  expect(label.textContent).toBe('Kliknięto 1 razy');
+  expect(document.title).toBe('Kliknięto 1 razy');
 });
 ```
 
-The calls to `act()` will also flush the effects inside of them.
+Wywołanie `act()` spowoduje również znajdujących się w ich wnętrzu efektów.
 
-If you need to test a custom Hook, you can do so by creating a component in your test, and using your Hook from it. Then you can test the component you wrote.
+Jeżeli musisz przetestować spersonalizowany hook, możesz to zrobić tworząc komponent w swoim teście i używając z niego hooka. Następnie, możesz napisać test do stworzonego w ten sposób komponentu.
 
-To reduce the boilerplate, we recommend using [`react-testing-library`](https://git.io/react-testing-library) which is designed to encourage writing tests that use your components as the end users do.
+Aby zmniejszyć powtarzalność kodu, zalecamy użyć [`react-testing-library`](https://git.io/react-testing-library), która została zaprojektowana, aby zachęcać do pisania testów, które używają komponentów, w taki sam sposób jak robią to użytkownicy końcowi.
 
-### What exactly do the [lint rules](https://www.npmjs.com/package/eslint-plugin-react-hooks) enforce? {#what-exactly-do-the-lint-rules-enforce}
+### Czego dokładnie wymagają [reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
-We provide an [ESLint plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) that enforces [rules of Hooks](/docs/hooks-rules.html) to avoid bugs. It assumes that any function starting with "`use`" and a capital letter right after it is a Hook. We recognize this heuristic isn't perfect and there may be some false positives, but without an ecosystem-wide convention there is just no way to make Hooks work well -- and longer names will discourage people from either adopting Hooks or following the convention.
+Zapewniamy [wtyczkę do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) która, aby uniknąć błędów, zmusza do przestrzegania [zasad hooków](/docs/hooks-rules.html). Zakłada ona, że każda funkcja zaczynająca się od "`use`" i zaraz po tym, dużej litery, jest hookiem. Rozpoznanie tej heurystyki, nie jest idealne i może wystąpić wiele fałszywych alarmów, ale bez konwencji dla całego ekosystemu, nie ma możliwości aby hooki działały poprawnie -- dłuższe nazwy zniechęcą ludzi do używania hooków lub do przestrzegania konwencji.
 
-In particular, the rule enforces that:
+W szczegółach, zasada ta, wymusza aby:
 
-* Calls to Hooks are either inside a `PascalCase` function (assumed to be a component) or another `useSomething` function (assumed to be a custom Hook).
-* Hooks are called in the same order on every render.
+* Wywołania hooków znajdowały się wewnątrz funkcji pisanej stylem `PascalCase` (zakłada że jest to komponent) lub innej funkcji `useSomething` (zakłada że jest to spersonaliowany hook).
+* Hooki są wywoływane w tej samej kolejnosći, przy każdym renderze.
 
-There are a few more heuristics, and they might change over time as we fine-tune the rule to balance finding bugs with avoiding false positives.
+Jest jeszcze kilka heurystyk i mogą się one zmieniać wraz z czasem, gdy dostroimy zasadę tak, aby zbalansować wyszukiwanie błędów i zmniejszyć dawanie fałszywych alarmów.
 
 ## From Classes to Hooks {#from-classes-to-hooks}
 
