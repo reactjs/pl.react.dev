@@ -251,7 +251,7 @@ Działanie referencji, jest takie samo jak użycie zmiennych instancji w klasie.
 
 ### Powinienem używać jednego czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
 
-If you're coming from classes, you might be tempted to always call `useState()` once and put all state into a single object. You can do it if you'd like. Here is an example of a component that follows the mouse movement. We keep its position and size in the local state:
+Jeżeli przywykłeś do uzycia klas, kuszące może być, aby wywołać `useState()` tylko raz i umieścić cały stan wewnątrz jednego obiektu. Jeżeli chcesz, możesz to zrobić. Poniżej znajdziesz przykład komponentu, który śledzi ruchy kursora. Jego pozycja i stan są trzymane w lokalnym stanie:
 
 ```js
 function Box() {
@@ -260,27 +260,27 @@ function Box() {
 }
 ```
 
-Now let's say we want to write some logic that changes `left` and `top` when the user moves their mouse. Note how we have to merge these fields into the previous state object manually:
+Teraz przyjmimy, że chcemy napisać logikę, która zmienia `left` i `top`, kiedy użytkownik ruszy myszką. Zauważ że, musimy manualnie scalać te pola do poprzedniego obiektu stanu:
 
 ```js{4,5}
   // ...
   useEffect(() => {
     function handleWindowMouseMove(e) {
-      // Spreading "...state" ensures we don't "lose" width and height
+      // Rozwinięcie "...state", zapewnia że nie "stracimy" szerokości i wysokości
       setState(state => ({ ...state, left: e.pageX, top: e.pageY }));
     }
-    // Note: this implementation is a bit simplified
+    // Uwaga: ta implementacja jest dość uproszczona
     window.addEventListener('mousemove', handleWindowMouseMove);
     return () => window.removeEventListener('mousemove', handleWindowMouseMove);
   }, []);
   // ...
 ```
 
-This is because when we update a state variable, we *replace* its value. This is different from `this.setState` in a class, which *merges* the updated fields into the object.
+Gdy aktualizujemy zmienną stanu, *zamieniamy* jej wartość. Różni się to od `this.setState` w klasach, które *scala* zaktualizowane pola do obiektu stanu.
 
-If you miss automatic merging, you can write a custom `useLegacyState` Hook that merges object state updates. However, instead **we recommend to split state into multiple state variables based on which values tend to change together.**
+Jeżeli tęsknisz za automatycznym scalaniem, możesz napisać własny hook `useLegacyState`, który scala aktualizacje obiekt stanu. Jednak, zamiast **zalecamy podzielenie stanu na wiele zmiennych stanu, bazując na tym, które wartości zwykły zmieniać się razem.**
 
-For example, we could split our component state into `position` and `size` objects, and always replace the `position` with no need for merging:
+Dla przykładu, możemy podzielić stan naszego komponentu na obiekty `position` i `size`. Za każdym razem gdy zmienimy `position`, nie mamy potrzeby scalania:
 
 ```js{2,7}
 function Box() {
@@ -294,7 +294,7 @@ function Box() {
     // ...
 ```
 
-Separating independent state variables also has another benefit. It makes it easy to later extract some related logic into a custom Hook, for example:
+Oddzielanie niezależnych zmiennych stanu ma także inną zaletę. Pozwala w przyszłości, łatwo wyodrębnić powiązaną logikę do własnego hooka, na przykład:
 
 ```js{2,7}
 function Box() {
@@ -312,7 +312,7 @@ function useWindowPosition() {
 }
 ```
 
-Note how we were able to move the `useState` call for the `position` state variable and the related effect into a custom Hook without changing their code. If all state was in a single object, extracting it would be more difficult.
+Zauważ, jak mogliśmy przenieść wywołanie `useState` dla zmiennej stanu `position` i powiązany z nią efekt do własnego hooka, bez konieczności zmiany jego kodu. Jeżeli cały stan, byłby w pojedynczym obiekcie, wyodrębnienie go byłoby trudniejsze.
 
 Both putting all state in a single `useState` call, and having a `useState` call per each field can work. Components tend to be most readable when you find a balance between these two extremes, and group related state into a few independent state variables. If the state logic becomes complex, we recommend [managing it with a reducer](/docs/hooks-reference.html#usereducer) or a custom Hook.
 
