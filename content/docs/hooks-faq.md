@@ -314,7 +314,7 @@ function useWindowPosition() {
 
 Zauważ, jak mogliśmy przenieść wywołanie `useState` dla zmiennej stanu `position` i powiązany z nią efekt do własnego hooka, bez konieczności zmiany jego kodu. Jeżeli cały stan, byłby w pojedynczym obiekcie, wyodrębnienie go byłoby trudniejsze.
 
-Both putting all state in a single `useState` call, and having a `useState` call per each field can work. Components tend to be most readable when you find a balance between these two extremes, and group related state into a few independent state variables. If the state logic becomes complex, we recommend [managing it with a reducer](/docs/hooks-reference.html#usereducer) or a custom Hook.
+Zarówno umieszczanie całego stanu wewnątrz pojedynczego wywołania `useState`, jak i wywoływanie `useState` dla każdego pola, będzie działać. Komponenty zwykły być najbardziej czytelne, jeżeli odnajdziesz równowagę, pomiędzy tymi dwoma skrajnościami i pogrupujesz powiązany stan na kilka niezależnych zmiennych stanu. Jeżeli logika stanu stanie się zbyt złożona, zalecamy [użyć reduktora](/docs/hooks-reference.html#usereducer) lub skorzystać z własnego hooka.
 
 ### Can I run an effect only on updates? {#can-i-run-an-effect-only-on-updates}
 
