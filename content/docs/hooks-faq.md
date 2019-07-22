@@ -68,21 +68,21 @@ Zaczynając od wersji 16.8.0, React zawiera stabilną implementacje hooków dla:
 * React Test Renderer
 * React Shallow Renderer
 
-Zauważ, że **aby włączyć hooki, wszystkie paczki Reacta muszą mieć wersję 16.8.0 lub wyższą**. hooki nie zadziałają, jeżeli zapomnisz zaktualizować, na przykład React DOM.
+Zauważ, że **aby włączyć hooki, wszystkie paczki Reacta muszą mieć wersję 16.8.0 lub wyższą**. Hooki nie zadziałają, jeżeli zapomnisz zaktualizować, na przykład React DOM.
 
-React Native w wersji 0.59 i wyższej również wspiera hooki.
+React Native wspiera hooki od wersji 0.59.
 
 ### Czy muszę przepisać wszystkie komponenty klasowe? {#do-i-need-to-rewrite-all-my-class-components}
 
-Nie. Usunięcia klas z Reacta [nie ma w planach](/docs/hooks-intro.html#gradual-adoption-strategy) -- my wszyscy, zawsze musimy dostarczać produkty i nie możemy sobie pozwolić na ich przepisywanie. Z tego powodu, zalecamy wypróbowanie hooków w nowym kodzie.
+Nie. [Nie ma planów](/docs/hooks-intro.html#gradual-adoption-strategy) aby usunąć klasy z Reacta -- wszyscy musimy stale dostarczać nasze produkty i nie możemy sobie pozwolić na ich przepisywanie. Zachęcamy do wypróbowania hooków w nowym kodzie.
 
-### Co mogę zrobić z hookami czego nie mogłem zrobić z klasami? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
+### Co mogę zrobić z hookami, czego nie mogłem zrobić z klasami? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
-Hooki oferują nowy, potężny i wyrazisty sposób do wielokrotnego używania funkcjonalności pomiędzy komponentami. ["Tworzenie własnych hooków"](/docs/hooks-custom.html) zawiera szybki wgląd tego co jest możliwe. [Ten artykuł](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) napisany przez jednego z głównym członków zespołu Reacta, zawiera bardziej szczegółowe informacje o nowych możliwościach otwartych przez hooki.
+Hooki oferują nowy, potężny i ekspresyjny sposób na wielokrotne używanie funkcjonalności pomiędzy komponentami. Rozdział p.t. ["Tworzenie własnych hooków"](/docs/hooks-custom.html) zawiera szybki wgląd tego co jest możliwe. [Ten artykuł](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) napisany przez jednego z głównym członków zespołu Reacta, zawiera bardziej szczegółowe informacje o nowych możliwościach otwartych przez hooki.
 
 ### Jaka część mojej wiedzy o Reakcie jest nadal aktualna? {#how-much-of-my-react-knowledge-stays-relevant}
 
-Hooki są bardziej bezpośrednim sposobem do użycia funkcjonalności React, które już znasz -- takie jak na przykład stan, metody cyklu życia, kontekst i referencje. Nie zmieniają podstaw działania Reakta, dlatego też twoja widza na temat komponentów, propsów i przepływu danych z góry w dół jest ciągle aktualna.
+Hooki są bardziej bezpośrednim sposobem do użycia funkcjonalności Reacta, które już znasz -- takie jak na przykład stan, metody cyklu życia (ang. *lifecycle methods*), kontekst i referencje (ang. *refs*). Nie zmieniają podstaw działania Reacta, dlatego też twoja wiedza na temat komponentów, właściwości (ang. *props*) i przepływu danych z góry w dół jest ciągle aktualna.
 
 Hooki same w sobie, posiadają pewną krzywą uczenia się. Jeżeli brakuje czegoś w tej dokumentacji, [zgłoś problem](https://github.com/reactjs/reactjs.org/issues/new) a my postaramy się pomóc.
 
@@ -106,17 +106,17 @@ Zazwyczaj właściwości renderujace i komponenty wyższego rzędu renderują ty
 
 Możesz używać tych samych API, co do tej pory; będą nadal działać.
 
-W przyszłości nowe wersje tych bibliotek mogą również eksportować spersonalizowane hooki, takie jak `useRedux()` czy `useRouter()`, które pozwolą na użycie tych samych funkcjonalności bez potrzeby opakowywania komponentów.
+W przyszłości nowe wersje tych bibliotek będą mogły również eksportować spersonalizowane hooki, takie jak `useRedux()` czy `useRouter()`, które pozwolą na użycie tych samych funkcjonalności bez potrzeby opakowywania komponentów.
 
 ### Czy hooki współpracują ze statycznym typowaniem? {#do-hooks-work-with-static-typing}
 
-Hooki zostały zaprojektowane z myślą o statycznym typowaniu. Dzięki temu że są funkcjami, łatwiej jest je poprawnie otypować w odróżnieniu od wzorców jak na przykład komponenty wyższego rzędu. Najnowsze definicje Reacta dla Flow i TypeScripta wspierają hooki.
+Hooki zostały zaprojektowane z myślą o statycznym typowaniu. Dzięki temu że są funkcjami, łatwiej jest je poprawnie otypować, w odróżnieniu od wzorców takich jak komponenty wyższego rzędu. Najnowsze definicje Reacta dla Flow i TypeScripta wspierają hooki.
 
 Co ważne, spersonalizowane hooki dają możliwość ograniczenia API Reacta, jeżeli tylko zechcesz możesz je otypować bardziej ściśle. React udostępnia podstawy, ale możesz je łączyć na różne sposoby, odmienne od tych które dostarczyliśmy w standardzie.
 
 ### Jak testować komponenty które używają hooków? {#how-to-test-components-that-use-hooks}
 
-Z punktu widzenia Reacta, komponent który wykorzystuje hooki jest zwyczajnym komponentem. Jeżeli rozwiązanie które testujesz, nie opiera się na wnętrzu Reacta, to podejście dotyczące testowania komponentów, które używają hooków, nie powinno się różnić od tego jak robisz to zazwyczaj.
+Z punktu widzenia Reacta, komponent wykorzystujący hooki jest zwyczajnym komponentem. Jeżeli twoje rozwiązanie do testów nie opiera się na wewnętrznej implementacji Reacta, to testowanie komponentów, które używają hooków, nie powinno różnić się od tego co robisz to zazwyczaj.
 
 Dla przykładu, załóżmy że mamy komponent licznika:
 
@@ -178,20 +178,20 @@ it('potrafi wyrenderować i aktualizować licznik', () => {
 
 Wywołanie `act()` spowoduje również znajdujących się w ich wnętrzu efektów.
 
-Jeżeli musisz przetestować spersonalizowany hook, możesz to zrobić tworząc komponent w swoim teście i używając z niego hooka. Następnie, możesz napisać test do stworzonego w ten sposób komponentu.
+Jeżeli musisz przetestować spersonalizowany hook, możesz stworzyć komponent w swoim teście i wywołać ten hook w ciele jego funkcji. Następnie, możesz napisać test do stworzonego w ten sposób komponentu.
 
 Aby zmniejszyć powtarzalność kodu, zalecamy użyć [`react-testing-library`](https://git.io/react-testing-library), która została zaprojektowana, aby zachęcać do pisania testów, które używają komponentów, w taki sam sposób jak robią to użytkownicy końcowi.
 
 ### Czego dokładnie wymagają [reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
-Zapewniamy [wtyczkę do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) która, aby uniknąć błędów, zmusza do przestrzegania [zasad hooków](/docs/hooks-rules.html). Zakłada ona, że każda funkcja zaczynająca się od "`use`" i zaraz po tym, dużej litery, jest hookiem. Rozpoznanie tej heurystyki, nie jest idealne i może wystąpić wiele fałszywych alarmów, ale bez konwencji dla całego ekosystemu, nie ma możliwości aby hooki działały poprawnie -- dłuższe nazwy zniechęcą ludzi do używania hooków lub do przestrzegania konwencji.
+Stworzyliśmy [wtyczkę do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) która, aby uniknąć błędów, zmusza do przestrzegania [zasad hooków](/docs/hooks-rules.html). Zakłada ona, że każda funkcja zaczynająca się od "`use`" i zaraz po tym wielkiej litery, jest hookiem. Zdajemy sobie sprawę, że ta heurystyka nie jest idealna i może wywołać wiele fałszywych alarmów. Ale bez wprowadzenia wspólnej dla całego ekosystemu konwencji, nie ma możliwości aby hooki działały poprawnie -- dłuższe nazwy zniechęcą ludzi do używania hooków lub do przestrzegania tej konwencji.
 
-W szczegółach, zasada ta, wymusza aby:
+W szczególności zasada ta wymusza aby:
 
-* Wywołania hooków znajdowały się wewnątrz funkcji pisanej stylem `PascalCase` (zakłada że jest to komponent) lub innej funkcji `useSomething` (zakłada że jest to spersonaliowany hook).
+* Wywołania hooków znajdowały się wewnątrz funkcji pisanej stylem `PascalCase` (zakłada że jest to komponent) lub innej funkcji `useSomething` (zakłada że jest to własny hook).
 * Hooki są wywoływane w tej samej kolejnosći, przy każdym renderze.
 
-Jest jeszcze kilka heurystyk i mogą się one zmieniać wraz z czasem, gdy dostroimy zasadę tak, aby zbalansować wyszukiwanie błędów i zmniejszyć dawanie fałszywych alarmów.
+Jest jeszcze kilka innych heurystyk i mogą się one z czasem zmienić, gdy dostroimy zasadę tak, aby zbalansować wyszukiwanie błędów i zmniejszyć wywoływanie fałszywych alarmów.
 
 ## From Classes to Hooks {#from-classes-to-hooks}
 
