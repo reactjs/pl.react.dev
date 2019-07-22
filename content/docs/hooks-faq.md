@@ -193,31 +193,31 @@ W szczególności zasada ta wymusza aby:
 
 Jest jeszcze kilka innych heurystyk i mogą się one z czasem zmienić, gdy dostroimy zasadę tak, aby zbalansować wyszukiwanie błędów i zmniejszyć wywoływanie fałszywych alarmów.
 
-## From Classes to Hooks {#from-classes-to-hooks}
+## Od klas do hooków {#from-classes-to-hooks}
 
-### How do lifecycle methods correspond to Hooks? {#how-do-lifecycle-methods-correspond-to-hooks}
+### Jak wyglądają metody cyklu życia w odniesieniu do hooków? {#how-do-lifecycle-methods-correspond-to-hooks}
 
-* `constructor`: Function components don't need a constructor. You can initialize the state in the [`useState`](/docs/hooks-reference.html#usestate) call. If computing the initial state is expensive, you can pass a function to `useState`.
+* `constructor`: Komponenty funkcyjne nie potrzebują konstruktora. Stan jest inicjalizowany poprzez wywołanie [`useState`](/docs/hooks-reference.html#usestate). Jeżeli obliczenie stanu początkowego jest wymagające, możesz skorzystać z przekazania funkcji do `useState`.
 
-* `getDerivedStateFromProps`: Schedule an update [while rendering](#how-do-i-implement-getderivedstatefromprops) instead.
+* `getDerivedStateFromProps`: Zamiast, zaplanuj aktualizację [podczas renderowania](#how-do-i-implement-getderivedstatefromprops).
 
-* `shouldComponentUpdate`: See `React.memo` [below](#how-do-i-implement-shouldcomponentupdate).
+* `shouldComponentUpdate`: Spójrz na `React.memo` [poniżej](#how-do-i-implement-shouldcomponentupdate).
 
-* `render`: This is the function component body itself.
+* `render`: Jest to ciało komponentu funkcyjnego.
 
-* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: The [`useEffect` Hook](/docs/hooks-reference.html#useeffect) can express all combinations of these (including [less](#can-i-skip-an-effect-on-updates) [common](#can-i-run-an-effect-only-on-updates) cases).
+* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: Hook [`useEffect`](/docs/hooks-reference.html#useeffect) can wyraża wszystkie kombinacje tych metod (włączając w to [mniej](#can-i-skip-an-effect-on-updates) [znane](#can-i-run-an-effect-only-on-updates) przypadki).
 
-* `componentDidCatch` and `getDerivedStateFromError`: There are no Hook equivalents for these methods yet, but they will be added soon.
+* `componentDidCatch` i `getDerivedStateFromError`: W tej chwili nie istnieje hook odzwierciedlający te metody, ale zostanie wkrótce dodany.
 
-### How can I do data fetching with Hooks? {#how-can-i-do-data-fetching-with-hooks}
+### Jak mogę pobrać dane wykorzystując hooki? {#how-can-i-do-data-fetching-with-hooks}
 
-Here is a [small demo](https://codesandbox.io/s/jvvkoo8pq3) to get you started. To learn more, check out [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) about data fetching with Hooks.
+Tutaj znajdziesz [małe demo](https://codesandbox.io/s/jvvkoo8pq3), które w tym pomoże. Aby dowiedzieć się więcej, sprawdź  [ten artykuł](https://www.robinwieruch.de/react-hooks-fetch-data/) o pobieraniu danych z wykorzystaniem hooków.
 
-### Is there something like instance variables? {#is-there-something-like-instance-variables}
+### Czy istnieje coś podobnego do zmiennych instancji? {#is-there-something-like-instance-variables}
 
-Yes! The [`useRef()`](/docs/hooks-reference.html#useref) Hook isn't just for DOM refs. The "ref" object is a generic container whose `current` property is mutable and can hold any value, similar to an instance property on a class.
+Tak! Hook [`useRef()`](/docs/hooks-reference.html#useref) nie służy tylko do referencji DOM. Obiekt "ref" jest generycznym kontenerem, którego właściwość `current` jest zmienna i może przechowywać każdą wartość, tak samo jak właściwości instancji w klasach.
 
-You can write to it from inside `useEffect`:
+Możesz ją wykorzystać wewnątrz `useEffect`:
 
 ```js{2,8}
 function Timer() {
@@ -237,7 +237,7 @@ function Timer() {
 }
 ```
 
-If we just wanted to set an interval, we wouldn't need the ref (`id` could be local to the effect), but it's useful if we want to clear the interval from an event handler:
+Jeżeli chcielibyśmy po prostu ustawić interwał, nie potrzebowalibyśmy referencji (`id` mogłoby być lokalne dla efektu), jednakże jest to użyteczne w przypadku, gdy chcielibyśmy wyczyścić interwał z uchwytu zdarzenia:
 
 ```js{3}
   // ...
@@ -247,9 +247,9 @@ If we just wanted to set an interval, we wouldn't need the ref (`id` could be lo
   // ...
 ```
 
-Conceptually, you can think of refs as similar to instance variables in a class. Unless you're doing [lazy initialization](#how-to-create-expensive-objects-lazily), avoid setting refs during rendering -- this can lead to surprising behavior. Instead, typically you want to modify refs in event handlers and effects.
+Działanie referencji, jest takie samo jak użycie zmiennych instancji w klasie. Chyba że, używasz [leniwej inicjalizacji](#how-to-create-expensive-objects-lazily), w tym przypadku, unikaj używania referencji podczas renderowania -- może to prowadzić do dziwnych zachowań. Zamiast, powinieneś modyfikować referencje wewnątrz efektów lub uchwytów zdarzeń.
 
-### Should I use one or many state variables? {#should-i-use-one-or-many-state-variables}
+### Powinienem używać jednego czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
 
 If you're coming from classes, you might be tempted to always call `useState()` once and put all state into a single object. You can do it if you'd like. Here is an example of a component that follows the mouse movement. We keep its position and size in the local state:
 
