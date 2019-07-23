@@ -316,13 +316,13 @@ Zauważ, jak mogliśmy przenieść wywołanie `useState` dla zmiennej stanu `pos
 
 Zarówno umieszczanie całego stanu wewnątrz pojedynczego wywołania `useState`, jak i wywoływanie `useState` dla każdego pola, będzie działać. Komponenty zwykły być najbardziej czytelne, jeżeli odnajdziesz równowagę, pomiędzy tymi dwoma skrajnościami i pogrupujesz powiązany stan na kilka niezależnych zmiennych stanu. Jeżeli logika stanu stanie się zbyt złożona, zalecamy [użyć reduktora](/docs/hooks-reference.html#usereducer) lub skorzystać z własnego hooka.
 
-### Can I run an effect only on updates? {#can-i-run-an-effect-only-on-updates}
+### Czy mogę uruchomić efekt tylko podczas aktualizacji? {#can-i-run-an-effect-only-on-updates}
 
-This is a rare use case. If you need it, you can [use a mutable ref](#is-there-something-like-instance-variables) to manually store a boolean value corresponding to whether you are on the first or a subsequent render, then check that flag in your effect. (If you find yourself doing this often, you could create a custom Hook for it.)
+Jest to rzadki przypadek. Jeżeli potrzebujesz, możesz [użyć zmiennej referencji](#is-there-something-like-instance-variables), aby manualnie przechować wartość logiczną, która będzie określać czy jest to pierwszy czy późniejszy render, a następnie sprawdzić tę flagę w efekcie. (Jeżeli okaże się że robisz to często, możesz w tym celu stworzyć własnego hooka.)
 
-### How to get the previous props or state? {#how-to-get-the-previous-props-or-state}
+### Jak dostać poprzednie propsy lub stan? {#how-to-get-the-previous-props-or-state}
 
-Currently, you can do it manually [with a ref](#is-there-something-like-instance-variables):
+Aktualnie, musisz zrobić to manualnie, [używająć referencji](#is-there-something-like-instance-variables):
 
 ```js{6,8}
 function Counter() {
@@ -334,17 +334,17 @@ function Counter() {
   });
   const prevCount = prevCountRef.current;
 
-  return <h1>Now: {count}, before: {prevCount}</h1>;
+  return <h1>Teraz: {count}, poprzednio: {prevCount}</h1>;
 }
 ```
 
-This might be a bit convoluted but you can extract it into a custom Hook:
+Może to być trochę zawiłe, ale możesz to wyodrębnić do własnego hooka:
 
 ```js{3,7}
 function Counter() {
   const [count, setCount] = useState(0);
   const prevCount = usePrevious(count);
-  return <h1>Now: {count}, before: {prevCount}</h1>;
+  return <h1>Teraz: {count}, poprzednio: {prevCount}</h1>;
 }
 
 function usePrevious(value) {
@@ -356,7 +356,7 @@ function usePrevious(value) {
 }
 ```
 
-Note how this would work for props, state, or any other calculated value.
+Zauważ że, będzie to działać zarówno dla właściwości, stanu i każdej innej wyliczanej wartości.
 
 ```js{5}
 function Counter() {
@@ -367,13 +367,13 @@ function Counter() {
   // ...
 ```
 
-It's possible that in the future React will provide a `usePrevious` Hook out of the box since it's a relatively common use case.
+Ponieważ jest to powszechny przypadek użycia, bardzo prawdopodobne że w przyszłości, React sam dostarczy implementacje hooka `usePrevious`.
 
-See also [the recommended pattern for derived state](#how-do-i-implement-getderivedstatefromprops).
+Spójrz również na [rekomendowany wzorzec dla stanu pochodnego](#how-do-i-implement-getderivedstatefromprops).
 
-### Why am I seeing stale props or state inside my function? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
+### Dlaczego widzę nieaktualne propsy lub stan wewnątrz mojej funkcji? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
-Any function inside a component, including event handlers and effects, "sees" the props and state from the render it was created in. For example, consider code like this:
+Każda funkcja wewnątrz komponentu, włączając w to uchwyty zdarzeń i efekty, "widzą" propsy i stan, aktualny na czas rendera, w którym zostały stworzone. Dla przykładu, rozważ poniższy kod:
 
 ```js
 function Example() {
@@ -381,29 +381,29 @@ function Example() {
 
   function handleAlertClick() {
     setTimeout(() => {
-      alert('You clicked on: ' + count);
+      alert('Kliknięto: ' + count);
     }, 3000);
   }
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Kliknięto {count} razy</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Naciśnij mnie
       </button>
       <button onClick={handleAlertClick}>
-        Show alert
+        Pokaż okno ostrzegawcze
       </button>
     </div>
   );
 }
 ```
 
-If you first click "Show alert" and then increment the counter, the alert will show the `count` variable **at the time you clicked the "Show alert" button**. This prevents bugs caused by the code assuming props and state don't change.
+Jeżeli najpierw klikniesz "Pokaż okno ostrzegawcze", a następnie zinkrementujesz licznik, okno ostrzegawcze wyświetli watość zmiennej `count` **z momentu kliknięcia na przycisk "Pokaż okno ostrzegawcze"**. Zapobiega to błędom w kodzie, który zakłada że propsy i stan nie zmienią się.
 
-If you intentionally want to read the *latest* state from some asynchronous callback, you could keep it in [a ref](/docs/hooks-faq.html#is-there-something-like-instance-variables), mutate it, and read from it.
+Jeżeli celowo chcesz odczytać *najświeższy* stan z asynchronicznej pętli zwrotnej, możesz go przechowywać, zmieniać i odczytywać korzystając z [referencji](/docs/hooks-faq.html#is-there-something-like-instance-variables).
 
-Finally, another possible reason you're seeing stale props or state is if you use the "dependency array" optimization but didn't correctly specify all the dependencies. For example, if an effect specifies `[]` as the second argument but reads `someProp` inside, it will keep "seeing" the initial value of `someProp`. The solution is to either remove the dependency array, or to fix it. Here's [how you can deal with functions](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), and here's [other common strategies](#what-can-i-do-if-my-effect-dependencies-change-too-often) to run effects less often without incorrectly skipping dependencies.
+Ostatecznie, inną możliwą przyczyną tego że widzisz nieaktualne propsy lub stan, może być użycie "tablicy zależności" do optymilizacji, ale niepoprawne sprecyzowanie wszystkich zależności. Dla przykładu, jeżeli efekt otrzymuje `[]` jako drugi argument, ale wewnątrz odczytuje `someProp`, efekt będzie stale "widział" początkową wartość `someProp`. Rozwiązaniem jest usunięcie tablicy zależności lub naprawienie jej. Tutaj znajdziesz informacje [jak poradzić sobie z funkcjami](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), a tutaj [inne powszechne sposoby](#what-can-i-do-if-my-effect-dependencies-change-too-often), aby uruchamiać efekt rzadziej i bez niepoprawnego pomijania zależności.
 
 >Note
 >
