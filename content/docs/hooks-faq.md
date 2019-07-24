@@ -405,15 +405,15 @@ Jeżeli celowo chcesz odczytać *najświeższy* stan z asynchronicznej pętli zw
 
 Ostatecznie, inną możliwą przyczyną tego że widzisz nieaktualne propsy lub stan, może być użycie "tablicy zależności" do optymilizacji, ale niepoprawne sprecyzowanie wszystkich zależności. Dla przykładu, jeżeli efekt otrzymuje `[]` jako drugi argument, ale wewnątrz odczytuje `someProp`, efekt będzie stale "widział" początkową wartość `someProp`. Rozwiązaniem jest usunięcie tablicy zależności lub naprawienie jej. Tutaj znajdziesz informacje [jak poradzić sobie z funkcjami](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), a tutaj [inne powszechne sposoby](#what-can-i-do-if-my-effect-dependencies-change-too-often), aby uruchamiać efekt rzadziej i bez niepoprawnego pomijania zależności.
 
->Note
+>Uwaga
 >
->We provide an [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+>Stworzyliśmy regułę [`wyczerpującą zależności`](https://github.com/facebook/react/issues/14920) dla ESLint, jako część paczki [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Wtyczka ostrzega, gdy zależności są sprecyzowane niepoprawnie i zaleca poprawienie kodu.
 
-### How do I implement `getDerivedStateFromProps`? {#how-do-i-implement-getderivedstatefromprops}
+### Jak zaimplementować `getDerivedStateFromProps`? {#how-do-i-implement-getderivedstatefromprops}
 
-While you probably [don't need it](/blog/2018/06/07/you-probably-dont-need-derived-state.html), in rare cases that you do (such as implementing a `<Transition>` component), you can update the state right during rendering. React will re-run the component with updated state immediately after exiting the first render so it wouldn't be expensive.
+Prawdopodobnie [tego nie potrzebujesz](/blog/2018/06/07/you-probably-dont-need-derived-state.html), w rzadkich przypadkach w których naprawdę będziesz tego potrzebować (na przykład implementacja komponentu `<Transition>`), możesz zaktualizować stan w trakcie renderowania. React uruchomi ponownie komponent z zaktualizowanym stanem natychmiast po pierwszym renderowaniu.
 
-Here, we store the previous value of the `row` prop in a state variable so that we can compare:
+Poniżej, przechowujemy poprzednią wartość propsa `row` w zmiennej stanowej, więc możemy wykonać porównanie:
 
 ```js
 function ScrollView({row}) {
@@ -421,16 +421,16 @@ function ScrollView({row}) {
   let [prevRow, setPrevRow] = useState(null);
 
   if (row !== prevRow) {
-    // Row changed since last render. Update isScrollingDown.
+    // Wiersz się zmienił od ostatniego renderowania. Zaktualizuj isScrollingDown.
     setIsScrollingDown(prevRow !== null && row > prevRow);
     setPrevRow(row);
   }
 
-  return `Scrolling down: ${isScrollingDown}`;
+  return `Przewijanie w dół: ${isScrollingDown}`;
 }
 ```
 
-This might look strange at first, but an update during rendering is exactly what `getDerivedStateFromProps` has always been like conceptually.
+Na pierwszy rzut oka może to wyglądać dziwnie, ale aktualizacja podczas renderowania jest dokładnie tym samym, czym w założeniach  `getDerivedStateFromProps` był od zawsze.
 
 ### Is there something like forceUpdate? {#is-there-something-like-forceupdate}
 
