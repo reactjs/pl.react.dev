@@ -181,7 +181,7 @@ Przyjmuje obiekt kontekstu (wartość zwróconą przez `React.createContext`) i 
 
 Kiedy najbliższy rodzic `<MyContext.Provider>` zostanie zaktualizowany, ten hook wywoła ponowne renderowanie komponentu z najnowszym kontekstem `value` przekazanym dostawcy (ang. *provider*) `MyContext`.
 
-Pamiętaj, że argument przekazany do `useContest` musi być *samym obiektem kontekstu*:
+Pamiętaj, że argument przekazany do `useContext` musi być *samym obiektem kontekstu*:
 
  * **Poprawnie:** `useContext(MyContext)`
  * **Niepoprawnie:** `useContext(MyContext.Consumer)`
