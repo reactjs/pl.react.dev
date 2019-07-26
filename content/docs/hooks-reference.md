@@ -205,7 +205,7 @@ Poniższe hooki są albo są wariantami   tych podstawowych, z poprzedniego podr
 const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
-Alternatywa dla hooka [`useState`](#usestate). Przyjmuje reduktor (ang *reducer*), będący funkcją o sygnaturze `(stan, akcja) => nowyStan`, a zwraca aktualny stan w parze z metodą `dispatch`. (Jeżeli znasz bibliotekę Redux, wiesz już, jak to działa.)
+Alternatywa dla hooka [`useState`](#usestate). Przyjmuje reduktor (ang. *reducer*), będący funkcją o sygnaturze `(stan, akcja) => nowyStan`, a zwraca aktualny stan w parze z metodą `dispatch`. (Jeżeli znasz bibliotekę Redux, wiesz już, jak to działa.)
 
 `useReducer` sprawdza się lepiej od `useState` tam, gdzie występuje skomplikowana logika związana ze stanem, obejmująca wiele pod-wartości lub gdy następny stan zależy od poprzedniego. `useReducer` pozwala też zoptymalizować wydajność komponentów uruchamiających głębokie aktualizacje, ponieważ zamiast przekazywać funkcje zwrotne (ang. *callback*), [możesz przekazać funkcję `dispatch` w dół drzewa](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
 
