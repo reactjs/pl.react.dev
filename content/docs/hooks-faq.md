@@ -28,13 +28,13 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
   * [Czy hooki zastępują właściwości renderujące i komponenty wyższego rzędu?](#do-hooks-replace-render-props-and-higher-order-components)
   * [Co hooki oznaczają dla popularnych API takich jak connect() z Reduxa lub React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [Czy hooki współpracują ze statycznym typowaniem?](#do-hooks-work-with-static-typing)
-  * [Jak testować komponenty które używają hooków?](#how-to-test-components-that-use-hooks)
+  * [Jak testować komponenty, które używają hooków?](#how-to-test-components-that-use-hooks)
   * [Czego dokładnie wymagają reguły lintera?](#what-exactly-do-the-lint-rules-enforce)
 * **[Od klas do hooków](#from-classes-to-hooks)**
   * [Jak wyglądają metody cyklu życia w odniesieniu do hooków?](#how-do-lifecycle-methods-correspond-to-hooks)
   * [Jak mogę pobrać dane wykorzystując hooki?](#how-can-i-do-data-fetching-with-hooks)
   * [Czy istnieje coś podobnego do zmiennych instancji?](#is-there-something-like-instance-variables)
-  * [Powinienem używać jednego czy wielu zmiennych stanu?](#should-i-use-one-or-many-state-variables)
+  * [Lepiej używać jednego czy wielu zmiennych stanu?](#should-i-use-one-or-many-state-variables)
   * [Czy mogę uruchomić efekt tylko podczas aktualizacji?](#can-i-run-an-effect-only-on-updates)
   * [Jak dostać poprzednie propsy lub stan?](#how-to-get-the-previous-props-or-state)
   * [Dlaczego widzę nieaktualne propsy lub stan wewnątrz mojej funkcji?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
@@ -46,18 +46,18 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
 * **[Optymalizacja wydajności](#performance-optimizations)**
   * [Czy mogę pominąć efekt podczas aktualizacji?](#can-i-skip-an-effect-on-updates)
   * [Czy bezpieczne jest pomijać funkcję w listach zależności?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
-  * [Co mogę zrobić jeżeli zależności mojego efektu zmieniaja się zbyt często?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
+  * [Co mogę zrobić, jeżeli zależności mojego efektu zmieniaja się zbyt często?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
   * [Jak zaimplementować shouldComponentUpdate?](#how-do-i-implement-shouldcomponentupdate)
   * [Jak memoizować obliczenia?](#how-to-memoize-calculations)
   * [Jak leniwie tworzyć ciężkie komponenty?](#how-to-create-expensive-objects-lazily)
   * [Czy hooki są wolne z powodu tworzenia funkcji podczas renderowania?](#are-hooks-slow-because-of-creating-functions-in-render)
-  * [Jak unikać przekazywania pętli zwrotnych w dół?](#how-to-avoid-passing-callbacks-down)
+  * [Jak unikać przekazywania funkcji zwrotnych w dół?](#how-to-avoid-passing-callbacks-down)
   * [Jak czytać często zmieniającą się wartość z useCallback?](#how-to-read-an-often-changing-value-from-usecallback)
 * **[Pod maską](#under-the-hood)**
   * [Jak React łączy wywołania hooków z komponentami?](#how-does-react-associate-hook-calls-with-components)
   * [Jaki jest stan patentu dla hooków?](#what-is-the-prior-art-for-hooks)
 
-## Strategia adpocji {#adoption-strategy}
+## Strategia wdrożenia {#adoption-strategy}
 
 ### Które wersje Reacta wspierają hooki? {#which-versions-of-react-include-hooks}
 
@@ -68,7 +68,7 @@ Zaczynając od wersji 16.8.0, React zawiera stabilną implementacje hooków dla:
 * React Test Renderer
 * React Shallow Renderer
 
-Zauważ, że **aby włączyć hooki, wszystkie paczki Reacta muszą mieć wersję 16.8.0 lub wyższą**. Hooki nie zadziałają, jeżeli zapomnisz zaktualizować, na przykład React DOM.
+Zauważ, że **aby włączyć hooki, wszystkie paczki Reacta muszą mieć wersję 16.8.0 lub wyższą**. Hooki nie zadziałają, jeżeli zapomnisz zaktualizować, na przykład, React DOM.
 
 React Native wspiera hooki od wersji 0.59.
 
@@ -176,7 +176,7 @@ it('potrafi wyrenderować i aktualizować licznik', () => {
 });
 ```
 
-Wywołanie `act()` spowoduje również znajdujących się w ich wnętrzu efektów.
+Wywołanie funkcji `act()` opróżni bufor efektów znajdujących się wewnątrz.
 
 Jeżeli musisz przetestować spersonalizowany hook, możesz stworzyć komponent w swoim teście i wywołać ten hook w ciele jego funkcji. Następnie, możesz napisać test do stworzonego w ten sposób komponentu.
 
