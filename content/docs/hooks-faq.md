@@ -104,7 +104,7 @@ Zazwyczaj właściwości renderujace i komponenty wyższego rzędu renderują ty
 
 ### Co hooki oznaczają dla popularnych API takich jak Redux connect() i React Router?{#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
-Możesz używać tych samych API, co do tej pory; będą nadal działać.
+Możesz używać tych samych API, co do tej pory - będą nadal działać.
 
 W przyszłości nowe wersje tych bibliotek będą mogły również eksportować spersonalizowane hooki, takie jak `useRedux()` czy `useRouter()`, które pozwolą na użycie tych samych funkcjonalności bez potrzeby opakowywania komponentów.
 
@@ -249,7 +249,7 @@ Jeżeli chcielibyśmy po prostu ustawić interwał, nie potrzebowalibyśmy refer
 
 Działanie referencji, jest takie samo jak użycie zmiennych instancji w klasie. Chyba że, używasz [leniwej inicjalizacji](#how-to-create-expensive-objects-lazily), w tym przypadku, unikaj używania referencji podczas renderowania -- może to prowadzić do dziwnych zachowań. Zamiast, powinieneś modyfikować referencje wewnątrz efektów lub uchwytów zdarzeń.
 
-### Powinienem używać jednego czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
+### Lepiej używać jednego czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
 
 Jeżeli przywykłeś do uzycia klas, kuszące może być, aby wywołać `useState()` tylko raz i umieścić cały stan wewnątrz jednego obiektu. Jeżeli chcesz, możesz to zrobić. Poniżej znajdziesz przykład komponentu, który śledzi ruchy kursora. Jego pozycja i stan są trzymane w lokalnym stanie:
 
@@ -432,11 +432,11 @@ function ScrollView({row}) {
 
 Na pierwszy rzut oka może to wyglądać dziwnie, ale aktualizacja podczas renderowania jest dokładnie tym samym, czym w założeniach  `getDerivedStateFromProps` był od zawsze.
 
-### Is there something like forceUpdate? {#is-there-something-like-forceupdate}
+### Czy istnieje coś takiego jak forceUpdate? {#is-there-something-like-forceupdate}
 
-Both `useState` and `useReducer` Hooks [bail out of updates](/docs/hooks-reference.html#bailing-out-of-a-state-update) if the next value is the same as the previous one. Mutating state in place and calling `setState` will not cause a re-render.
+Zarówno `useState` jak i `useReducer` [wycofują się z aktualizacji](/docs/hooks-reference.html#bailing-out-of-a-state-update), jeżeli kolejna wartość jest taka sama jak poprzednia. Zmiana stanu bez użycia `setState`, a następnie wywołanie `setState` nie spowoduje przerenderowania.
 
-Normally, you shouldn't mutate local state in React. However, as an escape hatch, you can use an incrementing counter to force a re-render even if the state has not changed:
+Zazwyczaj, nie powinno się modyfikować lokalnego stanu Reacta. Jednakże, możesz użyć inkrementacji licznika, aby wymusić przerenderowanie, nawet gdy stan się nie zmienił:
 
 ```js
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -446,11 +446,11 @@ Normally, you shouldn't mutate local state in React. However, as an escape hatch
   }
 ```
 
-Try to avoid this pattern if possible.
+Jeżeli to możliwe, staraj się unikać tego wzorca.
 
-### Can I make a ref to a function component? {#can-i-make-a-ref-to-a-function-component}
+### Czy mogę stworzyć referencję do komponentu funkcyjnego? {#can-i-make-a-ref-to-a-function-component}
 
-While you shouldn't need this often, you may expose some imperative methods to a parent component with the [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle) Hook.
+Nie powinno się tego robić zbyt często, jednak możesz odsłonić niektóre imperatywne metody dla komponentu rodzica używając hooka [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
 
 ### How can I measure a DOM node? {#how-can-i-measure-a-dom-node}
 
