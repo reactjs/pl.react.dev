@@ -70,6 +70,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Potomek'
 ### TestRenderer {#testrenderer}
 
 * [`TestRenderer.create()`](#testrenderercreate)
+* [`TestRenderer.act()`](#testrendereract)
 
 ### Instancja TestRenderer {#testrenderer-instance}
 
@@ -102,7 +103,41 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Potomek'
 TestRenderer.create(element, options);
 ```
 
+<<<<<<< HEAD
 Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. Nie korzysta z prawdziwego drzewa DOM, lecz renderuje całe drzewo komponentów do pamięci, aby można było wykonać na nim asercje. Zwracana instancja posiada następujące metody i właściwości:
+=======
+Create a `TestRenderer` instance with the passed React element. It doesn't use the real DOM, but it still fully renders the component tree into memory so you can make assertions about it. Returns a [TestRenderer instance](#testrenderer-instance).
+
+### `TestRenderer.act()` {#testrendereract}
+
+```javascript
+TestRenderer.act(callback);
+```
+
+Similar to the [`act()` helper from `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` prepares a component for assertions. Use this version of `act()` to wrap calls to `TestRenderer.create` and `testRenderer.update`.
+
+```javascript
+import {create, act} from 'react-test-renderer';
+import App from './app.js'; // The component being tested
+
+// render the component
+let root; 
+act(() => {
+  root = create(<App value={1}/>)
+});
+
+// make assertions on root 
+expect(root.toJSON()).toMatchSnapshot();
+
+// update with some different props
+act(() => {
+  root = root.update(<App value={2}/>);
+})
+
+// make assertions on root 
+expect(root.toJSON()).toMatchSnapshot();
+```
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ### `testRenderer.toJSON()` {#testrenderertojson}
 

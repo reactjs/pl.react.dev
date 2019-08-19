@@ -6,10 +6,19 @@ permalink: docs/code-splitting.html
 
 ## Pakowanie {#bundling}
 
+<<<<<<< HEAD
 Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak
 [Webpack](https://webpack.js.org/) czy [Browserify](http://browserify.org/).
 Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik tzw. "bundle" (pol. *paczka*).
 Taka paczka może zostać umieszczona na stronie w celu załadowania całej aplikacji naraz.
+=======
+Most React apps will have their files "bundled" using tools like
+[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) or 
+[Browserify](http://browserify.org/).
+Bundling is the process of following imported files and merging them into a
+single file: a "bundle". This bundle can then be included on a webpage to load
+an entire app at once.
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 #### Przykład {#example}
 
