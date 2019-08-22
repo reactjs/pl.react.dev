@@ -4,24 +4,24 @@ title: Granice błędów
 permalink: docs/error-boundaries.html
 ---
 
-W przeszłości, błędy JavaScriptowe w komponentach psuły wewnętrzny stan Reacta i [wywoływały](https://github.com/facebook/react/issues/4026) [enigmatyczne](https://github.com/facebook/react/issues/6895) [błędy](https://github.com/facebook/react/issues/8579) w kolejnych renderach. Były one następstwem wcześniejszego błędu w kodzie aplikacji, którego React nie był w stanie obsłużyć.
+W przeszłości, błędy javascriptowe wewnątrz komponentów uszkadzały wewnętrzny stan Reacta i [wywoływały](https://github.com/facebook/react/issues/4026) [tajemnicze](https://github.com/facebook/react/issues/6895) [błędy](https://github.com/facebook/react/issues/8579) w kolejnych renderowaniach. Były one następstwem wcześniejszego błędu w kodzie aplikacji, jednakże React nie dostarczał żadnego rozwiązania pozwalającego na właściwe ich obsłużenie wewnątrz komponentów oraz nie potrafił odtworzyć aplikacji po ich wystąpieniu.
 
 ## Przedstawiamy granice błędów {#introducing-error-boundaries}
 
 Błąd w kodzie JavaScript, występujący w jednej z części interfejsu użytkownika (UI), nie powinien psuć całej aplikacji. Aby rozwiązać ten problem, w Reakcie 16 wprowadziliśmy koncepcję granic błędów (ang. *error boundary*).
 
-Granice błędów to komponenty Reactowe, które **wyłapują, logują i wyświetlają błędy JavaScriptu we wszystkich swoich podrzędnych komponentach, a także wyświetlają zastępcze fragmenty interfejsu** zamiast pokazywać te niepoprawnie działające. Granice błędów działają podczas renderowania, w metodach cyklu życia komponentów, a także w konstruktorach całego podrzędnego drzewa komponentów.
+Granice błędów to komponenty reactowe, które **przechwytują błędy javascriptowe występujące gdziekolwiek wewnątrz drzewa komponentów ich potomków, a następnie logują je i wyświetlają zastępczy interfejs UI**, zamiast pokazywać ten niepoprawnie działający. Granice błędów przechwytują błędy występujące podczas renderowania, w metodach cyklu życia komponentów, a także w konstruktorach całego podrzędnego im drzewa komponentów.
 
 > Uwaga
 >
 > Granice błędów **nie obsługują** błędów w:
 >
-> * Uchwytach zdarzeń (ang. event handlers) ([więcej](#how-about-event-handlers))
+> * Procedurach obsługi zdarzeń (ang. event handlers) ([informacje](#how-about-event-handlers))
 > * Asynchronicznym kodzie (np. w metodach: `setTimeout` lub w funkcjach zwrotnych `requestAnimationFrame`)
 > * Komponentach renderowanych po stronie serwera
 > * Błędach rzuconych w samych granicach błędów (a nie w ich podrzędnych komponentach)
 
-Aby komponent klasowy był granicą błędu musi zdefiniować jedną lub obie metody cyklu życia: [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) lub [`componentDidCatch()`](/docs/react-component.html#componentdidcatch). Należy używać `static getDerivedStateFromError()` do wyrenderowania zastępczego UI po rzuceniu błędu, a `componentDidCatch()`, aby zalogować informacje o błędzie.
+Aby komponent klasowy stał się granicą błędu, musi definiować jedną lub obie metody cyklu życia: [`static getDerivedStateFromError()`](/docs/react-component.html#static-getderivedstatefromerror) i/lub [`componentDidCatch()`](/docs/react-component.html#componentdidcatch). Należy używać `static getDerivedStateFromError()` do wyrenderowania zastępczego UI po rzuceniu błędu, a `componentDidCatch()`, aby zalogować informacje o błędzie.
 
 ```js{7-10,12-15,18-21}
 class ErrorBoundary extends React.Component {
@@ -36,7 +36,7 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    // componentDidCatch pozwala zalogować błąd do zewnętrznego serwisu
+    // Możesz także zalogować błąd do zewnętrznego serwisu raportowania błędów
     logErrorToMyService(error, info);
   }
 
@@ -59,9 +59,9 @@ Po zdefiniowaniu, granicy błędu można używać jak normalnego komponentu:
 </ErrorBoundary>
 ```
 
-Granice błędów działają jak bloki `catch {}` tyle, że dla komponentów. Można je zdefiniować tylko w komponentach klasowych. W praktyce w większości przypadków wystarczające będzie zdefiniowanie pojedynczego komponentu granicy błędu i używanie go w całej aplikacji.
+Granice błędów działają jak bloki `catch {}` w JavaScript, tyle że dla komponentów. Można je zdefiniować tylko w komponentach klasowych. W praktyce, w większości przypadków wystarczy zdefiniować jeden komponent granicy błędu i używać go w całej aplikacji.
 
-Należy pamiętać, że **granice błędów wyłapują błędy w komponentach-dzieciach**. Nie są one jednak w stanie obsłużyć własnych błędów. W takim przypadku, jeżeli granica błędu nie będzie w stanie wyświetlić komunikatu błędu, zostanie on przekazany do kolejnej najbliższej granicy błędu wyżej w strukturze komponentów. Jest to zachowanie podobne do tego znanego z JavaScriptowych bloków `catch {}`.
+Należy pamiętać, że **granice błędów wyłapują błędy w komponentach potomnych**. Nie są one jednak w stanie obsłużyć własnych błędów. W takim przypadku, jeżeli granica błędu nie będzie w stanie wyświetlić zastępczego UI, błąd zostanie przekazany do kolejnej najbliższej granicy błędu powyżej w strukturze komponentów. Jest to zachowanie podobne do tego znanego z javascriptowych bloków `catch {}`.
 
 ## Demo {#live-demo}
 
@@ -70,11 +70,11 @@ Należy pamiętać, że **granice błędów wyłapują błędy w komponentach-dz
 
 ## Gdzie umiejscowić granice błędów {#where-to-place-error-boundaries}
 
-To jak bardzo szczegółowo zostanie pokryty kod za pomocą granic błędów jest kwestią preferencji. Możliwe jest na przykład opakowanie granicą błędów najwyższego poziomu komponenty odpowiedzialne za routing aplikacji, aby wyświetlić informację: "Coś poszło nie tak", tak jak ma to często miejsce w frameworkach po stronie serwera. Można również opakować pojedyncze fragmenty aplikacji, aby uchronić jej pozostałą część od błędów.
+To, jak bardzo szczegółowo zostanie pokryty kod za pomocą granic błędów, jest kwestią preferencji. Możliwe jest, na przykład, opakowanie granicą błędów komponentu najwyższego poziomu odpowiedzialnego za routing aplikacji, aby wyświetlić informację: "Coś poszło nie tak" - tak jak ma to często miejsce w frameworkach po stronie serwera. Można również opakować pojedyncze fragmenty aplikacji, aby uchronić jej pozostałe części przed błędami.
 
 ## Nowe zachowanie nieobsłużonych błędów {#new-behavior-for-uncaught-errors}
 
-Wprowadzenie granic błędów ma ważne następstwo. **Od Reacta w wersji 16, błędy, które nie zostały obsłużone za pomocą granicy błędów, sprawią, że zostanie odmontowane całe drzewo komponentów Reactowych.**
+Wprowadzenie granic błędów ma ważne następstwo. **Od Reacta w wersji 16, błędy, które nie zostały obsłużone za pomocą granicy błędów, spowodują odmontowanie całego drzewa komponentów.**
 
 Przedyskutowaliśmy tę zmianę i z naszego doświadczenia wynika, że lepiej jest usunąć całe drzewo komponentów niż wyświetlać zepsute fragmenty UI. Na przykład, w produkcie takim jak Messenger pozostawienie wyświetlonego zepsutego kawałka UI może sprawić, że ktoś nieświadomie wyśle wiadomość do innej osoby. Również w aplikacjach finansowych wyświetlanie złego stanu konta jest gorszą sytuacją niż nie wyświetlenie niczego.
 
@@ -125,7 +125,7 @@ Granice błędów zachowują deklaratywną naturę Reacta. Na przykład, jeżeli
 
 Granice błędów nie obsługują błędów z procedur obsługi zdarzeń.
 
-React nie potrzebuje granic błędów żeby obsłużyć błędy pochodzące z uchwytów zdarzeń. W przeciwieństwie do metod cyklu życia komponentu lub renderu, uchwyty zdarzeń nie są wywoływane w trakcie renderowania. To powoduje, że nawet w przypadku błędu React wie co wyświetlić na ekranie.
+React nie potrzebuje granic błędów do przywrócenia aplikacji po błędzie powstałych w procedurze obsługi zdarzeń.  W przeciwieństwie do metod cyklu życia komponentu lub metody renderującej, procedury obsługi zdarzeń nie są wywoływane w trakcie renderowania. Dzięki temu nawet w przypadku błędu React wie, co wyświetlić na ekranie.
 
 Aby obsłużyć błąd w procedurze obsługi zdarzenia, należy użyć javascriptowego `try` / `catch`:
 
