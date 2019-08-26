@@ -244,7 +244,7 @@ Metoda `componentDidMount()` uruchamiana jest po wyrenderowaniu komponentu do dr
   }
 ```
 
-Zwróć uwagę, że identyfikator timera zapisujemy bezpośrednio do `this`.
+Zwróć uwagę, że identyfikator timera zapisujemy bezpośrednio do `this` (`this.timerID`).
 
 Mimo że `this.props` jest ustawiane przez Reacta, a `this.state` jest specjalnym polem, to nic nie stoi na przeszkodzie, aby stworzyć dodatkowe pola, w których chcielibyśmy przechowywać wartości niezwiązane bezpośrednio z przepływem danych (jak nasz identyfikator timera).
 

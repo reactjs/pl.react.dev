@@ -59,6 +59,8 @@
       title: Optymalizacja wydajności
     - id: portals
       title: Portale
+    - id: profiler
+      title: Profiler
     - id: react-without-es6
       title: React bez ES6
     - id: react-without-jsx
@@ -123,6 +125,14 @@
         title: Hooki - interfejs API
       - id: hooks-faq
         title: Hooki - FAQ
+- title: Testowanie
+  items:
+    - id: testing 
+      title: Ogólne informacje
+    - id: testing-recipes
+      title: Przykłady i dobre praktyki
+    - id: testing-environments
+      title: Środowiska testowe
 - title: Współpraca
   items:
   - id: how-to-contribute

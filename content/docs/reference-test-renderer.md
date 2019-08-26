@@ -38,7 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-Przy pomocy funkcjonalności biblioteki Jest do generowania snapshotów można automatycznie zapisać do pliku kopię drzewa w formacie JSON, a w teście sprawdzać, czy się ono nie zmieniło [(Więcej informacji na ten temat)](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
+Przy pomocy funkcjonalności biblioteki Jest do generowania snapshotów można automatycznie zapisać do pliku kopię drzewa w formacie JSON, a w teście sprawdzać, czy się ono nie zmieniło [(Więcej informacji na ten temat)](https://jestjs.io/docs/en/snapshot-testing).
 
 Zwrócone drzewo można również przeszukiwać w celu znalezienia konkretnych węzłów i sprawdzenia ich właściwości.
 
@@ -70,6 +70,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Potomek'
 ### TestRenderer {#testrenderer}
 
 * [`TestRenderer.create()`](#testrenderercreate)
+* [`TestRenderer.act()`](#testrendereract)
 
 ### Instancja TestRenderer {#testrenderer-instance}
 
@@ -102,7 +103,37 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Potomek'
 TestRenderer.create(element, options);
 ```
 
-Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. Nie korzysta z prawdziwego drzewa DOM, lecz renderuje całe drzewo komponentów do pamięci, aby można było wykonać na nim asercje. Zwracana instancja posiada następujące metody i właściwości:
+Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. Nie korzysta z prawdziwego drzewa DOM, lecz renderuje całe drzewo komponentów do pamięci, aby można było wykonać na nim asercje. Zwraca [instancję TestRenderera](#testrenderer-instance).
+
+### `TestRenderer.act()` {#testrendereract}
+
+```javascript
+TestRenderer.act(callback);
+```
+
+Podobnie jak [funkcja pomocnicza `act()` z `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` przygotowuje komponent do późniejszych asercji. Używaj tej wersji funkcji `act()` do opakowania wywołań `TestRenderer.create` i `testRenderer.update`.
+
+```javascript
+import {create, act} from 'react-test-renderer';
+import App from './app.js'; // Testowany komponent
+
+// wyrenderuj komponent
+let root; 
+act(() => {
+  root = create(<App value={1}/>)
+});
+
+// wykonaj sprawdzenia na korzeniu drzewa
+expect(root.toJSON()).toMatchSnapshot();
+
+// zaktualizuj komponent przy użyciu innych właściwości
+act(() => {
+  root = root.update(<App value={2}/>);
+})
+
+// wykonaj sprawdzenia na korzeniu drzewa
+expect(root.toJSON()).toMatchSnapshot();
+```
 
 ### `testRenderer.toJSON()` {#testrenderertojson}
 

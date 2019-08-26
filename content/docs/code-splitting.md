@@ -7,7 +7,7 @@ permalink: docs/code-splitting.html
 ## Pakowanie {#bundling}
 
 Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak
-[Webpack](https://webpack.js.org/) czy [Browserify](http://browserify.org/).
+[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) czy [Browserify](http://browserify.org/).
 Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik tzw. "bundle" (pol. *paczka*).
 Taka paczka może zostać umieszczona na stronie w celu załadowania całej aplikacji naraz.
 
@@ -115,7 +115,7 @@ składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W t
 
 > Uwaga:
 >
-> `React.lazy` i Suspense są jest jeszcze dostępne dla renderowania po stronie serwera.
+> `React.lazy` i `Suspense` nie są jeszcze dostępne dla renderowania po stronie serwera.
 > Jeśli chcesz dzielić kod dla aplikacji renderowanej na serwerze, sugerujemy skorzystać 
 > z pakietu [Loadable Components](https://github.com/smooth-code/loadable-components).  
 > Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
