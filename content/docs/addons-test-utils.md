@@ -122,7 +122,9 @@ it('potrafi wyrenderować i aktualizować licznik', () => {
 });
 ```
 
-Zwróć uwagę, że przesyłanie zdarzeń DOM działa tylko wtedy, gdy kontener jest umieszczony w `document`. Aby uniknąć powtarzania szablonowego kodu, możesz użyć biblioteki pomocniczej, jak na przykład [`react-testing-library`](https://github.com/kentcdodds/react-testing-library).
+Zwróć uwagę, że przesyłanie zdarzeń DOM działa tylko wtedy, gdy kontener jest umieszczony w `document`. Aby uniknąć powtarzania szablonowego kodu, możesz użyć biblioteki pomocniczej, jak na przykład [React Testing Library](https://testing-library.com/react).
+
+W [`przykładach`](/docs/testing-recipes.html) znajdziesz więcej szczegółów na temat zachowania funkcji `act()`, jak również przykłady jej użycia.
 
 * * *
 
@@ -139,7 +141,7 @@ Jeśli przekażesz do tej funkcji atrapę komponentu (ang. *mocked component*), 
 
 > Uwaga:
 >
-> Funkcja `mockComponent()` jest przestarzała. Zamiast niej zalecamy używanie ["płytkiego renderowania"](/docs/shallow-renderer.html) (ang. *shallow rendering*) lub funkcji [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> Funkcja `mockComponent()` jest przestarzała. Zamiast niej zalecamy używanie funkcji [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
 
 * * *
 

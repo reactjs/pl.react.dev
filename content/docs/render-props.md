@@ -14,7 +14,7 @@ Komponent z właściwością renderującą przyjmuje funkcję, zwracającą elem
 )}/>
 ```
 
-Biblioteki używające właściwości renderujących to m.in. [React Router](https://reacttraining.com/react-router/web/api/Route/render-func) i [Downshift](https://github.com/paypal/downshift).
+Biblioteki używające właściwości renderujących to m.in. [React Router](https://reacttraining.com/react-router/web/api/Route/render-func), [Downshift](https://github.com/paypal/downshift) oraz [Formik](https://github.com/jaredpalmer/formik).
 
 W tym dokumencie przedyskutujemy przydatność właściwości renderujących i dowiemy się, jak napisać je samodzielnie.
 

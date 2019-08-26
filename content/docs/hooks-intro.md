@@ -31,7 +31,8 @@ Funkcja `useState` jest pierwszym „hookiem”, o którym będziemy się uczyć
 
 >Uwaga
 >
->React 16.8.0 jest pierwszą wersją, która wspiera hooki. Podczas aktualizacji nie zapomnij zaktualizować wszystkich paczek, w tym React DOM. React Native będzie wspierał hooki w kolejnym, stabilnym wydaniu.
+>React 16.8.0 jest pierwszą wersją, która wspiera hooki. Podczas aktualizacji nie zapomnij zaktualizować wszystkich paczek, w tym React DOM. 
+>React Native wspiera hooki [od wersji 0.59](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059).
 
 ## Wprowadzenie wideo {#video-introduction}
 
