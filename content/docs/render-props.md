@@ -14,11 +14,7 @@ Komponent z właściwością renderującą przyjmuje funkcję, zwracającą elem
 )}/>
 ```
 
-<<<<<<< HEAD
-Biblioteki używające właściwości renderujących to m.in. [React Router](https://reacttraining.com/react-router/web/api/Route/render-func) i [Downshift](https://github.com/paypal/downshift).
-=======
-Libraries that use render props include [React Router](https://reacttraining.com/react-router/web/api/Route/render-func), [Downshift](https://github.com/paypal/downshift) and [Formik](https://github.com/jaredpalmer/formik).
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
+Biblioteki używające właściwości renderujących to m.in. [React Router](https://reacttraining.com/react-router/web/api/Route/render-func), [Downshift](https://github.com/paypal/downshift) oraz [Formik](https://github.com/jaredpalmer/formik).
 
 W tym dokumencie przedyskutujemy przydatność właściwości renderujących i dowiemy się, jak napisać je samodzielnie.
 

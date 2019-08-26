@@ -103,10 +103,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Potomek'
 TestRenderer.create(element, options);
 ```
 
-<<<<<<< HEAD
-Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. Nie korzysta z prawdziwego drzewa DOM, lecz renderuje całe drzewo komponentów do pamięci, aby można było wykonać na nim asercje. Zwracana instancja posiada następujące metody i właściwości:
-=======
-Create a `TestRenderer` instance with the passed React element. It doesn't use the real DOM, but it still fully renders the component tree into memory so you can make assertions about it. Returns a [TestRenderer instance](#testrenderer-instance).
+Tworzy instancję `TestRenderer` przy użyciu przekazanego elementu reactowego. Nie korzysta z prawdziwego drzewa DOM, lecz renderuje całe drzewo komponentów do pamięci, aby można było wykonać na nim asercje. Zwraca [instancję TestRenderera](#testrenderer-instance).
 
 ### `TestRenderer.act()` {#testrendereract}
 
@@ -114,30 +111,29 @@ Create a `TestRenderer` instance with the passed React element. It doesn't use t
 TestRenderer.act(callback);
 ```
 
-Similar to the [`act()` helper from `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` prepares a component for assertions. Use this version of `act()` to wrap calls to `TestRenderer.create` and `testRenderer.update`.
+Podobnie jak [funkcja pomocnicza `act()` z `react-dom/test-utils`](/docs/test-utils.html#act), `TestRenderer.act` przygotowuje komponent do późniejszych asercji. Używaj tej wersji funkcji `act()` do opakowania wywołań `TestRenderer.create` i `testRenderer.update`.
 
 ```javascript
 import {create, act} from 'react-test-renderer';
-import App from './app.js'; // The component being tested
+import App from './app.js'; // Testowany komponent
 
-// render the component
+// wyrenderuj komponent
 let root; 
 act(() => {
   root = create(<App value={1}/>)
 });
 
-// make assertions on root 
+// wykonaj sprawdzenia na korzeniu drzewa
 expect(root.toJSON()).toMatchSnapshot();
 
-// update with some different props
+// zaktualizuj komponent przy użyciu innych właściwości
 act(() => {
   root = root.update(<App value={2}/>);
 })
 
-// make assertions on root 
+// wykonaj sprawdzenia na korzeniu drzewa
 expect(root.toJSON()).toMatchSnapshot();
 ```
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
 
 ### `testRenderer.toJSON()` {#testrenderertojson}
 

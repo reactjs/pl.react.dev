@@ -58,13 +58,9 @@
     - id: optimizing-performance
       title: Optymalizacja wydajności
     - id: portals
-<<<<<<< HEAD
       title: Portale
-=======
-      title: Portals
     - id: profiler
       title: Profiler
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
     - id: react-without-es6
       title: React bez ES6
     - id: react-without-jsx
@@ -128,21 +124,16 @@
       - id: hooks-reference
         title: Hooki - interfejs API
       - id: hooks-faq
-<<<<<<< HEAD
         title: Hooki - FAQ
-- title: Współpraca
-=======
-        title: Hooks FAQ
-- title: Testing
+- title: Testowanie
   items:
     - id: testing 
-      title: Testing Overview
+      title: Ogólne informacje
     - id: testing-recipes
-      title: Testing Recipes
+      title: Przykłady i dobre praktyki
     - id: testing-environments
-      title: Testing Environments
-- title: Contributing
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
+      title: Środowiska testowe
+- title: Współpraca
   items:
   - id: how-to-contribute
     title: Jak możesz pomóc
