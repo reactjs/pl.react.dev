@@ -10,7 +10,7 @@ Wzorce często używane przy testowaniu komponentów reactowych.
 
 > Uwaga:
 >
-> Ten rozdział zakłada, że do uruchamiania testów używasz [Jesta](https://jestjs.io/). Jeśli używasz innego narzędzia, konieczne będzie dostosowanie kodu do jego interfejsu API, jednak ogólny zarys rozwiązania powinien być taki sam. Aby dowiedzieć się więcej na temat konfiguracji środowiska testowego, przeczytaj rozdział pt. [Środowiska testowe](/docs/testing-environments.html).
+> Ten rozdział zakłada, że do uruchamiania testów używasz [Jesta](https://jestjs.io/). Jeśli używasz innego narzędzia, konieczne będzie dostosowanie kodu do jego interfejsu API, jednak ogólny zarys rozwiązania powinien być taki sam. Aby dowiedzieć się więcej na temat konfiguracji środowiska testowego, przeczytaj rozdział pt. ["Środowiska testowe"](/docs/testing-environments.html).
 
 W tym rozdziale będziemy głównie używać komponentów funkcyjnych. Mimo to z powodzeniem możesz zastąpić je komponentami klasowymi, ponieważ opisane tu rozwiązania nie zależą od sposobu implementacji.
 
