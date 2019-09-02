@@ -119,7 +119,7 @@ Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje
 
 ## Dokumentacje wersji {#versioned-documentation}
 
-Ta dokumentacja zawsze odzwierciedla najnowszą stabilną wersję Reacta. Począwszy od Reacta w wersji 16, starsze wersje dokumentacji publikowane są [na osobnej podstronie](/versions). Pamiętaj jednak, że dokumentacje do starszych wersji nie są już aktualizowane.
+Ta dokumentacja zawsze odzwierciedla najnowszą stabilną wersję Reacta. Począwszy od Reacta w wersji 16, starsze wersje dokumentacji publikowane są na [osobnej podstronie](/versions). Pamiętaj jednak, że dokumentacje do starszych wersji nie są już aktualizowane.
 
 ## Czegoś brakuje? {#something-missing}
 
