@@ -452,9 +452,9 @@ Jeżeli to możliwe, staraj się unikać tego wzorca.
 
 Nie powinno się tego robić zbyt często, jednak możesz odsłonić niektóre imperatywne metody dla komponentu rodzica używając hooka [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
 
-### How can I measure a DOM node? {#how-can-i-measure-a-dom-node}
+### Jak mogę zmierzyć węzeł DOM? {#how-can-i-measure-a-dom-node}
 
-In order to measure the position or size of a DOM node, you can use a [callback ref](/docs/refs-and-the-dom.html#callback-refs). React will call that callback whenever the ref gets attached to a different node. Here is a [small demo](https://codesandbox.io/s/l7m0v5x4v9):
+Aby zmierzyć pozycję lub rozmiar węzła DOM, możesz użyć [referencji pętli zwrotnej](/docs/refs-and-the-dom.html#callback-refs). React wywoła pętle zwrotną gdy ref zostanie zaczepiony do innego węzła. Tutaj znajdziesz [przykładowe demo](https://codesandbox.io/s/l7m0v5x4v9):
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -468,27 +468,27 @@ function MeasureExample() {
 
   return (
     <>
-      <h1 ref={measuredRef}>Hello, world</h1>
-      <h2>The above header is {Math.round(height)}px tall</h2>
+      <h1 ref={measuredRef}>Witaj świecie</h1>
+      <h2>Powyższy nagłówek ma {Math.round(height)}pikseli wysokości</h2>
     </>
   );
 }
 ```
 
-We didn't choose `useRef` in this example because an object ref doesn't notify us about *changes* to the current ref value. Using a callback ref ensures that [even if a child component displays the measured node later](https://codesandbox.io/s/818zzk8m78) (e.g. in response to a click), we still get notified about it in the parent component and can update the measurements.
+W tym przykładzie nie zdecydowaliśmy się użyć `useRef`, ponieważ obiekt referencji nie powiadamia nas o *zmiannach* jego aktualnej wartości. Użycie referencji pętli zwrotnej działa [nawet gdy komponent dziecka wyświetla mierzony węzeł później](https://codesandbox.io/s/818zzk8m78) (np. w odpowiedzi na przyciśnięcie przycisku), o tym zdarzeniu informowany jest komponent rodzica, który może zaktualizować pomiary.
 
-Note that we pass `[]` as a dependency array to `useCallback`. This ensures that our ref callback doesn't change between the re-renders, and so React won't call it unnecessarily.
+Zuważ że przekazaliśmy `[]`, jako tablice zależności do `useCallback`. Gwartantuje to nam niezmienialność pętli zwrotnej pomiedzy re-renderami, oraz że React nie wywoła jej bez potrzeby.
 
-If you want, you can [extract this logic](https://codesandbox.io/s/m5o42082xy) into a reusable Hook:
+W razie potrzeby, można [wyodrębnić tę logikę](https://codesandbox.io/s/m5o42082xy) do wielokrotnego użycia w hooku:
 
 ```js{2}
 function MeasureExample() {
   const [rect, ref] = useClientRect();
   return (
     <>
-      <h1 ref={ref}>Hello, world</h1>
+      <h1 ref={ref}>Witaj świecie</h1>
       {rect !== null &&
-        <h2>The above header is {Math.round(rect.height)}px tall</h2>
+        <h2>Powyższy nagłówek ma {Math.round(rect.height)}pikseli wysokości</h2>
       }
     </>
   );
