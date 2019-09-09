@@ -10,7 +10,7 @@ Wzorce często używane przy testowaniu komponentów reactowych.
 
 > Uwaga:
 >
-> Ten rozdział zakłada, że do uruchamiania testów używasz [Jesta](https://jestjs.io/). Jeśli używasz innego narzędzia, konieczne będzie dostosowanie kodu do jego interfejsu API, jednak ogólny zarys rozwiązania powinien być taki sam. Aby dowiedzieć się więcej na temat konfiguracji środowiska testowego, przeczytaj rozdział pt. ["Środowiska testowe"](/docs/testing-environments.html).
+> Ten rozdział zakłada, że do uruchamiania testów używasz [Jesta](https://jestjs.io/). Jeśli używasz innego narzędzia, konieczne będzie dostosowanie kodu do jego interfejsu API, jednak ogólny schemat rozwiązania powinien być taki sam. Aby dowiedzieć się więcej na temat konfiguracji środowiska testowego, przeczytaj rozdział pt. ["Środowiska testowe"](/docs/testing-environments.html).
 
 W tym rozdziale będziemy głównie używać komponentów funkcyjnych. Mimo to z powodzeniem możesz zastąpić je komponentami klasowymi, ponieważ opisane tu rozwiązania nie zależą od sposobu implementacji.
 
@@ -38,7 +38,7 @@ import { unmountComponentAtNode } from "react-dom";
 
 let container = null;
 beforeEach(() => {
-  // ustaw element DOM jako miejsce renderowania
+  // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
   document.body.appendChild(container);
 });
@@ -51,7 +51,7 @@ afterEach(() => {
 });
 ```
 
-Możesz skorzystać z innego podejście. Pamiętaj jednak, że należy posprzątać _nawet jeśli test nie przejdzie pomyślnie_. W przeciwnym wypadku testy staną się "dziurawe" i będą mogły wpływać na działanie innych testów. Znacznie utrudnia to debuggowanie.
+Możesz skorzystać z innego podejście. Pamiętaj jednak, że należy posprzątać, _nawet jeśli test nie przejdzie pomyślnie_. W przeciwnym wypadku testy staną się "dziurawe" i będą mogły wpływać na działanie innych testów. Znacznie utrudni to szukanie błędów.
 
 ---
 
@@ -68,11 +68,11 @@ act(() => {
 
 Pozwala to na uruchamianie testów w sposób zbliżony do faktycznego zachowania podczas interakcji użytkownika z aplikacją. Pozostałe przykłady w tym rozdziale używają funkcji `act()`, aby to zagwarantować.
 
-Używanie `act()` bezpośrednio może wydawać się jednak zbyt rozwlekłe. Aby uniknąć pisania w kółko tego samego kodu, możesz użyć biblioteki takiej jak [React Testing Library](https://testing-library.com/react), której to funkcje pomocnicze są "opakowane" w `act()`.
+Używanie `act()` bezpośrednio może wydawać się jednak zbyt rozwlekłe. Aby uniknąć pisania wciąż tego samego kodu, możesz użyć biblioteki takiej jak [React Testing Library](https://testing-library.com/react), której to funkcje pomocnicze są "opakowane" w `act()`.
 
 > Uwaga:
 >
-> Nazwa `act` pochodzi od zasady [Arrange-Act-Assert](http://wiki.c2.com/?ArrangeActAssert) (pol. *Przygotuj-Wykonaj-Sprawdź).
+> Nazwa `act` pochodzi od zasady [Arrange-Act-Assert](http://wiki.c2.com/?ArrangeActAssert) (pol. *Przygotuj-Wykonaj-Sprawdź*).
 
 ---
 
@@ -107,7 +107,7 @@ import Hello from "./hello";
 
 let container = null;
 beforeEach(() => {
-  // ustaw element DOM jako miejsce renderowania
+  // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
   document.body.appendChild(container);
 });
@@ -123,25 +123,25 @@ it("renders with or without a name", () => {
   act(() => {
     render(<Hello />, container);
   });
-  expect(container.textContent).toBe("Hey, stranger");
+  expect(container.textContent).toBe("Cześć, nieznajomy");
 
   act(() => {
-    render(<Hello name="Jenny" />, container);
+    render(<Hello name="Janusz" />, container);
   });
-  expect(container.textContent).toBe("Hello, Jenny!");
+  expect(container.textContent).toBe("Witaj, Janusz!");
 
   act(() => {
-    render(<Hello name="Margaret" />, container);
+    render(<Hello name="Grażyna" />, container);
   });
-  expect(container.textContent).toBe("Hello, Margaret!");
+  expect(container.textContent).toBe("Witaj, Grażyna!");
 });
 ```
 
 ---
 
-### Data Fetching {#data-fetching}
+### Pobieranie danych {#data-fetching}
 
-Instead of calling real APIs in all your tests, you can mock requests with dummy data. Mocking data fetching with "fake" data prevents flaky tests due to an unavailable backend, and makes them run faster. Note: you may still want to run a subset of tests using an ["end-to-end"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) framework that tells whether the whole app is working together.
+Zamiast odpytywania prawdziwego API w każdym z testów, możesz zamockować żądania przy użyciu sztucznych danych. Dzięki temu testy będą odporne na czasową niedostępność backendu, a także będą wykonywały się szybciej. Uwaga: mimo wszystko warto wydzielić kilka testów do frameworka testującego ["end-to-end"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests), który sprawdzi, czy cała aplikacja działa poprawnie.
 
 ```jsx
 // user.js
@@ -161,21 +161,21 @@ export default function User(props) {
   }, [props.id]);
 
   if (!user) {
-    return "loading...";
+    return "Wczytywanie...";
   }
 
   return (
     <details>
       <summary>{user.name}</summary>
-      <strong>{user.age}</strong> years old
+      <strong>{user.age}</strong> lat
       <br />
-      lives in {user.address}
+      adres: {user.address}
     </details>
   );
 }
 ```
 
-We can write tests for it:
+Testy dla takiego komponentu mogłyby wyglądać następująco:
 
 ```jsx{23-33,44-45}
 // user.test.js
@@ -187,7 +187,7 @@ import User from "./user";
 
 let container = null;
 beforeEach(() => {
-  // ustaw element DOM jako miejsce renderowania
+  // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
   document.body.appendChild(container);
 });
@@ -201,9 +201,9 @@ afterEach(() => {
 
 it("wyświetla dane użytkownika", async () => {
   const fakeUser = {
-    name: "Joni Baez",
+    name: "Jan Kowalski",
     age: "32",
-    address: "123, Charming Avenue"
+    address: "ul. Zimna 12, Pcim Dolny"
   };
 
   jest.spyOn(global, "fetch").mockImplementation(() =>
@@ -212,7 +212,7 @@ it("wyświetla dane użytkownika", async () => {
     })
   );
 
-  // Użyj asynchronicznej wersji funkcji act, aby poczekać na zakończenie
+  // Użyj asynchronicznej wersji funkcji act, aby poczekać na zakończenie efektu
   await act(async () => {
     render(<User id="123" />, container);
   });
@@ -230,7 +230,7 @@ it("wyświetla dane użytkownika", async () => {
 
 ### Mockowanie modułów {#mocking-modules}
 
-Niektóre moduły mogą nie działać poprawnie w środowisku testowym lub mogą być nieistotne z perspektywy danego testu. Mockowanie takich modułów przy użyciu udawanych modułów może znacznie ułatwić pisanie testów do własnego kodu.
+Niektóre moduły mogą nie działać poprawnie w środowisku testowym lub mogą być nieistotne z perspektywy danego testu. Mockowanie takich modułów przy użyciu "udawanych" (ang. *dummy*) modułów może znacznie ułatwić pisanie testów do własnego kodu.
 
 Rozważmy komponent `Contact`, który zawiera w sobie komponent `GoogleMap` z biblioteki zewnętrznej:
 
@@ -295,7 +295,7 @@ jest.mock("./map", () => {
 
 let container = null;
 beforeEach(() => {
-  // ustaw element DOM jako miejsce renderowania
+  // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
   document.body.appendChild(container);
 });
@@ -307,12 +307,12 @@ afterEach(() => {
   container = null;
 });
 
-it("should render contact information", () => {
+it("wyświetla informacje kontaktowe", () => {
   const center = { lat: 0, long: 0 };
   act(() => {
     render(
       <Contact
-        name="Joni Baez"
+        name="Jan Kowalski"
         email="test@example.com"
         site="http://test.com"
         center={center}
@@ -339,7 +339,7 @@ it("should render contact information", () => {
 
 ### Zdarzenia {#events}
 
-Sugerujemy, aby do elementów DOM przesyłać prawdziwe zdarzenia DOM, a następnie sprawdzać ich rezultat. Rozważmy następujący komponent `Toggle`:
+Sugerujemy, aby do elementów DOM przesyłać prawdziwe zdarzenia DOM, a następnie sprawdzać wynik ich działania. Rozważmy następujący komponent `Toggle`:
 
 ```jsx
 // toggle.js
@@ -375,7 +375,7 @@ import Toggle from "./toggle";
 
 let container = null;
 beforeEach(() => {
-  // ustaw element DOM jako miejsce renderowania
+  // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
   // aby zdarzenia działały poprawnie, kontener *musi* być umieszczony w obiekcie `document`
   document.body.appendChild(container);
@@ -426,7 +426,7 @@ Poszczególne zdarzenia DOM wraz z ich właściwościami zostały opisane na [MD
 
 ### Timery {#timers}
 
-Twój kod może korzystać z funkcji opartych na timerach, np. `setTimeout`, w celu zaplanowania wykonania jakiejś akcji w przyszłości. W tym przykładzie stworzyliśmy panel wielokrotnego wyboru, który zmienia zaznaczenie, jeśli użytkownik nie wybierze niczego w ciągu 5 sekund:
+Twój kod może korzystać z funkcji opartych na timerach, np. `setTimeout` w celu zaplanowania wykonania jakiejś akcji w przyszłości. W tym przykładzie stworzyliśmy panel wielokrotnego wyboru, który czyści zaznaczenie, jeśli użytkownik nie wybierze niczego w ciągu 5 sekund:
 
 ```jsx
 // card.js
@@ -455,7 +455,7 @@ export default function Card(props) {
 }
 ```
 
-W pisaniu testów do tego komponentu pomocne mogą okazać się [jestowe sztuczne timery](https://jestjs.io/docs/en/timer-mocks). Umożliwi to sprawdzenie stanu komponentu w różnych momentach.
+W pisaniu testów do tego komponentu pomocne mogą okazać się [sztuczne timery z biblioteki Jest](https://jestjs.io/docs/en/timer-mocks). Umożliwiają sprawdzenie stanu komponentu w różnych punktach w czasie.
 
 ```jsx{7,31,37,49,59}
 // card.test.js
@@ -468,7 +468,7 @@ jest.useFakeTimers();
 
 let container = null;
 beforeEach(() => {
-  // ustaw element DOM jako miejsce renderowania
+  // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
   document.body.appendChild(container);
 });
@@ -480,13 +480,13 @@ afterEach(() => {
   container = null;
 });
 
-it("powinien zaznaczyć null po upływie czasu", () => {
+it("powinien zaznaczyć 'null' po upływie czasu", () => {
   const onSelect = jest.fn();
   act(() => {
     render(<Card onSelect={onSelect} />, container);
   });
 
-  // przesuń timer o 100ms
+  // przesuń timer o 100 milisekund
   act(() => {
     jest.advanceTimersByTime(100);
   });
@@ -543,7 +543,7 @@ Możesz używać sztucznych timerów w wybranych przez siebie testach. Na powyż
 
 ### Testowanie snapshotowe {#snapshot-testing}
 
-Frameworki takie jak Jest pozwalają również na zapisywanie "snapshotów" (pol. *zrzutów*) danych przy użyciu funkcji [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing). Z ich pomocą możemy "zapisać" wynik renderowania komponentu i zagwarantować, że dowolna jego zmiana musi być każdorazowo potwierdzana podczas generowania snapshota.
+Frameworki takie jak Jest pozwalają również na zapisywanie "snapshotów" (pol. *zrzutów*) danych przy użyciu funkcji [`toMatchSnapshot` / `toMatchInlineSnapshot`](https://jestjs.io/docs/en/snapshot-testing). Z ich pomocą możemy zapisać wynik renderowania komponentu i zagwarantować, że dowolna jego zmiana będzie musiała być każdorazowo potwierdzana podczas generowania snapshota.
 
 W poniższym przykładzie renderujemy komponent i formatujemy powstały w ten sposób kod HTML za pomocą paczki [`pretty`](https://www.npmjs.com/package/pretty), zanim ostatecznie wynik trafi do snapshota:
 
@@ -559,7 +559,7 @@ import Hello from "./hello";
 
 let container = null;
 beforeEach(() => {
-  // ustaw element DOM jako miejsce renderowania
+  // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
   document.body.appendChild(container);
 });
@@ -581,7 +581,7 @@ it("powinien wyrenderować powitanie", () => {
   ).toMatchInlineSnapshot(); /* ... zostanie automatycznie zastąpione przez Jesta ... */
 
   act(() => {
-    render(<Hello name="Jenny" />, container);
+    render(<Hello name="Janusz" />, container);
   });
 
   expect(
@@ -589,7 +589,7 @@ it("powinien wyrenderować powitanie", () => {
   ).toMatchInlineSnapshot(); /* ... zostanie automatycznie zastąpione przez Jesta ... */
 
   act(() => {
-    render(<Hello name="Margaret" />, container);
+    render(<Hello name="Grażyna" />, container);
   });
 
   expect(
@@ -598,7 +598,7 @@ it("powinien wyrenderować powitanie", () => {
 });
 ```
 
-Zazwyczaj jednak, zamiast porównywać snapshoty, zaleca się wykonywać bardziej szczegółowe sprawdzenia. Tego typu testy zawierają zbyt wiele szczegółów implementacyjnych, więc łatwo się psują. Ponadto, usypiają czujność zespołu na błędy w snapshotach. Wybiórcze [mockowanie niektórych komponentów potomnych](#mocking-modules) może pomóc zredukować rozmiar snapshotów, a co za tym idzie zwiększyć ich czytelność dla osoby sprawdzającej kod.
+Zazwyczaj jednak, zamiast porównywać snapshoty, zaleca się wykonywać bardziej szczegółowe sprawdzenia. Tego typu testy zawierają zbyt wiele szczegółów implementacyjnych, więc łatwo się psują. Ponadto usypiają czujność zespołu na błędy w snapshotach. Wybiórcze [mockowanie niektórych komponentów potomnych](#mocking-modules) może pomóc zredukować rozmiar snapshotów, a co za tym idzie zwiększyć ich czytelność dla osoby sprawdzającej kod.
 
 ---
 
