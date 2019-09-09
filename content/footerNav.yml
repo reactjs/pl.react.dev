@@ -18,9 +18,9 @@ more:
       external: true
 
 channels:
-  title: Channels
+  title: Kanały
   items:
-    - title: Github
+    - title: GitHub
       to: https://github.com/facebook/react
       external: true
     - title: Stack Overflow

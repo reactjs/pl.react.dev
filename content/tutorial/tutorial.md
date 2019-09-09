@@ -333,7 +333,7 @@ Rozszerzenie o nazwie "React Devtools" dla przeglądarek [Chrome](https://chrome
 
 Dzięki temu rozszerzeniu możesz podejrzeć atrybuty i stan dowolnego komponentu w drzewie.
 
-Po zainstalowaniu rozszerzenia wystarczy, że klikniesz prawym przyciskiem myszy na dowolnym elemencie strony i wybierzesz z menu "Zbadaj" (ang. "Inspect"). W pasku zakładek, jako ostatnia po prawej, powinna pojawić się zakładka "React".
+Po zainstalowaniu rozszerzenia wystarczy kliknąć prawym przyciskiem myszy na dowolnym elemencie strony i wybrać z menu "Zbadaj" (ang. "Inspect"). W pasku zakładek, jako dwie ostatnie po prawej, powinny pojawić się zakładki "⚛️ Components" oraz "⚛️ Profiler". Skorzystaj z "⚛️ Components", aby zbadać drzewo komponentów.
 
 **Jeśli korzystasz z CodePen, potrzebne będą dodatkowe czynności:**
 
