@@ -18,7 +18,7 @@ more:
       external: true
 
 channels:
-  title: Channels
+  title: Kanały
   items:
     - title: GitHub
       to: https://github.com/facebook/react
