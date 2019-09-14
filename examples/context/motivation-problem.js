@@ -6,7 +6,7 @@ class App extends React.Component {
 
 function Toolbar(props) {
   // highlight-range{1-4,7}
-  // Komponent `Toolbar` musi odbierać dodatkową właściwość "theme"
+  // Komponent `Toolbar` musi przyjmować dodatkową właściwość "theme"
   // i przekazywać ją w dół do `ThemedButton`. Gdyby każdy przycisk w aplikacji
   // wymagał dostępu do tej wartości, mogłoby to okazać się uciążliwe,
   // ponieważ należałoby przekazywać ją przez wszystkie poziomy struktury.

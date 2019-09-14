@@ -1,6 +1,6 @@
 // highlight-range{1-4}
-// Kontekst pozwala na odczyt wartości wymaganych gdzieś głęboko w drzewie
-// bez konieczności przekazywania ich do każdego komponentu pośredniego.
+// Kontekst pozwala na przekazywanie wartości głęboko do drzewa komponentów
+// z pominięciem komponentów pośrednich.
 // Stwórzmy kontekst dla aktualnie wybranego motywu (nadając mu domyślną wartość "light" - jasny).
 const ThemeContext = React.createContext('light');
 
