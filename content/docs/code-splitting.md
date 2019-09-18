@@ -126,41 +126,21 @@ Funkcja `React.lazy` pozwala renderować dynamicznie importowane komponenty jak 
 
 ```js
 import OtherComponent from './OtherComponent';
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
 **Po:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
-Powyższy kod automatycznie załaduje paczkę zawierającą `OtherComponent` podczas renderowania komponentu.
+Powyższy kod automatycznie załaduje paczkę zawierającą `OtherComponent` podczas pierwszego renderowania komponentu.
 
 `React.lazy` jako argument przyjmuje funkcję, która wywołuje dynamiczny `import()`.
 Musi ona zwrócić obiekt (`Promise`) (pol. *obietnicę*), która rozwiązuje się do modułu z eksportem domyślnym (`default`) zawierającym
 komponent reactowy.
 
-### Zawieszenie (ang. *Suspense*) {#suspense}
-
-Jeśli moduł zawierający `OtherComponent` nie zostanie załadowany przed renderowaniem komponentu
-`MyComponent`, musimy wyświetlić alternatywną zawartość, dopóki trwa ładowanie - na przykład 
-wskaźnik ładowania. Robimy to za pomocą komponentu `Suspense`.
+"Leniwy" komponent powinien zostać wyrenderowany wewnątrz `Suspense`, dzięki któremu na czas ładowania możemy wyświetlić komponent zastępczy (np. wskaźnik ładowania).
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
