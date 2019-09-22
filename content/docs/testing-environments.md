@@ -27,7 +27,7 @@ Podobnie jak prawdziwa przeglądarka, `jsdom` pozwala na modelowanie interakcji 
 
 Przy takiej konfiguracji można śmiało napisać większość testów dla UI: Jest jako narzędzie uruchamiające testy, jsdom służący do renderowania, interakcje użytkownika określone jako sekwencje zdarzeń przeglądarkowych - a to wszystko "spięte" za pomocą funkcji pomocniczej `act()` [<small>(przykład)</small>](/docs/testing-recipes.html). Spora część testów samego Reacta jest napisana przy użyciu powyższej kombinacji.
 
-Jeśli piszesz bibliotekę, która testuje głównie zachowania characterystyczne dla przeglądarki, a w dodatku wymaga natywnych mechanizmów przeglądarki, jak generowanie układu strony, zalecamy skorzystanie z frameworka [mocha](https://mochajs.org/).
+Jeśli piszesz bibliotekę, która testuje głównie zachowania charakterystyczne dla przeglądarki, a w dodatku wymaga natywnych mechanizmów przeglądarki, jak generowanie układu strony, zalecamy skorzystanie z frameworka [mocha](https://mochajs.org/).
 
 W środowisku, które _uniemożliwia_ symulowanie modelu DOM (np. podczas testowania komponentów napisanych w React Native na Node.js), możesz skorzystać z [narzędzi do symulowania zdarzeń](https://reactjs.org/docs/test-utils.html#simulate) do symulowania interakcji z elementami. Alternatywnie możesz skorzystać z funkcji `fireEvent` dostarczonej przez [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
 
@@ -37,7 +37,7 @@ Frameworki jak [Cypress](https://www.cypress.io/), [puppeteer](https://github.co
 
 Podczas pisania testów czasami chcemy podmienić części naszego kodu, które nie posiadają odpowiedników w używanym przez nas środowisku (np. sprawdzanie statusu `navigator.onLine` w Node.js). Testy mogą również śledzić niektóre funkcje i obserwować, jak pozostałe części kodu wchodzą z nimi w interakcje. Pomocna okazuje się wtedy możliwość wybiórczego zastąpienia niektórych funkcji wersjami odpowiednimi dla testów.
 
-Szczególnie przydatne okazuje się to przy pobieraniu danych. Zazwyczaj lepiej w testach używać "sztucznych" danych, aby uniknąć spowolnień czy niestabilności z powodu odwołań do prawdziwego API [<small>(przykład)</small>](/docs/testing-recipes.html#data-fetching). Dzięki takiemu zabiegowi testy są przewidywalne. Biblioteki typu [Jest](https://jestjs.io/) czy [sinon](https://sinonjs.org/) wspierają mockowanie funkcji. W przypadku testów end-to-end, mockowanie sieci może okazać się trudniejsze, choć w przypadku tych testów często konieczne jest testowanie prawdziwego API.
+Szczególnie przydatne okazuje się to przy pobieraniu danych. Zazwyczaj lepiej w testach używać "sztucznych" danych, aby uniknąć spowolnień czy niestabilności z powodu odwołań do prawdziwego API [<small>(przykład)</small>](/docs/testing-recipes.html#data-fetching). Dzięki takiemu zabiegowi testy są przewidywalne. Biblioteki typu [Jest](https://jestjs.io/) czy [sinon](https://sinonjs.org/) wspierają mockowanie funkcji. W przypadku testów end-to-end, mockowanie sieci może okazać się trudniejsze, choć należy tego unikać i zamiast tego testować korzystając z prawdziwego API.
 
 ### Mockowanie modułów {#mocking-modules}
 
@@ -49,10 +49,10 @@ W Node.js [mockowanie modułów](https://jestjs.io/docs/en/manual-mocks) jest ws
 
 Komponenty mogą korzystać z funkcji opartych na czasie, np. `setTimeout`, `setInterval` czy `Date.now`. W środowisku testowym warto zamieniać tego typu funkcje na ich zastępniki, które pozwalają ręcznie "sterować czasem". Testy korzystające z timerów nadal będą wykonywać się w odpowiedniej kolejności, ale zdecydowanie szybciej [<small>(przykład)</small>](/docs/testing-recipes.html#timers). Większość frameworków, również [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) oraz [lolex](https://github.com/sinonjs/lolex), pozwalają na mockowanie timerów w testach.
 
-Niekiedy jednak zależy ci na skorzystaniu z prawdziwych timerów, na przykład, gdy testujesz animację lub interakcję z endpointem, który zależy od czasu (np. ogranicza częstość odpytywania API). Biblioteki zawierające sztuczne timery pozwalają na łatwe włączanie i wyłączanie tego mechanizmu dla każdego zestawu testowego lub pojedynczego testu. Dzięki temu możesz zdecydować, jak poszczególne testy mają być uruchamiane.
+Niekiedy jednak możesz chcieć skorzystać z prawdziwych timerów, na przykład, gdy testujesz animację lub interakcję z endpointem, który zależy od czasu (np. ogranicza częstość odpytywania API). Biblioteki zawierające sztuczne timery pozwalają na łatwe włączanie i wyłączanie tego mechanizmu dla każdego zestawu testowego lub pojedynczego testu. Dzięki temu możesz zdecydować, jak poszczególne testy mają być uruchamiane.
 
 ### Testy end-to-end {#end-to-end-tests-aka-e2e-tests}
 
-Testy end-to-end są efektywne przy testowaniu dłuższych sekwencji interakcji, zwłaszcza jeśli są one krytyczne dla twojego produktu (np. płatność czy rejestracja). W takich przypadkach konieczne jest przetestowanie, jak przeglądarka renderuje całą aplikację, jak pobiera dane z API, korzysta z sesji i ciasteczek czy nawiguje pomiędzy poszczególnymi stronami. Możesz w nich sprawdzać nie tylko stan drzewa DOM, lecz także sterujące nim dane (np. weryfikując, czy dane zostały zapisane w bazie danych).
+Testy end-to-end są efektywne przy testowaniu dłuższych sekwencji interakcji, zwłaszcza jeśli są one krytyczne dla twojego produktu (np. płatność czy rejestracja). W takich przypadkach konieczne jest przetestowanie, jak przeglądarka renderuje całą aplikację, jak pobiera dane z API, korzysta z sesji i ciasteczek lub nawiguje pomiędzy poszczególnymi stronami. Możesz w nich sprawdzać nie tylko stan drzewa DOM, lecz także sterujące nim dane (np. weryfikując, czy dane zostały zapisane w bazie danych).
 
 Do takich scenariuszy możesz skorzystać z frameworka [Cypress](https://www.cypress.io/) lub biblioteki [puppeteer](https://github.com/GoogleChrome/puppeteer), które pozwalają nawigować pomiędzy stronami i sprawdzać rezultaty nie tylko w samej przeglądarce, ale potencjalnie również na backendzie.
