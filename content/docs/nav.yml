@@ -132,7 +132,7 @@
     - id: testing-recipes
       title: Przykłady i dobre praktyki
     - id: testing-environments
-      title: Środowiska testowe
+      title: Środowiska testujące
 - title: Współpraca
   items:
   - id: how-to-contribute
