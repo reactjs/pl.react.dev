@@ -45,7 +45,7 @@ Semantyczny HTML jest podstawą dostępności aplikacji webowych. Wykorzystując
 
 - [Dokumentacja elementów HTML na MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
-Czasem łamiemy zasady semantycznego HTMl, kiedy dodajemy dodatkowy element `div` do naszego kodu JSX, aby uruchomić aplikację. Dzieje się tak zwłaszcza kiedy pracujemy z listami (`<ol>`, `<ul>` czy `<dl>`) oraz tabelami `<table>`.
+Czasem łamiemy zasady semantycznego HTML, kiedy dodajemy dodatkowy element `div` do naszego kodu JSX, aby uruchomić aplikację. Dzieje się tak zwłaszcza kiedy pracujemy z listami (`<ol>`, `<ul>` czy `<dl>`) oraz tabelami `<table>`.
 W takim przypadkach powinniśmy korzystać z [fragmentów reactowych](/docs/fragments.html), które pozwalają na grupowanie elementów.
 
 Przykład:
