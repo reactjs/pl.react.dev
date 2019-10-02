@@ -116,11 +116,7 @@ Zalecamy wykonanie [tych instrukcji](https://babeljs.io/docs/editors/). Pozwoli 
 
 ### Pomocy, nie wiem, co robić! {#help-im-stuck}
 
-<<<<<<< HEAD
-Jeśli w którymś momencie się zgubisz, przejrzyj [listę źródeł wsparcia od społeczności](/community/support.html). Zwłaszcza [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) jest znany z szybkiego udzielania pomocy. Jeśli mimo wszystko nie otrzymasz odpowiedzi lub nadal masz z czymś problem, zgłoś nam to, a spróbujemy ci jakoś pomóc.
-=======
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
->>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
+Jeśli w którymś momencie się zgubisz, przejrzyj [listę źródeł wsparcia od społeczności](/community/support.html). Zwłaszcza [Reactiflux Chat](https://discord.gg/reactiflux) jest znany z szybkiego udzielania pomocy. Jeśli mimo wszystko nie otrzymasz odpowiedzi lub nadal masz z czymś problem, zgłoś nam to, a spróbujemy ci jakoś pomóc.
 
 ## Przegląd {#overview}
 
