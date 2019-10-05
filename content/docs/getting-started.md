@@ -20,7 +20,7 @@ redirect_from:
 
 Ta podstrona to przegląd dokumentacji Reacta oraz powiązanych zasobów.
 
-**React** to biblioteka JavaScriptowa służąca do budowania interfejsów użytkownika. Dowiedz się, czym tak naprawdę jest React, na naszej [stronie głównej](/) lub [w tutorialu](/tutorial/tutorial.html).
+**React** to javascriptowa biblioteka służąca do budowania interfejsów użytkownika. Dowiedz się, czym tak naprawdę jest React, na naszej [stronie głównej](/) lub [w tutorialu](/tutorial/tutorial.html).
 
 ---
 

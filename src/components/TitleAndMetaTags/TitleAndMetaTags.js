@@ -12,7 +12,7 @@ import {urlRoot} from 'site-constants';
 import languages from '../../../content/languages.yml';
 
 const defaultDescription =
-  'Biblioteka javascriptowa do tworzenia interfejsów użytkownika';
+  'javascriptowa biblioteka służąca do tworzenia interfejsów użytkownika';
 
 type Props = {
   title: string,
