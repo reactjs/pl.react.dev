@@ -2,15 +2,15 @@ import {ThemeContext} from './theme-context';
 
 function ThemeTogglerButton() {
   // highlight-range{1-2,5}
-  // The Theme Toggler Button receives not only the theme
-  // but also a toggleTheme function from the context
+  // Przycisk odczytuje z kontekstu nie tylko aktualny motyw,
+  // ale także funkcję `toggleTheme` (przełącz motyw)
   return (
     <ThemeContext.Consumer>
       {({theme, toggleTheme}) => (
         <button
           onClick={toggleTheme}
           style={{backgroundColor: theme.background}}>
-          Toggle Theme
+          Przełącz motyw
         </button>
       )}
     </ThemeContext.Consumer>
