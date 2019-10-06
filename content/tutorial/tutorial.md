@@ -997,7 +997,7 @@ const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 
 Przy pomocy metody `map` możemy przekształcić historię ruchów w listę elementów reactowych reprezentujących przyciski na ekranie, a następnie wyświetlić tę listę, aby umożliwić "przeskakiwanie" między ruchami.
 
-Użyjmy zatem `map` na tablicy `history` wewnątrz metody `render` komponentu `Board`:
+Użyjmy zatem `map` na tablicy `history` wewnątrz metody `render` komponentu `Game`:
 
 ```javascript{6-15,34}
   render() {
