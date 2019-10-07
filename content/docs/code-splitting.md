@@ -63,7 +63,7 @@ będzie się długo ładowała.
 Aby uniknąć problemu zbyt dużego pakietu, warto już na początku o tym pomyśleć 
 i rozpocząć "dzielenie" swojej paczki.
  [Dzielenie kodu](https://webpack.js.org/guides/code-splitting/) to funkcja 
-wspierana przez narzędzia takie jak Webpack oraz Browserify (przez
+wspierana przez narzędzia takie jak [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) oraz Browserify (przez
 [factor-bundle](https://github.com/browserify/factor-bundle)), które mogą tworzyć 
 wiele pakietów doładowywanych dynamicznie w czasie wykonania kodu aplikacji.
 
