@@ -60,21 +60,12 @@ Zwłaszcza gdy dołączasz do projektu duże, zewnętrzne biblioteki.
 Musisz pilnować, aby twój pakiet nie był zbyt duży, ponieważ wtedy aplikacja 
 będzie się długo ładowała.
 
-<<<<<<< HEAD
 Aby uniknąć problemu zbyt dużego pakietu, warto już na początku o tym pomyśleć 
 i rozpocząć "dzielenie" swojej paczki.
  [Dzielenie kodu](https://webpack.js.org/guides/code-splitting/) to funkcja 
-wspierana przez narzędzia takie jak Webpack oraz Browserify (przez
+wspierana przez narzędzia takie jak [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) oraz Browserify (przez
 [factor-bundle](https://github.com/browserify/factor-bundle)), które mogą tworzyć 
 wiele pakietów doładowywanych dynamicznie w czasie wykonania kodu aplikacji.
-=======
-To avoid winding up with a large bundle, it's good to get ahead of the problem
-and start "splitting" your bundle.
-Code-Splitting is a feature
-supported by bundlers like [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) and Browserify (via
-[factor-bundle](https://github.com/browserify/factor-bundle)) which can create
-multiple bundles that can be dynamically loaded at runtime.
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 
 Dzielenie kodu twojej aplikacji ułatwi ci użycie "leniwego ładowania" do wczytywania jedynie tych zasobów które są aktualnie wymagane przez 
 użytkownika zasobów, co może znacznie poprawić wydajność twojej aplikacji.

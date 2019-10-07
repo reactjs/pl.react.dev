@@ -58,14 +58,8 @@ function Counter({initialCount}) {
   const [count, setCount] = useState(initialCount);
   return (
     <>
-<<<<<<< HEAD
       Licznik: {count}
       <button onClick={() => setCount(initialCount)}>Zresetuj</button>
-      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
-=======
-      Count: {count}
-      <button onClick={() => setCount(initialCount)}>Reset</button>
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
     </>
@@ -117,11 +111,7 @@ W ciele głównej funkcji komponentu (określanej jako _faza renderowania_ React
 
 Zamiast tego użyj `useEffect`. Funkcja przekazana do `useEffect` zostanie uruchomiona po tym, jak  zmiany zostaną wyświetlone się na ekranie. Traktuj efekty jako furtkę pomiędzy czysto funkcyjnym światem Reacta, a imperatywnym światem.
 
-<<<<<<< HEAD
 Domyślnie efekty są uruchamiane po każdym wyrenderowaniu komponentu, ale możesz sprawić, że uruchomią się [tylko jeżeli zmienią się jakieś wartości](#conditionally-firing-an-effect).
-=======
-By default, effects run after every completed render, but you can choose to fire them [only when certain values have changed](#conditionally-firing-an-effect).
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 
 #### Czyszczenie po efekcie {#cleaning-up-an-effect}
 
@@ -239,12 +229,7 @@ function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-<<<<<<< HEAD
       Licznik: {state.count}
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
-=======
-      Count: {state.count}
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
