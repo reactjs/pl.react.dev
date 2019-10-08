@@ -80,7 +80,7 @@
     - id: uncontrolled-components
       title: Niekontrolowane komponenty
     - id: web-components
-      title: Web Components
+      title: Komponenty sieciowe
 - title: Dokumentacja API
   items:
     - id: react-api
@@ -127,7 +127,7 @@
         title: Hooki - FAQ
 - title: Testowanie
   items:
-    - id: testing 
+    - id: testing
       title: Ogólne informacje
     - id: testing-recipes
       title: Przykłady i dobre praktyki
