@@ -195,10 +195,7 @@ Komponent wywołujący `useContext` będzie zawsze ponownie renderowany jeśli z
 >
 >`useContext(MyContext)` pozwala tylko na *czytanie* kontekstu i nasłuchiwanie jego zmian. Wciąż wymagane jest aby w drzewie, ponad komponentem, znalazł się `<MyContext.Provider>` by mógł  *dostarczyć* (ang. *provide*) wartość tego kontekstu.
 
-<<<<<<< HEAD
-## Zaawansowane hooki {#additional-hooks}
-=======
-**Putting it together with Context.Provider**
+**W całości z użyciem Context.Provider wygląda to tak:**
 ```js{31-36}
 const themes = {
   light: {
@@ -234,16 +231,16 @@ function ThemedButton() {
 
   return (
     <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
+      Mam style z motywu kontekstowego!
     </button>
   );
 }
 ```
-This example is modified for hooks from a previous example in the [Context Advanced Guide](/docs/context.html), where you can find more information about when and how to use Context.
+
+Ten przykład został przygotowany pod hooki w oparciu o kod z rozdziału pt. [Zaawansowany poradnik dot. kontekstów](/docs/context.html), w którym znajdziesz więcej informacji o tym, kiedy i jak używać kontekstów.
 
 
-## Additional Hooks {#additional-hooks}
->>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
+## Zaawansowane hooki {#additional-hooks}
 
 Poniższe hooki są albo są wariantami   tych podstawowych, z poprzedniego podrozdziału, albo są stosowane tylko w określonych skrajnych wypadkach. Nie stresuj się na myśl o nauce o nich.
 

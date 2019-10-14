@@ -333,11 +333,7 @@ Pamiętaj, że renderowanie "leniwych komponentów" (ang. *lazy components*) wym
 
 ### `React.Suspense` {#reactsuspense}
 
-<<<<<<< HEAD
 `React.Suspense` pozwala zdefiniować wskaźnik ładowania, w razie gdyby któryś z komponentów poniżej nie był jeszcze gotowy do wyrenderowania. Obecnie jedynym przypadkiem użycia `<React.Suspense>` jest dynamiczne ładowanie komponentów.
-=======
-`React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
->>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 ```js
 // Ten komponent jest ładowany dynamicznie
