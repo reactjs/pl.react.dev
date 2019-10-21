@@ -46,7 +46,7 @@ Możesz [dodać Reacta do swojej strony HTML w ciągu minuty](/docs/add-react-to
 
 ### Stwórz nową aplikację reactową {#create-a-new-react-app}
 
-Gdy zaczynasz projekt w Reakcie, [napisanie prostej strony w HTMLu ze script tagami](/docs/add-react-to-a-website.html) może okazać się najlepszą opcją. Zajmie ci to tylko minutę!
+Gdy zaczynasz projekt w Reakcie, najlepiej zacząć od [napisania prostej strony w HTML-u przy użyciu tagów <script>](/docs/add-react-to-a-website.html). Zajmie ci to tylko minutę!
 
 W miarę jak będziesz rozwijać swoją aplikację, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje [kilka JavaScriptowych narzędzi](/docs/create-a-new-react-app.html), które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli ci korzystać z pełni mocy systemu Reacta.
 
