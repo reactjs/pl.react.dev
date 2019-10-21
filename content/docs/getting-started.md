@@ -46,11 +46,7 @@ Możesz [dodać Reacta do swojej strony HTML w ciągu minuty](/docs/add-react-to
 
 ### Stwórz nową aplikację reactową {#create-a-new-react-app}
 
-<<<<<<< HEAD
-Gdy zaczynasz projekt w Reakcie, [napisanie prostej strony w HTMLu ze script tagami](/docs/add-react-to-a-website.html) może okazać się najlepszą opcją. Zajmie ci to tylko minutę!
-=======
-When starting a React project, a [simple HTML page with script tags](/docs/add-react-to-a-website.html) might still be the best option. It only takes a minute to set up!
->>>>>>> d2ade76cce133af47ab198188fa2de03fa51834b
+Gdy zaczynasz projekt w Reakcie, najlepiej zacząć od [napisania prostej strony w HTML-u przy użyciu tagów <script>](/docs/add-react-to-a-website.html). Zajmie ci to tylko minutę!
 
 W miarę jak będziesz rozwijać swoją aplikację, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje [kilka JavaScriptowych narzędzi](/docs/create-a-new-react-app.html), które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli ci korzystać z pełni mocy systemu Reacta.
 
@@ -119,11 +115,7 @@ Ta sekcja dokumentacji może okazać się przydatna, jeśli chcesz dowiedzieć s
 
 Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie cię nic ważnego, jeśli będziesz śledzić jedynie bloga.
 
-<<<<<<< HEAD
 Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md), a także na [liście opublikowanych wersji](https://github.com/facebook/react/releases).
-=======
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/master/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
->>>>>>> d2ade76cce133af47ab198188fa2de03fa51834b
 
 ## Dokumentacje wersji {#versioned-documentation}
 
