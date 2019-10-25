@@ -18,23 +18,23 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
   ).join('\n')
 -->
 
-* **[Strategia adopcji](#adoption-strategy)**
+* **[Strategia wdrażania](#adoption-strategy)**
   * [Które wersje Reacta wspierają hooki?](#which-versions-of-react-include-hooks)
   * [Czy muszę przepisać wszystkie komponenty klasowe?](#do-i-need-to-rewrite-all-my-class-components)
   * [Co mogę zrobić z hookami czego nie mogłem zrobić z klasami?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
   * [Jaka część mojej wiedzy o Reakcie jest nadal aktualna?](#how-much-of-my-react-knowledge-stays-relevant)
-  * [Czego mam używać: hooków, klas, a może mieszać oba sposoby?](#should-i-use-hooks-classes-or-a-mix-of-both)
-  * [Czy hooki pokrywają wszystkie przypadki użycia, które są dostępne dla klas?](#do-hooks-cover-all-use-cases-for-classes)
-  * [Czy hooki zastępują właściwości renderujące i komponenty wyższego rzędu?](#do-hooks-replace-render-props-and-higher-order-components)
+  * [Czy powinienem używać hooków, klas, a może mieszać obydwa sposoby?](#should-i-use-hooks-classes-or-a-mix-of-both)
+  * [Czy hooki obejmują wszystkie przypadki użycia, które są dostępne dla klas?](#do-hooks-cover-all-use-cases-for-classes)
+  * [Czy hooki zastępują "właściwości renderujące" i komponenty wyższego rzędu?](#do-hooks-replace-render-props-and-higher-order-components)
   * [Co hooki oznaczają dla popularnych API takich jak connect() z Reduxa lub React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [Czy hooki współpracują ze statycznym typowaniem?](#do-hooks-work-with-static-typing)
   * [Jak testować komponenty, które używają hooków?](#how-to-test-components-that-use-hooks)
-  * [Czego dokładnie wymagają reguły lintera?](#what-exactly-do-the-lint-rules-enforce)
+  * [Co dokładnie narzucają reguły lintera?](#what-exactly-do-the-lint-rules-enforce)
 * **[Od klas do hooków](#from-classes-to-hooks)**
   * [Jak wyglądają metody cyklu życia w odniesieniu do hooków?](#how-do-lifecycle-methods-correspond-to-hooks)
   * [Jak mogę pobrać dane wykorzystując hooki?](#how-can-i-do-data-fetching-with-hooks)
   * [Czy istnieje coś podobnego do zmiennych instancji?](#is-there-something-like-instance-variables)
-  * [Lepiej używać jednego czy wielu zmiennych stanu?](#should-i-use-one-or-many-state-variables)
+  * [Lepiej używać jednej czy wielu zmiennych stanu?](#should-i-use-one-or-many-state-variables)
   * [Czy mogę uruchomić efekt tylko podczas aktualizacji?](#can-i-run-an-effect-only-on-updates)
   * [Jak dostać poprzednie propsy lub stan?](#how-to-get-the-previous-props-or-state)
   * [Dlaczego widzę nieaktualne propsy lub stan wewnątrz mojej funkcji?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
@@ -45,19 +45,19 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
   * [Co oznacza const [thing, setThing] = useState()?](#what-does-const-thing-setthing--usestate-mean)
 * **[Optymalizacja wydajności](#performance-optimizations)**
   * [Czy mogę pominąć efekt podczas aktualizacji?](#can-i-skip-an-effect-on-updates)
-  * [Czy bezpieczne jest pomijać funkcję w listach zależności?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
+  * [Czy bezpieczne jest pomijać funkcje w listach zależności?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
   * [Co mogę zrobić, jeżeli zależności mojego efektu zmieniaja się zbyt często?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
   * [Jak zaimplementować shouldComponentUpdate?](#how-do-i-implement-shouldcomponentupdate)
   * [Jak memoizować obliczenia?](#how-to-memoize-calculations)
-  * [Jak leniwie tworzyć ciężkie komponenty?](#how-to-create-expensive-objects-lazily)
+  * [Jak w leniwy sposób tworzyć "ciężkie" komponenty?](#how-to-create-expensive-objects-lazily)
   * [Czy hooki są wolne z powodu tworzenia funkcji podczas renderowania?](#are-hooks-slow-because-of-creating-functions-in-render)
   * [Jak unikać przekazywania funkcji zwrotnych w dół?](#how-to-avoid-passing-callbacks-down)
-  * [Jak czytać często zmieniającą się wartość z useCallback?](#how-to-read-an-often-changing-value-from-usecallback)
+  * [Jak odczytywać często zmieniającą się wartość z useCallback?](#how-to-read-an-often-changing-value-from-usecallback)
 * **[Pod maską](#under-the-hood)**
   * [Jak React łączy wywołania hooków z komponentami?](#how-does-react-associate-hook-calls-with-components)
   * [Jaki jest stan patentu dla hooków?](#what-is-the-prior-art-for-hooks)
 
-## Strategia wdrożenia {#adoption-strategy}
+## Strategia wdrażania {#adoption-strategy}
 
 ### Które wersje Reacta wspierają hooki? {#which-versions-of-react-include-hooks}
 
@@ -86,19 +86,19 @@ Hooki są bardziej bezpośrednim sposobem do użycia funkcjonalności Reacta, kt
 
 Hooki same w sobie, posiadają pewną krzywą uczenia się. Jeżeli brakuje czegoś w tej dokumentacji, [zgłoś problem](https://github.com/reactjs/reactjs.org/issues/new) a my postaramy się pomóc.
 
-### Czego mam używać: hooków, klas, a może mieszać oba sposoby? {#should-i-use-hooks-classes-or-a-mix-of-both}
+### Czy powinienem używać hooków, klas, a może mieszać obydwa sposoby? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
 Zachęcamy do spróbowania hooków w nowych komponentach, które piszesz. Upewnij się, że wszyscy z twojego zespołu, wiedzą jak ich używać i są zapoznani z tą dokumentacją. Nie zalecamy przepisywania twoich istniejących klas do hooków, chyba że z jakiegoś powodu i tak mieliście to w planach (na przykład, żeby naprawić błędy).
 
 Nie możesz używać hooków *wewnątrz* komponentów klasowych, jednakże bez obaw możesz mieszać komponenty klasowe i funkcyjne z hookami w tym samym drzewie. To, czy komponent jest klasowy, czy funkcyjny i używa hooków jest detalem implementacyjnym tego komponentu. W dłuższej perspektywie oczekujemy, że hooki będą głównym sposobem pisania komponentów reactowych.
 
-### Czy hooki pokrywają wszystkie przypadki użycia, które są dostępne dla klas? {#do-hooks-cover-all-use-cases-for-classes}
+### Czy hooki obejmują wszystkie przypadki użycia, które są dostępne dla klas? {#do-hooks-cover-all-use-cases-for-classes}
 
 Naszym celem dla hooków jest zapewnienie wszystkich przypadków użycia klas, tak szybko jak to tylko możliwe. Nie ma jeszcze odpowiednika w hookach dla rzadziej używanych metod cyklu życia komponentu, takich jak `getSnapshotBeforeUpdate` i `componentDidCatch`, ale zamierzamy je wkrótce dodać.
 
 Ze względu na to, że hooki pojawiły się całkiem niedawno, niektóre biblioteki firm trzecich mogą być z nimi niekompatybilne.
 
-### Czy hooki zastępują właściwości renderujące i komponenty wyższego rzędu? {#do-hooks-replace-render-props-and-higher-order-components}
+### Czy hooki zastępują "właściwości renderujące" i komponenty wyższego rzędu? {#do-hooks-replace-render-props-and-higher-order-components}
 
 Zazwyczaj właściwości renderujace i komponenty wyższego rzędu renderują tylko pojedynczy komponent potomny. Sądzimy, że hooki są prostszym sposobem na obsługę tego przypadku użycia. Nadal jest miejsce dla obu wzorców (dla przykładu, wirtualny komponent do obsługi suwaka może mieć właściwość `renderItem` lub widoczny komponent kontenera może mieć swoją własną strukturę DOM). Jednak w większości przypadków hooki w zupełności wystarczą, a przy okazji pomogą zmniejszyć liczbę zagnieżdżeń w drzewie.
 
@@ -182,7 +182,7 @@ Jeżeli musisz przetestować spersonalizowany hook, możesz stworzyć komponent 
 
 Aby zmniejszyć powtarzalność kodu, zalecamy użyć [`react-testing-library`](https://git.io/react-testing-library), która została zaprojektowana, aby zachęcać do pisania testów, które używają komponentów, w taki sam sposób jak robią to użytkownicy końcowi.
 
-### Czego dokładnie wymagają [reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
+### Co dokładnie narzucają [reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
 Stworzyliśmy [wtyczkę do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) która, aby uniknąć błędów, zmusza do przestrzegania [zasad hooków](/docs/hooks-rules.html). Zakłada ona, że każda funkcja zaczynająca się od "`use`" i zaraz po tym wielkiej litery, jest hookiem. Zdajemy sobie sprawę, że ta heurystyka nie jest idealna i może wywołać wiele fałszywych alarmów. Ale bez wprowadzenia wspólnej dla całego ekosystemu konwencji, nie ma możliwości aby hooki działały poprawnie -- dłuższe nazwy zniechęcą ludzi do używania hooków lub do przestrzegania tej konwencji.
 
@@ -249,7 +249,7 @@ Jeżeli chcielibyśmy po prostu ustawić interwał, nie potrzebowalibyśmy refer
 
 Działanie referencji, jest takie samo jak użycie zmiennych instancji w klasie. Chyba że, używasz [leniwej inicjalizacji](#how-to-create-expensive-objects-lazily), w tym przypadku, unikaj używania referencji podczas renderowania -- może to prowadzić do dziwnych zachowań. Zamiast, powinieneś modyfikować referencje wewnątrz efektów lub uchwytów zdarzeń.
 
-### Lepiej używać jednego czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
+### Lepiej używać jednej czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
 
 Jeżeli przywykłeś do uzycia klas, kuszące może być, aby wywołać `useState()` tylko raz i umieścić cały stan wewnątrz jednego obiektu. Jeżeli chcesz, możesz to zrobić. Poniżej znajdziesz przykład komponentu, który śledzi ruchy kursora. Jego pozycja i stan są trzymane w lokalnym stanie:
 
