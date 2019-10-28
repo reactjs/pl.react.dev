@@ -8,6 +8,8 @@
       title: Stwórz nową aplikację w Reakcie
     - id: cdn-links
       title: Linki do CDN-ów
+    - id: release-channels
+      title: Kanały wydań
 - title: Podstawowe informacje
   isOrdered: true
   items:
@@ -106,25 +108,25 @@
       title: Wymagania środowiska JavaScript
     - id: glossary
       title: Słownik pojęć
-- title: Hooki (Nowość)
+- title: Hooki
   isOrdered: true
   items:
-      - id: hooks-intro
-        title: Wprowadzenie do hooków
-      - id: hooks-overview
-        title: Hooki w pigułce
-      - id: hooks-state
-        title: Używanie hooka stanu
-      - id: hooks-effect
-        title: Używanie hooka efektów
-      - id: hooks-rules
-        title: Zasady korzystania z hooków
-      - id: hooks-custom
-        title: Tworzenie własnych hooków
-      - id: hooks-reference
-        title: Hooki - interfejs API
-      - id: hooks-faq
-        title: Hooki - FAQ
+    - id: hooks-intro
+      title: Wprowadzenie do hooków
+    - id: hooks-overview
+      title: Hooki w pigułce
+    - id: hooks-state
+      title: Używanie hooka stanu
+    - id: hooks-effect
+      title: Używanie hooka efektów
+    - id: hooks-rules
+      title: Zasady korzystania z hooków
+    - id: hooks-custom
+      title: Tworzenie własnych hooków
+    - id: hooks-reference
+      title: Hooki - interfejs API
+    - id: hooks-faq
+      title: Hooki - FAQ
 - title: Testowanie
   items:
     - id: testing
@@ -133,16 +135,29 @@
       title: Przykłady i dobre praktyki
     - id: testing-environments
       title: Środowiska testujące
+- title: Tryb współbieżny (eksperymentalny)
+  isOrdered: true
+  items:
+    - id: concurrent-mode-intro
+      title: Wprowadzenie do trybu współbieżnego
+    - id: concurrent-mode-suspense
+      title: Pobieranie danych przy pomocy Suspense
+    - id: concurrent-mode-patterns
+      title: Wzorce dla współbieżnych UI
+    - id: concurrent-mode-adoption
+      title: Wdrażanie trybu współbieżnego
+    - id: concurrent-mode-reference
+      title: Dokumentacja API trybu współbieżnego
 - title: Współpraca
   items:
-  - id: how-to-contribute
-    title: Jak możesz pomóc
-  - id: codebase-overview
-    title: Przegląd kodu
-  - id: implementation-notes
-    title: Noty implementacyjne
-  - id: design-principles
-    title: Zasady projektowe
+    - id: how-to-contribute
+      title: Jak możesz pomóc
+    - id: codebase-overview
+      title: Przegląd kodu
+    - id: implementation-notes
+      title: Noty implementacyjne
+    - id: design-principles
+      title: Zasady projektowe
 - title: FAQ
   items:
     - id: faq-ajax
