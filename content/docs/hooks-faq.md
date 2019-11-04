@@ -1,6 +1,6 @@
 ---
 id: hooks-faq
-title: Hooki FAQ
+title: Hooki - FAQ
 permalink: docs/hooks-faq.html
 prev: hooks-reference.html
 ---
@@ -21,12 +21,12 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
 * **[Strategia wdrażania](#adoption-strategy)**
   * [Które wersje Reacta wspierają hooki?](#which-versions-of-react-include-hooks)
   * [Czy muszę przepisać wszystkie komponenty klasowe?](#do-i-need-to-rewrite-all-my-class-components)
-  * [Co mogę zrobić z hookami czego nie mogłem zrobić z klasami?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
+  * [Co mogę zrobić z hookami, czego nie można było zrobić z klasami?](#what-can-i-do-with-hooks-that-i-couldnt-with-classes)
   * [Jaka część mojej wiedzy o Reakcie jest nadal aktualna?](#how-much-of-my-react-knowledge-stays-relevant)
-  * [Czy powinienem używać hooków, klas, a może mieszać obydwa sposoby?](#should-i-use-hooks-classes-or-a-mix-of-both)
+  * [Czy lepiej używać hooków, klas, czy może mieszać obydwa sposoby?](#should-i-use-hooks-classes-or-a-mix-of-both)
   * [Czy hooki obejmują wszystkie przypadki użycia, które są dostępne dla klas?](#do-hooks-cover-all-use-cases-for-classes)
   * [Czy hooki zastępują "właściwości renderujące" i komponenty wyższego rzędu?](#do-hooks-replace-render-props-and-higher-order-components)
-  * [Co hooki oznaczają dla popularnych API takich jak connect() z Reduxa lub React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
+  * [Co hooki oznaczają dla popularnych API, takich jak connect() z Reduxa lub React Router?](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [Czy hooki współpracują ze statycznym typowaniem?](#do-hooks-work-with-static-typing)
   * [Jak testować komponenty, które używają hooków?](#how-to-test-components-that-use-hooks)
   * [Co dokładnie narzucają reguły lintera?](#what-exactly-do-the-lint-rules-enforce)
@@ -36,8 +36,8 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
   * [Czy istnieje coś podobnego do zmiennych instancji?](#is-there-something-like-instance-variables)
   * [Lepiej używać jednej czy wielu zmiennych stanu?](#should-i-use-one-or-many-state-variables)
   * [Czy mogę uruchomić efekt tylko podczas aktualizacji?](#can-i-run-an-effect-only-on-updates)
-  * [Jak dostać poprzednie propsy lub stan?](#how-to-get-the-previous-props-or-state)
-  * [Dlaczego widzę nieaktualne propsy lub stan wewnątrz mojej funkcji?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
+  * [Jak dostać poprzednie właściwości lub stan?](#how-to-get-the-previous-props-or-state)
+  * [Dlaczego widzę nieaktualne właściwości lub stan wewnątrz mojej funkcji?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
   * [Jak zaimplementować getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [Czy istnieje coś takiego jak forceUpdate?](#is-there-something-like-forceupdate)
   * [Czy mogę stworzyć referencję do komponentu funkcyjnego?](#can-i-make-a-ref-to-a-function-component)
@@ -45,8 +45,8 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
   * [Co oznacza const [thing, setThing] = useState()?](#what-does-const-thing-setthing--usestate-mean)
 * **[Optymalizacja wydajności](#performance-optimizations)**
   * [Czy mogę pominąć efekt podczas aktualizacji?](#can-i-skip-an-effect-on-updates)
-  * [Czy bezpieczne jest pomijać funkcje w listach zależności?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
-  * [Co mogę zrobić, jeżeli zależności mojego efektu zmieniaja się zbyt często?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
+  * [Czy bezpiecznie jest pomijać funkcje w liście zależności?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
+  * [Co zrobić, gdy zależności mojego efektu zmieniają się zbyt często?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
   * [Jak zaimplementować shouldComponentUpdate?](#how-do-i-implement-shouldcomponentupdate)
   * [Jak memoizować obliczenia?](#how-to-memoize-calculations)
   * [Jak w leniwy sposób tworzyć "ciężkie" komponenty?](#how-to-create-expensive-objects-lazily)
@@ -61,7 +61,7 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
 
 ### Które wersje Reacta wspierają hooki? {#which-versions-of-react-include-hooks}
 
-Zaczynając od wersji 16.8.0, React zawiera stabilną implementacje hooków dla:
+Zaczynając od wersji 16.8.0, React zawiera stabilną implementację hooków dla:
 
 * React DOM
 * React DOM Server
@@ -74,51 +74,51 @@ React Native wspiera hooki od wersji 0.59.
 
 ### Czy muszę przepisać wszystkie komponenty klasowe? {#do-i-need-to-rewrite-all-my-class-components}
 
-Nie. [Nie ma planów](/docs/hooks-intro.html#gradual-adoption-strategy) aby usunąć klasy z Reacta -- wszyscy musimy stale dostarczać nasze produkty i nie możemy sobie pozwolić na ich przepisywanie. Zachęcamy do wypróbowania hooków w nowym kodzie.
+Nie. [Nie ma planów](/docs/hooks-intro.html#gradual-adoption-strategy) na usunięcie klas z Reacta -- wszyscy musimy stale dostarczać nasze produkty i nie możemy sobie pozwolić na ich przepisywanie. Zachęcamy do wypróbowania hooków w nowym kodzie.
 
 ### Co mogę zrobić z hookami, czego nie mogłem zrobić z klasami? {#what-can-i-do-with-hooks-that-i-couldnt-with-classes}
 
-Hooki oferują nowy, potężny i ekspresyjny sposób na wielokrotne używanie funkcjonalności pomiędzy komponentami. Rozdział p.t. ["Tworzenie własnych hooków"](/docs/hooks-custom.html) zawiera szybki wgląd tego co jest możliwe. [Ten artykuł](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) napisany przez jednego z głównym członków zespołu Reacta, zawiera bardziej szczegółowe informacje o nowych możliwościach otwartych przez hooki.
+Hooki oferują nowy, potężny i ekspresyjny sposób na wielokrotne używanie funkcjonalności w komponentach. Rozdział pt. ["Tworzenie własnych hooków"](/docs/hooks-custom.html) zawiera szybki wgląd tego, co można za ich pomocą zrobić. [Ten artykuł](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889), napisany przez jednego z głównych członków zespołu Reacta, zawiera bardziej szczegółowe informacje o nowych możliwościach otwartych przez hooki.
 
 ### Jaka część mojej wiedzy o Reakcie jest nadal aktualna? {#how-much-of-my-react-knowledge-stays-relevant}
 
-Hooki są bardziej bezpośrednim sposobem do użycia funkcjonalności Reacta, które już znasz -- takie jak na przykład stan, metody cyklu życia (ang. *lifecycle methods*), kontekst i referencje (ang. *refs*). Nie zmieniają podstaw działania Reacta, dlatego też twoja wiedza na temat komponentów, właściwości (ang. *props*) i przepływu danych z góry w dół jest ciągle aktualna.
+Hooki są bardziej bezpośrednim sposobem na użycie dobrze już znanych funkcjonalności Reacta, takie jak na przykład: stan, cykl życia (ang. *lifecycle*), kontekst i referencje (ang. *refs*). Nie zmieniają podstaw działania Reacta, dlatego też twoja wiedza na temat komponentów, właściwości (ang. *props*) i przepływu danych z góry w dół pozostaje ciągle aktualna.
 
-Hooki same w sobie, posiadają pewną krzywą uczenia się. Jeżeli brakuje czegoś w tej dokumentacji, [zgłoś problem](https://github.com/reactjs/reactjs.org/issues/new) a my postaramy się pomóc.
+Hooki, same w sobie, posiadają pewną krzywą uczenia się. Jeżeli brakuje czegoś w tej dokumentacji, [zgłoś problem](https://github.com/reactjs/reactjs.org/issues/new), a my postaramy się pomóc.
 
 ### Czy powinienem używać hooków, klas, a może mieszać obydwa sposoby? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
-Zachęcamy do spróbowania hooków w nowych komponentach, które piszesz. Upewnij się, że wszyscy z twojego zespołu, wiedzą jak ich używać i są zapoznani z tą dokumentacją. Nie zalecamy przepisywania twoich istniejących klas do hooków, chyba że z jakiegoś powodu i tak mieliście to w planach (na przykład, żeby naprawić błędy).
+Zachęcamy do wypróbowania hooków w nowych komponentach. Upewnij się, że wszyscy z twojego zespołu wiedzą, jak ich używać i są zapoznani z tą dokumentacją. Nie zalecamy przepisywania istniejących klas na hooki, chyba że z jakiegoś powodu i tak mieliście to w planach (na przykład w celu naprawy istniejących błędów).
 
-Nie możesz używać hooków *wewnątrz* komponentów klasowych, jednakże bez obaw możesz mieszać komponenty klasowe i funkcyjne z hookami w tym samym drzewie. To, czy komponent jest klasowy, czy funkcyjny i używa hooków jest detalem implementacyjnym tego komponentu. W dłuższej perspektywie oczekujemy, że hooki będą głównym sposobem pisania komponentów reactowych.
+Nie możesz używać hooków *wewnątrz* komponentów klasowych, jednakże bez obaw możesz mieszać komponenty klasowe i funkcyjne z hookami w tym samym drzewie. To, czy komponent jest klasowy, czy funkcyjny i używa hooków, jest detalem implementacyjnym tego komponentu. W dłuższej perspektywie oczekujemy, że hooki będą głównym sposobem pisania komponentów reactowych.
 
 ### Czy hooki obejmują wszystkie przypadki użycia, które są dostępne dla klas? {#do-hooks-cover-all-use-cases-for-classes}
 
-Naszym celem dla hooków jest zapewnienie wszystkich przypadków użycia klas, tak szybko jak to tylko możliwe. Nie ma jeszcze odpowiednika w hookach dla rzadziej używanych metod cyklu życia komponentu, takich jak `getSnapshotBeforeUpdate` i `componentDidCatch`, ale zamierzamy je wkrótce dodać.
+Naszym celem dla hooków jest zapewnienie wszystkich przypadków użycia klas, tak szybko jak to tylko możliwe. Brakuje jeszcze odpowiedników dla kilku rzadziej używanych metod cyklu życia komponentu, takich jak `getSnapshotBeforeUpdate` i `componentDidCatch`, ale zamierzamy je wkrótce dodać.
 
 Ze względu na to, że hooki pojawiły się całkiem niedawno, niektóre biblioteki firm trzecich mogą być z nimi niekompatybilne.
 
 ### Czy hooki zastępują "właściwości renderujące" i komponenty wyższego rzędu? {#do-hooks-replace-render-props-and-higher-order-components}
 
-Zazwyczaj właściwości renderujace i komponenty wyższego rzędu renderują tylko pojedynczy komponent potomny. Sądzimy, że hooki są prostszym sposobem na obsługę tego przypadku użycia. Nadal jest miejsce dla obu wzorców (dla przykładu, wirtualny komponent do obsługi suwaka może mieć właściwość `renderItem` lub widoczny komponent kontenera może mieć swoją własną strukturę DOM). Jednak w większości przypadków hooki w zupełności wystarczą, a przy okazji pomogą zmniejszyć liczbę zagnieżdżeń w drzewie.
+Zazwyczaj właściwości renderujace i komponenty wyższego rzędu renderują tylko pojedynczy komponent potomny. Sądzimy, że hooki są prostszym sposobem na obsługę tego przypadku użycia. Nadal jest miejsce dla obu wzorców (dla przykładu, wirtualny komponent do obsługi suwaka może mieć właściwość `renderItem` lub prezentacyjny komponent kontenera może mieć swoją własną strukturę DOM). Jednak w większości przypadków hooki w zupełności wystarczą, a przy okazji pomogą zmniejszyć liczbę zagnieżdżeń w drzewie.
 
 ### Co hooki oznaczają dla popularnych API takich jak Redux connect() i React Router?{#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
-Możesz używać tych samych API, co do tej pory - będą nadal działać.
+Możesz używać tych samych API co do tej pory - będą nadal działać.
 
 W przyszłości nowe wersje tych bibliotek będą mogły również eksportować spersonalizowane hooki, takie jak `useRedux()` czy `useRouter()`, które pozwolą na użycie tych samych funkcjonalności bez potrzeby opakowywania komponentów.
 
 ### Czy hooki współpracują ze statycznym typowaniem? {#do-hooks-work-with-static-typing}
 
-Hooki zostały zaprojektowane z myślą o statycznym typowaniu. Dzięki temu że są funkcjami, łatwiej jest je poprawnie otypować, w odróżnieniu od wzorców takich jak komponenty wyższego rzędu. Najnowsze definicje Reacta dla Flow i TypeScripta wspierają hooki.
+Hooki zostały zaprojektowane z myślą o statycznym typowaniu. Dzięki temu że są funkcjami, łatwiej jest je poprawnie otypować, w odróżnieniu od wzorców takich jak komponenty wyższego rzędu. Najnowsze definicje Reacta dla Flow i TypeScriptu wspierają hooki.
 
-Co ważne, spersonalizowane hooki dają możliwość ograniczenia API Reacta, jeżeli tylko zechcesz możesz je otypować bardziej ściśle. React udostępnia podstawy, ale możesz je łączyć na różne sposoby, odmienne od tych które dostarczyliśmy w standardzie.
+Co ważne, przy pomocy bardziej restrykcyjnych typów możesz ograniczyć API Reacta we własnych hookach. React udostępnia podstawy, ale możesz je łączyć na różne sposoby, odmienne od tych, które dostarczyliśmy w standardzie.
 
 ### Jak testować komponenty które używają hooków? {#how-to-test-components-that-use-hooks}
 
-Z punktu widzenia Reacta, komponent wykorzystujący hooki jest zwyczajnym komponentem. Jeżeli twoje rozwiązanie do testów nie opiera się na wewnętrznej implementacji Reacta, to testowanie komponentów, które używają hooków, nie powinno różnić się od tego co robisz to zazwyczaj.
+Z punktu widzenia Reacta, komponent wykorzystujący hooki jest zwyczajnym komponentem. Jeżeli twoje rozwiązanie do testów nie opiera się na wewnętrznej implementacji Reacta, to testowanie komponentów, które używają hooków, nie powinno różnić się od tego, co robisz zazwyczaj.
 
-Dla przykładu, załóżmy że mamy komponent licznika:
+Dla przykładu, załóżmy, że mamy komponent licznika:
 
 ```js
 function Example() {
@@ -137,7 +137,7 @@ function Example() {
 }
 ```
 
-Przetestujemy to, używając React DOM. Aby upewnić się, że zachowanie odpowiada temu co się dzieje w przeglądarce, opakujemy kod renderujący i aktualizujący, wywołaniem funkcji [`ReactTestUtils.act()`](/docs/test-utils.html#act):
+Przetestujemy go używając React DOM. Aby upewnić się, że zachowanie komponentu odzwierciedla to w przeglądarce, opakujemy kod renderujący i aktualizujący przy pomocy funkcji [`ReactTestUtils.act()`](/docs/test-utils.html#act):
 
 ```js{3,20-22,29-31}
 import React from 'react';
@@ -178,46 +178,46 @@ it('potrafi wyrenderować i aktualizować licznik', () => {
 
 Wywołanie funkcji `act()` opróżni bufor efektów znajdujących się wewnątrz.
 
-Jeżeli musisz przetestować spersonalizowany hook, możesz stworzyć komponent w swoim teście i wywołać ten hook w ciele jego funkcji. Następnie, możesz napisać test do stworzonego w ten sposób komponentu.
+Jeżeli musisz przetestować własny hook, możesz stworzyć komponent w teście i wywołać ten hook w ciele jego funkcji. Następnie możesz napisać test do stworzonego w ten sposób komponentu.
 
-Aby zmniejszyć powtarzalność kodu, zalecamy użyć [`react-testing-library`](https://git.io/react-testing-library), która została zaprojektowana, aby zachęcać do pisania testów, które używają komponentów, w taki sam sposób jak robią to użytkownicy końcowi.
+Aby zmniejszyć powtarzalność kodu, zalecamy użyć biblioteki [`react-testing-library`](https://git.io/react-testing-library). Została ona zaprojektowana tak, aby zachęcać do pisania testów używających komponentów w sposób podobny do zachowania docelowych użytkowników aplikacji.
 
 ### Co dokładnie narzucają [reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
-Stworzyliśmy [wtyczkę do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) która, aby uniknąć błędów, zmusza do przestrzegania [zasad hooków](/docs/hooks-rules.html). Zakłada ona, że każda funkcja zaczynająca się od "`use`" i zaraz po tym wielkiej litery, jest hookiem. Zdajemy sobie sprawę, że ta heurystyka nie jest idealna i może wywołać wiele fałszywych alarmów. Ale bez wprowadzenia wspólnej dla całego ekosystemu konwencji, nie ma możliwości aby hooki działały poprawnie -- dłuższe nazwy zniechęcą ludzi do używania hooków lub do przestrzegania tej konwencji.
+Stworzyliśmy [wtyczkę do ESLinta](https://www.npmjs.com/package/eslint-plugin-react-hooks), która zmusza do przestrzegania [zasad hooków](/docs/hooks-rules.html) w celu uniknięcia potencjalnych błędów. Zakłada ona, że każda funkcja zaczynająca się od "`use`" i zaraz po tym wielkiej litery jest hookiem. Zdajemy sobie sprawę, że ta heurystyka nie jest idealna i może wywołać wiele fałszywych alarmów. Ale bez wprowadzenia wspólnej dla całego ekosystemu konwencji, nie ma możliwości, aby hooki działały poprawnie -- dłuższe nazwy zniechęcą ludzi do używania hooków lub do przestrzegania tej konwencji.
 
-W szczególności zasada ta wymusza aby:
+W szczególności, zasada ta wymusza, aby:
 
-* Wywołania hooków znajdowały się wewnątrz funkcji pisanej stylem `PascalCase` (zakłada że jest to komponent) lub innej funkcji `useSomething` (zakłada że jest to własny hook).
-* Hooki są wywoływane w tej samej kolejnosći, przy każdym renderze.
+* Wywołania hooków znajdowały się wewnątrz funkcji pisanej stylem `PascalCase` (zakłada, że jest to komponent) lub innej funkcji `useSomething` (zakłada, że jest to własny hook).
+* Hooki przy każdym renderowaniu są wywoływane w tej samej kolejności.
 
-Jest jeszcze kilka innych heurystyk i mogą się one z czasem zmienić, gdy dostroimy zasadę tak, aby zbalansować wyszukiwanie błędów i zmniejszyć wywoływanie fałszywych alarmów.
+Jest jeszcze kilka innych heurystyk i mogą się one z czasem zmienić, gdy dostroimy zasadę tak, aby zbalansować wyszukiwanie błędów i zmniejszyć liczbę fałszywych alarmów.
 
 ## Od klas do hooków {#from-classes-to-hooks}
 
 ### Jak wyglądają metody cyklu życia w odniesieniu do hooków? {#how-do-lifecycle-methods-correspond-to-hooks}
 
-* `constructor`: Komponenty funkcyjne nie potrzebują konstruktora. Stan jest inicjalizowany poprzez wywołanie [`useState`](/docs/hooks-reference.html#usestate). Jeżeli obliczenie stanu początkowego jest wymagające, możesz skorzystać z przekazania funkcji do `useState`.
+* `constructor`: Komponenty funkcyjne nie potrzebują konstruktora. Stan jest inicjalizowany poprzez wywołanie [`useState`](/docs/hooks-reference.html#usestate). Jeżeli obliczenie stanu początkowego jest kosztowne obliczeniowo, możesz do `useState` przekazać funkcję.
 
-* `getDerivedStateFromProps`: Zamiast, zaplanuj aktualizację [podczas renderowania](#how-do-i-implement-getderivedstatefromprops).
+* `getDerivedStateFromProps`: Zamiast tego zaplanuj aktualizację [podczas renderowania](#how-do-i-implement-getderivedstatefromprops).
 
 * `shouldComponentUpdate`: Spójrz na `React.memo` [poniżej](#how-do-i-implement-shouldcomponentupdate).
 
 * `render`: Jest to ciało komponentu funkcyjnego.
 
-* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: Hook [`useEffect`](/docs/hooks-reference.html#useeffect) can wyraża wszystkie kombinacje tych metod (włączając w to [mniej](#can-i-skip-an-effect-on-updates) [znane](#can-i-run-an-effect-only-on-updates) przypadki).
+* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: Hook [`useEffect`](/docs/hooks-reference.html#useeffect) może z powodzeniem zastąpić wszelkie kombinacje tych metod (włączając w to [mniej](#can-i-skip-an-effect-on-updates) [znane](#can-i-run-an-effect-only-on-updates) przypadki).
 
-* `componentDidCatch` i `getDerivedStateFromError`: W tej chwili nie istnieje hook odzwierciedlający te metody, ale zostanie wkrótce dodany.
+* `componentDidCatch` i `getDerivedStateFromError`: W tej chwili nie istnieje hook odzwierciedlający działanie tych metod, ale zostanie wkrótce dodany.
 
 ### Jak mogę pobrać dane wykorzystując hooki? {#how-can-i-do-data-fetching-with-hooks}
 
-Tutaj znajdziesz [małe demo](https://codesandbox.io/s/jvvkoo8pq3), które w tym pomoże. Aby dowiedzieć się więcej, sprawdź  [ten artykuł](https://www.robinwieruch.de/react-hooks-fetch-data/) o pobieraniu danych z wykorzystaniem hooków.
+Tutaj znajdziesz [małe demo](https://codesandbox.io/s/jvvkoo8pq3), które w tym pomoże. Aby dowiedzieć się więcej, przeczytaj [ten artykuł](https://www.robinwieruch.de/react-hooks-fetch-data/) o pobieraniu danych z wykorzystaniem hooków.
 
 ### Czy istnieje coś podobnego do zmiennych instancji? {#is-there-something-like-instance-variables}
 
-Tak! Hook [`useRef()`](/docs/hooks-reference.html#useref) nie służy tylko do referencji DOM. Obiekt "ref" jest generycznym kontenerem, którego właściwość `current` jest zmienna i może przechowywać każdą wartość, tak samo jak właściwości instancji w klasach.
+Tak! Hook [`useRef()`](/docs/hooks-reference.html#useref) nie służy tylko do przechowywania referencji DOM. Obiekt "ref" jest generycznym kontenerem, którego właściwość `current` jest zmienna i może przechowywać każdą wartość, tak samo jak właściwości instancji w klasach.
 
-Możesz ją wykorzystać wewnątrz `useEffect`:
+Możesz do niej coś zapisać z wnętrza `useEffect`:
 
 ```js{2,8}
 function Timer() {
@@ -237,7 +237,7 @@ function Timer() {
 }
 ```
 
-Jeżeli chcielibyśmy po prostu ustawić interwał, nie potrzebowalibyśmy referencji (`id` mogłoby być lokalne dla efektu), jednakże jest to użyteczne w przypadku, gdy chcielibyśmy wyczyścić interwał z uchwytu zdarzenia:
+Jeżeli chcielibyśmy po prostu ustawić interwał, nie potrzebowalibyśmy referencji (`id` mogłoby być lokalne dla efektu), jednakże jest to użyteczne w przypadku, gdy chcielibyśmy wyczyścić interwał z wnętrza procedury obsługi zdarzenia:
 
 ```js{3}
   // ...
@@ -247,11 +247,11 @@ Jeżeli chcielibyśmy po prostu ustawić interwał, nie potrzebowalibyśmy refer
   // ...
 ```
 
-Działanie referencji, jest takie samo jak użycie zmiennych instancji w klasie. Chyba że, używasz [leniwej inicjalizacji](#how-to-create-expensive-objects-lazily), w tym przypadku, unikaj używania referencji podczas renderowania -- może to prowadzić do dziwnych zachowań. Zamiast, powinieneś modyfikować referencje wewnątrz efektów lub uchwytów zdarzeń.
+Działanie referencji jest takie samo jak użycie zmiennych instancji w klasie. Jeśli nie korzystasz z [leniwej inicjalizacji](#how-to-create-expensive-objects-lazily), unikaj używania referencji podczas renderowania  -- może to prowadzić do niepożądanych zachowań. Zamiast tego modyfikuj referencje wewnątrz efektów lub procedur obsługi zdarzeń.
 
 ### Lepiej używać jednej czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
 
-Jeżeli przywykłeś do uzycia klas, kuszące może być, aby wywołać `useState()` tylko raz i umieścić cały stan wewnątrz jednego obiektu. Jeżeli chcesz, możesz to zrobić. Poniżej znajdziesz przykład komponentu, który śledzi ruchy kursora. Jego pozycja i stan są trzymane w lokalnym stanie:
+Jeżeli na co dzień piszesz komponenty klasowe, kuszące może okazać się wywoływanie `useState()` jednokrotnie i umieszczanie całego stanu wewnątrz pojedynczego obiektu. Jeżeli chcesz, możesz tak robić. Poniżej znajdziesz przykład komponentu, który śledzi ruchy kursora. Jego pozycja i stan są trzymane w lokalnym stanie:
 
 ```js
 function Box() {
@@ -260,13 +260,13 @@ function Box() {
 }
 ```
 
-Teraz przyjmimy, że chcemy napisać logikę, która zmienia `left` i `top`, kiedy użytkownik ruszy myszką. Zauważ że, musimy manualnie scalać te pola do poprzedniego obiektu stanu:
+Teraz przyjmimy, że chcemy napisać logikę, która zmienia `left` i `top`, kiedy użytkownik ruszy myszką. Zauważ, że musimy ręcznie scalać te pola z poprzednim obiektem stanu:
 
 ```js{4,5}
   // ...
   useEffect(() => {
     function handleWindowMouseMove(e) {
-      // Rozwinięcie "...state", zapewnia że nie "stracimy" szerokości i wysokości
+      // Rozszczepienie "...state" zapewnia, że nie "stracimy" szerokości i wysokości
       setState(state => ({ ...state, left: e.pageX, top: e.pageY }));
     }
     // Uwaga: ta implementacja jest dość uproszczona
@@ -278,9 +278,9 @@ Teraz przyjmimy, że chcemy napisać logikę, która zmienia `left` i `top`, kie
 
 Gdy aktualizujemy zmienną stanu, *zamieniamy* jej wartość. Różni się to od `this.setState` w klasach, które *scala* zaktualizowane pola do obiektu stanu.
 
-Jeżeli tęsknisz za automatycznym scalaniem, możesz napisać własny hook `useLegacyState`, który scala aktualizacje obiekt stanu. Jednak, zamiast **zalecamy podzielenie stanu na wiele zmiennych stanu, bazując na tym, które wartości zwykły zmieniać się razem.**
+Jeżeli tęsknisz za automatycznym scalaniem, możesz napisać własny hook `useLegacyState`, który scala aktualizacje obiekt stanu. Jednak zamiast tego **zalecamy podzielenie stanu na wiele zmiennych stanu, bazując na tym, które wartości mają tendencję do zmieniania się jednocześnie.**
 
-Dla przykładu, możemy podzielić stan naszego komponentu na obiekty `position` i `size`. Za każdym razem gdy zmienimy `position`, nie mamy potrzeby scalania:
+Dla przykładu, możemy podzielić stan naszego komponentu na obiekty `position` oraz `size` i zawsze nadpisywać wartość `position`, bez konieczności scalania stanu z poprzednim:
 
 ```js{2,7}
 function Box() {
@@ -294,7 +294,7 @@ function Box() {
     // ...
 ```
 
-Oddzielanie niezależnych zmiennych stanu ma także inną zaletę. Pozwala w przyszłości, łatwo wyodrębnić powiązaną logikę do własnego hooka, na przykład:
+Oddzielanie niezależnych zmiennych stanu ma także inną zaletę. Pozwala w przyszłości łatwo wyodrębnić powiązaną logikę do własnego hooka, na przykład:
 
 ```js{2,7}
 function Box() {
@@ -312,17 +312,17 @@ function useWindowPosition() {
 }
 ```
 
-Zauważ, jak mogliśmy przenieść wywołanie `useState` dla zmiennej stanu `position` i powiązany z nią efekt do własnego hooka, bez konieczności zmiany jego kodu. Jeżeli cały stan, byłby w pojedynczym obiekcie, wyodrębnienie go byłoby trudniejsze.
+Zauważ, jak mogliśmy przenieść wywołanie `useState` dla zmiennej stanu `position` i powiązany z nią efekt do własnego hooka, bez konieczności zmiany jego kodu. Jeżeli cały stan znajdowałby się w pojedynczym obiekcie, wyodrębnienie go byłoby trudniejsze.
 
-Zarówno umieszczanie całego stanu wewnątrz pojedynczego wywołania `useState`, jak i wywoływanie `useState` dla każdego pola, będzie działać. Komponenty zwykły być najbardziej czytelne, jeżeli odnajdziesz równowagę, pomiędzy tymi dwoma skrajnościami i pogrupujesz powiązany stan na kilka niezależnych zmiennych stanu. Jeżeli logika stanu stanie się zbyt złożona, zalecamy [użyć reduktora](/docs/hooks-reference.html#usereducer) lub skorzystać z własnego hooka.
+Zarówno umieszczanie całego stanu wewnątrz pojedynczego wywołania `useState`, jak i wywoływanie `useState` dla każdego pola, będzie działać. Komponenty będą najbardziej czytelne, jeżeli odnajdziesz równowagę pomiędzy tymi dwoma skrajnościami i pogrupujesz powiązane ze sobą zmienne stany. Jeżeli logika stanu stanie się zbyt złożona, zalecamy [użycie reduktora](/docs/hooks-reference.html#usereducer) lub napisanie własnego hooka.
 
 ### Czy mogę uruchomić efekt tylko podczas aktualizacji? {#can-i-run-an-effect-only-on-updates}
 
-Jest to rzadki przypadek. Jeżeli potrzebujesz, możesz [użyć zmiennej referencji](#is-there-something-like-instance-variables), aby manualnie przechować wartość logiczną, która będzie określać czy jest to pierwszy czy późniejszy render, a następnie sprawdzić tę flagę w efekcie. (Jeżeli okaże się że robisz to często, możesz w tym celu stworzyć własnego hooka.)
+Jest to rzadki przypadek. Jeżeli masz taką potrzebę, możesz [użyć zmiennej referencji](#is-there-something-like-instance-variables), aby przechować wartość logiczną, określającą czy jest to pierwsze, czy kolejne renderowanie, a następnie sprawdzać tę flagę w efekcie. (Jeżeli okaże się, że robisz to często, możesz w tym celu stworzyć własnego hooka.)
 
 ### Jak dostać poprzednie propsy lub stan? {#how-to-get-the-previous-props-or-state}
 
-Aktualnie, musisz zrobić to manualnie, [używająć referencji](#is-there-something-like-instance-variables):
+Na tę chwilę musisz to robić ręcznie [przy pomocy referencji](#is-there-something-like-instance-variables):
 
 ```js{6,8}
 function Counter() {
@@ -338,7 +338,7 @@ function Counter() {
 }
 ```
 
-Może to być trochę zawiłe, ale możesz to wyodrębnić do własnego hooka:
+Może to wydawać się trochę zawiłe, ale wystarczy wyodrębnić tę logikę do osobnego hooka:
 
 ```js{3,7}
 function Counter() {
@@ -356,7 +356,7 @@ function usePrevious(value) {
 }
 ```
 
-Zauważ że, będzie to działać zarówno dla właściwości, stanu i każdej innej wyliczanej wartości.
+Zauważ, że powyższa funkcja zadziała poprawnie dla właściwości, zmiennej stanu oraz każdej innej wyliczanej wartości.
 
 ```js{5}
 function Counter() {
@@ -367,13 +367,13 @@ function Counter() {
   // ...
 ```
 
-Ponieważ jest to powszechny przypadek użycia, bardzo prawdopodobne że w przyszłości, React sam dostarczy implementacje hooka `usePrevious`.
+Ponieważ jest to powszechny przypadek użycia, bardzo prawdopodobne, że w przyszłości React sam będzie dostarczał implementację hooka `usePrevious`.
 
 Spójrz również na [rekomendowany wzorzec dla stanu pochodnego](#how-do-i-implement-getderivedstatefromprops).
 
 ### Dlaczego widzę nieaktualne propsy lub stan wewnątrz mojej funkcji? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
-Każda funkcja wewnątrz komponentu, włączając w to uchwyty zdarzeń i efekty, "widzą" propsy i stan, aktualny na czas rendera, w którym zostały stworzone. Dla przykładu, rozważ poniższy kod:
+Każda funkcja wewnątrz komponentu, włączając w to procedury obsługi zdarzeń i efekty, "widzą" właściwości i stan z chwili renderowania, w którym zostały stworzone. Dla przykładu rozważ poniższy kod:
 
 ```js
 function Example() {
@@ -399,21 +399,21 @@ function Example() {
 }
 ```
 
-Jeżeli najpierw klikniesz "Pokaż okno ostrzegawcze", a następnie zinkrementujesz licznik, okno ostrzegawcze wyświetli watość zmiennej `count` **z momentu kliknięcia na przycisk "Pokaż okno ostrzegawcze"**. Zapobiega to błędom w kodzie, który zakłada że propsy i stan nie zmienią się.
+Jeżeli najpierw klikniesz "Pokaż okno ostrzegawcze", a następnie zwiększysz licznik, okno ostrzegawcze wyświetli wartość zmiennej `count` **z momentu kliknięcia na przycisk "Pokaż okno ostrzegawcze"**. Zapobiega to błędom powodowanym przez kod zakładający, że właściwości i stan nie zmienią się w czasie.
 
-Jeżeli celowo chcesz odczytać *najświeższy* stan z asynchronicznej pętli zwrotnej, możesz go przechowywać, zmieniać i odczytywać korzystając z [referencji](/docs/hooks-faq.html#is-there-something-like-instance-variables).
+Jeżeli celowo chcesz odczytać *najświeższy* stan z wnętrza asynchronicznej funkcji zwrotnej, możesz go przechowywać, zmieniać i odczytywać korzystając z [referencji](/docs/hooks-faq.html#is-there-something-like-instance-variables).
 
-Ostatecznie, inną możliwą przyczyną tego że widzisz nieaktualne propsy lub stan, może być użycie "tablicy zależności" do optymilizacji, ale niepoprawne sprecyzowanie wszystkich zależności. Dla przykładu, jeżeli efekt otrzymuje `[]` jako drugi argument, ale wewnątrz odczytuje `someProp`, efekt będzie stale "widział" początkową wartość `someProp`. Rozwiązaniem jest usunięcie tablicy zależności lub naprawienie jej. Tutaj znajdziesz informacje [jak poradzić sobie z funkcjami](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), a tutaj [inne powszechne sposoby](#what-can-i-do-if-my-effect-dependencies-change-too-often), aby uruchamiać efekt rzadziej i bez niepoprawnego pomijania zależności.
+Ostatecznie, inną możliwą przyczyną tego, że widzisz nieaktualne właściwości lub stan, może być użycie "tablicy zależności" do optymalizacji, ale niepoprawne sprecyzowanie wszystkich zależności. Dla przykładu, jeżeli efekt otrzymuje `[]` jako drugi argument, ale wewnątrz odczytuje `someProp`, efekt będzie stale "widział" początkową wartość `someProp`. Rozwiązaniem jest usunięcie tablicy zależności lub naprawienie jej. Tutaj znajdziesz informacje, [jak poradzić sobie z funkcjami](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), a tutaj [inne powszechne sposoby](#what-can-i-do-if-my-effect-dependencies-change-too-often) na uruchamianie efektów rzadziej i bez błędów w zależnościach.
 
 >Uwaga
 >
->Stworzyliśmy regułę [`wyczerpującą zależności`](https://github.com/facebook/react/issues/14920) dla ESLint, jako część paczki [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Wtyczka ostrzega, gdy zależności są sprecyzowane niepoprawnie i zaleca poprawienie kodu.
+>Stworzyliśmy regułę [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) dla ESLinta i dodaliśmy ją do paczki [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Wtyczka ostrzega, gdy zależności są sprecyzowane niepoprawnie i zaleca poprawienie kodu.
 
 ### Jak zaimplementować `getDerivedStateFromProps`? {#how-do-i-implement-getderivedstatefromprops}
 
-Prawdopodobnie [tego nie potrzebujesz](/blog/2018/06/07/you-probably-dont-need-derived-state.html), w rzadkich przypadkach w których naprawdę będziesz tego potrzebować (na przykład implementacja komponentu `<Transition>`), możesz zaktualizować stan w trakcie renderowania. React uruchomi ponownie komponent z zaktualizowanym stanem natychmiast po pierwszym renderowaniu.
+Prawdopodobnie [tego w ogóle nie potrzebujesz](/blog/2018/06/07/you-probably-dont-need-derived-state.html). W rzadkich przypadkach, w których naprawdę będziesz tego potrzebować (na przykład implementacja komponentu `<Transition>`), możesz zaktualizować stan w trakcie renderowania. React uruchomi ponownie komponent z zaktualizowanym stanem natychmiast po pierwszym renderowaniu, więc nie wpłynie to znacząco na wydajność.
 
-Poniżej, przechowujemy poprzednią wartość propsa `row` w zmiennej stanowej, więc możemy wykonać porównanie:
+W poniższym kodzie przechowujemy poprzednią wartość właściwości `row` w zmiennej stanowej, dzięki czemu możemy wykonać porównanie:
 
 ```js
 function ScrollView({row}) {
@@ -421,7 +421,7 @@ function ScrollView({row}) {
   let [prevRow, setPrevRow] = useState(null);
 
   if (row !== prevRow) {
-    // Wiersz się zmienił od ostatniego renderowania. Zaktualizuj isScrollingDown.
+    // Wiersz zmienił się od ostatniego renderowania. Zaktualizuj isScrollingDown.
     setIsScrollingDown(prevRow !== null && row > prevRow);
     setPrevRow(row);
   }
@@ -430,13 +430,13 @@ function ScrollView({row}) {
 }
 ```
 
-Na pierwszy rzut oka może to wyglądać dziwnie, ale aktualizacja podczas renderowania jest dokładnie tym samym, czym w założeniach  `getDerivedStateFromProps` był od zawsze.
+Na pierwszy rzut oka może to wyglądać dziwnie, ale aktualizacja podczas renderowania jest dokładnie tym samym, czym w założeniu metoda `getDerivedStateFromProps` była od zawsze.
 
 ### Czy istnieje coś takiego jak forceUpdate? {#is-there-something-like-forceupdate}
 
-Zarówno `useState` jak i `useReducer` [wycofują się z aktualizacji](/docs/hooks-reference.html#bailing-out-of-a-state-update), jeżeli kolejna wartość jest taka sama jak poprzednia. Zmiana stanu bez użycia `setState`, a następnie wywołanie `setState` nie spowoduje przerenderowania.
+Zarówno `useState`, jak i `useReducer` [wycofują się z aktualizacji](/docs/hooks-reference.html#bailing-out-of-a-state-update), jeżeli kolejna wartość jest taka sama jak poprzednia. Zmiana stanu bez użycia `setState`, a następnie wywołanie `setState` nie skutkuje ponownym renderowaniem komponentu.
 
-Zazwyczaj, nie powinno się modyfikować lokalnego stanu Reacta. Jednakże, możesz użyć inkrementacji licznika, aby wymusić przerenderowanie, nawet gdy stan się nie zmienił:
+Zazwyczaj nie powinno się modyfikować lokalnego stanu w Reakcie. Możesz jednak inkrementować licznik, aby wymusić ponowne renderowanie, nawet jeśli stan się nie zmienił:
 
 ```js
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -450,11 +450,11 @@ Jeżeli to możliwe, staraj się unikać tego wzorca.
 
 ### Czy mogę stworzyć referencję do komponentu funkcyjnego? {#can-i-make-a-ref-to-a-function-component}
 
-Nie powinno się tego robić zbyt często, jednak możesz odsłonić niektóre imperatywne metody dla komponentu rodzica używając hooka [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
+Nie powinno się tego robić zbyt często, jednak możesz upublicznić niektóre imperatywne metody dla komponentu rodzica używając hooka [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
 
 ### Jak mogę zmierzyć węzeł DOM? {#how-can-i-measure-a-dom-node}
 
-Aby zmierzyć pozycję lub rozmiar węzła DOM, możesz użyć [referencji pętli zwrotnej](/docs/refs-and-the-dom.html#callback-refs). React wywoła pętle zwrotną gdy ref zostanie zaczepiony do innego węzła. Tutaj znajdziesz [przykładowe demo](https://codesandbox.io/s/l7m0v5x4v9):
+Aby zmierzyć pozycję lub rozmiar węzła DOM, możesz użyć [referencji z funkcją zwrotną](/docs/refs-and-the-dom.html#callback-refs). React wywoła funkcję zwrotną, gdy referencja zostanie przypisana do innego węzła. Tutaj znajdziesz [prosty przykład](https://codesandbox.io/s/l7m0v5x4v9):
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -468,27 +468,27 @@ function MeasureExample() {
 
   return (
     <>
-      <h1 ref={measuredRef}>Witaj świecie</h1>
-      <h2>Powyższy nagłówek ma {Math.round(height)}pikseli wysokości</h2>
+      <h1 ref={measuredRef}>Witaj, świecie</h1>
+      <h2>Powyższy nagłówek ma {Math.round(height)} pikseli wysokości</h2>
     </>
   );
 }
 ```
 
-W tym przykładzie nie zdecydowaliśmy się użyć `useRef`, ponieważ obiekt referencji nie powiadamia nas o *zmiannach* jego aktualnej wartości. Użycie referencji pętli zwrotnej działa [nawet gdy komponent dziecka wyświetla mierzony węzeł później](https://codesandbox.io/s/818zzk8m78) (np. w odpowiedzi na przyciśnięcie przycisku), o tym zdarzeniu informowany jest komponent rodzica, który może zaktualizować pomiary.
+W tym przykładzie nie zdecydowaliśmy się użyć `useRef`, ponieważ obiekt referencji nie powiadamia nas o *zmianach* jego aktualnej wartości. Użycie referencji z funkcją zwrotną daje pewność, że [nawet jeśli komponent potomny wyświetli mierzony węzeł później](https://codesandbox.io/s/818zzk8m78) (np. w odpowiedzi na przyciśnięcie przycisku), komponent nadrzędny zostanie o tym powiadomiony i może zaktualizować swój pomiar.
 
-Zuważ że przekazaliśmy `[]`, jako tablice zależności do `useCallback`. Gwartantuje to nam niezmienialność pętli zwrotnej pomiedzy re-renderami, oraz że React nie wywoła jej bez potrzeby.
+Zauważ, że przekazaliśmy `[]` jako tablicę zależności do `useCallback`. Gwarantuje to nam niezmienialność funkcji zwrotnej pomiedzy ponownymi renderowaniami oraz że React nie wywoła jej bez potrzeby.
 
-W razie potrzeby, można [wyodrębnić tę logikę](https://codesandbox.io/s/m5o42082xy) do wielokrotnego użycia w hooku:
+W razie potrzeby można [wyodrębnić tę logikę](https://codesandbox.io/s/m5o42082xy) do osobnego hooka i używać wielokrotnie:
 
 ```js{2}
 function MeasureExample() {
   const [rect, ref] = useClientRect();
   return (
     <>
-      <h1 ref={ref}>Witaj świecie</h1>
+      <h1 ref={ref}>Witaj, świecie</h1>
       {rect !== null &&
-        <h2>Powyższy nagłówek ma {Math.round(rect.height)}pikseli wysokości</h2>
+        <h2>Powyższy nagłówek ma {Math.round(rect.height)} pikseli wysokości</h2>
       }
     </>
   );
