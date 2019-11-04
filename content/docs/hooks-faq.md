@@ -35,7 +35,7 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
   * [Jak mogę pobrać dane wykorzystując hooki?](#how-can-i-do-data-fetching-with-hooks)
   * [Czy istnieje coś podobnego do zmiennych instancji?](#is-there-something-like-instance-variables)
   * [Lepiej używać jednej czy wielu zmiennych stanu?](#should-i-use-one-or-many-state-variables)
-  * [Czy mogę uruchomić efekt tylko podczas aktualizacji?](#can-i-run-an-effect-only-on-updates)
+  * [Czy mogę uruchomić efekt tylko podczas aktualizacji komponentu?](#can-i-run-an-effect-only-on-updates)
   * [Jak dostać poprzednie właściwości lub stan?](#how-to-get-the-previous-props-or-state)
   * [Dlaczego widzę nieaktualne właściwości lub stan wewnątrz mojej funkcji?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
   * [Jak zaimplementować getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
@@ -316,7 +316,7 @@ Zauważ, jak mogliśmy przenieść wywołanie `useState` dla zmiennej stanu `pos
 
 Zarówno umieszczanie całego stanu wewnątrz pojedynczego wywołania `useState`, jak i wywoływanie `useState` dla każdego pola, będzie działać. Komponenty będą najbardziej czytelne, jeżeli odnajdziesz równowagę pomiędzy tymi dwoma skrajnościami i pogrupujesz powiązane ze sobą zmienne stany. Jeżeli logika stanu stanie się zbyt złożona, zalecamy [użycie reduktora](/docs/hooks-reference.html#usereducer) lub napisanie własnego hooka.
 
-### Czy mogę uruchomić efekt tylko podczas aktualizacji? {#can-i-run-an-effect-only-on-updates}
+### Czy mogę uruchomić efekt tylko podczas aktualizacji komponentu? {#can-i-run-an-effect-only-on-updates}
 
 Jest to rzadki przypadek. Jeżeli masz taką potrzebę, możesz [użyć zmiennej referencji](#is-there-something-like-instance-variables), aby przechować wartość logiczną, określającą czy jest to pierwsze, czy kolejne renderowanie, a następnie sprawdzać tę flagę w efekcie. (Jeżeli okaże się, że robisz to często, możesz w tym celu stworzyć własnego hooka.)
 
