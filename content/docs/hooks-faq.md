@@ -530,9 +530,9 @@ Jeżeli nie jesteś zaznajomiony z tą składnią, sprawdź [wyjaśnienie](/docs
 
 Tak. Zapoznaj się z [warunkowym uruchamianiem efektów](/docs/hooks-reference.html#conditionally-firing-an-effect). Pamiętaj jednak, że pomijanie aktualizacji często [prowadzi do błędów](/docs/hooks-effect.html#explanation-why-effects-run-on-each-update), z tego też powodu nie jest to domyślnie działanie.
 
-### Is it safe to omit functions from the list of dependencies? {#is-it-safe-to-omit-functions-from-the-list-of-dependencies}
+### Czy bezpiecznie jest pomijać funkcje w liście zależności? {#is-it-safe-to-omit-functions-from-the-list-of-dependencies}
 
-Generally speaking, no.
+Ogólnie rzecz biorąc, nie.
 
 ```js{3,8}
 function Example({ someProp }) {
@@ -542,11 +542,11 @@ function Example({ someProp }) {
 
   useEffect(() => {
     doSomething();
-  }, []); // 🔴 This is not safe (it calls `doSomething` which uses `someProp`)
+  }, []); // 🔴 Niebezpieczne (wywołuje `doSomething`, które używa `someProp`)
 }
 ```
 
-It's difficult to remember which props or state are used by functions outside of the effect. This is why **usually you'll want to declare functions needed by an effect *inside* of it.** Then it's easy to see what values from the component scope that effect depends on:
+Trudno jest pamiętać, które właściwości lub stan są używane przez funkcje poza efektem. Dlatego też, **zazwyczaj będziesz deklarować funkcje *wewnątrz* efektu.** Dzięki temu, łatwo można zauważyć, od których wartości komponentu zależy efekt:
 
 ```js{4,8}
 function Example({ someProp }) {
@@ -556,31 +556,31 @@ function Example({ someProp }) {
     }
 
     doSomething();
-  }, [someProp]); // ✅ OK (our effect only uses `someProp`)
+  }, [someProp]); // ✅ OK (efekt używa wyłącznie `someProp`)
 }
 ```
 
-If after that we still don't use any values from the component scope, it's safe to specify `[]`:
+Jeżeli po zmianach, efekt nadal nie używa wartości z zakresu komponentu, można bezpiecznie użyć `[]`:
 
 ```js{7}
 useEffect(() => {
   function doSomething() {
-    console.log('hello');
+    console.log('witaj');
   }
 
   doSomething();
-}, []); // ✅ OK in this example because we don't use *any* values from component scope
+}, []); // ✅ OK, ponieważ *żadne* wartości z zakresu komponentu nie są używane wewnątrz efektu
 ```
 
-Depending on your use case, there are a few more options described below.
+W zależności od przypadku użycia, poniżej opisanych jest także kilka dodatkowych opcji.
 
->Note
+>Uwaga
 >
->We provide the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It helps you find components that don't handle updates consistently.
+>Stworzyliśmy regułe [`wyczerpującą-zależności`](https://github.com/facebook/react/issues/14920), jest ona częścią pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Pomaga w znalezniu komponentów, które nie obsługują aktualizacji w konsekwentny sposób.
 
-Let's see why this matters.
+Spójrzmy, dlaczego ma to znaczenie.
 
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values that are used inside the callback and participate in the React data flow. That includes props, state, and anything derived from them.
+Jeżeli sprecyzujesz [listę zależności](/docs/hooks-reference.html#conditionally-firing-an-effect), ostatni argument dla `useEffect`, `useMemo`, `useCallback`, lub `useImperativeHandle`, musi zawierać wszystkie wartości, biorące udział w przepływie danych Reacta. Włączając w to właściwości, stan i wszystkie ich pochodne.
 
 It is **only** safe to omit a function from the dependency list if nothing in it (or the functions called by it) references props, state, or values derived from them. This example has a bug:
 
