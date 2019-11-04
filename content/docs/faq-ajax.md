@@ -1,31 +1,31 @@
 ---
 id: faq-ajax
-title: AJAX and APIs
+title: AJAX i API
 permalink: docs/faq-ajax.html
 layout: docs
 category: FAQ
 ---
 
-### How can I make an AJAX call? {#how-can-i-make-an-ajax-call}
+### Jak mogę wykonać zapytanie AJAX? {#how-can-i-make-an-ajax-call}
 
-You can use any AJAX library you like with React. Some popular ones are [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), and the browser built-in [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+Możesz użyć dowolnej biblioteki AJAX. Do najpopularniejszych wyborów należą: [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/) oraz wbudowane w przeglądarki [window.fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-### Where in the component lifecycle should I make an AJAX call? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
+### W którym momencie cyklu życia komponentu powinno się wykonać zapytanie AJAX? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
 
-You should populate data with AJAX calls in the [`componentDidMount`](/docs/react-component.html#mounting) lifecycle method. This is so you can use `setState` to update your component when the data is retrieved.
+Dane należy uzupełniać z wykorzystaniem zapytań AJAX w metodzie [`componentDidMount`](/docs/react-component.html#mounting). Dzięki temu po pobraniu danych możliwe będzie użycie metody `setState` do zmodyfikowania stanu komponentu.
 
-### Example: Using AJAX results to set local state {#example-using-ajax-results-to-set-local-state}
+### Przykład: Używanie rezultatu zapytania AJAX do ustawienia lokalnego stanu {#example-using-ajax-results-to-set-local-state}
 
-The component below demonstrates how to make an AJAX call in `componentDidMount` to populate local component state. 
+Niniejszy przykład pokazuje, jak wykonując zapytania AJAX w metodzie `componentDidMount` można zmodyfikować stan komponentu.
 
-The example API returns a JSON object like this:
+Nasze przykładowe API zwraca następujący obiekt JSON:
 
 ```
 {
   "items": [
-    { "id": 1, "name": "Apples",  "price": "$2" },
-    { "id": 2, "name": "Peaches", "price": "$5" }
-  ] 
+    { "id": 1, "name": "Jabłka",  "price": "2 zł" },
+    { "id": 2, "name": "Brzoskwinie", "price": "5 zł" }
+  ]
 }
 ```
 
@@ -50,9 +50,9 @@ class MyComponent extends React.Component {
             items: result.items
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+        // Uwaga: to ważne, żeby obsłużyć błędy tutaj, a
+        // nie w bloku catch(), aby nie przetwarzać błędów
+        // mających swoje źródło w komponencie.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -65,9 +65,9 @@ class MyComponent extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <div>Błąd: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div>Ładowanie...</div>;
     } else {
       return (
         <ul>

@@ -1,33 +1,33 @@
 ---
 id: web-components
-title: Web Components
+title: Komponenty sieciowe
 permalink: docs/web-components.html
 redirect_from:
   - "docs/webcomponents.html"
 ---
 
-React and [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) are built to solve different problems.  Web Components provide strong encapsulation for reusable components, while React provides a declarative library that keeps the DOM in sync with your data. The two goals are complementary. As a developer, you are free to use React in your Web Components, or to use Web Components in React, or both.
+React i [komponenty sieciowe](https://developer.mozilla.org/pl/docs/Web/Web_Components) (ang. *Web Components*) zostały stworzone do rozwiązywania różnych problemów. Komponenty sieciowe zapewniają silną enkapsulację w celu wielokrotnego użytku, a React jest deklaratywną biblioteką stworzoną do synchronizacji danych z modelem DOM. Te dwa cele się dopełniają. Jako deweloper możesz wykorzystywać Reacta w swoich komponentach sieciowych lub wykorzystywać komponenty sieciowe w Reakcie.
 
-Most people who use React don't use Web Components, but you may want to, especially if you are using third-party UI components that are written using Web Components.
+Większość osób korzystających z Reacta nie używa komponentów sieciowych, ale ty możesz chcieć to zrobić, zwłaszcza jeśli używasz zewnętrznych komponentów UI napisanych z wykorzystaniem komponentów sieciowych.
 
-## Using Web Components in React {#using-web-components-in-react}
+## Używanie komponentów sieciowych w Reakcie {#using-web-components-in-react}
 
 ```javascript
 class HelloMessage extends React.Component {
   render() {
-    return <div>Hello <x-search>{this.props.name}</x-search>!</div>;
+    return <div>Witaj, <x-search>{this.props.name}</x-search>!</div>;
   }
 }
 ```
 
-> Note:
+> Uwaga:
 >
-> Web Components often expose an imperative API. For instance, a `video` Web Component might expose `play()` and `pause()` functions. To access the imperative APIs of a Web Component, you will need to use a ref to interact with the DOM node directly. If you are using third-party Web Components, the best solution is to write a React component that behaves as a wrapper for your Web Component.
+> Komponenty sieciowe często udostępniają imperatywne API. Na przykład: komponent sieciowy `video` może udostępniać funkcje `play()` i `pause()`. Aby skorzystać z imperatywnego API komponentu sieciowego, możesz potrzebować użyć referencji (`ref`), aby nawiązać bezpośredni kontakt z węzłem drzewa DOM. Jeśli korzystasz z komponentów sieciowych innych osób, najlepszym rozwiązaniem będzie utworzenie reactowego komponentu służącego jako nakładka dla komponentu sieciowego.
 >
-> Events emitted by a Web Component may not properly propagate through a React render tree.
-> You will need to manually attach event handlers to handle these events within your React components.
+> Zdarzenia emitowane przez komponent sieciowy mogą niewłaściwie propagować się przez reactowe drzewo renderowania.
+> Aby obsłużyć te zdarzenia w komponencie reactowym, konieczne może być ręczne dodanie procedur obsługi zdarzeń.
 
-One common confusion is that Web Components use "class" instead of "className".
+Często mylonym aspektem komponentów sieciowych jest to, że korzystają z atrybutu "class", a nie "className".
 
 ```javascript
 function BrickFlipbox() {
@@ -40,7 +40,7 @@ function BrickFlipbox() {
 }
 ```
 
-## Using React in your Web Components {#using-react-in-your-web-components}
+## Używanie Reacta w komponentach sieciowych {#using-react-in-your-web-components}
 
 ```javascript
 class XSearch extends HTMLElement {
@@ -56,7 +56,7 @@ class XSearch extends HTMLElement {
 customElements.define('x-search', XSearch);
 ```
 
->Note:
+> Uwaga:
 >
->This code **will not** work if you transform classes with Babel. See [this issue](https://github.com/w3c/webcomponents/issues/587) for the discussion.
->Include the [custom-elements-es5-adapter](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs) before you load your web components to fix this issue.
+> Ten kod **nie** zadziała, jeśli dokonujesz transformacji klas używając narzędzia Babel. Zobacz [dyskusję](https://github.com/w3c/webcomponents/issues/587) na ten temat, aby dowiedzieć się więcej.
+> Aby rozwiązać ten problem, użyj [custom-elements-es5-adapter](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#custom-elements-es5-adapterjs) przed załadowaniem komponentów sieciowych.

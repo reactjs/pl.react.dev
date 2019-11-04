@@ -7,7 +7,7 @@ permalink: docs/code-splitting.html
 ## Pakowanie {#bundling}
 
 Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak
-[Webpack](https://webpack.js.org/) czy [Browserify](http://browserify.org/).
+[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) czy [Browserify](http://browserify.org/).
 Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik tzw. "bundle" (pol. *paczka*).
 Taka paczka może zostać umieszczona na stronie w celu załadowania całej aplikacji naraz.
 
@@ -63,7 +63,7 @@ będzie się długo ładowała.
 Aby uniknąć problemu zbyt dużego pakietu, warto już na początku o tym pomyśleć 
 i rozpocząć "dzielenie" swojej paczki.
  [Dzielenie kodu](https://webpack.js.org/guides/code-splitting/) to funkcja 
-wspierana przez narzędzia takie jak Webpack oraz Browserify (przez
+wspierana przez narzędzia takie jak [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) oraz Browserify (przez
 [factor-bundle](https://github.com/browserify/factor-bundle)), które mogą tworzyć 
 wiele pakietów doładowywanych dynamicznie w czasie wykonania kodu aplikacji.
 
@@ -118,7 +118,7 @@ składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W t
 > `React.lazy` i `Suspense` nie są jeszcze dostępne dla renderowania po stronie serwera.
 > Jeśli chcesz dzielić kod dla aplikacji renderowanej na serwerze, sugerujemy skorzystać 
 > z pakietu [Loadable Components](https://github.com/smooth-code/loadable-components).  
-> Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
+> Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/).
 
 Funkcja `React.lazy` pozwala renderować dynamicznie importowane komponenty jak zwykłe komponenty.
 
@@ -126,41 +126,21 @@ Funkcja `React.lazy` pozwala renderować dynamicznie importowane komponenty jak 
 
 ```js
 import OtherComponent from './OtherComponent';
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
 **Po:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
-Powyższy kod automatycznie załaduje paczkę zawierającą `OtherComponent` podczas renderowania komponentu.
+Powyższy kod automatycznie załaduje paczkę zawierającą `OtherComponent` podczas pierwszego renderowania komponentu.
 
 `React.lazy` jako argument przyjmuje funkcję, która wywołuje dynamiczny `import()`.
 Musi ona zwrócić obiekt (`Promise`) (pol. *obietnicę*), która rozwiązuje się do modułu z eksportem domyślnym (`default`) zawierającym
 komponent reactowy.
 
-### Zawieszenie (ang. *Suspense*) {#suspense}
-
-Jeśli moduł zawierający `OtherComponent` nie zostanie załadowany przed renderowaniem komponentu
-`MyComponent`, musimy wyświetlić alternatywną zawartość, dopóki trwa ładowanie - na przykład 
-wskaźnik ładowania. Robimy to za pomocą komponentu `Suspense`.
+"Leniwy" komponent powinien zostać wyrenderowany wewnątrz `Suspense`, dzięki któremu na czas ładowania możemy wyświetlić komponent zastępczy (np. wskaźnik ładowania).
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));

@@ -70,13 +70,13 @@ Pierwsze dwa znaczniki wczytają Reacta. Trzeci załaduje kod twojego komponentu
 
 Stwórz plik `like_button.js` w folderze, obok pliku HTML ze stroną.
 
-Otwórz **[szablon startowy](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** i wklej jego zawartość do utworzonego pliku.
+Otwórz **[szablon startowy](https://gist.github/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** i wklej jego zawartość do utworzonego pliku.
 
 >Wskazówka
 >
 >Kod ten definiuje komponent reactowy o nazwie `LikeButton`. Nie przejmuj się, jeśli jeszcze czegoś nie rozumiesz na tym etapie -- podstawy Reacta wyjaśnimy później w naszym [praktycznym samouczku](/tutorial/tutorial.html) i [w rozdziale pt. "Główne idee"](/docs/hello-world.html). Na razie jednak skupmy się na wyświetleniu tego na ekranie!
 
-Pod kodem z **[szablonu startowego](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** w pliku `like_button.js` dodaj dwie linijki:
+Pod kodem z **[szablonu startowego](https://gist.github/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** w pliku `like_button.js` dodaj dwie linijki:
 
 ```js{3,4}
 // ... wklejony kod startowy ...
@@ -196,7 +196,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 
 Nie czekaj na jego zakończenie -- to polecenie uruchamia skrypt automatycznie śledzący zmiany w kodzie ze składnią JSX.
 
-Jeśli utworzysz teraz plik o nazwie `src/like_button.js` przy użyciu **[tego przykładowego kodu JSX](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, obserwator (ang. *watcher*) utworzy przetworzony plik o nazwie `like_button.js` zawierający kod javascriptowy zrozumiały dla przeglądarki. Gdy wyedytujesz plik źródłowy z kodem JSX, transformacja zostanie ponownie uruchomiona automatycznie.
+Jeśli utworzysz teraz plik o nazwie `src/like_button.jsx` przy użyciu **[tego przykładowego kodu JSX](https://gist.github/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.jsx)**, obserwator (ang. *watcher*) utworzy przetworzony plik o nazwie `like_button.js` zawierający kod javascriptowy zrozumiały dla przeglądarki. Gdy wyedytujesz plik źródłowy z kodem JSX, transformacja zostanie ponownie uruchomiona automatycznie.
 
 Dodatkowo umożliwi to również korzystanie z nowych składni JavaScript, takich jak klasy, bez obawy o brak kompatybilności ze starszymi przeglądarkami. Narzędzie, którego właśnie użyliśmy, nazywa się Babel. Więcej na jego temat możesz dowiedzieć się z [dokumentacji](http://babeljs.io/docs/en/babel-cli/).
 

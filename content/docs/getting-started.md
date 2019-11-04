@@ -20,7 +20,7 @@ redirect_from:
 
 Ta podstrona to przegląd dokumentacji Reacta oraz powiązanych zasobów.
 
-**React** to biblioteka JavaScriptowa służąca do budowania interfejsów użytkownika. Dowiedz się, czym tak naprawdę jest React, na naszej [stronie głównej](/) lub [w tutorialu](/tutorial/tutorial.html).
+**React** to javascriptowa biblioteka służąca do budowania interfejsów użytkownika. Dowiedz się, czym tak naprawdę jest React, na naszej [stronie głównej](/) lub [w tutorialu](/tutorial/tutorial.html).
 
 ---
 
@@ -46,7 +46,7 @@ Możesz [dodać Reacta do swojej strony HTML w ciągu minuty](/docs/add-react-to
 
 ### Stwórz nową aplikację reactową {#create-a-new-react-app}
 
-Gdy zaczynasz projekt w Reakcie, [napisanie prostej strony w HTMLu ze script tagami](/docs/add-react-to-a-website.html) może okazać się najlepszą opcją. Zajmie ci to tylko minutę!
+Gdy zaczynasz projekt w Reakcie, najlepiej zacząć od [napisania prostej strony w HTML-u przy użyciu tagów <script>](/docs/add-react-to-a-website.html). Zajmie ci to tylko minutę!
 
 W miarę jak będziesz rozwijać swoją aplikację, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje [kilka JavaScriptowych narzędzi](/docs/create-a-new-react-app.html), które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli ci korzystać z pełni mocy systemu Reacta.
 
@@ -119,7 +119,7 @@ Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje
 
 ## Dokumentacje wersji {#versioned-documentation}
 
-Ta dokumentacja zawsze odzwierciedla najnowszą stabilną wersję Reacta. Począwszy od Reacta w wersji 16, starsze wersje dokumentacji publikowane są [na osobnej podstronie](/versions). Pamiętaj jednak, że dokumentacje do starszych wersji nie są już aktualizowane.
+Ta dokumentacja zawsze odzwierciedla najnowszą stabilną wersję Reacta. Począwszy od Reacta w wersji 16, starsze wersje dokumentacji publikowane są na [osobnej podstronie](/versions). Pamiętaj jednak, że dokumentacje do starszych wersji nie są już aktualizowane.
 
 ## Czegoś brakuje? {#something-missing}
 

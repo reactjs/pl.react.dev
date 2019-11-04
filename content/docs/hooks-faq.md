@@ -64,13 +64,14 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
 Zaczynając od wersji 16.8.0, React zawiera stabilną implementację hooków dla:
 
 * React DOM
+* React Native
 * React DOM Server
 * React Test Renderer
 * React Shallow Renderer
 
 Zauważ, że **aby włączyć hooki, wszystkie paczki Reacta muszą mieć wersję 16.8.0 lub wyższą**. Hooki nie zadziałają, jeżeli zapomnisz zaktualizować, na przykład, React DOM.
 
-React Native wspiera hooki od wersji 0.59.
+[React Native wspiera hooki od wersji 0.59](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059).
 
 ### Czy muszę przepisać wszystkie komponenty klasowe? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -106,7 +107,11 @@ Zazwyczaj właściwości renderujace i komponenty wyższego rzędu renderują ty
 
 Możesz używać tych samych API co do tej pory - będą nadal działać.
 
-W przyszłości nowe wersje tych bibliotek będą mogły również eksportować spersonalizowane hooki, takie jak `useRedux()` czy `useRouter()`, które pozwolą na użycie tych samych funkcjonalności bez potrzeby opakowywania komponentów.
+React Redux od wersji v7.1.0 [posiada wsparcie dla API hooków](https://react-redux.js.org/api/hooks) i udostępnia takie funkcje jak `useDispatch` czy `useSelector`.
+
+React Router [wspiera hooki](https://reacttraining.com/react-router/web/api/Hooks) od wersji 5.1.
+
+W przyszłości być może także inne biblioteki zaczną wspierać hooki.
 
 ### Czy hooki współpracują ze statycznym typowaniem? {#do-hooks-work-with-static-typing}
 
@@ -117,6 +122,10 @@ Co ważne, przy pomocy bardziej restrykcyjnych typów możesz ograniczyć API Re
 ### Jak testować komponenty które używają hooków? {#how-to-test-components-that-use-hooks}
 
 Z punktu widzenia Reacta, komponent wykorzystujący hooki jest zwyczajnym komponentem. Jeżeli twoje rozwiązanie do testów nie opiera się na wewnętrznej implementacji Reacta, to testowanie komponentów, które używają hooków, nie powinno różnić się od tego, co robisz zazwyczaj.
+
+>Uwaga
+>
+>W rozdziale pt. ["Testy: Przykłady i dobre praktyki"](/docs/testing-recipes.html) znajdziesz wiele przykładów gotowych do użycia.
 
 Dla przykładu, załóżmy, że mamy komponent licznika:
 
@@ -181,6 +190,8 @@ Wywołanie funkcji `act()` opróżni bufor efektów znajdujących się wewnątrz
 Jeżeli musisz przetestować własny hook, możesz stworzyć komponent w teście i wywołać ten hook w ciele jego funkcji. Następnie możesz napisać test do stworzonego w ten sposób komponentu.
 
 Aby zmniejszyć powtarzalność kodu, zalecamy użyć biblioteki [`react-testing-library`](https://git.io/react-testing-library). Została ona zaprojektowana tak, aby zachęcać do pisania testów używających komponentów w sposób podobny do zachowania docelowych użytkowników aplikacji.
+
+Po więcej informacji zajrzyj do rozdziału pt. ["Testy: Przykłady i dobre praktyki](/docs/testing-recipes.html).
 
 ### Co dokładnie narzucają [reguły lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks)? {#what-exactly-do-the-lint-rules-enforce}
 
@@ -362,7 +373,7 @@ Zauważ, że powyższa funkcja zadziała poprawnie dla właściwości, zmiennej 
 function Counter() {
   const [count, setCount] = useState(0);
 
-  const calculation = count * 100;
+  const calculation = count + 100;
   const prevCalculation = usePrevious(calculation);
   // ...
 ```
@@ -563,11 +574,11 @@ Depending on your use case, there are a few more options described below.
 
 >Note
 >
->We provide the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It help you find components that don't handle updates consistently.
+>We provide the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It helps you find components that don't handle updates consistently.
 
 Let's see why this matters.
 
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values used inside that participate in the React data flow. That includes props, state, and anything derived from them.  
+If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values used inside that participate in the React data flow. That includes props, state, and anything derived from them.
 
 It is **only** safe to omit a function from the dependency list if nothing in it (or the functions called by it) references props, state, or values derived from them. This example has a bug:
 
@@ -618,7 +629,7 @@ This also allows you to handle out-of-order responses with a local variable insi
       const json = await response.json();
       if (!ignore) setProduct(json);
     }
-    
+
     fetchProduct();
     return () => { ignore = true };
   }, [productId]);
@@ -646,7 +657,7 @@ function ProductPage({ productId }) {
   return <ProductDetails fetchProduct={fetchProduct} />;
 }
 
-function ProductDetails({ fetchProduct })
+function ProductDetails({ fetchProduct }) {
   useEffect(() => {
     fetchProduct();
   }, [fetchProduct]); // ✅ All useEffect dependencies are specified
@@ -677,7 +688,7 @@ function Counter() {
 
 The empty set of dependencies, `[]`, means that the effect will only run once when the component mounts, and not on every re-render. The problem is that inside the `setInterval` callback, the value of `count` does not change, because we've created a closure with the value of `count` set to `0` as it was when the effect callback ran. Every second, this callback then calls `setCount(0 + 1)`, so the count never goes above 1.
 
-Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
+Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimeout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
 
 ```js{6,9}
 function Counter() {
