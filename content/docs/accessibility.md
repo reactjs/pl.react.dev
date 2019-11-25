@@ -495,7 +495,11 @@ Zapoznaj się z następującymi poradnikami opisującymi, jak najlepiej wykorzys
 
 VoiceOver to zintegrowany czytnik ekranu na urządzeniach Apple.
 
+<<<<<<< HEAD
 Zapoznaj się z następującymi przewodnikami dotyczącymi aktywacji i korzystania z VoiceOver:
+=======
+Refer to the following guides on how to activate and use VoiceOver:
+>>>>>>> 99b790188735016c72a9265a42dbfc87c3221729
 
 - [WebAIM - Korzystanie z VoiceOver do oceny dostępności stron internetowych](https://webaim.org/articles/voiceover/)
 - [Deque - VoiceOver dla OS X: Skróty klawiszowe](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)

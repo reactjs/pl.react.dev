@@ -93,6 +93,7 @@ import("./math").then(math => {
 });
 ```
 
+<<<<<<< HEAD
 > Uwaga:
 >
 > Dynamiczny `import()` to [propozycja](https://github.com/tc39/proposal-dynamic-import) 
@@ -103,6 +104,12 @@ Gdy Webpack natknie się na taką składnię, automatycznie zacznie dzielić kod
 Jeśli używasz Create React App, posiadasz już gotową konfigurację i możesz natychmiast
 [zacząć z niej korzystać](https://facebook.github.io/create-react-app/docs/code-splitting).
 Jest ona również obsługiwana domyślnie przez [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+=======
+When Webpack comes across this syntax, it automatically starts code-splitting
+your app. If you're using Create React App, this is already configured for you
+and you can [start using it](https://facebook.github.io/create-react-app/docs/code-splitting) immediately. It's also supported
+out of the box in [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+>>>>>>> 99b790188735016c72a9265a42dbfc87c3221729
 
 Jeśli konfigurujesz Webpacka samodzielnie, zalecamy przeczytać
 [przewodnik po dzieleniu kodu](https://webpack.js.org/guides/code-splitting/). 
