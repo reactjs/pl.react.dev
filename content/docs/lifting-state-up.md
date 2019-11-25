@@ -148,7 +148,7 @@ function tryConvert(temperature, convert) {
 
 Na przykład, `tryConvert('abc', toCelcius)` zwróci pusty ciąg znaków, natomiast `tryConvert('10.22', toFahrenheit)` zwróci `'50.396'`.
 
-## Wynoszenie stanu w góre {#lifting-state-up}
+## Wynoszenie stanu w górę {#lifting-state-up}
 
 Obecnie obydwa komponenty `TemperatureInput` trzymają swoje wartości niezależnie, w lokalnym stanie:
 
