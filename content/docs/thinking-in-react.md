@@ -80,7 +80,7 @@ W Reakcie wyróżniamy dwa modele danych: atrybuty i stan. Bardzo ważne jest zr
 
 ## Krok 3: Określ minimalne (ale kompletne) odwzorowanie stanu interfejsu użytkownika {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-Aby interfejs użytkwnika mógł zawierać elementy interaktywne, musimy mieć możliwość dokonywania zmian w modelu danych, na którym opiera się nasza aplikacja. W Reakcie jest to bardzo łatwe dzięki **stanowi**. 
+Aby interfejs użytkownika mógł zawierać elementy interaktywne, musimy mieć możliwość dokonywania zmian w modelu danych, na którym opiera się nasza aplikacja. W Reakcie jest to bardzo łatwe dzięki **stanowi**. 
 
 Poprawna budowa aplikacji wymaga w pierwszej kolejności określenia minimalnego zmiennego zestawu danych dla stanu aplikacji. Kluczowa jest tutaj reguła [DRY: *Don't Repeat Yourself*](https://pl.wikipedia.org/wiki/DRY) (pol. *Nie powtarzaj się*). Zadecyduj, jak ma wyglądać najprostsze możliwe odwzorowanie stanu aplikacji, a wszystko inne generuj dopiero wtedy, gdy pojawi się taka potrzeba. Przykładowo, jeśli tworzysz aplikację, która ma zarządzać "Listą rzeczy do zrobienia", zachowaj "pod ręką" jedynie tablicę z rzeczami do zrobienia; nie ma potrzeby tworzenia osobnej zmiennej stanu przechowującej liczbę tych rzeczy. Kiedy zachodzi potrzeba wyrenderowania liczby rzeczy do zrobienia, po prostu pobierz długość tablicy.
 
