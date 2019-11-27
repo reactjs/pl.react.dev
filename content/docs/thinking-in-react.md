@@ -94,7 +94,7 @@ Przyjrzyjmy się wszystkim rodzajom informacji w naszej przykładowej aplikacji.
 Aby zdecydować, która z powyższych informacji zalicza się do stanu, w przypadku każdej z nich musimy zadać sobie trzy pytania:
 
   1. Czy informacja ta jest przekazywana za pomocą atrybutu? Jeśli tak, to prawdopodobnie nie wchodzi w skład stanu.
-  2. Czy informacja ta może z czasem ulec zmianom? Jeśli tak, to prawdopodobnie nie wchodzi w skład stanu.
+  2. Czy informacja ta pozostanie niezmienna na przestrzeni czasu? Jeśli tak, to prawdopodobnie nie wchodzi w skład stanu.
   3. Czy informację tę można wygenerować na podstawie innego stanu lub atrybutu w danym komponencie. Jeśli tak, to nie należy zaliczyć jej do stanu.
 
 Początkowa lista produktów jest przekazywana jako atrybut, zatem nie jest stanem. Wyszukiwana fraza i wartość odznaczonego pola wydają się wchodzić w skład stanu, ponieważ mogą ulegać zmianom i nie da się ich w żaden sposób wygenerować. Jeśli chodzi o listę produktów spełniających kryteria wyszukiwania, to nie jest ona stanem, ponieważ może być wygenerowana na podstawie wyszukiwanej frazy i wartości odznaczonego pola.
