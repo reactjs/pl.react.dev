@@ -93,12 +93,6 @@ import("./math").then(math => {
 });
 ```
 
-> Uwaga:
->
-> Dynamiczny `import()` to [propozycja](https://github.com/tc39/proposal-dynamic-import) 
-> dla ECMAScript (JavaScript), która aktualnie nie jest częścią standardu językowego. Oczekuje się jednak,
-> że wkrótce zostanie zaakceptowana.
-
 Gdy Webpack natknie się na taką składnię, automatycznie zacznie dzielić kod w twojej aplikacji.
 Jeśli używasz Create React App, posiadasz już gotową konfigurację i możesz natychmiast
 [zacząć z niej korzystać](https://facebook.github.io/create-react-app/docs/code-splitting).
