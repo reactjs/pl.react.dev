@@ -546,7 +546,7 @@ function Example({ someProp }) {
 }
 ```
 
-Trudno jest pamiętać, które właściwości lub stan są używane przez funkcje poza efektem. Dlatego też, **zazwyczaj będziesz deklarować funkcje *wewnątrz* efektu.** Dzięki temu, łatwo można zauważyć, od których wartości komponentu zależy efekt:
+Trudno jest pamiętać, które właściwości lub stan są używane przez funkcje poza efektem. Dlatego też **zazwyczaj lepiej jest deklarować funkcje *wewnątrz* efektu.** Dzięki temu łatwo można zauważyć, od których wartości komponentu zależy efekt:
 
 ```js{4,8}
 function Example({ someProp }) {
@@ -560,7 +560,7 @@ function Example({ someProp }) {
 }
 ```
 
-Jeżeli po zmianach, efekt nadal nie używa wartości z zakresu komponentu, można bezpiecznie użyć `[]`:
+Jeżeli po zmianach efekt nadal nie używa wartości z zakresu komponentu, można bezpiecznie użyć `[]`:
 
 ```js{7}
 useEffect(() => {
@@ -572,17 +572,17 @@ useEffect(() => {
 }, []); // ✅ OK, ponieważ *żadne* wartości z zakresu komponentu nie są używane wewnątrz efektu
 ```
 
-W zależności od przypadku użycia, poniżej opisanych jest także kilka dodatkowych opcji.
+W zależności od przypadku użycia, istnieje kilka dodatkowych opcji, które opisaliśmy poniżej.
 
 >Uwaga
 >
->Stworzyliśmy regułe [`wyczerpującą-zależności`](https://github.com/facebook/react/issues/14920), jest ona częścią pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Pomaga w znalezniu komponentów, które nie obsługują aktualizacji w konsekwentny sposób.
+>Stworzyliśmy regułę [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) (pol. *wyczerpujące zależności*), będącą częścią pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Pomaga w znalezieniu komponentów, które nie obsługują aktualizacji w konsekwentny sposób.
 
 Spójrzmy, dlaczego ma to znaczenie.
 
-Podczas gdy określasz [tablicę zależności](/docs/hooks-reference.html#conditionally-firing-an-effect), ostatni argument dla `useEffect`, `useMemo`, `useCallback`, lub `useImperativeHandle`, powinien zawierać wszystkie wartości, biorące udział w przepływie danych Reacta. Włączając w to właściwości, stan i wszystkie ich pochodne.
+Kiedy określasz [tablicę zależności](/docs/hooks-reference.html#conditionally-firing-an-effect), ostatni argument dla `useEffect`, `useMemo`, `useCallback`, lub `useImperativeHandle` powinien zawierać wszystkie wartości biorące udział w przepływie danych Reacta. Włączając w to właściwości, stan i wszystkie ich pochodne.
 
-Jedynym **bezpiecznym** przypadkiem pominięcia argumentu w tablicy zależności jest, przekazanie funkcji, która w swoim wnętrzu nie ma odniesień do właściwości, stanu lub wartości z nich dziedziczących. Poniższy przykład zawiera błąd:
+Jedynym **bezpiecznym** przypadkiem pominięcia argumentu w tablicy zależności jest przekazanie funkcji, która w swoim wnętrzu nie ma odniesień do właściwości, stanu lub wartości z nich dziedziczących. Poniższy przykład zawiera błąd:
 
 ```js{5,12}
 function ProductPage({ productId }) {
@@ -596,12 +596,12 @@ function ProductPage({ productId }) {
 
   useEffect(() => {
     fetchProduct();
-  }, []); // 🔴 Błąd ponieważ `fetchProduct` używa `productId`
+  }, []); // 🔴 Błąd, ponieważ `fetchProduct` używa `productId`
   // ...
 }
 ```
 
-**Zalecanym sposobem naprawienia tego, jest przeniesienie funkcji do _wnętrzna_ efektu**. Dzięki temu łatwo możemy dostrzec, stan lub właściwości jakich używa efekt, możemy się wtedy upewnić że wszystkie z nich zostały zadeklarowane:
+**Zalecanym sposobem naprawienia tego, jest przeniesienie funkcji do _wnętrzna_ efektu**. Dzięki temu łatwo możemy dostrzec stan lub właściwości, których używa efekt i upewnić się, że wszystkie z nich zostały zadeklarowane:
 
 ```js{5-10,13}
 function ProductPage({ productId }) {
@@ -616,12 +616,12 @@ function ProductPage({ productId }) {
     }
 
     fetchProduct();
-  }, [productId]); // ✅ Poprawnie, ponieważ efekt używa wyłacznie productId
+  }, [productId]); // ✅ Poprawnie, ponieważ efekt używa wyłącznie productId
   // ...
 }
 ```
 
-Pozwala to również na zapobieganie, niepoprawnym odpowiedziom, stosując zmienną lokalną wewnątrz efektu:
+Pozwala to również na obsłużenie asynchronicznych odpowiedzi stosując zmienną lokalną wewnątrz efektu:
 
 ```js{2,6,10}
   useEffect(() => {
@@ -641,17 +641,17 @@ Przenieśliśmy funkcję do wnętrza efektu, dlatego też nie musi się znajdowa
 
 >Wskazówka
 >
->Aby dowiedzieć się więcej o pobieraniu danych za pomocą Hooków, sprawdź [ten przykład](https://codesandbox.io/s/jvvkoo8pq3) i [ten artykuł](https://www.robinwieruch.de/react-hooks-fetch-data/).
+>Aby dowiedzieć się więcej o pobieraniu danych za pomocą hooków, sprawdź [ten przykład](https://codesandbox.io/s/jvvkoo8pq3) i [ten artykuł](https://www.robinwieruch.de/react-hooks-fetch-data/).
 
-**Jeżeli z jakichś przyczyn, _nie_ możesz przenieść funkcji do wnętrza efektu, istnieje kilka innych opcji:**
+**Jeżeli z jakichś przyczyn _nie_ możesz przenieść funkcji do wnętrza efektu, istnieje kilka innych opcji:**
 
-* **Możesz spróbować przenieść tę funkcję, poza swój komponent**. W tym przypadku, funkcja nie będzie odnosić się do żadnych właściwości czy stanu, dlatego też nie będzie potrzeby dodawania jej do tablicy zależności.
-* Jeżeli funkcja, którą wywołujesz, jest dotyczy czystych kalkulacji i można ją bezpiecznie wywołać podczas renderowania, możesz chcieć **wywołąć ją poza efektem i** uzależnić efekt od zwróconej przez nią wartości.
+* **Możesz spróbować przenieść funkcję poza swój komponent**. W tym przypadku, funkcja nie będzie odnosić się do żadnych właściwości czy stanu, dlatego też nie będzie potrzeby dodawania jej do tablicy zależności.
+* Jeżeli funkcja, którą wywołujesz, wykonuje jedynie obliczenia i można ją bezpiecznie wywołać podczas renderowania, możesz zechcieć **wywołać ją poza efektem ** i uzależnić efekt od zwróconej przez nią wartości.
 * W ostateczności, możesz **dodać funkcję do zależności efektu poprzez _opakowanie jej definicji_**, korzystając z hooka [`useCallback`](/docs/hooks-reference.html#usecallback). Zapewnia to niezmienność podczas renderowania, dopóki nie zmieni się również *jej własna* tablica zależności:
 
 ```js{2-5}
 function ProductPage({ productId }) {
-  // ✅ Opakowanie za pomocą useCallback, aby uniknąć zmian przy każdym renderowaniu to avoid change on every render
+  // ✅ Opakowanie za pomocą useCallback, aby uniknąć zmian przy każdym renderowaniu
   const fetchProduct = useCallback(() => {
     // ... Korzysta z productId ...
   }, [productId]); // ✅ Zdefiniowane zostały wszystkie zależności useCallback
@@ -667,7 +667,7 @@ function ProductDetails({ fetchProduct }) {
 }
 ```
 
-Zauważ że w powyższym przykładzie, **potrzebowaliśmy** przekazać funkcję do tablicy zależności. Dzięki temu, zmiana właściowści `productId` w `ProductPage`, będzie automatycznie uruchamiała ponowne pobranie danych w komponencie `ProductDetails`.
+Zauważ, że w powyższym przykładzie **musieliśmy** przekazać funkcję do tablicy zależności. Dzięki temu zmiana właściwości `productId` w `ProductPage` będzie automatycznie uruchamiała ponowne pobranie danych w komponencie `ProductDetails`.
 
 ### What can I do if my effect dependencies change too often? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
