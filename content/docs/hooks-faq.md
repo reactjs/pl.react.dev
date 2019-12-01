@@ -580,35 +580,35 @@ W zależności od przypadku użycia, poniżej opisanych jest także kilka dodatk
 
 Spójrzmy, dlaczego ma to znaczenie.
 
-Jeżeli sprecyzujesz [listę zależności](/docs/hooks-reference.html#conditionally-firing-an-effect), ostatni argument dla `useEffect`, `useMemo`, `useCallback`, lub `useImperativeHandle`, musi zawierać wszystkie wartości, biorące udział w przepływie danych Reacta. Włączając w to właściwości, stan i wszystkie ich pochodne.
+Podczas gdy określasz [tablicę zależności](/docs/hooks-reference.html#conditionally-firing-an-effect), ostatni argument dla `useEffect`, `useMemo`, `useCallback`, lub `useImperativeHandle`, powinien zawierać wszystkie wartości, biorące udział w przepływie danych Reacta. Włączając w to właściwości, stan i wszystkie ich pochodne.
 
-It is **only** safe to omit a function from the dependency list if nothing in it (or the functions called by it) references props, state, or values derived from them. This example has a bug:
+Jedynym **bezpiecznym** przypadkiem pominięcia argumentu w tablicy zależności jest, przekazanie funkcji, która w swoim wnętrzu nie ma odniesień do właściwości, stanu lub wartości z nich dziedziczących. Poniższy przykład zawiera błąd:
 
 ```js{5,12}
 function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-    const response = await fetch('http://myapi/product/' + productId); // Uses productId prop
+    const response = await fetch('http://myapi/product/' + productId); // Używa właściwości productId
     const json = await response.json();
     setProduct(json);
   }
 
   useEffect(() => {
     fetchProduct();
-  }, []); // 🔴 Invalid because `fetchProduct` uses `productId`
+  }, []); // 🔴 Błąd ponieważ `fetchProduct` używa `productId`
   // ...
 }
 ```
 
-**The recommended fix is to move that function _inside_ of your effect**. That makes it easy to see which props or state your effect uses, and to ensure they're all declared:
+**Zalecanym sposobem naprawienia tego, jest przeniesienie funkcji do _wnętrzna_ efektu**. Dzięki temu łatwo możemy dostrzec, stan lub właściwości jakich używa efekt, możemy się wtedy upewnić że wszystkie z nich zostały zadeklarowane:
 
 ```js{5-10,13}
 function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // By moving this function inside the effect, we can clearly see the values it uses.
+    // Po przeniesienu funkcji do wnętrza efektu, możemy łatwo dostrzec, których wartości używa.
     async function fetchProduct() {
       const response = await fetch('http://myapi/product/' + productId);
       const json = await response.json();
@@ -616,12 +616,12 @@ function ProductPage({ productId }) {
     }
 
     fetchProduct();
-  }, [productId]); // ✅ Valid because our effect only uses productId
+  }, [productId]); // ✅ Poprawnie, ponieważ efekt używa wyłacznie productId
   // ...
 }
 ```
 
-This also allows you to handle out-of-order responses with a local variable inside the effect:
+Pozwala to również na zapobieganie, niepoprawnym odpowiedziom, stosując zmienną lokalną wewnątrz efektu:
 
 ```js{2,6,10}
   useEffect(() => {
@@ -637,24 +637,24 @@ This also allows you to handle out-of-order responses with a local variable insi
   }, [productId]);
 ```
 
-We moved the function inside the effect so it doesn't need to be in its dependency list.
+Przenieśliśmy funkcję do wnętrza efektu, dlatego też nie musi się znajdować w tablicy zależności.
 
->Tip
+>Wskazówka
 >
->Check out [this small demo](https://codesandbox.io/s/jvvkoo8pq3) and [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) to learn more about data fetching with Hooks.
+>Aby dowiedzieć się więcej o pobieraniu danych za pomocą Hooków, sprawdź [ten przykład](https://codesandbox.io/s/jvvkoo8pq3) i [ten artykuł](https://www.robinwieruch.de/react-hooks-fetch-data/).
 
-**If for some reason you _can't_ move a function inside an effect, there are a few more options:**
+**Jeżeli z jakichś przyczyn, _nie_ możesz przenieść funkcji do wnętrza efektu, istnieje kilka innych opcji:**
 
-* **You can try moving that function outside of your component**. In that case, the function is guaranteed to not reference any props or state, and also doesn't need to be in the list of dependencies.
-* If the function you're calling is a pure computation and is safe to call while rendering, you may **call it outside of the effect instead,** and make the effect depend on the returned value.
-* As a last resort, you can **add a function to effect dependencies but _wrap its definition_** into the [`useCallback`](/docs/hooks-reference.html#usecallback) Hook. This ensures it doesn't change on every render unless *its own* dependencies also change:
+* **Możesz spróbować przenieść tę funkcję, poza swój komponent**. W tym przypadku, funkcja nie będzie odnosić się do żadnych właściwości czy stanu, dlatego też nie będzie potrzeby dodawania jej do tablicy zależności.
+* Jeżeli funkcja, którą wywołujesz, jest dotyczy czystych kalkulacji i można ją bezpiecznie wywołać podczas renderowania, możesz chcieć **wywołąć ją poza efektem i** uzależnić efekt od zwróconej przez nią wartości.
+* W ostateczności, możesz **dodać funkcję do zależności efektu poprzez _opakowanie jej definicji_**, korzystając z hooka [`useCallback`](/docs/hooks-reference.html#usecallback). Zapewnia to niezmienność podczas renderowania, dopóki nie zmieni się również *jej własna* tablica zależności:
 
 ```js{2-5}
 function ProductPage({ productId }) {
-  // ✅ Wrap with useCallback to avoid change on every render
+  // ✅ Opakowanie za pomocą useCallback, aby uniknąć zmian przy każdym renderowaniu to avoid change on every render
   const fetchProduct = useCallback(() => {
-    // ... Does something with productId ...
-  }, [productId]); // ✅ All useCallback dependencies are specified
+    // ... Korzysta z productId ...
+  }, [productId]); // ✅ Zdefiniowane zostały wszystkie zależności useCallback
 
   return <ProductDetails fetchProduct={fetchProduct} />;
 }
@@ -662,12 +662,12 @@ function ProductPage({ productId }) {
 function ProductDetails({ fetchProduct }) {
   useEffect(() => {
     fetchProduct();
-  }, [fetchProduct]); // ✅ All useEffect dependencies are specified
+  }, [fetchProduct]); // ✅ Zdefiniowane zostały wszystkie zależności useEffect
   // ...
 }
 ```
 
-Note that in the above example we **need** to keep the function in the dependencies list. This ensures that a change in the `productId` prop of `ProductPage` automatically triggers a refetch in the `ProductDetails` component.
+Zauważ że w powyższym przykładzie, **potrzebowaliśmy** przekazać funkcję do tablicy zależności. Dzięki temu, zmiana właściowści `productId` w `ProductPage`, będzie automatycznie uruchamiała ponowne pobranie danych w komponencie `ProductDetails`.
 
 ### What can I do if my effect dependencies change too often? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
