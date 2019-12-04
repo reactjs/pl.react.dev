@@ -16,13 +16,13 @@ Tak jak zwykły komponent przekształca właściwości (ang. *props*) na fragmen
 
 KWR-y pojawiają się często w zewnętrznych bibliotekach reactowych, np. [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) w Reduksie czy [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) w Relayu.
 
-W tym artykule podejmiemy dyskusję o tym, dlaczego komponenty wyższego rzędu są użyteczne oraz jak napisać własny.
+W tym artykule wyjaśnimy, dlaczego komponenty wyższego rzędu są użyteczne oraz jak napisać własny.
 
 ## Używaj KWR-ów do problemów przekrojowych {#use-hocs-for-cross-cutting-concerns}
 
 > **Uwaga**
 >
-> Poprzednio do rozwiązywania problemów przekrojowych sugerowaliśmy korzystanie z mixinów. Zdaliśmy sobie jednak sprawę, iż wprowadzają one więcej zamieszania niż pożytku. [Przeczytaj ten artykuł](/blog/2016/07/13/mixins-considered-harmful.html), jeśli chcesz dowiedzieć się, dlaczego odeszliśmy od tego wzorca i w jaki sposób dostosować swoje istniejące komponenty.
+> Dawniej do rozwiązywania problemów przekrojowych sugerowaliśmy korzystanie z mixinów. Zdaliśmy sobie jednak sprawę, iż wprowadzają one więcej zamieszania niż pożytku. [Przeczytaj ten artykuł](/blog/2016/07/13/mixins-considered-harmful.html), jeśli chcesz dowiedzieć się, dlaczego odeszliśmy od tego wzorca i w jaki sposób dostosować swoje istniejące komponenty.
 
 Komponenty to podstawowa jednostka wielokrotnie używalnego kodu reactowego. Jednak niektóre wzorce nie pasują idealnie do tradycyjnego zastosowania komponentów.
 
@@ -361,7 +361,7 @@ Można sobie z tym poradzić kopiując metody do kontenera przed jego zwrócenie
 ```js
 function enhance(WrappedComponent) {
   class Enhance extends React.Component {/*...*/}
-  // Musi wiedzieć, jakie metody trzeba skopiować :(
+  // Musimy wiedzieć, jakie metody trzeba skopiować :(
   Enhance.staticMethod = WrappedComponent.staticMethod;
   return Enhance;
 }
