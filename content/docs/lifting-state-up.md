@@ -234,7 +234,7 @@ class TemperatureInput extends React.Component {
 
 Przyjrzyjmy się teraz komponentowi `Calculator`.
 
-Wartości atrybutów obecnego inputa - `temperature` oraz `scale` będziemy przechowywać w stanie lokalnym. Użyjemy stanu, który "wynieśliśmy w górę" z inputów i będzie on nam służył za "źródło prawdy". Zarazem jest to najmniejsza ilość danych, wystarczająca do wyrenderować obydwóch inputów.
+Wartości atrybutów obecnego inputa - `temperature` oraz `scale` będziemy przechowywać w stanie lokalnym. Użyjemy stanu, który "wynieśliśmy w górę" z inputów i będzie on nam służył za "źródło prawdy". Zarazem jest to najmniejsza ilość danych, wystarczająca do wyrenderowania obydwóch inputów.
 
 Na przykład, jeśli do inputa z Celsjuszami wpiszemy `37`, stan komponentu `Calculator` będzie wyglądał następująco:
 
