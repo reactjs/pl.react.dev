@@ -44,7 +44,7 @@ Przypisaliśmy temu znacznikowi `<div>` unikalny atrybut `id`. Pozwoli nam to na
 
 >Wskazówka
 >
->"Kontenery" `<div>` można umieszczać **w dowolnych miejscach** wewnątrz znacznika `<body>`.  Dopuszczlna liczba niezależnych kontenerów na stronie jest nieograniczona.  Zazwyczaj są one puste -- React i tak zastąpi istniejącą zawartość w kontenerze.
+>"Kontenery" `<div>` można umieszczać **w dowolnych miejscach** wewnątrz znacznika `<body>`.  Dopuszczalna liczba niezależnych kontenerów na stronie jest nieograniczona.  Zazwyczaj są one puste -- React i tak zastąpi istniejącą zawartość w kontenerze.
 
 ### Krok 2: Dodaj znaczniki `<script>` {#step-2-add-the-script-tags}
 
