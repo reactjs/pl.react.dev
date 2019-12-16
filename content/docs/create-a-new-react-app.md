@@ -74,9 +74,7 @@ Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają wi
 
 - **[Neutrino](https://neutrinojs.org/)** łączy w sobie siłę [webpacka](https://webpack.js.org/) z prostotą ustawień domyślnych. Zestaw ten zawiera ustawienia domyślne dla [aplikacji reactowych](https://neutrinojs.org/packages/react/) i [komponentów reactowych](https://neutrinojs.org/packages/react-components/).
 
-- **[nwb](https://github.com/insin/nwb)** jest zalecany szczególnie do [publikowania komponentów reactowych na npm](https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#developing-react-components-and-libraries-with-nwb). Może też [być stosowany](https://github.com/insin/nwb/blob/master/docs/guides/ReactApps.md#developing-react-apps-with-nwb) do tworzenia aplikacji w Reakcie.
-
-- **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, [doskonale współgrającym z Reactem](https://parceljs.org/recipes.html#react).
+- **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, [współgrającym z Reactem](https://parceljs.org/recipes.html#react).
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** jest frameworkiem umożliwiającym renderowanie po stronie serwera bez konieczności konfiguracji, ale zarazem dającym większy wybór niż Next.js.
 
