@@ -34,7 +34,7 @@ class SomePlugin extends React.Component {
   }
 
   render() {
-    return <div ref={el => (this.el = el)} />;
+    return <div ref={el => this.el = el} />;
   }
 }
 ```
@@ -76,7 +76,7 @@ class Chosen extends React.Component {
   render() {
     return (
       <div>
-        <select className="Chosen-select" ref={el => (this.el = el)}>
+        <select className="Chosen-select" ref={el => this.el = el}>
           {this.props.children}
         </select>
       </div>
@@ -161,7 +161,7 @@ class Chosen extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.children !== this.props.children) {
-      this.$el.trigger('chosen:updated');
+      this.$el.trigger("chosen:updated");
     }
   }
 
@@ -177,7 +177,7 @@ class Chosen extends React.Component {
   render() {
     return (
       <div>
-        <select className="Chosen-select" ref={el => (this.el = el)}>
+        <select className="Chosen-select" ref={el => this.el = el}>
           {this.props.children}
         </select>
       </div>
@@ -216,11 +216,15 @@ function Button() {
   return <button id="btn">Przywitaj się</button>;
 }
 
-ReactDOM.render(<Button />, document.getElementById('container'), function() {
+ReactDOM.render(
+  <Button />, 
+  document.getElementById('container'), 
+  function() {
   $('#btn').click(function() {
-    alert('Cześć!');
-  });
-});
+      alert('Cześć!');
+    });
+  }
+);
 ```
 
 Od tego momentu możesz zacząć przenosić coraz więcej logiki do samego komponentu i stosować coraz więcej praktyk reactowych. Przykładowo, w komponentach zwykle nie stosuje się identyfikatorów, ponieważ komponenty mogą być renderowane wielokrotnie. Zamiast tego możemy skorzystać z [reactowego systemu zdarzeń](/docs/handling-events.html) i podpiąć detektor zdarzeń bezpośrednio na reactowym elemencie `<button>`:
@@ -237,7 +241,10 @@ function HelloButton() {
   return <Button onClick={handleClick} />;
 }
 
-ReactDOM.render(<HelloButton />, document.getElementById('container'));
+ReactDOM.render(
+  <HelloButton />,
+  document.getElementById('container')
+);
 ```
 
 [**Wypróbuj kod na CodePen**](https://codepen.io/gaearon/pen/RVKbvW?editors=1010)
@@ -264,7 +271,7 @@ const ParagraphView = Backbone.View.extend({
   remove() {
     ReactDOM.unmountComponentAtNode(this.el);
     Backbone.View.prototype.remove.call(this);
-  },
+  }
 });
 ```
 
@@ -388,7 +395,7 @@ function connectToBackboneModel(WrappedComponent) {
       delete propsExceptModel.model;
       return <WrappedComponent {...propsExceptModel} {...this.state} />;
     }
-  };
+  }
 }
 ```
 
@@ -412,11 +419,19 @@ function Example(props) {
     props.model.set('firstName', e.target.value);
   }
 
-  return <BackboneNameInput model={props.model} handleChange={handleChange} />;
+  return (
+    <BackboneNameInput
+      model={props.model}
+      handleChange={handleChange}
+    />
+  );
 }
 
-const model = new Backbone.Model({firstName: 'Staszek'});
-ReactDOM.render(<Example model={model} />, document.getElementById('root'));
+const model = new Backbone.Model({ firstName: 'Staszek' });
+ReactDOM.render(
+  <Example model={model} />,
+  document.getElementById('root')
+);
 ```
 
 [**Wypróbuj kod na CodePen**](https://codepen.io/gaearon/pen/PmWwwa?editors=0010)
