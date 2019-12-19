@@ -18,7 +18,7 @@ Komponenty reactowe ukrywają szczegóły swojej implementacji, w tym także wyr
 Inne komponenty używające `FancyButton` **z reguły nie potrzebują** [mieć dostępu do referencji](/docs/refs-and-the-dom.html) do wewnętrznego elementu `button`.
 Jest to korzystne, gdyż zapobiega sytuacji, w której komponenty są za bardzo uzależnione od struktury drzewa DOM innych komponentów. 
 
-Taka enkapsulacja jest pożądana na poziomie aplikacji, w komponentach takich jak `FeedStory` czy `Comment`. Natomiast może się okazać to niewygodne w przypadku komponentów wielokrotnego użytku, będących "liśćmi" drzewa. Np. `FancyButton` albo `MyTextInput`. Takie komponenty często używane są w wielu miejscach aplikacji w podobny sposób, jak zwyczajne elementy DOM typu `button` i `input`. W wiązku z tym bezpośredni dostęp do ich DOM może okazać się konieczy, aby obsłużyć fokus, zaznaczenie, czy animacje. 
+Taka enkapsulacja jest pożądana na poziomie aplikacji, w komponentach takich jak `FeedStory` czy `Comment`. Natomiast może się okazać to niewygodne w przypadku komponentów wielokrotnego użytku, będących "liśćmi" drzewa. Np. `FancyButton` albo `MyTextInput`. Takie komponenty często używane są w wielu miejscach aplikacji, w podobny sposób jak zwyczajne elementy DOM typu `button` i `input`. W związku z tym, bezpośredni dostęp do ich DOM może okazać się konieczy, aby obsłużyć np. fokus, zaznaczenie czy animacje. 
 
 **Przekazywanie referencji jest opcjonalną funkcjonalnością, która pozwala komponentom wziąć referencję do nich przekazaną i "podać dalej" do swojego dziecka.**
 
