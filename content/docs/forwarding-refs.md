@@ -5,7 +5,7 @@ permalink: docs/forwarding-refs.html
 ---
 
 Przekazywanie referencji (ang. *ref forwarding*) to technika, w której [referencję](/docs/refs-and-the-dom.html)
-do komponentu "podajemy dalej" do jego dziecka. Dla większości komponentów w aplikacji nie jest to potrzebne.
+do komponentu "podajemy dalej" do jego dziecka. Dla większości komponentów w aplikacji nie jest to potrzebne,
 jednak może okazać się przydatne w niektórych przypadkach, zwłaszcza w bibliotekach udostępniających uniwersalne komponenty. 
 Najczęstsze scenariusze opisujemy poniżej.
 
