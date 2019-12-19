@@ -4,7 +4,7 @@ title: Przekazywanie referencji
 permalink: docs/forwarding-refs.html
 ---
 
-Przekazywanie referencji (ang. "Ref forwarding") to technika, w której [referencję](/docs/refs-and-the-dom.html)
+Przekazywanie referencji (ang. *ref forwarding*) to technika, w której [referencję](/docs/refs-and-the-dom.html)
 do komponentu "podajemy dalej" do jego dziecka. Dla większości komponentów w aplikacji nie jest to potrzebne.
 Może jednak okazać się przydatne w niektórych przypadkach. W szczególności w _wielokrotnie używanych_ komponentach bibliotecznych. 
 Najczęstsze scenariusze opisujemy poniżej.
