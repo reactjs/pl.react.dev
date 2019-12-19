@@ -29,7 +29,7 @@ Konteksty zaprojektowano do współdzielenia danych, które można uznać za "gl
 
 `embed:context/motivation-problem.js`
 
-W pomocą kontekstu moglibyśmy uniknąć przekazywania jej na każdym poziomie struktury:
+Z pomocą kontekstu moglibyśmy uniknąć przekazywania jej na każdym poziomie struktury:
 
 `embed:context/motivation-solution.js`
 
