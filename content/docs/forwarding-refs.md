@@ -11,7 +11,7 @@ Najczęstsze scenariusze opisujemy poniżej.
 
 ## Przekazywanie referencji do komponentów DOM {#forwarding-refs-to-dom-components}
 
-Rozważmy `FancyButton` - komponent, który renderuje natywny element DOM - przycisk:
+Rozważmy komponent `FancyButton`, który renderuje natywny element DOM - przycisk:
 `embed:forwarding-refs/fancy-button-simple.js`
 
 Komponenty reactowe ukrywają szczegóły swojej implementacji, w tym także wyrenderowany HTML.
