@@ -459,7 +459,7 @@ Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczon
 >
 >Atrybut `onClick` elementu DOM `<button>` ma dla Reacta specjalne znaczenie, ponieważ jest to wbudowany komponent. W przypadku własnych komponentów, jak `Square`, nazwa tego atrybutu może być dowolna. Moglibyśmy nazwać inaczej zarówno atrybut `onClick` w `Square`, jak i `handleClick` w `Board`, a kod nadal działałby w taki sam sposób. Przyjęło się jednak określać atrybuty odpowiedzialne za wywołanie zdarzenia jako `on[Event]`, a procedury obsługi zdarzeń jako `handle[Event]`.
 
-Jeśli teraz klikniemy na polę planszy, otrzymamy błąd, ponieważ nie zdefiniowaliśmy jeszcze metody `handleClick`. Dodajmy ją zatem:
+Jeśli teraz klikniemy na pole planszy, otrzymamy błąd, ponieważ nie zdefiniowaliśmy jeszcze metody `handleClick`. Dodajmy ją zatem:
 
 ```javascript{9-13}
 class Board extends React.Component {
