@@ -529,7 +529,7 @@ it("powinien umożliwiać zaznacznie", () => {
 
   act(() => {
     container
-      .querySelector("[data-testid=2]")
+      .querySelector("[data-testid='2']")
       .dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 
