@@ -56,11 +56,7 @@ function ActionLink() {
 
 Zmienna `e` to zdarzenie syntetyczne (ang. *synthetic event*). React tworzy zdarzenia tego typu zgodnie ze [specyfikacją W3C](https://www.w3.org/TR/DOM-Level-3-Events/), dzięki czemu nie trzeba martwić się o kompatybilność z przeglądarkami. Po więcej informacji sięgnij do specyfikacji obiektu [`SyntheticEvent`](/docs/events.html).
 
-<<<<<<< HEAD
 W kodzie reactowym nie ma potrzeby dodawania obserwatora zdarzenia (ang. *event listener*) do elementu DOM po jego utworzeniu, poprzez wywoływanie funkcji `addEventListener`. Zamiast tego, wystarczy przekazać go podczas pierwszego renderowania komponentu.
-=======
-When using React, you generally don't need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
->>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
 
 Gdy komponent definiowany jest przy użyciu [klasy ze standardu ES6](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes), często definiuje się procedurę obsługi zdarzenia jako metodę tej klasy. Na przykład, poniższy komponent `Toggle` wyświetli przycisk, który pozwala użytkownikowi przełączać się między stanami "WŁĄCZONY" i "WYŁĄCZONY":
 
@@ -146,11 +142,7 @@ Problem z taką składnią polega na tym, że za każdym razem, gdy `LoggingButt
 
 ## Przekazywanie argumentów do procedur obsługi zdarzeń {#passing-arguments-to-event-handlers}
 
-<<<<<<< HEAD
 Dość często, na przykład w pętli, potrzebujemy przekazać do procedury obsługi zdarzenia dodatkowy parametr. Na przykład, jeśli zmienna `id` zawierałaby identyfikator wiersza w tabeli, można by rozwiązać to na dwa sposoby:
-=======
-Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
->>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Usuń wiersz</button>
