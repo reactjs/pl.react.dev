@@ -181,4 +181,8 @@ Więcej o wyświetlaniu elementów reactowych dowiesz się w następnym rozdzial
 
 >**Wskazówka:**
 >
+<<<<<<< HEAD
 > Polecamy używanie ["Babela" jako definicji języka](http://babeljs.io/docs/editors) w twoim ulubionym edytorze. Pozwoli to na poprawne podświetlanie składni ES6 i JSX. Niniejsza strona używa schematu kolorów [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), który jest z nią kompatybilny.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted. This website uses the [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme) color scheme which is compatible with it.
+>>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
