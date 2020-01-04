@@ -13,7 +13,7 @@ Bardzo często kilka komponentów jednocześnie musi odzwierciedlać te same zmi
 
 W tej części poradnika stworzymy kalkulator, który obliczy nam czy woda będzie się gotować w podanej temperaturze.
 
-Rozpocznijmy od komponentu, który nazwiemy `BoilingVerdict`. Komponent ten przyjmie atrybut z temperaturą o nazwie `celcius`, a następnie zwróci informację, czy temperatura jest wystarczająco wysoka.
+Rozpocznijmy od komponentu, który nazwiemy `BoilingVerdict`. Komponent ten przyjmie atrybut z temperaturą o nazwie `celsius`, a następnie zwróci informację, czy temperatura jest wystarczająco wysoka.
 
 ```js{3,5}
 function BoilingVerdict(props) {
@@ -146,7 +146,7 @@ function tryConvert(temperature, convert) {
 }
 ```
 
-Na przykład, `tryConvert('abc', toCelcius)` zwróci pusty ciąg znaków, natomiast `tryConvert('10.22', toFahrenheit)` zwróci `'50.396'`.
+Na przykład, `tryConvert('abc', toCelsius)` zwróci pusty ciąg znaków, natomiast `tryConvert('10.22', toFahrenheit)` zwróci `'50.396'`.
 
 ## Wynoszenie stanu w górę {#lifting-state-up}
 
@@ -307,7 +307,7 @@ Podsumujmy teraz, co dzieje się, gdy edytujemy jeden z inputów:
 
 * React wywołuje funkcję `onChange` na elemencie DOM `<input>`. W naszym przypadku jest to metoda `handleChange` z komponentu `TemperatureInput`.
 * Metoda `handleChange` w komponencie `TemperatureInput` wywołuje `this.props.onTemperatureChange()` z nową wartością. Atrybuty tego komponentu, takie jak `onTemperatureChange`, pochodzą od rodzica - komponentu `Calculator`.
-* Podczas poprzedniego renderu, komponent `Calculator` określił, że atrybut `onTemperatureChange` przychodzący z komponentu `TemperatureInput` z Celsjuszami, jest wywoływany metodą `handleCelciusChange`, natomiast `onTemperatureChange` z komponentu z Fahrenheitami, jest teraz wywoływany metodą `handleFahrenheitChange`. Dzięki temu, w zależności od tego, który input dostanie nową wartość, jedna z tych metod zostanie wywołana.
+* Podczas poprzedniego renderu, komponent `Calculator` określił, że atrybut `onTemperatureChange` przychodzący z komponentu `TemperatureInput` z Celsjuszami, jest wywoływany metodą `handleCelsiusChange`, natomiast `onTemperatureChange` z komponentu z Fahrenheitami, jest teraz wywoływany metodą `handleFahrenheitChange`. Dzięki temu, w zależności od tego, który input dostanie nową wartość, jedna z tych metod zostanie wywołana.
 * Wewnątrz tych metod komponent `Calculator` prosi Reacta o ponowne wyrenderowanie komponentu poprzez użycie `this.setState()` z nową wartością inputa oraz obecnie używaną skalą.
 * React wywołuje metodę `render` komponentu `Calculator`, by dowiedzieć się, jak powinien wyglądać jego UI. Wartości obu inputów są ponownie obliczane, bazując na aktualnej temperaturze i skali. To w tym miejscu odbywa się konwersja temperatury.
 * React wywołuje metodę `render` poszczególnych komponentów `TemperatureInput`, która otrzymuje nowe atrybuty od komponentu `Calculator`. Dzięki temu dowiaduje się, jak powinien wyglądać komponent.
@@ -322,7 +322,7 @@ Wszelkie dane, które zmieniają się w aplikacji reactowej, powinny mieć swoje
 
 Wynoszenie stanu w górę skutkuje powstaniem większej ilości tzw. kodu szablonowego (ang. *boilerplate code*), niż wiązanie dwukierunkowe (ang. *two-way binding*), jednak pozwala na łatwiejsze znalezienie i wyizolowanie błędów. Ponieważ każdy stan "żyje" w jakimś komponencie i tylko ten komponent może go zmienić, ryzyko powstania błędów jest znacznie mniejsze. Ponadto, można dodać własną logikę, która pozwoli odrzucić lub przekształcić dane wejściowe od użytkownika.
 
-Jeśli jakąś wartość można wydedukować na podstawie zarówno atrybutów, jak i stanu komponentu, to prawdopodobnie nie powinna się ona znaleźć w stanie. Na przykład, zamiast przetrzymywać jednocześnie `celciusValue` i `fahrenheitValue`, przechowujemy jedynie ostatnio edytowane `temperature` oraz `scale`. Wartość drugiego inputa może być przecież wyliczona w metodzie `render()`. Pozwala nam to na czyszczenie lub zaokrąglanie wartości w drugim polu bez utraty dokładności w danych pochodzących od użytkownika.
+Jeśli jakąś wartość można wydedukować na podstawie zarówno atrybutów, jak i stanu komponentu, to prawdopodobnie nie powinna się ona znaleźć w stanie. Na przykład, zamiast przetrzymywać jednocześnie `celsiusValue` i `fahrenheitValue`, przechowujemy jedynie ostatnio edytowane `temperature` oraz `scale`. Wartość drugiego inputa może być przecież wyliczona w metodzie `render()`. Pozwala nam to na czyszczenie lub zaokrąglanie wartości w drugim polu bez utraty dokładności w danych pochodzących od użytkownika.
 
 Jeśli zauważysz nieprawidłowości w interfejsie swojej aplikacji, możesz użyć [Narzędzi deweloperskich dla Reacta](https://github.com/facebook/react/tree/master/packages/react-devtools), aby zbadać atrybuty i przemieszczać się po drzewie, dopóki nie znajdziesz komponentu odpowiedzialnego za zmianę stanu. Pozwoli Ci to znaleźć przyczynę błędów:
 
