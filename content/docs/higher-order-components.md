@@ -60,7 +60,7 @@ class CommentList extends React.Component {
     return (
       <div>
         {this.state.comments.map((comment) => (
-          <Comment comment={comment} key={comment.id} />
+          <Comment comment={comment.text} key={comment.id} />
         ))}
       </div>
     );
