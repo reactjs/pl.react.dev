@@ -46,7 +46,7 @@ npm install eslint-plugin-react-hooks --save-dev
 }
 ```
 
-W przyszłości zamierzamy dołączyć te wtyczkę do Create React App i podobnych narzędzi.
+Wtyczka ta jest instalowana domyślnie w [Create React App](/docs/create-a-new-react-app.html#create-react-app).
 
 **Możesz teraz przejść do następnego rozdziału, gdzie wyjaśniamy, [jak pisać własne hooki](/docs/hooks-custom.html).** W tym rozdziale postaramy się uzasadnić, dlaczego narzucamy takie zasady.
 

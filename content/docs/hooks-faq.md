@@ -428,8 +428,8 @@ W poniższym kodzie przechowujemy poprzednią wartość właściwości `row` w z
 
 ```js
 function ScrollView({row}) {
-  let [isScrollingDown, setIsScrollingDown] = useState(false);
-  let [prevRow, setPrevRow] = useState(null);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [prevRow, setPrevRow] = useState(null);
 
   if (row !== prevRow) {
     // Wiersz zmienił się od ostatniego renderowania. Zaktualizuj isScrollingDown.
@@ -465,7 +465,11 @@ Nie powinno się tego robić zbyt często, jednak możesz upublicznić niektóre
 
 ### Jak mogę zmierzyć węzeł DOM? {#how-can-i-measure-a-dom-node}
 
+<<<<<<< HEAD
 Aby zmierzyć pozycję lub rozmiar węzła DOM, możesz użyć [referencji z funkcją zwrotną](/docs/refs-and-the-dom.html#callback-refs). React wywoła funkcję zwrotną, gdy referencja zostanie przypisana do innego węzła. Tutaj znajdziesz [prosty przykład](https://codesandbox.io/s/l7m0v5x4v9):
+=======
+One rudimentary way to measure the position or size of a DOM node is to use a [callback ref](/docs/refs-and-the-dom.html#callback-refs). React will call that callback whenever the ref gets attached to a different node. Here is a [small demo](https://codesandbox.io/s/l7m0v5x4v9):
+>>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -490,7 +494,13 @@ W tym przykładzie nie zdecydowaliśmy się użyć `useRef`, ponieważ obiekt re
 
 Zauważ, że przekazaliśmy `[]` jako tablicę zależności do `useCallback`. Gwarantuje to nam niezmienialność funkcji zwrotnej pomiedzy ponownymi renderowaniami oraz że React nie wywoła jej bez potrzeby.
 
+<<<<<<< HEAD
 W razie potrzeby można [wyodrębnić tę logikę](https://codesandbox.io/s/m5o42082xy) do osobnego hooka i używać wielokrotnie:
+=======
+In this example, the callback ref will be called only when the component mounts and unmounts, since the rendered `<h1>` component stays present throughout any rerenders. If you want to be notified any time a component resizes, you may want to use [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) or a third-party Hook built on it.
+
+If you want, you can [extract this logic](https://codesandbox.io/s/m5o42082xy) into a reusable Hook:
+>>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ```js{2}
 function MeasureExample() {
@@ -716,7 +726,7 @@ As a last resort, if you want something like `this` in a class, you can [use a r
 ```js{2-6,10-11,16}
 function Example(props) {
   // Keep latest props in a ref.
-  let latestProps = useRef(props);
+  const latestProps = useRef(props);
   useEffect(() => {
     latestProps.current = props;
   });

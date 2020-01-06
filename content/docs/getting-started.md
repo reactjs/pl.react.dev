@@ -48,7 +48,7 @@ Możesz [dodać Reacta do swojej strony HTML w ciągu minuty](/docs/add-react-to
 
 Gdy zaczynasz projekt w Reakcie, najlepiej zacząć od [napisania prostej strony w HTML-u przy użyciu tagów <script>](/docs/add-react-to-a-website.html). Zajmie ci to tylko minutę!
 
-W miarę jak będziesz rozwijać swoją aplikację, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje [kilka JavaScriptowych narzędzi](/docs/create-a-new-react-app.html), które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli ci korzystać z pełni mocy systemu Reacta.
+W miarę jak będziesz rozwijać swoją aplikację, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje kilka JavaScriptowych narzędzi, które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli ci korzystać z pełni mocy systemu Reacta. [Kliknij tutaj, aby dowiedzieć się, jak to zrobić.](/docs/create-a-new-react-app.html)
 
 ## Ucz się Reacta {#learn-react}
 

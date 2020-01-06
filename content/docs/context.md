@@ -130,12 +130,12 @@ Każdy obiekt kontekstu posiada własny komponent dostawcy (ang. *provider*), kt
 
 Wartość przekazana we właściwości `value` będzie trafiała do "konsumentów" (ang. *consumer*) tego kontekstu znajdujących się poniżej w drzewie. Jeden dostawca może być połączony z wieloma konsumentami. Zagnieżdżanie dostawców jeden pod drugim powoduje nadpisanie wartości kontekstu w danym poddrzewie.
 
-Wszyscy konsumenci znajdujący się poniżej dostawcy będą ponownie renderowani przy każdej zmianie właściwości `value`. Propagacja od dostawcy do jego podległych konsumentów nie jest brana pod uwagę przez metodę `shouldComponentUpdate`, a co za tym idzie, konsumenci będą renderowani ponownie nawet jeśli ich przodkowie nie zostali przerenderowani.
+Wszyscy konsumenci znajdujący się poniżej dostawcy będą ponownie renderowani przy każdej zmianie właściwości `value`. Propagacja od dostawcy do jego podległych konsumentów (wliczając w to [`.contextType`](#classcontexttype) i [`useContext`](/docs/hooks-reference.html#usecontext)) nie jest brana pod uwagę przez metodę `shouldComponentUpdate`, a co za tym idzie, konsumenci będą renderowani ponownie nawet jeśli ich przodkowie nie zostali przerenderowani.
 
 Zmiany są wykrywane poprzez porównanie starej i nowej wartości przy użyciu algorytmu podobnego do [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
 
 > Uwaga
-> 
+>
 > Sposób, w jaki wykrywane są zmiany, może powodować problemy przy przekazywaniu do `value` obiektów (zob. ["Zastrzeżenia"](#caveats)).
 
 ### `Class.contextType` {#classcontexttype}
@@ -192,9 +192,9 @@ class MyClass extends React.Component {
 Komponent reactowy, który subskrybuje się na zmiany w kontekście. Pozwala na nasłuchiwanie zmian z wnętrza [komponentu funkcyjnego](/docs/components-and-props.html#function-and-class-components).
 
 Jego [potomkiem musi być funkcja](/docs/render-props.html#using-props-other-than-render). Funkcja ta otrzymuje aktualną wartość z kontekstu i zwraca węzeł reactowy. Argument `value` przekazany do tej funkcji będzie równy właściwości `value` najbliższego dostawcy tego kontekstu powyżej w drzewie. Jeśli ponad komponentem nie ma żadnego dostawcy, zostanie użyta wartość `defaultValue` przekazana do `createContext()`.
-
+ 
 > Uwaga
-> 
+>
 > Aby dowiedzieć się więcej na temat wzorca "funkcji przekazanej jako potomek", zajrzyj do rozdziału o [właściwościach renderujących](/docs/render-props.html).
 
 ### `Context.displayName` {#contextdisplayname}
@@ -260,6 +260,6 @@ Aby temu zapobiec, wystarczy przenieść tę wartość do stanu rodzica:
 ## Przestarzały interfejs API {#legacy-api}
 
 > Uwaga
-> 
+>
 > React poprzednio był wyposażony w eksperymentalny interfejs API dla kontekstów. Mimo iż jest on przestarzały, będzie wspierany we wszystkich wersjach 16.x, jednak aplikacje powinny dążyć do migracji na nową wersję. Przestarzały interfejs zostanie usunięty w kolejnej głównej wersji Reacta. Aby dowiedzieć się więcej na ten temat, [przeczytaj dokumentację przestarzałego kontekstu](/docs/legacy-context.html).
  
