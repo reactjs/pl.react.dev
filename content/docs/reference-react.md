@@ -104,11 +104,7 @@ Lista metod i właściwości związanych z klasą `React.Component` znajduje si�
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-<<<<<<< HEAD
 Klasa `React.PureComponent` jest podobna do [`React.Component`](#reactcomponent). Różnica między nimi jest taka, że [`React.Component`](#reactcomponent) nie posiada implementacji metody [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), natomiast `React.PureComponent` implementuje ją z użyciem płytkiego porównania właściwości (*ang. props*) i stanu.
-=======
-`React.PureComponent` is similar to [`React.Component`](#reactcomponent). The difference between them is that [`React.Component`](#reactcomponent) doesn't implement [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), but `React.PureComponent` implements it with a shallow prop and state comparison.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 Jeśli metoda `render()` danego komponentu wyświetla ten sam rezultat przy tych samych właściwościach i stanie, możesz przekształcić go na `React.PureComponent`, by poprawić wydajność.
 
@@ -132,13 +128,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Jeśli twój komponent funkcyjny przy takich samych właściwościach zawsze renderuje tę samą strukturę, możesz opakować go w `React.memo` w celu poprawy wydajności. Oznacza to, że React pominie renderowanie tego komponentu i użyje jego ostatnio wyrenderowanej wersji.
 
-<<<<<<< HEAD
-Domyślnie, komponent wykona jedynie płytkie porównanie obiektów przekazanych we właściwościach. Jeśli chcesz zastosować własny mechanizm porównujący, możesz przekazać odpowiednią funkcję jako drugi argument.
-=======
-`React.memo` only affects props changes. If your function component wrapped in `React.memo` has a [`useState`](/docs/hooks-state.html) or [`useContext`](/docs/hooks-reference.html#usecontext) Hook in its implementation, it will still rerender when state or context change.
+`React.memo` ma wpływ tylko na zmiany we właściwościach. Jeśli twój komponent funkcyjny opakowany w `React.memo` używa hooków [`useState`](/docs/hooks-state.html) lub [`useContext`](/docs/hooks-reference.html#usecontext), nadal będzie się aktualizował przy zmianie stanu komponentu lub kontekstu.
 
-By default it will only shallowly compare complex objects in the props object. If you want control over the comparison, you can also provide a custom comparison function as the second argument.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+Domyślnie, komponent wykona jedynie płytkie porównanie obiektów przekazanych we właściwościach. Jeśli chcesz zastosować własny mechanizm porównujący, możesz przekazać odpowiednią funkcję jako drugi argument.
 
 ```javascript
 function MyComponent(props) {

@@ -69,13 +69,9 @@ function Counter({initialCount}) {
 
 Przyciski „+” i „-” wykorzystują formę funkcyjną, ponieważ zaktualizowana wartość bazuje na poprzedniej. Z kolei przycisk „Zresetuj” używa normalnej formy, ponieważ zawsze przywraca początkową wartość.
 
-<<<<<<< HEAD
-> Uwaga
-=======
-If your update function returns the exact same value, the subsequent rerender will be skipped completely.
+Jeśli twoja funkcja aktualizująca zwróci wartość identyczną jak aktualna, nie spowoduje to ponownego wyrenderowania.
 
-> Note
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+> Uwaga
 >
 > W przeciwieństwie do metody `setState` znanej z komponentów klasowych, funkcja `useState` nie scala automatycznie obiektów reprezentujących aktualizację. Możesz powielić to zachowanie, łącząc formę aktualizacji funkcyjnej ze składnią operatora rozszczepienia (ang. *spread operator*) obiektu:
 >

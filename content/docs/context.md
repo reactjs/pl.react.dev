@@ -106,11 +106,7 @@ function Page(props) {
 
 Takie podejście jest wystarczające w większości przypadków, gdy pojawia się konieczność oddzielenia potomka od jego bezpośrednich przodków. Można pójść jeszcze o krok dalej i skorzystać z wzorca [właściwości renderujących (ang. *render props*)](/docs/render-props.html), jeśli chcemy, by potomek przed wyrenderowaniem mógł skomunikować się z rodzicem.
 
-<<<<<<< HEAD
 Czasami jednak te same dane muszą być dostępne dla wielu komponentów w drzewie, na wielu różnych poziomach struktury. Konteksty pozwalają na "rozgłoszenie" (ang. *broadcast*) zarówno samych danych, jak i wszelkich ich modyfikacji, do komponentów znajdujących się poniżej w hierarchii. Używanie kontekstów, zamiast pozostałych wzorców, zwykle sprawdza się przy zarządzaniu aktualnym językiem lub motywem, a także przy przechowywaniu danych we wspólnej pamięci podręcznej.
-=======
-However, sometimes the same data needs to be accessible by many components in the tree, and at different nesting levels. Context lets you "broadcast" such data, and changes to it, to all components below. Common examples where using context might be simpler than the alternatives include managing the current locale, theme, or a data cache.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ## Interfejs API {#api}
 
@@ -134,23 +130,13 @@ Każdy obiekt kontekstu posiada własny komponent dostawcy (ang. *provider*), kt
 
 Wartość przekazana we właściwości `value` będzie trafiała do "konsumentów" (ang. *consumer*) tego kontekstu znajdujących się poniżej w drzewie. Jeden dostawca może być połączony z wieloma konsumentami. Zagnieżdżanie dostawców jeden pod drugim powoduje nadpisanie wartości kontekstu w danym poddrzewie.
 
-<<<<<<< HEAD
-Wszyscy konsumenci znajdujący się poniżej dostawcy będą ponownie renderowani przy każdej zmianie właściwości `value`. Propagacja od dostawcy do jego podległych konsumentów nie jest brana pod uwagę przez metodę `shouldComponentUpdate`, a co za tym idzie, konsumenci będą renderowani ponownie nawet jeśli ich przodkowie nie zostali przerenderowani.
+Wszyscy konsumenci znajdujący się poniżej dostawcy będą ponownie renderowani przy każdej zmianie właściwości `value`. Propagacja od dostawcy do jego podległych konsumentów (wliczając w to [`.contextType`](#classcontexttype) i [`useContext`](/docs/hooks-reference.html#usecontext)) nie jest brana pod uwagę przez metodę `shouldComponentUpdate`, a co za tym idzie, konsumenci będą renderowani ponownie nawet jeśli ich przodkowie nie zostali przerenderowani.
 
 Zmiany są wykrywane poprzez porównanie starej i nowej wartości przy użyciu algorytmu podobnego do [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
 
 > Uwaga
-> 
-> Sposób, w jaki wykrywane są zmiany, może powodować problemy przy przekazywaniu do `value` obiektów (zob. ["Zastrzeżenia"](#caveats)).
-=======
-All consumers that are descendants of a Provider will re-render whenever the Provider's `value` prop changes. The propagation from Provider to its descendant consumers (including [`.contextType`](#classcontexttype) and [`useContext`](/docs/hooks-reference.html#usecontext)) is not subject to the `shouldComponentUpdate` method, so the consumer is updated even when an ancestor component skips an update.
-
-Changes are determined by comparing the new and old values using the same algorithm as [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
-
-> Note
 >
-> The way changes are determined can cause some issues when passing objects as `value`: see [Caveats](#caveats).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+> Sposób, w jaki wykrywane są zmiany, może powodować problemy przy przekazywaniu do `value` obiektów (zob. ["Zastrzeżenia"](#caveats)).
 
 ### `Class.contextType` {#classcontexttype}
 
@@ -206,16 +192,10 @@ class MyClass extends React.Component {
 Komponent reactowy, który subskrybuje się na zmiany w kontekście. Pozwala na nasłuchiwanie zmian z wnętrza [komponentu funkcyjnego](/docs/components-and-props.html#function-and-class-components).
 
 Jego [potomkiem musi być funkcja](/docs/render-props.html#using-props-other-than-render). Funkcja ta otrzymuje aktualną wartość z kontekstu i zwraca węzeł reactowy. Argument `value` przekazany do tej funkcji będzie równy właściwości `value` najbliższego dostawcy tego kontekstu powyżej w drzewie. Jeśli ponad komponentem nie ma żadnego dostawcy, zostanie użyta wartość `defaultValue` przekazana do `createContext()`.
-
-<<<<<<< HEAD
+ 
 > Uwaga
-> 
-> Aby dowiedzieć się więcej na temat wzorca "funkcji przekazanej jako potomek", zajrzyj do rozdziału o [właściwościach renderujących](/docs/render-props.html).
-=======
-> Note
 >
-> For more information about the 'function as a child' pattern, see [render props](/docs/render-props.html).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+> Aby dowiedzieć się więcej na temat wzorca "funkcji przekazanej jako potomek", zajrzyj do rozdziału o [właściwościach renderujących](/docs/render-props.html).
 
 ### `Context.displayName` {#contextdisplayname}
 
@@ -261,11 +241,7 @@ Często pojawia się potrzeba zaktualizowania kontekstu z komponentu znajdujące
 
 ### Odczyt z kilku kontekstów jednocześnie {#consuming-multiple-contexts}
 
-<<<<<<< HEAD
 Aby zapewnić szybkość ponownego renderowania kontekstu, React musi stworzyć w drzewie osobny węzeł dla każdego konsumenta. 
-=======
-To keep context re-rendering fast, React needs to make each context consumer a separate node in the tree.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 `embed:context/multiple-contexts.js`
 
@@ -283,14 +259,7 @@ Aby temu zapobiec, wystarczy przenieść tę wartość do stanu rodzica:
 
 ## Przestarzały interfejs API {#legacy-api}
 
-<<<<<<< HEAD
 > Uwaga
-> 
+>
 > React poprzednio był wyposażony w eksperymentalny interfejs API dla kontekstów. Mimo iż jest on przestarzały, będzie wspierany we wszystkich wersjach 16.x, jednak aplikacje powinny dążyć do migracji na nową wersję. Przestarzały interfejs zostanie usunięty w kolejnej głównej wersji Reacta. Aby dowiedzieć się więcej na ten temat, [przeczytaj dokumentację przestarzałego kontekstu](/docs/legacy-context.html).
  
-=======
-> Note
->
-> React previously shipped with an experimental context API. The old API will be supported in all 16.x releases, but applications using it should migrate to the new version. The legacy API will be removed in a future major React version. Read the [legacy context docs here](/docs/legacy-context.html).
-
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
