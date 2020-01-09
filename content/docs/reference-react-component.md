@@ -510,7 +510,7 @@ Myśl o metodzie `setState()` bardziej jako o *prośbie* niż o natychmiastowym 
 
 Metoda `setState()` nie zawsze od razu aktualizuje komponent. Może ona złączyć lub odłożyć aktualizację na później. Sprawia to, że odczytywanie `this.state` zaraz po wywołaniu `setState()` jest potencjalną pułapką. Zamiast tego, użyj metody `componentDidUpdate` lub funkcji zwrotnej (ang. *callback*) `setState` (`setState(updater, callback)`), które są wywoływane po zastosowaniu aktualizacji. Jeśli potrzebujesz zmienić stan w oparciu o poprzedni stan, zapoznaj się z poniższym argumentem `updater`.
 
-`setState()` zawsze prowadzi do ponownego zrenderowanie, jeśli `shouldComponentUpdate()` zwróci `false`. Jeśli używane są zmienne obiekty lub warunkowa logika renderowania nie może być zaimplementowana w metodzie `shouldComponentUpdate()`, niepotrzebnego ponownego renderowania można uniknąć wywołując `setState()` tylko, kiedy nowy stan różni się od poprzedniego.
+`setState()` zawsze powoduje ponowne renderowanie komponentu, chyba że `shouldComponentUpdate()` zwróci `false`. Jeśli przechowujemy mutowalne obiekty, a logiki decydującej o potrzebie ponownego renderowania nie da się zawrzeć w metodzie `shouldComponentUpdate()`, możemy uniknąć zbędnego renderowania wywołując `setState()` tylko wtedy, gdy nowy stan różni się od poprzedniego.
 
 Pierwszym argumentem jest funkcja `updater` posiadająca poniższą sygnaturę:
 
