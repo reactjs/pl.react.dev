@@ -1,14 +1,14 @@
 ---
 id: uncontrolled-components
-title: Uncontrolled Components
+title: Komponenty niekontrolowane
 permalink: docs/uncontrolled-components.html
 ---
 
-In most cases, we recommend using [controlled components](/docs/forms.html#controlled-components) to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
+W większości przypadków zalecamy stosowanie [komponentów kontrolowanych](/docs/forms.html#controlled-components) do implementacji formularzy. W komponencie kontrolowanym, dane formularza są obsługiwane przez komponent reactowy. Alternatywą są komponenty niekontrolowane, w których dane formularza są obsługiwane przez sam DOM.
 
-To write an uncontrolled component, instead of writing an event handler for every state update, you can [use a ref](/docs/refs-and-the-dom.html) to get form values from the DOM.
+Aby stworzyć komponent niekontrolowany, zamiast pisać funkcję obsługującą każdą zmianę stanu, możesz [użyć polecenia ref](/docs/refs-and-the-dom.html), aby uzyskać wartości formularza z DOM.
 
-For example, this code accepts a single name in an uncontrolled component:
+Na przykład, ten kod akceptuje pojedynczą nazwę w komponencie niekontrolowanym:
 
 ```javascript{5,9,18}
 class NameForm extends React.Component {
@@ -19,7 +19,7 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.input.current.value);
+    alert('Podano następujące imię: ' + this.input.current.value);
     event.preventDefault();
   }
 
@@ -27,10 +27,10 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          Imię:
           <input type="text" ref={this.input} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Wyślij" />
       </form>
     );
   }
@@ -39,46 +39,80 @@ class NameForm extends React.Component {
 
 [**Try it on CodePen**](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
 
-Since an uncontrolled component keeps the source of truth in the DOM, it is sometimes easier to integrate React and non-React code when using uncontrolled components. It can also be slightly less code if you want to be quick and dirty. Otherwise, you should usually use controlled components.
+Ponieważ komponent niekontrolowany zachowuje źródło prawdy w DOM, czasami łatwiej jest zintegrować kod reactowy z kodem niereactowym, gdy używa się komponentów niekontrolowanych. Dzięki temu może pojawić się również nieco mniej kodu, jeśli chcesz podejść do tematu z grubsza. W przeciwnym razie zwykle powinieneś używać komponentów kontrolowanych.
 
-If it's still not clear which type of component you should use for a particular situation, you might find [this article on controlled versus uncontrolled inputs](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) to be helpful.
+Jeśli nadal nie jest jasne, jakiego rodzaju komponentu należy użyć w konkretnej sytuacji, pomocny może okazać się [ten artykuł o kontrolowanych i niekontrolowanych danych wejściowych](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/).
 
-### Default Values {#default-values}
+### Wartości domyślne {#default-values}
 
-In the React rendering lifecycle, the `value` attribute on form elements will override the value in the DOM. With an uncontrolled component, you often want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a `defaultValue` attribute instead of `value`.
+W reactowym cyklu życia renderowania wartość atrybutu `value` przypisanego do elementów formularza zastąpi wartość w DOM. W przypadku komponentu niekontrolowanego często chcesz, aby React określił wartość początkową, ale kolejne aktualizacje pozostają niekontrolowane. Aby obsłużyć ten przypadek, zamiast atrybutu `value` można podać atrybut `defaultValue`.
 
 ```javascript{7}
 render() {
   return (
     <form onSubmit={this.handleSubmit}>
       <label>
-        Name:
+        Imię:
         <input
           defaultValue="Bob"
           type="text"
           ref={this.input} />
       </label>
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Wyślij" />
     </form>
   );
 }
 ```
 
-Likewise, `<input type="checkbox">` and `<input type="radio">` support `defaultChecked`, and `<select>` and `<textarea>` supports `defaultValue`.
+Podobnie, `<input type="checkbox">` i `<input type="radio">` obsługują `defaultChecked`, a `<select>` i `<textarea>` obsługują `defaultValue`.
 
-## The file input Tag {#the-file-input-tag}
+## Znacznik `input` dla plików {#the-file-input-tag}
 
-In HTML, an `<input type="file">` lets the user choose one or more files from their device storage to be uploaded to a server or manipulated by JavaScript via the [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
+W HTML `<input type="file">` pozwala użytkownikowi wybrać jeden lub więcej plików z pamięci urządzenia, które mają zostać przesłane na serwer lub obsłużone przez JavaScript przez [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
 
 ```html
 <input type="file" />
 ```
 
-In React, an `<input type="file" />` is always an uncontrolled component because its value can only be set by a user, and not programmatically.
+W Reakcie `<input type="file" />` jest zawsze komponentem niekontrolowanym, ponieważ jego wartość może ustawić tylko użytkownik - nie można jej ustawić programowo.
 
-You should use the File API to interact with the files. The following example shows how to create a [ref to the DOM node](/docs/refs-and-the-dom.html) to access file(s) in a submit handler:
+Do interakcji z plikami należy używać interfejsu File API. Poniższy przykład pokazuje, jak utworzyć [odwołanie do węzła DOM](/docs/refs-and-the-dom.html), aby uzyskać dostęp do plików za pomocą procedury obsługi wysłania formularza:
 
-`embed:uncontrolled-components/input-type-file.js`
+```javascript{5,9,18}
+class FileInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileInput = React.createRef();
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    alert(
+      `Wybrany plik - ${
+        this.fileInput.current.files[0].name
+      }`
+    );
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Prześlij plik:
+          <input type="file" ref={this.fileInput} />
+        </label>
+        <br />
+        <button type="submit">Wyślij</button>
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(
+  <FileInput />,
+  document.getElementById('root')
+);
+```
 
 [](codepen://uncontrolled-components/input-type-file)
 
