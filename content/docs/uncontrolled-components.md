@@ -68,7 +68,7 @@ Podobnie, `<input type="checkbox">` i `<input type="radio">` obsługują `defaul
 
 ## Znacznik `input` dla plików {#the-file-input-tag}
 
-W HTML `<input type="file">` pozwala użytkownikowi wybrać jeden lub więcej plików z pamięci urządzenia, które mają zostać przesłane na serwer lub obsłużone przez JavaScript przez [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
+W HTML-u `<input type="file">` pozwala użytkownikowi wybrać z pamięci urządzenia jeden lub więcej plików, które mają zostać przesłane na serwer lub obsłużone przez JavaScript za pomocą [interfejsu File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
 
 ```html
 <input type="file" />
