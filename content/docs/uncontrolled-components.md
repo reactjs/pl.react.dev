@@ -64,7 +64,7 @@ render() {
 }
 ```
 
-Podobnie, `<input type="checkbox">` i `<input type="radio">` obsługują `defaultChecked`, a `<select>` i `<textarea>` obsługują `defaultValue`.
+Podobnie `<input type="checkbox">` i `<input type="radio">` obsługują atrybut `defaultChecked`, a `<select>` i `<textarea>` obsługują `defaultValue`.
 
 ## Znacznik `input` dla plików {#the-file-input-tag}
 
