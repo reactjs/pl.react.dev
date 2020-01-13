@@ -78,41 +78,7 @@ W Reakcie `<input type="file" />` jest zawsze komponentem niekontrolowanym, poni
 
 Do interakcji z plikami należy używać interfejsu File API. Poniższy przykład pokazuje, jak utworzyć [odwołanie do węzła DOM](/docs/refs-and-the-dom.html), aby uzyskać dostęp do plików za pomocą procedury obsługi wysłania formularza:
 
-```javascript{5,9,18}
-class FileInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.fileInput = React.createRef();
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    alert(
-      `Wybrany plik - ${
-        this.fileInput.current.files[0].name
-      }`
-    );
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Prześlij plik:
-          <input type="file" ref={this.fileInput} />
-        </label>
-        <br />
-        <button type="submit">Wyślij</button>
-      </form>
-    );
-  }
-}
-
-ReactDOM.render(
-  <FileInput />,
-  document.getElementById('root')
-);
-```
+`embed:uncontrolled-components/input-type-file.js`
 
 [](codepen://uncontrolled-components/input-type-file)
 
