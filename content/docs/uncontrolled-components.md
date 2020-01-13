@@ -45,7 +45,7 @@ Jeśli nadal nie jest jasne, jakiego rodzaju komponentu należy użyć w konkret
 
 ### Wartości domyślne {#default-values}
 
-W reactowym cyklu życia renderowania wartość atrybutu `value` przypisanego do elementów formularza zastąpi wartość w DOM. W przypadku komponentu niekontrolowanego często chcesz, aby React określił wartość początkową, ale kolejne aktualizacje pozostają niekontrolowane. Aby obsłużyć ten przypadek, zamiast atrybutu `value` można podać atrybut `defaultValue`.
+W reactowym cyklu życia renderowania, wartość atrybutu `value` przypisanego do elementów formularza zastąpi wartość w DOM. W przypadku komponentu niekontrolowanego często zależy nam, aby to React określił wartość początkową, ale by kolejne aktualizacje pozostały niekontrolowane. Aby obsłużyć ten przypadek, zamiast atrybutu `value` można podać atrybut `defaultValue`.
 
 ```javascript{7}
 render() {
