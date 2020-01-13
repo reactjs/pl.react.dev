@@ -41,7 +41,7 @@ class NameForm extends React.Component {
 
 Ponieważ komponent niekontrolowany zachowuje źródło prawdy w DOM, czasami łatwiej jest zintegrować kod reactowy z kodem niereactowym, gdy używa się komponentów niekontrolowanych. Dzięki temu może pojawić się również nieco mniej kodu, jeśli chcesz podejść do tematu z grubsza. W przeciwnym razie zwykle powinieneś używać komponentów kontrolowanych.
 
-Jeśli nadal nie jest jasne, jakiego rodzaju komponentu należy użyć w konkretnej sytuacji, pomocny może okazać się [ten artykuł o kontrolowanych i niekontrolowanych danych wejściowych](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/).
+Jeśli nadal nie jest jasne, jakiego rodzaju komponentu należy użyć w konkretnej sytuacji, pomocny może okazać się [ten artykuł o kontrolowanych i niekontrolowanych polach formularza](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/).
 
 ### Wartości domyślne {#default-values}
 
