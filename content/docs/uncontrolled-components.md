@@ -37,7 +37,7 @@ class NameForm extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
+[**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
 
 Ponieważ komponent niekontrolowany zachowuje źródło prawdy w DOM, czasami łatwiej jest zintegrować kod reactowy z kodem niereactowym, gdy używa się komponentów niekontrolowanych. Dzięki temu może pojawić się również nieco mniej kodu, jeśli chcesz podejść do tematu z grubsza. W przeciwnym razie zwykle powinieneś używać komponentów kontrolowanych.
 
