@@ -6,7 +6,7 @@ permalink: docs/uncontrolled-components.html
 
 W większości przypadków zalecamy stosowanie [komponentów kontrolowanych](/docs/forms.html#controlled-components) do implementacji formularzy. W komponencie kontrolowanym, dane formularza są obsługiwane przez komponent reactowy. Alternatywą są komponenty niekontrolowane, w których dane formularza są obsługiwane przez sam DOM.
 
-Aby stworzyć komponent niekontrolowany, zamiast pisać funkcję obsługującą każdą zmianę stanu, możesz [użyć polecenia ref](/docs/refs-and-the-dom.html), aby uzyskać wartości formularza z DOM.
+Aby stworzyć komponent niekontrolowany, zamiast pisać funkcję obsługującą każdą zmianę stanu, możesz [użyć właściwości ref](/docs/refs-and-the-dom.html), aby uzyskać wartości formularza z DOM.
 
 Na przykład, ten kod akceptuje pojedynczą nazwę w komponencie niekontrolowanym:
 
@@ -115,4 +115,3 @@ ReactDOM.render(
 ```
 
 [](codepen://uncontrolled-components/input-type-file)
-
