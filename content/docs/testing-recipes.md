@@ -396,14 +396,22 @@ it("zmienia wartość po kliknięciu", () => {
 
   // zlokalizuj przycisk i wywołaj na nim zdarzenie kliknięcia
   const button = document.querySelector("[data-testid=toggle]");
+<<<<<<< HEAD
   expect(button.innerHTML).toBe("Wyłącz");
+=======
+  expect(button.innerHTML).toBe("Turn on");
+>>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
 
   act(() => {
     button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 
   expect(onChange).toHaveBeenCalledTimes(1);
+<<<<<<< HEAD
   expect(button.innerHTML).toBe("Włącz");
+=======
+  expect(button.innerHTML).toBe("Turn off");
+>>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
 
   act(() => {
     for (let i = 0; i < 5; i++) {
