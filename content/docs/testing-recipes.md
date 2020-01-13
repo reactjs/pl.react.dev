@@ -396,14 +396,14 @@ it("zmienia wartość po kliknięciu", () => {
 
   // zlokalizuj przycisk i wywołaj na nim zdarzenie kliknięcia
   const button = document.querySelector("[data-testid=toggle]");
-  expect(button.innerHTML).toBe("Wyłącz");
+  expect(button.innerHTML).toBe("Włącz");
 
   act(() => {
     button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 
   expect(onChange).toHaveBeenCalledTimes(1);
-  expect(button.innerHTML).toBe("Włącz");
+  expect(button.innerHTML).toBe("Wyłącz");
 
   act(() => {
     for (let i = 0; i < 5; i++) {
