@@ -1,6 +1,6 @@
 ---
 id: faq-build
-title: Babel, JSX, i kroki budowania
+title: Babel, JSX i kroki budowania
 permalink: docs/faq-build.html
 layout: docs
 category: FAQ
@@ -25,8 +25,8 @@ Nie! sprawdź ["React bez ES6"](/docs/react-without-es6.html), aby dowiedzieć s
 
 ```jsx
 <div>
-  {/* To działa także 
-  dla wieloliniowych komentarzy. */}
+  {/* A to jest 
+  wieloliniowy komentarz. */}
   Witaj, {name}! 
 </div>
 ```
