@@ -1,18 +1,18 @@
 ---
 id: faq-structure
-title: File Structure
+title: Struktura plików
 permalink: docs/faq-structure.html
 layout: docs
 category: FAQ
 ---
 
-### Is there a recommended way to structure React projects? {#is-there-a-recommended-way-to-structure-react-projects}
+### Czy istnieje zalecany sposób na strukturyzację projektów w React? {#is-there-a-recommended-way-to-structure-react-projects}
 
-React doesn't have opinions on how you put files into folders. That said there are a few common approaches popular in the ecosystem you may want to consider.
+React nie sugeruje, w jaki sposób należy umieścić pliki w folderach. Istnieje jednak kilka popularnych podejść rozpowszechnionych w ekosystemie, które warto rozważyć.
 
-#### Grouping by features or routes {#grouping-by-features-or-routes}
+#### Grupowanie plików według funkcjonalności lub ścieżek {#grouping-by-features-or-routes}
 
-One common way to structure projects is locate CSS, JS, and tests together inside folders grouped by feature or route.
+Jednym z powszechnych sposobów strukturyzacji projektów jest umieszczenie plików CSS, JS i testów razem w folderach pogrupowanych według funkcjonalności lub ścieżki.
 
 ```
 common/
@@ -35,11 +35,11 @@ profile/
   ProfileAPI.js
 ```
 
-The definition of a "feature" is not universal, and it is up to you to choose the granularity. If you can't come up with a list of top-level folders, you can ask the users of your product what major parts it consists of, and use their mental model as a blueprint.
+Definicja „funkcjonalności” nie jest jednoznaczna i od ciebie zależy, jak szczegółowo określisz strukturę. Jeśli nie masz pomysłu na foldery najwyższego poziomu, możesz zapytać użytkowników, z jakich głównych części składa się produkt, aby potem użyć ich modelu mentalnego jako schematu.
 
-#### Grouping by file type {#grouping-by-file-type}
+#### Grupowanie plików według ich typu {#grouping-by-file-type}
 
-Another popular way to structure projects is to group similar files together, for example:
+Innym popularnym sposobem strukturyzacji projektów jest grupowanie podobnych plików, na przykład:
 
 ```
 api/
@@ -59,16 +59,16 @@ components/
   ProfileHeader.css
 ```
 
-Some people also prefer to go further, and separate components into different folders depending on their role in the application. For example, [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) is a design methodology built on this principle. Remember that it's often more productive to treat such methodologies as helpful examples rather than strict rules to follow.
+Niektórzy idą o krok dalej i w zależności od roli komponentów w aplikacji, umieszczają je w różnych folderach. Na przykład [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) to metodologia projektowania oparta na tej zasadzie. Pamiętaj, że często bardziej produktywne jest traktowanie takich metodologii jako pomocnych przykładów, a nie ścisłych zasad, których należy przestrzegać.
 
-#### Avoid too much nesting {#avoid-too-much-nesting}
+#### Unikaj zbytniego zagnieżdżania {#avoid-too-much-nesting}
 
-There are many pain points associated with deep directory nesting in JavaScript projects. It becomes harder to write relative imports between them, or to update those imports when the files are moved. Unless you have a very compelling reason to use a deep folder structure, consider limiting yourself to a maximum of three or four nested folders within a single project. Of course, this is only a recommendation, and it may not be relevant to your project.
+Istnieje wiele problemów związanych z głębokim zagnieżdżaniem katalogów w projektach javascriptowych. Trudniej jest zapisać między nimi import względny lub zaktualizować ten import po przeniesieniu plików. O ile nie masz bardzo ważnego powodu do korzystania z głębokiej struktury folderów, rozważ ograniczenie się do maksymalnie trzech lub czterech zagnieżdżeń folderów w jednym projekcie. Oczywiście jest to tylko zalecenie i może nie być odpowiednie dla twojego projektu.
 
-#### Don't overthink it {#dont-overthink-it}
+#### Nie myśl nad tym za dużo {#dont-overthink-it}
 
-If you're just starting a project, [don't spend more than five minutes](https://en.wikipedia.org/wiki/Analysis_paralysis) on choosing a file structure. Pick any of the above approaches (or come up with your own) and start writing code! You'll likely want to rethink it anyway after you've written some real code.
+Jeśli dopiero rozpoczynasz projekt, [nie poświęcaj więcej niż pięć minut](https://en.wikipedia.org/wiki/Analysis_paralysis) na wybór sposobu struktury plików. Wybierz dowolne z powyższych podejść (lub wymyśl własne) i zacznij pisać kod! Prawdopodobnie w trakcie pisania prawdziwego kodu zmienisz podejście jeszcze co najmniej kilka razy.
 
-If you feel completely stuck, start by keeping all files in a single folder. Eventually it will grow large enough that you will want to separate some files from the rest. By that time you'll have enough knowledge to tell which files you edit together most often. In general, it is a good idea to keep files that often change together close to each other. This principle is called "colocation".
+Jeśli jednak utkniesz, zacznij od przeniesienia wszystkich plików do jednego folderu. W końcu stanie się on na tyle duży, że zechcesz oddzielić niektóre pliki od reszty. Do tego czasu będziesz mieć wystarczającą wiedzę, aby stwierdzić, które pliki najczęściej edytujesz razem. Ogólnie rzecz biorąc, dobrym pomysłem jest trzymanie blisko siebie plików, które często się zmieniają. Zasada ta nazywa się „kolokacją”.
 
-As projects grow larger, they often use a mix of both of the above approaches in practice. So choosing the "right" one in the beginning isn't very important.
+W miarę jak projekty stają się większe, w praktyce często wykorzystują połączenie obu powyższych podejść. Dlatego, zwłaszcza na początku, wybór „właściwego podejścia” nie ma większego znaczenia.
