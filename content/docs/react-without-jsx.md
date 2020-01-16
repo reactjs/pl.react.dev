@@ -38,7 +38,7 @@ ReactDOM.render(
 );
 ```
 
-Jeśli jesteś ciekaw, w jaki sposób JSX jest konwertowany do JavaScriptu, możesz wypróbować [wersję online kompilatora Babel](babel://jsx-simple-example).
+Jeśli chcesz zobaczyć, więcej przykładów konwersji składni JSX do kodu javascriptowego, wypróbuj [wersję online kompilatora Babel](babel://jsx-simple-example).
 
 Komponent może być dostarczony jako ciąg znaków lub jako podklasa `React.Component` albo zwykła funkcja aby stworzyć komponent bezstanowy.
 
