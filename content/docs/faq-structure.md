@@ -8,7 +8,7 @@ category: FAQ
 
 ### Czy istnieje zalecany sposób na strukturyzację projektów w React? {#is-there-a-recommended-way-to-structure-react-projects}
 
-React nie sugeruje w jaki sposób należy umieścić pliki w folderach. Istnieje jednak kilka popularnych podejść rozpowszechnionych w ekosystemie, które warto rozważyć.
+React nie sugeruje, w jaki sposób należy umieścić pliki w folderach. Istnieje jednak kilka popularnych podejść rozpowszechnionych w ekosystemie, które warto rozważyć.
 
 #### Grupowanie plików według funkcjonalności lub ścieżek {#grouping-by-features-or-routes}
 
@@ -35,7 +35,7 @@ profile/
   ProfileAPI.js
 ```
 
-Definicja „funkcjonalności” nie jest jednoznaczna i od ciebie zależy, jak szczegółowo określisz strutkurę. Jeśli nie możesz wymyślić listy folderów najwyższego poziomu, możesz zapytać użytkowników z jakich głównych części składa się produkt, aby potem użyć ich modelu mentalnego jako schematu.
+Definicja „funkcjonalności” nie jest jednoznaczna i od ciebie zależy, jak szczegółowo określisz strukturę. Jeśli nie masz pomysłu na foldery najwyższego poziomu, możesz zapytać użytkowników, z jakich głównych części składa się produkt, aby potem użyć ich modelu mentalnego jako schematu.
 
 #### Grupowanie plików według ich typu {#grouping-by-file-type}
 
@@ -63,12 +63,12 @@ Niektórzy idą o krok dalej i w zależności od roli komponentów w aplikacji, 
 
 #### Unikaj zbytniego zagnieżdżania {#avoid-too-much-nesting}
 
-Istnieje wiele problemów związanych z głębokim zagnieżdżaniem katalogów w projektach JavaScript. Trudniej jest zapisać między nimi import względny lub zaktualizować ten import po przeniesieniu plików. O ile nie masz bardzo ważnego powodu, aby korzystać z głębokiej struktury folderów, rozważ ograniczenie się do maksymalnie trzech lub czterech zagnieżdżonych folderów w jednym projekcie. Oczywiście jest to tylko zalecenie i może nie być odpowiednie dla twojego projektu.
+Istnieje wiele problemów związanych z głębokim zagnieżdżaniem katalogów w projektach javascriptowych. Trudniej jest zapisać między nimi import względny lub zaktualizować ten import po przeniesieniu plików. O ile nie masz bardzo ważnego powodu do korzystania z głębokiej struktury folderów, rozważ ograniczenie się do maksymalnie trzech lub czterech zagnieżdżeń folderów w jednym projekcie. Oczywiście jest to tylko zalecenie i może nie być odpowiednie dla twojego projektu.
 
 #### Nie myśl nad tym za dużo {#dont-overthink-it}
 
-Jeśli dopiero rozpoczynasz projekt, [nie poświęcaj więcej niż pięć minut](https://en.wikipedia.org/wiki/Analysis_paralysis) na wybór sposobu struktury pliku. Wybierz dowolne z powyższych podejść (lub wymyśl własne) i zacznij pisać kod! Prawdopodobnie zechcesz przemyśleć temat po napisaniu prawdziwego kodu.
+Jeśli dopiero rozpoczynasz projekt, [nie poświęcaj więcej niż pięć minut](https://en.wikipedia.org/wiki/Analysis_paralysis) na wybór sposobu struktury plików. Wybierz dowolne z powyższych podejść (lub wymyśl własne) i zacznij pisać kod! Prawdopodobnie w trakcie pisania prawdziwego kodu zmienisz podejście jeszcze co najmniej kilka razy.
 
-Jeśli czujesz, że utknąłeś, zacznij od przechowywania wszystkich plików w jednym folderze. W końcu folder stanie się na tyle duży, że będziesz chciał oddzielić niektóre pliki od reszty. Do tego czasu będziesz miał wystarczającą wiedzę, aby stwierdzić, które pliki najczęściej edytujesz razem. Ogólnie rzecz biorąc, dobrym pomysłem jest trzymanie blisko siebie plików, które często się zmieniają. Zasada ta nazywa się „kolokacją”.
+Jeśli jednak utkniesz, zacznij od przeniesienia wszystkich plików do jednego folderu. W końcu stanie się on na tyle duży, że zechcesz oddzielić niektóre pliki od reszty. Do tego czasu będziesz mieć wystarczającą wiedzę, aby stwierdzić, które pliki najczęściej edytujesz razem. Ogólnie rzecz biorąc, dobrym pomysłem jest trzymanie blisko siebie plików, które często się zmieniają. Zasada ta nazywa się „kolokacją”.
 
-W miarę jak projekty stają się większe, w praktyce często wykorzystują połączenie obu powyższych podejść. Dlatego na początku, wybór „właściwego podejścia”, nie jest wielce istotny.
+W miarę jak projekty stają się większe, w praktyce często wykorzystują połączenie obu powyższych podejść. Dlatego, zwłaszcza na początku, wybór „właściwego podejścia” nie ma większego znaczenia.
