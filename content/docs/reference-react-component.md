@@ -245,7 +245,7 @@ Metoda `componentWillUnmount()` jest wywoływana zaraz przed odmontowaniem i zni
 
 ### Rzadko używane metody cyklu życia {#rarely-used-lifecycle-methods}
 
-Metody zawarte w tej sekcji odpowiadają rzadkim przypadkom użycia. Czasem są przydatnę, ale większość twoich komponentów najprawdopodobniej nie będzie ich potrzebowała. **Większość poniższych metod możesz zobaczyć na [tym diagramie cyklu życia](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) po kliknięciu na checkbox "Pokaż rzadziej używane metody" u góry.**
+Metody zawarte w tej sekcji odpowiadają rzadkim przypadkom użycia. Czasem są przydatne, ale większość twoich komponentów najprawdopodobniej nie będzie ich potrzebowała. **Większość poniższych metod możesz zobaczyć na [tym diagramie cyklu życia](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) po kliknięciu na checkbox "Pokaż rzadziej używane metody" u góry.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -278,7 +278,7 @@ Metoda `getDerivedStateFromProps` jest wywoływana zaraz przed wywołaniem metod
 
 Ta metoda istnieje dla [rzadkich przypadków użycia](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state), w których stan zależy od zmian właściwości w czasie. Na przykład, może okazać się przydatnym komponent `<Transition>`, który porównuje swoje obecne komponenty potomne z poprzednimi, aby zdecydować, króre z nich mają pojawić się z animacją, a które zniknąć.
 
-Derywowanie stanu sprawia, że kod jest rozwlekły i trudno myśli się o komponentach.  
+Derywowanie stanu sprawia, że kod jest rozwlekły i trudno myśli się o komponentach.
 [Upewnij się, że znasz prostsze alternatywy:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
 * Jeśli potrzebujesz **spowodować efekt uboczny** (na przykład pobranie danych, albo animację) w odpowiedzi na zmianę właściwości, zamiast tego użyj metody cyklu życia [`componentDidUpdate`](#componentdidupdate).
@@ -324,7 +324,7 @@ Używaj granic błędów tylko do rekonwalescencji po nieoczekiwanych wyjątkach
 Po więcej szczegółów, odwiedź [*Obsługa wyjątków w Reakcie 16*](/blog/2017/07/26/error-handling-in-react-16.html).
 
 > Uwaga
-> 
+>
 > Granice błędów wychwytują tylko wyjątki w komponentach z drzewa **pod** nimi. Granica błędów nie może wychwycić wyjątku, który wystąpił w niej samej.
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
@@ -408,13 +408,13 @@ class ErrorBoundary extends React.Component {
       return <h1>Coś poszło nie tak.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
 
 > Uwaga
-> 
+>
 > W razie wyjątku, możesz zrenderować awaryjny interfejs użytkownika za pomocą metody `componentDidCatch()` poprzez wywołanie metody `setState`, ale możliwość ta będzie przestarzała w przyszłych wersjach.
 > Do obsługi renderowania awaryjnego używaj zamiast tego metody `static getDerivedStateFromError()`.
 
