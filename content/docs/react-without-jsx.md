@@ -13,7 +13,7 @@ Na przykład, ten fragment kodu napisany z użyciem JSX:
 ```js
 class Hello extends React.Component {
   render() {
-    return <div>Witaj {this.props.toWhat}</div>;
+    return <div>Witaj, {this.props.toWhat}</div>;
   }
 }
 
