@@ -48,7 +48,7 @@ Aby uniknąć ciągłego pisania `React.createElement`, warto zastosować poniż
 const e = React.createElement;
 
 ReactDOM.render(
-  e('div', null, 'Witaj Świecie'),
+  e('div', null, 'Witaj, Świecie'),
   document.getElementById('root')
 );
 ```
