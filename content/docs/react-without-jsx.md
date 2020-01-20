@@ -42,7 +42,7 @@ Jeśli chcesz zobaczyć więcej przykładów konwersji składni JSX do kodu java
 
 Komponent może być dostarczony jako ciąg znaków lub jako podklasa `React.Component` albo zwykła funkcja aby stworzyć komponent bezstanowy.
 
-Aby nie musieć bez przerwy pisać `React.createElement`, warto zastosować poniższy wzorzec:
+Aby uniknąć ciągłego pisania `React.createElement`, warto zastosować poniższy wzorzec:
 
 ```js
 const e = React.createElement;
