@@ -40,7 +40,7 @@ ReactDOM.render(
 
 Jeśli chcesz zobaczyć więcej przykładów konwersji składni JSX do kodu javascriptowego, wypróbuj [wersję online kompilatora Babel](babel://jsx-simple-example).
 
-Komponent może być dostarczony jako ciąg znaków lub jako podklasa `React.Component` albo zwykła funkcja aby stworzyć komponent bezstanowy.
+Komponent może być ciągiem znaków, podklasą `React.Component` albo zwykłą funkcją.
 
 Aby uniknąć ciągłego pisania `React.createElement`, warto zastosować poniższy wzorzec:
 
