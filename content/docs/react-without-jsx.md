@@ -6,7 +6,7 @@ permalink: docs/react-without-jsx.html
 
 JSX nie jest wymagany do korzystania z Reacta. Korzystanie z Reacta bez JSX jest szczególnie wygodne, gdy nie chce się konfigurować kroku kompilacji w środowisku budowania.
 
-Każdy element JSX jest jedynie wygodniejszym odpowiednikiem wywołania metody `React.createElement(component, props, ...children)`. Wszystko więc, co da się zrobić, korzystając z JSX, można również uzyskać za pomocą zwykłego JavaScriptu.
+Każdy element JSX jest jedynie wygodniejszym odpowiednikiem wywołania metody `React.createElement(component, props, ...children)`. Wszystko więc, co da się zrobić korzystając z JSX, można również uzyskać za pomocą zwykłego JavaScriptu.
 
 Na przykład, ten fragment kodu napisany z użyciem JSX:
 
