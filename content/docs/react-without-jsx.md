@@ -28,7 +28,7 @@ może być skompilowany do tego kodu, który nie korzysta z JSX:
 ```js
 class Hello extends React.Component {
   render() {
-    return React.createElement('div', null, `Witaj ${this.props.toWhat}`);
+    return React.createElement('div', null, `Witaj, ${this.props.toWhat}`);
   }
 }
 
