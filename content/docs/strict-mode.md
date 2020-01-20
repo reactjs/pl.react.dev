@@ -87,9 +87,9 @@ Faza aktualizacji jest zazwyczaj bardzo szybka, jednak renderowanie może być p
 
 Cykl życia fazy renderowania odnosi się do poniższych metod z komponentu klasowego:
 * `constructor`
-* `componentWillMount`
-* `componentWillReceiveProps`
-* `componentWillUpdate`
+* `componentWillMount` (or `UNSAFE_componentWillMount`)
+* `componentWillReceiveProps` (or `UNSAFE_componentWillReceiveProps`)
+* `componentWillUpdate` (or `UNSAFE_componentWillUpdate`)
 * `getDerivedStateFromProps`
 * `shouldComponentUpdate`
 * `render`
