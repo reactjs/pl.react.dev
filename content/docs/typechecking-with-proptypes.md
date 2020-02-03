@@ -66,7 +66,7 @@ MyComponent.propTypes = {
   // Możesz się upewnić, czy właściwość jest ograniczona do określonych wartości
   optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 
-  // Atrybut może też mieć wiele typów
+  // Właściwość może też mieć wiele typów
   optionalUnion: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
