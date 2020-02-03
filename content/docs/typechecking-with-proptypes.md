@@ -118,7 +118,7 @@ MyComponent.propTypes = {
     if (!/matchme/.test(propValue[key])) {
       return new Error(
         'Niepoprawna właściwość `' + propFullName + '` przekazana do ' +
-        ' `' + componentName + '`. Walidacja nieprawidłowa.'
+        ' `' + componentName + '`. Walidacja zakończona niepowodzeniem.'
       );
     }
   })
