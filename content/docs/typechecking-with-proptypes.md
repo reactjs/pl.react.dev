@@ -76,7 +76,7 @@ MyComponent.propTypes = {
   // Tablica zawierająca elementy określonego typu
   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
 
-  // Objekt zawierający określony typ
+  // Obiekt zawierający wartości określonego typu
   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
 
   // Obiekt zawierający jedne określonych pól
