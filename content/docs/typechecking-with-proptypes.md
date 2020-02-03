@@ -98,7 +98,7 @@ MyComponent.propTypes = {
   // Wartość dowolnego typu danych.
   requiredAny: PropTypes.any.isRequired,
 
-  // Możesz też utworzyć niestandardowy walidator. Powinien on zwracać obiek `Error`
+  // Możesz też utworzyć niestandardowy walidator. Powinien on zwracać obiekt `Error`,
   // jeśli sprawdzenie zakończy się niepowodzeniem. Nie powinien wywoływać `console.warning ani
   // rzucać wyjątku, ponieważ nie będzie działał wewnątrz `oneOfType`.
   customProp: function(props, propName, componentName) {
