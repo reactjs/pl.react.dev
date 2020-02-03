@@ -29,19 +29,18 @@ Greeting.propTypes = {
   name: PropTypes.string
 };
 ```
-
-`PropTypes` exports a range of validators that can be used to make sure the data you receive is valid. In this example, we're using `PropTypes.string`. When an invalid value is provided for a prop, a warning will be shown in the JavaScript console. For performance reasons, `propTypes` is only checked in development mode.
+`PropTypes` eksportuje validatory które mogą być być użyre do sprawdzenie poprawności danych wejściowych. W tym przypadku wykorzystujemy `PropTypes.string`. Kiedy wartość przekazana jako atrybut będzie niepoprawnego typu, zostanie wyświetlony ostrzeżenie  w konsoli JavaScriptowej. Ze względu na wydajność, `propTypes` są tylko sprawdzane w trybie deweloperskim.
 
 ### PropTypes {#proptypes}
 
-Here is an example documenting the different validators provided:
+Oto przykład dokumentujący różne dostarczone walidatory:
 
 ```javascript
 import PropTypes from 'prop-types';
 
 MyComponent.propTypes = {
-  // You can declare that a prop is a specific JS type. By default, these
-  // are all optional.
+  // Możesz zadeklarować atrybut będzie określonego typu JavaScriptowego. 
+  // Domyślnie, wszystkie są opcjonalne
   optionalArray: PropTypes.array,
   optionalBool: PropTypes.bool,
   optionalFunc: PropTypes.func,
@@ -128,16 +127,16 @@ MyComponent.propTypes = {
 };
 ```
 
-### Requiring Single Child {#requiring-single-child}
+### Wymaganie Pojedyńczego Dziecka {#requiring-single-child}
 
-With `PropTypes.element` you can specify that only a single child can be passed to a component as children.
+Wykorzystując `PropTypes.element` możesz sprawdzić czy tylko pojedyńcze dziecko jest przekazane do komponentu jako dzieci.
 
 ```javascript
 import PropTypes from 'prop-types';
 
 class MyComponent extends React.Component {
   render() {
-    // This must be exactly one element or it will warn.
+    // Musi być dokłądnie jeden element lub zostanie wyświetlone ostrzeżenie.
     const children = this.props.children;
     return (
       <div>
@@ -152,45 +151,44 @@ MyComponent.propTypes = {
 };
 ```
 
-### Default Prop Values {#default-prop-values}
+### Domyślne wartości atrybutów {#default-prop-values}
 
-You can define default values for your `props` by assigning to the special `defaultProps` property:
+Możesz zdefiniować domyślne wartości atrubutów przez przypisanie specjalnej właściwości `defaultProps`:
 
 ```javascript
 class Greeting extends React.Component {
   render() {
     return (
-      <h1>Hello, {this.props.name}</h1>
+      <h1>Witaj, {this.props.name}</h1>
     );
   }
 }
 
-// Specifies the default values for props:
+// Definiuje domyślne wartości atrubutu:
 Greeting.defaultProps = {
-  name: 'Stranger'
+  name: 'Obcy'
 };
 
-// Renders "Hello, Stranger":
+// Renderuje "Witaj, Obcy":
 ReactDOM.render(
   <Greeting />,
   document.getElementById('example')
 );
 ```
 
-If you are using a Babel transform like [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) , you can also declare `defaultProps` as static property within a React component class. This syntax has not yet been finalized though and will require a compilation step to work within a browser. For more information, see the [class fields proposal](https://github.com/tc39/proposal-class-fields).
+Jeśli urzywasz transformator Babela [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/), możesz zadeklarować `defaultProps` jako statyczną właściwość klasy komponentu Reacta. Ta składnia jeszcze nie została ukończona i będzie wymagać etapu kompilacji do działania w przeglądarce. Aby uzyskać więcej informacji, zobacz [class fields proposal](https://github.com/tc39/proposal-class-fields).
 
 ```javascript
 class Greeting extends React.Component {
   static defaultProps = {
-    name: 'stranger'
+    name: 'obcy'
   }
 
   render() {
     return (
-      <div>Hello, {this.props.name}</div>
+      <div>Witaj, {this.props.name}</div>
     )
   }
 }
 ```
-
-The `defaultProps` will be used to ensure that `this.props.name` will have a value if it was not specified by the parent component. The `propTypes` typechecking happens after `defaultProps` are resolved, so typechecking will also apply to the `defaultProps`.
+Właściwość `defaultProps` zostanie wykorzystana, aby zapewnić wartość dla `this.props.name`, jeśli nie zostanie ona określona przez komponent nadrzędny. Sprawdzanie typu `propTypes` następuje po rozwiązaniu` defaultProps`, więc sprawdzanie typu będzie miało zastosowanie także do `defaultProps`.
