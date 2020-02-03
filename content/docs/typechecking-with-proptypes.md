@@ -63,7 +63,7 @@ MyComponent.propTypes = {
   // Wykorzystujemy do tego operator instanceof z JavaScriptu.
   optionalMessage: PropTypes.instanceOf(Message),
 
-  // Możesz się upewnić czy atrybut jest ograniczony do określonych wartości
+  // Możesz się upewnić, czy właściwość jest ograniczona do określonych wartości
   optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 
   // Atrybut może też mieć wiele typów
