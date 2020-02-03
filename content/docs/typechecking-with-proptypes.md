@@ -111,7 +111,7 @@ MyComponent.propTypes = {
   },
 
   // Możesz także przekazać niestandardowy walidator do `arrayOf` i `objectOf`.
-  // Powinien on zwracać obiek `Error` jeśli sprawdzenie zakończy się niepowodzeniem.
+  // Powinien on zwracać obiekt `Error`, jeśli sprawdzenie zakończy się niepowodzeniem.
   // Walidator będzie wywołany dla każdego klucza w tablicy lub obiekcie.
   // Pierwsze dwa argumenty walidatora to walidowana tablica lub obiekt oraz klucz bieżącego elementu.
   customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
