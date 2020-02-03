@@ -149,7 +149,7 @@ MyComponent.propTypes = {
 };
 ```
 
-### Domyślne wartości atrybutów {#default-prop-values}
+### Domyślne wartości właściwości {#default-prop-values}
 
 Możesz zdefiniować domyślne wartości atrybutów przez przypisanie specjalnej właściwości `defaultProps`:
 
