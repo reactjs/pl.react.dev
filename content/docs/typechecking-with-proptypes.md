@@ -79,7 +79,7 @@ MyComponent.propTypes = {
   // Obiekt zawierający wartości określonego typu
   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
 
-  // Obiekt zawierający jedne określonych pól
+  // Obiekt zawierający określone pola
   optionalObjectWithShape: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number
