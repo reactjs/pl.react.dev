@@ -39,7 +39,7 @@ Oto przykład dokumentujący różne dostarczone walidatory:
 import PropTypes from 'prop-types';
 
 MyComponent.propTypes = {
-  // Możesz zadeklarować atrybut będzie określonego typu JavaScriptowego. 
+  // Możesz zadeklarować, że właściwość będzie określonego typu javascriptowego. 
   // Domyślnie, wszystkie są opcjonalne
   optionalArray: PropTypes.array,
   optionalBool: PropTypes.bool,
