@@ -189,4 +189,4 @@ class Greeting extends React.Component {
   }
 }
 ```
-Właściwość `defaultProps` zostanie wykorzystana, aby zapewnić wartość dla `this.props.name`, jeśli nie zostanie ona określona przez komponent nadrzędny. Sprawdzanie typu `propTypes` następuje po rozwiązaniu` defaultProps`, więc sprawdzanie typu będzie miało zastosowanie także do `defaultProps`.
+Właściwość `defaultProps` posłuży do zapewnienia wartości dla `this.props.name`, jeśli nie zostanie ona określona przez komponent nadrzędny. Sprawdzanie typu `propTypes` następuje po rozwiązaniu `defaultProps`, więc sprawdzanie typu będzie miało zastosowanie także do `defaultProps`.
