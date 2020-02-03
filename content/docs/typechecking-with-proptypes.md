@@ -167,7 +167,7 @@ Greeting.defaultProps = {
   name: 'obcy'
 };
 
-// Renderuje "Witaj, Obcy":
+// Renderuje "Witaj, obcy":
 ReactDOM.render(
   <Greeting />,
   document.getElementById('example')
