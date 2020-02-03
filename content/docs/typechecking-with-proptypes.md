@@ -29,7 +29,7 @@ Greeting.propTypes = {
   name: PropTypes.string
 };
 ```
-`PropTypes` eksportuje walidatory, które mogą być być użyte do sprawdzenia poprawności danych wejściowych. W tym przypadku wykorzystujemy `PropTypes.string`. Kiedy wartość przekazana jako atrybut będzie niewłaściwego typu, zostanie wyświetlone ostrzeżenie  w konsoli JavaScriptowej. Ze względu na wydajność, `propTypes` są tylko sprawdzane w trybie deweloperskim.
+`PropTypes` eksportuje walidatory, które mogą być używane do sprawdzania poprawności danych wejściowych. W tym przypadku wykorzystujemy `PropTypes.string`. Kiedy wartość przekazanej właściwości będzie nieprawidłowego typu, zostanie wyświetlone ostrzeżenie w konsoli javascriptowej. Ze względu na wydajność, `propTypes` są sprawdzane tylko w trybie deweloperskim.
 
 ### PropTypes {#proptypes}
 
