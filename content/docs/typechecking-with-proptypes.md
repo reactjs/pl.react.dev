@@ -59,7 +59,7 @@ MyComponent.propTypes = {
   // Typ komponenetu reactowego (np. MyComponent).
   optionalElementType: PropTypes.elementType,
   
-  // Możesz także zadeklarować atrybut który będzie instancją klasy.
+  // Możesz także zadeklarować właściwość, która będzie instancją klasy.
   // Wykorzystujemy do tego operator instanceof z JavaScriptu.
   optionalMessage: PropTypes.instanceOf(Message),
 
