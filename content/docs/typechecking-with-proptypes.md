@@ -117,7 +117,7 @@ MyComponent.propTypes = {
   customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
     if (!/matchme/.test(propValue[key])) {
       return new Error(
-        'Niepoprawny atrybut `' + propFullName + '` przekazany do ' +
+        'Niepoprawna właściwość `' + propFullName + '` przekazana do ' +
         ' `' + componentName + '`. Walidacja nieprawidłowa.'
       );
     }
