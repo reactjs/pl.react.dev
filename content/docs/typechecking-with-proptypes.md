@@ -92,7 +92,7 @@ MyComponent.propTypes = {
   }),   
 
   // Możesz dodać do każdego z powyższych `isRequired,
-  // aby sprawdzić czy podany atrybut został zdefiniowany.
+  // aby sprawdzić, czy podana właściwość została zdefiniowana.
   requiredFunc: PropTypes.func.isRequired,
 
   // Wartość dowolnego typu danych.
