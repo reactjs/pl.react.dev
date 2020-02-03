@@ -162,7 +162,7 @@ class Greeting extends React.Component {
   }
 }
 
-// Definiuje domyślne wartości atrybutu:
+// Definiuje domyślne wartości dla właściwości:
 Greeting.defaultProps = {
   name: 'Obcy'
 };
