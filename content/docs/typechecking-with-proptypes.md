@@ -53,7 +53,7 @@ MyComponent.propTypes = {
   // (lub fragmenty) zawierające te typy.
   optionalNode: PropTypes.node,
 
-  // Element Reacta.
+  // Element reactowy.
   optionalElement: PropTypes.element,
 
   // Typ komponenetu reactowego (np. MyComponent).
