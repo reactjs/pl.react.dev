@@ -125,7 +125,7 @@ MyComponent.propTypes = {
 };
 ```
 
-### Wymaganie Pojedynczego Dziecka {#requiring-single-child}
+### Wymaganie dokładnie jednego potomka {#requiring-single-child}
 
 Wykorzystując `PropTypes.element` możesz sprawdzić czy tylko pojedyncze dziecko jest przekazane do komponentu jako dzieci.
 
