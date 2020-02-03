@@ -100,7 +100,7 @@ MyComponent.propTypes = {
 
   // Możesz też utworzyć niestandardowy walidator. Powinien on zwracać obiekt `Error`,
   // jeśli sprawdzenie zakończy się niepowodzeniem. Nie powinien wywoływać `console.warn`
-  // rzucać wyjątku, ponieważ nie będzie działał wewnątrz `oneOfType`.
+  // ani rzucać wyjątku, ponieważ nie będzie działał wewnątrz `oneOfType`.
   customProp: function(props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
       return new Error(
