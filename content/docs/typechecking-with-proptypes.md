@@ -104,7 +104,7 @@ MyComponent.propTypes = {
   customProp: function(props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
       return new Error(
-        'Niepoprawny atrybut `' + propName + '` przekazany do ' +
+        'Niepoprawna właściwość `' + propName + '` przekazana do ' +
         ' `' + componentName + '`. Walidacja nieprawidłowa.'
       );
     }
