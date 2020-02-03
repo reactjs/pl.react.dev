@@ -134,7 +134,7 @@ import PropTypes from 'prop-types';
 
 class MyComponent extends React.Component {
   render() {
-    // Musi być dokłądnie jeden element lub zostanie wyświetlone ostrzeżenie.
+    // Musi zawierać dokładnie jeden element. W przeciwnym wypadku zostanie wyświetlone ostrzeżenie.
     const children = this.props.children;
     return (
       <div>
