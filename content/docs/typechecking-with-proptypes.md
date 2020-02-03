@@ -49,7 +49,7 @@ MyComponent.propTypes = {
   optionalString: PropTypes.string,
   optionalSymbol: PropTypes.symbol,
 
-  // Wszystko co może być wyrenderowane: liczby, łańcuchy znaków, elementy lub tablice
+  // Wszystko, co może być wyrenderowane: liczby, łańcuchy znaków, elementy lub tablice
   // (lub fragmenty) zawierające te typy.
   optionalNode: PropTypes.node,
 
