@@ -151,7 +151,7 @@ MyComponent.propTypes = {
 
 ### Domyślne wartości właściwości {#default-prop-values}
 
-Możesz zdefiniować domyślne wartości atrybutów przez przypisanie specjalnej właściwości `defaultProps`:
+Możesz zdefiniować domyślne wartości dla właściwości przez przypisanie specjalnej właściwości `defaultProps`:
 
 ```javascript
 class Greeting extends React.Component {
