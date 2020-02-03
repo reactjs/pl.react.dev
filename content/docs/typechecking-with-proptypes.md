@@ -73,7 +73,7 @@ MyComponent.propTypes = {
     PropTypes.instanceOf(Message)
   ]),
 
-  // Tablica zawierająca określony typ
+  // Tablica zawierająca elementy określonego typu
   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
 
   // Objekt zawierający określony typ
