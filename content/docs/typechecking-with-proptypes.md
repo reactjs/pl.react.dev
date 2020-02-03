@@ -56,7 +56,7 @@ MyComponent.propTypes = {
   // Element Reacta.
   optionalElement: PropTypes.element,
 
-  // Typ komponenetu Reacta (np. MyComponent).
+  // Typ komponenetu reactowego (np. MyComponent).
   optionalElementType: PropTypes.elementType,
   
   // Możesz także zadeklarować atrybut który będzie instancją klasy.
