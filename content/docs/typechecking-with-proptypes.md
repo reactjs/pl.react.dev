@@ -12,7 +12,7 @@ redirect_from:
 >
 > Dla ułatwienia migracji przygotowaliśmy [skrypt codemod](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes).
 
-Wraz ze wzrostem twojej aplikacji, możesz wyłapywać więcej błedów korzystając ze sprawdzania typów. Dla niektórych aplikacji możesz korzystać z rozszerzeń JavaScriptu do sprawdzenia typów w całej aplikacji takich jak [Flow](https://flow.org/) lub [TypeScript](https://www.typescriptlang.org/). Nawet jeśli z nich nie korzystasz, możesz skorzystać ze sprawdzania typów wbudowanego w Reacta. By rozpocząć sprawdzanie typów atrybutów w komponencie, możesz dodać specjalną właściwość `propTypes` dla komponentu.
+Wraz ze wzrostem twojej aplikacji, możesz wyłapywać więcej błędów korzystając ze sprawdzania typów. Dla niektórych aplikacji możesz korzystać z rozszerzeń JavaScriptu do sprawdzenia typów w całej aplikacji takich jak [Flow](https://flow.org/) lub [TypeScript](https://www.typescriptlang.org/). Nawet jeśli z nich nie korzystasz, możesz skorzystać ze sprawdzania typów wbudowanego w Reacta. By rozpocząć sprawdzanie typów atrybutów w komponencie, możesz dodać specjalną właściwość `propTypes` dla komponentu.
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -29,7 +29,7 @@ Greeting.propTypes = {
   name: PropTypes.string
 };
 ```
-`PropTypes` eksportuje validatory które mogą być być użyre do sprawdzenie poprawności danych wejściowych. W tym przypadku wykorzystujemy `PropTypes.string`. Kiedy wartość przekazana jako atrybut będzie niepoprawnego typu, zostanie wyświetlony ostrzeżenie  w konsoli JavaScriptowej. Ze względu na wydajność, `propTypes` są tylko sprawdzane w trybie deweloperskim.
+`PropTypes` eksportuje walidatory, które mogą być być użyte do sprawdzenia poprawności danych wejściowych. W tym przypadku wykorzystujemy `PropTypes.string`. Kiedy wartość przekazana jako atrybut będzie niewłaściwego typu, zostanie wyświetlone ostrzeżenie  w konsoli JavaScriptowej. Ze względu na wydajność, `propTypes` są tylko sprawdzane w trybie deweloperskim.
 
 ### PropTypes {#proptypes}
 
@@ -73,10 +73,10 @@ MyComponent.propTypes = {
     PropTypes.instanceOf(Message)
   ]),
 
-  // Tablica zawierająca okreśolny typ
+  // Tablica zawierająca określony typ
   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
 
-  // Objekt zawierający okreśoly typ
+  // Objekt zawierający określony typ
   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
 
   // Obiekt zawierający jedne określonych pól
@@ -85,7 +85,7 @@ MyComponent.propTypes = {
     fontSize: PropTypes.number
   }),
   
-  // Obiekt który zawiera tylko wskazane pola
+  // Obiekt, który zawiera tylko wskazane pola
   optionalObjectWithStrictShape: PropTypes.exact({
     name: PropTypes.string,
     quantity: PropTypes.number
@@ -98,7 +98,7 @@ MyComponent.propTypes = {
   // Wartość dowolnego typu danych.
   requiredAny: PropTypes.any.isRequired,
 
-  // Możesz też stworzyć niestandardowy walidator. Powinien on zwracać obiek `Error`
+  // Możesz też utworzyć niestandardowy walidator. Powinien on zwracać obiek `Error`
   // jeśli sprawdzenie zakończy się niepowodzeniem. Nie powinien wywoływać `console.warning ani
   // rzucać wyjątku, ponieważ nie będzie działał wewnątrz `oneOfType`.
   customProp: function(props, propName, componentName) {
@@ -125,9 +125,9 @@ MyComponent.propTypes = {
 };
 ```
 
-### Wymaganie Pojedyńczego Dziecka {#requiring-single-child}
+### Wymaganie Pojedynczego Dziecka {#requiring-single-child}
 
-Wykorzystując `PropTypes.element` możesz sprawdzić czy tylko pojedyńcze dziecko jest przekazane do komponentu jako dzieci.
+Wykorzystując `PropTypes.element` możesz sprawdzić czy tylko pojedyncze dziecko jest przekazane do komponentu jako dzieci.
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -151,7 +151,7 @@ MyComponent.propTypes = {
 
 ### Domyślne wartości atrybutów {#default-prop-values}
 
-Możesz zdefiniować domyślne wartości atrubutów przez przypisanie specjalnej właściwości `defaultProps`:
+Możesz zdefiniować domyślne wartości atrybutów przez przypisanie specjalnej właściwości `defaultProps`:
 
 ```javascript
 class Greeting extends React.Component {
@@ -162,7 +162,7 @@ class Greeting extends React.Component {
   }
 }
 
-// Definiuje domyślne wartości atrubutu:
+// Definiuje domyślne wartości atrybutu:
 Greeting.defaultProps = {
   name: 'Obcy'
 };
@@ -174,7 +174,7 @@ ReactDOM.render(
 );
 ```
 
-Jeśli urzywasz transformator Babela [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/), możesz zadeklarować `defaultProps` jako statyczną właściwość klasy komponentu Reacta. Ta składnia jeszcze nie została ukończona i będzie wymagać etapu kompilacji do działania w przeglądarce. Aby uzyskać więcej informacji, zobacz [class fields proposal](https://github.com/tc39/proposal-class-fields).
+Jeśli używasz transformator Babela [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/), możesz zadeklarować `defaultProps` jako statyczną właściwość klasy komponentu Reacta. Ta składnia jeszcze nie została ukończona i będzie wymagać etapu kompilacji do działania w przeglądarce. Aby uzyskać więcej informacji, zobacz [class fields proposal](https://github.com/tc39/proposal-class-fields).
 
 ```javascript
 class Greeting extends React.Component {
