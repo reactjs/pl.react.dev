@@ -6,13 +6,13 @@ redirect_from:
   - "docs/react-api.html#typechecking-with-proptypes"
 ---
 
-> Note:
+> Uwaga:
 >
-> `React.PropTypes` has moved into a different package since React v15.5. Please use [the `prop-types` library instead](https://www.npmjs.com/package/prop-types).
+> Z wersją React v15.5 `React.PropTypes` zostało przeniesione do innej paczki. Zamiast importować z paczki Reacta, używaj [biblioteki `prop-types`](https://www.npmjs.com/package/prop-types).
 >
->We provide [a codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-reactproptypes) to automate the conversion.
+> Dla ułatwienia migracji przygotowaliśmy [skrypt codemod](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes).
 
-As your app grows, you can catch a lot of bugs with typechecking. For some applications, you can use JavaScript extensions like [Flow](https://flow.org/) or [TypeScript](https://www.typescriptlang.org/) to typecheck your whole application. But even if you don't use those, React has some built-in typechecking abilities. To run typechecking on the props for a component, you can assign the special `propTypes` property:
+Wraz ze wzrostem twojej aplikacji, możesz wyłapywać więcej błedów korzystając ze sprawdzania typów. Dla niektórych aplikacji możesz korzystać z rozszerzeń JavaScriptu do sprawdzenia typów w całej aplikacji takich jak [Flow](https://flow.org/) lub [TypeScript](https://www.typescriptlang.org/). Nawet jeśli z nich nie korzystasz, możesz skorzystać ze sprawdzania typów wbudowanego w Reacta. By rozpocząć sprawdzanie typów atrybutów w komponencie, możesz dodać specjalną właściwość `propTypes` dla komponentu.
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 class Greeting extends React.Component {
   render() {
     return (
-      <h1>Hello, {this.props.name}</h1>
+      <h1>Witaj, {this.props.name}</h1>
     );
   }
 }
