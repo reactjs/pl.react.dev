@@ -99,7 +99,7 @@ MyComponent.propTypes = {
   requiredAny: PropTypes.any.isRequired,
 
   // Możesz też utworzyć niestandardowy walidator. Powinien on zwracać obiekt `Error`,
-  // jeśli sprawdzenie zakończy się niepowodzeniem. Nie powinien wywoływać `console.warning ani
+  // jeśli sprawdzenie zakończy się niepowodzeniem. Nie powinien wywoływać `console.warn`
   // rzucać wyjątku, ponieważ nie będzie działał wewnątrz `oneOfType`.
   customProp: function(props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
