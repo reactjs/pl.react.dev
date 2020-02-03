@@ -49,78 +49,76 @@ MyComponent.propTypes = {
   optionalString: PropTypes.string,
   optionalSymbol: PropTypes.symbol,
 
-  // Anything that can be rendered: numbers, strings, elements or an array
-  // (or fragment) containing these types.
+  // Wszystko co może być wyrenderowane: liczby, łańcuchy znaków, elementy lub tablice
+  // (lub fragmenty) zawierające te typy.
   optionalNode: PropTypes.node,
 
-  // A React element.
+  // Element Reacta.
   optionalElement: PropTypes.element,
 
-  // A React element type (ie. MyComponent).
+  // Typ komponenetu Reacta (np. MyComponent).
   optionalElementType: PropTypes.elementType,
   
-  // You can also declare that a prop is an instance of a class. This uses
-  // JS's instanceof operator.
+  // Możesz także zadeklarować atrybut który będzie instancją klasy.
+  // Wykorzystujemy do tego operator instanceof z JavaScriptu.
   optionalMessage: PropTypes.instanceOf(Message),
 
-  // You can ensure that your prop is limited to specific values by treating
-  // it as an enum.
+  // Możesz się upewnić czy atrybut jest ograniczony do określonych wartości
   optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 
-  // An object that could be one of many types
+  // Atrybut może też mieć wiele typów
   optionalUnion: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.instanceOf(Message)
   ]),
 
-  // An array of a certain type
+  // Tablica zawierająca okreśolny typ
   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
 
-  // An object with property values of a certain type
+  // Objekt zawierający okreśoly typ
   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
 
-  // An object taking on a particular shape
+  // Obiekt zawierający jedne określonych pól
   optionalObjectWithShape: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number
   }),
   
-  // An object with warnings on extra properties
+  // Obiekt który zawiera tylko wskazane pola
   optionalObjectWithStrictShape: PropTypes.exact({
     name: PropTypes.string,
     quantity: PropTypes.number
   }),   
 
-  // You can chain any of the above with `isRequired` to make sure a warning
-  // is shown if the prop isn't provided.
+  // Możesz dodać do każdego z powyższych `isRequired,
+  // aby sprawdzić czy podany atrybut został zdefiniowany.
   requiredFunc: PropTypes.func.isRequired,
 
-  // A value of any data type
+  // Wartość dowolnego typu danych.
   requiredAny: PropTypes.any.isRequired,
 
-  // You can also specify a custom validator. It should return an Error
-  // object if the validation fails. Don't `console.warn` or throw, as this
-  // won't work inside `oneOfType`.
+  // Możesz też stworzyć niestandardowy walidator. Powinien on zwracać obiek `Error`
+  // jeśli sprawdzenie zakończy się niepowodzeniem. Nie powinien wywoływać `console.warning ani
+  // rzucać wyjątku, ponieważ nie będzie działał wewnątrz `oneOfType`.
   customProp: function(props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
       return new Error(
-        'Invalid prop `' + propName + '` supplied to' +
-        ' `' + componentName + '`. Validation failed.'
+        'Niepoprawny atrybut `' + propName + '` przekazany do ' +
+        ' `' + componentName + '`. Walidacja nieprawidłowa.'
       );
     }
   },
 
-  // You can also supply a custom validator to `arrayOf` and `objectOf`.
-  // It should return an Error object if the validation fails. The validator
-  // will be called for each key in the array or object. The first two
-  // arguments of the validator are the array or object itself, and the
-  // current item's key.
+  // Możesz także przekazać niestandardowy walidator do `arrayOf` i `objectOf`.
+  // Powinien on zwracać obiek `Error` jeśli sprawdzenie zakończy się niepowodzeniem.
+  // Walidator będzie wywołany dla każdego klucza w tablicy lub obiekcie.
+  // Pierwsze dwa argumenty walidatora to walidowana tablica lub obiekt oraz klucz bieżącego elementu.
   customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
     if (!/matchme/.test(propValue[key])) {
       return new Error(
-        'Invalid prop `' + propFullName + '` supplied to' +
-        ' `' + componentName + '`. Validation failed.'
+        'Niepoprawny atrybut `' + propFullName + '` przekazany do ' +
+        ' `' + componentName + '`. Walidacja nieprawidłowa.'
       );
     }
   })
