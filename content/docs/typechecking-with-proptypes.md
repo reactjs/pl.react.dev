@@ -164,7 +164,7 @@ class Greeting extends React.Component {
 
 // Definiuje domyślne wartości dla właściwości:
 Greeting.defaultProps = {
-  name: 'Obcy'
+  name: 'obcy'
 };
 
 // Renderuje "Witaj, Obcy":
