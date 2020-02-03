@@ -85,7 +85,7 @@ MyComponent.propTypes = {
     fontSize: PropTypes.number
   }),
   
-  // Obiekt, który zawiera tylko wskazane pola
+  // Obiekt zawierający tylko wskazane pola
   optionalObjectWithStrictShape: PropTypes.exact({
     name: PropTypes.string,
     quantity: PropTypes.number
