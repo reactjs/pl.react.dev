@@ -37,7 +37,11 @@ Na koniec nasz kod będzie wyglądał tak: **[Efekt końcowy](https://codepen.io
 
 Zanim przystąpisz do dalszej lektury, zachęcamy cię do uruchomienia gry w "kółko i krzyżyk". Zwróć uwagę, że jedną z funkcjonalności tej aplikacji jest, znajdująca się na prawo od planszy, numerowana lista. Wyświetla ona na bieżąco wszystkie wykonywane w danej rozgrywce ruchy.
 
+<<<<<<< HEAD
 Gdy już zapoznasz się z grą, możesz ją wyłączyć. Naukę rozpoczniemy od prostego szablonu. Naszym następnym krokiem będzie konfiguracja środowiska, aby nadawało się do stworzenia gry.
+=======
+We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 ### Wymagania {#prerequisites}
 
