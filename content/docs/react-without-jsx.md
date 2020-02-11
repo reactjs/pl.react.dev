@@ -40,11 +40,7 @@ ReactDOM.render(
 
 Jeśli chcesz zobaczyć więcej przykładów konwersji składni JSX do kodu javascriptowego, wypróbuj [wersję online kompilatora Babel](babel://jsx-simple-example).
 
-<<<<<<< HEAD
 Komponent może być ciągiem znaków, podklasą `React.Component` albo zwykłą funkcją.
-=======
-The component can either be provided as a string, as a subclass of `React.Component`, or a plain function.
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 Aby uniknąć ciągłego pisania `React.createElement`, warto zastosować poniższy wzorzec:
 
