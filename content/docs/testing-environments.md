@@ -29,7 +29,7 @@ Przy takiej konfiguracji można śmiało napisać większość testów dla UI: J
 
 Jeśli piszesz bibliotekę, która testuje głównie zachowania charakterystyczne dla przeglądarki, a w dodatku wymaga natywnych mechanizmów przeglądarki, jak generowanie układu strony, zalecamy skorzystanie z frameworka [mocha](https://mochajs.org/).
 
-W środowisku, które _uniemożliwia_ symulowanie modelu DOM (np. podczas testowania komponentów napisanych w React Native na Node.js), możesz skorzystać z [narzędzi do symulowania zdarzeń](https://reactjs.org/docs/test-utils.html#simulate) do symulowania interakcji z elementami. Alternatywnie możesz skorzystać z funkcji `fireEvent` dostarczonej przez [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
+W środowisku, które _uniemożliwia_ symulowanie modelu DOM (np. podczas testowania komponentów napisanych w React Native na Node.js), możesz skorzystać z [narzędzi do symulowania zdarzeń](/docs/test-utils.html#simulate) do symulowania interakcji z elementami. Alternatywnie możesz skorzystać z funkcji `fireEvent` dostarczonej przez [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
 
 Frameworki jak [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) czy [webdriver](https://www.seleniumhq.org/projects/webdriver/) służą do uruchamiania testów [end-to-end](#end-to-end-tests-aka-e2e-tests).
 

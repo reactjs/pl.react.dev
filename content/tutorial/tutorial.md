@@ -37,7 +37,7 @@ Na koniec nasz kod będzie wyglądał tak: **[Efekt końcowy](https://codepen.io
 
 Zanim przystąpisz do dalszej lektury, zachęcamy cię do uruchomienia gry w "kółko i krzyżyk". Zwróć uwagę, że jedną z funkcjonalności tej aplikacji jest, znajdująca się na prawo od planszy, numerowana lista. Wyświetla ona na bieżąco wszystkie wykonywane w danej rozgrywce ruchy.
 
-Gdy już zapoznasz się z grą, możesz ją wyłączyć. Naukę rozpoczniemy od prostego szablonu. Naszym następnym krokiem będzie konfiguracja środowiska, aby nadawało się do stworzenia gry.
+Radzimy wypróbować grę w kółko i krzyżyk przed dalszą lekturą samouczka. Jedną z funkcjonalności, która z pewnością rzuci się od razu w oczy, jest numerowana lista na prawo od planszy. Zawiera ona historię wszystkich ruchów wykonanych podczas gry i jest aktualizowana na bieżąco.
 
 ### Wymagania {#prerequisites}
 
