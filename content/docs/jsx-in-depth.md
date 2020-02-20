@@ -47,7 +47,7 @@ React.createElement(
 )
 ```
 
-Aby przetestować jak JSX jest zamieniany na JavaScript, możesz wypróbować [kompilator Babel online](babel://jsx-simple-example).
+Aby przetestować, jak JSX jest zamieniany na JavaScript, możesz wypróbować [kompilator Babel online](babel://jsx-simple-example).
 
 ## Określanie typu elementu {#specifying-the-react-element-type}
 
@@ -82,7 +82,7 @@ import React from 'react';
 
 const MyComponents = {
   DatePicker: function DatePicker(props) {
-    return <div>Imagine a {props.color} datepicker here.</div>;
+    return <div>Wyobraź sobie, że jest tutaj kalendarz w kolorze {props.color}.</div>;
   }
 }
 
@@ -97,20 +97,20 @@ Jeżeli nazwa elementu zaczyna się od małej litery, oznacza to odniesienie do 
 
 Rekomendujemy używanie wielkich liter w nazwach komponentów. Jeżeli twój komponent ma nazwę rozpoczynającą się od małej litery, przypisz ją do zmiennej, której nazwa zaczyna się od wielkiej litery, zanim użyjesz go w JSX.
 
-Na przykład, poniższy kod nie zachowa się tak jak można oczekiwać:
+Na przykład, poniższy kod nie zachowa się tak, jak można by tego oczekiwać:
 
 ```js{3,4,10,11}
 import React from 'react';
 
 // Źle! To jest komponent i jego nazwa powinna zaczynać się wielką literą:
 function hello(props) {
-  // Poprawne! To użycie <div> jest poprawne, bo jest on poprawnym, wbudowanym tagiem HTML:
-   return <div>Witaj, {props.toWhat}</div>;
+  // Dobrze! To użycie <div> jest w porządku, bo jest on poprawnym, wbudowanym tagiem HTML:
+  return <div>Witaj, {props.toWhat}</div>;
 }
 
 function HelloWorld() {
   // Źle! React traktuje <hello /> jak element wbudowany HTML, bo jego nazwa nie zaczyna się od wielkiej litery:
-   return <hello toWhat="Świecie" />;
+  return <hello toWhat="Świecie" />;
 }
 ```
 
@@ -121,13 +121,13 @@ import React from 'react';
 
 // Dobrze! To jest komponent, więc powinien mieć nazwę pisaną wielką literą:
 function Hello(props) {
-  // Poprawne! To użycie <div> jest poprawne, bo div jest poprawnym elementem HTML:
+  // Dobrze! To użycie <div> jest w porządku, bo div jest poprawnym elementem HTML:
   return <div>Witaj, {props.toWhat}</div>;
 }
 
 function HelloWorld() {
-  // Dobrze! React traktuje <Hello /> jak komponent, bo jego nazwa jest zaczyna się od wielkiej litery:
-   return <Hello toWhat="Świecie" />;
+  // Dobrze! React traktuje <Hello /> jak komponent, bo jego nazwa zaczyna się od wielkiej litery:
+  return <Hello toWhat="Świecie" />;
 }
 ```
 
@@ -188,11 +188,11 @@ Dla komponentu `MyComponent`, wartość `props.foo` będzie równa `10`, poniewa
 function NumberDescriber(props) {
   let description;
   if (props.number % 2 == 0) {
-    description = <strong>even</strong>;
+    description = <strong>parzystą</strong>;
   } else {
-    description = <i>odd</i>;
+    description = <i>nieparzystą</i>;
   }
-  return <div>{props.number} is an {description} number</div>;
+  return <div>{props.number} jest liczbą {description}</div>;
 }
 ```
 
@@ -216,7 +216,7 @@ Gdy przekazujesz literał tekstowy, w jego treści zakodowywany jest HTML. Dlate
 <MyComponent message={'<3'} />
 ```
 
-Zwykle jednak konsekwencje tego zachowania nie są istotne, jednak zostały wspomniane dla kompletności dokumentacji.
+Zwykle jednak konsekwencje tego zachowania nie są istotne, ale zostały wspomniane dla kompletności dokumentacji.
 
 ### Przekazane właściwości domyślnie mają wartość "true" {#props-default-to-true}
 
@@ -230,7 +230,7 @@ Gdy przekażesz atrybut bez jawnego podawania wartości, domyślnie przyjmie on 
 
 Nie rekomendujemy jednak przekazywania wartości `true` w jawny sposób, bo może być to pomylone ze [skrótowym zapisem definicji obiektu w ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}`, który jest równoznaczny z `{foo: foo}`, a nie `{foo: true}`. To zachowanie w składni JSX zostało zaimplementowane, żeby odwzorować sposób działania atrybutów HTML.
 
-### Właściwości rozszczepione (ang. spread) {#spread-attributes}
+### Właściwości rozszczepione (ang. *spread*) {#spread-attributes}
 
 Jeżeli zmienna `props` jest obiektem, a chcesz przekazać ją w JSX, możesz użyć operatora rozszczepienia (`...`). Poniższe implementacje komponentów są równoznaczne:
 
@@ -257,8 +257,8 @@ const Button = props => {
 const App = () => {
   return (
     <div>
-      <Button kind="primary" onClick={() => console.log("clicked!")}>
-        Hello World!
+      <Button kind="primary" onClick={() => console.log("kliknięto!")}>
+        Witaj, świecie!
       </Button>
     </div>
   );
@@ -279,7 +279,7 @@ W JSX, jeżeli wyrażenie posiada zarówno tag otwierający, jak i zamykający, 
 Możesz umieścić łańcuch znaków pomiędzy tagiem otwierającym a zamykającym. Wtedy wartość `props.children` będzie równa przekazanemu łańcuchowi znaków. Jest to szczególnie przydatne w użyciu z niektórymi wbudowanymi elementami HTML. Na przykład:
 
 ```js
- <MyComponent>Witaj, świecie!</MyComponent>
+<MyComponent>Witaj, świecie!</MyComponent>
 ```
 
 Powyższy kod jest poprawnym wyrażeniem JSX, a wartość `props.children` w komponencie `MyComponent` będzie równa przekazanemu łańcuchowi znaków `"Witaj, świecie!". HTML zostanie odkodowany, więc możesz pisać w JSX tak, jak w zwykłym HTML-u:
@@ -323,10 +323,10 @@ Przekazywane elementy mogą być różnego typu, a więc możesz używać łańc
 
 ```html
 <div>
-  Here is a list:
+  Oto lista:
   <ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
+    <li>Element 1</li>
+    <li>Element 2</li>
   </ul>
 </div>
 ```
@@ -338,8 +338,8 @@ render() {
   // Nie ma potrzeby otaczać elementów listy dodatkowym elementem JSX!
   return [
     // Pamiętaj o kluczach :)
-     <li key="A">Pierwszy</li>,
-     <li key="B">Drugi</li>,
+    <li key="A">Pierwszy</li>,
+    <li key="B">Drugi</li>,
     <li key="C">Trzeci</li>,
   ];
 }
@@ -363,7 +363,7 @@ function Item(props) {
 }
 
 function TodoList() {
-  const todos = ['finish doc', 'submit pr', 'nag dan to review'];
+  const todos = ['dokończyć dokumentację', 'wystawić PR-a', 'namówić Dana na review'];
   return (
     <ul>
       {todos.map((message) => <Item key={message} message={message} />)}
@@ -397,7 +397,7 @@ function Repeat(props) {
 function ListOfTenThings() {
   return (
     <Repeat numTimes={10}>
-      {(index) => <div key={index}>This is item {index} in the list</div>}
+      {(index) => <div key={index}>To jest {index}. element listy</div>}
     </Repeat>
   );
 }
@@ -456,6 +456,6 @@ Jeżeli chcesz, aby wartość taka jak: `false`, `true`, `null` lub `undefined` 
 
 ```js{2}
 <div>
-  My JavaScript variable is {String(myVariable)}.
+  Moja javascriptowa zmienna to {String(myVariable)}.
 </div>
 ```
