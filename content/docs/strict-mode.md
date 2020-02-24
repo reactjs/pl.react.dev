@@ -32,7 +32,11 @@ Gdy tryb rygorystyczny jest włączony, React tworzy listę wszystkich komponent
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
+<<<<<<< HEAD
 Rozwiązanie _teraz_ problemów zidentyfikowanych przez tryb rygorystyczny ułatwi użycie asynchronicznego renderowania w przyszłych wydaniach Reacta.
+=======
+Addressing the issues identified by strict mode _now_ will make it easier for you to take advantage of concurrent rendering in future releases of React.
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 ### Ostrzeganiu o użyciu przestarzałego API tekstowych referencji {#warning-about-legacy-string-ref-api-usage}
 
@@ -83,7 +87,11 @@ Zasadniczo, React działa w dwóch fazach:
 * Faza **renderowania** określa, jakie zmiany należy zaaplikować w np. drzewie DOM. Podczas tej fazy React wywołuje metodę `render` i porównuje jej wynik z poprzednim.
 * Faza **aktualizacji** następuje wtedy, gdy React aplikuje zmiany. (W przypadku React DOM następuje to, gdy React dodaje, aktualizuje i usuwa węzły DOM.) Podczas tej fazy React wywołuje również metody cyklu życia komponentu tj. `componentDidMount` czy `componentDidUpdate`.
 
+<<<<<<< HEAD
 Faza aktualizacji jest zazwyczaj bardzo szybka, jednak renderowanie może być powolne. Z tego powodu nadchodzący tryb asynchroniczny (który nie jest jeszcze domyślnie włączony), rozbija pracę związaną z renderowaniem na części, zatrzymując i wznawiając pracę, aby uniknąć blokowania przeglądarki. To oznacza, że React może wywołać metody cyklu życia w fazie renderowania więcej niż raz przed aktualizacją lub może je wywołać nawet bez aktualizacji (z powodu błędu lub przerwania o wyższym priorytecie).
+=======
+The commit phase is usually very fast, but rendering can be slow. For this reason, the upcoming concurrent mode (which is not enabled by default yet) breaks the rendering work into pieces, pausing and resuming the work to avoid blocking the browser. This means that React may invoke render phase lifecycles more than once before committing, or it may invoke them without committing at all (because of an error or a higher priority interruption).
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 Cykl życia fazy renderowania odnosi się do poniższych metod z komponentu klasowego:
 * `constructor`

@@ -71,6 +71,10 @@ Możesz to sprawdzić przez zbadanie (ang. *inspect*) [ostatniego przykładu](co
 
 ![inspektor DOM pokazujący cząstkowe aktualizacje](../images/docs/granular-dom-updates.gif)
 
+<<<<<<< HEAD
 Mimo że przy każdym tyknięciu zegara tworzymy element opisujący cały interfejs użytkownika, tylko węzeł tekstowy, którego treść uległa zmianie, zostaje zaktualizowany przez React DOM.
+=======
+Even though we create an element describing the whole UI tree on every tick, only the text node whose contents have changed gets updated by React DOM.
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 Według naszego doświadczenia, myślenie o tym, jak powinien wyglądać interfejs użytkownika w danym momencie, a nie jak zmieniać go w czasie, eliminuje całą klasę błędów.
