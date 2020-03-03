@@ -382,7 +382,7 @@ Są to "skrzynki narzędziowe" wypełnione atrybutami HTML, które są w pełni 
 Każdy typ widżetu ma określone wzorce i zarówno użytkownicy, jak i przeglądarki oczekują, że będzie działał w określony sposób.
 
 - [Dobre praktyki WAI-ARIA - Wzorce projektowe i widżety](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA w praktyce](https://heydonworks.com/practical_aria_examples/)
+- [Heydon Pickering - ARIA w praktyce](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Inne punkty do rozważenia {#other-points-for-consideration}
