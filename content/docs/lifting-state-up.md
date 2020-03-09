@@ -305,6 +305,7 @@ Nie ważne teraz, który z inputów edytujemy, w komponencie `Calculator` aktual
 
 Podsumujmy teraz, co dzieje się, gdy edytujemy jeden z inputów:
 
+<<<<<<< HEAD
 * React wywołuje funkcję `onChange` na elemencie DOM `<input>`. W naszym przypadku jest to metoda `handleChange` z komponentu `TemperatureInput`.
 * Metoda `handleChange` w komponencie `TemperatureInput` wywołuje `this.props.onTemperatureChange()` z nową wartością. Atrybuty tego komponentu, takie jak `onTemperatureChange`, pochodzą od rodzica - komponentu `Calculator`.
 * Podczas poprzedniego renderu, komponent `Calculator` określił, że atrybut `onTemperatureChange` przychodzący z komponentu `TemperatureInput` z Celsjuszami, jest wywoływany metodą `handleCelsiusChange`, natomiast `onTemperatureChange` z komponentu z Fahrenheitami, jest teraz wywoływany metodą `handleFahrenheitChange`. Dzięki temu, w zależności od tego, który input dostanie nową wartość, jedna z tych metod zostanie wywołana.
@@ -313,6 +314,16 @@ Podsumujmy teraz, co dzieje się, gdy edytujemy jeden z inputów:
 * React wywołuje metodę `render` poszczególnych komponentów `TemperatureInput`, która otrzymuje nowe atrybuty od komponentu `Calculator`. Dzięki temu dowiaduje się, jak powinien wyglądać komponent.
 * React wywołuje metodę `render` komponentu `BoilingVerdict`, przekazując do niego temperaturę w Celsjuszach jako atrybut.
 * Paczka "React DOM" aktualizuje drzewo DOM otrzymaną strukturą, dopasowując się do wartości inputów. Input, którego właśnie edytowaliśmy, otrzymuje swoją obecną wartość, natomiast drugi input otrzymuje temperaturę po konwersji.
+=======
+* React calls the function specified as `onChange` on the DOM `<input>`. In our case, this is the `handleChange` method in the `TemperatureInput` component.
+* The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()` with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
+* When it previously rendered, the `Calculator` had specified that `onTemperatureChange` of the Celsius `TemperatureInput` is the `Calculator`'s `handleCelsiusChange` method, and `onTemperatureChange` of the Fahrenheit `TemperatureInput` is the `Calculator`'s `handleFahrenheitChange` method. So either of these two `Calculator` methods gets called depending on which input we edited.
+* Inside these methods, the `Calculator` component asks React to re-render itself by calling `this.setState()` with the new input value and the current scale of the input we just edited.
+* React calls the `Calculator` component's `render` method to learn what the UI should look like. The values of both inputs are recomputed based on the current temperature and the active scale. The temperature conversion is performed here.
+* React calls the `render` methods of the individual `TemperatureInput` components with their new props specified by the `Calculator`. It learns what their UI should look like.
+* React calls the `render` method of the `BoilingVerdict` component, passing the temperature in Celsius as its props.
+* React DOM updates the DOM with the boiling verdict and to match the desired input values. The input we just edited receives its current value, and the other input is updated to the temperature after conversion.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 Każda aktualizacja przechodzi ten sam proces, więc inputy są zawsze zsynchronizowane.
 

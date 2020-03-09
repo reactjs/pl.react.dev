@@ -128,7 +128,7 @@ expect(root.toJSON()).toMatchSnapshot();
 
 // zaktualizuj komponent przy użyciu innych właściwości
 act(() => {
-  root = root.update(<App value={2}/>);
+  root.update(<App value={2}/>);
 })
 
 // wykonaj sprawdzenia na korzeniu drzewa

@@ -36,7 +36,11 @@ Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzi�
 
 ### Środowisko doświadczalne {#online-playgrounds}
 
+<<<<<<< HEAD
 Jeśli chcesz wypróbować Reacta, możesz w tym celu użyć środowisk doświadczalnych online. Wypróbuj szablon "Hello World" na [CodePen](codepen://hello-world) lub [CodeSandbox](https://codesandbox.io/s/new).
+=======
+If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template), or [Stackblitz](https://stackblitz.com/fork/react).
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 Jeśli wolisz używać swojego własnego edytora tekstu, możesz także [ściągnąć ten plik HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edytować go, a następnie otworzyć lokalnie w swojej przeglądarce. Pamiętaj jednak, że wykonuje on podczas uruchomienia dość mozolną transformację kodu, więc zalecamy go jedynie do prostych przykładów.
 
@@ -83,7 +87,11 @@ Proponujemy zapoznanie się z [przeglądem informacji o JavaScripcie](https://de
 
 ### Praktyczne samouczki {#practical-tutorial}
 
+<<<<<<< HEAD
 Jeśli preferujesz **naukę przez praktykę**, sprawdź nasze [praktyczne samouczki](/tutorial/tutorial.html). W tym rozdziale, za pomocą Reacta, stworzymy od podstaw grę w kółko i krzyżyk. Jeśli nie zajmujesz się tworzeniem gier i kusi cię, by go pominąć -- najpierw daj mu szansę. Techniki, których nauczysz się w tym poradniku są fundamentami do zbudowania *dowolnej* aplikacji w Reakcie, a zrozumienie ich zapewni ci dogłębne poznanie tematu.
+=======
+If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not into building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ### Instrukcja krok po kroku {#step-by-step-guide}
 
