@@ -63,7 +63,6 @@ function onClick(event) {
 
 > Uwaga:
 >
-<<<<<<< HEAD
 > Jeśli chcesz odczytać właściwości zdarzenia w sposób asynchroniczny, wywołaj jego metodę `event.persist()`. Zdarzenie to zostanie wyciągnięte z puli zdarzeń, co pozwoli na zachowanie referencji do późniejszego użytku w kodzie.
 
 ## Obsługiwane zdarzenia {#supported-events}
@@ -77,6 +76,7 @@ Przedstawione na liście poniżej procedury obsługi zdarzeń są wywoływane pr
 - [Obsługa klawiatury](#keyboard-events)
 - [Obsługa skupiania](#focus-events)
 - [Obsługa formularzy](#form-events)
+- [Obsługa zdarzeń generycznych](#generic-events)
 - [Obsługa myszy](#mouse-events)
 - [Obsługa wskaźnika](#pointer-events)
 - [Obsługa zaznaczania](#selection-events)
@@ -88,33 +88,6 @@ Przedstawione na liście poniżej procedury obsługi zdarzeń są wywoływane pr
 - [Obsługa animacji](#animation-events)
 - [Obsługa tranzycji](#transition-events)
 - [Inne zdarzenia](#other-events)
-=======
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
-
-## Supported Events {#supported-events}
-
-React normalizes events so that they have consistent properties across different browsers.
-
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
-
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Generic Events](#generic-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 * * *
 
@@ -212,12 +185,9 @@ Więcej informacji odnośnie zdarzenia `onChange` opisaliśmy w rozdziale pt. ["
 
 * * *
 
-<<<<<<< HEAD
-### Obsługa myszy {#mouse-events}
-=======
-### Generic Events {#generic-events}
+### Obsługa zdarzeń generycznych {#generic-events}
 
-Event names:
+Nazwy zdarzeń:
 
 ```
 onError onLoad
@@ -225,8 +195,7 @@ onError onLoad
 
 * * *
 
-### Mouse Events {#mouse-events}
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+### Obsługa myszy {#mouse-events}
 
 Nazwy zdarzeń:
 

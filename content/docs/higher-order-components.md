@@ -177,15 +177,9 @@ Powstrzymaj się przed wszelkimi zmianami prototypu komponentu (innymi słowy, p
 
 ```js
 function logProps(InputComponent) {
-<<<<<<< HEAD
-  InputComponent.prototype.componentWillReceiveProps = function(nextProps) {
-    console.log('Aktualne właściwości: ', this.props);
-    console.log('Nowe właściwości: ', nextProps);
-=======
   InputComponent.prototype.componentDidUpdate = function(prevProps) {
-    console.log('Current props: ', this.props);
-    console.log('Previous props: ', prevProps);
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+    console.log('Aktualne właściwości: ', this.props);
+    console.log('Poprzednie właściwości: ', prevProps);
   };
   // Fakt, że zwracamy tu oryginalny komponent, może świadczyć o tym,
   // że został on w jakiś sposób zmodyfikowany.
@@ -196,11 +190,7 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-<<<<<<< HEAD
-Z powyższym kodem jest kilka problemów. Po pierwsze, nie można ponownie użyć opakowywanego komponentu osobno, w innym miejscu aplikacji. Co ważne, jeśli zaaplikujesz kolejny `EnhancedComponent`, który *także* zmienia metodę `componentWillReceiveProps`, funkcjonalność pierwszego KWR-a zostanie nadpisana! Ponadto, ten KWR nie zadziała poprawnie z komponentami funkcyjnymi, ponieważ nie mają one metod cyklu życia.
-=======
-There are a few problems with this. One is that the input component cannot be reused separately from the enhanced component. More crucially, if you apply another HOC to `EnhancedComponent` that *also* mutates `componentDidUpdate`, the first HOC's functionality will be overridden! This HOC also won't work with function components, which do not have lifecycle methods.
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+Z powyższym kodem jest kilka problemów. Po pierwsze, nie można ponownie użyć opakowywanego komponentu osobno, w innym miejscu aplikacji. Co ważne, jeśli zaaplikujesz kolejny `EnhancedComponent`, który *także* zmienia metodę `componentDidUpdate`, funkcjonalność pierwszego KWR-a zostanie nadpisana! Ponadto, ten KWR nie zadziała poprawnie z komponentami funkcyjnymi, ponieważ nie mają one metod cyklu życia.
 
 KWR-y mutujące są swego rodzaju "dziurawą abstrakcją" - konsument takiego komponentu musi znać jego implementację, aby uniknąć konfliktów z innymi KWR-ami.
 
@@ -209,15 +199,9 @@ Zamiast modyfikować, KWR-y powinny komponować poprzez opakowywanie otrzymanego
 ```js
 function logProps(WrappedComponent) {
   return class extends React.Component {
-<<<<<<< HEAD
-    componentWillReceiveProps(nextProps) {
-      console.log('Aktualne właściwości: ', this.props);
-      console.log('Nowe właściwości: ', nextProps);
-=======
     componentDidUpdate(prevProps) {
-      console.log('Current props: ', this.props);
-      console.log('Previous props: ', prevProps);
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+      console.log('Aktualne właściwości: ', this.props);
+      console.log('Poprzednie właściwości: ', prevProps);
     }
     render() {
       // Opakowuje otrzymany komponent w kontener, bez jego zmieniania. Dobrze!

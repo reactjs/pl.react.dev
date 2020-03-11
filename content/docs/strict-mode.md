@@ -99,18 +99,11 @@ Ponieważ powyższe metody mogą być wywołane więcej niż raz, ważne jest, a
 
 Tryb rygorystyczny nie może automatycznie wykrywać efektów ubocznych, ale może pomóc w ich zauważeniu, poprzez sprawienie, by były trochę bardziej deterministyczne. Dzieje się to za sprawą celowego podwójnego wywoływania poniższych metod:
 
-<<<<<<< HEAD
 * Metoda `constructor` komponentu klasowego
 * Metoda `render` 
 * funkcja aktualizująca dla `setState` (pierwszy argument)
 * Statyczna metoda cyklu życia `getDerivedStateFromProps`
-=======
-* Class component `constructor` method
-* The `render` method
-* `setState` updater functions (the first argument)
-* The static `getDerivedStateFromProps` lifecycle
-* The `shouldComponentUpdate` method
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+* Metoda `shouldComponentUpdate`
 
 > Uwaga:
 >

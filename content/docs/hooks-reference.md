@@ -69,11 +69,7 @@ function Counter({initialCount}) {
 
 Przyciski „+” i „-” wykorzystują formę funkcyjną, ponieważ zaktualizowana wartość bazuje na poprzedniej. Z kolei przycisk „Zresetuj” używa normalnej formy, ponieważ zawsze przywraca początkową wartość.
 
-<<<<<<< HEAD
-Jeśli twoja funkcja aktualizująca zwróci wartość identyczną jak aktualna, nie spowoduje to ponownego wyrenderowania.
-=======
-If your update function returns the exact same value as the current state, the subsequent rerender will be skipped completely.
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+Jeśli twoja funkcja aktualizująca zwróci wartość identyczną z aktualnym stanem, nie spowoduje to ponownego wyrenderowania.
 
 > Uwaga
 >
@@ -441,11 +437,7 @@ Miej na uwadze fakt, że `useRef` *nie* informuje o tym, że jego wartość się
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
-<<<<<<< HEAD
-`useImperativeHandle` dostosowuje wartość instancji, jaka przekazywana jest komponentom przodków, kiedy używają właściwości `ref`. Jak zwykle zalecamy aby w większości przypadków unikać imperatywnego kodu korzystającego z referencji. `useImperativeHandle` powinien być użyty w parze z `forwardRef`:
-=======
-`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. As always, imperative code using refs should be avoided in most cases. `useImperativeHandle` should be used with [`forwardRef`](/docs/react-api.html#reactforwardref):
->>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
+`useImperativeHandle` dostosowuje wartość instancji, jaka przekazywana jest komponentom przodków, kiedy używają właściwości `ref`. Jak zwykle zalecamy aby w większości przypadków unikać imperatywnego kodu korzystającego z referencji. `useImperativeHandle` powinien być użyty w parze z [`forwardRef`](/docs/react-api.html#reactforwardref):
 
 ```js
 function FancyInput(props, ref) {
