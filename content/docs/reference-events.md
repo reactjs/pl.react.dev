@@ -26,6 +26,7 @@ void preventDefault()
 boolean isDefaultPrevented()
 void stopPropagation()
 boolean isPropagationStopped()
+void persist()
 DOMEventTarget target
 number timeStamp
 string type
@@ -75,6 +76,7 @@ Przedstawione na liście poniżej procedury obsługi zdarzeń są wywoływane pr
 - [Obsługa klawiatury](#keyboard-events)
 - [Obsługa skupiania](#focus-events)
 - [Obsługa formularzy](#form-events)
+- [Obsługa zdarzeń generycznych](#generic-events)
 - [Obsługa myszy](#mouse-events)
 - [Obsługa wskaźnika](#pointer-events)
 - [Obsługa zaznaczania](#selection-events)
@@ -176,10 +178,20 @@ DOMEventTarget relatedTarget
 Nazwy zdarzeń:
 
 ```
-onChange onInput onInvalid onSubmit
+onChange onInput onInvalid onReset onSubmit 
 ```
 
 Więcej informacji odnośnie zdarzenia `onChange` opisaliśmy w rozdziale pt. ["Formularze"](/docs/forms.html).
+
+* * *
+
+### Obsługa zdarzeń generycznych {#generic-events}
+
+Nazwy zdarzeń:
+
+```
+onError onLoad
+```
 
 * * *
 

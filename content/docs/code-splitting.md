@@ -137,6 +137,8 @@ komponent reactowy.
 "Leniwy" komponent powinien zostać wyrenderowany wewnątrz `Suspense`, dzięki któremu na czas ładowania możemy wyświetlić komponent zastępczy (np. wskaźnik ładowania).
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
@@ -156,6 +158,8 @@ Właściwość `fallback` tego komponentu akceptuje dowolny element reactowy, kt
  w jeden komponent `Suspense`.
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -181,7 +185,9 @@ Możesz go obsłużyć aby zapewnić użytkownikowi lepsze doświadczenie, a tak
 miejscu ponad "leniwymi" komponentami i, na przykład, aby wyświetlić stan błędu, gdy połączenie z siecią zostanie zerwane.
 
 ```js
+import React, { Suspense } from 'react';
 import MyErrorBoundary from './MyErrorBoundary';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -213,8 +219,8 @@ Oto przykład skonfigurowania dzielenia kodu aplikacji opartego na ścieżkach, 
 biblioteki [React Router](https://reacttraining.com/react-router/) wraz z funkcją `React.lazy`.
 
 ```js
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));

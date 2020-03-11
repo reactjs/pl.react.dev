@@ -103,6 +103,7 @@ Tryb rygorystyczny nie może automatycznie wykrywać efektów ubocznych, ale mo�
 * Metoda `render` 
 * funkcja aktualizująca dla `setState` (pierwszy argument)
 * Statyczna metoda cyklu życia `getDerivedStateFromProps`
+* Metoda `shouldComponentUpdate`
 
 > Uwaga:
 >

@@ -288,7 +288,7 @@ class Square extends React.Component {
 
 >Uwaga
 >
->W [klasach javascriptowych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) należy zawsze wywoływać metodę `super` w konstruktorze klasy potomnej. Dlatego wszystkie komponenty reactowe będące klasą, które mają zdefiniowany konstruktor, powinny w nim na początku wywoływać `super(props)`.
+>W [klasach javascriptowych](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes) należy zawsze wywoływać metodę `super` w konstruktorze klasy potomnej. Dlatego wszystkie komponenty reactowe będące klasą, które mają zdefiniowany konstruktor, powinny zaczynać się od wywołania `super(props)`.
 
 Teraz zmienimy kod w metodzie `render` komponentu `Square` tak, aby po kliknięciu wyświetlał wartość aktualnego stanu:
 

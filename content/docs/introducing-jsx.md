@@ -177,7 +177,7 @@ const element = {
 
 Takie obiekty nazywamy "_elementami reactowymi_". Możesz o nich myśleć jak o sposobie opisania tego, co znajdzie się na ekranie. `ReactDOM` odczytuje te obiekty i używa ich do skonstruowania drzewa DOM twojej strony, jak również do późniejszego odświeżania go. 
 
-Więcej o wyświetlaniu elementów reactowych dowiesz się w następnym rozdziale.
+Więcej o wyświetlaniu elementów reactowych dowiesz się w [następnym rozdziale](/docs/rendering-elements.html).
 
 >**Wskazówka:**
 >

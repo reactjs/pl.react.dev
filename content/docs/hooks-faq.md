@@ -95,7 +95,7 @@ Nie możesz używać hooków *wewnątrz* komponentów klasowych, jednakże bez o
 
 ### Czy hooki obejmują wszystkie przypadki użycia, które są dostępne dla klas? {#do-hooks-cover-all-use-cases-for-classes}
 
-Naszym celem dla hooków jest zapewnienie wszystkich przypadków użycia klas, tak szybko jak to tylko możliwe. Brakuje jeszcze odpowiedników dla kilku rzadziej używanych metod cyklu życia komponentu, takich jak `getSnapshotBeforeUpdate` i `componentDidCatch`, ale zamierzamy je wkrótce dodać.
+Naszym celem dla hooków jest zapewnienie wszystkich przypadków użycia klas, tak szybko jak to tylko możliwe. Brakuje jeszcze odpowiedników dla kilku rzadziej używanych metod cyklu życia komponentu, takich jak `getSnapshotBeforeUpdate`, `getDerivedStateFromError` i `componentDidCatch`, ale zamierzamy je wkrótce dodać.
 
 Ze względu na to, że hooki pojawiły się całkiem niedawno, niektóre biblioteki firm trzecich mogą być z nimi niekompatybilne.
 
@@ -218,7 +218,7 @@ Jest jeszcze kilka innych heurystyk i mogą się one z czasem zmienić, gdy dost
 
 * `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: Hook [`useEffect`](/docs/hooks-reference.html#useeffect) może z powodzeniem zastąpić wszelkie kombinacje tych metod (włączając w to [mniej](#can-i-skip-an-effect-on-updates) [znane](#can-i-run-an-effect-only-on-updates) przypadki).
 
-* `componentDidCatch` i `getDerivedStateFromError`: W tej chwili nie istnieje hook odzwierciedlający działanie tych metod, ale zostanie wkrótce dodany.
+* `getSnapshotBeforeUpdate`, `componentDidCatch` i `getDerivedStateFromError`: W tej chwili nie istnieje hook odzwierciedlający działanie tych metod, ale zostanie wkrótce dodany.
 
 ### Jak mogę pobrać dane wykorzystując hooki? {#how-can-i-do-data-fetching-with-hooks}
 
@@ -289,7 +289,7 @@ Teraz przyjmimy, że chcemy napisać logikę, która zmienia `left` i `top`, kie
 
 Gdy aktualizujemy zmienną stanu, *zamieniamy* jej wartość. Różni się to od `this.setState` w klasach, które *scala* zaktualizowane pola do obiektu stanu.
 
-Jeżeli tęsknisz za automatycznym scalaniem, możesz napisać własny hook `useLegacyState`, który scala aktualizacje obiekt stanu. Jednak zamiast tego **zalecamy podzielenie stanu na wiele zmiennych stanu, bazując na tym, które wartości mają tendencję do zmieniania się jednocześnie.**
+Jeżeli tęsknisz za automatycznym scalaniem, możesz napisać własny hook `useLegacyState`, który scala aktualizacje obiekt stanu. Jednak **zalecamy podzielenie stanu na wiele zmiennych stanu, bazując na tym, które wartości mają tendencję do zmieniania się jednocześnie.**
 
 Dla przykładu, możemy podzielić stan naszego komponentu na obiekty `position` oraz `size` i zawsze nadpisywać wartość `position`, bez konieczności scalania stanu z poprzednim:
 
@@ -580,7 +580,7 @@ Depending on your use case, there are a few more options described below.
 
 Let's see why this matters.
 
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values used inside that participate in the React data flow. That includes props, state, and anything derived from them.
+If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values that are used inside the callback and participate in the React data flow. That includes props, state, and anything derived from them.
 
 It is **only** safe to omit a function from the dependency list if nothing in it (or the functions called by it) references props, state, or values derived from them. This example has a bug:
 

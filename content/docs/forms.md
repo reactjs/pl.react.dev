@@ -211,8 +211,8 @@ class Reservation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      wybieraSie: true,
-      liczbaGosci: 2
+      isGoing: true,
+      numberOfGuests: 2
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -220,7 +220,7 @@ class Reservation extends React.Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.name === "isGoing" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
@@ -234,18 +234,18 @@ class Reservation extends React.Component {
         <label>
           Wybiera się:
           <input
-            name="wybieraSie"
+            name="isGoing"
             type="checkbox"
-            checked={this.state.wybieraSie}
+            checked={this.state.isGoing}
             onChange={this.handleInputChange} />
         </label>
         <br />
         <label>
           Liczba gości:
           <input
-            name="liczbaGosci"
+            name="numberOfGuests"
             type="number"
-            value={this.state.liczbaGosci}
+            value={this.state.numberOfGuests}
             onChange={this.handleInputChange} />
         </label>
       </form>

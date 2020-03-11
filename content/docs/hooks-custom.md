@@ -74,7 +74,7 @@ Kiedy chcemy współdzielić logikę pomiędzy dwoma javascriptowymi funkcjami, 
 **Własny hook to po prostu javascriptowa funkcja, której nazwa zaczyna się od `use` i która może wywoływać inne hooki.** Poniższy przykład `useFriendStatus` to nasz pierwszy własny hook:
 
 ```js{3}
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useFriendStatus(friendID) {
   const [isOnline, setIsOnline] = useState(null);

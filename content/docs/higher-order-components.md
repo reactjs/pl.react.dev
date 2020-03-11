@@ -177,9 +177,9 @@ Powstrzymaj się przed wszelkimi zmianami prototypu komponentu (innymi słowy, p
 
 ```js
 function logProps(InputComponent) {
-  InputComponent.prototype.componentWillReceiveProps = function(nextProps) {
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
     console.log('Aktualne właściwości: ', this.props);
-    console.log('Nowe właściwości: ', nextProps);
+    console.log('Poprzednie właściwości: ', prevProps);
   };
   // Fakt, że zwracamy tu oryginalny komponent, może świadczyć o tym,
   // że został on w jakiś sposób zmodyfikowany.
@@ -190,7 +190,7 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-Z powyższym kodem jest kilka problemów. Po pierwsze, nie można ponownie użyć opakowywanego komponentu osobno, w innym miejscu aplikacji. Co ważne, jeśli zaaplikujesz kolejny `EnhancedComponent`, który *także* zmienia metodę `componentWillReceiveProps`, funkcjonalność pierwszego KWR-a zostanie nadpisana! Ponadto, ten KWR nie zadziała poprawnie z komponentami funkcyjnymi, ponieważ nie mają one metod cyklu życia.
+Z powyższym kodem jest kilka problemów. Po pierwsze, nie można ponownie użyć opakowywanego komponentu osobno, w innym miejscu aplikacji. Co ważne, jeśli zaaplikujesz kolejny `EnhancedComponent`, który *także* zmienia metodę `componentDidUpdate`, funkcjonalność pierwszego KWR-a zostanie nadpisana! Ponadto, ten KWR nie zadziała poprawnie z komponentami funkcyjnymi, ponieważ nie mają one metod cyklu życia.
 
 KWR-y mutujące są swego rodzaju "dziurawą abstrakcją" - konsument takiego komponentu musi znać jego implementację, aby uniknąć konfliktów z innymi KWR-ami.
 
@@ -199,9 +199,9 @@ Zamiast modyfikować, KWR-y powinny komponować poprzez opakowywanie otrzymanego
 ```js
 function logProps(WrappedComponent) {
   return class extends React.Component {
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(prevProps) {
       console.log('Aktualne właściwości: ', this.props);
-      console.log('Nowe właściwości: ', nextProps);
+      console.log('Poprzednie właściwości: ', prevProps);
     }
     render() {
       // Opakowuje otrzymany komponent w kontener, bez jego zmieniania. Dobrze!

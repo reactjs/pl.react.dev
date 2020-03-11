@@ -69,7 +69,7 @@ function Counter({initialCount}) {
 
 Przyciski „+” i „-” wykorzystują formę funkcyjną, ponieważ zaktualizowana wartość bazuje na poprzedniej. Z kolei przycisk „Zresetuj” używa normalnej formy, ponieważ zawsze przywraca początkową wartość.
 
-Jeśli twoja funkcja aktualizująca zwróci wartość identyczną jak aktualna, nie spowoduje to ponownego wyrenderowania.
+Jeśli twoja funkcja aktualizująca zwróci wartość identyczną z aktualnym stanem, nie spowoduje to ponownego wyrenderowania.
 
 > Uwaga
 >
@@ -437,7 +437,7 @@ Miej na uwadze fakt, że `useRef` *nie* informuje o tym, że jego wartość się
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
-`useImperativeHandle` dostosowuje wartość instancji, jaka przekazywana jest komponentom przodków, kiedy używają właściwości `ref`. Jak zwykle zalecamy aby w większości przypadków unikać imperatywnego kodu korzystającego z referencji. `useImperativeHandle` powinien być użyty w parze z `forwardRef`:
+`useImperativeHandle` dostosowuje wartość instancji, jaka przekazywana jest komponentom przodków, kiedy używają właściwości `ref`. Jak zwykle zalecamy aby w większości przypadków unikać imperatywnego kodu korzystającego z referencji. `useImperativeHandle` powinien być użyty w parze z [`forwardRef`](/docs/react-api.html#reactforwardref):
 
 ```js
 function FancyInput(props, ref) {
