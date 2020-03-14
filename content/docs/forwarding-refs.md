@@ -22,7 +22,7 @@ Taka enkapsulacja jest pożądana na poziomie aplikacji, w komponentach takich j
 
 **Przekazywanie referencji jest opcjonalną funkcjonalnością, która pozwala komponentom wziąć referencję do nich przekazaną i "podać dalej" do swojego dziecka.**
 
-W poniższym przykładzie `FancyButton` używa `React.forwardRef`, by przejąć przekazaną do niego referencję i podać ją dalej do elementu `button`, który renderuje:
+W poniższym przykładzie `FancyButton` używa `React.forwardRef`, by przejąć przekazaną do niego referencję i przekazać ją dalej do elementu `button`, który renderuje:
 
 `embed:forwarding-refs/fancy-button-simple-ref.js`
 
