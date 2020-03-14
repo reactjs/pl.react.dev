@@ -9,7 +9,7 @@ const ref = React.createRef();
 // Oznacza to, że nie możemy wywołać np. metody ref.current.focus()
 // highlight-range{4}
 <FancyButton
-  label="Click Me"
+  label="Kliknij mnie"
   handleClick={handleClick}
   ref={ref}
 />;

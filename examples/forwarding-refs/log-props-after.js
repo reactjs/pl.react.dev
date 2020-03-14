@@ -1,8 +1,8 @@
 function logProps(Component) {
   class LogProps extends React.Component {
     componentDidUpdate(prevProps) {
-      console.log('old props:', prevProps);
-      console.log('new props:', this.props);
+      console.log('poprzednie właściwości:', prevProps);
+      console.log('nowe właściwości:', this.props);
     }
 
     render() {
