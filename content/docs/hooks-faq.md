@@ -47,7 +47,7 @@ Ta strona odpowiada na najczęściej zadawane pytania odnośnie [hooków](/docs/
   * [Czy mogę pominąć efekt podczas aktualizacji komponentu?](#can-i-skip-an-effect-on-updates)
   * [Czy bezpiecznie jest pomijać funkcje w liście zależności?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
   * [Co zrobić, gdy zależności mojego efektu zmieniają się zbyt często?](#what-can-i-do-if-my-effect-dependencies-change-too-often)
-  * [Jak zaimplementować shouldComponentUpdate?](#how-do-i-implement-shouldcomponentupdate)
+  * [Jak zaimplementować `shouldComponentUpdate`?](#how-do-i-implement-shouldcomponentupdate)
   * [Jak memoizować obliczenia?](#how-to-memoize-calculations)
   * [Jak w leniwy sposób tworzyć "ciężkie" komponenty?](#how-to-create-expensive-objects-lazily)
   * [Czy hooki są wolne z powodu tworzenia funkcji podczas renderowania?](#are-hooks-slow-because-of-creating-functions-in-render)
@@ -671,7 +671,7 @@ Zauważ, że w powyższym przykładzie **musieliśmy** przekazać funkcję do ta
 
 ### Co zrobić, gdy zależności mojego efektu zmieniają się zbyt często? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
-Sometimes, your effect may be using state that changes too often. You might be tempted to omit that state from a list of dependencies, but that usually leads to bugs:
+Czasem twój efekt może korzystać ze stanu, który zmienia się zbyt często. Może cię kusić usunięcie go z listy zależności, jednak zwykle prowadzi to do błędów.:
 
 ```js{6,9}
 function Counter() {
@@ -679,18 +679,18 @@ function Counter() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCount(count + 1); // This effect depends on the `count` state
+      setCount(count + 1); // Ten efekt zależy od wartości `count`
     }, 1000);
     return () => clearInterval(id);
-  }, []); // 🔴 Bug: `count` is not specified as a dependency
+  }, []); // 🔴 Błąd: Zmienna `count` nie została wymieniona w zależnościach
 
   return <h1>{count}</h1>;
 }
 ```
 
-The empty set of dependencies, `[]`, means that the effect will only run once when the component mounts, and not on every re-render. The problem is that inside the `setInterval` callback, the value of `count` does not change, because we've created a closure with the value of `count` set to `0` as it was when the effect callback ran. Every second, this callback then calls `setCount(0 + 1)`, so the count never goes above 1.
+Pusty zbiór zależności, `[]`, oznacza, że efekt ten zostanie uruchomiony tylko jeden raz podczas montowania komponentu, a nie przy każdym ponownym renderowaniu. Problem polega na tym, iż wartość zmienne `count` wewnątrz funkcji zwrotnej przekazanej do `setInterval` nie będzie się zmieniać. Dzieje się dlatego, że stworzyliśmy dla niej "domknięcie", w którym `count` ma wartość `0`, ponieważ z taką wartością uruchomiono ten efekt. Co sekundę funkcja zwrotna będzie wywoływała `setCount(0 + 1)`, przez co wartość licznika nigdy nie przekroczy 1.
 
-Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimeout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
+Podanie `[count]` jako lista zależności mogłoby naprawić ten błąd, jednak spowodowałoby to resetowanie się interwału przy każdej zmianie stanu. W konsekwencji, każdy `setInterval` miałby jedną szansę na wykonanie, zanim zostałby wyczyszczony (zachowanie podobne do `setTimeout`). Raczej nie o to nam chodzi. Aby temu zapobiec, możemy skorzystać z [funkcyjnego wariantu aktualizacji poprzez `setState`](/docs/hooks-reference.html#functional-updates). Pozwoli to nam określić, *jak* stan powinien się zmienić, bez odnoszenia się do konkretnego *aktualnego* stanu:
 
 ```js{6,9}
 function Counter() {
@@ -698,26 +698,26 @@ function Counter() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCount(c => c + 1); // ✅ This doesn't depend on `count` variable outside
+      setCount(c => c + 1); // ✅ Nie zależy od zewnętrznej zmiennej `count`
     }, 1000);
     return () => clearInterval(id);
-  }, []); // ✅ Our effect doesn't use any variables in the component scope
+  }, []); // ✅ Nasz efekt nie korzysta z żadnych zmiennych z zakresu komponentu
 
   return <h1>{count}</h1>;
 }
 ```
 
-(The identity of the `setCount` function is guaranteed to be stable so it's safe to omit.)
+(Stałość referencyjna funkcji `setCount` jest zagwarantowana przez Reacta, więc można ją pominąć na liście zależności.)
 
-Now, the `setInterval` callback executes once a second, but each time the inner call to `setCount` can use an up-to-date value for `count` (called `c` in the callback here.)
+Teraz funkcja zwrotna przekazana do `setInterval` wywoływana jest co sekundę, lecz za każdym razem wywołanie `setCount` wewnątrz korzysta z aktualnej wartości licznika `count` (nazwanej lokalnie jako `c`).
 
-In more complex cases (such as if one state depends on another state), try moving the state update logic outside the effect with the [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [This article](https://adamrackis.dev/state-and-use-reducer/) offers an example of how you can do this. **The identity of the `dispatch` function from `useReducer` is always stable** — even if the reducer function is declared inside the component and reads its props.
+W bardziej zawiłych przypadkach (np. gdy jeden stan zależy od drugiego), spróbuj przenieść logikę zmiany stanu poza efekt przy pomocy [hooka `useReducer`](/docs/hooks-reference.html#usereducer). [W tym artykule](https://adamrackis.dev/state-and-use-reducer/) pokazano przykład jego zastosowania. **Tożsamość funkcji `dispatch` zwróconej przez `useReducer` jest zawsze stabilna** — nawet jeśli reduktor jest deklarowany wewnątrz komponentu i odczytuje jego właściwości.
 
-As a last resort, if you want something like `this` in a class, you can [use a ref](/docs/hooks-faq.html#is-there-something-like-instance-variables) to hold a mutable variable. Then you can write and read to it. For example:
+Ostatecznie, jeśli zechcesz skorzystać z czegoś w rodzaju klasowego `this`, możesz [użyć referencji](/docs/hooks-faq.html#is-there-something-like-instance-variables) do przechowania mutowalnej zmiennej. Wtedy możliwe będzie jej nadpisywanie i odczytywanie w dowolnym momencie. Na przykład:
 
 ```js{2-6,10-11,16}
 function Example(props) {
-  // Keep latest props in a ref.
+  // Trzymaj ostatnie właściwości w referencji.
   const latestProps = useRef(props);
   useEffect(() => {
     latestProps.current = props;
@@ -725,33 +725,33 @@ function Example(props) {
 
   useEffect(() => {
     function tick() {
-      // Read latest props at any time
+      // Odczytaj ostatnie właściwości w dowolnym momencie
       console.log(latestProps.current);
     }
 
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []); // This effect never re-runs
+  }, []); // Ten efekt nigdy nie uruchomi się ponownie
 }
 ```
 
-Only do this if you couldn't find a better alternative, as relying on mutation makes components less predictable. If there's a specific pattern that doesn't translate well, [file an issue](https://github.com/facebook/react/issues/new) with a runnable example code and we can try to help.
+Rób tak tylko gdy nie znajdziesz lepszej alternatywy, ponieważ poleganie na mutacjach negatywnie wpływa na przewidywalność zachowania się komponentów. Jeśli znasz jakiś wzorzec, którego nie da się w prosty sposób wyrazić za pomocą hooków, [zgłoś to](https://github.com/facebook/react/issues/new), załączając przykład działającego kodu, a postaramy się pomóc.
 
-### How do I implement `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
+### Jak zaimplementować `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
 
-You can wrap a function component with `React.memo` to shallowly compare its props:
+Możesz opakować komponent funkcyjny za pomocą `React.memo`, aby zastosować płytkie porównanie jego właściwości:
 
 ```js
 const Button = React.memo((props) => {
-  // your component
+  // twój komponent
 });
 ```
 
-It's not a Hook because it doesn't compose like Hooks do. `React.memo` is equivalent to `PureComponent`, but it only compares props. (You can also add a second argument to specify a custom comparison function that takes the old and new props. If it returns true, the update is skipped.)
+Nie jest to hook, bo nie komponuje się jak hooki. `React.memo` jest odpowiednikiem klasy `PureComponent`, jednak ogranicza się do porównywania wyłącznie właściwości. (Możesz także jako drugi argument przekazać funkcję porównującą poprzednie i aktualne właściwości. Jeśli zwróci `true`, aktualizacja komponentu zostanie pominięta.)
 
-`React.memo` doesn't compare state because there is no single state object to compare. But you can make children pure too, or even [optimize individual children with `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
+`React.memo` nie porównuje stanu komponentu, ponieważ nie ma jednego jedynego obiektu stanu, jak to ma miejsce w komponentach klasowych. Możesz jednak sprawić, by potomkowie również byli "czystymi" komponentami (ang. *pure components*), a nawet [zoptymalizować poszczególnych potomków za pomocą `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
 
-### How to memoize calculations? {#how-to-memoize-calculations}
+### Jak memoizować obliczenia? {#how-to-memoize-calculations}
 
 The [`useMemo`](/docs/hooks-reference.html#usememo) Hook lets you cache calculations between multiple renders by "remembering" the previous computation:
 
