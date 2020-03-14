@@ -3,13 +3,13 @@ import FancyButton from './FancyButton';
 // highlight-next-line
 const ref = React.createRef();
 
-// The FancyButton component we imported is the LogProps HOC.
-// Even though the rendered output will be the same,
-// Our ref will point to LogProps instead of the inner FancyButton component!
-// This means we can't call e.g. ref.current.focus()
+// Komponent FancyButton, który zaimportowaliśmy, jest tak naprawdę KWR-em LogProps.
+// Mimo że wyświetlony rezultat będzie taki sam,
+// nasza referencja będzie wskazywała na LogProps zamiast na komponent FancyButton!
+// Oznacza to, że nie możemy wywołać np. metody ref.current.focus()
 // highlight-range{4}
 <FancyButton
-  label="Click Me"
+  label="Kliknij mnie"
   handleClick={handleClick}
   ref={ref}
 />;
