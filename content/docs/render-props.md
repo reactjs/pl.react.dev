@@ -41,9 +41,15 @@ class MouseTracker extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
         <h1>Porusz myszką!</h1>
         <p>Aktualna pozycja kursora to ({this.state.x}, {this.state.y})</p>
+=======
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        <h1>Move the mouse around!</h1>
+        <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
       </div>
     );
   }
@@ -74,7 +80,7 @@ class Mouse extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
 
         {/* ...ale jak wyrenderować coś innego niż <p>? */}
         <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
@@ -127,7 +133,7 @@ class MouseWithCat extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
 
         {/*
           Moglibyśmy w tym miejscu po prostu zamienić <p> na <Cat>... ale później
@@ -183,7 +189,7 @@ class Mouse extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
 
         {/*
           Zamiast używać statycznej reprezentacji tego co renderuje <Mouse>,
