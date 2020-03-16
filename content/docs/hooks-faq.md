@@ -71,7 +71,7 @@ Zaczynając od wersji 16.8.0, React zawiera stabilną implementację hooków dla
 
 Zauważ, że **aby włączyć hooki, wszystkie paczki Reacta muszą mieć wersję 16.8.0 lub wyższą**. Hooki nie zadziałają, jeżeli zapomnisz zaktualizować, na przykład, React DOM.
 
-[React Native wspiera hooki od wersji 0.59](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059).
+[React Native wspiera hooki od wersji 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
 
 ### Czy muszę przepisać wszystkie komponenty klasowe? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -589,7 +589,7 @@ function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-    const response = await fetch('http://myapi/product' + productId); // Uses productId prop
+    const response = await fetch('http://myapi/product/' + productId); // Uses productId prop
     const json = await response.json();
     setProduct(json);
   }
@@ -610,7 +610,7 @@ function ProductPage({ productId }) {
   useEffect(() => {
     // By moving this function inside the effect, we can clearly see the values it uses.
     async function fetchProduct() {
-      const response = await fetch('http://myapi/product' + productId);
+      const response = await fetch('http://myapi/product/' + productId);
       const json = await response.json();
       setProduct(json);
     }

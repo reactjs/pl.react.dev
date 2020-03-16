@@ -27,6 +27,8 @@ Przestrzegając tej zasady, upewniasz się, że cała logika związana ze stanem
 
 Wydaliśmy wtyczkę dla ESLinta o nazwie [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), która wymusza stosowanie tych dwóch zasad. Jeśli chcesz ją wypróbować, możesz dodać ją do swojego projektu w następujący sposób:
 
+Wtyczka ta jest instalowana domyślnie w [Create React App](/docs/create-a-new-react-app.html#create-react-app).
+
 ```bash
 npm install eslint-plugin-react-hooks --save-dev
 ```
@@ -45,8 +47,6 @@ npm install eslint-plugin-react-hooks --save-dev
   }
 }
 ```
-
-Wtyczka ta jest instalowana domyślnie w [Create React App](/docs/create-a-new-react-app.html#create-react-app).
 
 **Możesz teraz przejść do następnego rozdziału, gdzie wyjaśniamy, [jak pisać własne hooki](/docs/hooks-custom.html).** W tym rozdziale postaramy się uzasadnić, dlaczego narzucamy takie zasady.
 

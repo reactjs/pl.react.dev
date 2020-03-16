@@ -227,7 +227,7 @@ Gdy przekażesz atrybut bez jawnego podawania wartości, domyślnie przyjmie on 
 <MyTextBox autocomplete={true} />
 ```
 
-Nie rekomendujemy jednak przekazywania wartości `true` w jawny sposób, bo może być to pomylone ze [skrótowym zapisem definicji obiektu w ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}`, który jest równoznaczny z `{foo: foo}`, a nie `{foo: true}`. To zachowanie w składni JSX zostało zaimplementowane, żeby odwzorować sposób działania atrybutów HTML.
+Nie zalecamy jednak *nie* przekazywania żadnej wartości, ponieważ może być to pomylone ze [skrótowym zapisem definicji obiektu w ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}`, który jest równoznaczny z `{foo: foo}`, a nie `{foo: true}`. To zachowanie w składni JSX zostało zaimplementowane, żeby odwzorować sposób działania atrybutów HTML.
 
 ### Właściwości rozszczepione (ang. *spread*) {#spread-attributes}
 

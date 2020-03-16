@@ -21,7 +21,7 @@ class App extends React.Component {
 // highlight-range{1,2}
 // Komponent pośredni nie musi już jawnie przekazywać tego ustawienia
 // w dół hierarchii.
-function Toolbar(props) {
+function Toolbar() {
   return (
     <div>
       <ThemedButton />
