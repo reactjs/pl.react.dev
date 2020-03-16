@@ -8,11 +8,7 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-<<<<<<< HEAD
 Obsługa zdarzeń w Reakcie jest bardzo podobna do tej z drzewa DOM. Istnieje jednak kilka różnic w składni:
-=======
-Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 * Zdarzenia reactowe pisane są camelCasem, a nie małymi literami.
 * W JSX procedura obsługi zdarzenia przekazywana jest jako funkcja, a nie łańcuch znaków.
@@ -134,13 +130,8 @@ class LoggingButton extends React.Component {
   render() {
     // Poniższy kod wymusza dowiązanie `this` wewnątrz handleClick.
     return (
-<<<<<<< HEAD
-      <button onClick={(e) => this.handleClick(e)}>
-        Kliknij mnie
-=======
       <button onClick={() => this.handleClick()}>
-        Click me
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+        Kliknij mnie
       </button>
     );
   }

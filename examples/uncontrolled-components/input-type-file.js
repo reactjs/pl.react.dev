@@ -9,11 +9,7 @@ class FileInput extends React.Component {
     // highlight-range{4}
     event.preventDefault();
     alert(
-<<<<<<< HEAD
       `Wybrany plik - ${this.fileInput.current.files[0].name}`
-=======
-      `Selected file - ${this.fileInput.current.files[0].name}`
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
     );
   }
 
