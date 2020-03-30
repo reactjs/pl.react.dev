@@ -96,7 +96,7 @@ import("./math").then(math => {
 Gdy Webpack natknie się na taką składnię, automatycznie zacznie dzielić kod w twojej aplikacji.
 Jeśli używasz Create React App, posiadasz już gotową konfigurację i możesz natychmiast
 [zacząć z niej korzystać](https://facebook.github.io/create-react-app/docs/code-splitting).
-Jest ona również obsługiwana domyślnie przez [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+Jest ona również obsługiwana domyślnie przez [Next.js](https://nextjs.org/docs/advanced-features/dynamic-import).
 
 Jeśli konfigurujesz Webpacka samodzielnie, zalecamy przeczytać
 [przewodnik po dzieleniu kodu](https://webpack.js.org/guides/code-splitting/). 
