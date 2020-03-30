@@ -95,25 +95,15 @@ Cykl życia fazy renderowania odnosi się do poniższych metod z komponentu klas
 * `render`
 * funkcje aktualizujące dla `setState` (pierwszy argument)
 
-Ponieważ powyższe metody mogą być wywołane więcej niż raz, ważne jest, aby nie zawierały efektów ubocznych (ang *side-effects*). Zignorowanie tej zasady może prowadzić do różnych problemów, włączając w to wycieki pamięci i niepoprawny stan aplikacji. Niestety, może być ciężko wykryć problemy tego typu, ponieważ są one często [niedeterministyczne](https://pl.wikipedia.org/wiki/Algorytm_deterministyczny).
+Ponieważ powyższe metody mogą być wywołane więcej niż raz, ważne jest, aby nie zawierały efektów ubocznych (ang. *side-effects*). Zignorowanie tej zasady może prowadzić do różnych problemów, włączając w to wycieki pamięci i niepoprawny stan aplikacji. Niestety, może być ciężko wykryć problemy tego typu, ponieważ są one często [niedeterministyczne](https://pl.wikipedia.org/wiki/Algorytm_deterministyczny).
 
-<<<<<<< HEAD
-Tryb rygorystyczny nie może automatycznie wykrywać efektów ubocznych, ale może pomóc w ich zauważeniu, poprzez sprawienie, by były trochę bardziej deterministyczne. Dzieje się to za sprawą celowego podwójnego wywoływania poniższych metod:
+Tryb rygorystyczny nie może automatycznie wykrywać efektów ubocznych, ale może pomóc w ich zauważeniu, poprzez sprawienie, by były trochę bardziej deterministyczne. Dzieje się to za sprawą celowego podwójnego wywoływania poniższych funkcji:
 
-* Metoda `constructor` komponentu klasowego
-* Metoda `render` 
-* funkcja aktualizująca dla `setState` (pierwszy argument)
-* Statyczna metoda cyklu życia `getDerivedStateFromProps`
-* Metoda `shouldComponentUpdate`
-=======
-Strict mode can't automatically detect side effects for you, but it can help you spot them by making them a little more deterministic. This is done by intentionally double-invoking the following functions:
-
-* Class component `constructor`, `render`, and `shouldComponent` methods
-* Class component static `getDerivedStateFromProps` method
-* Function component bodies
-* State updater functions (the first argument to `setState`)
-* Functions passed to `useState`, `useMemo`, or `useReducer`
->>>>>>> 9e5a358cb24a665fc48615ae224f26a4f2191b32
+* Metod `constructor`, `render` oraz `shouldComponentUpdate` komponentu klasowego
+* Metody statycznej `getDerivedStateFromProps` komponentu klasowego
+* Ciała komponentu funkcyjnego
+* Funkcji aktualizującej stanu (pierwszy argument `setState`)
+* Funkcji przekazywanych do `useState`, `useMemo` oraz `useReducer`
 
 > Uwaga:
 >
