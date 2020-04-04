@@ -1,6 +1,6 @@
 ---
 id: typechecking-with-proptypes
-title: Sprawdzeniem typów z wykorzystaniem PropTypes
+title: Sprawdzenie typów z wykorzystaniem PropTypes
 permalink: docs/typechecking-with-proptypes.html
 redirect_from:
   - "docs/react-api.html#typechecking-with-proptypes"
@@ -8,11 +8,11 @@ redirect_from:
 
 > Uwaga:
 >
-> Z wersją React v15.5 `React.PropTypes` zostało przeniesione do innej paczki. Zamiast importować z paczki Reacta, używaj [biblioteki `prop-types`](https://www.npmjs.com/package/prop-types).
+> Z wersją Reacta v15.5 `React.PropTypes` zostało przeniesione do innej paczki. Zamiast importować z paczki Reacta, używaj [biblioteki `prop-types`](https://www.npmjs.com/package/prop-types).
 >
 > Dla ułatwienia migracji przygotowaliśmy [skrypt codemod](/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes).
 
-Wraz ze wzrostem twojej aplikacji możesz wyłapywać więcej błędów, korzystając ze sprawdzania typów. Dla niektórych aplikacji możesz korzystać z rozszerzeń JavaScriptu do sprawdzenia typów w całej aplikacji, takich jak [Flow](https://flow.org/) lub [TypeScript](https://www.typescriptlang.org/). Nawet jeśli z nich nie korzystasz, możesz skorzystać ze sprawdzania typów wbudowanego w Reacta. By rozpocząć sprawdzanie typów właściwości w komponencie, możesz dodać do komponentu specjalną właściwość `propTypes`.
+Wraz ze wzrostem rozmiaru twojej aplikacji, dzięki sprawdzaniu typów możesz wyłapać więcej błędów. W niektórych aplikacjach możesz korzystać z rozszerzeń JavaScriptu do sprawdzenia typów w całej aplikacji, takich jak [Flow](https://flow.org/) lub [TypeScript](https://www.typescriptlang.org/). Nawet jeśli z nich nie korzystasz, możesz skorzystać z mechanizmu sprawdzania typów wbudowanego w Reacta. Aby rozpocząć sprawdzanie typów właściwości w komponencie, możesz dodać do komponentu specjalną właściwość `propTypes`.
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -40,7 +40,7 @@ import PropTypes from 'prop-types';
 
 MyComponent.propTypes = {
   // Możesz zadeklarować, że właściwość będzie określonego typu javascriptowego. 
-  // Domyślnie, wszystkie są opcjonalne
+  // Domyślnie, wszystkie są opcjonalne.
   optionalArray: PropTypes.array,
   optionalBool: PropTypes.bool,
   optionalFunc: PropTypes.func,
@@ -49,7 +49,7 @@ MyComponent.propTypes = {
   optionalString: PropTypes.string,
   optionalSymbol: PropTypes.symbol,
 
-  // Wszystko, co może być wyrenderowane: liczby, łańcuchy znaków, elementy lub tablice
+  // Wszystko, co może być wyrenderowane: liczby, łańcuchy znaków, elementy czy tablice
   // (lub fragmenty) zawierające te typy.
   optionalNode: PropTypes.node,
 
@@ -63,35 +63,35 @@ MyComponent.propTypes = {
   // Wykorzystujemy do tego operator instanceof z JavaScriptu.
   optionalMessage: PropTypes.instanceOf(Message),
 
-  // Możesz się upewnić, czy właściwość jest ograniczona do określonych wartości
+  // Możesz upewnić się, czy właściwość jest ograniczona do określonych wartości.
   optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 
-  // Właściwość może też mieć wiele typów
+  // Właściwość może mieć też wiele typów.
   optionalUnion: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.instanceOf(Message)
   ]),
 
-  // Tablica zawierająca elementy określonego typu
+  // Tablica zawierająca elementy określonego typu.
   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
 
-  // Obiekt zawierający wartości określonego typu
+  // Obiekt zawierający wartości określonego typu.
   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
 
-  // Obiekt zawierający określone pola
+  // Obiekt zawierający określone pola.
   optionalObjectWithShape: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number
   }),
   
-  // Obiekt zawierający tylko wskazane pola
+  // Obiekt zawierający tylko wskazane pola.
   optionalObjectWithStrictShape: PropTypes.exact({
     name: PropTypes.string,
     quantity: PropTypes.number
   }),   
 
-  // Możesz dodać do każdego z powyższych `isRequired,
+  // Możesz dodać do każdego z powyższych `isRequired`,
   // aby sprawdzić, czy podana właściwość została zdefiniowana.
   requiredFunc: PropTypes.func.isRequired,
 
@@ -100,7 +100,7 @@ MyComponent.propTypes = {
 
   // Możesz też utworzyć niestandardowy walidator. Powinien on zwracać obiekt `Error`,
   // jeśli sprawdzenie zakończy się niepowodzeniem. Nie powinien wywoływać `console.warn`
-  // ani rzucać wyjątku, ponieważ nie będzie działał wewnątrz `oneOfType`.
+  // ani rzucać wyjątku, ponieważ nie będzie działał on wewnątrz `oneOfType`.
   customProp: function(props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
       return new Error(
@@ -112,7 +112,7 @@ MyComponent.propTypes = {
 
   // Możesz także przekazać niestandardowy walidator do `arrayOf` i `objectOf`.
   // Powinien on zwracać obiekt `Error`, jeśli sprawdzenie zakończy się niepowodzeniem.
-  // Walidator będzie wywołany dla każdego klucza w tablicy lub obiekcie.
+  // Walidator będzie wywoływany dla każdego klucza w tablicy lub obiekcie.
   // Pierwsze dwa argumenty walidatora to walidowana tablica lub obiekt oraz klucz bieżącego elementu.
   customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
     if (!/matchme/.test(propValue[key])) {
@@ -127,7 +127,7 @@ MyComponent.propTypes = {
 
 ### Wymaganie dokładnie jednego potomka {#requiring-single-child}
 
-Wykorzystując `PropTypes.element` możesz sprawdzić, czy tylko do komponentu przekazano dokładnie jednego potomka.
+Wykorzystując `PropTypes.element` możesz sprawdzić, czy do komponentu przekazano dokładnie jednego potomka.
 
 ```javascript
 import PropTypes from 'prop-types';
