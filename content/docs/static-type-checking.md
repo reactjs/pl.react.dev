@@ -1,6 +1,6 @@
 ---
 id: static-type-checking
-title: Static Type Checking
+title: Statyczne sprawdzanie typów
 permalink: docs/static-type-checking.html
 ---
 
