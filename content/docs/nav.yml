@@ -74,7 +74,7 @@
     - id: render-props
       title: Właściwości renderujące
     - id: static-type-checking
-      title: Statyczne typowanie
+      title: Statyczne sprawdzanie typów
     - id: strict-mode
       title: Strict Mode
     - id: typechecking-with-proptypes
