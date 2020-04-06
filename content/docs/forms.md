@@ -68,6 +68,7 @@ class NameForm extends React.Component {
 
 Dzięki ustawieniu atrybutu `value` na elemencie formularza, wyświetlane dane zawsze będą odpowiadały `this.state.value`. Tym samym reactowy stan jest tutaj źródłem prawdy. Ponieważ zaś `handleChange` aktualizuje reactowy stan przy każdym wciśnięciu klawisza, wyświetlane dane aktualizują się na bieżąco w miarę wpisywania ich przez użytkownika.
 
+<<<<<<< HEAD
 W komponentach kontrolowanych każda zmiana stanu wynika z działania powiązanej z nim funkcji obsługującej (ang. *handler function*). Ułatwia to modyfikowanie i walidację podawanych przez użytkownika danych wejściowych. Jeśli chcemy na przykład, aby imiona pisane były w całości wielkimi literami, nasza funkcja `handleChange` mogłaby wyglądać następująco:
 
 ```javascript{2}
@@ -75,6 +76,9 @@ handleChange(event) {
   this.setState({value: event.target.value.toUpperCase()});
 }
 ```
+=======
+With a controlled component, the input's value is always driven by the React state. While this means you have to type a bit more code, you can now pass the value to other UI elements too, or reset it from other event handlers.
+>>>>>>> fa5e6e7a988b4cb465601e4c3beece321edeb812
 
 ## Znacznik `textarea` {#the-textarea-tag}
 
