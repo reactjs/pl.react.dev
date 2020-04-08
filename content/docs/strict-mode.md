@@ -97,21 +97,13 @@ Cykl życia fazy renderowania odnosi się do poniższych metod z komponentu klas
 
 Ponieważ powyższe metody mogą być wywołane więcej niż raz, ważne jest, aby nie zawierały efektów ubocznych (ang. *side-effects*). Zignorowanie tej zasady może prowadzić do różnych problemów, włączając w to wycieki pamięci i niepoprawny stan aplikacji. Niestety, może być ciężko wykryć problemy tego typu, ponieważ są one często [niedeterministyczne](https://pl.wikipedia.org/wiki/Algorytm_deterministyczny).
 
-Tryb rygorystyczny nie może automatycznie wykrywać efektów ubocznych, ale może pomóc w ich zauważeniu, poprzez sprawienie, by były trochę bardziej deterministyczne. Dzieje się to za sprawą celowego podwójnego wywoływania poniższych funkcji:
+Tryb rygorystyczny nie zapewni automatycznego wykrywania efektów ubocznych, ale może pomóc w ich zauważeniu poprzez sprawienie, by były trochę bardziej deterministyczne. Dzieje się to za sprawą celowego podwójnego wywoływania poniższych funkcji:
 
-<<<<<<< HEAD
 * Metod `constructor`, `render` oraz `shouldComponentUpdate` komponentu klasowego
 * Metody statycznej `getDerivedStateFromProps` komponentu klasowego
 * Ciała komponentu funkcyjnego
 * Funkcji aktualizującej stanu (pierwszy argument `setState`)
 * Funkcji przekazywanych do `useState`, `useMemo` oraz `useReducer`
-=======
-* Class component `constructor`, `render`, and `shouldComponentUpdate` methods
-* Class component static `getDerivedStateFromProps` method
-* Function component bodies
-* State updater functions (the first argument to `setState`)
-* Functions passed to `useState`, `useMemo`, or `useReducer`
->>>>>>> fa5e6e7a988b4cb465601e4c3beece321edeb812
 
 > Uwaga:
 >
