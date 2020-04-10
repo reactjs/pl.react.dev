@@ -140,7 +140,7 @@ Klucze mają sens tylko w kontekście otaczającej tablicy.
  
 Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, trzymaj klucz na elementach `<ListItem />` wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz komponentu `ListItem`.
  
-**Przykłaď: Niepoprawne użycie klucza**
+**Przykład: Niepoprawne użycie klucza**
  
 ```javascript{4,5,14,15}
 function ListItem(props) {
