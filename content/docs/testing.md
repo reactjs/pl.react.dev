@@ -14,11 +14,7 @@ Istnieje kilka sposobów na przetestowanie komponentów reactowych. W dużym upr
 * **Renderowanie drzew komponentów** w uproszczonym środowisku testowym oraz sprawdzanie wyniku renderowania.
 * **Uruchamianie pełnej aplikacji** w realistycznym środowisku przeglądarkowym (znane również jako testy "end-to-end").
 
-<<<<<<< HEAD
 Ten rozdział dokumentacji skupia się na strategiach testowania w pierwszy sposób. Mimo iż pełne testy "end-to-end" często zapobiegają regresji w kluczowych ścieżkach aplikacji, nie przywiązują one zbyt dużej uwagi do komponentów reactowych. Z tego powodu pominęliśmy je w tej sekcji.
-=======
-This documentation section focuses on testing strategies for the first case. While full end-to-end tests can be very useful to prevent regressions to important workflows, such tests are not concerned with React components in particular, and are out of the scope of this section.
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
 
 ### Kompromisy {#tradeoffs}
 
