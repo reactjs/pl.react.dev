@@ -18,7 +18,7 @@ Ten rozdział dokumentacji skupia się na strategiach testowania w pierwszy spos
 
 ### Kompromisy {#tradeoffs}
 
-Podczas wybierania narzędzia testującego warto zastanowić się na kilkoma decyzjami:
+Podczas wybierania narzędzia testującego warto zastanowić się nad kilkoma decyzjami:
 
 * **Szybkość iteracji czy realistyczne środowisko:** Niektóre narzędzia oferują szybkie sprzężenie zwrotne pomiędzy wprowadzeniem zmiany a otrzymaniem wyniku, lecz nie odwzorowują dokładnie zachowania przeglądarki. Inne z kolei używają realistycznego środowiska przeglądarkowego, lecz zmniejszają szybkość iteracji i działają topornie na serwerach CI (ang. *Continuous Integration*).
 * **Ile powinniśmy zamockować:** W przypadku komponentów, granica pomiędzy testami "jednostkowymi" a "integracyjnymi" może się zacierać. Kiedy testujesz formularz, czy testy powinny także sprawdzić działanie znajdujących się w nim przycisków? Czy może przycisk powinien mieć dedykowany zestaw testowy? Czy zmiany w kodzie przycisku powinny wpływać na testy formularza?
