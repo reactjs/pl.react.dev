@@ -1195,11 +1195,7 @@ Gratulacje! Udało ci się stworzyć grę w "kółko i krzyżyk", która:
 * przechowuje na bieżąco historię ruchów,
 * pozwala na przeglądanie historii ruchów, a co za tym idzie, kolejnych stanów planszy.
 
-<<<<<<< HEAD
 Dobra robota! Mamy nadzieję, że czujesz już większą swobodę w pisaniu aplikacji w Reakcie.
-=======
-Nice work! We hope you now feel like you have a decent grasp of how React works.
->>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 
 Sprawdź, jak na koniec powinien wyglądać kod: **[Efekt końcowy](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
