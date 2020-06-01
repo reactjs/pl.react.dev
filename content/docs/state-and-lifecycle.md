@@ -418,12 +418,6 @@ Właśnie z tego powodu stan jest nazywany lokalnym lub enkapsulowanym. Nie maj�
 Komponent może zdecydować się na przekazanie swojego stanu w dół struktury poprzez atrybuty jego komponentów potomnych:
 
 ```js
-<h2>Aktualny czas: {this.state.date.toLocaleTimeString()}.</h2>
-```
-
-To samo tyczy się komponentów własnych:
-
-```js
 <FormattedDate date={this.state.date} />
 ```
 
