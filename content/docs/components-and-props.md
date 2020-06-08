@@ -233,7 +233,7 @@ function Comment(props) {
 
 [Przetestuj kod na CodePen](codepen://components-and-props/extracting-components-continued)
 
-Wyodrębnianie komponentów może z początku wydawać się żmudnym zajęciem, ale posiadanie palety pozwalających na ponowne użycie komponentów jest opłacalne w większych aplikacjach. Dobrą praktyczną zasadą jest, że jeśli część twojego interfejsu użytkownika jest używana wielokrotnie (np. `Button`, `Panel`, `Avatar`) lub jest ona dostatecznie skomplikowana sama w sobie (np. `App`, `FeedStory`, `Comment`), jest ona dobrym kandydatem do stania się komponentem wielokrotnego użytku.
+Wyodrębnianie komponentów może z początku wydawać się żmudnym zajęciem, ale posiadanie palety pozwalających na ponowne użycie komponentów jest opłacalne w większych aplikacjach. Dobrą praktyczną zasadą jest to, że jeśli część twojego interfejsu użytkownika jest używana wielokrotnie (np. `Button`, `Panel`, `Avatar`) lub jest ona dostatecznie skomplikowana sama w sobie (np. `App`, `FeedStory`, `Comment`), jest ona dobrym kandydatem do stania się oddzielnym komponentem.
 
 ## Właściwości są tylko do odczytu {#props-are-read-only}
 
