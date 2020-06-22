@@ -12,11 +12,7 @@ React nie sugeruje, w jaki sposób należy umieścić pliki w folderach. Istniej
 
 #### Grupowanie plików według funkcjonalności lub ścieżek {#grouping-by-features-or-routes}
 
-<<<<<<< HEAD
 Jednym z powszechnych sposobów strukturyzacji projektów jest umieszczenie plików CSS, JS i testów razem w folderach pogrupowanych według funkcjonalności lub ścieżki.
-=======
-One common way to structure projects is to locate CSS, JS, and tests together inside folders grouped by feature or route.
->>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
 
 ```
 common/
