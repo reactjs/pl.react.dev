@@ -77,7 +77,7 @@ const Acknowlegements = ({data, location}) => (
                   Dmitriowi Voronianskiemu
                 </a>{' '}
                 za pozwolenie nam na wykorzystanie motywu{' '}
-                <a href="https://labs.voronianski.com/oceanic-next-color-scheme/">
+                <a href="https://labs.voronianski.dev/oceanic-next-color-scheme/">
                   Oceanic Next
                 </a>{' '}
                 na naszej stronie.

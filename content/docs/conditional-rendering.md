@@ -122,7 +122,7 @@ Deklarowanie zmiennej oraz stosowanie instrukcji `if` to dobry sposób na warunk
 
 ### Wewnątrzliniowy warunek `if` z użyciem logicznego operatora `&&` {#inline-if-with-logical--operator}
 
-JSX umożliwia stosowanie w nawiasach klamrowych [wszelkich wyrażeń](/docs/introducing-jsx.html#embedding-expressions-in-jsx), łącznie z javascriptowym operatorem logicznym `&&`. Jest to przydatne, gdy chcemy jakiś element dołączyć warunkowo.
+JSX pozwala [umieszczać w nawiasach klamrowych wyrażenia](/docs/introducing-jsx.html#embedding-expressions-in-jsx), łącznie z javascriptowym operatorem logicznym `&&`. Jest to przydatne, gdy chcemy jakiś element dołączyć warunkowo.
 
 ```js{6-10}
 function Mailbox(props) {
