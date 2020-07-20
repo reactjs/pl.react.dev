@@ -73,11 +73,17 @@ const Acknowlegements = ({data, location}) => (
                 GitHubie.
               </li>
               <li>
+<<<<<<< HEAD
                 <a href="https://github.com/voronianski">
                   Dmitriowi Voronianskiemu
                 </a>{' '}
                 za pozwolenie nam na wykorzystanie motywu{' '}
                 <a href="https://labs.voronianski.com/oceanic-next-color-scheme/">
+=======
+                <a href="https://github.com/voronianski">Dmitri Voronianski</a>{' '}
+                for letting us use the{' '}
+                <a href="https://labs.voronianski.dev/oceanic-next-color-scheme/">
+>>>>>>> ee75c297574468f888574aae2d9620d64bb5b5a1
                   Oceanic Next
                 </a>{' '}
                 na naszej stronie.
