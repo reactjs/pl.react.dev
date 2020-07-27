@@ -558,11 +558,7 @@ Wykrywanie zmian w niezmiennych (ang. *immutable*) obiektach jest stosunkowo ła
 
 #### Kiedy ponownie renderować w Reakcie {#determining-when-to-re-render-in-react}
 
-<<<<<<< HEAD
 Główną korzyścią z niezmienności danych jest możliwość tworzenia w Reakcie tzw. _czystych komponentów_ (ang. *pure components*). Taki komponent w łatwy sposób może sprawdzić, czy nastąpiły jakiekolwiek zmiany i czy w związku z tym powinien się ponownie wyrenderować.
-=======
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made, which helps to determine when a component requires re-rendering.
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 Aby dowiedzieć się więcej na temat metody `shouldComponentUpdate()` i budowania *czystych komponentów*, zajrzyj do rozdziału pt. ["Optymalizacja wydajności"](/docs/optimizing-performance.html#examples).
 
