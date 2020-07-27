@@ -229,7 +229,7 @@ function FriendListItem(props) {
 }
 ```
 
-Stan obu tych komponentów jest w pełni niezależny. Hooki są metodą na współdzielenie *logiki związanej ze stanem*, nie zaś samego stanu. Tak naprawdę to każde *wywołanie* hooka tworzy kompletnie wyizolowany stan -- możesz więc użyć tego samego, własnego hooka kilkukrotnie w jednym komponencie.
+Stan każdego komponentu jest w pełni niezależny. Hooki są metodą na współdzielenie *logiki związanej ze stanem*, nie zaś samego stanu. Tak naprawdę to każde *wywołanie* hooka tworzy kompletnie wyizolowany stan -- możesz więc użyć tego samego, własnego hooka kilkukrotnie w jednym komponencie.
 
 Własne hooki są bardziej konwencją niż wbudowanym mechanizmem. Jeżeli nazwa funkcji zaczyna się od „`use`” i wywołuje ona inne hooki, mówimy że mamy do czynienia z własnym hookiem. Na tej konwencji nazewnictwa `useSomething` bazuje nasza wtyczka do lintera i pozwala jej to znaleźć błędy w kodzie korzystającym z hooków.
 

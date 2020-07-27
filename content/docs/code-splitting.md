@@ -43,8 +43,8 @@ console.log(add(16, 26)); // 42
 >
 > Twoje paczki prawdopodobnie będą się znacząco różnić. 
 
-Jeśli używasz [Create React App](https://github.com/facebookincubator/create-react-app), 
-[Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/) 
+Jeśli używasz [Create React App](https://create-react-app.dev/), 
+[Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/) 
 lub innego podobnego narzędzia, Webpack powinien być już skonfigurowany i gotowy do użytku.
 
 Jeśli nie, musisz skonfigurować Webpacka samodzielnie. 
