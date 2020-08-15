@@ -1,6 +1,6 @@
 ---
 id: create-fragment
-title: Kluczowane fragmenty
+title: Fragmenty z kluczami
 permalink: docs/create-fragment.html
 layout: docs
 category: Add-Ons
@@ -8,7 +8,7 @@ category: Add-Ons
 
 > Uwaga:
 >
-> Punkt wejścia `React.addons` jest przestarzały od wersji React 15.5. Mamy teraz wsparcie pierwszej klasy dla fragmentów, o których możesz przeczytać [tutaj](/docs/fragments.html).
+> Punkt wejścia `React.addons` jest przestarzały od wersji Reacta 15.5. Mamy teraz natywne wsparcie dla fragmentów, o których możesz przeczytać [tutaj](/docs/fragments.html).
 
 ## Importowanie {#importing}
 
@@ -17,11 +17,11 @@ import createFragment from 'react-addons-create-fragment'; // ES6
 var createFragment = require('react-addons-create-fragment'); // ES5 z npm
 ```
 
-## Przegląd {#overview}
+## Informacje ogólne {#overview}
 
-W większości przypadków, możesz użyć prop `key` aby określić klucze w elementach, które zwracasz z `render`. Jednakże, załamuje się to w jednej sytuacji: jeśli masz dwa zestawy dzieci, które musisz zmienić, nie ma sposobu, aby umieścić klucz na każdym zestawie bez dodania elementu wrappera.
+W większości przypadków możesz użyć właściwości `key`, aby określić klucze w elementach zwracanych z metody `render`. Problem pojawia się jednak w sytuacji, gdy masz dwa zestawy komponentów potomnych, które musisz zamienić miejscami. Nie ma sposobu, aby umieścić klucz na każdym zestawie bez dodania elementu opakowującego.
 
-To znaczy, jeśli masz komponent taki jak:
+Przykładowo, masz następujący komponent:
 
 ```js
 function Swapper(props) {
@@ -35,9 +35,9 @@ function Swapper(props) {
 }
 ```
 
-Dzieci odmontują się i ponownie zamontują, gdy zmienisz prop `swapped`, ponieważ nie ma żadnych kluczy zaznaczonych na dwóch zestawach dzieci.
+Gdy zmienisz wartość właściwości `swapped` na inną, komponenty potomne odmontują się i ponownie zamontują, ponieważ żadna z grup potomków nie ma ustawionego klucza.
 
-Aby rozwiązać ten problem, możesz użyć dodatku `createFragment`, aby przekazać klucze do zestawów dzieci.
+Aby rozwiązać ten problem, możesz użyć dodatku `createFragment`, dzięki któremu możesz przekazać klucze do zestawów komponentów potomnych.
 
 #### `Array<ReactNode> createFragment(object children)` {#arrayreactnode-createfragmentobject-children}
 
@@ -63,6 +63,6 @@ function Swapper(props) {
 }
 ```
 
-Klucze przekazanego obiektu (czyli `left` i `right`) są używane jako klucze dla całego zestawu dzieci, a kolejność kluczy obiektu jest używana do określenia kolejności renderowanych elementów podrzędnych. Dzięki tej zmianie dwa zestawy elementów podrzędnych zostaną odpowiednio uporządkowane w DOM bez odmontowywania.
+Klucze przekazanego obiektu (czyli `left` i `right`) są używane jako klucze dla całej grupy potomków, a kolejność kluczy obiektu jest używana do określenia kolejności renderowanych grup. Dzięki tej zmianie, obydwa zestawy elementów zostaną odpowiednio uporządkowane w DOM bez odmontowywania.
 
-Wartość zwracaną `createFragment` należy traktować jako obiekt nieprzezroczysty; możesz użyć helperów [`React.Children`](/docs/react-api.html#react.children) aby zapętlić fragment, ale nie powinien mieć do niego bezpośredniego dostępu. Zauważ również, że polegamy na silniku JavaScript zachowującym tutaj kolejność wyliczania obiektów, która nie jest gwarantowana przez specyfikację, ale jest implementowana przez wszystkie główne przeglądarki i maszyny wirtualne dla obiektów z kluczami nienumerycznymi.
+Wartość zwracaną funkcji `createFragment` należy traktować jako obiekt nieprzezroczysty; możesz użyć funkcji [`React.Children`](/docs/react-api.html#react.children) do iterowania fragmentu, ale nie zaglądaj bezpośrednio do niego. Zauważ również, że polegamy tu na silniku JavaScript zachowującym kolejność wyliczania obiektów, która nie jest gwarantowana przez specyfikację, ale jest implementowana przez wszystkie główne przeglądarki i maszyny wirtualne dla obiektów z kluczami nienumerycznymi.
