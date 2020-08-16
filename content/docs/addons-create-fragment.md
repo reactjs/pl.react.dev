@@ -1,27 +1,27 @@
 ---
 id: create-fragment
-title: Keyed Fragments
+title: Fragmenty z kluczami
 permalink: docs/create-fragment.html
 layout: docs
 category: Add-Ons
 ---
 
-> Note:
+> Uwaga:
 >
-> `React.addons` entry point is deprecated as of React v15.5. We now have first class support for fragments which you can read about [here](/docs/fragments.html).
+> Punkt wejścia `React.addons` jest przestarzały od wersji Reacta 15.5. Mamy teraz natywne wsparcie dla fragmentów, o których możesz przeczytać [tutaj](/docs/fragments.html).
 
-## Importing {#importing}
+## Importowanie {#importing}
 
 ```javascript
 import createFragment from 'react-addons-create-fragment'; // ES6
-var createFragment = require('react-addons-create-fragment'); // ES5 with npm
+var createFragment = require('react-addons-create-fragment'); // ES5 z npm
 ```
 
-## Overview {#overview}
+## Informacje ogólne {#overview}
 
-In most cases, you can use the `key` prop to specify keys on the elements you're returning from `render`. However, this breaks down in one situation: if you have two sets of children that you need to reorder, there's no way to put a key on each set without adding a wrapper element.
+W większości przypadków możesz użyć właściwości `key`, aby określić klucze w elementach zwracanych z metody `render`. Problem pojawia się jednak w sytuacji, gdy masz dwa zestawy komponentów potomnych, które musisz zamienić miejscami. Nie ma sposobu, aby umieścić klucz na każdym zestawie bez dodania elementu opakowującego.
 
-That is, if you have a component such as:
+Przykładowo, masz następujący komponent:
 
 ```js
 function Swapper(props) {
@@ -35,13 +35,13 @@ function Swapper(props) {
 }
 ```
 
-The children will unmount and remount as you change the `swapped` prop because there aren't any keys marked on the two sets of children.
+Gdy zmienisz wartość właściwości `swapped` na inną, komponenty potomne odmontują się i ponownie zamontują, ponieważ żadna z grup potomków nie ma ustawionego klucza.
 
-To solve this problem, you can use the `createFragment` add-on to give keys to the sets of children.
+Aby rozwiązać ten problem, możesz użyć dodatku `createFragment`, dzięki któremu możesz przekazać klucze do zestawów komponentów potomnych.
 
 #### `Array<ReactNode> createFragment(object children)` {#arrayreactnode-createfragmentobject-children}
 
-Instead of creating arrays, we write:
+Zamiast tworzyć tablice, piszemy:
 
 ```javascript
 import createFragment from 'react-addons-create-fragment';
@@ -63,6 +63,6 @@ function Swapper(props) {
 }
 ```
 
-The keys of the passed object (that is, `left` and `right`) are used as keys for the entire set of children, and the order of the object's keys is used to determine the order of the rendered children. With this change, the two sets of children will be properly reordered in the DOM without unmounting.
+Klucze przekazanego obiektu (czyli `left` i `right`) są używane jako klucze dla całej grupy potomków, a kolejność kluczy obiektu jest używana do określenia kolejności renderowanych grup. Dzięki tej zmianie, obydwa zestawy elementów zostaną odpowiednio uporządkowane w DOM bez odmontowywania.
 
-The return value of `createFragment` should be treated as an opaque object; you can use the [`React.Children`](/docs/react-api.html#react.children) helpers to loop through a fragment but should not access it directly. Note also that we're relying on the JavaScript engine preserving object enumeration order here, which is not guaranteed by the spec but is implemented by all major browsers and VMs for objects with non-numeric keys.
+Wartość zwracaną funkcji `createFragment` należy traktować jako obiekt nieprzezroczysty; możesz użyć funkcji [`React.Children`](/docs/react-api.html#react.children) do iterowania fragmentu, ale nie zaglądaj bezpośrednio do niego. Zauważ również, że polegamy tu na silniku JavaScript zachowującym kolejność wyliczania obiektów, która nie jest gwarantowana przez specyfikację, ale jest implementowana przez wszystkie główne przeglądarki i maszyny wirtualne dla obiektów z kluczami nienumerycznymi.
