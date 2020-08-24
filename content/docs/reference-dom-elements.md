@@ -56,7 +56,12 @@ Zdarzenie `onChange` przebiega zgodnie z oczekiwaniami: jest aktywowane za każd
 
 ### selected {#selected}
 
+<<<<<<< HEAD
 Atrybut `selected` jest wspierany przez element `<option>`. Można go użyć, aby odznaczyć wybrany przez użytkownika element listy. Przydaje się to podczas budowania kontrolowanych komponentów.
+=======
+If you want to mark an `<option>` as selected, reference the value of that option in the `value` of its `<select>` instead.
+Check out ["The select Tag"](/docs/forms.html#the-select-tag) for detailed instructions.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 ### style {#style}
 
@@ -120,7 +125,11 @@ Jeżeli ustawisz właściwość `suppressHydrationWarning` na `true`, React nie 
 
 ### value {#value}
 
+<<<<<<< HEAD
 Atrybut `value` jest wspierany przez elementy `<input>` oraz `<textarea>`. Możesz go użyć do ustawienia wartości komponentu. Jest to przydatne do budowania kontrolowanych komponentów. `defaultValue` jest niekontrolowanym odpowiednikiem tego atrybutu, który określa, jaką wartość powinien mieć komponent przy pierwszym montowaniu.
+=======
+The `value` attribute is supported by `<input>`, `<select>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 ## Wszystkie wspierane atrybuty HTML {#all-supported-html-attributes}
 

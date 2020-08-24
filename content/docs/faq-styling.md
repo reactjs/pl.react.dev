@@ -42,7 +42,11 @@ Klasy CSS są generalnie bardziej wydajne niż style wewnątrzliniowe.
 
 ### Czym jest w CSS-w-JS? {#what-is-css-in-js}
 
+<<<<<<< HEAD
 Termin "CSS-w-JS" odnosi do wzorca, w którym CSS jest zapisywany razem z kodem JavaScript, a nie w osobnych plikach. Porównanie różnych bibliotek CSS-w-JS możesz znaleźć [tutaj](https://github.com/MicheleBertoli/css-in-js).
+=======
+"CSS-in-JS" refers to a pattern where CSS is composed using JavaScript instead of defined in external files.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 _Pamiętaj, że ta funkcjonalność nie stanowi części Reacta, tylko dostarczana jest przez biblioteki stron trzecich._ React nie ma opinii na temat sposobu definiowania stylów; jeśli masz wątpliwości, dobrym punktem wyjścia może być definiowanie stylów w osobnym pliku `*.css` i odnoszenie się do nich używając atrybutu [`className`](/docs/dom-elements.html#classname).
 

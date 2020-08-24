@@ -2,6 +2,8 @@
 id: higher-order-components
 title: Komponenty wyższego rzędu
 permalink: docs/higher-order-components.html
+prev: web-components.html
+next: render-props.html
 ---
 
 Komponent wyższego rzędu (ang. *Higher-Order Component*), w skrócie KWR (ang. *HOC*), to zaawansowana technika reactowa stosowana w celu wielokrotnego używania logiki komponentu. KWR-y nie są częścią API Reacta *per se*. Są wzorcem, który wyłonił się z kompozycyjnej natury Reacta.
