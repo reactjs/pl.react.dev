@@ -12,7 +12,7 @@ Poniższa dokumentacja dotyczy `SyntheticEvent` (pol. *zdarzenie syntetyczne*) -
 
 Napisane przez ciebie procedury obsługi zdarzeń będą otrzymywać jako argument instancję `SyntheticEvent` - klasy opakowującej natywne zdarzenie, niezależnej od przeglądarki. Posiada ona taki sam interfejs jak natywne zdarzenia, wliczając w to metody `stopPropagation()` oraz `preventDefault()`, gwarantuje jednak identyczne działanie na wszystkich przeglądarkach.
 
-Jeśli w którymś momencie zechcesz skorzystać z opakowanego, natywnego zdarzenia, możesz odwołać się do niego poprzez właściwość `nativeEvent`. Każdy obiekt klasy `SyntheticEvent` posiada następujące właściwości:
+Jeśli w którymś momencie zechcesz skorzystać z opakowanego, natywnego zdarzenia, możesz odwołać się do niego poprzez właściwość `nativeEvent`. Syntetyczne zdarzenia różnią się od natywnych zdarzeń przeglądarki i można ich stosować wymiennie. Na przykład, w zdarzeniu `onMouseLeave` wartość `event.nativeEvent` będzie wskazywać na zdarzenie `mouseout`. Specyfikacja mapowania nie jest dostępna publicznie i może ulec zmianie w dowolnym momencie. Każdy obiekt klasy `SyntheticEvent` posiada następujące właściwości:
 
 ```javascript
 boolean bubbles

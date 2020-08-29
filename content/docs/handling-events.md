@@ -54,7 +54,7 @@ function ActionLink() {
 }
 ```
 
-Zmienna `e` to zdarzenie syntetyczne (ang. *synthetic event*). React tworzy zdarzenia tego typu zgodnie ze [specyfikacją W3C](https://www.w3.org/TR/DOM-Level-3-Events/), dzięki czemu nie trzeba martwić się o kompatybilność z przeglądarkami. Po więcej informacji sięgnij do specyfikacji obiektu [`SyntheticEvent`](/docs/events.html).
+Zmienna `e` to zdarzenie syntetyczne (ang. *synthetic event*). React tworzy zdarzenia tego typu zgodnie ze [specyfikacją W3C](https://www.w3.org/TR/DOM-Level-3-Events/), dzięki czemu nie trzeba martwić się o kompatybilność z przeglądarkami. Zdarzenia reactowe nie działają dokładnie tak samo, jak te natywne. Po więcej informacji sięgnij do specyfikacji obiektu [`SyntheticEvent`](/docs/events.html).
 
 W kodzie reactowym nie ma potrzeby dodawania obserwatora zdarzenia (ang. *event listener*) do elementu DOM po jego utworzeniu, poprzez wywoływanie funkcji `addEventListener`. Zamiast tego, wystarczy przekazać go podczas pierwszego renderowania komponentu.
 

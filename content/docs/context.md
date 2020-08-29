@@ -2,6 +2,8 @@
 id: context
 title: Kontekst
 permalink: docs/context.html
+prev: reconciliation.html
+next: fragments.html
 ---
 
 Kontekst umożliwia przekazywanie danych wewnątrz drzewa komponentów bez konieczności przekazywania ich przez właściwości każdego komponentu pośredniego.

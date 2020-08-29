@@ -2,6 +2,8 @@
 id: error-boundaries
 title: Granice błędów
 permalink: docs/error-boundaries.html
+prev: portals.html
+next: web-components.html
 ---
 
 W przeszłości błędy javascriptowe wewnątrz komponentów uszkadzały wewnętrzny stan Reacta i [wywoływały](https://github.com/facebook/react/issues/4026) [tajemnicze](https://github.com/facebook/react/issues/6895) [błędy](https://github.com/facebook/react/issues/8579) w kolejnych renderowaniach. Były one następstwem wcześniejszego błędu w kodzie aplikacji, jednakże React nie dostarczał żadnego rozwiązania pozwalającego na właściwe ich obsłużenie wewnątrz komponentów oraz nie potrafił odtworzyć aplikacji po ich wystąpieniu.
@@ -94,7 +96,7 @@ W drzewie komponentów widoczne są również numery linii i nazwy plików. Ten 
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Błąd złapany w komponencie będącym granicą błędów wraz z numerami linii">
 
-Jeżeli nie używasz Create React App, możesz ręcznie dodać [ten plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) do swojej konfiguracji Babela. Został on stworzony do używania tylko podczas fazy deweloperskiej i **powinien zostać wyłączony w środowisku produkcyjnym**
+Jeżeli nie używasz Create React App, możesz ręcznie dodać [ten plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) do swojej konfiguracji Babela. Został on stworzony do używania tylko podczas fazy deweloperskiej i **powinien zostać wyłączony w środowisku produkcyjnym**
 
 > Uwaga
 >

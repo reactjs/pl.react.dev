@@ -2,6 +2,8 @@
 id: integrating-with-other-libraries
 title: Integracja z innymi bibliotekami
 permalink: docs/integrating-with-other-libraries.html
+prev: render-props.html
+next: accessibility.html
 ---
 
 Reacta można używać w dowolnej aplikacji webowej. Można go osadzić w innej aplikacji, a także, przy odrobinie wysiłku, inną aplikację można osadzić w kodzie reactowym. W tym poradniku przeanalizujemy kilka powszechnych sytuacji dotyczących integracji z [jQuery](https://jquery.com/) i [Backbonem](https://backbonejs.org/). Mimo wszystko te same metody mogą zadziałać przy integracji komponentów z dowolnym kodem.
