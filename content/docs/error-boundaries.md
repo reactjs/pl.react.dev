@@ -96,11 +96,7 @@ W drzewie komponentów widoczne są również numery linii i nazwy plików. Ten 
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Błąd złapany w komponencie będącym granicą błędów wraz z numerami linii">
 
-<<<<<<< HEAD
-Jeżeli nie używasz Create React App, możesz ręcznie dodać [ten plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) do swojej konfiguracji Babela. Został on stworzony do używania tylko podczas fazy deweloperskiej i **powinien zostać wyłączony w środowisku produkcyjnym**
-=======
-If you don’t use Create React App, you can add [this plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) manually to your Babel configuration. Note that it’s intended only for development and **must be disabled in production**.
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
+Jeżeli nie używasz Create React App, możesz ręcznie dodać [ten plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) do swojej konfiguracji Babela. Został on stworzony do używania tylko podczas fazy deweloperskiej i **powinien zostać wyłączony w środowisku produkcyjnym**
 
 > Uwaga
 >

@@ -10,15 +10,9 @@ Poniższa dokumentacja dotyczy `SyntheticEvent` (pol. *zdarzenie syntetyczne*) -
 
 ## Informacje ogólne {#overview}
 
-<<<<<<< HEAD
 Napisane przez ciebie procedury obsługi zdarzeń będą otrzymywać jako argument instancję `SyntheticEvent` - klasy opakowującej natywne zdarzenie, niezależnej od przeglądarki. Posiada ona taki sam interfejs jak natywne zdarzenia, wliczając w to metody `stopPropagation()` oraz `preventDefault()`, gwarantuje jednak identyczne działanie na wszystkich przeglądarkach.
 
-Jeśli w którymś momencie zechcesz skorzystać z opakowanego, natywnego zdarzenia, możesz odwołać się do niego poprzez właściwość `nativeEvent`. Każdy obiekt klasy `SyntheticEvent` posiada następujące właściwości:
-=======
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers. 
-
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. The synthetic events are different from, and do not map directly to, the browser's native events. For example in `onMouseLeave` `event.nativeEvent` will point to a `mouseout` event. The specific mapping is not part of the public API and may change at any time. Every `SyntheticEvent` object has the following attributes:
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
+Jeśli w którymś momencie zechcesz skorzystać z opakowanego, natywnego zdarzenia, możesz odwołać się do niego poprzez właściwość `nativeEvent`. Syntetyczne zdarzenia różnią się od natywnych zdarzeń przeglądarki i można ich stosować wymiennie. Na przykład, w zdarzeniu `onMouseLeave` wartość `event.nativeEvent` będzie wskazywać na zdarzenie `mouseout`. Specyfikacja mapowania nie jest dostępna publicznie i może ulec zmianie w dowolnym momencie. Każdy obiekt klasy `SyntheticEvent` posiada następujące właściwości:
 
 ```javascript
 boolean bubbles
