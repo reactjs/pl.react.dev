@@ -580,7 +580,7 @@ W zależności od przypadku użycia, istnieje kilka dodatkowych opcji, które op
 
 Spójrzmy, dlaczego ma to znaczenie.
 
-Kiedy określasz [tablicę zależności](/docs/hooks-reference.html#conditionally-firing-an-effect), ostatni argument dla `useEffect`, `useMemo`, `useCallback`, lub `useImperativeHandle` powinien zawierać wszystkie wartości biorące udział w przepływie danych, włączając w to właściwości, stan i wszystkie ich pochodne.
+Kiedy określasz [tablicę zależności](/docs/hooks-reference.html#conditionally-firing-an-effect), ostatni argument dla `useEffect`, `useLayoutEffect`, `useMemo`, `useCallback`, lub `useImperativeHandle` powinien zawierać wszystkie wartości biorące udział w przepływie danych, włączając w to właściwości, stan i wszystkie ich pochodne.
 
 Jedynym **bezpiecznym** przypadkiem pominięcia argumentu w tablicy zależności jest przekazanie funkcji, która w swoim wnętrzu nie ma odniesień do właściwości, stanu lub wartości z nich dziedziczących. Poniższy przykład zawiera błąd:
 

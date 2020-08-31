@@ -124,9 +124,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` jest [komponentem wyższego rzędu (ang. *higher-order component*)](/docs/higher-order-components.html). Jego działanie jest podobne do [`React.PureComponent`](#reactpurecomponent), jednak stosowany jest tylko do komponentów funkcyjnych.
+`React.memo` jest [komponentem wyższego rzędu (ang. *higher-order component*)](/docs/higher-order-components.html).
 
-Jeśli twój komponent funkcyjny przy takich samych właściwościach zawsze renderuje tę samą strukturę, możesz opakować go w `React.memo` w celu poprawy wydajności. Oznacza to, że React pominie renderowanie tego komponentu i użyje jego ostatnio wyrenderowanej wersji.
+Jeśli twój komponent przy takich samych właściwościach zawsze renderuje tę samą strukturę, możesz opakować go w `React.memo` w celu poprawy wydajności. Oznacza to, że React pominie renderowanie tego komponentu i użyje jego ostatnio wyrenderowanej wersji.
 
 `React.memo` reaguje tylko na zmiany we właściwościach. Jeśli twój komponent funkcyjny opakowany w `React.memo` używa hooków [`useState`](/docs/hooks-state.html) lub [`useContext`](/docs/hooks-reference.html#usecontext), nadal będzie się aktualizował przy zmianie stanu komponentu lub kontekstu.
 
