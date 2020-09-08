@@ -57,7 +57,7 @@ Możesz skorzystać z innego podejście. Pamiętaj jednak, że należy posprząt
 
 ### `act()` {#act}
 
-Podczas pisania testów interfejsu UI, zadania takie jak: renderowanie, obsługa zdarzeń czy pobieranie danych można traktować jako "jednostki" interakcji z interfejsem użytkownika. Biblioteka React dostarcza funkcję pomocniczą `act()`, która upewnia się, że przed wykonaniem asercji zostają przetworzone wszelkie zmiany dotyczące tych "jednostek", a drzewo DOM jest aktualne.
+Podczas pisania testów interfejsu UI, zadania takie jak: renderowanie, obsługa zdarzeń czy pobieranie danych można traktować jako "jednostki" interakcji z interfejsem użytkownika. Moduł `react-dom/test-utils` dostarcza funkcję pomocniczą [`act()`](/docs/test-utils.html#act), która upewnia się, że przed wykonaniem asercji zostają przetworzone wszelkie zmiany dotyczące tych "jednostek", a drzewo DOM jest aktualne.
 
 ```js
 act(() => {
