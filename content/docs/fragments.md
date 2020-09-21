@@ -2,8 +2,6 @@
 id: fragments
 title: Fragmenty
 permalink: docs/fragments.html
-prev: context.html
-next: portals.html
 ---
 
 Często spotykanym wzorcem w Reakcie jest tworzenie komponentów, które zwracają wiele elementów. Fragmenty pozwalają zgrupować listę potomków bez konieczności dodawania zbędnych węzłów do drzewa DOM.

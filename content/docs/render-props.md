@@ -2,8 +2,6 @@
 id: render-props
 title: Właściwość renderująca
 permalink: docs/render-props.html
-prev: higher-order-components.html
-next: integrating-with-other-libraries.html
 ---
 
 Określenie ["właściwość renderująca"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) odnosi się do techniki współdzielenia kodu pomiędzy komponentami reactowymi, przy użyciu właściwości, której wartością jest funkcja.

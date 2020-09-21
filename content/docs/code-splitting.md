@@ -2,7 +2,6 @@
 id: code-splitting
 title: Dzielenie kodu
 permalink: docs/code-splitting.html
-prev: accessibility.html
 ---
 
 ## Pakowanie {#bundling}
