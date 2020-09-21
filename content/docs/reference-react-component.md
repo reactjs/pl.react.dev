@@ -274,11 +274,7 @@ Obecnie, jeśli `shouldComponentUpdate()` zwróci `false`, [`UNSAFE_componentWil
 static getDerivedStateFromProps(props, state)
 ```
 
-<<<<<<< HEAD
-Metoda `getDerivedStateFromProps` jest wywoływana zaraz przed wywołaniem metody render, zarówno przy początkowym montowaniu, jak i przy dalszych aktualizacjach. Powinna zwrócić obiekt, aby zaktualizować stan, lub zwrócić null, aby nie aktualizować nic.
-=======
-`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or `null` to update nothing.
->>>>>>> 1becaff62ae228d909b83ef6d08f48c01660300f
+Metoda `getDerivedStateFromProps` jest wywoływana zaraz przed wywołaniem metody render, zarówno przy początkowym montowaniu, jak i przy dalszych aktualizacjach. Powinna zwrócić obiekt, aby zaktualizować stan, lub zwrócić `null`, aby nie aktualizować nic.
 
 Ta metoda istnieje dla [rzadkich przypadków użycia](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state), w których stan zależy od zmian właściwości w czasie. Na przykład, może okazać się przydatnym komponent `<Transition>`, który porównuje swoje obecne komponenty potomne z poprzednimi, aby zdecydować, króre z nich mają pojawić się z animacją, a które zniknąć.
 
@@ -591,11 +587,7 @@ Przeważnie powinieneś unikać jakichkolwiek form użycia `forceUpdate()` i odc
 
 ### `defaultProps` {#defaultprops}
 
-<<<<<<< HEAD
 `defaultProps` może być zdefiniowana jako własność na samej klasie komponentu, aby ustawić domyślne właściwości dla tej klasy. Jest ona używana dla właściwości równych `undefined`, ale nie `null`. Dla przykładu:
-=======
-`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for `undefined` props, but not for `null` props. For example:
->>>>>>> 1becaff62ae228d909b83ef6d08f48c01660300f
 
 ```js
 class CustomButton extends React.Component {
@@ -615,11 +607,7 @@ Jeśli `props.color` nie jest podany, zostanie domyślnie ustawiony na `'blue'`:
   }
 ```
 
-<<<<<<< HEAD
 Jeśli `props.color` zostanie ustawiony jako `null`, pozostanie nim:
-=======
-If `props.color` is set to `null`, it will remain `null`:
->>>>>>> 1becaff62ae228d909b83ef6d08f48c01660300f
 
 ```js
   render() {
