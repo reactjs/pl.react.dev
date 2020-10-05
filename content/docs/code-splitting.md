@@ -95,7 +95,7 @@ import("./math").then(math => {
 
 Gdy Webpack natknie się na taką składnię, automatycznie zacznie dzielić kod w twojej aplikacji.
 Jeśli używasz Create React App, posiadasz już gotową konfigurację i możesz natychmiast
-[zacząć z niej korzystać](https://facebook.github.io/create-react-app/docs/code-splitting).
+[zacząć z niej korzystać](https://create-react-app.dev/docs/code-splitting/).
 Jest ona również obsługiwana domyślnie przez [Next.js](https://nextjs.org/docs/advanced-features/dynamic-import).
 
 Jeśli konfigurujesz Webpacka samodzielnie, zalecamy przeczytać
@@ -103,7 +103,7 @@ Jeśli konfigurujesz Webpacka samodzielnie, zalecamy przeczytać
 Twoja konfiguracja Webpacka powinna wyglądać podobnie [do tej](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
 Kiedy używasz [Babela](https://babeljs.io/), musisz się upewnić, że jest on w stanie sparsować
-składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W tym celu skorzystaj z pluginu [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
+składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W tym celu skorzystaj z pluginu [@babel/plugin-syntax-dynamic-import](https://classic.yarnpkg.com/en/package/@babel/plugin-syntax-dynamic-import).
 
 ## `React.lazy` {#reactlazy}
 
