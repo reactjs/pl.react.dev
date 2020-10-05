@@ -152,7 +152,24 @@ Powyższy kod działa, ponieważ w JavaScripcie `true && *wyrażenie*` zawsze je
 
 Zatem jeśli warunek zwraca `true`, element następujący bezpośrednio po operatorze `&&` zostanie uwzględniony w danych wyjściowych. Natomiast jeśli warunek zwróci `false`, React zignoruje go i pominie przy renderowaniu.
 
+<<<<<<< HEAD
 ### Skrócona forma `if-else` z operatorem warunkowym {#inline-if-else-with-conditional-operator}
+=======
+Note that returning a falsy expression will still cause the element after `&&` to be skipped but will return the falsy expression. In the example below, `<div>0</div>` will be returned by the render method.
+
+```javascript{2,5}
+render() {
+  const count = 0;
+  return (
+    <div>
+      { count && <h1>Messages: {count}</h1>}
+    </div>
+  );
+}
+```
+
+### Inline If-Else with Conditional Operator {#inline-if-else-with-conditional-operator}
+>>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 Kolejną metodą renderowania warunkowego wewnątrz wyrażenia jest stosowanie javascriptowego operatora warunkowego [`warunek ? true : false`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_warunkowy).
 
