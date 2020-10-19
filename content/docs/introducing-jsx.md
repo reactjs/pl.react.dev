@@ -181,4 +181,4 @@ Więcej o wyświetlaniu elementów reactowych dowiesz się w [następnym rozdzia
 
 >**Wskazówka:**
 >
-> Polecamy używanie ["Babela" jako definicji języka](http://babeljs.io/docs/editors) w twoim ulubionym edytorze. Pozwoli to na poprawne podświetlanie składni ES6 i JSX.
+> Polecamy używanie ["Babela" jako definicji języka](https://babeljs.io/docs/en/next/editors) w twoim ulubionym edytorze. Pozwoli to na poprawne podświetlanie składni ES6 i JSX.

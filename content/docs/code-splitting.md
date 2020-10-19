@@ -6,10 +6,7 @@ permalink: docs/code-splitting.html
 
 ## Pakowanie {#bundling}
 
-Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak
-[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) czy [Browserify](http://browserify.org/).
-Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik tzw. "bundle" (pol. *paczka*).
-Taka paczka może zostać umieszczona na stronie w celu załadowania całej aplikacji naraz.
+Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) czy [Browserify](http://browserify.org/). Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik tzw. "bundle" (pol. *paczka*). Taka paczka może zostać umieszczona na stronie w celu załadowania całej aplikacji naraz.
 
 #### Przykład {#example}
 
@@ -43,39 +40,21 @@ console.log(add(16, 26)); // 42
 >
 > Twoje paczki prawdopodobnie będą się znacząco różnić. 
 
-Jeśli używasz [Create React App](https://create-react-app.dev/), 
-[Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/) 
-lub innego podobnego narzędzia, Webpack powinien być już skonfigurowany i gotowy do użytku.
+Jeśli używasz [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/) lub innego podobnego narzędzia, Webpack powinien być już skonfigurowany i gotowy do użytku.
 
-Jeśli nie, musisz skonfigurować Webpacka samodzielnie. 
-Przykłady znajdziesz w 
-[przewodniku po instalacji](https://webpack.js.org/guides/installation/) oraz
-w sekcji pt. ["Podstawowe informacje"](https://webpack.js.org/guides/getting-started/) zawartych w dokumentacji
-Webpacka.
+Jeśli nie, musisz skonfigurować Webpacka samodzielnie. Przykłady znajdziesz w [przewodniku po instalacji](https://webpack.js.org/guides/installation/) oraz w sekcji pt. ["Podstawowe informacje"](https://webpack.js.org/guides/getting-started/) zawartych w dokumentacji Webpacka.
 
 ## Dzielenie kodu {#code-splitting}
 
-Tworzenie paczek jest świetne, ale wraz ze wzrostem objętości kodu twojej aplikacji, rośnie również objętość paczek.
-Zwłaszcza gdy dołączasz do projektu duże, zewnętrzne biblioteki.
-Musisz pilnować, aby twój pakiet nie był zbyt duży, ponieważ wtedy aplikacja 
-będzie się długo ładowała.
+Tworzenie paczek jest świetne, ale wraz ze wzrostem objętości kodu twojej aplikacji, rośnie również objętość paczek. Zwłaszcza gdy dołączasz do projektu duże, zewnętrzne biblioteki. Musisz pilnować, aby twój pakiet nie był zbyt duży, ponieważ wtedy aplikacja będzie się długo ładowała.
 
-Aby uniknąć problemu zbyt dużego pakietu, warto już na początku o tym pomyśleć 
-i rozpocząć "dzielenie" swojej paczki.
- [Dzielenie kodu](https://webpack.js.org/guides/code-splitting/) to funkcja 
-wspierana przez narzędzia takie jak [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) oraz Browserify (przez
-[factor-bundle](https://github.com/browserify/factor-bundle)), które mogą tworzyć 
-wiele pakietów doładowywanych dynamicznie w czasie wykonania kodu aplikacji.
+Aby uniknąć problemu zbyt dużego pakietu, warto już na początku o tym pomyśleć i rozpocząć "dzielenie" swojej paczki. [Dzielenie kodu](https://webpack.js.org/guides/code-splitting/) to funkcja wspierana przez narzędzia takie jak [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) oraz Browserify (przez [factor-bundle](https://github.com/browserify/factor-bundle)), które mogą tworzyć wiele pakietów doładowywanych dynamicznie w czasie wykonania kodu aplikacji.
 
-Dzielenie kodu twojej aplikacji ułatwi ci użycie "leniwego ładowania" do wczytywania jedynie tych zasobów które są aktualnie wymagane przez 
-użytkownika zasobów, co może znacznie poprawić wydajność twojej aplikacji.
-Mimo że nie zmniejszysz w ten sposób sumarycznej ilości kodu, unikniesz ładowania
-funkcjonalności zbędnych dla użytkownika w danym momencie, co przełoży się na mniejszą ilość kodu do pobrania na starcie aplikacji.
+Dzielenie kodu twojej aplikacji ułatwi ci użycie "leniwego ładowania" do wczytywania jedynie tych zasobów które są aktualnie wymagane przez użytkownika zasobów, co może znacznie poprawić wydajność twojej aplikacji. Mimo że nie zmniejszysz w ten sposób sumarycznej ilości kodu, unikniesz ładowania funkcjonalności zbędnych dla użytkownika w danym momencie, co przełoży się na mniejszą ilość kodu do pobrania na starcie aplikacji. 
 
 ## `import()` {#import}
 
-Najlepszym sposobem na wprowadzenie podziału kodu do twojej aplikacji jest użycie dynamicznego wariantu funkcji
-`import()`.
+Najlepszym sposobem na wprowadzenie podziału kodu do twojej aplikacji jest użycie dynamicznego wariantu funkcji `import()`.
 
 **Przed:**
 
@@ -93,17 +72,11 @@ import("./math").then(math => {
 });
 ```
 
-Gdy Webpack natknie się na taką składnię, automatycznie zacznie dzielić kod w twojej aplikacji.
-Jeśli używasz Create React App, posiadasz już gotową konfigurację i możesz natychmiast
-[zacząć z niej korzystać](https://create-react-app.dev/docs/code-splitting/).
-Jest ona również obsługiwana domyślnie przez [Next.js](https://nextjs.org/docs/advanced-features/dynamic-import).
+Gdy Webpack natknie się na taką składnię, automatycznie zacznie dzielić kod w twojej aplikacji. Jeśli używasz Create React App, posiadasz już gotową konfigurację i możesz natychmiast [zacząć z niej korzystać](https://create-react-app.dev/docs/code-splitting/). Jest ona również obsługiwana domyślnie przez [Next.js](https://nextjs.org/docs/advanced-features/dynamic-import). 
 
-Jeśli konfigurujesz Webpacka samodzielnie, zalecamy przeczytać
-[przewodnik po dzieleniu kodu](https://webpack.js.org/guides/code-splitting/). 
-Twoja konfiguracja Webpacka powinna wyglądać podobnie [do tej](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
+Jeśli konfigurujesz Webpacka samodzielnie, zalecamy przeczytać [przewodnik po dzieleniu kodu](https://webpack.js.org/guides/code-splitting/). Twoja konfiguracja Webpacka powinna wyglądać podobnie [do tej](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
-Kiedy używasz [Babela](https://babeljs.io/), musisz się upewnić, że jest on w stanie sparsować
-składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W tym celu skorzystaj z pluginu [@babel/plugin-syntax-dynamic-import](https://classic.yarnpkg.com/en/package/@babel/plugin-syntax-dynamic-import).
+Kiedy używasz [Babela](https://babeljs.io/), musisz się upewnić, że jest on w stanie sparsować składnię dynamicznego importu, ale jej nie przekształca w żaden sposób. W tym celu skorzystaj z pluginu [@babel/plugin-syntax-dynamic-import](https://classic.yarnpkg.com/en/package/@babel/plugin-syntax-dynamic-import).
 
 ## `React.lazy` {#reactlazy}
 
@@ -207,16 +180,11 @@ const MyComponent = () => (
 
 ## Podział kodu na podstawie ścieżki URL {#route-based-code-splitting}
 
-Decyzja o tym, w których miejscach podzielić kod aplikacji, może okazać się kłopotliwa.
-Zależy ci na miejscach, że wybierasz miejsca, które równomiernie podzielą twoje pakiety,
-ale nie chcesz zepsuć doświadczeń użytkownika.
+Decyzja o tym, w których miejscach podzielić kod aplikacji, może okazać się kłopotliwa. Zależy ci na miejscach, że wybierasz miejsca, które równomiernie podzielą twoje pakiety, ale nie chcesz zepsuć doświadczeń użytkownika.
 
-Dobrym punktem startowym są ścieżki (ang. *routes*) w aplikacji. Większość ludzi korzystających z Internetu przyzwyczajona jest,
-że przejście pomiędzy stronami zajmuje trochę czasu. Dodatkowo, zazwyczaj podczas takiego przejścia spora część ekranu jest renderowana ponownie
-Można więc założyć, że użytkownik nie będzie wykonywał żadnych akcji na interfejsie podczas ładowania.
+Dobrym punktem startowym są ścieżki (ang. *routes*) w aplikacji. Większość ludzi korzystających z Internetu przyzwyczajona jest, że przejście pomiędzy stronami zajmuje trochę czasu. Dodatkowo, zazwyczaj podczas takiego przejścia spora część ekranu jest renderowana ponownie. Można więc założyć, że użytkownik nie będzie wykonywał żadnych akcji na interfejsie podczas ładowania.
 
-Oto przykład skonfigurowania dzielenia kodu aplikacji opartego na ścieżkach, przy użyciu 
-biblioteki [React Router](https://reacttraining.com/react-router/) wraz z funkcją `React.lazy`.
+Oto przykład skonfigurowania dzielenia kodu aplikacji opartego na ścieżkach, przy użyciu biblioteki [React Router](https://reacttraining.com/react-router/) wraz z funkcją `React.lazy`.
 
 ```js
 import React, { Suspense, lazy } from 'react';
