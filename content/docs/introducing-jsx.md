@@ -181,8 +181,4 @@ Więcej o wyświetlaniu elementów reactowych dowiesz się w [następnym rozdzia
 
 >**Wskazówka:**
 >
-<<<<<<< HEAD
-> Polecamy używanie ["Babela" jako definicji języka](http://babeljs.io/docs/editors) w twoim ulubionym edytorze. Pozwoli to na poprawne podświetlanie składni ES6 i JSX.
-=======
->We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
->>>>>>> 4e6cee1f82737aa915afd87de0cd4a8393de3fc8
+> Polecamy używanie ["Babela" jako definicji języka](https://babeljs.io/docs/en/next/editors) w twoim ulubionym edytorze. Pozwoli to na poprawne podświetlanie składni ES6 i JSX.
