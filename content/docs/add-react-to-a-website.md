@@ -53,10 +53,17 @@ Następnie dodaj trzy znaczniki `<script>` do strony HTML tuż przed zamykający
 ```html{5,6,9}
 <!-- ... pozostała część kodu HTML ... -->
 
+<<<<<<< HEAD
 <!-- Załaduj Reacta. -->
 <!-- Uwaga: podczas wdrażania aplikacji do środowiska produkcyjnego, zamień "development.js" na "production.min.js". -->
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+=======
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 <!-- Załaduj nasz komponent reactowy. -->
 <script src="like_button.js"></script>
@@ -85,7 +92,11 @@ const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);
 ```
 
+<<<<<<< HEAD
 Te dwie linijki kodu są odpowiedzialne za znalezienie naszego elementu `<div>` z pierwszego kroku i wyświetlenie przycisku `"Like"` pochodzącego z wklejonego komponentu.
+=======
+These two lines of code find the `<div>` we added to our HTML in the first step, and then display our "Like" button React component inside of it.
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 ### To wszystko! {#thats-it}
 
@@ -116,8 +127,8 @@ Przed wdrożeniem strony do środowiska produkcyjnego, pamiętaj, że niezminifi
 Jeżeli twoje skrypty są już zminifikowane i jeśli wdrożony dokument HTML ładuje wersję Reacta z końcówką `production.min.js` w nazwie, wówczas twoja aplikacja będzie gotowa do użytku w środowisku produkcyjnym:
 
 ```js
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Jeżeli nie masz jeszcze skonfigurowanej minifikacji skryptów, [oto jeden ze sposobów, aby to zrobić](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
