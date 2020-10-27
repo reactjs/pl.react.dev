@@ -34,41 +34,11 @@ string type
 
 > Uwaga:
 >
-<<<<<<< HEAD
-> Od wersji v0.14 wzwyż, zwracanie wartości `false` przez procedurę obsługi nie zatrzymuje propagacji zdarzenia. Zamiast tego należy ręcznie wywoływać odpowiednią metodę: `e.stopPropagation()` lub `e.preventDefault()`.
-
-### Pula zdarzeń {#event-pooling}
-
-Obiekty `SyntheticEvent` są przechowywane w [puli](https://pl.wikipedia.org/wiki/Pula_obiekt%C3%B3w_(wzorzec_projektowy)). Oznacza to, że są one używane wielokrotnie, a ich właściwości są czyszczone zaraz po wywołaniu procedury obsługi zdarzenia.
-Ma to pozytywny wpływ na szybkość działania aplikacji.
-Przez to jednak nie można odczytywać stanu zdarzenia w sposób asynchroniczny.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => wyczyszczony obiekt.
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // Nie zadziała. Obiekt this.state.clickEvent będzie zawierał same wartości null.
-  this.setState({clickEvent: event});
-
-  // Możesz jednak przekazywać poszczególne właściwości zdarzenia.
-  this.setState({eventType: event.type});
-}
-```
-=======
-> As of v17, `e.persist()` doesn't do anything because the `SyntheticEvent` is no longer [pooled](/docs/legacy-event-pooling.html).
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+> Od wersji 17, wywołanie metody `e.persist()` nie robi nic, ponieważ `SyntheticEvent` nie jest już współdzielony w [puli](/docs/legacy-event-pooling.html).
 
 > Uwaga:
 >
-<<<<<<< HEAD
-> Jeśli chcesz odczytać właściwości zdarzenia w sposób asynchroniczny, wywołaj jego metodę `event.persist()`. Zdarzenie to zostanie wyciągnięte z puli zdarzeń, co pozwoli na zachowanie referencji do późniejszego użytku w kodzie.
+> Od wersji v0.14 wzwyż, zwracanie wartości `false` przez procedurę obsługi nie zatrzymuje propagacji zdarzenia. Zamiast tego należy ręcznie wywoływać odpowiednią metodę: `e.stopPropagation()` lub `e.preventDefault()`.
 
 ## Obsługiwane zdarzenia {#supported-events}
 
@@ -93,33 +63,6 @@ Przedstawione na liście poniżej procedury obsługi zdarzeń są wywoływane pr
 - [Obsługa animacji](#animation-events)
 - [Obsługa tranzycji](#transition-events)
 - [Inne zdarzenia](#other-events)
-=======
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
-
-## Supported Events {#supported-events}
-
-React normalizes events so that they have consistent properties across different browsers.
-
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
-
-- [Clipboard Events](#clipboard-events)
-- [Composition Events](#composition-events)
-- [Keyboard Events](#keyboard-events)
-- [Focus Events](#focus-events)
-- [Form Events](#form-events)
-- [Generic Events](#generic-events)
-- [Mouse Events](#mouse-events)
-- [Pointer Events](#pointer-events)
-- [Selection Events](#selection-events)
-- [Touch Events](#touch-events)
-- [UI Events](#ui-events)
-- [Wheel Events](#wheel-events)
-- [Media Events](#media-events)
-- [Image Events](#image-events)
-- [Animation Events](#animation-events)
-- [Transition Events](#transition-events)
-- [Other Events](#other-events)
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 * * *
 
@@ -205,16 +148,16 @@ DOMEventTarget relatedTarget
 
 #### onFocus
 
-The `onFocus` event is called when the element (or some element inside of it) receives focus. For example, it's called when the user clicks on a text input.
+Zdarzenie `onFocus` jest wywoływane, gdy element (lub któryś z zagnieżdżonych elementów) otrzymuje fokus. Przykładowo, zostanie ono wywołane, gdy użytkownik kliknie na polu tekstowym.
 
 ```javascript
 function Example() {
   return (
     <input
       onFocus={(e) => {
-        console.log('Focused on input');
+        console.log('Fokus jest na polu tekstowym');
       }}
-      placeholder="onFocus is triggered when you click this input."
+      placeholder="onFocus zostanie wywołane po kliknięciu na tym polu."
     />
   )
 }
@@ -222,24 +165,24 @@ function Example() {
 
 #### onBlur
 
-The `onBlur` event handler is called when focus has left the element (or left some element inside of it). For example, it's called when the user clicks outside of a focused text input.
+Zdarzenie `onBlur` jest wywołane, gdy element (lub któryś z zagnieżdżonych elementów) stracił fokus. Przykładowo, zostanie ono wywołane, gdy użytkownik kliknie gdzieś poza polem tekstowym.
 
 ```javascript
 function Example() {
   return (
     <input
       onBlur={(e) => {
-        console.log('Triggered because this input lost focus');
+        console.log('Wywołano, bo pole straciło fokus');
       }}
-      placeholder="onBlur is triggered when you click this input and then you click outside of it."
+      placeholder="onBlur zostanie wywołane, gdy klikniesz na tym polu, a następnie klikniesz poza nim."
     />
   )
 }
 ```
 
-#### Detecting Focus Entering and Leaving
+#### Wykrywanie fokusa i jego utraty
 
-You can use the `currentTarget` and `relatedTarget` to differentiate if the focusing or blurring events originated from _outside_ of the parent element. Here is a demo you can copy and paste that shows how to detect focusing a child, focusing the element itself, and focus entering or leaving the whole subtree.
+Aby rozróżnić, czy zdarzenia dotyczące fokusa pochodzą _spoza_ rodzica, możesz sprawdzić wartości pól `currentTarget` i `relatedTarget`. Poniżej znajdziesz kod, który pokazuje, jak wykryć fokus na elemencie potomnym, jak na samym elemencie, a jak wykryć taki, który dotyczy całego poddrzewa elementów.
 
 ```javascript
 function Example() {
@@ -248,24 +191,24 @@ function Example() {
       tabIndex={1}
       onFocus={(e) => {
         if (e.currentTarget === e.target) {
-          console.log('focused self');
+          console.log('fokus na sobie');
         } else {
-          console.log('focused child', e.target);
+          console.log('fokus na elemencie potomnym', e.target);
         }
         if (!e.currentTarget.contains(e.relatedTarget)) {
           // Not triggered when swapping focus between children
-          console.log('focus entered self');
+          console.log('focus aktywny poza poddrzewem');
         }
       }}
       onBlur={(e) => {
         if (e.currentTarget === e.target) {
-          console.log('unfocused self');
+          console.log('fokus utracony na sobie');
         } else {
-          console.log('unfocused child', e.target);
+          console.log('fokus utracony na elemencie potomnym', e.target);
         }
         if (!e.currentTarget.contains(e.relatedTarget)) {
           // Not triggered when swapping focus between children
-          console.log('focus left self');
+          console.log('fokus poza poddrzewem');
         }
       }}
     >
@@ -411,15 +354,11 @@ Nazwy zdarzeń:
 onScroll
 ```
 
-<<<<<<< HEAD
-Właściwości:
-=======
->Note
+> Uwaga:
 >
->Starting with React 17, the `onScroll` event **does not bubble** in React. This matches the browser behavior and prevents the confusion when a nested scrollable element fires events on a distant parent.
+>Podcząwszy od Reacta 17, zdarzenie `onScroll` **nie jest propagowane w górę**. Odpowiada to zachowaniu przeglądarki i pozwala uniknąć niejasności, gdy to zagnieżdżony element z suwakiem generował zdarzenia na odległych rodzicach.
 
-Properties:
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+Właściwości:
 
 ```javascript
 number detail

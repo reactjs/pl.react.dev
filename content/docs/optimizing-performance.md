@@ -74,19 +74,11 @@ Pamiętaj, że uruchamianie powyższej komendy jest koniecznie tylko wtedy, gdy 
 Aby uzyskać najwydajniejszy build produkcyjny przy użyciu narzędzia Browserify, zainstaluj kilka wtyczek:
 
 ```
-<<<<<<< HEAD
 # Jeśli używasz npma
 npm install --save-dev envify terser uglifyify 
 
 # Jeśli używasz Yarna
 yarn add --dev envify terser uglifyify 
-=======
-# If you use npm
-npm install --save-dev envify terser uglifyify
-
-# If you use Yarn
-yarn add --dev envify terser uglifyify
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 ```
 
 Aby stworzyć kod produkcyjny, dodaj poniższe transformacje **(kolejność ma znaczenie)**:
@@ -387,11 +379,7 @@ function updateColorMap(colormap) {
 }
 ```
 
-<<<<<<< HEAD
 Ta funkcjonalność została dodana do JavaScriptu w ES2018.
-=======
-This feature was added to JavaScript in ES2018.
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 Jeśli korzystasz z Create React App, zarówno `Object.assign`, jak i składnia rozwinięcia obiektu są dostępne domyślnie.
 
