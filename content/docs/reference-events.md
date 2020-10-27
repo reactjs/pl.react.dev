@@ -34,36 +34,11 @@ string type
 
 > Uwaga:
 >
-> Od wersji v0.14 wzwyż, zwracanie wartości `false` przez procedurę obsługi nie zatrzymuje propagacji zdarzenia. Zamiast tego należy ręcznie wywoływać odpowiednią metodę: `e.stopPropagation()` lub `e.preventDefault()`.
-
-### Pula zdarzeń {#event-pooling}
-
-Obiekty `SyntheticEvent` są przechowywane w [puli](https://pl.wikipedia.org/wiki/Pula_obiekt%C3%B3w_(wzorzec_projektowy)). Oznacza to, że są one używane wielokrotnie, a ich właściwości są czyszczone zaraz po wywołaniu procedury obsługi zdarzenia.
-Ma to pozytywny wpływ na szybkość działania aplikacji.
-Przez to jednak nie można odczytywać stanu zdarzenia w sposób asynchroniczny.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => wyczyszczony obiekt.
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // Nie zadziała. Obiekt this.state.clickEvent będzie zawierał same wartości null.
-  this.setState({clickEvent: event});
-
-  // Możesz jednak przekazywać poszczególne właściwości zdarzenia.
-  this.setState({eventType: event.type});
-}
-```
+> Od wersji 17, wywołanie metody `e.persist()` nie robi nic, ponieważ `SyntheticEvent` nie jest już współdzielony w [puli](/docs/legacy-event-pooling.html).
 
 > Uwaga:
 >
-> Jeśli chcesz odczytać właściwości zdarzenia w sposób asynchroniczny, wywołaj jego metodę `event.persist()`. Zdarzenie to zostanie wyciągnięte z puli zdarzeń, co pozwoli na zachowanie referencji do późniejszego użytku w kodzie.
+> Od wersji v0.14 wzwyż, zwracanie wartości `false` przez procedurę obsługi nie zatrzymuje propagacji zdarzenia. Zamiast tego należy ręcznie wywoływać odpowiednią metodę: `e.stopPropagation()` lub `e.preventDefault()`.
 
 ## Obsługiwane zdarzenia {#supported-events}
 
@@ -167,9 +142,83 @@ Powyższe zdarzenia działają na wszystkich elementach w React DOM, nie tylko n
 
 Właściwości:
 
-```javascript
+```js
 DOMEventTarget relatedTarget
 ```
+
+#### onFocus
+
+Zdarzenie `onFocus` jest wywoływane, gdy element (lub któryś z zagnieżdżonych elementów) otrzymuje fokus. Przykładowo, zostanie ono wywołane, gdy użytkownik kliknie na polu tekstowym.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onFocus={(e) => {
+        console.log('Fokus jest na polu tekstowym');
+      }}
+      placeholder="onFocus zostanie wywołane po kliknięciu na tym polu."
+    />
+  )
+}
+```
+
+#### onBlur
+
+Zdarzenie `onBlur` jest wywołane, gdy element (lub któryś z zagnieżdżonych elementów) stracił fokus. Przykładowo, zostanie ono wywołane, gdy użytkownik kliknie gdzieś poza polem tekstowym.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onBlur={(e) => {
+        console.log('Wywołano, bo pole straciło fokus');
+      }}
+      placeholder="onBlur zostanie wywołane, gdy klikniesz na tym polu, a następnie klikniesz poza nim."
+    />
+  )
+}
+```
+
+#### Wykrywanie fokusa i jego utraty
+
+Aby rozróżnić, czy zdarzenia dotyczące fokusa pochodzą _spoza_ rodzica, możesz sprawdzić wartości pól `currentTarget` i `relatedTarget`. Poniżej znajdziesz kod, który pokazuje, jak wykryć fokus na elemencie potomnym, jak na samym elemencie, a jak wykryć taki, który dotyczy całego poddrzewa elementów.
+
+```javascript
+function Example() {
+  return (
+    <div
+      tabIndex={1}
+      onFocus={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('fokus na sobie');
+        } else {
+          console.log('fokus na elemencie potomnym', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('focus aktywny poza poddrzewem');
+        }
+      }}
+      onBlur={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('fokus utracony na sobie');
+        } else {
+          console.log('fokus utracony na elemencie potomnym', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Not triggered when swapping focus between children
+          console.log('fokus poza poddrzewem');
+        }
+      }}
+    >
+      <input id="1" />
+      <input id="2" />
+    </div>
+  );
+}
+```
+
 
 * * *
 
@@ -304,6 +353,10 @@ Nazwy zdarzeń:
 ```
 onScroll
 ```
+
+> Uwaga:
+>
+>Podcząwszy od Reacta 17, zdarzenie `onScroll` **nie jest propagowane w górę**. Odpowiada to zachowaniu przeglądarki i pozwala uniknąć niejasności, gdy to zagnieżdżony element z suwakiem generował zdarzenia na odległych rodzicach.
 
 Właściwości:
 

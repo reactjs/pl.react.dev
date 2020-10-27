@@ -377,7 +377,6 @@ let container = null;
 beforeEach(() => {
   // ustaw element DOM jako cel renderowania
   container = document.createElement("div");
-  // aby zdarzenia działały poprawnie, kontener *musi* być umieszczony w obiekcie `document`
   document.body.appendChild(container);
 });
 
@@ -416,7 +415,7 @@ it("zmienia wartość po kliknięciu", () => {
 });
 ```
 
-Poszczególne zdarzenia DOM wraz z ich właściwościami zostały opisane na [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Zwróć uwagę, że do każdego zdarzenia musisz przekazać `{ bubbles: true }`, aby mogło ono dotrzeć do Reacta, który z kolei przekaże je do dokumentu.
+Poszczególne zdarzenia DOM wraz z ich właściwościami zostały opisane na [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Zwróć uwagę, że do każdego zdarzenia musisz przekazać `{ bubbles: true }`, aby mogło ono dotrzeć do Reacta, który z kolei przekaże je do komponentu głównego całej struktury.
 
 > Uwaga:
 >
