@@ -180,11 +180,7 @@ function Example() {
 }
 ```
 
-<<<<<<< HEAD
-#### Wykrywanie fokusa i jego utraty
-=======
-#### Detecting Focus Entering and Leaving {#detecting-focus-entering-and-leaving}
->>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
+#### Wykrywanie fokusa i jego utraty {#detecting-focus-entering-and-leaving}
 
 Aby rozróżnić, czy zdarzenia dotyczące fokusa pochodzą _spoza_ rodzica, możesz sprawdzić wartości pól `currentTarget` i `relatedTarget`. Poniżej znajdziesz kod, który pokazuje, jak wykryć fokus na elemencie potomnym, jak na samym elemencie, a jak wykryć taki, który dotyczy całego poddrzewa elementów.
 
