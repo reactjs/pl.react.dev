@@ -146,7 +146,7 @@ Właściwości:
 DOMEventTarget relatedTarget
 ```
 
-#### onFocus
+#### onFocus {#onfocus}
 
 Zdarzenie `onFocus` jest wywoływane, gdy element (lub któryś z zagnieżdżonych elementów) otrzymuje fokus. Przykładowo, zostanie ono wywołane, gdy użytkownik kliknie na polu tekstowym.
 
@@ -163,7 +163,7 @@ function Example() {
 }
 ```
 
-#### onBlur
+#### onBlur {#onblur}
 
 Zdarzenie `onBlur` jest wywołane, gdy element (lub któryś z zagnieżdżonych elementów) stracił fokus. Przykładowo, zostanie ono wywołane, gdy użytkownik kliknie gdzieś poza polem tekstowym.
 
@@ -180,7 +180,11 @@ function Example() {
 }
 ```
 
+<<<<<<< HEAD
 #### Wykrywanie fokusa i jego utraty
+=======
+#### Detecting Focus Entering and Leaving {#detecting-focus-entering-and-leaving}
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 Aby rozróżnić, czy zdarzenia dotyczące fokusa pochodzą _spoza_ rodzica, możesz sprawdzić wartości pól `currentTarget` i `relatedTarget`. Poniżej znajdziesz kod, który pokazuje, jak wykryć fokus na elemencie potomnym, jak na samym elemencie, a jak wykryć taki, który dotyczy całego poddrzewa elementów.
 
@@ -218,7 +222,6 @@ function Example() {
   );
 }
 ```
-
 
 * * *
 

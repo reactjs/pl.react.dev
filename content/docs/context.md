@@ -128,7 +128,11 @@ Argument `defaultValue` jest używany **tylko** gdy komponent odczytujący z kon
 
 Każdy obiekt kontekstu posiada własny komponent dostawcy (ang. *provider*), który pozwala komponentom odczytującym na zasubskrybowanie się na zmiany w tym kontekście.
 
+<<<<<<< HEAD
 Wartość przekazana we właściwości `value` będzie trafiała do "konsumentów" (ang. *consumer*) tego kontekstu znajdujących się poniżej w drzewie. Jeden dostawca może być połączony z wieloma konsumentami. Zagnieżdżanie dostawców jeden pod drugim powoduje nadpisanie wartości kontekstu w danym poddrzewie.
+=======
+The Provider component accepts a `value` prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree.
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 Wszyscy konsumenci znajdujący się poniżej dostawcy będą ponownie renderowani przy każdej zmianie właściwości `value`. Propagacja od dostawcy do jego podległych konsumentów (wliczając w to [`.contextType`](#classcontexttype) i [`useContext`](/docs/hooks-reference.html#usecontext)) nie jest brana pod uwagę przez metodę `shouldComponentUpdate`, a co za tym idzie, konsumenci będą renderowani ponownie nawet jeśli ich przodkowie nie zostali przerenderowani.
 
