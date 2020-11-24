@@ -320,7 +320,7 @@ Z komponentami wyższego rzędu wiążą się pewne restrykcje, które mogą nie
 
 ### Nie używaj KWR-ów wewnątrz metody render {#dont-use-hocs-inside-the-render-method}
 
-Algorytm różnicujący w Reakcie (zwany "rekonsyliacyjnym") korzysta z tożsamości komponentu, aby stwierdzić, czy powinien zaktualizować istniejące poddrzewo, czy też wyrzucić je do kosza i stworzyć nowe. Jeśli komponent zwracany przez funkcję `render` jest identyczny (`===`) jak komponent z poprzedniego renderowania, React aktualizuje drzewo rekurencyjnie, porównując je z tym nowym. Jeśli są różne, poprzednie poddrzewo jest odmontowywane w całości.
+Algorytm różnicujący w Reakcie (zwany [rekonsyliacyjnym](/docs/reconciliation.html)) korzysta z tożsamości komponentu, aby stwierdzić, czy powinien zaktualizować istniejące poddrzewo, czy też wyrzucić je do kosza i stworzyć nowe. Jeśli komponent zwracany przez funkcję `render` jest identyczny (`===`) jak komponent z poprzedniego renderowania, React aktualizuje drzewo rekurencyjnie, porównując je z tym nowym. Jeśli są różne, poprzednie poddrzewo jest odmontowywane w całości.
 
 W innych przypadkach nie powinno cię to za bardzo obchodzić. Ma to jednak znaczenie dla KWR-ów, ponieważ oznacza to, że nie możesz stworzyć KWR-a wewnątrz metody `render` innego komponentu:
 

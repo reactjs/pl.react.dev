@@ -98,7 +98,7 @@ MyComponent.propTypes = {
   // aby sprawdzić, czy podana właściwość została zdefiniowana.
   requiredFunc: PropTypes.func.isRequired,
 
-  // Wartość dowolnego typu danych.
+  // Wymagana wartość dowolnego typu danych.
   requiredAny: PropTypes.any.isRequired,
 
   // Możesz też utworzyć niestandardowy walidator. Powinien on zwracać obiekt `Error`,
