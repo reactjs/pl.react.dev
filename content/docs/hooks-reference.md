@@ -456,7 +456,7 @@ W tym przykładzie komponent rodzica, który renderuje `<FancyInput ref={inputRe
 
 ### `useLayoutEffect` {#uselayouteffect}
 
-Sygnatura funkcji jest taka sama, jak `useEffect`, ale jest ona wywoływana jest synchronicznie po nałożeniu zmian na drzewo DOM. Użyj tego hooka aby odczytać układ (ang. *layout*) z drzewa DOM i synchronicznie wyrenderować komponent ponownie. Bufor `useLayoutEffect` zostanie opróżniony synchronicznie, zanim przeglądarka będzie miała szansę na malowanie.
+Sygnatura funkcji jest taka sama, jak `useEffect`, ale jest ona wywoływana synchronicznie po nałożeniu zmian na drzewo DOM. Użyj tego hooka, aby odczytać układ (ang. *layout*) z drzewa DOM i synchronicznie wyrenderować komponent ponownie. Bufor `useLayoutEffect` zostanie opróżniony synchronicznie, zanim przeglądarka będzie miała szansę na malowanie.
 
 Kiedy to tylko możliwe używaj `useEffect` aby uniknąć blokujących aktualizacji wizualnych.
 
