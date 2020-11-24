@@ -58,7 +58,7 @@ Podczas, gdy instancja komponentu zostaje stworzona i włożona do drzewa DOM, w
 
 #### Aktualizacja {#updating}
 
-Aktualizacja może być spowodowana zmianami we właściwościach lub stanie komponentu. Kiedy komponent zostaje ponownie zrenderowany, w podanej kolejności wywołane zostają poniższe metody:
+Aktualizacja może być spowodowana zmianami we właściwościach lub stanie komponentu. Kiedy komponent zostaje ponownie wyrenderowany, w podanej kolejności wywołane zostają poniższe metody:
 
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -121,10 +121,10 @@ Metoda `render()` jest jedyną metodą wymaganą w komponencie klasowym.
 
 Wywołana, powinna sprawdzić `this.props` i `this.state` oraz zwrócić jeden z poniższych typów:
 
-- **Reactowe elementy.** Zwykle tworzone poprzez [JSX](/docs/introducing-jsx.html). Na przykład, `<div />` i `<MyComponent />` są reactowymi elementami, które instruują Reacta, aby, odpowiednio, zrenderował węzeł drzewa DOM, lub inny zdefiniowany przez użytkownika komponent.
+- **Reactowe elementy.** Zwykle tworzone poprzez [JSX](/docs/introducing-jsx.html). Na przykład, `<div />` i `<MyComponent />` są reactowymi elementami, które instruują Reacta, aby, odpowiednio, wyrenderował węzeł drzewa DOM, lub inny zdefiniowany przez użytkownika komponent.
 - **Tablice i fragmenty.** Pozwalają na zwrócenie wielu elementów z metody render. Po więcej szczegółów odwiedź dokumentację [fragmentów](/docs/fragments.html).
-- **Portale**. Pozwalają na zrenderowanie elementów potomnych w innym poddrzewie DOM. Po więcej szczegółów odwiedź dokumentację [portali](/docs/portals.html).
-- **Łańcuchy znaków i liczby.** Zostają zrenderowane jako węzły tekstowe w drzewie DOM.
+- **Portale**. Pozwalają na wyrenderowanie elementów potomnych w innym poddrzewie DOM. Po więcej szczegółów odwiedź dokumentację [portali](/docs/portals.html).
+- **Łańcuchy znaków i liczby.** Zostają wyrenderowane jako węzły tekstowe w drzewie DOM.
 - **Typ logiczny lub `null`**. Nie renderuje nic. (Istnieje głównie, aby wspierać wzorzec `return test && <Child />`, gdzie `test` jest wartością logiczną.)
 
 Funkcja `render()` powinna być czysta, to znaczy, że nie modyfikuje stanu komponentu, zwraca ten sam wynik przy każdym wywołaniu, i nie wchodzi w bezpośrednią interakcję z przeglądarką.
@@ -198,7 +198,7 @@ Metoda `componentDidMount()` jest wywołowana bezpośrednio po zamontowaniu komp
 
 Ta metoda jest dobrym miejscem na przygotowanie dowolnych subskrypcji. Jeśli to zrobisz, nie zapomnij ich zakończyć w metodzie `componentWillUnmount()`.
 
-**Możesz wywołać metodę `setState()` od razu** w `componentDidMount()`. Spowoduje to dodatkowe renderowanie, ale zostanie ono wykonane zanim przeglądarka zaktualizuje ekran. Jest to gwarancją, że pomimo, iż metoda `render()` będzie w tym przypadku wywołana dwa razy, użytkownik nie zobaczy pośredniego stanu. Używaj tego wzorca uważnie, ponieważ często powoduje on problemy z wydajnością. W większości przypadków, powinieneś zamiast tego mieć możliwość przypisania stanu początkowego w konstruktorze. Może to być natomiast konieczne w przypadkach takich jak okna modalne i okienka podpowiedzi, kiedy przed zrenderowaniem czegoś trzeba zmierzyć węzeł drzewa DOM.
+**Możesz wywołać metodę `setState()` od razu** w `componentDidMount()`. Spowoduje to dodatkowe renderowanie, ale zostanie ono wykonane zanim przeglądarka zaktualizuje ekran. Jest to gwarancją, że pomimo, iż metoda `render()` będzie w tym przypadku wywołana dwa razy, użytkownik nie zobaczy pośredniego stanu. Używaj tego wzorca uważnie, ponieważ często powoduje on problemy z wydajnością. W większości przypadków, powinieneś zamiast tego mieć możliwość przypisania stanu początkowego w konstruktorze. Może to być natomiast konieczne w przypadkach takich jak okna modalne i okienka podpowiedzi, kiedy przed wyrenderowaniem czegoś trzeba zmierzyć węzeł drzewa DOM.
 
 * * *
 
@@ -208,7 +208,7 @@ Ta metoda jest dobrym miejscem na przygotowanie dowolnych subskrypcji. Jeśli to
 componentDidUpdate(prevProps, prevState, snapshot)
 ```
 
-Metoda `componentDidUpdate()` jest wywoływana bezpośrednio po wystąpieniu aktualizacji. Nie jest ona wywoływana po początkowym zrenderowaniu.
+Metoda `componentDidUpdate()` jest wywoływana bezpośrednio po wystąpieniu aktualizacji. Nie jest ona wywoływana po początkowym wyrenderowaniu.
 
 Używaj tego jako okazji do operacji na drzewie DOM kiedy komponent został zaktualizowany. Jest to także dobre miejsce na wykonywanie zapytań sieciowych tak długo jak porównujesz obecne właściwości z poprzednimi (na przykład, zapytanie może być niepotrzebne jeśli właściwości się nie zmieniły).
 
@@ -239,7 +239,7 @@ componentWillUnmount()
 
 Metoda `componentWillUnmount()` jest wywoływana zaraz przed odmontowaniem i zniszczeniem komponentu. Przeprowadź potrzebne czyszczenie w tej metodzie, takie jak unieważnienie liczników czasu, anulowanie zapytań sieciowych, lub czyszczenie subskrypcji, które były rozpoczęte w `componentDidMount()`.
 
-**Nie powinieneś wywoływać metody `setState()`** w `componentWillUnmount()`, ponieważ ten komponent nie zostanie ponownie zrenderowany. Kiedy instancja komponentu zostaje odmonotowana, nigdy nie będzie zamontowana ponownie.
+**Nie powinieneś wywoływać metody `setState()`** w `componentWillUnmount()`, ponieważ ten komponent nie zostanie ponownie wyrenderowany. Kiedy instancja komponentu zostaje odmonotowana, nigdy nie będzie zamontowana ponownie.
 
 * * *
 
@@ -260,7 +260,7 @@ Metoda `shouldComponentUpdate()` jest wywoływana przed renderowaniem, gdy otrzy
 
 Ta metoda istnieje tylko jako **[optymalizacja wydajności](/docs/optimizing-performance.html).** Nie polegaj na niej aby "zapobiegać" renderowaniu, co może prowadzić do błędów. Zamiast pisania `shouldComponentUpdate()` własnoręcznie, **rozważ użycie wbudowanej klasy [`PureComponent`](/docs/react-api.html#reactpurecomponent)**. `PureComponent` przeprowadza płytkie porównanie właściwości i stanu, i obniża szansę na pominięcie niezbędnej aktualizacji.
 
-Jeśli jesteś pewny, że chcesz ją napisać własnoręcznie, możesz porównać `this.props` z `nextProps` i `this.state` z `nextState` oraz zwrócić `false`, aby powiadomić Reacta, że aktualizacja może zostać pominięta. Zauważ, że zwrócenie `false` nie zapobiega ponownemu zrenderowaniu komponentów potomnych, gdy *ich* stan się zmienia.
+Jeśli jesteś pewny, że chcesz ją napisać własnoręcznie, możesz porównać `this.props` z `nextProps` i `this.state` z `nextState` oraz zwrócić `false`, aby powiadomić Reacta, że aktualizacja może zostać pominięta. Zauważ, że zwrócenie `false` nie zapobiega ponownemu wyrenderowaniu komponentów potomnych, gdy *ich* stan się zmienia.
 
 Nie zalecamy wykonywania głębokich porównań lub używania `JSON.stringify()` w metodzie `shouldComponentUpdate()`. Jest to bardzo nieefektywne i negatywnie odbije się na wydajności.
 
@@ -289,7 +289,7 @@ Derywowanie stanu sprawia, że kod jest rozwlekły i trudno myśli się o kompon
 
 Ta metoda nie ma dostępu do instancji komponentu. Jeśli chcesz, możesz używać ponownie kod pomiędzy `getDerivedStateFromProps()` innymi metodami klasy poprzez wyodrębnienie czystych funkcji właściwości i stanu komponentu poza definicję klasy.
 
-Zauważ, że metoda ta wywoływana jest przy *każdym* renderowaniu, bez względu na przyczynę. Jest to kontrastem dla metody `UNSAFE_componentWillReceiveProps`, która zostaje wywołana tylko, kiedy komponent nadrzędny powoduje ponowne zrenderowanie, a nie jako wynik lokalnego wywołania metody `setState`.
+Zauważ, że metoda ta wywoływana jest przy *każdym* renderowaniu, bez względu na przyczynę. Jest to kontrastem dla metody `UNSAFE_componentWillReceiveProps`, która zostaje wywołana tylko, kiedy komponent nadrzędny powoduje ponowne wyrenderowanie, a nie jako wynik lokalnego wywołania metody `setState`.
 
 * * *
 
@@ -299,7 +299,7 @@ Zauważ, że metoda ta wywoływana jest przy *każdym* renderowaniu, bez względ
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
-Metoda `getSnapshotBeforeUpdate()` jest wywoływana zaraz przed tym, gdy ostatnio zrenderowany wynik zostaje zatwierdzony do np. drzewa DOM. Pozwala to twojemu komponentowi na przejęcie pewnych informacji z drzewa DOM (np. pozycje scrolla) przed ich potencjalną zmianą. Każda wartość zwrócona przez metodę cyklu życia zostanie przekazana jako parametr do metody `componentDidUpdate()`.
+Metoda `getSnapshotBeforeUpdate()` jest wywoływana zaraz przed tym, gdy ostatnio wyrenderowany wynik zostaje zatwierdzony do np. drzewa DOM. Pozwala to twojemu komponentowi na przejęcie pewnych informacji z drzewa DOM (np. pozycje scrolla) przed ich potencjalną zmianą. Każda wartość zwrócona przez metodę cyklu życia zostanie przekazana jako parametr do metody `componentDidUpdate()`.
 
 Ten przypadek użycia nie jest powszechny, ale może wystąpić w interfejsach użytkownika takich jak wątki czatu, które potrzebują możliwości zarządzania pozycją scrolla w specjalny sposób.
 
@@ -343,13 +343,13 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Aktualizacja stanu, aby kolejne zrenderowanie pokazało awaryjny interfejs użytkownika.
+    // Aktualizacja stanu, aby kolejne wyrenderowanie pokazało awaryjny interfejs użytkownika.
     return { hasError: true };
   }
 
   render() {
     if (this.state.hasError) {
-      // Możesz zrenderować dowolny awaryjny interfejs użytkownika
+      // Możesz wyrenderować dowolny awaryjny interfejs użytkownika
       return <h1>Something went wrong.</h1>;
     }
 
@@ -389,7 +389,7 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Aktualizacja stanu, aby kolejne zrenderowanie pokazało awaryjny interfejs użytkownika.
+    // Aktualizacja stanu, aby kolejne wyrenderowanie pokazało awaryjny interfejs użytkownika.
     return { hasError: true };
   }
 
@@ -404,7 +404,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // Możesz zrenderować dowolny awaryjny interfejs użytkownika
+      // Możesz wyrenderować dowolny awaryjny interfejs użytkownika
       return <h1>Coś poszło nie tak.</h1>;
     }
 
@@ -413,19 +413,15 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
+Zbudowana paczka deweloperska będzie nieco różnić się od produkcyjnej pod względem sposobu obsługiwania błędów przez `componentDidCatch()`.
+
+W środowisku deweloperskim błędy wędrują aż do `window`, co oznacza, że wszelkie procedury zarejestrowane za pomocą `window.onerror` lub `window.addEventListener('error', callback)` również przechwycą te błędy, które złapie `componentDidCatch()`.
+
+Inaczej jest na produkcji, gdzie błędy nie wędrują aż na samą górę. Oznacza to, że nadrzędne granice błędów otrzymają błąd tylko wtedy, gdy ich potomkowie wcześniej ich nie przechwycą za pomocą `componentDidCatch()`.
+
 > Uwaga
-=======
-Production and development builds of React slightly differ in the way `componentDidCatch()` handles errors.
-
-On development, the errors will bubble up to `window`, this means that any `window.onerror` or `window.addEventListener('error', callback)` will intercept the errors that have been caught by `componentDidCatch()`.
-
-On production, instead, the errors will not bubble up, which means any ancestor error handler will only receive errors not explicitly caught by `componentDidCatch()`.
-
-> Note
->>>>>>> 8f9ef00db1b36ee3e5a0e6072eb601257a6f8ccb
 >
-> W razie wyjątku, możesz zrenderować awaryjny interfejs użytkownika za pomocą metody `componentDidCatch()` poprzez wywołanie metody `setState`, ale możliwość ta będzie przestarzała w przyszłych wersjach.
+> W razie wyjątku, możesz wyrenderować awaryjny interfejs użytkownika za pomocą metody `componentDidCatch()` poprzez wywołanie metody `setState`, ale możliwość ta będzie przestarzała w przyszłych wersjach.
 > Do obsługi renderowania awaryjnego używaj zamiast tego metody `static getDerivedStateFromError()`.
 
 * * *
@@ -474,7 +470,7 @@ UNSAFE_componentWillReceiveProps(nextProps)
 
 Metoda `UNSAFE_componentWillReceiveProps()` jest wywoływana przed tym, jak zamontowany komponent otrzymuje nowe właściwości. Jeśli potrzebujesz zaktualizować stan w odpowiedzi na zmiany właściwości (na przykład, zresetować go), możesz porównać `this.props` i `nextProps` i wykonać przejście stanu w tej metodzie za pomocą `this.setState()`.
 
-Zauważ, że jeśli komponent nadrzędny powoduje ponowne zrenderowanie twojego komponentu, ta metoda będzie wywołana nawet jeśli właściwości nie uległy zmianie. Jeśli chcesz tylko obsłużyć zmiany, upewnij się, że porównujesz poprzednie i obecne wartości.
+Zauważ, że jeśli komponent nadrzędny powoduje ponowne wyrenderowanie twojego komponentu, ta metoda będzie wywołana nawet jeśli właściwości nie uległy zmianie. Jeśli chcesz tylko obsłużyć zmiany, upewnij się, że porównujesz poprzednie i obecne wartości.
 
 React nie wywołuje metody `UNSAFE_componentWillReceiveProps()` z początkowymi właściwościami podczas [montowania](#mounting). Wywołuje ją tylko, kiedy właściwości któregoś z komponentów mogą zostać zaktualizowane. Wywołanie metody `this.setState()` przeważnie nie powoduje wywołania `UNSAFE_componentWillReceiveProps()`.
 
@@ -514,7 +510,7 @@ Są tylko dwie takie metody: `setState()` i `forceUpdate()`.
 setState(updater, [callback])
 ```
 
-`setState()` ustawia w kolejce zmiany stanu komponentu i daje znać Reactowi, że komponent i jego komponenty potomne powinny zostać ponownie zrenderowane ze zaktualizowanym stanem. Jest to podstawowa metoda używana do aktualizacji interfejsu użytkownika w odpowiedzi na procedury obsługi zdarzeń i odpowiedzi z serwera.
+`setState()` ustawia w kolejce zmiany stanu komponentu i daje znać Reactowi, że komponent i jego komponenty potomne powinny zostać ponownie wyrenderowane ze zaktualizowanym stanem. Jest to podstawowa metoda używana do aktualizacji interfejsu użytkownika w odpowiedzi na procedury obsługi zdarzeń i odpowiedzi z serwera.
 
 Myśl o metodzie `setState()` bardziej jako o *prośbie* niż o natychmiastowym poleceniu aktualizacji komponentu. Dla lepszej postrzeganej wydajności, React może ją opóźnić, a potem zaktualizować kilka komponentów za jednym zamachem. React nie gwarantuje natychmiastowego zastosowania zmian stanu.
 
@@ -538,7 +534,7 @@ this.setState((state, props) => {
 
 Zarówno `state`, jak i `props` otrzymywane przez funkcję aktualizującą są aktualne. Wynik aktualizatora zostaje płytko scalony ze stanem.
 
-Drugi parametrem metody `setState()` jest opcjonalna funkcja zwrotna, która zostanie wywołana kiedy `setState` ukończy swój przebieg i komponent zostanie ponownie zrenderowany. Ogólnie rzecz biorąc, do tego typu logiki zalecamy zamiast tego używać metody `componentDidUpdate()`.
+Drugi parametrem metody `setState()` jest opcjonalna funkcja zwrotna, która zostanie wywołana kiedy `setState` ukończy swój przebieg i komponent zostanie ponownie wyrenderowany. Ogólnie rzecz biorąc, do tego typu logiki zalecamy zamiast tego używać metody `componentDidUpdate()`.
 
 Opcjonalnie, jako pierwszy argument do metody `setState()` zamiast funkcji możesz przekazać obiekt:
 
@@ -585,7 +581,7 @@ Po więcej szczegółów, odwiedź:
 component.forceUpdate(callback)
 ```
 
-Domyślnie, kiedy zmienia się stan lub właściwości twojego komponentu, zrenderuje się on ponownie. Jeśli twoja metoda `render()` polega na innych danych, możesz powiadomić Reacta, że komponent potrzebuje ponownego zrenderowania, poprzez wywołanie metody `forceUpdate()`.
+Domyślnie, kiedy zmienia się stan lub właściwości twojego komponentu, zrenderuje się on ponownie. Jeśli twoja metoda `render()` polega na innych danych, możesz powiadomić Reacta, że komponent potrzebuje ponownego wyrenderowania, poprzez wywołanie metody `forceUpdate()`.
 
 Wywołanie `forceUpdate()` spowoduje, że na komponencie zostanie wywołana metoda `render()`, z pominięciem metody `shouldComponentUpdate()`. Spowoduje to wywołanie normalnych metod cyklu życia komponentów potomnych, włączając w to metodę `shouldComponentUpdate()` każdego z nich. React wciąż zaktualizuje drzewo DOM tylko w wypadku zmiany znaczników.
 
