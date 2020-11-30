@@ -130,15 +130,9 @@ Poczynając od wersji 16-stej React wspiera wszystkie standardowe i [niestandard
 React od zawsze udostępniał interfejs API jak najbardziej podobny do javascriptowego interfejsu DOM. Z racji tego, że komponenty reactowe często przyjmują zarówno właściwości niestandardowe, jak i te związane z modelem DOM, React używa notacji `camelCase`, zupełnie jak interfejs DOM:
 
 ```js
-<<<<<<< HEAD
-<div tabIndex="-1" />      // Dokładnie jak node.tabIndex w DOM API
+<div tabIndex={-1} />      // Dokładnie jak node.tabIndex w DOM API
 <div className="Button" /> // Dokładnie jak node.className w DOM API
 <input readOnly={true} />  // Dokładnie jak node.readOnly w DOM API
-=======
-<div tabIndex={-1} />      // Just like node.tabIndex DOM API
-<div className="Button" /> // Just like node.className DOM API
-<input readOnly={true} />  // Just like node.readOnly DOM API
->>>>>>> 5e437a10ed4e89cd5eaf990ce4f43e0857592b53
 ```
 
 Powyższe właściwości działają podobnie jak odpowiadajce im atrybuty HTML, z wyjątkiem specjalnych przypadków wymienionych powyżej.

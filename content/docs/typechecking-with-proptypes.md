@@ -61,15 +61,9 @@ MyComponent.propTypes = {
 
   // Typ komponenetu reactowego (np. MyComponent).
   optionalElementType: PropTypes.elementType,
-<<<<<<< HEAD
-  
+
   // Możesz także zadeklarować właściwość, która będzie instancją klasy.
   // Wykorzystujemy do tego operator instanceof z JavaScriptu.
-=======
-
-  // You can also declare that a prop is an instance of a class. This uses
-  // JS's instanceof operator.
->>>>>>> 5e437a10ed4e89cd5eaf990ce4f43e0857592b53
   optionalMessage: PropTypes.instanceOf(Message),
 
   // Możesz upewnić się, czy właściwość jest ograniczona do określonych wartości.
@@ -93,13 +87,8 @@ MyComponent.propTypes = {
     color: PropTypes.string,
     fontSize: PropTypes.number
   }),
-<<<<<<< HEAD
-  
-  // Obiekt zawierający tylko wskazane pola.
-=======
 
-  // An object with warnings on extra properties
->>>>>>> 5e437a10ed4e89cd5eaf990ce4f43e0857592b53
+  // Obiekt zawierający tylko wskazane pola.
   optionalObjectWithStrictShape: PropTypes.exact({
     name: PropTypes.string,
     quantity: PropTypes.number
@@ -203,46 +192,43 @@ class Greeting extends React.Component {
   }
 }
 ```
-<<<<<<< HEAD
+
 Właściwość `defaultProps` posłuży do zapewnienia wartości dla `this.props.name`, jeśli nie zostanie ona określona przez komponent nadrzędny. Sprawdzanie typu `propTypes` następuje po rozwiązaniu `defaultProps`, więc sprawdzanie typu będzie miało zastosowanie także do `defaultProps`.
-=======
 
-The `defaultProps` will be used to ensure that `this.props.name` will have a value if it was not specified by the parent component. The `propTypes` typechecking happens after `defaultProps` are resolved, so typechecking will also apply to the `defaultProps`.
+### Komponenty funkcyjne
 
-### Function Components
+Jeśli w swojej aplikacji regularnie korzystasz z komponentów funkcyjnych, musisz dokonać małych zmian, aby PropTypes zaczęły działać.
 
-If you are using function components in your regular development, you may want to make some small changes to allow PropTypes to be proper applied.
-
-Let's say you have a component like this:
+Załóżmy, że masz taki oto komponent:
 
 ```javascript
 export default function HelloWorldComponent({ name }) {
   return (
-    <div>Hello, {name}</div>
+    <div>Witaj, {name}</div>
   )
 }
 ```
 
-To add PropTypes, you may want to declare the component in a separate function before exporting, like this:
+Aby dodać do niego PropTypes, zadeklaruj go osobno przed wyeksportowaniem:
 
 ```javascript
 function HelloWorldComponent({ name }) {
   return (
-    <div>Hello, {name}</div>
+    <div>Witaj, {name}</div>
   )
 }
 
 export default HelloWorldComponent
 ```
 
-Then, you can add PropTypes directly to the `HelloWorldComponent`:
+Teraz możesz dodać PropTypes bezpośrednio do `HelloWorldComponent`:
 
 ```javascript
 import PropTypes from 'prop-types'
 
 function HelloWorldComponent({ name }) {
   return (
-    <div>Hello, {name}</div>
+    <div>Witaj, {name}</div>
   )
 }
 
@@ -252,4 +238,3 @@ HelloWorldComponent.propTypes = {
 
 export default HelloWorldComponent
 ```
->>>>>>> 5e437a10ed4e89cd5eaf990ce4f43e0857592b53
