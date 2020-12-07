@@ -92,7 +92,7 @@ function getGreeting(user) {
 Możesz przekazać literał znakowy jako atrybut, używając poniższej składni:
 
 ```js
-const element = <div tabIndex={0}></div>;
+const element = <div tabIndex="0"></div>;
 ```
 
 Możesz także przypisać wartość dowolnego wyrażenia javascriptowego do atrybutu, używając nawiasów klamrowych:
