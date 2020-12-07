@@ -116,15 +116,11 @@ Na pierwszy rzut oka kod nie wydaje się problematyczny. Ale jeżeli `SharedAppl
 
 Przez celowe podwójne wywołanie metod, takich jak konstruktor komponentu, tryb rygorystyczny sprawia, że wzorce tego typu są łatwiejsze do zauważenia.
 
-<<<<<<< HEAD
-### Wykrywanie przestarzałego API kontekstów {#detecting-legacy-context-api}
-=======
-> Note:
+> Uwaga:
 >
-> Starting with React 17, React automatically modifies the console methods like `console.log()` to silence the logs in the second call to lifecycle functions. However, it may cause undesired behavior in certain cases where [a workaround can be used](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
+> Począwszy od wersji 17, React automatycznie modyfikuje metody takie jak `console.log()`, aby uciszyć logi przy powtórnym wywołaniu funkcji odpowiedzialnych za cykl życia komponentów. Jednak w niektórych przypadkach może to prowadzić do niepożądanych zachowań, [na co można zaradzić w ten sposób](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
 
-### Detecting legacy context API {#detecting-legacy-context-api}
->>>>>>> 4fc709d0576d0f0f1f8ea8b6bb341a12944b5510
+### Wykrywanie przestarzałego API kontekstów {#detecting-legacy-context-api}
 
 Przestarzałe API kontekstów jest podatne na błędy i może zostać usunięte w przyszłych wersjach. Nadal będzie działać dla wszystkich wydań 16.x, ale w trybie rygorystycznym będzie w nich wyświetlany poniższy komunikat ostrzegawczy:
 
