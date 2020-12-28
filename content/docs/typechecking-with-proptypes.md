@@ -195,7 +195,7 @@ class Greeting extends React.Component {
 
 Właściwość `defaultProps` posłuży do zapewnienia wartości dla `this.props.name`, jeśli nie zostanie ona określona przez komponent nadrzędny. Sprawdzanie typu `propTypes` następuje po rozwiązaniu `defaultProps`, więc sprawdzanie typu będzie miało zastosowanie także do `defaultProps`.
 
-### Komponenty funkcyjne
+### Komponenty funkcyjne {#function-components}
 
 Jeśli w swojej aplikacji regularnie korzystasz z komponentów funkcyjnych, musisz dokonać małych zmian, aby PropTypes zaczęły działać.
 
