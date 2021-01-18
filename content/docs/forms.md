@@ -31,7 +31,7 @@ Możliwe jest łączenie tych dwóch rozwiązań poprzez ustanowienie reactowego
 
 Gdybyśmy chcieli sprawić, aby podany wcześniej przykładowy formularz wyświetlał przy wysłaniu podane przez użytkownika imię, możemy zrobić z niego komponent kontrolowany w następujący sposób:
 
-```javascript{4,10-12,24}
+```javascript{4,10-12,21,24}
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
