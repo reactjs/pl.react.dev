@@ -1,33 +1,54 @@
 ---
 id: reconciliation
-title: Reconciliation
+title: Rekoncyliacja
 permalink: docs/reconciliation.html
 ---
 
+Deklaratywne API Reacta sprawia, że nie musisz się martwić co dokładnie zmienia się przy każdej aktualizacji. Dzięki temu pisanie aplikacji staje sie dużo prostsze, jednak dokładna implementacja nie jest oczywista. W tym artykule wyjaśniamy decyzje które podjęliśmy przy projektowaniu algorytmu różnicującego w Reakcie, mające zapewnić przewidywalność aktualizacji komponentów przy zachowaniu wysokiej wydajności.
+
 React provides a declarative API so that you don't have to worry about exactly what changes on every update. This makes writing applications a lot easier, but it might not be obvious how this is implemented within React. This article explains the choices we made in React's "diffing" algorithm so that component updates are predictable while being fast enough for high-performance apps.
 
-## Motivation {#motivation}
+## Motywacja {#motivation}
+
+Podczas korzystania z Reacta, w danym momencie możesz potraktować funkcję `render()` jako tworzącą drzewo elementów Reacta. Podczas następnej zmiany stanu, bądź aktualizacji właściwości funkcja `render()` zwróci inne drzewo elementów React. Zadaniem Reacta jest wtedy opracować wydajny sposób na aktualizację UI tak by dopasować je do najświeższego drzewa elementów.
 
 When you use React, at a single point in time you can think of the `render()` function as creating a tree of React elements. On the next state or props update, that `render()` function will return a different tree of React elements. React then needs to figure out how to efficiently update the UI to match the most recent tree.
 
+Istnieją ogólne rozwiązania algorytmicznego problemu generowania najmniejszej liczby operacji wymaganych do przekształcenia drzew elementów. Jednakże nawet [najlepsze znane algorytmy](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) mają złożoność rzędu O(n<sup>3</sup>) gdzie n jest liczbą elementów w drzewie.
+
 There are some generic solutions to this algorithmic problem of generating the minimum number of operations to transform one tree into another. However, the [state of the art algorithms](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) have a complexity in the order of O(n<sup>3</sup>) where n is the number of elements in the tree.
+
+Gdybyśmy wykorzystali ten algorytm w Reakcie wyświetlenie 1000 elementów wymagałoby miliarda porównań. Jest to stanowczo zbyt kosztowne. Zamiast tego, React implementuje heurystyczny algorytm o złożoności O(n) bazujący na dwóch założeniach:
+
+1. Dwa elementy różnych typów produkują różne drzewa.
+2. Programista może wskazać które elementy drzewa mogą być stabilne pomiędzy kolejnymi renderami używając właściwości `key`.
 
 If we used this in React, displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
 
 1. Two elements of different types will produce different trees.
 2. The developer can hint at which child elements may be stable across different renders with a `key` prop.
 
+W praktyce te założenia sprawdzają się właściwie w wszystkich zastosowaniach.
+
 In practice, these assumptions are valid for almost all practical use cases.
 
-## The Diffing Algorithm {#the-diffing-algorithm}
+## Algorytm różnicujący {#the-diffing-algorithm}
+
+Podczas różnicowania dwóch drzew React najpierw porównuje elementy nadrzędne. Dalsze kroki zależą od typów elementów nadrzędnych. 
 
 When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements.
 
-### Elements Of Different Types {#elements-of-different-types}
+### Elementy różnych typów {#elements-of-different-types}
+
+Zawsze gdy elementy nadrzędne różnią się typem React pozbywa się starego drzewa i buduje nowe od podstaw. Zamiana `<a>` na `<img>`, czy `<Article>` na `<Comment>`, lub `<Button>` na `<div>` - każda z tych zmian spowoduje całkowite przebudowanie drzewa.
 
 Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. Going from `<a>` to `<img>`, or from `<Article>` to `<Comment>`, or from `<Button>` to `<div>` - any of those will lead to a full rebuild.
 
+Gdy React pozbywa się starego drzewa, wszystkie przypisane do niego węzły DOM są niszczone. W instancjach komponentów wywoływane jest `componentWillUnmount()`. Podczas budowania nowego drzewa do DOMu dodawane są nowe węzły. W instancjach komponentów wywoływane jest `UNSAFE_componentWillMount()` a następnie `componentDidMount()`. Jakikolwiek stan przypisany do starego drzewa jest bezpowrotnie stracony.
+
 When tearing down a tree, old DOM nodes are destroyed. Component instances receive `componentWillUnmount()`. When building up a new tree, new DOM nodes are inserted into the DOM. Component instances receive `UNSAFE_componentWillMount()` and then `componentDidMount()`. Any state associated with the old tree is lost.
+
+Jakiekolwiek komponenty poniżej elementu nadrzędnego również zostają odmontowane, a ich stan zniszczony. Na przykład, przy zmianie:
 
 Any components below the root will also get unmounted and have their state destroyed. For example, when diffing:
 
@@ -40,16 +61,20 @@ Any components below the root will also get unmounted and have their state destr
   <Counter />
 </span>
 ```
+Stary `Counter` zostanie zniszczony i zamontowany zostanie nowy.
 
 This will destroy the old `Counter` and remount a new one.
 
->Note:
+>Uwaga:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>Te metody są przestarzałe i powinno się ich [unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie.
 >
 >- `UNSAFE_componentWillMount()`
 
-### DOM Elements Of The Same Type {#dom-elements-of-the-same-type}
+### Elementy DOM tego samego typu {#dom-elements-of-the-same-type}
+
+Przy porównywaniu dwóch elementów tego samego typu React patrzy na atrybuty obu elementów, zachowuje stary węzeł i aktualizuje jedynie atrybuty, które tego wymagają.
+Na przykład:
 
 When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. For example:
 
@@ -59,7 +84,11 @@ When comparing two React DOM elements of the same type, React looks at the attri
 <div className="after" title="stuff" />
 ```
 
+Porównując te dwa elementy, React wie by zmienić jedynie `className` na dostępnym węźle DOMu.
+
 By comparing these two elements, React knows to only modify the `className` on the underlying DOM node.
+
+Aktualizując `style`, React wie również by aktualizować jedynie te właściwości, które uległy zmianie. Na przykład:
 
 When updating `style`, React also knows to update only the properties that changed. For example:
 
@@ -69,11 +98,15 @@ When updating `style`, React also knows to update only the properties that chang
 <div style={{color: 'green', fontWeight: 'bold'}} />
 ```
 
+Przy aktualizacji tych elementów React wie by zmodyfikować jedynie `color`, a nie również `fontWeight`.
+
 When converting between these two elements, React knows to only modify the `color` style, not the `fontWeight`.
+
+Po obsłużeniu danego węzła DOMu React rekursywnie wywołuje algorytm na kolejnych potomkach w drzewie.
 
 After handling the DOM node, React then recurses on the children.
 
-### Component Elements Of The Same Type {#component-elements-of-the-same-type}
+### Komponenty tego samego typu {#component-elements-of-the-same-type}
 
 When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` and `componentDidUpdate()` on the underlying instance.
 
