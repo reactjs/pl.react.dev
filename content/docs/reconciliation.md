@@ -106,7 +106,7 @@ Na przykład, gdy dodamy element na koniec potomstwa, przejście pomiędzy tymi 
 ```
 React dopasuje do siebie drzewa `<li>pierwszy</li>`, dopasuje drzewa `<li>drugi</li>`, następnie napotkawszy różnicę doda drzewo `<li>trzeci</li>`.
 
-Przy naiwnej implementacji algorytmu dodanie elementu na początek będzie miało gorszą wydajność. Na przykład, przejście pomiędzy tymi dwoma drzewa jest mało wydajne:
+Przy naiwnej implementacji algorytmu dodanie elementu na początek będzie miało gorszą wydajność. Na przykład, przejście pomiędzy tymi dwoma drzewami jest mało wydajne:
 
 ```xml
 <ul>
@@ -152,7 +152,7 @@ W innym przypadku, można dodać nowe id do modelu danych, bądź wykorzystać f
 
 W ostatecznym wypadku jako klucza można użyć indeksu elementu w tablicy. Rozwiązanie to sprawdzi się jeśli kolejność elementów w tablicy jest stała, w przypadku zmiennej kolejności różnicowanie będzie mniej wydajne.
 
-W przypadku użycia indeksu jako klucza zmiany w kolejności elementów tablicy mogą również powodować problemy z stanem komponentów. Instancje komponentów są aktualizowane bądź zatrzymywane w oparciu o klucz. Jeśli klucz jest indeksem, każda zmiana pozycji elementu w tablicy powoduje zmianę klucza. W rezultacie stan komponentów może zostać zaktualizowany w nieprzewidywalny sposób i powodować trudne do zidentyfikowania błędy.
+W przypadku użycia indeksu jako klucza, zmiany w kolejności elementów tablicy mogą również powodować problemy z stanem komponentów. Instancje komponentów są aktualizowane bądź zatrzymywane w oparciu o klucz. Jeśli klucz jest indeksem, każda zmiana pozycji elementu w tablicy powoduje zmianę klucza. W rezultacie stan komponentów może zostać zaktualizowany w nieprzewidywalny sposób i powodować trudne do zidentyfikowania błędy.
 
 Na podanym CodePenie można zapoznać się z [przykładowym problemem jaki stwarza stosowanie indeksów jako kluczy](codepen://reconciliation/index-used-as-key), a z kolei tutaj pokazany jest [sposób w jaki unikanie indeksów w kluczu rozwiązuje problemy z wstawianiem, sortowaniem oraz zmianą pozycji elementów](codepen://reconciliation/no-index-used-as-key). 
 
@@ -162,7 +162,7 @@ Należy pamiętać, że algorytm rekoncyliacji to szczegół implementacyjny. Re
 Dla jasności, przez rerender w tym kontekście rozumiemy wywołanie `render` dla wszystkich komponentów, nie oznacza to że zostaną one odmontowane i zamontowane ponownie.
 Oznacza jedynie zaaplikowanie zmian według reguł, które dotychczas przedstawiliśmy.
 
-Regularnie usprawniamy algorytm heurystyczny by zoptymalizować wydajność w najczęstszych przypadkach. W aktualnej implementacji możemy wyrazić fakt, iż poddrzewo zmieniło pozycję względem rodzeństwa, nie jesteśmy jednak w stanie wskazać, że zostało przeniesione gdzie indziej bez zmian. Algorytm wymusi rerender całego poddrzewa.
+Regularnie usprawniamy algorytm heurystyczny by zoptymalizować wydajność w najczęstszych przypadkach. W aktualnej implementacji możemy wyrazić fakt, iż poddrzewo zmieniło pozycję względem rodzeństwa, nie jesteśmy jednak w stanie wskazać, że zostało bez zmian przeniesione gdzie indziej. Algorytm wymusi rerender całego poddrzewa.
 
 Ponieważ React opiera się na heurystyce, tracimy na wydajności zawsze gdy nie spełniamy jej założeń.
 
