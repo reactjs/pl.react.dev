@@ -4,11 +4,11 @@ title: Rekoncyliacja
 permalink: docs/reconciliation.html
 ---
 
-Deklaratywne API Reacta sprawia, że nie musisz się martwić co dokładnie zmienia się przy każdej aktualizacji. Dzięki temu pisanie aplikacji staje sie dużo prostsze, jednak dokładna implementacja nie jest oczywista. W tym artykule wyjaśniamy decyzje które podjęliśmy przy projektowaniu algorytmu różnicującego w Reakcie, mające zapewnić przewidywalność aktualizacji komponentów przy zachowaniu wysokiej wydajności.
+Deklaratywność API Reacta sprawia, że nie musisz się martwić co dokładnie zmienia się przy każdej aktualizacji, dzięki czemu pisanie aplikacji staje się dużo prostsze. Dokładna implementacja nie jest jednak tak oczywista. W tym artykule wyjaśniamy decyzje, które podjęliśmy przy projektowaniu algorytmu różnicującego w Reakcie, mając na celu zapewnienie przewidywalności aktualizacji komponentów przy zachowaniu wysokiej wydajności.
 
 ## Motywacja {#motivation}
 
-Podczas korzystania z Reacta, w danym momencie możesz potraktować funkcję `render()` jako tworzącą drzewo elementów Reacta. Podczas następnej zmiany stanu, bądź aktualizacji właściwości funkcja `render()` zwróci inne drzewo elementów React. Zadaniem Reacta jest wtedy opracować wydajny sposób na aktualizację UI tak by dopasować je do najświeższego drzewa elementów.
+Podczas korzystania z Reacta, w danym momencie możesz potraktować funkcję `render()` jako tworzącą drzewo elementów Reacta. Podczas następnej zmiany stanu bądź aktualizacji właściwości funkcja `render()` zwróci inne drzewo elementów React. Zadaniem Reacta jest wtedy opracować wydajny sposób na aktualizację UI, tak by dopasować je do najświeższego drzewa elementów.
 
 Istnieją ogólne rozwiązania algorytmicznego problemu generowania najmniejszej liczby operacji wymaganych do przekształcenia drzew elementów. Jednakże nawet [najlepsze znane algorytmy](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) mają złożoność rzędu O(n<sup>3</sup>) gdzie n jest liczbą elementów w drzewie.
 
@@ -25,7 +25,7 @@ Podczas różnicowania dwóch drzew React najpierw porównuje elementy nadrzędn
 
 ### Elementy różnych typów {#elements-of-different-types}
 
-Zawsze gdy elementy nadrzędne różnią się typem React pozbywa się starego drzewa i buduje nowe od podstaw. Zamiana `<a>` na `<img>`, czy `<Article>` na `<Comment>`, lub `<Button>` na `<div>` - każda z tych zmian spowoduje całkowite przebudowanie drzewa.
+Zawsze, gdy elementy nadrzędne różnią się typem React pozbywa się starego drzewa i buduje nowe od podstaw. Zamiana `<a>` na `<img>`, czy `<Article>` na `<Comment>`, lub `<Button>` na `<div>` - każda z tych zmian spowoduje całkowite przebudowanie drzewa.
 
 Gdy React pozbywa się starego drzewa, wszystkie przypisane do niego węzły DOM są niszczone. W instancjach komponentów wywoływane jest `componentWillUnmount()`. Podczas budowania nowego drzewa do DOMu dodawane są nowe węzły. W instancjach komponentów wywoływane jest `UNSAFE_componentWillMount()` a następnie `componentDidMount()`. Jakikolwiek stan przypisany do starego drzewa jest bezpowrotnie stracony.
 
@@ -61,7 +61,7 @@ Na przykład:
 
 Porównując te dwa elementy, React wie by zmienić jedynie `className` na dostępnym węźle DOMu.
 
-Aktualizując `style`, React wie również by aktualizować jedynie te właściwości, które uległy zmianie. Na przykład:
+Aktualizując `style`, React wie również, by aktualizować jedynie te właściwości, które uległy zmianie. Na przykład:
 
 ```xml
 <div style={{color: 'red', fontWeight: 'bold'}} />
@@ -69,13 +69,13 @@ Aktualizując `style`, React wie również by aktualizować jedynie te właściw
 <div style={{color: 'green', fontWeight: 'bold'}} />
 ```
 
-Przy aktualizacji tych elementów React wie by zmodyfikować jedynie `color`, a nie również `fontWeight`.
+Przy aktualizacji tych elementów React wie, by zmodyfikować jedynie `color`, a nie również `fontWeight`.
 
 Po obsłużeniu danego węzła DOMu React rekursywnie wywołuje algorytm na kolejnych potomkach w drzewie.
 
 ### Komponenty tego samego typu {#component-elements-of-the-same-type}
 
-Gdy komponent jest aktualizowany, jego instacja pozostaje bez zmian dzięki czemu stan jest zachowany pomiędzy kolejnymi renderami. React aktualizuje właściwości instancji zgodnie z nowym elementem i wywołuje na niej `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` oraz `componentDidUpdate()`.
+Gdy komponent jest aktualizowany, jego instancja pozostaje bez zmian, dzięki czemu stan jest zachowany pomiędzy kolejnymi renderami. React aktualizuje właściwości instancji zgodnie z nowym elementem i wywołuje na niej `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` oraz `componentDidUpdate()`.
 
 Następnie wywołana zostaje metoda `render()`, a algorytm różnicujący sięga dalej w głąb drzewa.
 
@@ -148,21 +148,21 @@ Dobranie stosownego klucza zazwyczaj nie nastręcza trudności. Element, który 
 <li key={item.id}>{item.name}</li>
 ```
 
-W innym przypadku, można dodać nowe id do modelu danych, bądź wykorzystać funkcję skrótu (ang. *hash function*) do wygenerowania klucza. Klucz musi być unikalny jedynie względem swego rodzeństwa.
+W przeciwnym wypadku można dodać nowe id do modelu danych, bądź wykorzystać funkcję skrótu (ang. *hash function*) do wygenerowania klucza. Klucz musi być unikalny jedynie względem swego rodzeństwa.
 
-W ostatecznym wypadku jako klucza można użyć indeksu elementu w tablicy. Rozwiązanie to sprawdzi się jeśli kolejność elementów w tablicy jest stała, w przypadku zmiennej kolejności różnicowanie będzie mniej wydajne.
+W ostateczności jako klucza można użyć indeksu elementu w tablicy. Rozwiązanie to sprawdzi się jeśli kolejność elementów w tablicy jest stała, w przypadku zmiennej kolejności różnicowanie będzie mniej wydajne.
 
-W przypadku użycia indeksu jako klucza, zmiany w kolejności elementów tablicy mogą również powodować problemy z stanem komponentów. Instancje komponentów są aktualizowane bądź zatrzymywane w oparciu o klucz. Jeśli klucz jest indeksem, każda zmiana pozycji elementu w tablicy powoduje zmianę klucza. W rezultacie stan komponentów może zostać zaktualizowany w nieprzewidywalny sposób i powodować trudne do zidentyfikowania błędy.
+W przypadku użycia indeksu jako klucza, zmiany w kolejności elementów tablicy mogą również powodować problemy ze stanem komponentów. Instancje komponentów są aktualizowane bądź nie, na podstawie klucza. Jeśli klucz jest indeksem, każda zmiana pozycji elementu w tablicy powoduje zmianę klucza. W rezultacie stan komponentów może zostać zaktualizowany w nieprzewidywalny sposób i powodować trudne do zidentyfikowania błędy.
 
-Na podanym CodePenie można zapoznać się z [przykładowym problemem jaki stwarza stosowanie indeksów jako kluczy](codepen://reconciliation/index-used-as-key), a z kolei tutaj pokazany jest [sposób w jaki unikanie indeksów w kluczu rozwiązuje problemy z wstawianiem, sortowaniem oraz zmianą pozycji elementów](codepen://reconciliation/no-index-used-as-key). 
+Na podanym CodePenie można zapoznać się z [przykładowym problemem, jaki stwarza stosowanie indeksów jako kluczy](codepen://reconciliation/index-used-as-key), a z kolei tutaj pokazany jest [sposób, w jaki unikanie indeksów w kluczu rozwiązuje problemy z wstawianiem, sortowaniem oraz zmianą pozycji elementów](codepen://reconciliation/no-index-used-as-key). 
 
 ## Kompromisy {#tradeoffs}
 
-Należy pamiętać, że algorytm rekoncyliacji to szczegół implementacyjny. React mógły rerenderować całą aplikację przy każdej akcji; rezultat byłby ten sam.
-Dla jasności, przez rerender w tym kontekście rozumiemy wywołanie `render` dla wszystkich komponentów, nie oznacza to że zostaną one odmontowane i zamontowane ponownie.
+Należy pamiętać, że algorytm rekoncyliacji to szczegół implementacyjny. React mógłby rerenderować całą aplikację przy każdej akcji; rezultat byłby ten sam.
+Dla jasności, przez rerender w tym kontekście rozumiemy wywołanie `render` dla wszystkich komponentów, nie oznacza to, że zostaną one odmontowane i zamontowane ponownie.
 Oznacza jedynie zaaplikowanie zmian według reguł, które dotychczas przedstawiliśmy.
 
-Regularnie usprawniamy algorytm heurystyczny by zoptymalizować wydajność w najczęstszych przypadkach. W aktualnej implementacji możemy wyrazić fakt, iż poddrzewo zmieniło pozycję względem rodzeństwa, nie jesteśmy jednak w stanie wskazać, że zostało bez zmian przeniesione gdzie indziej. Algorytm wymusi rerender całego poddrzewa.
+Regularnie usprawniamy algorytm heurystyczny, by zoptymalizować wydajność w najczęstszych przypadkach. W aktualnej implementacji możemy wyrazić fakt, iż poddrzewo zmieniło pozycję względem rodzeństwa, nie jesteśmy jednak w stanie wskazać, że zostało bez zmian przeniesione gdzie indziej. Algorytm wymusi rerender całego poddrzewa.
 
 Ponieważ React opiera się na heurystyce, tracimy na wydajności zawsze gdy nie spełniamy jej założeń.
 
