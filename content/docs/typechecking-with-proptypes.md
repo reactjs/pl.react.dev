@@ -197,7 +197,11 @@ Właściwość `defaultProps` posłuży do zapewnienia wartości dla `this.props
 
 ### Komponenty funkcyjne {#function-components}
 
+<<<<<<< HEAD
 Jeśli w swojej aplikacji regularnie korzystasz z komponentów funkcyjnych, musisz dokonać małych zmian, aby PropTypes zaczęły działać.
+=======
+If you are using function components in your regular development, you may want to make some small changes to allow PropTypes to be properly applied.
+>>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 Załóżmy, że masz taki oto komponent:
 
