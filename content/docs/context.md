@@ -118,7 +118,7 @@ const MyContext = React.createContext(defaultValue);
 
 Tworzy obiekt kontekstu. Gdy React renderuje komponent, który zasubskrybował się do tego kontekstu, będzie przekazywać mu aktualną wartość z najbliższego "dostawcy" (`Provider`) powyżej w drzewie.
 
-Argument `defaultValue` jest używany **tylko** gdy komponent odczytujący z kontekstu nie ma nad sobą żadnego dostawcy. Przydaje się to podczas testowania komponentów w izolacji, ponieważ nie ma konieczności opakowywania ich w sztucznych dostawców. Uwaga: przekazanie dostawcy wartości `undefined` nie spowoduje, że zasubskrybowane komponenty otrzymają wartość z argumentu `defaultValue`.
+Argument `defaultValue` jest używany **tylko** gdy komponent odczytujący z kontekstu nie ma nad sobą żadnego dostawcy. Przydaje się on podczas testowania komponentów w izolacji, ponieważ nie ma konieczności opakowywania ich w sztucznych dostawców. Uwaga: przekazanie dostawcy wartości `undefined` nie spowoduje, że zasubskrybowane komponenty otrzymają wartość z argumentu `defaultValue`.
 
 ### `Context.Provider` {#contextprovider}
 
@@ -162,7 +162,7 @@ class MyClass extends React.Component {
 MyClass.contextType = MyContext;
 ```
 
-Do właściwości `contextType` w komponencie klasowym można przypisać obiekt kontekstu utworzony przy pomocy funkcji [`React.createContext()`](#reactcreatecontext). Dzięki temu wartość najbliższego kontekstu tego typu jest dostępna pod zmienną `this.context`. Możesz odwoływać się do tej wartości w każdej z metod cyklu życia komponentu, łącznie z metodą renderującą.
+Do właściwości `contextType` w komponencie klasowym można przypisać obiekt kontekstu utworzony przy pomocy funkcji [`React.createContext()`](#reactcreatecontext). Dzięki niej wartość najbliższego kontekstu tego typu będzie dostępna pod zmienną `this.context`. Możesz odwoływać się do tej wartości w każdej z metod cyklu życia komponentu, łącznie z metodą renderującą.
 
 > Uwaga:
 >
