@@ -6,11 +6,7 @@ permalink: docs/context.html
 
 Kontekst umożliwia przekazywanie danych wewnątrz drzewa komponentów bez konieczności przekazywania ich przez właściwości każdego komponentu pośredniego.
 
-<<<<<<< HEAD
 W typowej aplikacji reactowej dane przekazywane są z góry w dół (od rodzica do dziecka) poprzez właściwości. Może się to jednak okazać zbyt uciążliwe w przypadku niektórych danych (np. preferencje językowe, schemat UI czy paleta kolorów), z których korzystają komponenty na wielu poziomach struktury. Konteksty umożliwiają współdzielenie pewnych wartości przez takie komponenty bez konieczności przekazywania ich jako właściwości na każdym poziomie drzewa.
-=======
-In a typical React application, data is passed top-down (parent to child) via props, but such usage can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
->>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 - [Kiedy należy użyć kontekstu?](#when-to-use-context)
 - [Zanim użyjesz kontekstu](#before-you-use-context)
@@ -84,11 +80,7 @@ function Page(props) {
 
 Dzięki takiej zmianie tylko komponent `Page`, znajdujący się najwyżej w hierarchii, musi wiedzieć o tym, że `Link` i `Avatar` zależą od wartości `user` i `avatarSize`.
 
-<<<<<<< HEAD
 Takie "odwrócenie sterowania" (ang. *inversion of control*) sprawia, że kod staje się czytelniejszy poprzez zmniejszenie liczby wartości przeplecionych przez strukturę aplikacji, jak również daje większą kontrolę komponentom znajdującym się wysoko w hierarchii. Należy jednak pamiętać, że to podejście nie zawsze jest najlepszym rozwiązaniem. Przeniesienie złożoności w górę hierarchii sprawia, że komponenty na górze stają się bardziej złożone, a także wymusza często nadmierną elastyczność na komponentach poniżej.
-=======
-This *inversion of control* can make your code cleaner in many cases by reducing the amount of props you need to pass through your application and giving more control to the root components. Such inversion, however, isn't the right choice in every case; moving more complexity higher in the tree makes those higher-level components more complicated and forces the lower-level components to be more flexible than you may want.
->>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 Warto zwrócić uwagę, że dany komponent nie jest ograniczony do posiadania tylko jednego potomka. Poprzez właściwości do komponentu możemy przekazać wielu potomków naraz lub stworzyć kilka oddzielnych "slotów" dla poszczególnych potomków, [jak opisano to w tym rozdziale](/docs/composition-vs-inheritance.html#containment):
 
@@ -126,11 +118,7 @@ const MyContext = React.createContext(defaultValue);
 
 Tworzy obiekt kontekstu. Gdy React renderuje komponent, który zasubskrybował się do tego kontekstu, będzie przekazywać mu aktualną wartość z najbliższego "dostawcy" (`Provider`) powyżej w drzewie.
 
-<<<<<<< HEAD
-Argument `defaultValue` jest używany **tylko** gdy komponent odczytujący z kontekstu nie ma nad sobą żadnego dostawcy. Przydaje się to podczas testowania komponentów w izolacji, ponieważ nie ma konieczności opakowywania ich w sztucznych dostawców. Uwaga: przekazanie dostawcy wartości `undefined` nie spowoduje, że zasubskrybowane komponenty otrzymają wartość z argumentu `defaultValue`.
-=======
-The `defaultValue` argument is **only** used when a component does not have a matching Provider above it in the tree. This default value can be helpful for testing components in isolation without wrapping them. Note: passing `undefined` as a Provider value does not cause consuming components to use `defaultValue`.
->>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
+Argument `defaultValue` jest używany **tylko** gdy komponent odczytujący z kontekstu nie ma nad sobą żadnego dostawcy. Przydaje się on podczas testowania komponentów w izolacji, ponieważ nie ma konieczności opakowywania ich w sztucznych dostawców. Uwaga: przekazanie dostawcy wartości `undefined` nie spowoduje, że zasubskrybowane komponenty otrzymają wartość z argumentu `defaultValue`.
 
 ### `Context.Provider` {#contextprovider}
 
@@ -174,11 +162,7 @@ class MyClass extends React.Component {
 MyClass.contextType = MyContext;
 ```
 
-<<<<<<< HEAD
-Do właściwości `contextType` w komponencie klasowym można przypisać obiekt kontekstu utworzony przy pomocy funkcji [`React.createContext()`](#reactcreatecontext). Dzięki temu wartość najbliższego kontekstu tego typu jest dostępna pod zmienną `this.context`. Możesz odwoływać się do tej wartości w każdej z metod cyklu życia komponentu, łącznie z metodą renderującą.
-=======
-The `contextType` property on a class can be assigned a Context object created by [`React.createContext()`](#reactcreatecontext). Using this property lets you consume the nearest current value of that Context type using `this.context`. You can reference this in any of the lifecycle methods including the render function.
->>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
+Do właściwości `contextType` w komponencie klasowym można przypisać obiekt kontekstu utworzony przy pomocy funkcji [`React.createContext()`](#reactcreatecontext). Dzięki niej wartość najbliższego kontekstu tego typu będzie dostępna pod zmienną `this.context`. Możesz odwoływać się do tej wartości w każdej z metod cyklu życia komponentu, łącznie z metodą renderującą.
 
 > Uwaga:
 >
@@ -205,11 +189,7 @@ class MyClass extends React.Component {
 </MyContext.Consumer>
 ```
 
-<<<<<<< HEAD
 Komponent reactowy, który subskrybuje się na zmiany w kontekście. Pozwala na nasłuchiwanie zmian z wnętrza [komponentu funkcyjnego](/docs/components-and-props.html#function-and-class-components).
-=======
-A React component that subscribes to context changes. Using this component lets you subscribe to a context within a [function component](/docs/components-and-props.html#function-and-class-components).
->>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 Jego [potomkiem musi być funkcja](/docs/render-props.html#using-props-other-than-render). Funkcja ta otrzymuje aktualną wartość z kontekstu i zwraca węzeł reactowy. Argument `value` przekazany do tej funkcji będzie równy właściwości `value` najbliższego dostawcy tego kontekstu powyżej w drzewie. Jeśli ponad komponentem nie ma żadnego dostawcy, zostanie użyta wartość `defaultValue` przekazana do `createContext()`.
  
