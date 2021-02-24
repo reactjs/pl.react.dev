@@ -68,7 +68,7 @@
     - id: react-without-jsx
       title: React bez JSX
     - id: reconciliation
-      title: Reconciliation
+      title: Rekoncyliacja
     - id: refs-and-the-dom
       title: Referencje a DOM
     - id: render-props
