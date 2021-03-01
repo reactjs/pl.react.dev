@@ -12,7 +12,11 @@ Hooki są javascriptowymi funkcjami, ale podczas korzystania z nich musisz pami�
 
 ### Wywołuj hooki tylko z najwyższego poziomu kodu {#only-call-hooks-at-the-top-level}
 
+<<<<<<< HEAD
 **Nie wywołuj hooków wewnątrz pętli, instrukcji warunkowych czy zagnieżdżonych funkcji.** Korzystaj z hooków tylko z najwyższego poziomu kodu twoich komponentów funkcyjnych. Przestrzegając tej zasady, zyskujesz pewność, że hooki zostaną wywołane w tej samej kolejności, za każdym razem gdy komponent jest renderowany. To właśnie pozwala Reactowi na właściwe przechowywanie stanu pomiędzy kolejnymi wywołaniami `useState` i `useEffect` (Jeśli ciekawi cię ten temat, dogłębnie wyjaśnimy go [w kolejnym podrozdziale](#explanation).)
+=======
+**Don't call Hooks inside loops, conditions, or nested functions.** Instead, always use Hooks at the top level of your React function, before any early returns. By following this rule, you ensure that Hooks are called in the same order each time a component renders. That's what allows React to correctly preserve the state of Hooks between multiple `useState` and `useEffect` calls. (If you're curious, we'll explain this in depth [below](#explanation).)
+>>>>>>> 4fa06486cdb8c5a1cd7e3d88b24e76b1920f33fd
 
 ### Wywołuj hooki tylko w komponentach funkcyjnych {#only-call-hooks-from-react-functions}
 
