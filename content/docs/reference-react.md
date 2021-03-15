@@ -128,7 +128,7 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Jeśli twój komponent przy takich samych właściwościach zawsze renderuje tę samą strukturę, możesz opakować go w `React.memo` w celu poprawy wydajności. Oznacza to, że React pominie renderowanie tego komponentu i użyje jego ostatnio wyrenderowanej wersji.
 
-`React.memo` reaguje tylko na zmiany we właściwościach. Jeśli twój komponent funkcyjny opakowany w `React.memo` używa hooków [`useState`](/docs/hooks-state.html) lub [`useContext`](/docs/hooks-reference.html#usecontext), nadal będzie się aktualizował przy zmianie stanu komponentu lub kontekstu.
+`React.memo` reaguje tylko na zmiany we właściwościach. Jeśli twój komponent funkcyjny opakowany w `React.memo` używa hooków [`useState`](/docs/hooks-state.html), [`useReducer`](/docs/hooks-reference.html#usereducer) lub [`useContext`](/docs/hooks-reference.html#usecontext), nadal będzie się aktualizował przy zmianie stanu komponentu lub kontekstu.
 
 Domyślnie, komponent wykona jedynie płytkie porównanie obiektów przekazanych we właściwościach. Jeśli chcesz zastosować własny mechanizm porównujący, możesz przekazać odpowiednią funkcję jako drugi argument.
 
