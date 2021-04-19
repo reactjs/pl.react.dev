@@ -67,14 +67,9 @@ Należy pamiętać, że **granice błędów wyłapują błędy w komponentach po
 
 [Przykład tworzenia i użycia granicy błędów](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) z wykorzystaniem [Reacta 16](/blog/2017/09/26/react-v16.0.html).
 
-<<<<<<< HEAD
-=======
-The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like how server-side frameworks often handle crashes. You may also wrap individual widgets in an error boundary to protect them from crashing the rest of the application.
->>>>>>> 446345cfba91b62546f46f88fad893937a826cdc
-
 ## Gdzie umiejscowić granice błędów {#where-to-place-error-boundaries}
 
-To, jak bardzo szczegółowo zostanie pokryty kod za pomocą granic błędów, jest kwestią preferencji. Możliwe jest, na przykład, opakowanie granicą błędów komponentu najwyższego poziomu odpowiedzialnego za routing aplikacji, aby wyświetlić informację: "Coś poszło nie tak" - tak jak ma to często miejsce w frameworkach po stronie serwera. Można również opakować pojedyncze fragmenty aplikacji, aby uchronić jej pozostałe części przed błędami.
+Poziom granularności granic błędów zależy wyłącznie od ciebie. Możesz opakować tylko główny komponent aplikacji i wyświetlać tekst "Coś poszło nie tak", jak to zwykle robi się we frameworkach serwerowycha. Możesz  The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like how server-side frameworks often handle crashes. You may also wrap też otoczyć każdy z widgetów aplikacji osobną granicą błędów, aby błędy w ich wnętrzu nie zabijały całej aplikacji.
 
 ## Nowe zachowanie nieobsłużonych błędów {#new-behavior-for-uncaught-errors}
 
@@ -131,11 +126,7 @@ Granice błędów nie obsługują błędów z procedur obsługi zdarzeń.
 
 React nie potrzebuje granic błędów do przywrócenia aplikacji po błędzie powstałych w procedurze obsługi zdarzeń.  W przeciwieństwie do metod cyklu życia komponentu lub metody renderującej, procedury obsługi zdarzeń nie są wywoływane w trakcie renderowania. Dzięki temu nawet w przypadku błędu React wie, co wyświetlić na ekranie.
 
-<<<<<<< HEAD
 Aby obsłużyć błąd w procedurze obsługi zdarzenia, należy użyć javascriptowego `try` / `catch`:
-=======
-If you need to catch an error inside an event handler, use the regular JavaScript `try` / `catch` statement:
->>>>>>> 446345cfba91b62546f46f88fad893937a826cdc
 
 ```js{9-13,17-20}
 class MyComponent extends React.Component {
