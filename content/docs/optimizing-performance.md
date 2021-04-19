@@ -156,6 +156,7 @@ Więcej na ten temat możesz przeczytać w [dokumentacji webpacka](https://webpa
 
 Pamiętaj, że uruchamianie powyższej komendy jest koniecznie tylko wtedy, gdy chcesz stworzyć kod produkcyjny. Do codziennej pracy nie korzystaj z wtyczki `TerserPlugin`, ponieważ spowoduje to ukrycie przydatnych ostrzeżeń reactowych oraz spowolni sam proces budowania aplikacji.
 
+<<<<<<< HEAD
 ## Profilowanie komponentów w zakładce Performance w Chromie {#profiling-components-with-the-chrome-performance-tab}
 
 React uruchomiony w trybie **deweloperskim** pozwala na skorzystanie w niektórych przeglądarkach z narzędzi mierzących wydajność. Dzięki temu możesz zobaczyć, jak komponenty są montowane, aktualizowane i odmontowywane. Na przykład:
@@ -183,6 +184,9 @@ Zwróć uwagę, że **podane liczby są względne i na produkcji komponenty będ
 Obecnie tylko Chrome, Edge oraz IE posiadają tę funkcję, lecz wykorzystywany jest tu standardowy interfejs [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API), więc liczymy na to, że wkrótce także pozostałe przeglądarki zaczną go wspierać.
 
 ## Profilowanie komponentów za pomocą Profilera z React DevTools {#profiling-components-with-the-devtools-profiler}
+=======
+## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+>>>>>>> 446345cfba91b62546f46f88fad893937a826cdc
 
 `react-dom` 16.5+ oraz `react-native` 0.57+ zapewniają zwiększone możliwości profilowania w trybie deweloperskim w połączeniu z Profilerem wtyczki React DevTools.
 Ogólne informacje na temat Profilera można znaleźć w poście ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html) (pol. "Wprowadzenie do React Profilera").
@@ -199,7 +203,16 @@ Jeśli jeszcze nie masz zainstalowanej wtyczki React DevTools, możesz znaleźć
 > Profiler do kodu produkcyjnego jest również dostępny w paczce `react-dom` pod ścieżką `react-dom/profiling`.
 > Więcej informacji na temat jego użycia znajdziesz na [fb.me/react-profiling](https://fb.me/react-profiling)
 
+<<<<<<< HEAD
 ## Wirtualizacja długich list {#virtualize-long-lists}
+=======
+> Note
+>
+> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab. 
+> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
+
+## Virtualize Long Lists {#virtualize-long-lists}
+>>>>>>> 446345cfba91b62546f46f88fad893937a826cdc
 
 Jeśli twoja aplikacja renderuje długie listy z danymi (setki lub tysiące wierszy), zalecamy użycie techniki zwanej "okienkowaniem" (ang. *windowing*). Technika ta renderuje w danym momencie jedynie niewielką część wszystkich wierszy, co może znacząco wpłynąć na zredukowanie czasu ponownego renderowania komponentów oraz zmniejszenie liczby tworzonych węzłów DOM.
 
