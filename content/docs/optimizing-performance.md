@@ -156,32 +156,6 @@ Więcej na ten temat możesz przeczytać w [dokumentacji webpacka](https://webpa
 
 Pamiętaj, że uruchamianie powyższej komendy jest koniecznie tylko wtedy, gdy chcesz stworzyć kod produkcyjny. Do codziennej pracy nie korzystaj z wtyczki `TerserPlugin`, ponieważ spowoduje to ukrycie przydatnych ostrzeżeń reactowych oraz spowolni sam proces budowania aplikacji.
 
-## Profilowanie komponentów w zakładce Performance w Chromie {#profiling-components-with-the-chrome-performance-tab}
-
-React uruchomiony w trybie **deweloperskim** pozwala na skorzystanie w niektórych przeglądarkach z narzędzi mierzących wydajność. Dzięki temu możesz zobaczyć, jak komponenty są montowane, aktualizowane i odmontowywane. Na przykład:
-
-<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="Komponenty reactowe na osi czasu w Chromie" /></center>
-
-Aby uruchomić taką wizualizację w Chromie:
-
-1. Tymczasowo **wyłącz wszystkie rozszerzenia Chrome'a, łącznie z React DevTools**. Mogą one znacząco pogorszyć wyniki!
-
-2. Upewnij się, że aplikacja działa w trybie deweloperskim.
-
-3. Przejdź do zakładki **[Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** (pol. *Wydajność*) w narzędziach deweloperskich Chrome'a i kliknij **Record** (pol. *Rozpocznij nagrywanie*).
-
-4. Teraz wykonaj czynności, które chcesz sprofilować. Nie nagrywaj jednak dłużej niż 20 sekund, gdyż Chrome może się zawiesić.
-
-5. Zatrzymaj nagrywanie.
-
-6. Zdarzenia reactowe będą pogrupowane pod etykietą **User Timing** (pol. *Pomiary użytkownika*).
-
-Bardziej szczegółową instrukcję profilowania znajdziesz w [tym artykule autorstwa Bena Schwarza](https://calibreapp.com/blog/react-performance-profiling-optimization).
-
-Zwróć uwagę, że **podane liczby są względne i na produkcji komponenty będą renderowane szybciej**. Mimo to taki raport powinien pomóc ci znaleźć fragment interfejsu, który niepotrzebnie jest aktualizowany zbyt często, a także dowiedzieć się, jak głęboko sięgają zmiany w drzewie komponentów.
-
-Obecnie tylko Chrome, Edge oraz IE posiadają tę funkcję, lecz wykorzystywany jest tu standardowy interfejs [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API), więc liczymy na to, że wkrótce także pozostałe przeglądarki zaczną go wspierać.
-
 ## Profilowanie komponentów za pomocą Profilera z React DevTools {#profiling-components-with-the-devtools-profiler}
 
 `react-dom` 16.5+ oraz `react-native` 0.57+ zapewniają zwiększone możliwości profilowania w trybie deweloperskim w połączeniu z Profilerem wtyczki React DevTools.
@@ -198,6 +172,11 @@ Jeśli jeszcze nie masz zainstalowanej wtyczki React DevTools, możesz znaleźć
 >
 > Profiler do kodu produkcyjnego jest również dostępny w paczce `react-dom` pod ścieżką `react-dom/profiling`.
 > Więcej informacji na temat jego użycia znajdziesz na [fb.me/react-profiling](https://fb.me/react-profiling)
+
+> Uwaga
+>
+> Przed wersją 17 Reakta używaliśmy standardowego [User Timing API (pol. *API do pomiarów czasowych*)](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) w celu profilowania komponentów za pomocą zakładki "Performance" (pol. *Wydajność*) w Chromie.
+> Szczegółowy poradnik dotyczący tego tematu znajdziesz w [tym artykule autorstwa Bena Schwarza](https://calibreapp.com/blog/react-performance-profiling-optimization).
 
 ## Wirtualizacja długich list {#virtualize-long-lists}
 
