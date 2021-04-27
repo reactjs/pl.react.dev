@@ -76,6 +76,7 @@ Jeśli twoja funkcja aktualizująca zwróci wartość identyczną z aktualnym st
 > W przeciwieństwie do metody `setState` znanej z komponentów klasowych, funkcja `useState` nie scala automatycznie obiektów reprezentujących aktualizację. Możesz powielić to zachowanie, łącząc formę aktualizacji funkcyjnej ze składnią operatora rozszczepienia (ang. *spread operator*) obiektu:
 >
 > ```js
+> const [state, setState] = useState({});
 > setState(prevState => {
 >   // Object.assign również zadziała
 >   return {...prevState, ...updatedValues};
