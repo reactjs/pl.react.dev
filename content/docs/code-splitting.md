@@ -42,11 +42,7 @@ console.log(add(16, 26)); // 42
 
 Jeśli używasz [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/) lub innego podobnego narzędzia, Webpack powinien być już skonfigurowany i gotowy do użytku.
 
-<<<<<<< HEAD
 Jeśli nie, musisz skonfigurować Webpacka samodzielnie. Przykłady znajdziesz w [przewodniku po instalacji](https://webpack.js.org/guides/installation/) oraz w sekcji pt. ["Podstawowe informacje"](https://webpack.js.org/guides/getting-started/) zawartych w dokumentacji Webpacka.
-=======
-If you aren't, you'll need to set up bundling yourself. For example, see the [Installation](https://webpack.js.org/guides/installation/) and [Getting Started](https://webpack.js.org/guides/getting-started/) guides on the Webpack docs.
->>>>>>> 5119600cf6f7a5dcbd4d2cc23f6b4ff55d2969b2
 
 ## Dzielenie kodu {#code-splitting}
 
