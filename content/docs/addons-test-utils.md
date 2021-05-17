@@ -21,7 +21,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 z zainstalowanym np
 >
 > Zalecamy korzystanie z biblioteki [React Testing Library](https://testing-library.com/react). Została ona stworzona w celu propagowania idei pisania testów, które używają komponentów podobnie jak potencjalny użytkownik aplikacji.
 >
-> Jako alternatywę, firma Airbnb opublikowała narzędzie do testowania o nazwie [Enzyme](https://airbnb.io/enzyme/), które pozwala na łatwe pisanie asercji, a także manipulowanie i przechodzenie drzewa zwróconego przez komponenty reactowe.
+> Dla Reacta w wersji 16 lub niższej polecamy bibliotekę [Enzyme](https://airbnb.io/enzyme/), dzięki której w łatwy sposób można pisać asercje, a także zmieniać i przechodzić drzewo zwrócone przez komponenty reactowe.
 
  - [`act()`](#act)
  - [`mockComponent()`](#mockcomponent)
