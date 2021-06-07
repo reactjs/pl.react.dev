@@ -297,7 +297,11 @@ Funkcja pomocnicza `compose` jest dostarczana przez wiele bibliotek zewnętrznyc
 
 ## Konwencja: Opakowuj wyświetlaną nazwę dla łatwiejszego debuggowania {#convention-wrap-the-display-name-for-easy-debugging}
 
+<<<<<<< HEAD
 Komponenty-kontenery stworzone przez KWR-y wyglądają w narzędziu [React Developer Tools](https://github.com/facebook/react-devtools) jak zwykłe komponenty. Aby ułatwić sobie debugowanie, możesz zmienić wyświetlaną nazwę na inną, informującą o tym, że jest to wynik działania KWR-a.
+=======
+The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of a HOC.
+>>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
 Najczęściej stosowaną techniką jest opakowywanie wyświetlanej nazwy (ang. *display name*) renderowanego komponentu. Jeśli więc twój komponent wyższego rzędu nazywa się `withSubscription`, a opakowywany komponent to `CommentList`, użyj nazwy `WithSubscription(CommentList)`:
 

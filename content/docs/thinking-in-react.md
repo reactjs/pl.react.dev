@@ -84,7 +84,11 @@ Aby interfejs użytkownika mógł zawierać elementy interaktywne, musimy mieć 
 
 Poprawna budowa aplikacji wymaga w pierwszej kolejności określenia minimalnego zmiennego zestawu danych dla stanu aplikacji. Kluczowa jest tutaj reguła [DRY: *Don't Repeat Yourself*](https://pl.wikipedia.org/wiki/DRY) (pol. *Nie powtarzaj się*). Zadecyduj, jak ma wyglądać najprostsze możliwe odwzorowanie stanu aplikacji, a wszystko inne generuj dopiero wtedy, gdy pojawi się taka potrzeba. Przykładowo, jeśli tworzysz aplikację, która ma zarządzać "Listą rzeczy do zrobienia", zachowaj "pod ręką" jedynie tablicę z rzeczami do zrobienia; nie ma potrzeby tworzenia osobnej zmiennej stanu przechowującej liczbę tych rzeczy. Kiedy zachodzi potrzeba wyrenderowania liczby rzeczy do zrobienia, po prostu pobierz długość tablicy.
 
+<<<<<<< HEAD
 Przyjrzyjmy się wszystkim rodzajom informacji w naszej przykładowej aplikacji. Mamy tutaj:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 
   * Początkową listę produktów
   * Frazę wyszukiwania podaną przez użytkownika
