@@ -112,7 +112,7 @@ Przyjmuje funkcję zawierającą imperatywny kod, mogący zawierać efekty ubocz
 
 W ciele głównej funkcji komponentu (określanej jako _faza renderowania_ Reacta) nie jest dozwolone mutowanie danych, tworzenie subskrypcji, timerów, logowanie i inne efekty uboczne. Robiąc tak należy spodziewać się mylących błędów i niespójności w interfejsie użytkownika.
 
-Zamiast tego użyj `useEffect`. Funkcja przekazana do `useEffect` zostanie uruchomiona po tym, jak  zmiany zostaną wyświetlone się na ekranie. Traktuj efekty jako furtkę pomiędzy czysto funkcyjnym światem Reacta, a imperatywnym światem.
+Zamiast tego użyj `useEffect`. Funkcja przekazana do `useEffect` zostanie uruchomiona po tym, jak  zmiany zostaną wyświetlone na ekranie. Traktuj efekty jako furtkę pomiędzy czysto funkcyjnym światem Reacta, a imperatywnym światem.
 
 Domyślnie efekty są uruchamiane po każdym wyrenderowaniu komponentu, ale możesz sprawić, że uruchomią się [tylko jeżeli zmienią się jakieś wartości](#conditionally-firing-an-effect).
 
