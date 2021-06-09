@@ -200,7 +200,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-<<<<<<< HEAD
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
  
@@ -210,17 +209,6 @@ Podstawową regułą jest to, że elementy wewnątrz wywołania `map()` potrzebu
  
 Klucze używane wewnątrz tablic powinny być unikalne w kontekście swojego rodzeństwa. Jednakże nie muszą one być niepowtarzalne globalnie. Możemy użyć tych samych kluczy, gdy tworzymy dwie różne tablice:
  
-=======
-
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
-
-A good rule of thumb is that elements inside the `map()` call need keys.
-
-### Keys Must Only Be Unique Among Siblings {#keys-must-only-be-unique-among-siblings}
-
-Keys used within arrays should be unique among their siblings. However, they don't need to be globally unique. We can use the same keys when we produce two different arrays:
-
->>>>>>> 68e4efcf93b6e589355f6aa3cbc3f3c811c0ad37
 ```js{2,5,11,12,19,21}
 function Blog(props) {
   const sidebar = (
