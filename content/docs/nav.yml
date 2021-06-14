@@ -132,6 +132,7 @@
     - id: testing-recipes
       title: Przykłady i dobre praktyki
     - id: testing-environments
+<<<<<<< HEAD
       title: Środowiska testujące
 - title: Tryb współbieżny (eksperymentalny)
   isOrdered: true
@@ -147,6 +148,10 @@
     - id: concurrent-mode-reference
       title: Dokumentacja API trybu współbieżnego
 - title: Współpraca
+=======
+      title: Testing Environments
+- title: Contributing
+>>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
   items:
     - id: how-to-contribute
       title: Jak możesz pomóc
