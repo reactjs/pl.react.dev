@@ -133,19 +133,6 @@
       title: Przykłady i dobre praktyki
     - id: testing-environments
       title: Środowiska testujące
-- title: Tryb współbieżny (eksperymentalny)
-  isOrdered: true
-  items:
-    - id: concurrent-mode-intro
-      title: Wprowadzenie do trybu współbieżnego
-    - id: concurrent-mode-suspense
-      title: Pobieranie danych przy pomocy Suspense
-    - id: concurrent-mode-patterns
-      title: Wzorce dla współbieżnych UI
-    - id: concurrent-mode-adoption
-      title: Wdrażanie trybu współbieżnego
-    - id: concurrent-mode-reference
-      title: Dokumentacja API trybu współbieżnego
 - title: Współpraca
   items:
     - id: how-to-contribute
