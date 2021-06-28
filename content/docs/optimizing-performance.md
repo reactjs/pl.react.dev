@@ -180,7 +180,11 @@ Jeśli jeszcze nie masz zainstalowanej wtyczki React DevTools, możesz znaleźć
 
 ## Wirtualizacja długich list {#virtualize-long-lists}
 
+<<<<<<< HEAD
 Jeśli twoja aplikacja renderuje długie listy z danymi (setki lub tysiące wierszy), zalecamy użycie techniki zwanej "okienkowaniem" (ang. *windowing*). Technika ta renderuje w danym momencie jedynie niewielką część wszystkich wierszy, co może znacząco wpłynąć na zredukowanie czasu ponownego renderowania komponentów oraz zmniejszenie liczby tworzonych węzłów DOM.
+=======
+If your application renders long lists of data (hundreds or thousands of rows), we recommend using a technique known as "windowing". This technique only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created.
+>>>>>>> 25f756d8e3800afb032cb31ce3626d6134e31e38
 
 [react-window](https://react-window.now.sh/) oraz [react-virtualized](https://bvaughn.github.io/react-virtualized/) to popularne biblioteki "okienkujące". Dostarczają kilka generycznych komponentów służących do wyświetlania list, siatek i tabel. Jeśli potrzebujesz czegoś bardziej szytego na miarę do swojej aplikacji, możesz napisać własny komponent okienkujący, jak [zrobił to Twitter](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3).
 
