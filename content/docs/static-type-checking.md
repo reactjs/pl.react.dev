@@ -257,7 +257,11 @@ Zajmiemy się tym w dwóch krokach:
 }
 ```
 
+<<<<<<< HEAD
 Świetnie! Teraz, gdy tylko uruchomimy skrypt budujący, kompilator wygeneruje pliki z kodem javascriptowym do folderu `build`. Projekt [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) zawiera plik `tsconfig.json` z rozsądną konfiguracją początkową dla nowych projektów.
+=======
+Great! Now when we run our build script the compiler will output the generated javascript to the `build` folder. The [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/main/tsconfig.json) provides a `tsconfig.json` with a good set of rules to get you started.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Zwykle nie trzyma się wygenerowanych plików javascriptowych w repozytorium, więc upewnij się, że folder ten dodany jest do listy `.gitignore`.
 
@@ -311,15 +315,27 @@ declare module 'querystring' {
 
 Możesz już zacząć programować! Po więcej informacji o TypeScripcie zajrzyj do poniższych źródeł:
 
+<<<<<<< HEAD
 * [Dokumentacja TypeScripta: Typy podstawowe](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 * [Dokumentacja TypeScripta: Migracja z JavaScriptu](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
 * [Dokumentacja TypeScripta: React i Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+=======
+* [TypeScript Documentation: Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+* [TypeScript Documentation: Migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+* [TypeScript Documentation: React and Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
-## Reason {#reason}
+## ReScript {#rescript}
 
+<<<<<<< HEAD
 [Reason](https://reasonml.github.io/) nie jest nowym językiem; jest nową składnią i zestawem narzędzi opartym na przetestowanym w boju języku [OCaml](https://ocaml.org/). Reason nadaje OCamlowi składnię znajomą dla programistów JavaScript, a także wpasowuje się w istniejące i znane schematy pracy z NPM-em/Yarnem.
 
 Reason jest rozwijany przez Facebooka i jest używany np. w Messengerze. Nadal jest dość eksperymentalny, jednak posiada [dedykowane API dla Reacta](https://reasonml.github.io/reason-react/), utrzymywane przez Facebooka i [liczną społeczność](https://reasonml.github.io/docs/en/community.html).
+=======
+[ReScript](https://rescript-lang.org/) is a typed language that compiles to JavaScript. Some of its core features are  guaranteed 100% type coverage, first-class JSX support and [dedicated React bindings](https://rescript-lang.org/docs/react/latest/introduction) to allow integration in existing JS / TS React codebases.
+
+You can find more infos on integrating ReScript in your existing JS / React codebase [here](https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project).
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 ## Kotlin {#kotlin}
 
