@@ -14,11 +14,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Tak jak zwykły komponent przekształca właściwości (ang. *props*) na fragment UI, tak komponent wyższego rzędu przekształca komponent w inny komponent.
 
-<<<<<<< HEAD
-KWR-y pojawiają się często w zewnętrznych bibliotekach reactowych, np. [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) w Reduksie czy [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) w Relayu.
-=======
-HOCs are common in third-party React libraries, such as Redux's [`connect`](https://github.com/reduxjs/react-redux/blob/main/docs/api/connect.md#connect) and Relay's [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer).
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+KWR-y pojawiają się często w zewnętrznych bibliotekach reactowych, np. [`connect`](https://github.com/reduxjs/react-redux/blob/main/docs/api/connect.md#connect) w Reduksie czy [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) w Relayu.
 
 W tym artykule wyjaśnimy, dlaczego komponenty wyższego rzędu są użyteczne oraz jak napisać własny.
 
