@@ -991,7 +991,7 @@ Do każdego komponentu przypisana jest wewnętrzna lista "komórek pamięci". S�
 
 Hooki łączą pomysły z wielu różnych źródeł:
 
-* Nasze stare eksperymenty z funkcyjnymi API w repozytorium [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State).
+* Nasze stare eksperymenty z funkcyjnymi API w repozytorium [react-future](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State).
 * Eksperymenty społeczności reactowej z interfejsami dla właściwości renderujących, wliczając w to [Reactions Component](https://github.com/reactions/component) autorstwa [Ryana Florence'a](https://github.com/ryanflorence).
 * Propozycję [Dominica Gannawaya](https://github.com/trueadm) dotyczącą wprowadzenia [słowa kluczowego `adopt`](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) jako nowej składni dla właściwości renderujących.
 * Zmienne stanu i komórki stanu w języku [DisplayScript](http://displayscript.org/introduction.html).

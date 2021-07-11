@@ -324,7 +324,7 @@ Wynoszenie stanu w górę skutkuje powstaniem większej ilości tzw. kodu szablo
 
 Jeśli jakąś wartość można wydedukować na podstawie zarówno atrybutów, jak i stanu komponentu, to prawdopodobnie nie powinna się ona znaleźć w stanie. Na przykład, zamiast przetrzymywać jednocześnie `celsiusValue` i `fahrenheitValue`, przechowujemy jedynie ostatnio edytowane `temperature` oraz `scale`. Wartość drugiego inputa może być przecież wyliczona w metodzie `render()`. Pozwala nam to na czyszczenie lub zaokrąglanie wartości w drugim polu bez utraty dokładności w danych pochodzących od użytkownika.
 
-Jeśli zauważysz nieprawidłowości w interfejsie swojej aplikacji, możesz użyć [Narzędzi deweloperskich dla Reacta](https://github.com/facebook/react/tree/master/packages/react-devtools), aby zbadać atrybuty i przemieszczać się po drzewie, dopóki nie znajdziesz komponentu odpowiedzialnego za zmianę stanu. Pozwoli Ci to znaleźć przyczynę błędów:
+Jeśli zauważysz nieprawidłowości w interfejsie swojej aplikacji, możesz użyć [Narzędzi deweloperskich dla Reacta](https://github.com/facebook/react/tree/main/packages/react-devtools), aby zbadać atrybuty i przemieszczać się po drzewie, dopóki nie znajdziesz komponentu odpowiedzialnego za zmianę stanu. Pozwoli Ci to znaleźć przyczynę błędów:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitorowanie stanu w narzędziach deweloperskich dla Reacta" max-width="100%" height="100%">
 

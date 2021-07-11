@@ -257,7 +257,7 @@ Zajmiemy się tym w dwóch krokach:
 }
 ```
 
-Świetnie! Teraz, gdy tylko uruchomimy skrypt budujący, kompilator wygeneruje pliki z kodem javascriptowym do folderu `build`. Projekt [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) zawiera plik `tsconfig.json` z rozsądną konfiguracją początkową dla nowych projektów.
+Świetnie! Teraz, gdy tylko uruchomimy skrypt budujący, kompilator wygeneruje pliki z kodem javascriptowym do folderu `build`. Projekt [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/main/tsconfig.json) zawiera plik `tsconfig.json` z rozsądną konfiguracją początkową dla nowych projektów.
 
 Zwykle nie trzyma się wygenerowanych plików javascriptowych w repozytorium, więc upewnij się, że folder ten dodany jest do listy `.gitignore`.
 
@@ -311,15 +311,15 @@ declare module 'querystring' {
 
 Możesz już zacząć programować! Po więcej informacji o TypeScripcie zajrzyj do poniższych źródeł:
 
-* [Dokumentacja TypeScripta: Typy podstawowe](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+* [Dokumentacja TypeScripta: Typy podstawowe](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 * [Dokumentacja TypeScripta: Migracja z JavaScriptu](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
 * [Dokumentacja TypeScripta: React i Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
 
-## Reason {#reason}
+## ReScript {#rescript}
 
-[Reason](https://reasonml.github.io/) nie jest nowym językiem; jest nową składnią i zestawem narzędzi opartym na przetestowanym w boju języku [OCaml](https://ocaml.org/). Reason nadaje OCamlowi składnię znajomą dla programistów JavaScript, a także wpasowuje się w istniejące i znane schematy pracy z NPM-em/Yarnem.
+[ReScript](https://rescript-lang.org/) jest typowanym językiem, który kompiluje się do JavaScriptu. Jego głównymi właściwościami są: gwarancja 100% pokrycia typami, [pierwszoklasowe](https://pl.wikipedia.org/wiki/Typ_pierwszoklasowy) (*ang. first-class*) wsparcie dla JSX oraz dedykowane [wiązania dla Reacta](https://rescript-lang.org/docs/react/latest/introduction), które pozwalają na zintegrowanie z istniejącymi projektami napisanymi w JS/TS.
 
-Reason jest rozwijany przez Facebooka i jest używany np. w Messengerze. Nadal jest dość eksperymentalny, jednak posiada [dedykowane API dla Reacta](https://reasonml.github.io/reason-react/), utrzymywane przez Facebooka i [liczną społeczność](https://reasonml.github.io/docs/en/community.html).
+Aby dowiedzieć się więcej na temat integrowania ReScriptu z istniejącym projektem w JS/React, [przeczytaj dokumentację](https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project).
 
 ## Kotlin {#kotlin}
 

@@ -38,7 +38,7 @@ Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzi�
 
 Jeśli chcesz wypróbować Reacta, możesz w tym celu użyć środowisk doświadczalnych online. Wypróbuj szablon "Hello World" na [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new) lub [Stackblitz](https://stackblitz.com/fork/react)
 
-Jeśli wolisz używać swojego własnego edytora tekstu, możesz także [ściągnąć ten plik HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), edytować go, a następnie otworzyć lokalnie w swojej przeglądarce. Pamiętaj jednak, że wykonuje on podczas uruchomienia dość mozolną transformację kodu, więc zalecamy go jedynie do prostych przykładów.
+Jeśli wolisz używać swojego własnego edytora tekstu, możesz także [ściągnąć ten plik HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), edytować go, a następnie otworzyć lokalnie w swojej przeglądarce. Pamiętaj jednak, że wykonuje on podczas uruchomienia dość mozolną transformację kodu, więc zalecamy go jedynie do prostych przykładów.
 
 ### Dodaj Reacta do swojej strony {#add-react-to-a-website}
 
@@ -115,7 +115,7 @@ Ta sekcja dokumentacji może okazać się przydatna, jeśli chcesz dowiedzieć s
 
 Możesz obserwować [konto @reactjs](https://twitter.com/reactjs) na Twitterze, jednak nie ominie cię nic ważnego, jeśli będziesz śledzić jedynie bloga.
 
-Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/master/CHANGELOG.md), a także na [liście opublikowanych wersji](https://github.com/facebook/react/releases).
+Nie każde nowe wydanie Reacta wymaga osobnego posta na blogu, jednak informacje o każdym wydaniu zawsze trafiają do [pliku `CHANGELOG.md` w repozytorium Reacta](https://github.com/facebook/react/blob/main/CHANGELOG.md), a także na [liście opublikowanych wersji](https://github.com/facebook/react/releases).
 
 ## Dokumentacje wersji {#versioned-documentation}
 
