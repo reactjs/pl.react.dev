@@ -69,7 +69,7 @@ Należy pamiętać, że **granice błędów wyłapują błędy w komponentach po
 
 ## Gdzie umiejscowić granice błędów {#where-to-place-error-boundaries}
 
-Poziom granularności granic błędów zależy wyłącznie od ciebie. Możesz opakować tylko główny komponent aplikacji i wyświetlać tekst "Coś poszło nie tak", jak to zwykle robi się we frameworkach serwerowycha. Możesz  The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like how server-side frameworks often handle crashes. You may also wrap też otoczyć każdy z widgetów aplikacji osobną granicą błędów, aby błędy w ich wnętrzu nie zabijały całej aplikacji.
+Poziom granularności granic błędów zależy wyłącznie od ciebie. Możesz opakować tylko główny komponent aplikacji i wyświetlać tekst "Coś poszło nie tak", jak to zwykle robi się we frameworkach serwerowycha. Możesz też otoczyć każdy z widgetów aplikacji osobną granicą błędów, aby błędy w ich wnętrzu nie zabijały całej aplikacji.
 
 ## Nowe zachowanie nieobsłużonych błędów {#new-behavior-for-uncaught-errors}
 
