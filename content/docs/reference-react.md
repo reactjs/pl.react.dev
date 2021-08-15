@@ -175,12 +175,16 @@ Kod pisany w [JSX](/docs/introducing-jsx.html) jest konwertowany do wywołań fu
 ```
 React.cloneElement(
   element,
-  [props],
+  [config],
   [...children]
 )
 ```
 
+<<<<<<< HEAD
 Zacznij od sklonowania i zwrócenia elementu reactowego przy pomocy funkcji `element`. Nowo utworzony element będzie posiadał pierwotne właściwości scalone płytko z nowymi. Nowe elementy potomne zastąpią obecne. `key` oraz `ref` z pierwotnego elementu zostaną zachowane.
+=======
+Clone and return a new React element using `element` as the starting point. `config` should contain all new props, `key`, or `ref`. The resulting element will have the original element's props with the new props merged in shallowly. New children will replace existing children. `key` and `ref` from the original element will be preserved if no `key` and `ref` present in the `config`.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 Wywołanie `React.cloneElement()` jest niemal równoznaczne z napisaniem:
 
@@ -188,7 +192,11 @@ Wywołanie `React.cloneElement()` jest niemal równoznaczne z napisaniem:
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
+<<<<<<< HEAD
 Jednakże zachowuje on także wszystkie `ref`. Oznacza to, że jeśli jeden z komponentów potomnych posiada `ref`, nie zostanie on przypadkowo zabrany z jednego z przodków. Nowy element będzie posiadał ten sam `ref` co przed klonowaniem.
+=======
+However, it also preserves `ref`s. This means that if you get a child with a `ref` on it, you won't accidentally steal it from your ancestor. You will get the same `ref` attached to your new element. The new `ref` or `key` will replace old ones if present.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 Powyższy interfejs API zastąpił przestarzałą funkcję `React.addons.cloneWithProps()`.
 

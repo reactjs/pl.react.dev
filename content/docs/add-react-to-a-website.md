@@ -124,7 +124,11 @@ Jeżeli nie masz jeszcze skonfigurowanej minifikacji skryptów, [oto jeden ze sp
 
 ## Opcjonalnie: Wypróbuj Reacta z JSX {#optional-try-react-with-jsx}
 
+<<<<<<< HEAD
 W przykładach powyżej opieramy się tylko na funkcjonalnościach, które są natywnie obsługiwane przez przeglądarki. Dlatego wywołaliśmy funkcję javascriptową, aby poinformować Reacta, co ma wyświetlić:
+=======
+In the examples above, we only relied on features that are natively supported by browsers. This is why we used a JavaScript function call to tell React what to display:
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 ```js
 const e = React.createElement;

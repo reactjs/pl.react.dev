@@ -14,7 +14,11 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Tak jak zwykły komponent przekształca właściwości (ang. *props*) na fragment UI, tak komponent wyższego rzędu przekształca komponent w inny komponent.
 
+<<<<<<< HEAD
 KWR-y pojawiają się często w zewnętrznych bibliotekach reactowych, np. [`connect`](https://github.com/reduxjs/react-redux/blob/main/docs/api/connect.md#connect) w Reduksie czy [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) w Relayu.
+=======
+HOCs are common in third-party React libraries, such as Redux's [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) and Relay's [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer).
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 W tym artykule wyjaśnimy, dlaczego komponenty wyższego rzędu są użyteczne oraz jak napisać własny.
 
@@ -297,7 +301,11 @@ Funkcja pomocnicza `compose` jest dostarczana przez wiele bibliotek zewnętrznyc
 
 ## Konwencja: Opakowuj wyświetlaną nazwę dla łatwiejszego debuggowania {#convention-wrap-the-display-name-for-easy-debugging}
 
+<<<<<<< HEAD
 Komponenty-kontenery stworzone przez KWR-y wyglądają w narzędziu [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) jak zwykłe komponenty. Aby ułatwić sobie debugowanie, możesz zmienić wyświetlaną nazwę na inną, informującą o tym, że jest to wynik działania KWR-a.
+=======
+The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of a HOC.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 Najczęściej stosowaną techniką jest opakowywanie wyświetlanej nazwy (ang. *display name*) renderowanego komponentu. Jeśli więc twój komponent wyższego rzędu nazywa się `withSubscription`, a opakowywany komponent to `CommentList`, użyj nazwy `WithSubscription(CommentList)`:
 

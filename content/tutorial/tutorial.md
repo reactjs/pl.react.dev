@@ -233,7 +233,11 @@ Najpierw dokonaj zmian w elemencie `<button />` zwracanym przez `Square` w metod
 class Square extends React.Component {
   render() {
     return (
+<<<<<<< HEAD
       <button className="square" onClick={function() { alert('kliknięto w przycisk'); }}>
+=======
+      <button className="square" onClick={function() { console.log('click'); }}>
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
         {this.props.value}
       </button>
     );
@@ -241,7 +245,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Teraz gdy klikniesz na polu, przeglądarka wyświetli wiadomość w oknie dialogowym.
+=======
+If you click on a Square now, you should see 'click' in your browser's devtools console.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 >Uwaga
 >
@@ -251,7 +259,11 @@ Teraz gdy klikniesz na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >class Square extends React.Component {
 >  render() {
 >    return (
+<<<<<<< HEAD
 >      <button className="square" onClick={() => alert('kliknięto w przycisk')}>
+=======
+>      <button className="square" onClick={() => console.log('click')}>
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 >        {this.props.value}
 >      </button>
 >    );
@@ -259,7 +271,11 @@ Teraz gdy klikniesz na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >}
 >```
 >
+<<<<<<< HEAD
 >Zauważ, że za pomocą `onClick={() => alert('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. React wywoła ją dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
+=======
+>Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty mogą "pamiętać" o różnych rzeczach dzięki **stanowi** (ang. *state*).
 
@@ -278,7 +294,11 @@ class Square extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <button className="square" onClick={() => alert('kliknięto w przycisk')}>
+=======
+      <button className="square" onClick={() => console.log('click')}>
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
         {this.props.value}
       </button>
     );
