@@ -257,7 +257,7 @@ Zajmiemy się tym w dwóch krokach:
 }
 ```
 
-Świetnie! Teraz, gdy tylko uruchomimy skrypt budujący, kompilator wygeneruje pliki z kodem javascriptowym do folderu `build`. Projekt [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/main/tsconfig.json) zawiera plik `tsconfig.json` z rozsądną konfiguracją początkową dla nowych projektów.
+Świetnie! Teraz, gdy tylko uruchomimy skrypt budujący, kompilator wygeneruje pliki z kodem javascriptowym do folderu `build`. Projekt [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) zawiera plik `tsconfig.json` z rozsądną konfiguracją początkową dla nowych projektów.
 
 Zwykle nie trzyma się wygenerowanych plików javascriptowych w repozytorium, więc upewnij się, że folder ten dodany jest do listy `.gitignore`.
 

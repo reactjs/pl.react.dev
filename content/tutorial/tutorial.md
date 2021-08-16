@@ -233,7 +233,7 @@ Najpierw dokonaj zmian w elemencie `<button />` zwracanym przez `Square` w metod
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('kliknięto w przycisk'); }}>
+      <button className="square" onClick={function() { console.log('kliknięto w przycisk'); }}>
         {this.props.value}
       </button>
     );
@@ -241,7 +241,7 @@ class Square extends React.Component {
 }
 ```
 
-Teraz gdy klikniesz na polu, przeglądarka wyświetli wiadomość w oknie dialogowym.
+Teraz gdy klikniesz na polu, w konsoli narzędzi programistycznych zobaczysz wiadomość "click".
 
 >Uwaga
 >
@@ -251,7 +251,7 @@ Teraz gdy klikniesz na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('kliknięto w przycisk')}>
+>      <button className="square" onClick={() => console.log('kliknięto w przycisk')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -259,7 +259,7 @@ Teraz gdy klikniesz na polu, przeglądarka wyświetli wiadomość w oknie dialog
 >}
 >```
 >
->Zauważ, że za pomocą `onClick={() => alert('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. React wywoła ją dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={alert('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
+>Zauważ, że za pomocą `onClick={() => console.log('kliknięto w przycisk')}` pod atrybutem `onClick` przekazujemy *funkcję*. React wywoła ją dopiero po kliknięciu w przycisk. Częstym błędem jest zapominanie o `() =>` i pisanie `onClick={console.log('kliknięto w przycisk')}`, co powoduje wyświetlenie wiadomości w momencie renderowania komponentu.
 
 W następnym kroku sprawimy, by komponent `Square` "pamiętał", że został kliknięty, i wyświetlał literę "X". Komponenty mogą "pamiętać" o różnych rzeczach dzięki **stanowi** (ang. *state*).
 
@@ -278,7 +278,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('kliknięto w przycisk')}>
+      <button className="square" onClick={() => console.log('kliknięto w przycisk')}>
         {this.props.value}
       </button>
     );

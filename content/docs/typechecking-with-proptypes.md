@@ -177,7 +177,7 @@ ReactDOM.render(
 );
 ```
 
-Jeśli używasz babelowego transformatora [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/), możesz zadeklarować `defaultProps` jako statyczną właściwość klasy komponentu reactowego. Ta składnia jeszcze nie została ukończona i do działania w przeglądarce będzie wymagać etapu kompilacji. Aby uzyskać więcej informacji, zobacz ["class fields proposal"](https://github.com/tc39/proposal-class-fields).
+Jeśli używasz babelowego transformatora [plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties/) (poprzednio _plugin-transform-class-properties_), możesz zadeklarować `defaultProps` jako statyczną właściwość klasy komponentu reactowego. Ta składnia jeszcze nie została ukończona i do działania w przeglądarce będzie wymagać etapu kompilacji. Aby uzyskać więcej informacji, zobacz ["class fields proposal"](https://github.com/tc39/proposal-class-fields).
 
 ```javascript
 class Greeting extends React.Component {
