@@ -141,7 +141,7 @@ Jeśli przekażesz do tej funkcji atrapę komponentu (ang. *mocked component*), 
 
 > Uwaga:
 >
-> Funkcja `mockComponent()` jest przestarzała. Zamiast niej zalecamy używanie funkcji [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> Funkcja `mockComponent()` jest przestarzała. Zamiast niej zalecamy używanie funkcji [`jest.mock()`](https://jestjs.io/docs/tutorial-react-native#mock-native-modules-using-jestmock).
 
 * * *
 

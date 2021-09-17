@@ -522,7 +522,7 @@ Zauważ, że w metodzie `handleClick` używamy `.slice()` do stworzenia kopii ta
 
 ### Dlaczego niezmienność jest istotna {#why-immutability-is-important}
 
-W poprzednim przykładzie zasugerowaliśmy użycie metody `.slice()` do stworzenia kopii tablicy `squares`, zamiast ją bezpośrednio modyfikować. Omówimy teraz bardzo ważne zagadnienie, jakim jest niezmienność (ang. *immutability*).
+W poprzednim przykładzie zasugerowaliśmy stworzenie kopii tablicy `squares` przy użyciu metody `.slice()`, zamiast ją bezpośrednio modyfikować. Omówimy teraz bardzo ważne zagadnienie, jakim jest niezmienność (ang. *immutability*).
 
 Ogólnie rzecz biorąc, istnieją dwa sposoby na zmianę danych. Pierwszym z nich jest *mutowanie* (ang. *mutate*) danych poprzez bezpośrednią zmianę ich wartości. Drugim sposobem jest zastąpienie danych ich nową kopią, zawierającą wszystkie potrzebne zmiany.
 

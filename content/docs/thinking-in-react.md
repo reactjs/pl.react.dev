@@ -39,9 +39,9 @@ Skąd wiadomo, co powinno być komponentem? Zastosuj te same metody, których u�
 
 Model danych wyświetlanych użytkownikowi często odpowiada modelowi zawartemu w plikach JSON. Dlatego jeśli właściwie skonstruujesz swój model, twój interfejs użytkownika (a co za tym idzie także twój układ komponentów) zostanie właściwie zmapowany. Wiąże się to z faktem, że interfejsy użytkownika i modele danych zwykle stosują się do tych samych zasad *architektury informacji*. Wszystko to zaś oznacza, że zadanie podziału interfejsu użytkownika na komponenty jest zwykle zadaniem dziecinnie prostym. Po prostu podziel go tak, aby jednemu elementowi twojego modelu danych odpowiadał jeden komponent.
 
-![Wykres komponentów](../images/blog/thinking-in-react-components.png)
+![Diagram pokazujący zagnieżdżenie komponentów](../images/blog/thinking-in-react-components.png)
 
-Zwróć uwagę, że nasza prosta aplikacja składa się z pięciu komponentów. Dane, za które odpowiedzialne są poszczególne komponenty, zaznaczyliśmy kursywą.
+Zwróć uwagę, że nasza prosta aplikacja składa się z pięciu komponentów. Dane, za które odpowiedzialne są poszczególne komponenty, zaznaczyliśmy kursywą. Numery umieszczone na obrazku odpowiadają numerom poniżej.
 
   1. **`FilterableProductTable` (pol. tabela produktów z wyszukiwaniem; pomarańczowy):** mieszczą się w nim wszystkie pozostałe komponenty
   2. **`SearchBar` (pol. pasek wyszukiwania; niebieski):** odbiera wpisane przez użytkownika słowo lub frazę (*szukana fraza*)
