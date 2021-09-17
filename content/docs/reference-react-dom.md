@@ -48,15 +48,9 @@ Jeśli w argumencie `callback` przekażesz funkcję zwrotną, zostanie ona wywo�
 >
 > `ReactDOM.render()` nie modyfikuje węzła kontenera (jedynie jego elementy potomne). Możliwe jest wstawienie komponentu do istniejącego węzła DOM bez nadpisywania istniejących elementów podrzędnych.
 >
-<<<<<<< HEAD
 > `ReactDOM.render()` obecnie zwraca referencję do instancji klasy `ReactComponent`, będącej korzeniem drzewa. Jednak używanie tej referencji jest uznawane za przestarzałą praktykę
 > i należy jej unikać, ponieważ przyszłe wersje Reacta mogą w niektórych przypadkach renderować komponenty asynchronicznie. Jeśli potrzebujesz referencji do instancji korzenia, sugerujemy przekazanie do niego
-> [referencyjnej funkcji zwrotnej](/docs/more-about-refs.html#the-ref-callback-attribute).
-=======
-> `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
-> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
-> [callback ref](/docs/refs-and-the-dom.html#callback-refs) to the root element.
->>>>>>> a88b1e1331126287ccf03f2f4ec25ec38513b911
+> [referencyjnej funkcji zwrotnej](/docs/refs-and-the-dom.html#callback-refs).
 >
 > Używanie `ReactDOM.render()` do odtworzenia (ang. _hydrating_) kontenera renderowanego po stronie serwer jest przestarzałą praktyką i zostanie uniemożliwione w Reakcie 17. Zamiast tego użyj funkcji [`hydrate()`](#hydrate).
 
