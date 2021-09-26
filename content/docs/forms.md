@@ -270,11 +270,7 @@ Ponadto ponieważ `setState()` automatycznie [scala podany stan częściowy ze s
 
 ## Wartość `null` w kontrolowanym elemencie `input` " {#controlled-input-null-value}
 
-<<<<<<< HEAD
-Określenie wartości właściwości (ang. *prop*) [komponentu kontrolowanego](/docs/forms.html#controlled-components) zapobiega niepożądanym zmianom danych wejściowych przez użytkownika. Jeśli określisz wartość dla `value`, a dane wejściowe w dalszym ciągu będzie można edytować, sprawdź, czy przez pomyłkę nie przekazujesz wartości `undefined` lub `null`.
-=======
-Specifying the `value` prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
->>>>>>> f0a9793dff9f8e86ec365bfadb0b4b23c6f618ce
+Określenie właściwości (ang. *prop*) `value` [komponentu kontrolowanego](/docs/forms.html#controlled-components) zapobiega niepożądanym zmianom danych wejściowych przez użytkownika. Jeśli określisz wartość dla `value`, a dane wejściowe w dalszym ciągu będzie można edytować, sprawdź, czy przez pomyłkę nie przekazujesz wartości `undefined` lub `null`.
 
 Kod poniżej ilustruje ten problem. (Element `input` jest początkowo zablokowany, ale po krótkiej chwili jego zawartość można edytować.)
 
