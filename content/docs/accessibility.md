@@ -226,8 +226,7 @@ class Parent extends React.Component {
 this.inputElement.current.focus();
 ```
 
-Kiedy używasz HOC-a (ang. higher order component) do rozszerzenia komponentów, zaleca się [przekazanie referencji](/docs/forwarding-refs.html) do opakowanego komponentu przy użyciu funkcji `forwardRef`, która wbudowana jest w Reacta. Jeśli wybrany HOC z którejś zewnętrznej biblioteki
-nie implementuje takiego przekierowania, można użyć powyższego wzorca jako wyjście awaryjne.
+Kiedy używasz [HOC-a](/docs/higher-order-components.html) do rozszerzenia komponentów, zaleca się [przekazanie referencji](/docs/forwarding-refs.html) do opakowanego komponentu przy użyciu funkcji `forwardRef`, która wbudowana jest w Reacta. Jeśli wybrany HOC z którejś zewnętrznej biblioteki nie implementuje takiego przekierowania, można użyć powyższego wzorca jako wyjście awaryjne.
 
 Doskonałym przykładem zarządzania fokusem jest biblioteka [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Jest to stosunkowo rzadki przykład w pełni dostępnego okna modalnego. Nie tylko ustawia początkowy fokus
 na przycisku zamykającym okno (uniemożliwiając tym samym użytkownikowi klawiatury przypadkowe aktywowanie akcji akceptującej) i zatrzymuje fokus klawiaturowy wewnątrz okna, lecz dodatkowo po zamknięciu przywraca fokus z powrotem na element, który zainicjował otwarcie okna.
