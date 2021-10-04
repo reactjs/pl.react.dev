@@ -458,7 +458,11 @@ Deque Systems oferuje [aXe-core](https://github.com/dequelabs/axe-core) do autom
 
 [The Accessibility Engine](https://www.deque.com/products/axe/) (lub inaczej aXe) jest rozszerzeniem przeglądarkowego inspektora dostępności, zbudowanym na bazie `aXe-core`.
 
+<<<<<<< HEAD
 Możesz również użyć modułu [react-axe](https://github.com/dylanb/react-axe), aby zgłosić luki dotyczące dostępności bezpośrednio do konsoli, podczas rozwoju aplikacji i debugowania.
+=======
+You can also use the [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) module to report these accessibility findings directly to the console while developing and debugging.
+>>>>>>> 23d03a854ba21aeea0a03a0bd5185e0def9237d6
 
 #### WebAIM WAVE {#webaim-wave}
 
