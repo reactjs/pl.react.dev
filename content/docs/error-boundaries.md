@@ -59,17 +59,7 @@ Po zdefiniowaniu, granicy błędu można używać jak normalnego komponentu:
 </ErrorBoundary>
 ```
 
-<<<<<<< HEAD
 Granice błędów działają jak bloki `catch {}` w JavaScript, tyle że dla komponentów. Można je zdefiniować tylko w komponentach klasowych. W praktyce, w większości przypadków wystarczy zdefiniować jeden komponent granicy błędu i używać go w całej aplikacji.
-=======
-Error boundaries work like a JavaScript `catch {}` block, but for components. Only class components can be error boundaries. In practice, most of the time you’ll want to declare an error boundary component once and use it throughout your application.
-
-Note that **error boundaries only catch errors in the components below them in the tree**. An error boundary can’t catch an error within itself. If an error boundary fails trying to render the error message, the error will propagate to the closest error boundary above it. This, too, is similar to how the `catch {}` block works in JavaScript.
-
-## Live Demo {#live-demo}
-
-Check out [this example of declaring and using an error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) with [React 16](/blog/2017/09/26/react-v16.0.html).
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Należy pamiętać, że **granice błędów wyłapują błędy w komponentach potomnych**. Nie są one jednak w stanie obsłużyć własnych błędów. W takim przypadku, jeżeli granica błędu nie będzie w stanie wyświetlić zastępczego UI, błąd zostanie przekazany do kolejnej najbliższej granicy błędu powyżej w strukturze komponentów. Jest to zachowanie podobne do tego znanego z javascriptowych bloków `catch {}`.
 

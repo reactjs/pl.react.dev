@@ -136,13 +136,9 @@ Jak dotąd zbudowaliśmy aplikację, która poprawnie wyświetla informacje dost
 
 W Reakcie ten przepływ danych jest jawny. Pozwala to łatwo zobaczyć działanie aplikacji, ale zarazem wymaga trochę więcej kodu niż tradycyjne wiązanie dwukierunkowe (ang. *two-way binding*).
 
-W aktualnej wersji naszej aplikacji, jeśli spróbujesz wpisać coś do paska wyszukiwania albo zaznaczyć pole wyboru, React zignoruje dostarczone przez ciebie dane. Jest to działanie zamierzone, które wynika stąd, że wartość atrybutu `value` dla elementu `input` ustawiliśmy jako zawsze równą stanowi `state` podanemu z komponentu `FilterableProductTable`.
+Jeśli spróbujesz wpisać coś do paska wyszukiwania albo zaznaczyć pole wyboru w poprzedniej wersji naszego przykładu (krok 4), React zignoruje dostarczone przez ciebie dane. Jest to działanie zamierzone, które wynika stąd, że wartość atrybutu `value` dla elementu `input` ustawiliśmy jako zawsze równą stanowi `state` podanemu z komponentu `FilterableProductTable`.
 
-<<<<<<< HEAD
 Zastanówmy się nad tym, co chcemy żeby się działo. Chcemy, aby stan aktualizował się i odzwierciedlał treść formularza za każdym razem, kiedy użytkownik dokona w formularzu zmian. Ponieważ komponenty powinny aktualizować jedynie własny stan, `FilterableProductTable` poda funkcję zwrotną (ang. *callback*) do paska wyszukiwania `SearchBar`, która to funkcja zostanie wywołana przy każdej aktualizacji stanu. Jeśli chcemy być o tym za każdym razem poinformowani, możemy dodać zdarzenie `onChange` do elementów naszego formularza. Funkcje zwrotne podane przez `FilterableProductTable` wywołają `setState()` i stan aplikacji zostanie zaktualizowany.
-=======
-If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Może wydawać się, że powyższy proces jest skomplikowany, ale w rzeczywistości to tylko kilka linijek kodu, a przepływ danych w całej aplikacji jest naprawdę jawny i łatwy do prześledzenia.
 
