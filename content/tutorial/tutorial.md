@@ -449,11 +449,19 @@ class Square extends React.Component {
 
 Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczona przez komponent `Board`. Dzieje się to dlatego, że:
 
+<<<<<<< HEAD
 1. Atrybut `onClick` wbudowanego komponentu DOM `<button>` informuje Reacta, żeby zaczął nasłuchiwać kliknięć użytkownika.
 2. Gdy użytkownik kliknie na przycisk, React wywoła procedurę obsługi zdarzenia `onClick` zdefiniowaną w metodzie `render()` komponentu `Square`.
 3. Procedura ta wywoła funkcję `this.props.onClick()`, czyli atrybut przekazany przez komponent `Board`.
 4. Ponieważ komponent `Board` przekazał swojemu potomkowi atrybut `onClick={() => this.handleClick(i)}`, kliknięcie w `Square` spowoduje w konsekwencji wywołanie `this.handleClick(i)` wewnątrz komponentu `Board`.
 5. Nie zdefiniowaliśmy jeszcze metody `handleClick()`, dlatego aplikacja w tym momencie przestanie działać. Jeśli klikniesz na dowolne pole, zobaczysz błąd na czerwonym tle, mówiący coś w stylu: "this.handleClick is not a function" (pol. *this.handleClick nie jest funkcją*).
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 >Uwaga
 >
@@ -1043,7 +1051,13 @@ Użyjmy zatem `map` na tablicy `history` wewnątrz metody `render` komponentu `G
 
 **[Zobacz dotychczasowy kod](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 Dla każdego z ruchów w historii gry tworzymy element listy `<li>` zawierający przycisk `<button>`. Do przycisku przekazujemy obserwator zdarzenia `onClick`, który wywołuje metodę `this.jumpTo()` (której jeszcze nie zaimplementowaliśmy). Powinniśmy być teraz w stanie zobaczyć listę wykonanych już ruchów oraz ostrzeżenie w konsoli narzędzi deweloperskich o treści:
+=======
+As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We only interested in `move` here, hence `step` is not getting assigned to anything.
+
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".

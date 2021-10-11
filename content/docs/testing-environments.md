@@ -55,4 +55,8 @@ Niekiedy jednak możesz chcieć skorzystać z prawdziwych timerów, na przykład
 
 Testy end-to-end są efektywne przy testowaniu dłuższych sekwencji interakcji, zwłaszcza jeśli są one krytyczne dla twojego produktu (np. płatność czy rejestracja). W takich przypadkach konieczne jest przetestowanie, jak przeglądarka renderuje całą aplikację, jak pobiera dane z API, korzysta z sesji i ciasteczek lub nawiguje pomiędzy poszczególnymi stronami. Możesz w nich sprawdzać nie tylko stan drzewa DOM, lecz także sterujące nim dane (np. weryfikując, czy dane zostały zapisane w bazie danych).
 
+<<<<<<< HEAD
 Do takich scenariuszy możesz skorzystać z frameworka [Cypress](https://www.cypress.io/) lub biblioteki [puppeteer](https://github.com/GoogleChrome/puppeteer), które pozwalają nawigować pomiędzy stronami i sprawdzać rezultaty nie tylko w samej przeglądarce, ale potencjalnie również na backendzie.
+=======
+In this scenario, you would use a framework like [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) or a library like [Puppeteer](https://pptr.dev/) so you can navigate between multiple routes and assert on side effects not just in the browser, but potentially on the backend as well.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
