@@ -452,7 +452,7 @@ Gdy użytkownik kliknie na pole, zostanie wywołana funkcja `onClick` dostarczon
 1. Atrybut `onClick` wbudowanego komponentu DOM `<button>` informuje Reacta, żeby zaczął nasłuchiwać kliknięć użytkownika.
 2. Gdy użytkownik kliknie na przycisk, React wywoła procedurę obsługi zdarzenia `onClick` zdefiniowaną w metodzie `render()` komponentu `Square`.
 3. Procedura ta wywoła funkcję `this.props.onClick()`, czyli atrybut przekazany przez komponent `Board`.
-4. Ponieważ komponent `Board` przekazał swojemu potomkowi atrybut `onClick={() => this.handleClick(i)}`, kliknięcie w `Square` spowoduje w konsekwencji wywołanie `this.handleClick(i)` wewnątrz komponentu `Board`.
+4. Ponieważ komponent `Board` przekazał swojemu potomkowi atrybut `onClick={() => this.handleClick(i)}`, kliknięcie w `Square` spowoduje w konsekwencji wywołanie `handleClick(i)` wewnątrz komponentu `Board`.
 5. Nie zdefiniowaliśmy jeszcze metody `handleClick()`, dlatego aplikacja w tym momencie przestanie działać. Jeśli klikniesz na dowolne pole, zobaczysz błąd na czerwonym tle, mówiący coś w stylu: "this.handleClick is not a function" (pol. *this.handleClick nie jest funkcją*).
 
 >Uwaga
@@ -1042,6 +1042,8 @@ Użyjmy zatem `map` na tablicy `history` wewnątrz metody `render` komponentu `G
 ```
 
 **[Zobacz dotychczasowy kod](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+
+Podczas iterowania po tablicy `history`, zmienna `step` odnosi się do konkretnego elementu w `history`, a `move` odnosi się do indeksu. Nas tutaj interesuje tylko `move`, dlatego nie używamy `step`.
 
 Dla każdego z ruchów w historii gry tworzymy element listy `<li>` zawierający przycisk `<button>`. Do przycisku przekazujemy obserwator zdarzenia `onClick`, który wywołuje metodę `this.jumpTo()` (której jeszcze nie zaimplementowaliśmy). Powinniśmy być teraz w stanie zobaczyć listę wykonanych już ruchów oraz ostrzeżenie w konsoli narzędzi deweloperskich o treści:
 

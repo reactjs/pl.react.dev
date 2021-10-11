@@ -914,8 +914,6 @@ Pamiętaj, że nadal możesz wybrać pomiędzy przekazywaniem *stanu* aplikacji 
 >Uwaga
 >
 >Zalecamy [przekazywać w dół funkcję `dispatch` za pomocą kontekstu](#how-to-avoid-passing-callbacks-down), a nie poszczególne funkcje zwrotne za pomocą właściwości. Poniższy sposób został tu umieszczony tylko jako uzupełnienie i "furtka awaryjna".
->
->Zwróć uwagę, że poniższy sposób może powodować problemy w [trybie współbieżnym](/blog/2018/03/27/update-on-async-rendering.html). Planujemy w przyszłości dostarczyć bardziej przyjemną alternatywę, jednak obecnie najbezpieczniejszym podejściem jest każdorazowe unieważnianie funkcji zwrotnej, gdy tylko jedna z jej zależności ulega zmianie.
 
 W rzadkich przypadkach pojawia się potrzeba memoizowania funkcji zwrotnej za pomocą hooka [`useCallback`](/docs/hooks-reference.html#usecallback), lecz nie przynosi to żadnej korzyści, ponieważ wewnętrzna funkcja i tak tworzona jest zbyt często. Jeśli memoizowana funkcja jest procedurą obsługi zdarzeń i nie jest wywoływana podczas renderowania, można stworzyć [referencję do zmiennej](#is-there-something-like-instance-variables) i ręcznie aktualizować jej wartość:
 
