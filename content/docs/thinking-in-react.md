@@ -72,7 +72,11 @@ Tworzenie naszej aplikacji możemy rozpocząć albo od komponentów znajdującyc
 
 Kończąc ten etap pracy nad aplikacją będziemy mieli dostępną bibliotekę komponentów wielokrotnego użytku, które renderują nasz model danych. Komponenty te będą miały tylko jedną metodę `render()` (pol. *renderuj*) ponieważ jest to statyczna wersja aplikacji. Komponent na szczycie hierarchii komponentów (`FilterableProductTable`) wykorzysta nasz model danych jako atrybut. Każda zmiana w naszym modelu danych w połączeniu z ponownym wywołaniem `ReactDOM.render()` spowoduje aktualizację interfejsu użytkownika. Cały proces aktualizacji interfejsu jest bardzo prosty, a ponieważ wszelkie zmiany są od razu widoczne, łatwo można się zorientować, które fragmenty kodu wymagają poprawy. **Jednokierunkowy transfer danych** w Reakcie (nazywany również *wiązaniem jednokierunkowym*, ang. *one-way binding*) zapewnia modularność kodu i szybkie działanie aplikacji.
 
+<<<<<<< HEAD
 Jeśli potrzebujesz pomocy na tym etapie budowy aplikacji, zajrzyj do [Dokumentacji Reacta](/docs/).
+=======
+Refer to the [React docs](/docs/getting-started.html) if you need help executing this step.
+>>>>>>> 4133943e718a77f11627888db2f59f6cb7a73403
 
 ### Krótki przerywnik: atrybuty a stan {#a-brief-interlude-props-vs-state}
 
