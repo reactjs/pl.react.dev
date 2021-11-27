@@ -76,11 +76,7 @@ Podane niżej zestawy narzędziowe są stosunkowo bardziej elastyczne i dają wi
 
 - **[Nx](https://nx.dev/react)** jest zestawem narzędzi do programistów full-stackowych, z wbudowanym wsparciem dla Reacta, Next.js, [Expressa](https://expressjs.com/) i wielu innych.
 
-<<<<<<< HEAD
-- **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, [współgrającym z Reactem](https://parceljs.org/recipes.html#react).
-=======
-- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes/react/).
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
+- **[Parcel](https://parceljs.org/)** jest szybkim bundlerem aplikacji webowych, [współgrającym z Reactem](https://parceljs.org/recipes/react/).
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** jest frameworkiem umożliwiającym renderowanie po stronie serwera bez konieczności konfiguracji, ale zarazem dającym większy wybór niż Next.js.
 
