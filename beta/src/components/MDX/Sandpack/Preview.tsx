@@ -152,7 +152,7 @@ export function Preview({
           <iframe
             ref={iframeRef}
             className="rounded-t-none bg-white shadow-md sm:rounded-lg w-full max-w-full"
-            title="Sandbox Preview"
+            title="Podgląd sandboxa"
             style={{
               height: iframeComputedHeight || '100%',
               position: hideContent ? 'absolute' : undefined,

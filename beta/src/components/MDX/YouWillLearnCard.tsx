@@ -28,7 +28,7 @@ function YouWillLearnCard({title, path, children}: YouWillLearnCardProps) {
           type="primary"
           size="md"
           label={title}>
-          Read More
+          Czytaj więcej
           <IconNavArrow displayDirection="right" className="inline ml-1" />
         </ButtonLink>
       </div>

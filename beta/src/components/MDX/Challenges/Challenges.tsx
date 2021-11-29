@@ -117,7 +117,7 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
               'text-3xl mb-2 leading-10 relative',
               isRecipes ? 'text-purple-50 dark:text-purple-30' : 'text-link'
             )}>
-            {isRecipes ? 'Try out some recipes' : 'Try out some challenges'}
+            {isRecipes ? 'Przejdź do formuły' : 'Przejdź do wyzwań'}
           </H2>
           {challenges.length > 1 && (
             <Navigation
@@ -132,7 +132,7 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
           <div key={activeChallenge}>
             <h3 className="text-xl text-primary dark:text-primary-dark mb-2">
               <div className="font-bold block md:inline">
-                {isRecipes ? 'Recipe' : 'Challenge'} {currentChallenge?.order}{' '}
+                {isRecipes ? 'Formuła' : 'Wyzwanie'} {currentChallenge?.order}{' '}
                 of {challenges.length}
                 <span className="text-primary dark:text-primary-dark">: </span>
               </div>
@@ -145,14 +145,14 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
               <div>
                 <Button className="mr-2" onClick={toggleHint} active={showHint}>
                   <IconHint className="mr-1.5" />{' '}
-                  {showHint ? 'Hide hint' : 'Show hint'}
+                  {showHint ? 'Ukryj wskazówkę' : 'Pokaż wskazówkę'}
                 </Button>
                 <Button
                   className="mr-2"
                   onClick={toggleSolution}
                   active={showSolution}>
                   <IconSolution className="mr-1.5" />{' '}
-                  {showSolution ? 'Hide solution' : 'Show solution'}
+                  {showSolution ? 'Ukryj rozwiązanie' : 'Pokaż rozwiązanie'}
                 </Button>
               </div>
             ) : (
@@ -162,7 +162,7 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
                   onClick={toggleSolution}
                   active={showSolution}>
                   <IconSolution className="mr-1.5" />{' '}
-                  {showSolution ? 'Hide solution' : 'Show solution'}
+                  {showSolution ? 'Ukryj rozwiązanie' : 'Pokaż rozwiązanie'}
                 </Button>
               )
             )}
@@ -179,7 +179,7 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
                   setShowSolution(false);
                 }}
                 active>
-                Next {isRecipes ? 'Recipe' : 'Challenge'}
+                {isRecipes ? 'Następna formuła' : 'Następne wyzwanie'}
                 <IconArrowSmall
                   displayDirection="right"
                   className="block ml-1.5"
@@ -192,12 +192,12 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
           {showSolution && (
             <div className="mt-6">
               <h3 className="text-2xl font-bold text-primary dark:text-primary-dark">
-                Solution
+                Rozwiązanie
               </h3>
               {currentChallenge?.solution}
               <div className="flex justify-between items-center mt-4">
                 <Button onClick={() => setShowSolution(false)}>
-                  Close solution
+                  Zamknij rozwiązanie
                 </Button>
                 {nextChallenge && (
                   <Button
@@ -215,7 +215,7 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
                       }
                     }}
                     active>
-                    Next Challenge
+                    Następne wyzwanie
                     <IconArrowSmall
                       displayDirection="right"
                       className="block ml-1.5"

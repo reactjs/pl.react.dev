@@ -91,16 +91,16 @@ function LearnMore({
       <section className="p-8 mt-16 mb-16 flex flex-row shadow-inner justify-between items-center bg-card dark:bg-card-dark rounded-lg">
         <div className="flex-col">
           <h2 className="text-primary dark:text-primary-dark font-bold text-2xl leading-tight">
-            Ready to learn this topic?
+            Gotowi zgłębić ten temat?
           </h2>
           {children}
           {path ? (
             <ButtonLink
               className="mt-1"
-              label="Read More"
+              label="Czytaj dalej"
               href={path}
               type="primary">
-              Read More
+              Czytaj dalej
               <IconNavArrow displayDirection="right" className="inline ml-1" />
             </ButtonLink>
           ) : null}
@@ -136,7 +136,9 @@ function MathI({children}: {children: any}) {
 }
 
 function YouWillLearn({children}: {children: any}) {
-  return <SimpleCallout title="You will learn">{children}</SimpleCallout>;
+  return (
+    <SimpleCallout title="W tej sekcji dowiesz się">{children}</SimpleCallout>
+  );
 }
 
 // TODO: typing.
@@ -154,7 +156,7 @@ function AuthorCredit({
   return (
     <p className="text-center text-secondary dark:text-secondary-dark text-base mt-2">
       <cite>
-        Illustrated by{' '}
+        Autor ilustracji{' '}
         {authorLink ? (
           <a className="text-link dark:text-link-dark" href={authorLink}>
             {author}

@@ -17,7 +17,7 @@ export function Error({error}: {error: ErrorType}) {
 
   return (
     <div className={'bg-white border-2 border-red-40 rounded-lg p-6'}>
-      <h2 className="text-red-40 text-xl mb-4">{title || 'Error'}</h2>
+      <h2 className="text-red-40 text-xl mb-4">{title || 'Błąd'}</h2>
       <pre className="text-secondary whitespace-pre-wrap break-words">
         {message}
       </pre>
