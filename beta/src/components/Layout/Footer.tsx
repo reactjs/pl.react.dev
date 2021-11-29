@@ -74,9 +74,9 @@ export function Footer() {
                 Learn React
               </FooterLink>
               <FooterLink href="/learn/">Quick Start</FooterLink>
-              <FooterLink href="/learn/installation">Installation</FooterLink>
+              <FooterLink href="/learn/installation">Instalacja</FooterLink>
               <FooterLink href="/learn/describing-the-ui">
-                Describing the UI
+                Opisywanie UI
               </FooterLink>
               <FooterLink href="/learn/adding-interactivity">
                 Adding Interactivity
