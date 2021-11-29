@@ -13,7 +13,7 @@ function Recap({children}: RecapProps) {
   return (
     <section>
       <H2 isPageAnchor id="recap">
-        Recap
+        Powtórka z rozrywki
       </H2>
       {children}
     </section>

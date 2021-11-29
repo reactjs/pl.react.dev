@@ -15,7 +15,7 @@ function Convention({children, name}: ConventionProps) {
   return (
     <section className="my-12">
       <H3 id={id} className="text-2xl leading-9">
-        Conventions
+        Konwencje
       </H3>
       {children}
     </section>
