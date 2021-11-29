@@ -136,7 +136,9 @@ function MathI({children}: {children: any}) {
 }
 
 function YouWillLearn({children}: {children: any}) {
-  return <SimpleCallout title="W tej sekcji dowiesz się">{children}</SimpleCallout>;
+  return (
+    <SimpleCallout title="W tej sekcji dowiesz się">{children}</SimpleCallout>
+  );
 }
 
 // TODO: typing.
