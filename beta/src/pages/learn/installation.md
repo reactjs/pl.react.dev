@@ -13,7 +13,7 @@ React został zaprojektowany z myślą o stopniowym wdrażaniu. Dzięki temu zaw
 - [Jak dodać Reacta do strony HTML](/learn/add-react-to-a-website)
 - [Jak wystartować nowy projekt reactowy](/learn/start-a-new-react-project)
 - [Jak skonfigurować edytor kodu](/learn/editor-setup)
-- [Jak zainstalować React Developer Tools](/learn/react-developer-tools)
+- [Jak zainstalować narzędzia deweloperskie dla Reacta](/learn/react-developer-tools)
 
 </YouWillLearn>
 
