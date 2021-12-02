@@ -282,6 +282,6 @@ ReactDOM.render(
 );
 ```
 
-Po takim sprytnym przypisaniu może się okazać, że React bez JSX nie jest taki straszny i niewygodny.
+Po takim sprytnym przypisaniu może się okazać, że React bez JSX nie jest aż taki straszny i niewygodny, jak mogłoby się wydawać.
 
 </DeepDive>
