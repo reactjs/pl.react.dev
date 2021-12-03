@@ -88,7 +88,7 @@ export function Sidebar({isMobileOnly}: {isMobileOnly?: boolean}) {
         <Button
           className="w-full text-center justify-center"
           onClick={handleFeedback}>
-          {feedbackIcon} Feedback
+          {feedbackIcon} Podziel się opinią
         </Button>
       </div>
     </aside>

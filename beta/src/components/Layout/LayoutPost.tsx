@@ -73,7 +73,7 @@ function LayoutPost({meta, children}: LayoutPostProps) {
             {meta.title}
           </h1>
           <p className="mb-6 text-lgtext-secondary dark:text-secondary-dark">
-            By{' '}
+            Autorzy:{' '}
             {toCommaSeparatedList(meta.author, (author) => (
               <ExternalLink
                 href={getAuthor(author).url}
