@@ -1,5 +1,5 @@
 ---
-title: Importing and Exporting Components
+title: Importowanie i eksportowanie komponentów
 ---
 
 <Intro>
@@ -20,7 +20,7 @@ The magic of components lies in their reusability: you can create components tha
 
 ## The root component file {/*the-root-component-file*/}
 
-In [Your First Component](/learn/your-first-component), you made a `Profile` component and a `Gallery` component that renders it:
+In [Twój pierwszy komponent](/learn/your-first-component), you made a `Profile` component and a `Gallery` component that renders it:
 
 <Sandpack>
 
