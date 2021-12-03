@@ -43,11 +43,11 @@
           "path": "/learn/describing-the-ui",
           "routes": [
             {
-              "title": "Your First Component",
+              "title": "Twój pierwszy komponent",
               "path": "/learn/your-first-component"
             },
             {
-              "title": "Importing and Exporting Components",
+              "title": "Importowanie i eksportowanie komponentów",
               "path": "/learn/importing-and-exporting-components"
             },
             {

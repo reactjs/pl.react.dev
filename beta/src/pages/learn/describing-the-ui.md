@@ -55,7 +55,7 @@ img {
 
 <LearnMore path="/learn/your-first-component">
 
-Read **[Your First Component](/learn/your-first-component)** to learn how to declare and use React components.
+Read **[Twój pierwszy komponent](/learn/your-first-component)** to learn how to declare and use React components.
 
 </LearnMore>
 
@@ -521,6 +521,6 @@ Read **[Keeping Components Pure](/learn/keeping-components-pure)** to learn how 
 
 ## What's next? {/_whats-next_/}
 
-Head over to [Your First Component](/learn/your-first-component) to start reading this chapter page by page!
+Head over to [Twój pierwszy komponent](/learn/your-first-component) to start reading this chapter page by page!
 
 Or, if you're already familiar with these topics, why not read about [Adding Interactivity](/learn/adding-interactivity)?
