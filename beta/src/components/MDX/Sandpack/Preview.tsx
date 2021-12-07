@@ -146,16 +146,8 @@ export function Preview({
           }}>
           <iframe
             ref={iframeRef}
-<<<<<<< HEAD
-            className="rounded-t-none bg-white shadow-md sm:rounded-lg w-full max-w-full"
-            title="Podgląd sandboxa"
-            style={{
-              height: iframeComputedHeight || '100%',
-              position: hideContent ? 'absolute' : undefined,
-=======
             className={cn(
               'rounded-t-none bg-white shadow-md sm:rounded-lg w-full max-w-full',
->>>>>>> aa70dcedc6db07987a814dba2b296cc4c5219860
               // We can't *actually* hide content because that would
               // break calculating the computed height in the iframe
               // (which we're using for autosizing). This is noticeable
