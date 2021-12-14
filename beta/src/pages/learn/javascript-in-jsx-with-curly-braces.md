@@ -1,25 +1,25 @@
 ---
-title: JavaScript in JSX with Curly Braces
+title: JavaScript w JSX a nawiasy klamrowe
 ---
 
 <Intro>
 
-JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.
+JSX pozwala na pisanie kodu podobnego do HTML-a wewnątrz pliku javascriptowego, umożliwiając trzymanie logiki renderowania i treści jednym miejscu. Czasem jednak zachodzi potrzeba, by w kodzie znaczników dodać nieco logiki javascriptowej lub odnieść się do dynamicznej własności. W takiej sytuacji możemy użyć nawiasów klamrowych, otwierając tym samym okno do świata JavaScriptu.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to pass strings with quotes
-* How to reference a JavaScript variable inside JSX with curly braces
-* How to call a JavaScript function inside JSX with curly braces
-* How to use a JavaScript object inside JSX with curly braces
+* Jak przekazywać tekst w cudzysłowie
+* Jak odwoływać się do zmiennej javascriptowej w JSX za pomocą nawiasów klamrowych
+* Jak wywołać funkcję javascriptową w JSX za pomocą nawiasów klamrowych
+* Jak używać obiektów javascriptowych w JSX za pomocą nawiasów klamrowych
 
 </YouWillLearn>
 
-## Passing strings with quotes {/*passing-strings-with-quotes*/}
+## Przekazywanie tekstu w cudzysłowie {/*passing-strings-with-quotes*/}
 
-When you want to pass a string attribute to JSX, you put it in single or double quotes:
+Kiedy chcemy przekazać do komponentu atrybut tekstowy, umieszczamy wartość w pojedynczym lub podwójnym cudzysłowie:
 
 <Sandpack>
 
@@ -41,9 +41,9 @@ export default function Avatar() {
 
 </Sandpack>
 
-Here, `"https://i.imgur.com/7vQD0fPs.jpg"` and `"Gregorio Y. Zara"` are being passed as strings.
+W powyższym kodzie wartości `"https://i.imgur.com/7vQD0fPs.jpg"` oraz `"Gregorio Y. Zara"` są przekazywane jako tekst.
 
-But what if you want to dynamically specify the `src` or `alt` text? You could **use a value from JavaScript by replacing `"` and `"` with `{` and `}`**:
+Lecz co jeśli wartości dla `src` lub `alt` mają być dynamiczne? Możemy w takiej sytuacji **użyć wartości z JavaScriptu, zastępując parę `"` i `"` nawiasami klamrowymi `{` i `}`**:
 
 <Sandpack>
 
@@ -67,11 +67,11 @@ export default function Avatar() {
 
 </Sandpack>
 
-Notice the difference between `className="avatar"`, which specifies an `"avatar"` CSS class name that makes the image round, and `src={avatar}` that reads the value of the JavaScript variable called `avatar`. That's because curly braces let you work with JavaScript right there in your markup!
+Zwróć uwagę na różnicę pomiędzy właściwością `className="avatar"`, która określa użycie klasy CSS-owej o nazwie `"avatar"` służącej do zaokrąglenia obrazka, a `src={avatar}`, która przekazuje wartość zmiennej javascriptowej o nazwie `avatar`. Dzieje się tak, ponieważ nawiasy klamrowe pozwalają korzystać z JavaScriptu w samym kodzie znaczników!
 
-## Using curly braces: A window into the JavaScript world {/*using-curly-braces-a-window-into-the-javascript-world*/}
+## Używanie nawiasów klamrowych: okno na świat JavaScriptu {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX is a special way of writing JavaScript. That means it’s possible to use JavaScript inside it—with curly braces `{ }`. The example below first declares a name for the scientist, `name`, then embeds it with curly braces inside the `<h1>`:
+Składnia JSX to jedynie inny sposób zapisu kodu javascriptowego. Oznacza to, że możemy z powodzeniem używać w niej samego JavaScriptu, pod warunkiem, że otoczymy go nawiasami klamrowymi `{ }`. W poniższym przykładzie najpierw deklarujemy nazwę naukowca, `name`, a następnie osadzamy ją w nawiasach klamrowych wewnątrz znacznika `<h1>`:
 
 <Sandpack>
 
@@ -79,16 +79,16 @@ JSX is a special way of writing JavaScript. That means it’s possible to use Ja
 export default function TodoList() {
   const name = 'Gregorio Y. Zara';
   return (
-    <h1>{name}'s To Do List</h1>
+    <h1>{name} - lista zadań</h1>
   );
 }
 ```
 
 </Sandpack>
 
-Try changing `name`'s value from `'Gregorio Y. Zara'` to `'Hedy Lamarr'`. See how the To Do List title changes?
+Spróbuj zmienić wartość zmiennej `name` z `'Gregorio Y. Zara'` na `'Hedy Lamarr'`. Widzisz, jak zmienia się tytuł listy zadań?
 
-Any JavaScript expression will work between curly braces, including function calls like `formatDate()`:
+Pomiędzy nawiasami klamrowymi można umieszczać dowolne wyrażenie z języka JavaScript, nawet wywołania funkcji, jak np. `formatDate()`:
 
 <Sandpack>
 
@@ -104,25 +104,25 @@ function formatDate(date) {
 
 export default function TodoList() {
   return (
-    <h1>To Do List for {formatDate(today)}</h1>
+    <h1>Lista zadań na dzień {formatDate(today)}</h1>
   );
 }
 ```
 
 </Sandpack>
 
-### Where to use curly braces {/*where-to-use-curly-braces*/}
+### Gdzie używać nawiasów klamrowych {/*where-to-use-curly-braces*/}
 
-You can only use curly braces in two ways inside JSX:
+W składni JSX można używać nawiasów klamrowych na dwa sposoby:
 
-1. **As text** directly inside a JSX tag: `<h1>{name}'s To Do List</h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List</{tag}>`  will not.
-2. **As attributes** immediately following the `=` sign: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string `{avatar}`.
+1. **Jako treść** bezpośrednio wewnątrz znacznika JSX-owego: `<h1>{name} - lista zadań</h1>` działa, ale `<{tag}>Gregorio Y. Zara - lista zadań</{tag}>` już nie.
+2. **Jako atrybuty**, zaraz po znaku `=`: `src={avatar}` przekaże wartość zmiennej `avatar`, ale `src="{avatar}"` już przekaże tekst `{avatar}`.
 
-## Using "double curlies": CSS and other objects in JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
+## Używanie "podwójnych klamerek": CSS i inne obiekty w JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
 
-In addition to strings, numbers, and other JavaScript expressions, you can even pass objects in JSX. Objects are also denoted with curly braces, like `{ name: "Hedy Lamarr", inventions: 5 }`. Therefore, to pass a JS object in JSX, you must wrap the object in another pair of curly braces: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
+Poza tekstem, liczbami i innymi wyrażeniami javascriptowymi, w JSX można przekazywać także obiekty. W JavaScripcie obiekty same w sobie mają zapis używający klamer, np. `{ name: "Hedy Lamarr", inventions: 5 }`. Z tego powodu, aby przekazać obiekt w JSX-ie, musisz otoczyć go kolejną parą nawiasów klamrowych: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
 
-You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the `style` attribute:
+Możesz spotkać się z tym zapisem przy okazji stylów CSS użytych bezpośrednio w kodzie JSX. React nie wymaga pisania styli w kodzie (dla większości przypadków wystarczą zwykłe klasy CSS-owe), ale jeśli potrzebujesz przekazać style w kodzie, przekaż obiekt do atrybutu `style`:
 
 <Sandpack>
 
@@ -133,9 +133,9 @@ export default function TodoList() {
       backgroundColor: 'black',
       color: 'pink'
     }}>
-      <li>Improve the videophone</li>
-      <li>Prepare aeronautics lectures</li>
-      <li>Work on the alcohol-fuelled engine</li>
+      <li>Usprawnić wideotelefon</li>
+      <li>Przygotować wykłady o aeronautyce</li>
+      <li>Opracować silnik napędzany alkoholem</li>
     </ul>
   );
 }
@@ -148,9 +148,9 @@ ul { padding: 20px 20px 20px 40px; margin: 0; }
 
 </Sandpack>
 
-Try changing the values of `backgroundColor` and `color`.
+Spróbuj zmienić wartości `backgroundColor` i `color`.
 
-You can really see the JavaScript object inside the curly braces when you write it like this:
+Aby obiekt javascriptowy w klamrach stał się jeszcze bardziej widoczny, możesz zapisać to tak:
 
 ```js {2-5}
 <ul style={
@@ -161,17 +161,17 @@ You can really see the JavaScript object inside the curly braces when you write 
 }>
 ```
 
-The next time you see `{{` and `}}` in JSX, know that it's nothing more than an object inside the JSX curlies!
+Następnym razem, gdy zobaczysz w JSX-ie parę `{{` i `}}`, przypomnij sobie, że to nic więcej jak zwykły obiekt zapisany wewnątrz JSX-owych nawiasów klamrowych!
 
 <Gotcha>
 
-Inline `style` properties are written in camelCase. For example, HTML `<ul style="background-color: black">` would be written as `<ul style={{ backgroundColor: 'black' }}>`  in your component.
+Właściwości atrybutu `style` piszemy camelCasem. Na przykład, kod HTML `<ul style="background-color: black">` wewnątrz komponentu należałoby zapisać jako `<ul style={{ backgroundColor: 'black' }}>`.
 
 </Gotcha>
 
-## More fun with JavaScript objects and curly braces {/*more-fun-with-javascript-objects-and-curly-braces*/}
+## Zabawa z obiektami javascriptowymi i klamrami {/*more-fun-with-javascript-objects-and-curly-braces*/}
 
-You can move several expressions into one object, and reference them in your JSX inside curly braces:
+Możesz przenieść kilka wyrażeń do jednego obiektu, a następnie odwołać się do nich w JSX-ie wewnątrz nawiasów klamrowych:
 
 <Sandpack>
 
@@ -187,16 +187,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -211,7 +211,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-In this example, the `person` JavaScript object contains a `name` string and a `theme` object:
+W tym przykładzie obiekt `person` zawiera tekst w polu `name` oraz zagnieżdżony obiekt motywu `theme`:
 
 ```js
 const person = {
@@ -223,31 +223,31 @@ const person = {
 };
 ```
 
-The component can use these values from `person` like so:
+Komponent może używać tych wartości z obiektu `person` w następujący sposób:
 
 ```js
 <div style={person.theme}>
-  <h1>{person.name}'s Todos</h1>
+  <h1>{person.name} - lista zadań</h1>
 ```
 
-JSX is very minimal as a templating language because it lets you organize data and logic using JavaScript.
+JSX jako język szablonów jest bardzo minimalistyczny, dlatego pozwala na swobodną organizację danych i logiki za pomocą kodu JavaScript.
 
 <Recap>
 
-Now you know almost everything about JSX:
+Teraz wiesz już niemal wszystko na temat składni JSX:
 
-* JSX attributes inside quotes are passed as strings.
-* Curly braces let you bring JavaScript logic and variables into your markup.
-* They work inside the JSX tag content or immediately after `=` in attributes.
-* `{{` and `}}` is not special syntax: it's a JavaScript object tucked inside JSX curly braces.
+* Atrybuty JSX-owe zapisane w cudzysłowie są przekazywane jako tekst.
+* Nawiasy klamrowe pozwalają dodać logikę i zmienne javascriptowe do kodu znaczników.
+* Można je stosować w treści znacznika JSX-owego lub bezpośrednio po `=` w atrybutach.
+* `{{` i `}}` to nie specjalna składnia - to obiekt javascriptowy opatulony w nawiasy klamrowe z JSX-a.
 
 </Recap>
 
 <Challenges>
 
-### Fix the mistake {/*fix-the-mistake*/}
+### Napraw błąd {/*fix-the-mistake*/}
 
-This code crashes with an error saying `Objects are not valid as a React child`:
+Poniższy kod rzuca błędem o treści `Objects are not valid as a React child` (_pol._ Obiekty nie są prawidłowymi potomkami w Reakcie.):
 
 <Sandpack>
 
@@ -263,16 +263,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person}'s Todos</h1>
+      <h1>{person} - lista zadań</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -287,15 +287,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Can you find the problem?
+Potrafisz znaleźć problem z tym kodem?
 
-<Hint>Look for what's inside the curly braces. Are we putting the right thing there?</Hint>
+<Hint>Przyjrzyj się temu, co jest zapisane w nawiasach klamrowych. Czy na pewno umieściliśmy tam właściwą rzecz?</Hint>
 
 <Solution>
 
-This is happening because this example renders *an object itself* into the markup rather than a string: `<h1>{person}'s Todos</h1>` is trying to render the entire `person` object! Including raw objects as text content throws an error because React doesn't know how you want to display them.
+Dzieje się tak, ponieważ powyższy przykład renderuje do znacznika *sam obiekt*, zamiast renderować tekst: kod `<h1>{person} - lista zadań</h1>` próbuje wyrenderować cały obiekt `person`! Umieszczanie całych obiektów w tekście powoduje wystąpienie błędu, ponieważ React nie wie, jak je wyświetlić.
 
-To fix it, replace `<h1>{person}'s Todos</h1>` with `<h1>{person.name}'s Todos</h1>`:
+Aby to naprawić, zamień `<h1>{person} - lista zadań</h1>` na `<h1>{person.name} - lista zadań</h1>`:
 
 <Sandpack>
 
@@ -311,16 +311,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -337,9 +337,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-### Extract information into an object {/*extract-information-into-an-object*/}
+### Wyciągnij informacje do obiektu {/*extract-information-into-an-object*/}
 
-Extract the image URL into the `person` object.
+Wyciągnij URL obrazka do obiektu `person`.
 
 <Sandpack>
 
@@ -355,16 +355,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
         src="https://i.imgur.com/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -381,7 +381,7 @@ body > div > div { padding: 20px; }
 
 <Solution>
 
-Move the image URL into a property called `person.imageUrl` and read it from the `<img>` tag using the curlies:
+Przenieś URL obrazka do właściwości o nazwie `person.imageUrl` i użyj jej jako atrybutu dla znacznika `<img>`, umieszczając zmienną w nawiasach klamrowych:
 
 <Sandpack>
 
@@ -398,16 +398,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
         src={person.imageUrl}
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -424,13 +424,13 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-### Write an expression inside JSX curly braces {/*write-an-expression-inside-jsx-curly-braces*/}
+### Umieść wyrażenie w klamrach {/*write-an-expression-inside-jsx-curly-braces*/}
 
-In the object below, the full image URL is split into four parts: base URL,  `imageId`, `imageSize`, and file extension.
+W poniższym kodzie pełny adres URL obrazka został rozdzielony na cztery części: URL bazowy, `imageId`, `imageSize` oraz rozszerzenie pliku.
 
-We want the image URL to combine these attributes together: base URL (always `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), and file extension (always `'.jpg'`). However, something is wrong with how the `<img>` tag specifies its `src`.
+Chcielibyśmy teraz, żeby finalny URL obrazka składał się z tych wartości połączonych w jeden tekst: URL bazowy (zawsze `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`) oraz rozszerzenie pliku (zawsze `'.jpg'`). Coś jednak jest nie tak z atrybutem `src` znacznika `<img>`.
 
-Can you fix it?
+Potrafisz to naprawić?
 
 <Sandpack>
 
@@ -450,16 +450,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
         src="{baseUrl}{person.imageId}{person.imageSize}.jpg"
         alt={person.name}
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -474,15 +474,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-To check that your fix worked, try changing the value of `imageSize` to `'b'`. The image should resize after your edit.
+Aby upewnić się, że twoje rozwiązanie działa poprawnie, spróbuj zmienić wartość `imageSize` na `'b'`. Po zmianie obrazek powinien zmienić swój rozmiar.
 
 <Solution>
 
-You can write it as `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
+Możesz zapisać to jako `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
 
-1. `{` opens the JavaScript expression
-2. `baseUrl + person.imageId + person.imageSize + '.jpg'` produces the correct URL string
-3. `}` closes the JavaScript expression
+1. `{` rozpoczyna wyrażenie javascriptowe
+2. `baseUrl + person.imageId + person.imageSize + '.jpg'` zwraca poprawny URL w formie tekstowej
+3. `}` kończy wyrażenie javascriptowe
 
 <Sandpack>
 
@@ -501,16 +501,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
         src={baseUrl + person.imageId + person.imageSize + '.jpg'}
         alt={person.name}
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -525,7 +525,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-You can also move this expression into a separate function like `getImageUrl` below:
+Możesz również przenieść to wyrażenie do osobnej funkcji, jak np. `getImageUrl` w poniższym przykładzie:
 
 <Sandpack>
 
@@ -545,16 +545,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
         src={getImageUrl(person)}
         alt={person.name}
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Usprawnić wideotelefon</li>
+        <li>Przygotować wykłady o aeronautyce</li>
+        <li>Opracować silnik napędzany alkoholem</li>
       </ul>
     </div>
   );
@@ -580,7 +580,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Variables and functions can help you keep the markup simple!
+Zmienne i funkcje pomogą ci utrzymać porządek w znacznikach!
 
 </Solution>
 
