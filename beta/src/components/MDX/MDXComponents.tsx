@@ -91,7 +91,7 @@ function LearnMore({
       <section className="p-8 mt-16 mb-16 flex flex-row shadow-inner justify-between items-center bg-card dark:bg-card-dark rounded-lg">
         <div className="flex-col">
           <h2 className="text-primary dark:text-primary-dark font-bold text-2xl leading-tight">
-            Gotowi zgłębić ten temat?
+            Chcesz zgłębić ten temat?
           </h2>
           {children}
           {path ? (
