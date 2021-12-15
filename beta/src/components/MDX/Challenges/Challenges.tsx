@@ -117,7 +117,7 @@ export function Challenges({children, isRecipes}: ChallengesProps) {
               'text-3xl mb-2 leading-10 relative',
               isRecipes ? 'text-purple-50 dark:text-purple-30' : 'text-link'
             )}>
-            {isRecipes ? 'Przejdź do formuły' : 'Przejdź do wyzwań'}
+            {isRecipes ? 'Przetestuj formułę' : 'Podejmij wyzwania'}
           </H2>
           {challenges.length > 1 && (
             <Navigation
