@@ -237,7 +237,7 @@ Read **[JavaScript in JSX with Curly Braces](/learn/javascript-in-jsx-with-curly
 
 </LearnMore>
 
-## Passing props to a component {/_passing-props-to-a-component_/}
+## Przekazywanie wartości do komponentu {/_passing-props-to-a-component_/}
 
 React components use _props_ to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!
 
@@ -304,7 +304,7 @@ export function getImageUrl(person, size = 's') {
 
 <LearnMore path="/learn/passing-props-to-a-component">
 
-Read **[Passing Props to a Component](/learn/passing-props-to-a-component)** to learn how to pass and read props.
+Read **[Przekazywanie wartości do komponentu](/learn/passing-props-to-a-component)** to learn how to pass and read props.
 
 </LearnMore>
 

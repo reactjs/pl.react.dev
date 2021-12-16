@@ -59,7 +59,7 @@
               "path": "/learn/javascript-in-jsx-with-curly-braces"
             },
             {
-              "title": "Passing Props to a Component",
+              "title": "Przekazywanie wartości do komponentu",
               "path": "/learn/passing-props-to-a-component"
             },
             {
@@ -86,7 +86,7 @@
               "path": "/learn/responding-to-events"
             },
             {
-              "title": "State: A Component's Memory",
+              "title": "Stan: Pamięć komponentu",
               "path": "/learn/state-a-components-memory"
             },
             {

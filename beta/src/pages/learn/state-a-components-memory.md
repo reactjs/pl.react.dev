@@ -1,5 +1,5 @@
 ---
-title: "State: A Component's Memory"
+title: "Stan: Pamięć komponentu"
 ---
 
 <Intro>
