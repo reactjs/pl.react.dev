@@ -673,7 +673,7 @@ export default function Gallery() {
         imageId: 'szV5sdG',
         name: 'Maria Skłodowska-Curie',
         profession: 'fizyka i chemia',
-        discovery: 'polon (pierwiastek chemiczny),
+        discovery: 'polon (pierwiastek chemiczny)',
         awards: [
           'Nagroda Nobla w dziedzinie fizyki',
           'Nagroda Nobla w dziedzinie chemii',
