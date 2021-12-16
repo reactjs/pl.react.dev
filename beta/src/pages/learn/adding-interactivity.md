@@ -72,7 +72,7 @@ Read **[Responding to Events](/learn/responding-to-events)** to learn how to add
 
 </LearnMore>
 
-## State: a component's memory {/*state-a-components-memory*/}
+## Stan: Pamięć komponentu {/*state-a-components-memory*/}
 
 Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" puts a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called state.
 
@@ -224,7 +224,7 @@ button {
 
 <LearnMore path="/learn/state-a-components-memory">
 
-Read **[State: A Component's Memory](/learn/state-a-components-memory)** to learn how to remember a value and update it on interaction.
+Read **[Stan: Pamięć komponentu](/learn/state-a-components-memory)** to learn how to remember a value and update it on interaction.
 
 </LearnMore>
 
