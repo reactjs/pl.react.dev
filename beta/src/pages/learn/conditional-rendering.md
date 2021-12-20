@@ -1,24 +1,25 @@
 ---
-title: Conditional Rendering
+title: Renderowanie warunkowe
 ---
 
 <Intro>
 
-Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, `&&`, and `? :` operators.
+Twoje komponenty zazwyczaj będą wyświetlały różne informacje w zależności od różnych warunków. W Reakcie, możesz renderować warunkowo JSX używając syntaxu JavaScript, takiego jak warunek `if`, `&&` oraz operatorów `? :`.
+
 
 </Intro>
 
 <YouWillLearn>
 
-* How to return different JSX depending on a condition
-* How to conditionally include or exclude a piece of JSX
-* Common conditional syntax shortcuts you’ll encounter in React codebases
+* Jak zwrócić różny JSX w zależności od warunku
+* Jak warunkowo zawrzeć lub wykluczyć część JSX
+* Powszechne skróty składni warunkowej, które napotkasz w bazach kodu Reacta
 
 </YouWillLearn>
 
-## Conditionally returning JSX {/*conditionally-returning-jsx*/}
+## Warunkowe zwracanie JSX {/*conditionally-returning-jsx*/}
 
-Let’s say you have a `PackingList` component rendering several `Item`s, which can be marked as packed or not:
+Załóżmy, że posiadasz komponent `PackingList` renderujący kilka `Item`'ów, który może być oznaczony jako spakowany `isPacked={true}` lub niespakowany `isPacked={false}`:
 
 <Sandpack>
 
@@ -30,19 +31,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -52,9 +53,9 @@ export default function PackingList() {
 
 </Sandpack>
 
-Notice that some of the `Item` components have their `isPacked` prop set to `true` instead of `false`. You want to add a checkmark (✔) to packed items if `isPacked={true}`.
+Zauważ, że niektóre z komponentów `Item` posiada prop `isPacked` ustawiony na `true` zamast `false`. Chcesz dodać znacznik (✔) do spakowanych przedmiotów, jeśli `isPacked={true}`.
 
-You can write this as an [`if`/`else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) like so:
+Możesz to zapisać za pomocą [warunku `if`/`else`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Statements/if...else) w ten sposób:
 
 ```js
 if (isPacked) {
@@ -63,7 +64,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-If the `isPacked` prop is `true`, this code **returns a different JSX tree**. With this change, some of the items get a checkmark at the end:
+Jeśli prop `isPacked` jest ustawiony na `true`, ten kod **zwróci odmienne drzewo JSX**. Wraz z tą zmianą, pewne przedmioty dostaną znacznik (✔).
 
 <Sandpack>
 
@@ -78,19 +79,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -100,13 +101,13 @@ export default function PackingList() {
 
 </Sandpack>
 
-Try editing what gets returned in either case, and see how the result changes!
+Spróbuj edytować kod i sprawdź, co zostanie zwrócone w obu przypadkach oraz jak zmieni się wynik!
 
-Notice how you're creating branching logic with JavaScript's `if` and `return` statements. In React, control flow (like conditions) is handled by JavaScript.
+Zwróć uwagę, jak tworzysz logikę rozgałęzień za pomocą warunków JavaScriptu `if` oraz `return`. W Reakcie, kontrola przepływu (taka jak warunki) jest obsługiwana przez JavaScript.
 
-### Conditionally returning nothing with `null` {/*conditionally-returning-nothing-with-null*/}
+### Warunkowe zwracanie niczego z użyciem `null` {/*conditionally-returning-nothing-with-null*/}
 
-In some situations, you won't want to render anything at all. For example, say you don't want to show packed items at all. A component must return something. In this case, you can return `null`:
+W pewnych sytuacjach nie będziesz chciał niczego renderować. Dla przykładu, załóżmy, że w ogóle nie chcesz pokazywać spakowanych przedmiotów. Komponent jednak musi coś zwrócić. W takim przypadku, możesz zwrócić `null`.
 
 ```js
 if (isPacked) {
@@ -115,7 +116,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-If `isPacked` is true, the component will return nothing, `null`. Otherwise, it will return JSX to render.
+Jeśli `isPacked` ma wartość `true`, komponent nic nie zwróci - `null`. W przeciwnym razie zwróci JSX do wyrenderowania.
 
 <Sandpack>
 
@@ -130,19 +131,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -152,23 +153,24 @@ export default function PackingList() {
 
 </Sandpack>
 
-In practice, returning `null` from a component isn't common because it might surprise a developer trying to render it. More often, you would conditionally include or exclude the component in the parent component's JSX. Here's how to do that!
+W praktyce, zwracanie `null` z komponentu nie jest powszechne, ponieważ może to zaskoczyć programistę, który próbuje go wyrenderować. Częściej zdarza się, że warunkowo dołączysz lub wykluczysz komponent w JSX komponentu nadrzędnego. Oto jak to zrobić!
 
-## Conditionally including JSX {/*conditionally-including-jsx*/}
+## Warunkowe dołączanie JSX {/*conditionally-including-jsx*/}
 
-In the previous example, you controlled which (if any!) JSX tree would be returned by the component. You may already have noticed some duplication in the render output:
+W poprzednim przykładzie, kontrolowałeś które (jeśli którekolwiek) drzewo JSX zostanie zwrócone przez komponent. Być może zauważyłeś pewne powielenia w wyniku renderowania:
 
 ```js
 <li className="item">{name} ✔</li>
 ```
 
-is very similar to
+jest bardzo podobne do:
 
 ```js
 <li className="item">{name}</li>
 ```
 
-Both of the conditional branches return `<li className="item">...</li>`:
+Oba warunkowe rozgałęzienia zwracają `<li className="item">...</li>`:
+
 
 ```js
 if (isPacked) {
@@ -177,13 +179,13 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-While this duplication isn't harmful, it could make your code harder to maintain. What if you want to change the `className`? You'd have to do it in two places in your code! In such a situation, you could conditionally include a little JSX to make your code more [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+W tym przypadku powielenia nie są szkodliwe, jednak może to utrudniać utrzymanie kodu. Co w sytuacji, jeśli chciałyś zmienić `className`? Wówczas, musiałbyś to zrobić w dwóch miejscach w kodzie. W takich sytuacjach, mógłbyś warunkowo dołączyć JSX, aby twój kod był bardziej [DRY](https://pl.wikipedia.org/wiki/DRY).
 
-### Conditional (ternary) operator (`? :`) {/*conditional-ternary-operator--*/}
+### Operator warunkowy (`? :`) {/*conditional-ternary-operator--*/}
 
-JavaScript has a compact syntax for writing a conditional expression -- the [conditional operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator."
+JavaScript posiada zwartą składnię do tworzenia wyrażenia warunkowego -- [operator warunkowy](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 
-Instead of this:
+Zamiast poniższego kodu:
 
 ```js
 if (isPacked) {
@@ -192,7 +194,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-You can write this:
+Możesz napisać w ten sposób:
 
 ```js
 return (
@@ -202,15 +204,15 @@ return (
 );
 ```
 
-You can read it as *"if `isPacked` is true, then (`?`) render `name + ' ✔'`, otherwise (`:`) render `name`."*)
+Możesz to wyrażenie przeczytać jako *"jeśli `isPacked` ma wartość `true`, wtedy (`?`) wyrenderuj `name + ' ✔'`, w przeciwnym razie (`:`) wyrenderuj `name`."*)
 
-<DeepDive title="Are these two examples fully equivalent?">
+<DeepDive title="Czy te dwa przykłady są w pełni równoważne?">
 
-If you're coming from an object-oriented programming background, you might assume that the two examples above are subtly different because one of them may create two different "instances" of `<li>`. But JSX elements aren't "instances" because they don't hold any internal state and aren't real DOM nodes. They're lightweight descriptions, like blueprints. So these two examples, in fact, *are* completely equivalent. [Preserving and Resetting State](/learn/preserving-and-resetting-state) goes into detail about how this works.
+Jeśli wywodzisz się z programowania obiektowego, możesz założyć, że dwa powyższe przykłady są nieco inne, ponieważ jeden z nich może tworzyć dwie różne "instancje" `<li>`. Jednak elementy JSX nie są "instancjami", ponieważ nie przechowują żadnego stanu wewnętrznego oraz nie są prawdziwymi węzłami DOM. Tak więc te dwa przykłady *są* w pełni równoważne. [Zachowywanie i Resetowanie Stanu](/learn/preserving-and-resetting-state) zawiera szczegółowe informacje o tym, jak to działa.
 
 </DeepDive>
 
-Now let's say you want to wrap the completed item's text into another HTML tag, like `<del>` to strike it out. You can add even more newlines and parentheses so that it's easier to nest more JSX each of the cases:
+Załóżmy, że chciałbyś umieścić tekst ukończonego elementu w innym znaczniku HTML, na przykład `<del>`, aby uzyskać efekt przekreślenia. Możesz dodać więcej nowych linii i nawiasów, aby było łatwiej zagnieżdżać więcej JSX w każdym z przypadków:
 
 <Sandpack>
 
@@ -232,19 +234,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -254,11 +256,11 @@ export default function PackingList() {
 
 </Sandpack>
 
-This style works well for simple conditions, but use it in moderation. If your components get messy with too much nested conditional markup, consider extracting child components to clean things up. In React, markup is a part of your code, so you can use tools like variables and functions to tidy up complex expressions.
+Ten sposób sprawdza się przy prostch warunkach, używaj go jednak z umiarem. Jeśli twój komponent robi się nieczytelny, ponieważ posiada zbyt dużą ilość znaczników warunkowych, rozważ wyodrębnienie komponentów podrzędnych, aby go uporządkować. W Reakcie, znaczniki są częścią twojego kodu, więc możesz używać narzędzi takich jak zmienne oraz funkcje do porządkowania złożonych wyrażeń.
 
-### Logical AND operator (`&&`) {/*logical-and-operator-*/}
+### Operator logiczny AND (`&&`) {/*logical-and-operator-*/}
 
-Another common shortcut you'll encounter is the [JavaScript logical AND (`&&`) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Inside React components, it often comes up when you want to render some JSX when the condition is true, **or render nothing otherwise.** With `&&`, you could conditionally render the checkmark only if `isPacked` is `true`:
+Kolejnym powszechnie stosowanym skrótem z którym będziesz miał styczność jest [JavaScript'owy operator logiczny AND (`&&`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentu React, często wykorzystuje się go gdy chcesz wyrenderować JSX, gdy warunek jest spełniony (posiada wartość `true`) **lub gdy nie chcesz nic wyrenderować.** Ze znacznikiem `&&`, możesz warunkowo wyrenderować znacznik (✔) tylko wtedy, jeśli `isPacked` posiada wartość `true`.
 
 ```js
 return (
@@ -267,10 +269,9 @@ return (
   </li>
 );
 ```
+Możesz to wyrażenie przeczytać jako *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj znacznik (✔), w przeciwnym razie nic nie renderuj.”*
 
-You can read this as *“if `isPacked`, then (`&&`) render the checkmark, otherwise, render nothing.”*
-
-Here it is in action:
+Poniżej przedstawiono przykład:
 
 <Sandpack>
 
@@ -286,19 +287,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -371,15 +372,15 @@ export default function PackingList() {
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -417,15 +418,15 @@ export default function PackingList() {
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -474,15 +475,15 @@ export default function PackingList() {
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -512,15 +513,15 @@ export default function PackingList() {
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -560,15 +561,15 @@ export default function PackingList() {
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
@@ -604,15 +605,15 @@ export default function PackingList() {
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Skafander kosmiczny" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Hełm ze złotym liściem" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Zdjęcie Tam'a" 
         />
       </ul>
     </section>
