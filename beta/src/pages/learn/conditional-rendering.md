@@ -53,7 +53,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Zauważ, że niektóre z komponentów `Item` posiada prop `isPacked` ustawiony na `true` zamast `false`. Chcesz dodać znacznik (✔) do spakowanych przedmiotów, jeśli `isPacked={true}`.
+Zauważ, że niektóre z komponentów `Item` posiada prop `isPacked` ustawiony na `true` zamiast `false`. Chcesz dodać znacznik ✔ do spakowanych przedmiotów, jeśli `isPacked={true}`.
 
 Możesz to zapisać za pomocą [warunku `if`/`else`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Statements/if...else) w ten sposób:
 
@@ -64,7 +64,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-Jeśli prop `isPacked` jest ustawiony na `true`, ten kod **zwróci odmienne drzewo JSX**. Wraz z tą zmianą, pewne przedmioty dostaną znacznik (✔).
+Jeśli prop `isPacked` jest ustawiony na `true`, ten kod **zwróci odmienne drzewo JSX**. Wraz z tą zmianą, pewne przedmioty dostaną znacznik ✔.
 
 <Sandpack>
 
@@ -260,7 +260,7 @@ Ten sposób sprawdza się przy prostch warunkach, używaj go jednak z umiarem. J
 
 ### Operator logiczny AND (`&&`) {/*logical-and-operator-*/}
 
-Kolejnym powszechnie stosowanym skrótem z którym będziesz miał styczność jest [JavaScript'owy operator logiczny AND (`&&`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentu React, często wykorzystuje się go gdy chcesz wyrenderować JSX, gdy warunek jest spełniony (posiada wartość `true`) **lub gdy nie chcesz nic wyrenderować.** Ze znacznikiem `&&`, możesz warunkowo wyrenderować znacznik (✔) tylko wtedy, jeśli `isPacked` posiada wartość `true`.
+Kolejnym powszechnie stosowanym skrótem z którym będziesz miał styczność jest [operator logiczny AND (`&&`) JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentu React, często wykorzystuje się go gdy chcesz wyrenderować JSX, gdy warunek jest spełniony (posiada wartość `true`) **lub gdy nie chcesz nic wyrenderować.** Ze znacznikiem `&&`, możesz warunkowo wyrenderować znacznik ✔ tylko wtedy, jeśli `isPacked` posiada wartość `true`.
 
 ```js
 return (
@@ -269,7 +269,7 @@ return (
   </li>
 );
 ```
-Możesz to wyrażenie przeczytać jako *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj znacznik (✔), w przeciwnym razie nic nie renderuj.”*
+Możesz to wyrażenie przeczytać jako *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj znacznik ✔, w przeciwnym razie nic nie renderuj.”*
 
 Poniżej przedstawiono przykład:
 
@@ -309,18 +309,17 @@ export default function PackingList() {
 
 </Sandpack>
 
-A [JavaScript && expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) returns the value of its right side (in our case, the checkmark) if the left side (our condition) is `true`. But if the condition is `false`, the whole expression becomes `false`. React considers `false` as a "hole" in the JSX tree, just like `null` or `undefined`, and doesn't render anything in its place.
-
+[Wyrażenie && JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) zwraca wartości z prawej strony (w naszym przypadku znacznik ✔), jeśli po lewej stronie warunek został spełniony (posiada wartość `true`). Jeśli jednak warunek posiada wartość `false`, całe wyrażenie staje się `false` i nie zostaje spełnione. React traktuje `false` jako "dziurę" w drzewie JSX, podobnie jak `null` czy `undefined` i nie renderuje niczego w tym miejscu.
 
 <Gotcha>
 
-**Don't put numbers on the left side of `&&`.**
+**Nie umieszczaj liczb po lewej stronie znacznika `&&`.**
 
-To test the condition, JavaScript converts the left side to a boolean automatically. However, if the left side is `0`, then the whole expression gets that value (`0`), and React will happily render `0` rather than nothing.
+Aby sprawdzić warunek, JavaScript automatycznie konwertuje lewą stronę na wartość logiczną. Jeśli jednak lewa strona wyrażenia posiada wartość `0`, całe wyrażenie otrzyma tę wartość (`0`), a React z radością wyrenderuje `0`, zamiast niczego nie wyrenderować.
 
-For example, a common mistake is to write code like `messageCount && <p>New messages</p>`. It's easy to assume that it renders nothing when `messageCount` is `0`, but it really renders the `0` itself!
+Na przykład, powszechnym błędem jest pisanie kodu `messageCount && <p>New messages</p>`. Łatwo założyć, że nic nie zostanie wyrenderowane, kiedy `messageCount` posiada wartość `0`, jednak tak naprawde wyrenderowane zostanie samo `0`!
 
-To fix it, make the left side a boolean: `messageCount > 0 && <p>New messages</p>`.
+Aby to naprawić, zastosuj wartość logiczną po lewej stronie: `messageCount > 0 && <p>New messages</p>`.
 
 </Gotcha>
 
