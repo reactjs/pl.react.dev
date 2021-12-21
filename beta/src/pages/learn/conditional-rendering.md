@@ -4,15 +4,15 @@ title: Renderowanie warunkowe
 
 <Intro>
 
-Twoje komponenty zazwyczaj będą wyświetlały różne informacje w zależności od różnych warunków. W Reakcie, możesz renderować warunkowo JSX używając syntaxu JavaScript, takiego jak warunek `if`, `&&` oraz operatorów `? :`.
+Twoje komponenty zazwyczaj będą wyświetlały różne informacje w zależności od różnych warunków. W Reakcie, możesz renderować warunkowo JSX używając składni JavaScriptu, takiego jak warunek `if`, `&&` oraz operatorów `? :`.
 
 
 </Intro>
 
 <YouWillLearn>
 
-* Jak zwrócić różny JSX w zależności od warunku
-* Jak warunkowo zawrzeć lub wykluczyć część JSX
+* Jak zwrócić różny kod JSX w zależności od warunku
+* Jak warunkowo wyświetlić lub wykluczyć część JSX
 * Powszechne skróty składni warunkowej, które napotkasz w bazach kodu Reacta
 
 </YouWillLearn>
@@ -53,7 +53,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Zauważ, że niektóre z komponentów `Item` posiada prop `isPacked` ustawiony na `true` zamiast `false`. Chcesz dodać znacznik ✔ do spakowanych przedmiotów, jeśli `isPacked={true}`.
+Zauważ, że niektóre z komponentów `Item` posiada prop `isPacked` ustawiony na `true` zamiast `false`. Załóżmy, że dodać znacznik ✔ do spakowanych przedmiotów, jeśli `isPacked={true}`.
 
 Możesz to zapisać za pomocą [warunku `if`/`else`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Statements/if...else) w ten sposób:
 
@@ -107,7 +107,7 @@ Zwróć uwagę, jak tworzysz logikę rozgałęzień za pomocą warunków JavaScr
 
 ### Warunkowe zwracanie niczego z użyciem `null` {/*conditionally-returning-nothing-with-null*/}
 
-W pewnych sytuacjach nie będziesz chciał niczego renderować. Dla przykładu, załóżmy, że w ogóle nie chcesz pokazywać spakowanych przedmiotów. Komponent jednak musi coś zwrócić. W takim przypadku, możesz zwrócić `null`.
+W pewnych sytuacjach nie będziesz chciał niczego renderować. Dla przykładu, załóżmy, że w ogóle nie chcesz wyświetlać spakowanych przedmiotów. Komponent jednak musi coś zwrócić. W takim przypadku, możesz zwrócić `null`.
 
 ```js
 if (isPacked) {
@@ -153,9 +153,9 @@ export default function PackingList() {
 
 </Sandpack>
 
-W praktyce, zwracanie `null` z komponentu nie jest powszechne, ponieważ może to zaskoczyć programistę, który próbuje go wyrenderować. Częściej zdarza się, że warunkowo dołączysz lub wykluczysz komponent w JSX komponentu nadrzędnego. Oto jak to zrobić!
+W praktyce, zwracanie `null` z komponentu nie jest powszechne, ponieważ może to zaskoczyć programistę, który próbuje go wyrenderować. Częściej zdarza się, że warunkowo wyświetlisz lub wykluczysz komponent w JSX komponentu nadrzędnego. Oto jak to zrobić!
 
-## Warunkowe dołączanie JSX {/*conditionally-including-jsx*/}
+## Warunkowe wyświetlanie JSX {/*conditionally-including-jsx*/}
 
 W poprzednim przykładzie, kontrolowałeś które (jeśli którekolwiek) drzewo JSX zostanie zwrócone przez komponent. Być może zauważyłeś pewne powielenia w wyniku renderowania:
 
@@ -204,7 +204,7 @@ return (
 );
 ```
 
-Możesz to wyrażenie przeczytać jako *"jeśli `isPacked` ma wartość `true`, wtedy (`?`) wyrenderuj `name + ' ✔'`, w przeciwnym razie (`:`) wyrenderuj `name`."*)
+Możesz to wyrażenie przeczytać jako: *"jeśli `isPacked` ma wartość `true`, wtedy (`?`) wyrenderuj `name + ' ✔'`, w przeciwnym razie (`:`) wyrenderuj `name`."*)
 
 <DeepDive title="Czy te dwa przykłady są w pełni równoważne?">
 
@@ -260,7 +260,7 @@ Ten sposób sprawdza się przy prostch warunkach, używaj go jednak z umiarem. J
 
 ### Operator logiczny AND (`&&`) {/*logical-and-operator-*/}
 
-Kolejnym powszechnie stosowanym skrótem z którym będziesz miał styczność jest [operator logiczny AND (`&&`) JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentu React, często wykorzystuje się go gdy chcesz wyrenderować JSX, gdy warunek jest spełniony (posiada wartość `true`) **lub gdy nie chcesz nic wyrenderować.** Ze znacznikiem `&&`, możesz warunkowo wyrenderować znacznik ✔ tylko wtedy, jeśli `isPacked` posiada wartość `true`.
+Kolejnym powszechnie stosowanym skrótem z którym będziesz miał styczność jest [operator logiczny AND (`&&`) JavaScriptu](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentu React, często wykorzystuje się go gdy chcesz wyrenderować JSX, gdy warunek jest spełniony (posiada wartość `true`) **lub gdy nie chcesz nic wyrenderować.** Ze znacznikiem `&&`, możesz warunkowo wyrenderować znacznik ✔ tylko wtedy, jeśli `isPacked` posiada wartość `true`.
 
 ```js
 return (
@@ -269,7 +269,7 @@ return (
   </li>
 );
 ```
-Możesz to wyrażenie przeczytać jako *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj znacznik ✔, w przeciwnym razie nic nie renderuj.”*
+Możesz to wyrażenie przeczytać jako: *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj znacznik ✔, w przeciwnym razie nic nie renderuj.”*
 
 Poniżej przedstawiono przykład:
 
@@ -309,7 +309,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-[Wyrażenie && JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) zwraca wartości z prawej strony (w naszym przypadku znacznik ✔), jeśli po lewej stronie warunek został spełniony (posiada wartość `true`). Jeśli jednak warunek posiada wartość `false`, całe wyrażenie staje się `false` i nie zostaje spełnione. React traktuje `false` jako "dziurę" w drzewie JSX, podobnie jak `null` czy `undefined` i nie renderuje niczego w tym miejscu.
+[Wyrażenie && w JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) zwraca wartości z prawej strony (w naszym przypadku znacznik ✔), jeśli po lewej stronie warunek został spełniony (posiada wartość `true`). Jeśli jednak warunek posiada wartość `false`, całe wyrażenie staje się `false` i nie zostaje spełnione. React traktuje `false` jako "dziurę" w drzewie JSX, podobnie jak `null` czy `undefined` i nie renderuje niczego w tym miejscu.
 
 <Gotcha>
 
@@ -323,15 +323,15 @@ Aby to naprawić, zastosuj wartość logiczną po lewej stronie: `messageCount >
 
 </Gotcha>
 
-### Conditionally assigning JSX to a variable {/*conditionally-assigning-jsx-to-a-variable*/}
+### Warunkowe przypisywanie JSX do zmiennej {/*conditionally-assigning-jsx-to-a-variable*/}
 
-When the shortcuts get in the way of writing plain code, try using an `if` statement and a variable. You can reassign variables defined with [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), so start by providing the default content you want to display, the name:
+Jeśli skróty przeszkadzają w pisaniu zwykłego kodu, spróbuj użyć warunku `if` oraz zmiennej. Możesz ponownie przypisać wartości do zmiennej, zdefiniowanej za pomocą [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), zacznij więc od podania domyślnej wartości, którą wyświetlić:
 
 ```js
 let itemContent = name;
 ```
 
-Use an `if` statement to reassign a JSX expression to `itemContent` if `isPacked` is `true`:
+Użyj warunku `if`, aby przypisać ponownie wyrażenie JSX do `itemContent`, jeśli `isPacked` posiada wartość `true`:
 
 ```js
 if (isPacked) {
@@ -339,7 +339,7 @@ if (isPacked) {
 }
 ```
 
-[Curly braces open the "window into JavaScript".](/learn/javascript-in-jsx-with-curly-braces#using-curly-braces-a-window-into-the-javascript-world) Embed the variable with curly braces in the returned JSX tree, nesting the previously calculated expression inside of JSX:
+[Używanie nawiasów klamrowych otwiera "okno na świat JavaScriptu".](/learn/javascript-in-jsx-with-curly-braces#using-curly-braces-a-window-into-the-javascript-world) Ulokuj zmienną z nawiasami klamrowymi w zwróconym drzewie JSX, zagnieżdżając uprzednio przeliczone wyrażenie wewnątrz JSX:
 
 ```js
 <li className="item">
@@ -347,7 +347,7 @@ if (isPacked) {
 </li>
 ```
 
-This style is the most verbose, but it's also the most flexible. Here it is in action:
+Ten sposób jest najbardziej rozwlekły, jednocześnie jednak najbardziej elastyczny. Poniżej przedstawiono przykład:
 
 <Sandpack>
 
@@ -367,7 +367,7 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
@@ -389,7 +389,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Like before, this works not only for text, but for arbitrary JSX too:
+Tak jak poprzednio, ten sposób działa nie tylko dla tekstu, ale także dla dowolnego JSX:
 
 <Sandpack>
 
@@ -413,7 +413,7 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
@@ -435,16 +435,16 @@ export default function PackingList() {
 
 </Sandpack>
 
-If you're not familiar with JavaScript, this variety of styles might seem overwhelming at first. However, learning them will help you read and write any JavaScript code -- and not just React components! Pick the one you prefer for a start, and then consult this reference again if you forget how the other ones work.
+Jeśli nie jesteś zaznajomiony z JavaScriptem, ta różnorodność sposobów może początkowo wydawać się przytłaczająca. Jednak ich nauka pomoże ci czytać i pisać dowolny kod JavaScript -- nie tylko komponenty Reactowe! Na początku wybierz jeden sposób, który wolisz, a następnie zapoznaj się ponownie z tymi notatkami, jeśli zapomnisz jak działają inne.
 
 <Recap>
 
-* In React, you control branching logic with JavaScript.
-* You can return a JSX expression conditionally with an `if` statement.
-* You can conditionally save some JSX to a variable and then include it inside other JSX by using the curly braces.
-* In JSX, `{cond ? <A /> : <B />}` means *"if `cond`, render `<A />`, otherwise `<B />`"*.
-* In JSX, `{cond && <A />}` means *"if `cond`, render `<A />`, otherwise nothing"*.
-* The shortcuts are common, but you don't have to use them if you prefer plain `if`.
+* W Reakcie kontrolujesz logikę rozgałęzień za pomocą JavaScriptu.
+* Możesz zwrócić wyrażenie JSX warunkowo, używając do tego warunku `if`.
+* Możesz warunkowo zapisać część kodu JSX w zmiennej, a następnie dołączyć go do innego kodu JSX, używając nawiasów klamrowych.
+* W JSX, `{cond ? <A /> : <B />}` oznacza *"jeśli `cond`, wyrenderuj `<A />`, w przeciwnym razie wyrenderuj `<B />`"*.
+* W JSX, `{cond && <A />}` oznacza *"jeśli `cond`, wyrenderuj `<A />`, w przeciwnym razie nic nie renderuj"*.
+* Skróty są powszechnie używane, ale nie musisz ich używać, jesli wolisz zwykły `if`.
 
 </Recap>
 
@@ -452,9 +452,9 @@ If you're not familiar with JavaScript, this variety of styles might seem overwh
 
 <Challenges>
 
-### Show an icon for incomplete items with `? :` {/*show-an-icon-for-incomplete-items-with--*/}
+### Wyświetl znacznik dla niespakowanych przedmiotów za pomocą `? :` {/*show-an-icon-for-incomplete-items-with--*/}
 
-Use the conditional operator (`cond ? a : b`) to render a ❌ if `isPacked` isn’t `true`.
+Użyj operatora warunkowego (`cond ? a : b`), aby wyświetlić ❌, jeśli `isPacked` nie posiada wartości `true`.
 
 <Sandpack>
 
@@ -470,7 +470,7 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
@@ -508,7 +508,7 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           isPacked={true} 
@@ -532,15 +532,15 @@ export default function PackingList() {
 
 </Solution>
 
-### Show the item importance with `&&` {/*show-the-item-importance-with-*/}
+### Wyświetl priorytet przedmiotu za pomocą `&&` {/*show-the-item-importance-with-*/}
 
-In this example, each `Item` receives a numerical `importance` prop. Use the `&&` operator to render "_(Importance: X)_" in italics, but only for items that have non-zero difficulty. Your item list should end up looking like this:
+W tym przykładzie, każdy `Item` otrzymuje prop `importance`, który określa jego priorytet. Użyj operatora `&&`, aby wyświetlić "_(Importance: X)_" kursywą, ale tylko dla przedmiotów, które posiadają priorytet inny niż 0. Twoja lista przedmiotów powinna wyglądać w następujący sposób:
 
-* Space suit _(Importance: 9)_
-* Helmet with a golden leaf
-* Photo of Tam _(Importance: 6)_
+* Skafander kosmiczny _(Importance: 9)_
+* Hełm ze złotym liściem
+* Zdjęcie Tam'a _(Importance: 6)_
 
-Don't forget to add a space between the two labels!
+Nie zapomnij umieścić spacji pomiędzy dwoma wartościami!
 
 <Sandpack>
 
@@ -556,7 +556,7 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           importance={9} 
@@ -580,7 +580,7 @@ export default function PackingList() {
 
 <Solution>
 
-This should do the trick:
+To powinno załatwić sprawę:
 
 <Sandpack>
 
@@ -600,7 +600,7 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Lista rzeczy do spakowania Sally</h1>
       <ul>
         <Item 
           importance={9} 
@@ -622,15 +622,16 @@ export default function PackingList() {
 
 </Sandpack>
 
-Note that you must write `importance > 0 && ...` rather than `importance && ...` so that if the `importance` is `0`, `0` isn't rendered as the result!
+Zauważ, że powinieneś napisać `importance > 0 && ...`, zamiast `importance && ...`, w ten sposób jeśli `importance` ma wartość `0`, `0` nie zostanie wyrenderowane!
 
-In this solution, two separate conditions are used to insert a space between then name and the importance label. Alternatively, you could use a fragment with a leading space: `importance > 0 && <> <i>...</i></>` or add a space immediately inside the `<i>`:  `importance > 0 && <i> ...</i>`.
+W tym rozwiązaniu, dwa oddzielne warunki zostały użyte w celu wstawienia spacji między nazwą przedmiotu, a wartością priorytetu. Alternatywnie, mógłbyś użyć fragmentu, na początku którego wstawisz spację: `importance > 0 && <> <i>...</i></>` lub mógłbyś również wstawić spację wewnątrz `<i>`:  `importance > 0 && <i> ...</i>`.
+
 
 </Solution>
 
-### Refactor a series of `? :` to `if` and variables {/*refactor-a-series-of---to-if-and-variables*/}
+### Zmodyfikuj szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
 
-This `Drink` component uses a series of `? :` conditions to show different information depending on whether the `name` prop is `"tea"` or `"coffee"`. The problem is that the information about each drink is spread across multiple conditions. Refactor this code to use a single `if` statement instead of three `? :` conditions.
+Komponent `Drink` korzysta kilkukrotnie z operatora warunkowego `? :`, aby wyświetlić różne informacje w zależności od tego, czy prop `name` posiada wartość `"herbata"` lub `"kawa"`. Problem w tym, że informacje o każdym z napojów składają się z kilku warunków. Zmodyfikuj poniższy kod, aby użyć pojedyńczej instrukcji `if`, zamiast trzech warunków `? :`.
 
 <Sandpack>
 
@@ -640,12 +641,12 @@ function Drink({ name }) {
     <section>
       <h1>{name}</h1>
       <dl>
-        <dt>Part of plant</dt>
-        <dd>{name === 'tea' ? 'leaf' : 'bean'}</dd>
-        <dt>Caffeine content</dt>
-        <dd>{name === 'tea' ? '15–70 mg/cup' : '80–185 mg/cup'}</dd>
-        <dt>Age</dt>
-        <dd>{name === 'tea' ? '4,000+ years' : '1,000+ years'}</dd>
+        <dt>Część rośliny</dt>
+        <dd>{name === 'herbata' ? 'liść' : 'ziarno'}</dd>
+        <dt>Zawartość kofeiny</dt>
+        <dd>{name === 'herbata' ? '15–70 mg/filiżanka' : '80–185 mg/filiżanka'}</dd>
+        <dt>Wiek</dt>
+        <dd>{name === 'herbata' ? '4,000+ lat' : '1,000+ lat'}</dd>
       </dl>
     </section>
   );
@@ -654,8 +655,8 @@ function Drink({ name }) {
 export default function DrinkList() {
   return (
     <div>
-      <Drink name="tea" />
-      <Drink name="coffee" />
+      <Drink name="herbata" />
+      <Drink name="kawa" />
     </div>
   );
 }
@@ -663,36 +664,36 @@ export default function DrinkList() {
 
 </Sandpack>
 
-Once you've refactored the code to use `if`, do you have further ideas on how to simplify it?
+Jeśli dokonałeś już modyfikacji kodu i użyłeś `if`, czy masz dalsze pomysły, jak bardziej uprościć ten kod?
 
 <Solution>
 
-There are multiple ways you could go about this, but here is one starting point:
+Można to zrobić na wiele sposobów, oto jeden z nich:
 
 <Sandpack>
 
 ```js
 function Drink({ name }) {
-  let part, caffeine, age;
-  if (name === 'tea') {
-    part = 'leaf';
-    caffeine = '15–70 mg/cup';
-    age = '4,000+ years';
-  } else if (name === 'coffee') {
-    part = 'bean';
-    caffeine = '80–185 mg/cup';
-    age = '1,000+ years';
+  let część, kofeina, wiek;
+  if (name === 'herbata') {
+    część = 'liść';
+    kofeina = '15–70 mg/filiżanka';
+    wiek = '4,000+ lat';
+  } else if (name === 'kawa') {
+    część = 'ziarno';
+    kofeina = '80–185 mg/filiżanka';
+    wiek = '1,000+ lat';
   }
   return (
     <section>
       <h1>{name}</h1>
       <dl>
-        <dt>Part of plant</dt>
-        <dd>{part}</dd>
-        <dt>Caffeine content</dt>
-        <dd>{caffeine}</dd>
-        <dt>Age</dt>
-        <dd>{age}</dd>
+        <dt>Część rośliny</dt>
+        <dd>{część}</dd>
+        <dt>Zawartość kofeiny</dt>
+        <dd>{kofeina}</dd>
+        <dt>Wiek</dt>
+        <dd>{wiek}</dd>
       </dl>
     </section>
   );
@@ -701,8 +702,8 @@ function Drink({ name }) {
 export default function DrinkList() {
   return (
     <div>
-      <Drink name="tea" />
-      <Drink name="coffee" />
+      <Drink name="herbata" />
+      <Drink name="kawa" />
     </div>
   );
 }
@@ -710,23 +711,23 @@ export default function DrinkList() {
 
 </Sandpack>
 
-Here the information about each drink is grouped together instead of being spread across multiple conditions. This makes it easier to add more drinks in the future.
+Tutaj informacje o każdym napoju są pogrupowane razem, a nie rozłożone na kilka warunków. Ułatwi to dodawanie kolejnych napojów w przyszłości.
 
-Another solution would be to remove the condition altogether by moving the information into objects:
+Innym rozwiązaniem byłoby całkowite usunięcie warunku i przeniesienie informacji do obiektów:
 
 <Sandpack>
 
 ```js
 const drinks = {
-  tea: {
-    part: 'leaf',
-    caffeine: '15–70 mg/cup',
-    age: '4,000+ years'
+  herbata: {
+    część: 'liść',
+    kofeina: '15–70 mg/filiżanka',
+    wiek: '4,000+ lat'
   },
-  coffee: {
-    part: 'bean',
-    caffeine: '80–185 mg/cup',
-    age: '1,000+ years'
+  kawa: {
+    część: 'ziarno',
+    kofeina: '80–185 mg/filiżanka',
+    wiek: '1,000+ lat'
   }
 };
 
@@ -736,12 +737,12 @@ function Drink({ name }) {
     <section>
       <h1>{name}</h1>
       <dl>
-        <dt>Part of plant</dt>
-        <dd>{info.part}</dd>
-        <dt>Caffeine content</dt>
-        <dd>{info.caffeine}</dd>
-        <dt>Age</dt>
-        <dd>{info.age}</dd>
+        <dt>Część rośliny</dt>
+        <dd>{info.część}</dd>
+        <dt>Zawartość kofeiny</dt>
+        <dd>{info.kofeina}</dd>
+        <dt>Wiek</dt>
+        <dd>{info.wiek}</dd>
       </dl>
     </section>
   );
@@ -750,8 +751,8 @@ function Drink({ name }) {
 export default function DrinkList() {
   return (
     <div>
-      <Drink name="tea" />
-      <Drink name="coffee" />
+      <Drink name="herbata" />
+      <Drink name="kawa" />
     </div>
   );
 }
