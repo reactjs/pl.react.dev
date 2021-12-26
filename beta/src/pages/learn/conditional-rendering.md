@@ -436,7 +436,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Jeśli nie jesteś zaznajomiony z JavaScriptem, ta różnorodność sposobów może początkowo wydawać się przytłaczająca. Jednak ich nauka pomoże ci czytać i pisać dowolny kod JavaScript -- nie tylko komponenty Reactowe! Na początku wybierz jeden sposób, który wolisz, a następnie zapoznaj się ponownie z tymi notatkami, jeśli zapomnisz jak działają inne.
+Jeśli znasz dobrze JavaScriptu, ta różnorodność sposobów może początkowo wydawać się przytłaczająca. Jednak ich nauka pomoże ci czytać i pisać dowolny kod javascriptowy -- nie tylko komponenty reactowe! Na początku wybierz jeden preferowany sposób, a następnie zapoznaj się ponownie z tymi notatkami, jeśli zapomnisz zasady działania pozostałych.
 
 <Recap>
 
