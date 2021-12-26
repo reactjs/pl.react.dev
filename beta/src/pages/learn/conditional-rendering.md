@@ -318,7 +318,7 @@ export default function PackingList() {
 
 Aby sprawdzić warunek, JavaScript automatycznie konwertuje lewą stronę na wartość logiczną. Jeśli jednak lewa strona wyrażenia ma wartość `0`, całe wyrażenie otrzyma tę wartość (`0`), a React z radością wyrenderuje `0`, zamiast niczego nie renderować.
 
-Na przykład, powszechnym błędem jest pisanie kodu `messageCount && <p>New messages</p>`. Łatwo założyć, że nic nie zostanie wyrenderowane, kiedy `messageCount` posiada wartość `0`, jednak tak naprawde wyrenderowane zostanie samo `0`!
+Na przykład, powszechnym błędem jest pisanie kodu `messageCount && <p>New messages</p>`. Łatwo założyć, że nic nie zostanie wyrenderowane, kiedy `messageCount` ma wartość `0`, jednak tak naprawdę wyrenderowane zostanie samo `0`!
 
 Aby to naprawić, zastosuj wartość logiczną po lewej stronie: `messageCount > 0 && <p>New messages</p>`.
 
