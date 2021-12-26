@@ -537,7 +537,7 @@ export default function PackingList() {
 
 W tym przykładzie, każdy element `Item` otrzymuje właściwość `importance`, która określa jego priorytet. Użyj operatora `&&`, aby wyświetlić "_(Priorytet: X)_" kursywą, ale tylko dla przedmiotów, które otrzymały wartość inną niż 0. Twoja lista przedmiotów powinna wyglądać w następujący sposób:
 
-* Skafander kosmiczny _(Importance: 9)_
+* Skafander kosmiczny _(Priorytet: 9)_
 * Hełm ze złotym liściem
 * Zdjęcie Tam'a _(Importance: 6)_
 
