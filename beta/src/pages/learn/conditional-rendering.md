@@ -53,7 +53,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Zauważ, że niektóre z komponentów `Item` posiada prop `isPacked` ustawiony na `true` zamiast `false`. Załóżmy, że dodać znacznik ✔ do spakowanych przedmiotów, jeśli `isPacked={true}`.
+Zauważ, że dla niektórych komponentów `Item` właściwość `isPacked` ustawiono na `true` zamiast `false`. Chcielibyśmy, żeby przy spakowanych przedmiotach, które mają ustawione `isPacked={true}`, wyświetlał się "ptaszek" (✔).
 
 Możesz to zapisać za pomocą [warunku `if`/`else`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Statements/if...else) w ten sposób:
 
