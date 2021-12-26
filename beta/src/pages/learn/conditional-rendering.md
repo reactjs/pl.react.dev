@@ -269,7 +269,8 @@ return (
   </li>
 );
 ```
-Możesz to wyrażenie przeczytać jako: *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj znacznik ✔, w przeciwnym razie nic nie renderuj.”*
+
+Możesz to wyrażenie przeczytać jako: *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj "ptaszek" ✔; w przeciwnym razie nic nie renderuj.”*
 
 Poniżej przedstawiono przykład:
 
