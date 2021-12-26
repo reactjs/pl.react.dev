@@ -324,7 +324,7 @@ Aby to naprawić, zastosuj wartość logiczną po lewej stronie: `messageCount >
 
 </Gotcha>
 
-### Warunkowe przypisywanie JSX do zmiennej {/*conditionally-assigning-jsx-to-a-variable*/}
+### Warunkowe przypisywanie JSX-a do zmiennej {/*conditionally-assigning-jsx-to-a-variable*/}
 
 Jeśli skróty przeszkadzają w pisaniu zwykłego kodu, spróbuj użyć warunku `if` oraz zmiennej. Możesz ponownie przypisać wartości do zmiennej, zdefiniowanej za pomocą [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), zacznij więc od podania domyślnej wartości, którą wyświetlić:
 
