@@ -260,7 +260,7 @@ Ten sposób sprawdza się przy prostych warunkach, używaj go jednak z umiarem. 
 
 ### Operator logiczny AND (`&&`) {/*logical-and-operator-*/}
 
-Kolejnym powszechnie stosowanym skrótem z którym będziesz miał styczność jest [operator logiczny AND (`&&`) JavaScriptu](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentu React, często wykorzystuje się go gdy chcesz wyrenderować JSX, gdy warunek jest spełniony (posiada wartość `true`) **lub gdy nie chcesz nic wyrenderować.** Ze znacznikiem `&&`, możesz warunkowo wyrenderować znacznik ✔ tylko wtedy, jeśli `isPacked` posiada wartość `true`.
+Kolejnym powszechnie stosowanym skrótem, z którym możesz się zetknąć, jest [javascriptowy operator logiczny AND (`&&`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentów reactowych często wykorzystujemy go, gdy chcemy wyrenderować JSX przy spełnieniu warunku (posiada wartość `true`) **lub gdy nie chcemy nic renderować.** Przy pomocy operatora `&&` możesz warunkowo wyrenderować "ptaszek" (✔) tylko wtedy, kiedy właściwość `isPacked` jest ustawiona na `true`.
 
 ```js
 return (
