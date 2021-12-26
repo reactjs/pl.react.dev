@@ -208,7 +208,7 @@ Możesz to wyrażenie przeczytać jako: *"jeśli `isPacked` ma wartość `true`,
 
 <DeepDive title="Czy te dwa przykłady są w pełni równoważne?">
 
-Jeśli wywodzisz się z programowania obiektowego, możesz założyć, że dwa powyższe przykłady są nieco inne, ponieważ jeden z nich może tworzyć dwie różne "instancje" `<li>`. Jednak elementy JSX nie są "instancjami", ponieważ nie przechowują żadnego stanu wewnętrznego oraz nie są prawdziwymi węzłami DOM. Tak więc te dwa przykłady *są* w pełni równoważne. [Zachowywanie i Resetowanie Stanu](/learn/preserving-and-resetting-state) zawiera szczegółowe informacje o tym, jak to działa.
+Jeśli wywodzisz się z programowania obiektowego, możesz założyć, że dwa powyższe przykłady są nieco inne, ponieważ jeden z nich może tworzyć dwie różne "instancje" `<li>`. Jednak elementy JSX nie są "instancjami", ponieważ nie przechowują żadnego stanu wewnętrznego oraz nie są prawdziwymi węzłami DOM. Tak więc te dwa przykłady *są* w pełni równoważne. Rozdział pt. [Zachowywanie i resetowanie stanu](/learn/preserving-and-resetting-state) zawiera szczegółowe informacje o tym, jak to działa.
 
 </DeepDive>
 
