@@ -107,7 +107,7 @@ Zwróć uwagę, jak tworzysz logikę rozgałęzień za pomocą javascriptowych i
 
 ### Warunkowe zwracanie niczego z użyciem `null` {/*conditionally-returning-nothing-with-null*/}
 
-W pewnych sytuacjach nie będziesz chciał niczego renderować. Dla przykładu, załóżmy, że w ogóle nie chcesz wyświetlać spakowanych przedmiotów. Komponent jednak musi coś zwrócić. W takim przypadku, możesz zwrócić `null`.
+W pewnych sytuacjach nie będziesz chcieć niczego renderować. Dla przykładu, załóżmy, że w ogóle nie chcesz wyświetlać spakowanych przedmiotów. Komponent jednak musi coś zwrócić. W takim przypadku możesz zwrócić `null`.
 
 ```js
 if (isPacked) {
