@@ -256,7 +256,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Ten sposób sprawdza się przy prostch warunkach, używaj go jednak z umiarem. Jeśli twój komponent robi się nieczytelny, ponieważ posiada zbyt dużą ilość znaczników warunkowych, rozważ wyodrębnienie komponentów podrzędnych, aby go uporządkować. W Reakcie, znaczniki są częścią twojego kodu, więc możesz używać narzędzi takich jak zmienne oraz funkcje do porządkowania złożonych wyrażeń.
+Ten sposób sprawdza się przy prostych warunkach, używaj go jednak z umiarem. Jeśli twój komponent robi się nieczytelny, ponieważ posiada zbyt dużą liczbę warunków, rozważ wyodrębnienie komponentów podrzędnych, aby go uporządkować. W Reakcie znaczniki są częścią twojego kodu, więc możesz używać narzędzi takich jak zmienne oraz funkcje do porządkowania złożonych wyrażeń.
 
 ### Operator logiczny AND (`&&`) {/*logical-and-operator-*/}
 
