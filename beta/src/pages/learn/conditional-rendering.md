@@ -455,7 +455,7 @@ Jeśli nie jesteś zaznajomiony z JavaScriptem, ta różnorodność sposobów mo
 
 ### Wyświetl znacznik dla niespakowanych przedmiotów za pomocą `? :` {/*show-an-icon-for-incomplete-items-with--*/}
 
-Użyj operatora warunkowego (`cond ? a : b`), aby wyświetlić ❌, jeśli `isPacked` nie posiada wartości `true`.
+Użyj operatora warunkowego (`warunek ? a : b`), aby wyświetlić ❌, jeśli `isPacked` nie ma wartości `true`.
 
 <Sandpack>
 
