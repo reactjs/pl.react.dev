@@ -340,7 +340,7 @@ if (isPacked) {
 }
 ```
 
-[Używanie nawiasów klamrowych otwiera "okno na świat JavaScriptu".](/learn/javascript-in-jsx-with-curly-braces#using-curly-braces-a-window-into-the-javascript-world) Ulokuj zmienną z nawiasami klamrowymi w zwróconym drzewie JSX, zagnieżdżając uprzednio przeliczone wyrażenie wewnątrz JSX:
+[Używanie nawiasów klamrowych otwiera "okno na świat JavaScriptu".](/learn/javascript-in-jsx-with-curly-braces#using-curly-braces-a-window-into-the-javascript-world) Umieść zmienną wewnątrz nawiasów klamrowych w zwróconym drzewie JSX, zagnieżdżając uprzednio przeliczone wyrażenie wewnątrz JSX:
 
 ```js
 <li className="item">
