@@ -4,7 +4,7 @@ title: Renderowanie warunkowe
 
 <Intro>
 
-Twoje komponenty zazwyczaj będą wyświetlały różne informacje w zależności od różnych warunków. W Reakcie, możesz renderować warunkowo JSX używając składni JavaScriptu, takiego jak warunek `if`, `&&` oraz operatorów `? :`.
+Twoje komponenty zazwyczaj będą wyświetlały różne informacje w zależności od różnych warunków. W Reakcie możesz renderować warunkowo JSX używając składni javascriptowej, takiej jak warunek `if` czy operatory `&&` i `? :`.
 
 
 </Intro>
