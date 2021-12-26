@@ -300,7 +300,7 @@ export default function PackingList() {
         />
         <Item 
           isPacked={false} 
-          name="Zdjęcie Tam'a" 
+          name="Zdjęcie Tam" 
         />
       </ul>
     </section>
