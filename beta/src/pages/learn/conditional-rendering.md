@@ -625,7 +625,7 @@ export default function PackingList() {
 
 Zwróć uwagę, że należy tu napisać `importance > 0 && ...`, zamiast `importance && ...`. W ten sposób jeśli `importance` ma wartość `0`, `0` nie zostanie wyrenderowane!
 
-W tym rozwiązaniu, dwa oddzielne warunki zostały użyte w celu wstawienia spacji między nazwą przedmiotu, a wartością priorytetu. Alternatywnie, mógłbyś użyć fragmentu, na początku którego wstawisz spację: `importance > 0 && <> <i>...</i></>` lub mógłbyś również wstawić spację wewnątrz `<i>`:  `importance > 0 && <i> ...</i>`.
+W tym rozwiązaniu dwa oddzielne warunki zostały użyte w celu wstawienia spacji między nazwą przedmiotu a wartością priorytetu. Alternatywnie, można użyć fragmentu, na początku którego wstawiłoby się spację: `importance > 0 && <> <i>...</i></>` lub można również wstawić spację wewnątrz `<i>`:  `importance > 0 && <i> ...</i>`.
 
 
 </Solution>
