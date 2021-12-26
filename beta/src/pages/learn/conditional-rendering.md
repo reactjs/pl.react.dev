@@ -157,7 +157,7 @@ W praktyce, zwykle komponenty nie zwracają `null`, ponieważ może to okazać s
 
 ## Warunkowe wyświetlanie JSX {/*conditionally-including-jsx*/}
 
-W poprzednim przykładzie, kontrolowałeś które (jeśli którekolwiek) drzewo JSX zostanie zwrócone przez komponent. Być może zauważyłeś pewne powielenia w wyniku renderowania:
+W poprzednim przykładzie nasz kod decydował, które (jeśli którekolwiek) drzewo JSX-owe zostanie zwrócone przez komponent. Być może widzisz pewne powtórzenia w wyniku renderowania:
 
 ```js
 <li className="item">{name} ✔</li>
