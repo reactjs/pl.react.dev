@@ -155,7 +155,7 @@ export default function PackingList() {
 
 W praktyce, zwykle komponenty nie zwracają `null`, ponieważ może to okazać się zaskakujące dla dewelopera, który próbuje wyrenderować dany komponent. Częściej zdarza się, że warunkowo wyświetlamy bądź nie komponent w kodzie JSX-owym rodzica. Oto jak to zrobić!
 
-## Warunkowe wyświetlanie JSX {/*conditionally-including-jsx*/}
+## Warunkowe wyświetlanie JSX-a {/*conditionally-including-jsx*/}
 
 W poprzednim przykładzie nasz kod decydował, które (jeśli którekolwiek) drzewo JSX-owe zostanie zwrócone przez komponent. Być może widzisz pewne powtórzenia w wyniku renderowania:
 
