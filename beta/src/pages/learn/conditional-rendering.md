@@ -541,7 +541,7 @@ W tym przykładzie, każdy element `Item` otrzymuje właściwość `importance`,
 * Hełm ze złotym liściem
 * Zdjęcie Tam _(Priorytet: 6)_
 
-Nie zapomnij umieścić spacji pomiędzy dwoma wartościami!
+Nie zapomnij dodać spacji pomiędzy tymi dwoma wartościami!
 
 <Sandpack>
 
