@@ -444,7 +444,7 @@ Jeśli nie jesteś zaznajomiony z JavaScriptem, ta różnorodność sposobów mo
 * Możesz zwrócić wyrażenie JSX-owe warunkowo, używając do tego instrukcji `if`.
 * Możesz warunkowo zapisać część kodu JSX w zmiennej, a następnie dołączyć go do innego kodu JSX, używając nawiasów klamrowych.
 * W JSX `{warunek ? <A /> : <B />}` oznacza: *"jeśli `warunek` jest prawdziwy, wyrenderuj `<A />`, w przeciwnym razie wyrenderuj `<B />`"*.
-* W JSX, `{cond && <A />}` oznacza *"jeśli `cond`, wyrenderuj `<A />`, w przeciwnym razie nic nie renderuj"*.
+* W JSX `{warunek && <A />}` oznacza: *"jeśli `warunek` jest prawdziwy, wyrenderuj `<A />`, w przeciwnym razie nic nie renderuj"*.
 * Skróty są powszechnie używane, ale nie musisz ich używać, jesli wolisz zwykły `if`.
 
 </Recap>
