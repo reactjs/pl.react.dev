@@ -535,7 +535,7 @@ export default function PackingList() {
 
 ### Wyświetl priorytet przedmiotu za pomocą `&&` {/*show-the-item-importance-with-*/}
 
-W tym przykładzie, każdy `Item` otrzymuje prop `importance`, który określa jego priorytet. Użyj operatora `&&`, aby wyświetlić "_(Importance: X)_" kursywą, ale tylko dla przedmiotów, które posiadają priorytet inny niż 0. Twoja lista przedmiotów powinna wyglądać w następujący sposób:
+W tym przykładzie, każdy element `Item` otrzymuje właściwość `importance`, która określa jego priorytet. Użyj operatora `&&`, aby wyświetlić "_(Priorytet: X)_" kursywą, ale tylko dla przedmiotów, które otrzymały wartość inną niż 0. Twoja lista przedmiotów powinna wyglądać w następujący sposób:
 
 * Skafander kosmiczny _(Importance: 9)_
 * Hełm ze złotym liściem
