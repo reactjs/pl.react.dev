@@ -19,7 +19,7 @@ Twoje komponenty zazwyczaj będą wyświetlały różne informacje w zależnośc
 
 ## Warunkowe zwracanie JSX-a {/*conditionally-returning-jsx*/}
 
-Załóżmy, że posiadasz komponent `PackingList` renderujący kilka `Item`'ów, który może być oznaczony jako spakowany `isPacked={true}` lub niespakowany `isPacked={false}`:
+Załóżmy, że masz komponent `PackingList` renderujący kilka przedmiotów `Item`, które mogą być oznaczone jako spakowane `isPacked={true}` lub niespakowane `isPacked={false}`:
 
 <Sandpack>
 
