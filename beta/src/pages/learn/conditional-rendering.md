@@ -153,7 +153,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-W praktyce, zwracanie `null` z komponentu nie jest powszechne, ponieważ może to zaskoczyć programistę, który próbuje go wyrenderować. Częściej zdarza się, że warunkowo wyświetlisz lub wykluczysz komponent w JSX komponentu nadrzędnego. Oto jak to zrobić!
+W praktyce, zwykle komponenty nie zwracają `null`, ponieważ może to okazać się zaskakujące dla dewelopera, który próbuje wyrenderować dany komponent. Częściej zdarza się, że warunkowo wyświetlamy bądź nie komponent w kodzie JSX-owym rodzica. Oto jak to zrobić!
 
 ## Warunkowe wyświetlanie JSX {/*conditionally-including-jsx*/}
 
