@@ -179,7 +179,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-W tym przypadku powielenia nie są szkodliwe, jednak może to utrudniać utrzymanie kodu. Co w sytuacji, jeśli chciałyś zmienić `className`? Wówczas, musiałbyś to zrobić w dwóch miejscach w kodzie. W takich sytuacjach, mógłbyś warunkowo dołączyć JSX, aby twój kod był bardziej [DRY](https://pl.wikipedia.org/wiki/DRY).
+W tym przypadku powielenia nie są szkodliwe, jednak mogą one utrudniać utrzymanie kodu. Co w sytuacji, gdybyśmy chcieli zmienić `className`? Wówczas, musielibyśmy to zrobić w dwóch miejscach w kodzie. W takich sytuacjach można warunkowo dołączyć JSX, aby kod był bardziej [DRY](https://pl.wikipedia.org/wiki/DRY).
 
 ### Operator warunkowy (`? :`) {/*conditional-ternary-operator--*/}
 
