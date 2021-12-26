@@ -310,7 +310,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-[Wyrażenie && w JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) zwraca wartości z prawej strony (w naszym przypadku znacznik ✔), jeśli po lewej stronie warunek został spełniony (posiada wartość `true`). Jeśli jednak warunek posiada wartość `false`, całe wyrażenie staje się `false` i nie zostaje spełnione. React traktuje `false` jako "dziurę" w drzewie JSX, podobnie jak `null` czy `undefined` i nie renderuje niczego w tym miejscu.
+[Wyrażenie && w JavaScripcie](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) zwraca wartość z prawej strony operatora (w naszym przypadku "ptaszek" ✔), jeśli po lewej stronie warunek został spełniony (ma wartość `true`). Jeśli jednak warunek ma wartość `false`, całe wyrażenie staje się `false` i nie zostaje spełnione. React traktuje `false` jako "dziurę" w drzewie JSX, podobnie jak `null` czy `undefined` i nie renderuje niczego w tym miejscu.
 
 <Gotcha>
 
