@@ -613,7 +613,7 @@ export default function PackingList() {
         />
         <Item 
           importance={6} 
-          name="Zdjęcie Tam'a" 
+          name="Zdjęcie Tam" 
         />
       </ul>
     </section>
