@@ -665,7 +665,7 @@ export default function DrinkList() {
 
 </Sandpack>
 
-Jeśli dokonałeś już modyfikacji kodu i użyłeś `if`, czy masz dalsze pomysły, jak bardziej uprościć ten kod?
+Kiedy już uporasz się z modyfikacją kodu i użyciem instrukcji `if`, pomyśl, czy można jeszcze bardziej uprościć ten kod?
 
 <Solution>
 
