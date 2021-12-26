@@ -183,7 +183,7 @@ W tym przypadku powielenia nie są szkodliwe, jednak mogą one utrudniać utrzym
 
 ### Operator warunkowy (`? :`) {/*conditional-ternary-operator--*/}
 
-JavaScript posiada zwartą składnię do tworzenia wyrażenia warunkowego -- [operator warunkowy](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+JavaScript posiada zwartą składnię do tworzenia wyrażenia warunkowego -- [operator warunkowy](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Conditional_Operator), zwany także "operatorem ternarnym" (trójargumentowym).
 
 Zamiast poniższego kodu:
 
