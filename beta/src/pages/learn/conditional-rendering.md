@@ -630,7 +630,7 @@ W tym rozwiązaniu dwa oddzielne warunki zostały użyte w celu wstawienia spacj
 
 </Solution>
 
-### Zmodyfikuj szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
+### Zamień szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
 
 Komponent `Drink` korzysta kilkukrotnie z operatora warunkowego `? :`, aby wyświetlić różne informacje w zależności od tego, czy prop `name` posiada wartość `"herbata"` lub `"kawa"`. Problem w tym, że informacje o każdym z napojów składają się z kilku warunków. Zmodyfikuj poniższy kod, aby użyć pojedyńczej instrukcji `if`, zamiast trzech warunków `? :`.
 
