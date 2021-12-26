@@ -332,7 +332,7 @@ Jeśli skróty przeszkadzają w pisaniu zwykłego kodu, spróbuj użyć warunku 
 let itemContent = name;
 ```
 
-Użyj warunku `if`, aby przypisać ponownie wyrażenie JSX do `itemContent`, jeśli `isPacked` posiada wartość `true`:
+Użyj warunku `if`, aby przypisać ponownie wyrażenie JSX-owe do `itemContent`, jeśli `isPacked` posiada wartość `true`:
 
 ```js
 if (isPacked) {
