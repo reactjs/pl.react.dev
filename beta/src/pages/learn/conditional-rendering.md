@@ -390,7 +390,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Tak jak poprzednio, ten sposób działa nie tylko dla tekstu, ale także dla dowolnego JSX:
+Tak jak poprzednio, ten sposób działa nie tylko dla tekstu, ale także dla dowolnego kodu JSX:
 
 <Sandpack>
 
