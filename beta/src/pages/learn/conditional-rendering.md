@@ -12,7 +12,7 @@ Twoje komponenty zazwyczaj będą wyświetlały różne informacje w zależnośc
 <YouWillLearn>
 
 * Jak zwrócić różny kod JSX w zależności od warunku
-* Jak warunkowo wyświetlić lub wykluczyć część JSX
+* Jak warunkowo wyświetlić lub wykluczyć część JSX-a
 * Powszechne skróty składni warunkowej, które napotkasz w bazach kodu Reacta
 
 </YouWillLearn>
