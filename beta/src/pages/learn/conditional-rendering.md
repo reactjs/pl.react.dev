@@ -103,7 +103,7 @@ export default function PackingList() {
 
 Spróbuj edytować kod i sprawdź, co zostanie zwrócone w obu przypadkach oraz jak zmieni się wynik!
 
-Zwróć uwagę, jak tworzysz logikę rozgałęzień za pomocą warunków JavaScriptu `if` oraz `return`. W Reakcie, kontrola przepływu (taka jak warunki) jest obsługiwana przez JavaScript.
+Zwróć uwagę, jak tworzysz logikę rozgałęzień za pomocą javascriptowych instrukcji `if` oraz `return`. W Reakcie kontrola przepływu (taka jak warunki) jest obsługiwana przez JavaScript.
 
 ### Warunkowe zwracanie niczego z użyciem `null` {/*conditionally-returning-nothing-with-null*/}
 
