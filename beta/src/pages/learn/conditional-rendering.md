@@ -212,7 +212,7 @@ Jeśli wywodzisz się z programowania obiektowego, możesz założyć, że dwa p
 
 </DeepDive>
 
-Załóżmy, że chciałbyś umieścić tekst ukończonego elementu w innym znaczniku HTML, na przykład `<del>`, aby uzyskać efekt przekreślenia. Możesz dodać więcej nowych linii i nawiasów, aby było łatwiej zagnieżdżać więcej JSX w każdym z przypadków:
+Załóżmy, że mamy zadanie umieścić tekst ukończonego elementu w innym znaczniku HTML, na przykład `<del>`, aby uzyskać efekt przekreślenia. Możesz dodać więcej nowych linii i nawiasów, aby było łatwiej zagnieżdżać więcej JSX w każdym z przypadków:
 
 <Sandpack>
 
