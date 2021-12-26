@@ -539,7 +539,7 @@ W tym przykładzie, każdy element `Item` otrzymuje właściwość `importance`,
 
 * Skafander kosmiczny _(Priorytet: 9)_
 * Hełm ze złotym liściem
-* Zdjęcie Tam'a _(Importance: 6)_
+* Zdjęcie Tam _(Priorytet: 6)_
 
 Nie zapomnij umieścić spacji pomiędzy dwoma wartościami!
 
