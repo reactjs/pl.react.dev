@@ -632,7 +632,7 @@ W tym rozwiązaniu dwa oddzielne warunki zostały użyte w celu wstawienia spacj
 
 ### Zamień szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
 
-Komponent `Drink` korzysta kilkukrotnie z operatora warunkowego `? :`, aby wyświetlić różne informacje w zależności od tego, czy prop `name` posiada wartość `"herbata"` lub `"kawa"`. Problem w tym, że informacje o każdym z napojów składają się z kilku warunków. Zmodyfikuj poniższy kod, aby użyć pojedyńczej instrukcji `if`, zamiast trzech warunków `? :`.
+Komponent `Drink` korzysta kilkukrotnie z operatora warunkowego `? :`, aby wyświetlić różne informacje w zależności od tego, czy właściwość `name` ma wartość `"herbata"` lub `"kawa"`. Problem w tym, że informacje o każdym z napojów składają się z kilku warunków. Zmodyfikuj poniższy kod, aby użyć pojedynczej instrukcji `if` zamiast trzech warunków `? :`.
 
 <Sandpack>
 
