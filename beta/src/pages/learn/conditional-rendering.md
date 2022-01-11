@@ -592,7 +592,7 @@ function Item({ name, importance }) {
       {name}
       {importance > 0 && ' '}
       {importance > 0 &&
-        <i>(Importance: {importance})</i>
+        <i>(Priorytet: {importance})</i>
       }
     </li>
   );
@@ -647,7 +647,7 @@ function Drink({ name }) {
         <dt>Zawartość kofeiny</dt>
         <dd>{name === 'herbata' ? '15–70 mg/filiżanka' : '80–185 mg/filiżanka'}</dd>
         <dt>Wiek</dt>
-        <dd>{name === 'herbata' ? '4,000+ lat' : '1,000+ lat'}</dd>
+        <dd>{name === 'herbata' ? '4000+ lat' : '1000+ lat'}</dd>
       </dl>
     </section>
   );
@@ -675,26 +675,26 @@ Można to zrobić na wiele sposobów, oto jeden z nich:
 
 ```js
 function Drink({ name }) {
-  let część, kofeina, wiek;
+  let part, caffeine, age;
   if (name === 'herbata') {
-    część = 'liść';
-    kofeina = '15–70 mg/filiżanka';
-    wiek = '4,000+ lat';
+    part = 'liść';
+    caffeine = '15–70 mg/filiżanka';
+    age = '4000+ lat';
   } else if (name === 'kawa') {
-    część = 'ziarno';
-    kofeina = '80–185 mg/filiżanka';
-    wiek = '1,000+ lat';
+    part = 'ziarno';
+    caffeine = '80–185 mg/filiżanka';
+    age = '1000+ lat';
   }
   return (
     <section>
       <h1>{name}</h1>
       <dl>
         <dt>Część rośliny</dt>
-        <dd>{część}</dd>
+        <dd>{part}</dd>
         <dt>Zawartość kofeiny</dt>
-        <dd>{kofeina}</dd>
+        <dd>{caffeine}</dd>
         <dt>Wiek</dt>
-        <dd>{wiek}</dd>
+        <dd>{age}</dd>
       </dl>
     </section>
   );
@@ -720,15 +720,15 @@ Innym rozwiązaniem byłoby całkowite usunięcie warunku i przeniesienie inform
 
 ```js
 const drinks = {
-  herbata: {
-    część: 'liść',
-    kofeina: '15–70 mg/filiżanka',
-    wiek: '4,000+ lat'
+  tea: {
+    part: 'liść',
+    caffeine: '15–70 mg/filiżanka',
+    age: '4000+ lat'
   },
-  kawa: {
-    część: 'ziarno',
-    kofeina: '80–185 mg/filiżanka',
-    wiek: '1,000+ lat'
+  coffee: {
+    part: 'ziarno',
+    caffeine: '80–185 mg/filiżanka',
+    age: '1000+ lat'
   }
 };
 
@@ -739,11 +739,11 @@ function Drink({ name }) {
       <h1>{name}</h1>
       <dl>
         <dt>Część rośliny</dt>
-        <dd>{info.część}</dd>
+        <dd>{info.part}</dd>
         <dt>Zawartość kofeiny</dt>
-        <dd>{info.kofeina}</dd>
+        <dd>{info.caffeine}</dd>
         <dt>Wiek</dt>
-        <dd>{info.wiek}</dd>
+        <dd>{info.age}</dd>
       </dl>
     </section>
   );
