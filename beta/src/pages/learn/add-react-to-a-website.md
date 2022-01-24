@@ -8,11 +8,11 @@ React od początku był projektowany z myślą o stopniowym wdrażaniu, dzięki 
 
 </Intro>
 
-## Dodaj Reacta w minutę {/_add-react-in-one-minute_/}
+## Dodaj Reacta w minutę {/*add-react-in-one-minute*/}
 
 Dodanie pierwszego komponentu reactowego do istniejącej strony HTML zajmie ci mniej niż minutę. Wypróbuj poniższych kroków na własnej stronie lub na [pustym pliku HTML](https://gist.github.com/rachelnabors/7b33305bf33776354797a2e3c1445186/archive/859eac2f7079c9e1f0a6eb818a9684a464064d80.zip) — potrzebujesz jedynie aktywnego połączenia internetowego i edytora tekstu, jak np. Notepad (lub VSCode — sprawdź nasz poradnik o tym, [jak go skonfigurować](/learn/editor-setup/))!
 
-### Krok 1: Dodaj element do kodu HTML {/_step-1-add-an-element-to-the-html_/}
+### Krok 1: Dodaj element do kodu HTML {/*step-1-add-an-element-to-the-html*/}
 
 Na stronie HTML-owej, którą chcesz zmodyfikować, dodaj element, np. pusty znacznik `<div>` z unikalnym `id`, aby wyznaczyć miejsce, w którym chcesz wyświetlić coś za pomocą Reacta.
 
@@ -26,7 +26,7 @@ Na stronie HTML-owej, którą chcesz zmodyfikować, dodaj element, np. pusty zna
 <!-- ... istniejący kod HTML ... -->
 ```
 
-### Krok 2: Dodaj znaczniki script {/_step-2-add-the-script-tags_/}
+### Krok 2: Dodaj znaczniki script {/*step-2-add-the-script-tags*/}
 
 Na stronie HTML-owej, zaraz przed zamykającym znacznikiem `</body>`, umieść trzy znaczniki `<script>` dla następujących plików:
 
@@ -48,7 +48,7 @@ Przy wypuszczaniu kodu na produkcję zamień "development.js" na "production.min
 </body>
 ```
 
-### Krok 3: Stwórz komponent reactowy {/_step-3-create-a-react-component_/}
+### Krok 3: Stwórz komponent reactowy {/*step-3-create-a-react-component*/}
 
 Stwórz plik o nazwie **like_button.js** obok pliku HTML, dodaj w nim poniższy fragment kodu, a następnie zapisz plik. Kod ten definiuje komponent reactowy o nazwie `LikeButton`. [Więcej na temat tworzenia komponentów dowiesz się z innego poradnika.](/learn/your-first-component)
 
@@ -72,7 +72,7 @@ function LikeButton() {
 }
 ```
 
-### Krok 4: Dodaj swój komponent reactowy do strony {/_step-4-add-your-react-component-to-the-page_/}
+### Krok 4: Dodaj swój komponent reactowy do strony {/*step-4-add-your-react-component-to-the-page*/}
 
 Wreszcie, dodaj poniższe dwie linie na końcu pliku **like_button.js**. Odpowiadają one za znalezienie elementu `<div>` dodanego przez ciebie w kroku pierwszym, a następnie wyświetlenie wewnątrz niego przycisku "Lubię to".
 
@@ -86,7 +86,7 @@ ReactDOM.render(React.createElement(LikeButton), domContainer);
 - [Zobacz kompletny kod źródłowy](https://gist.github.com/rachelnabors/c64b3aeace8a191cf5ea6fb5202e66c9)
 - [Pobierz kompletny przykład (2KB po spakowaniu)](https://gist.github.com/rachelnabors/c64b3aeace8a191cf5ea6fb5202e66c9/archive/7b41a88cb1027c9b5d8c6aff5212ecd3d0493504.zip)
 
-#### Możesz używać komponentów wielokrotnie! {/_you-can-reuse-components_/}
+#### Możesz używać komponentów wielokrotnie! {/*you-can-reuse-components*/}
 
 Czasem chcemy wyświetlić któryś z komponentów reactowych w kilku miejscach na tej samej stronie HTML-owej. Najlepiej sprawdza się to, gdy części strony obsługiwane przez Reacta są od siebie odizolowane. Żeby tego dokonać, wywołaj `ReactDOM.render()` wielokrotnie na kilku elementach-kontenerach.
 
@@ -107,7 +107,7 @@ ReactDOM.render(
 
 Sprawdź [przykład, który wyświetla przycisk "Lubię to" trzy razy i przekazuje do niego dane](https://gist.github.com/rachelnabors/c0ea05cc33fbe75ad9bbf78e9044d7f8)!
 
-### Krok 5: Zminifikuj kod javascriptowy pod produkcję {/_step-5-minify-javascript-for-production_/}
+### Krok 5: Zminifikuj kod javascriptowy pod produkcję {/*step-5-minify-javascript-for-production*/}
 
 Niezminifikowany kod javascriptowy może znacząco spowolnić czas ładowania dla użytkowników strony. Zanim wrzucisz kod na produkcję, dobrym pomysłem będzie minifikacja kodu.
 
@@ -123,7 +123,7 @@ Niezminifikowany kod javascriptowy może znacząco spowolnić czas ładowania dl
   crossorigin></script>
 ```
 
-## Wypróbuj Reacta ze składnią JSX {/_try-react-with-jsx_/}
+## Wypróbuj Reacta ze składnią JSX {/*try-react-with-jsx*/}
 
 Powyższe przykłady bazują na funkcjonalnościach wspieranych natywnie przez przeglądarki. To właśnie dlatego **like_button.js** używa javascriptowego wywołania funkcji, żeby powiedzieć Reactowi, co ma wyświetlić:
 
@@ -147,7 +147,7 @@ Obydwa fragmenty kodu są równoważne. JSX jest popularną składnią do opisyw
 
 > Możesz poeksperymentować z przekształcaniem znaczników HTML-owych na JSX przy użyciu [tego konwertera online](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
 
-### Wypróbuj JSX {/_try-jsx_/}
+### Wypróbuj JSX {/*try-jsx*/}
 
 Najszybszym sposobem na wypróbowanie składni JSX we własnym projekcie jest dodanie kompilatora Babel do sekcji `<head>` twojej strony, zaraz obok React i ReactDOM:
 
@@ -202,7 +202,7 @@ Oto [gotowy przykładowy plik HTML z JSX-em](https://raw.githubusercontent.com/r
 
 Takie podejście jest w akceptowalne przy nauce czy tworzeniu prostych wersji demo aplikacji. Jednak znacznie spowalnia ono stronę i **nie nadaje się na produkcję**. Kiedy stwierdzisz, że czas ruszyć dalej, usuń ten nowy znacznik `<script>` i dodany atrybut `type="text/babel"`. Zamiast tego wykonaj instrukcje z następnej sekcji, aby skonfigurować preprocesor JSX, który będzie automatycznie konwertował twoje znaczniki `<script>`.
 
-### Dodaj JSX do projektu {/_add-jsx-to-a-project_/}
+### Dodaj JSX do projektu {/*add-jsx-to-a-project*/}
 
 Dodanie wsparcia dla składni JSX w projekcie nie wymaga użycia skomplikowanych narzędzi jak [bundler (_pol._ skrypt pakujący)](/learn/start-a-new-react-project#custom-toolchains) czy serwer deweloperski. Dodanie preprocesora JSX przypomina nieco dodawanie preprocesora CSS.
 
@@ -215,7 +215,7 @@ Do zainstalowania preprocesora JSX potrzebujesz jedynie npm. Nie będzie ci on j
 
 Gratulacje! Właśnie udało ci się **skonfigurować JSX pod produkcję**.
 
-### Uruchom preprocesor JSX {/_run-the-jsx-preprocessor_/}
+### Uruchom preprocesor JSX {/*run-the-jsx-preprocessor*/}
 
 Możesz uruchamiać preprocesor na kodzie JSX za każdym razem, gdy zapisujesz plik. Dzięki temu transformacja zostanie przeprowadzona ponownie, zamieniając plik JSX na nowy plik napisany w czystym JavaScripcie.
 

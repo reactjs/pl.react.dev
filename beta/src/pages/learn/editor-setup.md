@@ -8,7 +8,7 @@ Prawidłowo skonfigurowany edytor może sprawić, że kod będzie łatwiejszy w 
 
 </Intro>
 
-## Twój edytor {/_your-editor_/}
+## Twój edytor {/*your-editor*/}
 
 [VS Code](https://code.visualstudio.com/) jest obecnie jednym z najbardziej popularnych edytorów. Posiada ogromną bazę rozszerzeń i doskonale integruje się z popularnymi usługami, jak np. GitHub. Większość z funkcjonalności wymienionych poniżej można także dodać do VS Code w formie rozszerzeń, co sprawia, że jest bardzo dobrze konfigurowalny!
 
@@ -18,18 +18,18 @@ Społeczność Reacta używa także:
 - [Sublime Text](https://www.sublimetext.com/) — posiada wbudowane wsparcie dla JSX oraz TypeScriptu, podświetlanie składni i autouzupełnianie.
 - [Vim](https://www.vim.org/) — elastyczny edytor tekstu stworzony do efektywnego pisania i modyfikowania dowolnego tekstu. W większości systemów UNIX-owych oraz w Apple OS X występuje pod nazwą "vi".
 
-## Zalecane funkcje edytora tekstu {/_recommended-text-editor-features_/}
+## Zalecane funkcje edytora tekstu {/*recommended-text-editor-features*/}
 
 Niektóre edytory mają te funkcje wbudowane, inne wymagają instalowania rozszerzeń. Dla pewności sprawdź, jakie wsparcie dla nich ma twój edytor!
 
-### Linting {/_linting_/}
+### Linting {/*linting*/}
 
 Lintery kodu znajdują problemy w kodzie podczas jego pisania i pomagają je zawczasu naprawić. Popularnym, open-sourcowym linterem dla JavaScriptu jest [ESLint](https://eslint.org/).
 
 - [Zainstaluj ESLinta z konfiguracją zalecaną dla Reacta](https://www.npmjs.com/package/eslint-config-react-app) (upewnij się, że masz [zainstalowany Node!](https://nodejs.org/en/download/current/))
 - [Zintegruj ESLint z VS Code za pomocą oficjalnego rozszerzenia](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-### Formatowanie {/_formatting_/}
+### Formatowanie {/*formatting*/}
 
 Ostatnia rzecz, jaka powinna się wydarzyć po udostępnieniu twojego kodu współtwórcom projektu, jest dyskusja pt. [tabulatory vs spacje](https://www.google.com/search?q=tabulatory+vs+spacje)! Na szczęście jest [Prettier](https://prettier.io/), który posprząta w twoim kodzie, formatując go według ustalonych reguł. Uruchom Prettiera, a wszystkie tabulatory w kodzie zamienią się na spacje; wszelkie wcięcia, cudzysłowy i apostrofy itp. również zostaną podmienione na podstawie ustawień. Idealnie by było, gdyby Prettier był uruchamiany przy każdym zapisaniu pliku, automatycznie aplikując te reguły za ciebie.
 
@@ -40,7 +40,7 @@ Aby zainstalować [rozszerzenie Prettier dla VSCode](https://marketplace.visuals
 3. Wkleić w pole `ext install esbenp.prettier-vscode`
 4. Nacisnąć Enter
 
-#### Formatowanie podczas zapisu {/_formatting-on-save_/}
+#### Formatowanie podczas zapisu {/*formatting-on-save*/}
 
 Idealnie by było, gdyby kod sam się formatował przy każdym zapisie pliku. VS Code ma do tego specjalny zestaw ustawień!
 

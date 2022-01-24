@@ -16,7 +16,7 @@ Komponent jest jednym z podstawowych pojęć w świecie Reacta. Jest bazą, na k
 
 </YouWillLearn>
 
-## Komponenty: cegiełki do budowania UI-a {/_components-ui-building-blocks_/}
+## Komponenty: cegiełki do budowania UI-a {/*components-ui-building-blocks*/}
 
 W świecie aplikacji internetowych HTML pozwala nam na tworzenie dokumentów o bogatej strukturze przy pomocy wbudowanych znaczników, jak `<h1>` czy `<li>`:
 
@@ -53,7 +53,7 @@ Podobnie jak w przypadku znaczników HTML-owych, komponenty można łączyć, za
 
 Wraz ze wzrostem złożoności projektu z pewnością zauważysz, że wiele widoków można poskładać z istniejących już komponentów, co znacznie skróci czas pisania kodu. Nasz spis treści mógłby być dodawany do każdej strony jako `<TableOfContents />`! Co więcej, możesz rozpędzić prace nad aplikacją korzystając z tysięcy komponentów udostępnianych przez reactową społeczność open-source'ową, takich jak [Chakra UI](https://chakra-ui.com/) czy [Material UI](https://material-ui.com/).
 
-## Definiowanie komponentu {/_defining-a-component_/}
+## Definiowanie komponentu {/*defining-a-component*/}
 
 W przeszłości, kiedy programiści tworzyli stronę internetową, składali najpierw HTML, aby zbudować treść, a następnie dokładali kod javascriptowy dodający interakcje. Takie podejście działało, gdy interakcje na stronie były tylko przyjemnym dodatkiem; teraz dla wielu stron jest to mus. React stawia interakcje na pierwszym miejscu, w dalszym ciągu korzystając z tej samej technologii: **komponent reactowy jest więc funkcją javascriptową _okraszony znacznikami_**. Oto przykład, jak to może wyglądać w rzeczywistości (poniższy kod można edytować):
 
@@ -78,11 +78,11 @@ img { height: 200px; }
 
 A oto przepis na stworzenie komponentu:
 
-### Krok 1: Wyeksportuj komponent {/_step-1-export-the-component_/}
+### Krok 1: Wyeksportuj komponent {/*step-1-export-the-component*/}
 
 Prefiks `export default` należy do [standardowej składni JavaScriptu](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (nie jest specyficzny dla samego Reacta). Pozwala oznaczyć funkcję tak, aby można było ją zaimportować w innych plikach. (Więcej na temat importowania dowiesz się z rozdziału pt. [Importowanie i eksportowanie komponentów](/learn/importing-and-exporting-components)!)
 
-### Krok 2: Zdefiniuj funkcję {/_step-2-define-the-function_/}
+### Krok 2: Zdefiniuj funkcję {/*step-2-define-the-function*/}
 
 Za pomocą `function Profile() { }` definiujemy funkcję javascriptową o nazwie `Profile`.
 
@@ -92,7 +92,7 @@ Komponenty reactowe są zwykłymi funkcjami javascriptowymi, lecz **ich nazwy mu
 
 </Gotcha>
 
-### Krok 3: Dodaj kod {/_step-3-add-markup_/}
+### Krok 3: Dodaj kod {/*step-3-add-markup*/}
 
 Komponent zwraca znacznik `<img />` z atrybutami `src` oraz `alt`. `<img />` jest napisany jak w HTML-u, lecz tak naprawdę pod spodem wykonuje się kod javascriptowy! Ta składnia nosi nazwę [JSX](/learn/writing-markup-with-jsx) i pozwala umieszczać znaczniki w kodzie javascriptowym.
 
@@ -118,7 +118,7 @@ Jeśli nie dodasz nawiasów, kod zawarty w kolejnych liniach po `return` [zostan
 
 </Gotcha>
 
-## Używanie komponentu {/_using-a-component_/}
+## Używanie komponentu {/*using-a-component*/}
 
 Teraz gdy masz już zdefiniowany komponent `Profile`, możesz zagnieździć go w innych komponentach. Na przykład, możesz wyeksportować komponent `Gallery`, który wyświetla kilka komponentów `Profile`:
 
@@ -152,7 +152,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-### Co widzi przeglądarka {/_what-the-browser-sees_/}
+### Co widzi przeglądarka {/*what-the-browser-sees*/}
 
 Zauważ różnicę w wielkości liter:
 
@@ -170,7 +170,7 @@ A sam `Profile` zawiera jeszcze więcej kodu HTML: `<img />`. Ostatecznie, to, c
 </section>
 ```
 
-### Zagnieżdżanie i rozmieszczanie komponentów {/_nesting-and-organizing-components_/}
+### Zagnieżdżanie i rozmieszczanie komponentów {/*nesting-and-organizing-components*/}
 
 Komponenty są zwykłymi funkcjami javascriptowymi, dzięki czemu możesz mieć kilka komponentów w tym samym pliku. Jest to wygodne, gdy komponenty są małe lub mocno ze sobą powiązane. Jeśli jednak plik zacznie robić się długi i skomplikowany, zawsze możesz przenieść `Profile` do osobnego pliku. Wkrótce dowiesz się, jak to zrobić, na [stronie o importach](/learn/importing-and-exporting-components).
 
@@ -203,7 +203,7 @@ Masz za sobą przedsmak tego, co potrafi React! Zróbmy małe podsumowanie.
 
 <Challenges>
 
-### Wyeksportuj komponent {/_export-the-component_/}
+### Wyeksportuj komponent {/*export-the-component*/}
 
 Poniższy sandbox nie działa, ponieważ główny komponent nie jest wyeksportowany:
 
@@ -255,7 +255,7 @@ Być może zastanawiasz się, dlaczego nie wystarczyło napisać `export`? Róż
 
 </Solution>
 
-### Napraw zwracaną wartość {/_fix-the-return-statement_/}
+### Napraw zwracaną wartość {/*fix-the-return-statement*/}
 
 Coś jest nie tak z tą instrukcją `return`. Potrafisz to naprawić?
 
@@ -321,7 +321,7 @@ img { height: 180px; }
 
 </Solution>
 
-### Znajdź pomyłkę {/_spot-the-mistake_/}
+### Znajdź pomyłkę {/*spot-the-mistake*/}
 
 Coś jest nie tak z definicją i użyciem komponentu `Profile`. Potrafisz znaleźć pomyłkę? (Spróbuj przypomnieć sobie, jak React odróżnia komponenty od zwykłych znaczników HTML-owych!)
 
@@ -393,7 +393,7 @@ img { margin: 0 10px 10px 0; }
 
 </Solution>
 
-### Napisz swój własny komponent {/_your-own-component_/}
+### Napisz swój własny komponent {/*your-own-component*/}
 
 Napisz komponent od zera. Możesz nadać mu dowolną poprawną nazwę i zwrócić dowolną strukturę znaczników. Jeśli brakuje ci pomysłów, stwórz komponent `Congratulations`, który wyświetla `<h1>Dobra robota!</h1>`. Nie zapomnij go wyeksportować!
 

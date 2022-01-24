@@ -8,7 +8,7 @@ Użyj narzędzi deweloperskich dla Reacta, aby zbadać [komponenty reactowe](/le
 
 </Intro>
 
-## Rozszerzenie dla przeglądarki {/_browser-extension_/}
+## Rozszerzenie dla przeglądarki {/*browser-extension*/}
 
 Najprostszym sposobem na debugowanie stron internetowych stworzonych w Reakcie jest zainstalowanie rozszerzenia dla przeglądarki o nazwie React Developer Tools (_pol._ narzędzia deweloperskie dla Reacta). Jest ono dostępne dla kilku popularnych przeglądarek:
 
@@ -20,7 +20,7 @@ Teraz, gdy wejdziesz na stronę **zbudowaną w Reakcie**, zobaczysz dodatkowe za
 
 ![Narzędzia deweloperskie dla Reacta w przeglądarce](/images/docs/react-devtools-extension.png)
 
-### Safari i inne przeglądarki {/_safari-and-other-browsers_/}
+### Safari i inne przeglądarki {/*safari-and-other-browsers*/}
 
 Jeśli używasz innej przeglądarki (na przykład Safari), zainstaluj pakiet npm-owy o nazwie [`react-devtools`](https://www.npmjs.com/package/react-devtools):
 
@@ -52,7 +52,7 @@ Na koniec odśwież stronę w przeglądarce, aby podejrzeć ją w narzędziach d
 
 ![Narzędzia deweloperskie dla Reacta - wersja samodzielna](/images/docs/react-devtools-standalone.png)
 
-## Aplikacje mobilne (React Native) {/_mobile-react-native_/}
+## Aplikacje mobilne (React Native) {/*mobile-react-native*/}
 
 Narzędzi deweloperskicj dla Reacta można z powodzeniem używać do podglądania aplikacji napisanych w [React Native](https://reactnative.dev/) as well.
 
