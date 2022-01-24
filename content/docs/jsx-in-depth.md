@@ -231,7 +231,11 @@ Nie zalecamy jednak *nie* przekazywania żadnej wartości, ponieważ może być 
 
 ### Właściwości rozszczepione (ang. *spread*) {#spread-attributes}
 
+<<<<<<< HEAD
 Jeżeli zmienna `props` jest obiektem, a chcesz przekazać ją w JSX, możesz użyć operatora rozszczepienia (`...`). Poniższe implementacje komponentów są równoznaczne:
+=======
+If you already have `props` as an object, and you want to pass it in JSX, you can use `...` as a "spread" syntax to pass the whole props object. These two components are equivalent:
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
 
 ```js{7}
 function App1() {
@@ -244,7 +248,11 @@ function App2() {
 }
 ```
 
+<<<<<<< HEAD
 Możesz również wybrać poszczególne atrybuty, których będzie potrzebował twój komponent, a pozostałe przekazać do jego dzieci używając operatora rozszczepienia.
+=======
+You can also pick specific props that your component will consume while passing all other props using the spread syntax.
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
 
 ```js{2}
 const Button = props => {

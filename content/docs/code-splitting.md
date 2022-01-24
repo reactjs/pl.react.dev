@@ -184,22 +184,34 @@ Decyzja o tym, w których miejscach podzielić kod aplikacji, może okazać się
 
 Dobrym punktem startowym są ścieżki (ang. *routes*) w aplikacji. Większość ludzi korzystających z Internetu przyzwyczajona jest, że przejście pomiędzy stronami zajmuje trochę czasu. Dodatkowo, zazwyczaj podczas takiego przejścia spora część ekranu jest renderowana ponownie. Można więc założyć, że użytkownik nie będzie wykonywał żadnych akcji na interfejsie podczas ładowania.
 
+<<<<<<< HEAD
 Oto przykład skonfigurowania dzielenia kodu aplikacji opartego na ścieżkach, przy użyciu biblioteki [React Router](https://reacttraining.com/react-router/) wraz z funkcją `React.lazy`.
+=======
+Here's an example of how to setup route-based code splitting into your app using libraries like [React Router](https://reactrouter.com/) with `React.lazy`.
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
 
 ```js
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));
 
 const App = () => (
   <Router>
+<<<<<<< HEAD
     <Suspense fallback={<div>Wczytywanie...</div>}>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
       </Switch>
+=======
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
     </Suspense>
   </Router>
 );
