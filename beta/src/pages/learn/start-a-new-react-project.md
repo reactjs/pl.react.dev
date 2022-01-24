@@ -8,7 +8,7 @@ Jeśli dopiero uczysz się Reacta lub planujesz dodać go do istniejącego proje
 
 </Intro>
 
-## Wybierz własną przygodę {/_choose-your-own-adventure_/}
+## Wybierz własną przygodę {/*choose-your-own-adventure*/}
 
 React jest biblioteką, która pozwala zorganizować kod UI poprzez jego podział na tak zwane komponenty. React nie zajmuje się routingiem czy zarządzaniem danymi - jeśli są ci potrzebne, rozważ użycie bibliotek zewnętrznych lub napisanie własnego rozwiązania. Oznacza to jednak, że projekt reactowy można wystartować na kilka sposobów:
 
@@ -17,7 +17,7 @@ React jest biblioteką, która pozwala zorganizować kod UI poprzez jego podzia�
 
 Bez względu na to, czy dopiero zaczynasz, planujesz stworzyć coś wielkiego czy chcesz skonstruować swój własny zestaw narzędzi, ten poradnik nakieruje cię na właściwą drogę.
 
-## Start z zestawem narzędzi reactowych {/_getting-started-with-a-react-toolchain_/}
+## Start z zestawem narzędzi reactowych {/*getting-started-with-a-react-toolchain*/}
 
 Jeśli dopiero zaczynasz przygodę z Reactem, polecamy skorzystać z [Create React App](https://create-react-app.dev/), najpopularniejszego skryptu do eksperymentowania z Reactem i jednocześnie świetnego narzędzia do budowania nowych single-page applications (_pol._ jednostronnicowych aplikacji) działających po stronie klienta. Create React App jest otwartym zestawem narzędzi skonfigurowanych wprost pod Reacta. Zestawy narzędzi pomagają między innymi w:
 
@@ -48,7 +48,7 @@ Po więcej informacji [sięgnij do oficjalnego poradnika](https://create-react-a
 
 > Create React App nie obsługuje logiki backendowej ani baz danych; tworzy jedynie frontendowy potok budujący (_ang._ build pipeline). Oznacza to, że możesz go używać z dowolnym backendem. Jeśli jednak szukasz dodatkowych funkcjonalności, jak routing czy server-side logic (_pol._ logika po stronie serwera), czytaj dalej!
 
-### Inne opcje {/_other-options_/}
+### Inne opcje {/*other-options*/}
 
 Create React App jest świetny na początek przygody z Reactem, lecz jeśli zależy ci na lżejszym i szybszym zestawie narzędzi, wypróbuj jednego z poniższych:
 
@@ -56,18 +56,18 @@ Create React App jest świetny na początek przygody z Reactem, lecz jeśli zale
 - [Parcel](https://parceljs.org/)
 - [Snowpack](https://www.snowpack.dev/tutorials/react)
 
-## Budowanie przy pomocy Reacta i frameworku {/_building-with-react-and-a-framework_/}
+## Budowanie przy pomocy Reacta i frameworku {/*building-with-react-and-a-framework*/}
 
 Jeśli planujesz rozpocząć większy projekt produkcyjny, zacznij od [Next.js](https://nextjs.org/). Next.js to popularny, lekki framework do tworzenia aplikacji statycznych i renderowanych po stronie serwera, zbudowanych przy użyciu Reacta. Wraz z nim otrzymasz takie funkcjonalności jak: routing, stylowanie czy renderowanie po stronie serwera, co znacznie przyspieszy początkową fazę projektu.
 
 Więcej informacji o tym, jak [zacząć projekt z Next.js](https://nextjs.org/docs/getting-started) znajdziesz w oficjalnym poradniku.
 
-### Inne opcje {/_other-options-1_/}
+### Inne opcje {/*other-options-1*/}
 
 - [Gatsby](https://www.gatsbyjs.org/) pozwala na generowanie statycznych stron internetowych napisanych z użyciem Reacta i GraphQL.
 - [Razzle](https://razzlejs.org/) jest frameworkiem renderującym po stronie serwera, który nie wymaga żadnej konfiguracji, a mimo to jest bardziej elastyczny niż Next.js.
 
-## Własny zestaw narzędzi {/_custom-toolchains_/}
+## Własny zestaw narzędzi {/*custom-toolchains*/}
 
 Być może jednak interesuje cię stworzenie i skonfigurowanie własnego zestawu narzędzi. Taki zestaw do budowania w JavaScripcie zwykle składa się z:
 

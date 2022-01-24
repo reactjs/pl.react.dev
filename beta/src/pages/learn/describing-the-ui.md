@@ -21,7 +21,7 @@ React is a JavaScript library for rendering user interfaces (UI). UI is built fr
 
 </YouWillLearn>
 
-## Your first component {/_your-first-component_/}
+## Your first component {/*your-first-component*/}
 
 React applications are built from isolated pieces of UI called "components". A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a `Gallery` component rendering three `Profile` components:
 
@@ -59,7 +59,7 @@ Read **[Twój pierwszy komponent](/learn/your-first-component)** to learn how to
 
 </LearnMore>
 
-## Importing and exporting components {/_importing-and-exporting-components_/}
+## Importing and exporting components {/*importing-and-exporting-components*/}
 
 You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can _export_ a component into its own file, and then _import_ that component from another file:
 
@@ -108,7 +108,7 @@ Read **[Importing and Exporting Components](/learn/importing-and-exporting-compo
 
 </LearnMore>
 
-## Writing markup with JSX {/_writing-markup-with-jsx_/}
+## Writing markup with JSX {/*writing-markup-with-jsx*/}
 
 Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.
 
@@ -181,7 +181,7 @@ Read **[Writing Markup with JSX](/learn/writing-markup-with-jsx)** to learn how 
 
 </LearnMore>
 
-## JavaScript in JSX with curly braces {/_javascript-in-jsx-with-curly-braces_/}
+## JavaScript in JSX with curly braces {/*javascript-in-jsx-with-curly-braces*/}
 
 JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to "open a window" to JavaScript:
 
@@ -237,7 +237,7 @@ Read **[JavaScript in JSX with Curly Braces](/learn/javascript-in-jsx-with-curly
 
 </LearnMore>
 
-## Przekazywanie wartości do komponentu {/_passing-props-to-a-component_/}
+## Przekazywanie wartości do komponentu {/*passing-props-to-a-component*/}
 
 React components use _props_ to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!
 
@@ -308,7 +308,7 @@ Read **[Przekazywanie wartości do komponentu](/learn/passing-props-to-a-compone
 
 </LearnMore>
 
-## Conditional rendering {/_conditional-rendering_/}
+## Conditional rendering {/*conditional-rendering*/}
 
 Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, `&&`, and `? :` operators.
 
@@ -347,7 +347,7 @@ Read **[Conditional Rendering](/learn/conditional-rendering)** to learn the diff
 
 </LearnMore>
 
-## Rendering lists {/_rendering-lists_/}
+## Rendering lists {/*rendering-lists*/}
 
 You will often want to display multiple similar components from a collection of data. You can use JavaScript's `filter()` and `map()` with React to filter and transform your array of data into an array of components.
 
@@ -458,7 +458,7 @@ Read **[Rendering Lists](/learn/rendering-lists)** to learn how to render a list
 
 </LearnMore>
 
-## Keeping components pure {/_keeping-components-pure_/}
+## Keeping components pure {/*keeping-components-pure*/}
 
 Some JavaScript functions are “pure.” A pure function:
 
@@ -519,7 +519,7 @@ Read **[Keeping Components Pure](/learn/keeping-components-pure)** to learn how 
 
 </LearnMore>
 
-## What's next? {/_whats-next_/}
+## What's next? {/*whats-next*/}
 
 Head over to [Twój pierwszy komponent](/learn/your-first-component) to start reading this chapter page by page!
 
