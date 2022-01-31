@@ -39,7 +39,11 @@ Aby wyrenderować reactowy element w węźle drzewa DOM, przekaż oba do [`React
 
 `embed:rendering-elements/render-an-element.js`
 
+<<<<<<< HEAD
 [Przetestuj kod na CodePen](codepen://rendering-elements/render-an-element)
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
 
 Na stronie wyświetli się napis "Witaj, świecie!".
 
@@ -53,7 +57,11 @@ Rozważ ten przykład tykającego zegara:
 
 `embed:rendering-elements/update-rendered-element.js`
 
+<<<<<<< HEAD
 [Przetestuj kod na CodePen](codepen://rendering-elements/update-rendered-element)
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
 
 Wywołuje on [`ReactDOM.render()`](/docs/react-dom.html#render) z wewnątrz funkcji zwrotnej [`setInterval()`](https://developer.mozilla.org/pl/docs/Web/API/Window/setInterval) co sekundę.
 
@@ -67,7 +75,11 @@ Wywołuje on [`ReactDOM.render()`](/docs/react-dom.html#render) z wewnątrz funk
 
 React DOM porównuje element i jego potomków do poprzedniego oraz nakłada tylko te aktualizacje drzewa DOM, które konieczne są do doprowadzenia go do pożądanego stanu.
 
+<<<<<<< HEAD
 Możesz to sprawdzić przez zbadanie (ang. *inspect*) [ostatniego przykładu](codepen://rendering-elements/update-rendered-element) przy użyciu narzędzi deweloperskich:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
 
 ![inspektor DOM pokazujący cząstkowe aktualizacje](../images/docs/granular-dom-updates.gif)
 

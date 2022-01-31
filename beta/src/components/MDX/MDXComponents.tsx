@@ -135,10 +135,22 @@ function MathI({children}: {children: any}) {
   );
 }
 
+<<<<<<< HEAD
 function YouWillLearn({children}: {children: any}) {
   return (
     <SimpleCallout title="W tej sekcji dowiesz się">{children}</SimpleCallout>
   );
+=======
+function YouWillLearn({
+  children,
+  isChapter,
+}: {
+  children: any;
+  isChapter?: boolean;
+}) {
+  let title = isChapter ? 'In this chapter' : 'You will learn';
+  return <SimpleCallout title={title}>{children}</SimpleCallout>;
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
 }
 
 // TODO: typing.

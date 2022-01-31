@@ -3,14 +3,12 @@
  */
 
 import * as React from 'react';
-import {useCodeSandboxLink} from '@codesandbox/sandpack-react';
-import cn from 'classnames';
+import {UnstyledOpenInCodeSandboxButton} from '@codesandbox/sandpack-react';
 import {IconNewPage} from '../../Icon/IconNewPage';
 
-export const OpenInCodeSandboxButton = ({className}: {className?: string}) => {
-  const url = useCodeSandboxLink();
-
+export const OpenInCodeSandboxButton = () => {
   return (
+<<<<<<< HEAD
     <a
       className={cn(
         'text-sm text-primary dark:text-primary-dark inline-flex items-center hover:text-link duration-100 ease-in transition mx-1',
@@ -27,5 +25,17 @@ export const OpenInCodeSandboxButton = ({className}: {className?: string}) => {
         <IconNewPage className="inline mb-0.5 text-base" /> Forkuj
       </span>
     </a>
+=======
+    <UnstyledOpenInCodeSandboxButton
+      className="text-sm text-primary dark:text-primary-dark inline-flex items-center hover:text-link duration-100 ease-in transition mx-1 ml-3 md:ml-1"
+      title="Open in CodeSandbox">
+      <IconNewPage
+        className="inline mb-0.5 ml-1 mr-1 relative top-px"
+        width=".8em"
+        height=".8em"
+      />
+      <span className="hidden md:block">Fork</span>
+    </UnstyledOpenInCodeSandboxButton>
+>>>>>>> 5f0549c86e7a9c0774e66687d1bc0118a681eb9d
   );
 };

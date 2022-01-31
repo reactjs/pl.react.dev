@@ -8,7 +8,7 @@ React został zaprojektowany z myślą o stopniowym wdrażaniu. Dzięki temu zaw
 
 </Intro>
 
-<YouWillLearn>
+<YouWillLearn isChapter={true}>
 
 - [Jak dodać Reacta do strony HTML](/learn/add-react-to-a-website)
 - [Jak wystartować nowy projekt reactowy](/learn/start-a-new-react-project)
