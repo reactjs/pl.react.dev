@@ -89,11 +89,19 @@ export function Footer() {
               </FooterLink>
             </div>
             <div className="flex flex-col">
+<<<<<<< HEAD
               <FooterLink href="/reference" isHeader={true}>
                 Dokumentacja API
               </FooterLink>
               <FooterLink href="/reference">API Reacta</FooterLink>
               <FooterLink href="/reference/reactdom">API React DOM</FooterLink>
+=======
+              <FooterLink href="/apis" isHeader={true}>
+                API Reference
+              </FooterLink>
+              <FooterLink href="/apis">React APIs</FooterLink>
+              <FooterLink href="/apis/reactdom">React DOM APIs</FooterLink>
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
             </div>
             <div className="flex flex-col sm:col-start-2 xl:col-start-4">
               <FooterLink href="/" isHeader={true}>

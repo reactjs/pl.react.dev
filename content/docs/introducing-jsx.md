@@ -68,7 +68,11 @@ ReactDOM.render(
 );
 ```
 
+<<<<<<< HEAD
 [Przetestuj kod na CodePen](codepen://introducing-jsx)
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
 
 Dla czytelności podzieliliśmy kod JSX na kilka linii. Nie jest to wprawdzie wymagane, ale polecamy również otaczanie go w nawiasy. Pozwoli to uniknąć pułapek związanych z [automatycznym wstawianiem średników](http://stackoverflow.com/q/2846283) w JavaScripcie.
 

@@ -74,7 +74,11 @@ ${css}
     <button
       className="text-sm text-primary dark:text-primary-dark inline-flex items-center hover:text-link duration-100 ease-in transition mx-1"
       onClick={downloadHTML}
+<<<<<<< HEAD
       title="Odśwież Sandpack"
+=======
+      title="Download Sandbox"
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
       type="button">
       <IconArrowSmall
         displayDirection="down"
