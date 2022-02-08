@@ -39,7 +39,7 @@ Aby wyrenderować reactowy element w węźle drzewa DOM, przekaż oba do [`React
 
 `embed:rendering-elements/render-an-element.js`
 
-[Przetestuj kod na CodePen](codepen://rendering-elements/render-an-element)
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Na stronie wyświetli się napis "Witaj, świecie!".
 
@@ -53,7 +53,7 @@ Rozważ ten przykład tykającego zegara:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[Przetestuj kod na CodePen](codepen://rendering-elements/update-rendered-element)
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
 Wywołuje on [`ReactDOM.render()`](/docs/react-dom.html#render) z wewnątrz funkcji zwrotnej [`setInterval()`](https://developer.mozilla.org/pl/docs/Web/API/Window/setInterval) co sekundę.
 
@@ -67,7 +67,7 @@ Wywołuje on [`ReactDOM.render()`](/docs/react-dom.html#render) z wewnątrz funk
 
 React DOM porównuje element i jego potomków do poprzedniego oraz nakłada tylko te aktualizacje drzewa DOM, które konieczne są do doprowadzenia go do pożądanego stanu.
 
-Możesz to sprawdzić przez zbadanie (ang. *inspect*) [ostatniego przykładu](codepen://rendering-elements/update-rendered-element) przy użyciu narzędzi deweloperskich:
+Możesz to sprawdzić przez zbadanie (ang. *inspect*) [ostatniego przykładu](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) przy użyciu narzędzi deweloperskich:
 
 ![inspektor DOM pokazujący cząstkowe aktualizacje](../images/docs/granular-dom-updates.gif)
 

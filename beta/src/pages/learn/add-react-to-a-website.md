@@ -240,7 +240,7 @@ Jeśli czujesz się już pewnie z narzędziami do budowania i chcesz, żeby robi
 Pierwotnie JSX został stworzony po to, aby pisanie komponentów w Reakcie było podobne do pisania kodu HTML. Od tamtej pory używa się go dość powszechnie. Mimo to, czasem możesz nie chcieć lub nie móc użyć JSX-a. Wtedy masz dwie opcje:
 
 - Użyć alternatywy dla JSX, np. [htm](https://github.com/developit/htm), która nie korzysta z kompilatora - zamiast tego operuje na natywnych dla JavaScriptu "Tagged Templates".
-- Użyć funkcji [`React.createElement()`](/reference/createelement), która ma specyficzną strukturę, opisaną poniżej.
+- Użyć funkcji [`React.createElement()`](/apis/createelement), która ma specyficzną strukturę, opisaną poniżej.
 
 W składni JSX, komponent wyglądałby tak:
 

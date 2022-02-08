@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-[Przetestuj kod na CodePen](codepen://introducing-jsx)
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Dla czytelności podzieliliśmy kod JSX na kilka linii. Nie jest to wprawdzie wymagane, ale polecamy również otaczanie go w nawiasy. Pozwoli to uniknąć pułapek związanych z [automatycznym wstawianiem średników](http://stackoverflow.com/q/2846283) w JavaScripcie.
 

@@ -76,7 +76,7 @@ ReactDOM.render(
 );
 ```
 
-[Przetestuj kod na CodePen](codepen://components-and-props/rendering-a-component)
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Podsumujmy, co dzieje się w tym przykładzie:
 
@@ -118,7 +118,7 @@ ReactDOM.render(
 );
 ```
 
-[Przetestuj kod na CodePen](codepen://components-and-props/composing-components)
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
 
 Nowe aplikacje reactowe na samej górze drzewa zazwyczaj renderują pojedynczy komponent `App`. Jeśli jednak musisz zintegrować Reacta z istniejącą aplikacją, możesz zacząć od samego dołu, dodając niewielkie komponenty (np. `Button`) i stopniowo przepisywać całą strukturę aż do samej góry.
 
@@ -152,7 +152,7 @@ function Comment(props) {
 }
 ```
 
-[Przetestuj kod na CodePen](codepen://components-and-props/extracting-components)
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/VKQwEo?editors=1010)**
 
 Przyjmuje on obiekt `author`, napis `text` i datę `date` jako właściwości i zwraca strukturę opisującą komentarz na portalu mediów społecznościowych.
 
@@ -231,7 +231,7 @@ function Comment(props) {
 }
 ```
 
-[Przetestuj kod na CodePen](codepen://components-and-props/extracting-components-continued)
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/rrJNJY?editors=1010)**
 
 Wyodrębnianie komponentów może z początku wydawać się żmudnym zajęciem, ale posiadanie palety pozwalających na ponowne użycie komponentów jest opłacalne w większych aplikacjach. Dobrą praktyczną zasadą jest to, że jeśli część twojego interfejsu użytkownika jest używana wielokrotnie (np. `Button`, `Panel`, `Avatar`) lub jest ona dostatecznie skomplikowana sama w sobie (np. `App`, `FeedStory`, `Comment`), jest ona dobrym kandydatem do stania się oddzielnym komponentem.
 
