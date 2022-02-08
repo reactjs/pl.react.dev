@@ -48,16 +48,6 @@ export function MarkdownPage<
           text: 'Wyzwania',
         };
       }
-<<<<<<< HEAD
-      if (child.props.mdxType === 'Recipes') {
-        return {
-          url: '#recipes',
-          depth: 0,
-          text: 'Formuły',
-        };
-      }
-=======
->>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
       if (child.props.mdxType === 'Recap') {
         return {
           url: '#recap',

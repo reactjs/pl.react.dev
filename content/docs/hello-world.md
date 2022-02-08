@@ -17,11 +17,7 @@ ReactDOM.render(
 
 Wyświetli ona na stronie nagłówek "Witaj, świecie".
 
-<<<<<<< HEAD
-**[Przetestuj kod na CodePen](codepen://hello-world)**
-=======
-**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
->>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
+**[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Kliknij w powyższy link, aby otworzyć edytor kodu w przeglądarce.
 Możesz śmiało dokonywać w nim zmian, zobaczysz też jak wpływają one na to,

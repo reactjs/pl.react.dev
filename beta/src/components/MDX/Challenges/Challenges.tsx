@@ -128,13 +128,8 @@ export function Challenges({
                 ? 'text-xl text-purple-50 dark:text-purple-30'
                 : 'text-3xl text-link'
             )}>
-<<<<<<< HEAD
-            {isRecipes ? 'Przetestuj formułę' : 'Podejmij wyzwania'}
-          </H2>
-=======
             {titleText}
           </Heading>
->>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
           {challenges.length > 1 && (
             <Navigation
               currentChallenge={currentChallenge}
@@ -148,12 +143,8 @@ export function Challenges({
           <div key={activeChallenge}>
             <h3 className="text-xl text-primary dark:text-primary-dark mb-2">
               <div className="font-bold block md:inline">
-<<<<<<< HEAD
-                {isRecipes ? 'Formuła' : 'Wyzwanie'} {currentChallenge?.order}{' '}
-=======
-                {isRecipes ? 'Example' : 'Challenge'} {currentChallenge.order}{' '}
->>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
-                of {challenges.length}
+                {isRecipes ? 'Przykład' : 'Wyzwanie'} {currentChallenge.order} z{' '}
+                {challenges.length}
                 <span className="text-primary dark:text-primary-dark">: </span>
               </div>
               {currentChallenge.name}
@@ -199,11 +190,7 @@ export function Challenges({
                   setShowSolution(false);
                 }}
                 active>
-<<<<<<< HEAD
-                {isRecipes ? 'Następna formuła' : 'Następne wyzwanie'}
-=======
-                Next {isRecipes ? 'Example' : 'Challenge'}
->>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
+                {isRecipes ? 'Następny przykład' : 'Następne wyzwanie'}
                 <IconArrowSmall
                   displayDirection="right"
                   className="block ml-1.5"
