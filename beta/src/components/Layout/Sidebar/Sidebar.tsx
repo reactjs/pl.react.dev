@@ -46,17 +46,8 @@ export function Sidebar({isMobileOnly}: {isMobileOnly?: boolean}) {
           <SidebarRouteTree routeTree={routeTree} />
         )}
       </nav>
-<<<<<<< HEAD
-      <div className="px-5 py-3 sticky bottom-0 lg:px-5 w-full hidden lg:flex items-center bg-gradient-to-t from-wash dark:from-wash-dark">
-        <Button
-          className="w-full text-center justify-center"
-          onClick={handleFeedback}>
-          {feedbackIcon} Podziel się opinią
-        </Button>
-=======
       <div className="sticky bottom-0 hidden lg:block">
         <Feedback />
->>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
       </div>
     </aside>
   );
