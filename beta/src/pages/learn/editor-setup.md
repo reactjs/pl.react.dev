@@ -15,7 +15,7 @@ Prawidłowo skonfigurowany edytor może sprawić, że kod będzie łatwiejszy w 
 Społeczność Reacta używa także:
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) — zintegrowane środowisko deweloperskie zaprojektowane specjalnie do pracy z JavaScriptem.
-- [Sublime Text](https://www.sublimetext.com/) — posiada wbudowane wsparcie dla JSX oraz TypeScriptu, podświetlanie składni i autouzupełnianie.
+- [Sublime Text](https://www.sublimetext.com/) — posiada wbudowane wsparcie dla JSX oraz TypeScriptu, [podświetlanie składni](https://stackoverflow.com/a/70960574/458193) i autouzupełnianie.
 - [Vim](https://www.vim.org/) — elastyczny edytor tekstu stworzony do efektywnego pisania i modyfikowania dowolnego tekstu. W większości systemów UNIX-owych oraz w Apple OS X występuje pod nazwą "vi".
 
 ## Zalecane funkcje edytora tekstu {/*recommended-text-editor-features*/}

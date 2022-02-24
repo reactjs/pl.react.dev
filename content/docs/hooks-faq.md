@@ -97,8 +97,6 @@ Nie możesz używać hooków *wewnątrz* komponentów klasowych, jednakże bez o
 
 Naszym celem dla hooków jest zapewnienie wszystkich przypadków użycia klas, tak szybko jak to tylko możliwe. Brakuje jeszcze odpowiedników dla kilku rzadziej używanych metod cyklu życia komponentu, takich jak `getSnapshotBeforeUpdate`, `getDerivedStateFromError` i `componentDidCatch`, ale zamierzamy je wkrótce dodać.
 
-Ze względu na to, że hooki pojawiły się całkiem niedawno, niektóre biblioteki firm trzecich mogą być z nimi niekompatybilne.
-
 ### Czy hooki zastępują "właściwości renderujące" i komponenty wyższego rzędu? {#do-hooks-replace-render-props-and-higher-order-components}
 
 Zazwyczaj właściwości renderujace i komponenty wyższego rzędu renderują tylko pojedynczy komponent potomny. Sądzimy, że hooki są prostszym sposobem na obsługę tego przypadku użycia. Nadal jest miejsce dla obu wzorców (dla przykładu, wirtualny komponent do obsługi suwaka może mieć właściwość `renderItem`, a prezentacyjny komponent kontenera może mieć swoją własną strukturę DOM). Jednak w większości przypadków hooki w zupełności wystarczą, a przy okazji pomogą zmniejszyć liczbę zagnieżdżeń w drzewie.

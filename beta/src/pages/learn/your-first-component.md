@@ -102,7 +102,7 @@ Instrukcje wyjścia (_ang._ return statements) mogą być napisane w jednej lini
 return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
 ```
 
-lecz jeśli znaczniki nie znajdują się w tej samej linii co instrukcja wyjścia, musisz otoczyć je parą nawiasów:
+lecz jeśli znaczniki nie znajdują się w tej samej linii co słowo kluczowe `return`, musisz otoczyć je parą nawiasów:
 
 ```js
 return (
