@@ -33,6 +33,7 @@ Pora sprawdzić, jak to działa - do dzieła!
 W poniższym przykładzie deklarujemy zmienną `name`, a następnie używamy jej wewnątrz JSX, po prostu otaczając ją nawiasami klamrowymi:
 
 ```js{1,2}
+<<<<<<< HEAD
 const name = 'Gracjan';
 const element = <h1>Witaj, {name}</h1>;
 
@@ -40,6 +41,10 @@ ReactDOM.render(
   element,
   document.getElementById('root')
 );
+=======
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 ```
 
 Zauważ, że dowolne [wyrażenie JavaScriptowe](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) możesz osadzić w JSX poprzez otoczenie go klamrami. Przykładowo, możesz użyć `2 + 2`, `user.firstName` czy `formatName(user)`, jako że są to prawidłowe wyrażenia w języku JavaScript. 
@@ -60,11 +65,6 @@ const element = (
   <h1>
     Witaj, {formatName(user)}!
   </h1>
-);
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
 );
 ```
 

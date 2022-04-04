@@ -39,6 +39,7 @@ JSX jest rozszerzeniem składni JavaScript. Przypomina języki szablonów, jedna
 
 React DOM do nazywania właściwości używa konwencji camelCase zamiast nazw atrybutów HTML. Na przykład, `tabindex` jest zapisywany w składni JSX jako `tabIndex`. Z kolei atrybut `class` piszemy jako `className` ze względu na fakt, iż `class` jest w JavaScripcie zarezerwowanym słowem kluczowym:
 
+<<<<<<< HEAD
 ```js
 const name = 'Klementyna';
 ReactDOM.render(
@@ -46,6 +47,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```  
+=======
+```jsx
+<h1 className="hello">My name is Clementine!</h1>
+```
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ## [Elementy](/docs/rendering-elements.html) {#elements}
 

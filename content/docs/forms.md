@@ -275,10 +275,14 @@ Określenie właściwości (ang. *prop*) `value` [komponentu kontrolowanego](/do
 Kod poniżej ilustruje ten problem. (Element `input` jest początkowo zablokowany, ale po krótkiej chwili jego zawartość można edytować.)
 
 ```javascript
+<<<<<<< HEAD
 ReactDOM.render(<input value="Cześć" />, mountNode);
+=======
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 ```
 

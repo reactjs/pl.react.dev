@@ -148,7 +148,7 @@ Przetestujemy go używając React DOM. Aby upewnić się, że zachowanie kompone
 
 ```js{3,20-22,29-31}
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Counter from './Counter';
 
@@ -167,7 +167,7 @@ afterEach(() => {
 it('potrafi wyrenderować i zaktualizować licznik', () => {
   // Testuje pierwsze renderowanie i efekt
   act(() => {
-    ReactDOM.render(<Counter />, container);
+    ReactDOM.createRoot(container).render(<Counter />);
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');

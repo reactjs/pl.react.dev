@@ -159,7 +159,11 @@ render() {
   const count = 0;
   return (
     <div>
+<<<<<<< HEAD
       { count && <h1>Wiadomości: {count}</h1>}
+=======
+      {count && <h1>Messages: {count}</h1>}
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
     </div>
   );
 }

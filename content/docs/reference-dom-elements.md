@@ -117,7 +117,11 @@ Zwykle gdy element posiadający potomka jest oznaczony jako `contentEditable`, p
 
 Gdy używasz renderowania po stronie serwera (ang. *server-side*), zwykle pojawia się ostrzeżenie, gdy serwer i klient renderują inną zawartość. Jednakże, w niektórych rzadkich przypadkach, dokładne dopasowanie jest bardzo trudne lub niemożliwe do osiągnięcia. Na przykład, znaczniki czasu zwykle różnią się między serwerem i klientem.
 
+<<<<<<< HEAD
 Jeżeli ustawisz właściwość `suppressHydrationWarning` na `true`, React nie ostrzeże cię o niedopasowaniu atrybutów i zawartości tego elementu. Działa to tylko na jednym poziomie zagłębienia i jest używane jako "wyjście awaryjne" z problemu. Nie nadużywaj go. Możesz poczytać więcej o odtwarzaniu struktury (ang. *hydration*) w [dokumentacji funkcji `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
+=======
+If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ### value {#value}
 
