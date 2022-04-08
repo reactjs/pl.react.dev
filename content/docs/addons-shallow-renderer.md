@@ -59,7 +59,7 @@ Testowanie płytkie posiada obecnie pewne ograniczenia, jak choćby brak wsparci
 
 `shallowRenderer` jest "miejscem", w którym można wyrenderować testowany komponent i otrzymać zwracaną przez niego strukturę.
 
-`shallowRenderer.render()` w działaniu przypomina [`ReactDOM.render()`](/docs/react-dom.html#render), jednak nie wymaga obecności drzewa DOM, a ponadto renderuje tylko jeden poziom struktury. Oznacza to, iż doskonale nadaje się do testowania komponentów w izolacji, bez brania pod uwagę implementacji komponentów potomnych.
+`shallowRenderer.render()` w działaniu przypomina [`root.render()`](/docs/react-dom-client.html#createroot), jednak nie wymaga obecności drzewa DOM, a ponadto renderuje tylko jeden poziom struktury. Oznacza to, iż doskonale nadaje się do testowania komponentów w izolacji, bez brania pod uwagę implementacji komponentów potomnych.
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 

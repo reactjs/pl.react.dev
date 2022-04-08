@@ -74,11 +74,12 @@ function LikeButton() {
 
 ### Krok 4: Dodaj swój komponent reactowy do strony {/*step-4-add-your-react-component-to-the-page*/}
 
-Wreszcie, dodaj poniższe dwie linie na końcu pliku **like_button.js**. Odpowiadają one za znalezienie elementu `<div>` dodanego przez ciebie w kroku pierwszym, a następnie wyświetlenie wewnątrz niego przycisku "Lubię to".
+Wreszcie, dodaj poniższe trzy linie na końcu pliku **like_button.js**. Odpowiadają one za znalezienie elementu `<div>` dodanego przez ciebie w kroku pierwszym, stworzenie w nim aplikacji reactowej, a następnie wyświetlenie wewnątrz niego przycisku "Lubię to".
 
 ```js
 const domContainer = document.getElementById('tutaj-bedzie-komponent');
-ReactDOM.render(React.createElement(LikeButton), domContainer);
+const root = ReactDOM.createRoot(domContainer);
+root.render(React.createElement(LikeButton));
 ```
 
 **Gratulacje! Właśnie udało ci się wyrenderować swój pierwszy komponent reactowy na swojej stronie!**
@@ -88,21 +89,21 @@ ReactDOM.render(React.createElement(LikeButton), domContainer);
 
 #### Możesz używać komponentów wielokrotnie! {/*you-can-reuse-components*/}
 
-Czasem chcemy wyświetlić któryś z komponentów reactowych w kilku miejscach na tej samej stronie HTML-owej. Najlepiej sprawdza się to, gdy części strony obsługiwane przez Reacta są od siebie odizolowane. Żeby tego dokonać, wywołaj `ReactDOM.render()` wielokrotnie na kilku elementach-kontenerach.
+Czasem chcemy wyświetlić któryś z komponentów reactowych w kilku miejscach na tej samej stronie HTML-owej. Najlepiej sprawdza się to, gdy części strony obsługiwane przez Reacta są od siebie odizolowane. Żeby tego dokonać, wywołaj `ReactDOM.createRoot()` wielokrotnie na kilku elementach-kontenerach.
 
 1. W pliku **index.html** dodaj drugi kontener `<div id="tutaj-tez-bedzie-komponent"></div>`.
 2. W pliku **like_button.js** dodaj drugie wywołanie `ReactDOM.render()`, tym razem dla nowego kontenera:
 
 ```js {6,7,8,9}
-ReactDOM.render(
-  React.createElement(LikeButton),
+const root1 = ReactDOM.createRoot(
   document.getElementById('tutaj-bedzie-komponent')
 );
+root1.render(React.createElement(LikeButton));
 
-ReactDOM.render(
-  React.createElement(LikeButton),
+const root2 = ReactDOM.createRoot(
   document.getElementById('tutaj-tez-bedzie-komponent')
 );
+root2.render(React.createElement(LikeButton));
 ```
 
 Sprawdź [przykład, który wyświetla przycisk "Lubię to" trzy razy i przekazuje do niego dane](https://gist.github.com/rachelnabors/c0ea05cc33fbe75ad9bbf78e9044d7f8)!
@@ -167,8 +168,8 @@ Od teraz możesz aktywować składnię JSX w dowolnym znaczniku `<script>` poprz
 
 ```jsx {1}
 <script type="text/babel">
-  ReactDOM.render(
-  <h1>Witaj, świecie!</h1>, document.getElementById('root') );
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<h1>Witaj, świecie!</h1>);
 </script>
 ```
 

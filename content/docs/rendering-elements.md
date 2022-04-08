@@ -35,7 +35,7 @@ Ten węzeł drzewa DOM nazywamy "korzeniem", bo wszystko, co się w nim znajduje
 
 Aplikacje zbudowane przy pomocy samego Reacta zazwyczaj posiadają pojedynczy węzeł drzewa DOM. Jeśli natomiast integrujesz reactową aplikację z już istniejącą aplikacją, możesz mieć tyle odizolowanych "korzeni", ile chcesz.
 
-Aby wyrenderować reactowy element w węźle drzewa DOM, przekaż oba do [`ReactDOM.render()`](/docs/react-dom.html#render):
+Aby wyrenderować reactowy element w węźle drzewa DOM, najpierw przekaż element DOM do [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), a następnie przekaż element reactowy do `root.render()`:
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -47,7 +47,7 @@ Na stronie wyświetli się napis "Witaj, świecie!".
 
 Reactowe elementy są [niezmienne](https://en.wikipedia.org/wiki/Immutable_object) (ang. *immutable*). Kiedy już stworzysz element, nie możesz zmienić jego komponentów potomnych ani właściwości. Element jest jak pojedyncza klatka z filmu: reprezentuje interfejs użytkownika w pewnym punkcie czasu.
 
-Przy naszej dotychczasowej wiedzy, jedynym sposobem aktualizacji interfejsu użytkownika jest stworzenie nowego elementu i przekazanie go do [`ReactDOM.render()`](/docs/react-dom.html#render).
+Przy naszej dotychczasowej wiedzy, jedynym sposobem aktualizacji interfejsu użytkownika jest stworzenie nowego elementu i przekazanie go do `root.render()`.
 
 Rozważ ten przykład tykającego zegara:
 
@@ -55,11 +55,11 @@ Rozważ ten przykład tykającego zegara:
 
 **[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
-Wywołuje on [`ReactDOM.render()`](/docs/react-dom.html#render) z wewnątrz funkcji zwrotnej [`setInterval()`](https://developer.mozilla.org/pl/docs/Web/API/Window/setInterval) co sekundę.
+Wywołuje on [`root.render()`](/docs/react-dom.html#render) z wewnątrz funkcji zwrotnej [`setInterval()`](https://developer.mozilla.org/pl/docs/Web/API/Window/setInterval) co sekundę.
 
 >**Wskazówka:**
 >
->W praktyce większość reactowych aplikacji wywołuje [`ReactDOM.render()`](/docs/react-dom.html#render) tylko raz. W kolejnych rozdziałach dowiemy się, jak można taki kod wyizolować do [komponentów stanowych](/docs/state-and-lifecycle.html).
+>W praktyce większość reactowych aplikacji wywołuje `root.render()` tylko raz. W kolejnych rozdziałach dowiemy się, jak można taki kod wyizolować do [komponentów stanowych](/docs/state-and-lifecycle.html).
 >
 >Radzimy jednak nie pomijać żadnych tematów, ponieważ kolejne rozdziały oparte są o wiedzę z poprzednich.
 

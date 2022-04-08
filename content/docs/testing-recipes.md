@@ -605,7 +605,7 @@ Zazwyczaj jednak, zamiast porównywać snapshoty, zaleca się wykonywać bardzie
 
 ### Wiele silników renderujących {#multiple-renderers}
 
-W rzadkich przypadkach możesz natknąć się test komponentu, który korzysta z wielu silników renderujących. Na przykład, test snapshotowy może używać paczki `react-test-renderer`, która wewnętrznie korzysta z silnika `ReactDOM.render` dla komponentu potomnego w celu wyrenderowania jakiejś treści. W takim przypadku możesz opakować aktualizacje drzewa komponentów w funkcje `act()` właściwe odpowiednim silnikom renderującym.
+W rzadkich przypadkach możesz natknąć się test komponentu, który korzysta z wielu silników renderujących. Na przykład, test snapshotowy może używać paczki `react-test-renderer`, która wewnętrznie korzysta z `render` z pakietu `react-dom` dla komponentu potomnego w celu wyrenderowania jakiejś treści. W takim przypadku możesz opakować aktualizacje drzewa komponentów w funkcje `act()` właściwe odpowiednim silnikom renderującym.
 
 ```jsx
 import { act as domAct } from "react-dom/test-utils";

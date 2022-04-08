@@ -80,13 +80,6 @@ Kiedy używasz [Babela](https://babeljs.io/), musisz się upewnić, że jest on 
 
 ## `React.lazy` {#reactlazy}
 
-> Uwaga:
->
-> `React.lazy` i `Suspense` nie są jeszcze dostępne dla renderowania po stronie serwera.
-> Jeśli chcesz dzielić kod dla aplikacji renderowanej na serwerze, sugerujemy skorzystać 
-> z pakietu [Loadable Components](https://github.com/gregberge/loadable-components).  
-> Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://loadable-components.com/docs/server-side-rendering/).
-
 Funkcja `React.lazy` pozwala renderować dynamicznie importowane komponenty jak zwykłe komponenty.
 
 **Przed:**
@@ -149,6 +142,50 @@ function MyComponent() {
   );
 }
 ```
+
+### Unikanie zastępników {#avoiding-fallbacks}
+Każdy komponent może zawiesić działanie na skutek renderowania, nawet taki, który już został wcześniej wyświetlony użytkownikowi. Aby zapewnić spójność treści na ekranie, w takim przypadku React musi ukryć jego poddrzewo elementów aż do najbliższej granicy `<Suspense>`. Może to jednak zdezorientować użytkownika.
+
+Załóżmy, że mamy poniższy komponent zarządzający zmienianiem zakładek:
+
+```js
+import React, { Suspense } from 'react';
+import Tabs from './Tabs';
+import Glimmer from './Glimmer';
+
+const Comments = React.lazy(() => import('./Comments'));
+const Photos = React.lazy(() => import('./Photos'));
+
+function MyComponent() {
+  const [tab, setTab] = React.useState('photos');
+  
+  function handleTabSelect(tab) {
+    setTab(tab);
+  };
+  return (
+    <div>
+      <Tabs onTabSelect={handleTabSelect} />
+      <Suspense fallback={<Glimmer />}>
+        {tab === 'photos' ? <Photos /> : <Comments />}
+      </Suspense>
+    </div>
+  );
+}
+```
+
+Jeśli w powyższym przykładzie zakładka zmieni się z `'photos'` na `'comments'`, ale komponent `Comments` zawiesi działanie, na ekranie na chwilę wyświetli się `Glimmer`. Ma to sens, ponieważ użytkownik nie chce już widzieć komponentu `Photos`, zaś komponent `Comments` nie jest jeszcze gotowy na wyrenderowanie treści, a React musi zapewnić spójność zawartości, więc nie ma innego wyjścia, jak tylko wyświetlić komponent `Glimmer`.
+
+Czasem jednak taki ciąg zdarzeń nie jest satysfakcjonujący. Czasem lepiej wyświetlić "stary" widok, podczas gdy nowy jest w trakcie przygotowywania. Można to osiągnąć za pomocą nowej funkcji [`startTransition`](/docs/react-api.html#starttransition):
+
+```js
+function handleTabSelect(tab) {
+  startTransition(() => {
+    setTab(tab);
+  });
+}
+```
+
+Tym poleceniem mówisz Reactowi, że zmiana zakładki na `'comments'` nie jest bardzo pilna, jest jedynie [stanem przejściowym](/docs/react-api.html#transitions), który może chwilę potrwać. React w tym wypadku będzie nadal wyświetlać stary interfejs, który na dodatek będzie w pełni interaktywny. Gdy jednak `<Comments />` skończy się renderować, React podmieni zawartość na ekranie. Aby dowiedzieć się więcej, przejdź do sekcji [stanu przejściowe](/docs/react-api.html#transitions).
 
 ### Granice błędów {#error-boundaries}
 

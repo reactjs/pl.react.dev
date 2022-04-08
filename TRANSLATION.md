@@ -138,6 +138,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | higher-order components | komponenty wyższego rzędu | Za pierwszym razem z dopiskiem (ang. *higher-order components*) |
 | hook | hook | |
 | HTML entities | encje HTML | |
+| hydration | hydratacja | |
 | idea | zagadnienie | |
 | immutable | niezmienny | Za pierwszym razem z dopiskiem (ang. *immutable*) |
 | key | klucz | |
@@ -161,6 +162,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | reusable components | komponenty wielokrotnego użytku | |
 | roadmap | plan działania | |
 | section | podrozdział | Jeśli w ramach tego samego dokumentu, lub rozdział jeśli chodzi o inną stronę |
+| selective hydration | hydratacja selektywna | |
 | shallow rendering | renderowanie płytkie | Za pierwszym razem z dopiskiem (ang. *shallow rendering*) |
 | SPA | aplikacja jednostronicowa | |
 | spread operator | operator rozszczepienia | Za pierwszym razem z dopiskiem (ang. *spread operator*) |
@@ -169,6 +171,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | template literals	| literał szablonowy | |
 | term | pojęcie | |
 | throws an exception | rzuca wyjątek | |
+| time slicing | kwantowanie czasu | |
 | to assert	| wykonać sprawdzenie | (w testach) lub po prostu sprawdzać czy testować |
 | Try it on CodePen	| Przetestuj kod na CodePen | |
 | two-way binding | wiązanie dwukierunkowe | |

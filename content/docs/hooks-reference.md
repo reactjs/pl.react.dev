@@ -24,6 +24,12 @@ Jeżeli pierwszy raz stykasz się z hookami, możesz najpierw sprawdzić rozdzia
   - [`useImperativeHandle`](#useimperativehandle)
   - [`useLayoutEffect`](#uselayouteffect)
   - [`useDebugValue`](#usedebugvalue)
+  - [`useDeferredValue`](#usedeferredvalue)
+  - [`useTransition`](#usetransition)
+  - [`useId`](#useid)
+- [Hooki dla bibliotek](#library-hooks)
+  - [`useSyncExternalStore`](#usesyncexternalstore)
+  - [`useInsertionEffect`](#useinsertioneffect)
 
 ## Podstawowe hooki {#basic-hooks}
 
@@ -132,13 +138,17 @@ useEffect(() => {
 
 Aby zapobiec wyciekom pamięci, funkcja czyszcząca wywoływana jest zanim komponent zostanie usunięty z interfejsu użytkownika. Dodatkowo jeśli komponent jest renderowany kilkukrotnie (co zwykle ma miejsce), **poprzedni efekt jest czyszczony przed wywołaniem kolejnego efektu**. W naszym przykładzie oznacza to, że nowa subskrypcja tworzona jest przy każdej aktualizacji. W kolejnym podrozdziale opisujemy, jak uniknąć wywoływania efektów przy każdej aktualizacji.
 
-#### Harmonogram efektów {#timing-of-effects}
+#### Momenty wywoływania efektów {#timing-of-effects}
 
-W przeciwieństwie do metod `componentDidMount` i `componentDidUpdate` funkcja przekazana do  `useEffect` wywoływana zostanie **po tym** jak skomponowany i namalowany zostanie układ strony. Sprawia to, że nadaje się ona do obsługi wielu typowych efektów ubocznych, takich jak tworzenie subskrypcji czy obsługa zdarzeń. Większość tego typu operacji nie powinna powstrzymywać przeglądarki przed odświeżeniem widoku.
+W przeciwieństwie do metod `componentDidMount` i `componentDidUpdate` funkcja przekazana do `useEffect` wywołana zostanie **po tym**, jak skomponowany i namalowany zostanie układ strony. Sprawia to, że nadaje się ona do obsługi wielu typowych efektów ubocznych, takich jak tworzenie subskrypcji czy obsługa zdarzeń. Większość tego typu operacji nie powinna powstrzymywać przeglądarki przed odświeżeniem widoku.
 
 Jednakże nie wszystkie efekty mogą zostać odroczone. Na przykład manipulacja drzewem DOM, widoczna dla użytkownika, musi zostać wywołana synchronicznie przed każdym malowaniem, tak aby użytkownik nie dostrzegł wizualnej niespójności. (Rozróżnienie to w swej koncepcji podobne jest do pasywnych i aktywnych obserwatorów zdarzeń (ang. *event listeners*).) Dla tego typu efektów React przewiduje dodatkowy hook, nazwany [`useLayoutEffect`](#uselayouteffect). Ma on tę samą sygnaturę co `useEffect`, różnie się jedynie tym, kiedy jest wywoływany.
 
-Pomimo, że wywołanie `useEffect` jest odraczane do czasu, kiedy przeglądarka zakończy malowanie, jest zagwarantowane, że zostanie wykonane przed każdym nowym renderem. React opróżni bufor efektów z poprzednich renderów, zanim rozpocznie nową aktualizację.
+Począwszy od Reacta 18, funkcja przekazana do `useEffect` jest wykonywana synchronicznie **przed** skomponowaniem i namalowaniem układu na stronie, jeżeli wywołanie jej wynika z akcji użytkownika, np. kliknięcia, lub jeśli jest wynikiem aktualizacji opakowanej w [`flushSync`](/docs/react-dom.html#flushsync). Takie zachowanie pozwala na to, by wynik efektu był obserwowalny przez system zdarzeń albo przez kod wywołujący [`flushSync`](/docs/react-dom.html#flushsync).
+
+> Uwaga
+>
+> Dotyczy to jedynie momentu wywołania funkcji przekazanej do `useEffect` - aktualizacje zaplanowane wewnątrz efektu nadal są odraczane. Różni się to od [`useLayoutEffect`](#uselayouteffect), który wywołuje funkcję i przetwarza aktualizacje natychmiast.
 
 #### Warunkowe uruchamianie efektów {#conditionally-firing-an-effect}
 
@@ -467,7 +477,7 @@ Kiedy to tylko możliwe używaj `useEffect` aby uniknąć blokujących aktualiza
 >
 >Jeżeli używasz renderowania po stronie serwera pamiętaj, że *ani* `useLayoutEffect`, *ani* `useEffect` nie może działać dopóki kod JavaScript nie zostanie pobrany. Dlatego React ostrzega jeżeli komponent renderowany po stronie serwera zawiera `useLayoutEffect`. Aby to naprawić możesz albo przenieść logikę korzystającą z `useEffect` (jeżeli nie jest niezbędna przy pierwszym renderze), albo opóźnić wyświetlanie tego komponentu do czasu renderowania po stronie klienta (jeżeli kod HTML wygląda na popsuty przed uruchomieniem `useLayoutEffect`).
 >
->Aby wyłączyć komponent, który korzysta z tego rodzaju efektów z wyrenderowanego po stronie serwera kodu HTML, wyrenderuj go warunkowo, korzystając z zapisu `showChild && <Child />` i opóźnij jego wyświetlanie przy użyciu `useEffect(() => { setShowChild(true); }, [])`. W ten sposób interfejs użytkownika nie będzie wyglądał na zepsuty przed odtworzeniem (ang. *hydration*).
+>Aby wyłączyć komponent, który korzysta z tego rodzaju efektów z wyrenderowanego po stronie serwera kodu HTML, wyrenderuj go warunkowo, korzystając z zapisu `showChild && <Child />` i opóźnij jego wyświetlanie przy użyciu `useEffect(() => { setShowChild(true); }, [])`. W ten sposób interfejs użytkownika nie będzie wyglądał na zepsuty przed hydratacją (ang. *hydration*).
 
 ### `useDebugValue` {#usedebugvalue}
 
@@ -508,3 +518,195 @@ Na przykład własny hook zwracający obiekt `Date` mógłby uniknąć niepotrze
 ```js
 useDebugValue(date, date => date.toDateString());
 ```
+
+### `useDeferredValue` {#usedeferredvalue}
+
+```js
+const deferredValue = useDeferredValue(value);
+```
+
+`useDeferredValue` przyjmuje wartość i zwraca nową kopię oryginalnej wartości, jednak obliczaną z mniejszym priorytetem. Jeśli dany cykl renderowania został wywołany przez pilną aktualizację, np. akcję użytkownika, React zwróci poprzednią wartość, a nową obliczy, gdy owa pilna aktualizacja się zakończy.
+
+Ten hook przypomina często spotykane hooki korzystające z mechanizmu odbicia (ang. *debounce*) czy dławienia (ang. *throttling*). Zaletą korzystania z `useDeferredValue` jest to, że React zakończy aktualizację, kiedy tylko zakończy się inna, bardziej pilna operacja (zamiast czekać określony czas). Ponadto, podobnie jak w przypadku [`startTransition`](/docs/react-api.html#starttransition), odroczone wartości mogą zawieszać (ang. *suspend*) działanie komponentu bez aktywowania niespodziewanych elementów zastępczych (ang. *fallback*).
+
+#### Memoizacja odroczonych potomków {#memoizing-deferred-children}
+`useDeferredValue` odracza tylko tę wartość, którą mu przekażesz. Jeśli chcesz zapobiec ponownemu renderowaniu komponentu potomnego podczas pilnej aktualizacji, musisz go zmemoizować za pomocą [`React.memo`](/docs/react-api.html#reactmemo) lub [`React.useMemo`](/docs/hooks-reference.html#usememo):
+
+```js
+function Typeahead() {
+  const query = useSearchQuery('');
+  const deferredQuery = useDeferredValue(query);
+
+  // Memoizacja informuje Reacta, żeby wyrenderował ponownie tylko wtedy, gdy zmieni się deferredQuery,
+  // a nie samo query.
+  const suggestions = useMemo(() =>
+    <SearchSuggestions query={deferredQuery} />,
+    [deferredQuery]
+  );
+
+  return (
+    <>
+      <SearchInput query={query} />
+      <Suspense fallback="Ładowanie wyników...">
+        {suggestions}
+      </Suspense>
+    </>
+  );
+}
+```
+
+Memoizowanie potomków informuje Reacta, że ma je zaktualizować tylko wtedy, gdy zmieni się `deferredQuery`, a nie `query`. Nie jest to jednak zachowanie unikalne dla `useDeferredValue`; podobny wzorzec jest stosowany w hookach korzystających z mechanizmów (ang. *debounce*) czy dławienia (ang. *throttling*).
+
+### `useTransition` {#usetransition}
+
+```js
+const [isPending, startTransition] = useTransition();
+```
+
+Zwraca stan informujący o tym, czy tranzycja (ang. *transition*) jest jeszcze w toku, oraz funkcję, która pozwala uruchomić ją uruchomić.
+
+`startTransition` pozwala oznaczyć aktualizacje stanu jako tranzycję:
+
+```js
+startTransition(() => {
+  setCount(count + 1);
+})
+```
+
+Zmienna `isPending` informuje, czy tranzycja jest w toku, aby można było na jej podstawie wyświetlić stan ładowania:
+
+```js
+function App() {
+  const [isPending, startTransition] = useTransition();
+  const [count, setCount] = useState(0);
+  
+  function handleClick() {
+    startTransition(() => {
+      setCount(c => c + 1);
+    })
+  }
+
+  return (
+    <div>
+      {isPending && <Spinner />}
+      <button onClick={handleClick}>{count}</button>
+    </div>
+  );
+}
+```
+
+> Uwaga:
+>
+> Aktualizacje stanu oznaczone jako tranzycje ustępują pierwszeństwa pilniejszym aktualizacjom, np. spowodowanym kliknięciem przez użytkownika.
+>
+> Aktualizacje zawarte w tranzycji nie aktywują elementu zastępczego (ang. *fallback*) dla zawieszonych (ang. *suspended*) komponentów. Dzięki temu użytkownik może nadal wchodzić w interakcję z aktualną zawartością aplikacji, podczas gdy w tle przygotowywana jest nowa wersja.
+
+### `useId` {#useid}
+
+```js
+const id = useId();
+```
+
+`useId` służy do generowania unikalnych ID, które mają gwarancję stabilności pomiędzy serwerem i klientem, co pozwala uniknąć nieścisłości podczas hydratacji (ang. *hydration*).
+
+Dla przykładu, możesz przekazać wygenerowane w ten sposób `id` bezpośrednio do komponentów, które go potrzebują:
+
+```js
+function Checkbox() {
+  const id = useId();
+  return (
+    <>
+      <label htmlFor={id}>Lubisz Reacta?</label>
+      <input id={id} type="checkbox" name="react"/>
+    </>
+  );
+};
+```
+
+Jeśli potrzebujesz kilku ID dla tego samego komponentu, dopisz ręcznie przyrostek za wartością `id`:
+
+```js
+function NameFields() {
+  const id = useId();
+  return (
+    <div>
+      <label htmlFor={id + '-firstName'}>Imię</label>
+      <div>
+        <input id={id + '-firstName'} type="text" />
+      </div>
+      <label htmlFor={id + '-lastName'}>Nazwisko</label>
+      <div>
+        <input id={id + '-lastName'} type="text" />
+      </div>
+    </div>
+  );
+}
+```
+
+> Uwaga:
+> 
+> `useId` generuje ciąg znaków zawierający dwukropek `:`. Zapewnia to unikalność identyfikatora, lecz nie działa w selektorach CSS-owych i API takich jak `querySelectorAll`.
+> 
+> `useId` umożliwia ustawienie opcji `identifierPrefix`, aby uniknąć kolizji w aplikacjach o wielu "korzeniach". Aby dowiedzieć się, jak skonfigurować tę opcję, przeczytaj dokumentację dla [`hydrateRoot`](/docs/react-dom-client.html#hydrateroot) oraz [`ReactDOMServer`](/docs/react-dom-server.html).
+
+## Hooki dla bibliotek {#library-hooks}
+
+Poniższe hooki przewidziane są dla twórców bibliotek, aby umożliwić im bardziej dogłębną integrację z modelem Reacta, i zwykle nie stosuje się ich w aplikacjach.
+
+### `useSyncExternalStore` {#usesyncexternalstore}
+
+```js
+const state = useSyncExternalStore(subscribe, getSnapshot[, getServerSnapshot]);
+```
+
+`useSyncExternalStore` jest zalecany do odczytywania i subskrybowania się do zewnętrznych źródeł danych w sposób kompatybilny z funkcjonalnościami renderowania wspólbieżnego, jak np. selektywna hydratacja czy kwantowanie czasu.
+
+Metoda ta zwraca wartość z magazynu i przyjmuje trzy argumenty:
+- `subscribe`: służy do zarejestrowania funkcji zwrotnej, która zostanie wywołana przy każdej zmianie wartości w magazynie.
+- `getSnapshot`: służy do pobrania aktualnej wartości z magazynu.
+- `getServerSnapshot`: służy do pobrania wartości podczas renderowania po stronie serwera.
+
+Najprostszy przykład może subskrybować się na cały magazyn:
+
+```js
+const state = useSyncExternalStore(store.subscribe, store.getSnapshot);
+```
+
+Można jednak zasubskrybować się na konkretną wartość:
+
+```js
+const selectedField = useSyncExternalStore(
+  store.subscribe,
+  () => store.getSnapshot().selectedField,
+);
+```
+
+Podczas renderowania po stronie serwera musisz zserializować wartość magazynu i przekazać ją do `useSyncExternalStore`. React użyje jej podczas hydratacji, dzięki czemu nie powstaną niespójności:
+
+```js
+const selectedField = useSyncExternalStore(
+  store.subscribe,
+  () => store.getSnapshot().selectedField,
+  () => INITIAL_SERVER_SNAPSHOT.selectedField,
+);
+```
+
+> Uwaga:
+>
+> `getSnapshot` musi zwracać wartość zbuforowaną wartość. Jeśli `getSnapshot` zostanie wywołana kilka razy z rzędu, powinna zwrócić dokładnie tę samą wartość, chyba że faktycznie uległa ona zmianie.
+> 
+> Dostępny jest "shim" o nazwie `use-sync-external-store/shim` obsługujący wiele wersji Reacta. Preferuje on użycie hooka `useSyncExternalStore`, jeśli jest on dostępny, a w przypadku jego braku korzysta z innych dostępnych narzędzi.
+> 
+> Dla ułatwienia stworzyliśmy wersję tego API z automatycznym wsparciem dla memoizacji wyników z `getSnapshot`, dostępną pod nazwą `use-sync-external-store/with-selector`.
+
+### `useInsertionEffect` {#useinsertioneffect}
+
+```js
+useInsertionEffect(didUpdate);
+```
+
+Sygnatura funkcji jest identyczna jak w przypadku hooka `useEffect`, jednak ten hook wywoływany jest synchronicznie _przed_ wszystkimi mutacjami DOM. Użyj go, aby wstrzyknąć style do DOM, zanim [`useLayoutEffect`](#uselayouteffect) odczyta układ strony. Jako że ten hook ma ograniczony zakres, nie ma on dostępu do referencji i nie może zlecać aktualizacji stanu.
+
+> Uwaga:
+>
+> `useInsertionEffect` powinien być używany głównie przez autorów bibliotek css-in-js. W innych przypadkach zalecamy korzystanie z [`useEffect`](#useeffect) lub [`useLayoutEffect`](#uselayouteffect).

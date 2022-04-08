@@ -8,11 +8,10 @@ next: introducing-jsx.html
 
 Poniżej znajdziesz przykład najprostszej aplikacji reactowej:
 
-```js
-ReactDOM.render(
-  <h1>Witaj, świecie!</h1>,
-  document.getElementById('root')
-);
+```jsx
+ReactDOM
+  .createRoot(document.getElementById('root'))
+  .render(<h1>Witaj, świecie!</h1>);
 ```
 
 Wyświetli ona na stronie nagłówek "Witaj, świecie".

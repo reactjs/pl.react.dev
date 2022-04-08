@@ -10,9 +10,11 @@ next: handling-events.html
 
 W tym poradniku wprowadzimy pojęcie stanu (ang. *state*) i cyklu życia (ang. *lifecycle*) komponentu reactowego. Więcej informacji na ten temat znajdziesz w [szczegółowej dokumentacji API komponentów](/docs/react-component.html).
 
-Wróćmy do przykładu tykającego zegara z [jednej z poprzednich lekcji](/docs/rendering-elements.html#updating-the-rendered-element). W sekcji ["Renderowanie elementów"](/docs/rendering-elements.html#rendering-an-element-into-the-dom) nauczyliśmy się tylko jednego sposobu aktualizowania interfejsu aplikacji. Aby zmienić wynik renderowania, wywołujemy funkcję `ReactDOM.render()`:
+Wróćmy do przykładu tykającego zegara z [jednej z poprzednich lekcji](/docs/rendering-elements.html#updating-the-rendered-element). W sekcji ["Renderowanie elementów"](/docs/rendering-elements.html#rendering-an-element-into-the-dom) nauczyliśmy się tylko jednego sposobu aktualizowania interfejsu aplikacji. Aby zmienić wynik renderowania, wywołujemy funkcję `root.render()`:
 
-```js{8-11}
+```js{10}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+  
 function tick() {
   const element = (
     <div>
@@ -20,10 +22,7 @@ function tick() {
       <h2>Aktualny czas: {new Date().toLocaleTimeString()}.</h2>
     </div>
   );
-  ReactDOM.render(
-    element,
-    document.getElementById('root')
-  );
+  root.render(element);
 }
 
 setInterval(tick, 1000);
@@ -35,7 +34,9 @@ W tym rozdziale dowiemy się, jak sprawić, by komponent `Clock` był w pełni h
 
 Zacznijmy od wyizolowania kodu, który odpowiada za wygląd zegara:
 
-```js{3-6,12}
+```js{5-8,13}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 function Clock(props) {
   return (
     <div>
@@ -46,10 +47,7 @@ function Clock(props) {
 }
 
 function tick() {
-  ReactDOM.render(
-    <Clock date={new Date()} />,
-    document.getElementById('root')
-  );
+  root.render(<Clock date={new Date()} />);
 }
 
 setInterval(tick, 1000);
@@ -62,10 +60,7 @@ Brakuje jeszcze fragmentu, który spełniałby kluczowe założenie: inicjalizac
 Idealnie byłoby móc napisać tylko tyle i oczekiwać, że `Clock` zajmie się resztą:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 Aby tak się stało, musimy dodać do komponentu "stan".
@@ -158,10 +153,7 @@ Komponenty klasowe zawsze powinny przekazywać `props` do konstruktora bazowego.
 3) Usuń atrybut `date` z elementu `<Clock />`:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 Timer dodamy do komponentu nieco później.
@@ -185,10 +177,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
@@ -294,10 +284,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
@@ -306,7 +294,7 @@ Teraz timer powinien już tykać co sekundę.
 
 Podsumujmy, co dzieje się w powyższym kodzie i w jakiej kolejności wywoływane są metody:
 
-1) Kiedy element `<Clock />` przekazywany jest do funkcji `ReactDOM.render()`, React wywołuje konstruktor komponentu `Clock`. Jako że `Clock` będzie wyświetlać aktualny czas, musi on zainicjalizować `this.state` obiektem zawierającym aktualną datę. Później ten stan będzie aktualizowany.
+1) Kiedy element `<Clock />` przekazywany jest do funkcji `root.render()`, React wywołuje konstruktor komponentu `Clock`. Jako że `Clock` będzie wyświetlać aktualny czas, musi on zainicjalizować `this.state` obiektem zawierającym aktualną datę. Później ten stan będzie aktualizowany.
 
 2) Następnie React wywołuje metodę `render()` komponentu `Clock`. W ten sposób uzyskuje informację, co powinno zostać wyświetlone na stronie. Gdy otrzyma odpowiedź, odpowiednio aktualizuje drzewo DOM.
 
@@ -447,11 +435,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)

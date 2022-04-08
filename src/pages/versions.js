@@ -42,6 +42,14 @@ const Versions = ({location}: Props) => (
               .<br />
               Dokumentacje dla ostatnich wersji można również znaleźć poniżej.
             </p>
+            <blockquote>
+              <p>Uwaga</p>
+              <p>
+                Ta wersja dokumentacji dotyczy Reacta 18. Dokumentację dla
+                Reacta 17 znajdziesz pod adresem:{' '}
+                <a href="https://17.reactjs.org">https://17.reactjs.org.</a>
+              </p>
+            </blockquote>
             <p>
               Przeczytaj nasze FAQ, aby dowiedzieć się na temat{' '}
               <a href="/docs/faq-versioning.html">

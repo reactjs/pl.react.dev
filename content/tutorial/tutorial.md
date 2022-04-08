@@ -1148,7 +1148,7 @@ Pozostaje nam jeszcze zdefiniować metodę `jumpTo`, która będzie aktualizowa�
   }
 ```
 
-Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as that is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
 
 Następnie zmienimy nieco metodę `handleClick` w komponencie `Game`, która wywoływana jest po kliknięciu na pole planszy.
 

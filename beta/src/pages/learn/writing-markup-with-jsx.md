@@ -20,11 +20,39 @@ JSX to rozszerzenie składni JavaScriptu, które pozwala używać znaczników po
 
 Sieć WWW z grubsza została zbudowana przy pomocy HTML-u, CSS-a i JavaScriptu. Przez wiele lat deweloperzy trzymali treść w HTML-u, wygląd w CSS-ie i logikę w JavaScripcie - często każda z tych rzeczy była w osobnym pliku! Treść była opisywana znacznikami wewnątrz HTML-u, a logika strony była w osobnym skrypcie JavaScriptowym:
 
-![HTML i JavaScript trzymane w osobnych plikach](/images/docs/illustrations/i_html_js.svg)
+<DiagramGroup>
+
+<Diagram name="writing_jsx_html" height={237} width={325} alt="Kod HTML z fioletowym tłem i divem o dwóch znacznikach potomnych: p oraz form.">
+
+HTML
+
+</Diagram>
+
+<Diagram name="writing_jsx_js" height={237} width={325} alt="Trzy procedury obsługi zdarzeń z żółtym tłem: onSubmit, onLogin i onClick.">
+
+JavaScript
+
+</Diagram>
+
+</DiagramGroup>
 
 Jednak z czasem strony WWW stały się bardziej interaktywne, a logika częściej stanowiła o zawartości. JavaScript stał się odpowiedzialny za HTML! To dlatego **w Reakcie logika renderowania i znaczniki żyją w tym samym miejscu - w komponencie!**
 
-![Funkcje javascriptowe przeplatane kodem znaczników](/images/docs/illustrations/i_jsx.svg)
+<DiagramGroup>
+
+<Diagram name="writing_jsx_sidebar" height={330} width={325} alt="Komponent reactowy zawierający kod HTML i JavaScript z poprzednich przykładów. Funkcja o nazwie Sidebar wywołuje funkcję isLoggedIn, podświetloną na żółto. Wewnątrz funkcji, podświetlony na fioletowo, jest znacznik p z poprzedniego przykładu, oraz znacznik Form, odnoszący się do komponentu przedstawionego na następnym diagramie.">
+
+Sidebar.js
+
+</Diagram>
+
+<Diagram name="writing_jsx_form" height={330} width={325} alt="Komponent reactowy zawierający kod HTML i JavaScript z poprzednich przykładów. Funkcja Form, podświetlona na żółto, zawiera dwie procedury obsługi zdarzeń: onClick i onSubmit. Pod spodem przedstawiony jest kod HTML, oznaczony kolorem fioletowym. Kod HTML zawiera element formularza z zagnieżdżonym elementem input, gdzie do każdego z nich przekazano właściwość onClick.">
+
+Form.js
+
+</Diagram>
+
+</DiagramGroup>
 
 Trzymanie logiki renderowania przycisku razem z jego kodem znaczników daje nam pewność, że będą zsynchronizowane przy każdej edycji. Z drugiej strony, detale, które nie są ze sobą powiązane, jak np. kody przycisku i paska bocznego, są od siebie odseparowane, dzięki czemu bezpieczniej jest modifykować każde z nich.
 

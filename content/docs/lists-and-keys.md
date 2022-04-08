@@ -33,13 +33,10 @@ const listItems = numbers.map((number) =>
 );
 ```
  
-Umieszczamy całą tablicę `listItems` wewnątrz elementu `<ul>` i [wyświetlamy ją w DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
- 
+Umieszczamy całą tablicę `listItems` wewnątrz elementu `<ul>`:
+
 ```javascript{2}
-ReactDOM.render(
-  <ul>{listItems}</ul>,
-  document.getElementById('root')
-);
+<ul>{listItems}</ul>
 ```
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -64,10 +61,8 @@ function NumberList(props) {
 }
  
 const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
 ```
  
 Kiedy uruchomisz powyższy kod, dostaniesz ostrzeżenie o tym, że do elementów listy należy dostarczyć właściwość klucza. „Klucz” (ang. *key*) jest specjalnym atrybutem o typie łańcucha znaków, który musisz dodać podczas tworzenia elementów listy. O tym, dlaczego jest to ważne, opowiemy w następnej sekcji.
@@ -86,12 +81,6 @@ function NumberList(props) {
     <ul>{listItems}</ul>
   );
 }
- 
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -165,12 +154,6 @@ function NumberList(props) {
     </ul>
   );
 }
- 
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
  
 **Przykład: Poprawne użycie klucza**
@@ -193,12 +176,6 @@ function NumberList(props) {
     </ul>
   );
 }
- 
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -239,10 +216,9 @@ const posts = [
   {id: 1, title: 'Witaj Świecie', content: 'Witamy uczących się Reacta!'},
   {id: 2, title: 'Instalacja', content: 'Możesz zainstalować Reacta używając npm.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)

@@ -43,8 +43,8 @@ Pamiętaj, aby używać powyższej komendy tylko przed wrzuceniem kodu na produk
 React oraz React DOM są dostępne jako pojedyncze pliki, wprost gotowe do użycia na produkcji:
 
 ```html
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 ```
 
 Pamiętaj, że tylko pliki o nazwie kończącej się na `.production.min.js` są przystosowane do działania na produkcji.

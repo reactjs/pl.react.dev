@@ -217,10 +217,8 @@ var TickTock = createReactClass({
   }
 });
 
-ReactDOM.render(
-  <TickTock />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example'));
+root.render(<TickTock />);
 ```
 
 Jeśli komponent używa kilku mixinów i niektóre z nich definiują te same metody cyklu życia (tj. kilka z nich chce posprzątać przed zniszczeniem komponentu), React gwarantuje, że wszystkie zostaną wywołane. Metody zdefiniowane w mixinach są uruchamiane zgodnie z kolejnością ich dodania, a na koniec uruchamiana jest metoda samego komponentu.

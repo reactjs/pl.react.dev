@@ -21,6 +21,7 @@ W powyższym przykładzie sprawdzenia trybu rygorystycznego *nie* zostaną uruch
 * [Ostrzeganiu o użyciu przestarzałego findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Wykrywaniu nieoczekiwanych efektów ubocznych](#detecting-unexpected-side-effects)
 * [Wykrywaniu użycia przestrzałego API kontekstów](#detecting-legacy-context-api)
+* [Wykrywaniu niebezpiecznych efektów](#detecting-unsafe-effects)
 
 Dodatkowe funkcjonalności zostaną dodane w przyszłych wydaniach Reacta.
 
@@ -119,6 +120,8 @@ Przez celowe podwójne wywołanie metod, takich jak konstruktor komponentu, tryb
 > Uwaga:
 >
 > Począwszy od wersji 17, React automatycznie modyfikuje metody takie jak `console.log()`, aby uciszyć logi przy powtórnym wywołaniu funkcji odpowiedzialnych za cykl życia komponentów. Jednak w niektórych przypadkach może to prowadzić do niepożądanych zachowań, [na co można zaradzić w ten sposób](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
+>
+> Od wersji React 18, React nie ucisza żadnych logów. Jeśli jednak korzystasz z React DevTools, logi z drugiego wywołania będą nieco bardziej wyszarzone. React DevTools posiada również opcję (domyślnie wyłączoną), która pozwala całkowicie je uciszyć.
 
 ### Wykrywanie przestarzałego API kontekstów {#detecting-legacy-context-api}
 
@@ -127,3 +130,51 @@ Przestarzałe API kontekstów jest podatne na błędy i może zostać usunięte 
 ![](../images/blog/warn-legacy-context-in-strict-mode.png)
 
 Przeczytaj [dokumentację nowego API kontekstów](/docs/context.html), aby dowiedzieć się, jak zmigrować do nowej wersji.
+
+
+### Zapewnienie wielorazowego stanu {#ensuring-reusable-state}
+
+W przyszłości planujemy dodać do Reacta funkcjonalność, która pozwalałaby na dodawanie i usuwanie fragmentów interfejsu, jednocześnie zachowując ich stan. Na przykład, kiedy użytkownik zmienia zakładkę i za chwilę wraca z powrotem, React powinien być w stanie natychmiast pokazać poprzedni widok. Aby to było możliwe, React musi móc ponownie zamontować poddrzewo z takim samym stanem, jaki był przed jego odmontowaniem.
+
+Taka funkcjonalność dałaby Reactowi lepszą wydajność bez żadnej dodatkowej konfiguracji, lecz wymaga ona, by komponenty były odporne na efekty podczas wielokrotnego montowanie i odmontowywania. Większość efektów będzie działać bez żadnych zmian, jednak niektóre nie sprzątają po sobie poprawnie subskrypcji w funkcji zwracanej przez efekt albo po prostu z góry zakładają, że komponent będzie zamontowany lub odmontowany tylko jeden raz.
+
+Aby uwypuklić te problemy, w Reakcie 18 do trybu rygorystycznego dodaliśmy nowy test, działający tylko w środowisku deweloperskim. Ów test automatycznie odmontuje i zamontuje ponownie każdy komponent renderowany po raz pierwszy, przywracając jego poprzedni stan podczas drugiego montowania.
+
+Aby zademonstrować zachowanie aplikacji w takiej sytuacji, zastanówmy się, co się dzieje, gdy React montuje nowy komponent. Jeśli na chwilę zapomnimy o tym teście, to podczas montowania komponentu React tworzy efekty:
+
+```
+* React montuje komponent.
+  * Tworzone są efekty układu interfejsu (ang. *layout effects*).
+  * Tworzone są zwykłe efekty.
+```
+
+W trybie rygorystycznym w Reakcie 18 podczas montowania komponentu React natychmiast zasymuluje jego odmontowanie i ponowne zamontowanie:
+
+```
+* React montuje komponent.
+    * Tworzone są efekty układu interfejsu.
+    * Tworzone są zwykłe efekty.
+* React symuluje zniszczenie efektów zamontowanego komponentu.
+    * Niszczone są efekty układu interfejsu.
+    * Niszczone są zwykłe efekty.
+* React symuluje ponownie utworzenie efektów zamontowanego komponentu.
+    * Tworzone są efekty układu interfejsu.
+    * Tworzone są zwykłe efekty.
+```
+
+Przy drugim montowaniu React przywróci stan z pierwszego montowania. Symuluje to zachowanie użytkownika, np. w przypadku przejścia na inną zakładkę i z powrotem na aktualną, upewniając się, że kod poprawnie obsłuży przywrócenie stanu komponentu.
+
+Kiedy komponent zostaje odmontowany, efekty są usuwane standardowo:
+
+```
+* React odmontowuje komponent.
+  * Niszczone są efekty układu interfejsu.
+  * Niszczone są zwykłe efekty.
+```
+
+> Uwaga:
+>
+> Zachowanie opisane powyżej dotyczy tylko trybu deweloperskiego, _zachowanie na produkcji pozostaje bez zmian_.
+
+Opis najczęstszych błędów znajdziesz na:
+  - [Jak obsłużyć wielorazowy stan w efektach](https://github.com/reactwg/react-18/discussions/18)

@@ -70,17 +70,15 @@ function Welcome(props) {
 }
 
 const element = <Welcome name="Sara" />;
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(element);
 ```
 
 **[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Podsumujmy, co dzieje się w tym przykładzie:
 
-1. Wywołujemy `ReactDOM.render()` z elementem `<Welcome name="Sara" />`.
+1. Wywołujemy `root.render()` z elementem `<Welcome name="Sara" />`.
 2. React wywołuje komponent `Welcome` z właściwościami `{name: 'Sara'}`.
 3. Nasz komponent `Welcome` jako wynik zwraca element `<h1>Cześć, Sara</h1>`.
 4. React DOM w optymalny sposób aktualizuje drzewo DOM, aby odpowiadało elementowi `<h1>Cześć, Sara</h1>`.
@@ -111,11 +109,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 **[Przetestuj kod na CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
