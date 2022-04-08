@@ -132,49 +132,49 @@ Przestarzałe API kontekstów jest podatne na błędy i może zostać usunięte 
 Przeczytaj [dokumentację nowego API kontekstów](/docs/context.html), aby dowiedzieć się, jak zmigrować do nowej wersji.
 
 
-### Ensuring reusable state {#ensuring-reusable-state}
+### Zapewnienie wielorazowego stanu {#ensuring-reusable-state}
 
-In the future, we’d like to add a feature that allows React to add and remove sections of the UI while preserving state. For example, when a user tabs away from a screen and back, React should be able to immediately show the previous screen. To do this, React support remounting trees using the same component state used before unmounting.
+W przyszłości planujemy dodać do Reacta funkcjonalność, która pozwalałaby na dodawanie i usuwanie fragmentów interfejsu, jednocześnie zachowując ich stan. Na przykład, kiedy użytkownik zmienia zakładkę i za chwilę wraca z powrotem, React powinien być w stanie natychmiast pokazać poprzedni widok. Aby to było możliwe, React musi móc ponownie zamontować poddrzewo z takim samym stanem, jaki był przed jego odmontowaniem.
 
-This feature will give React better performance out-of-the-box, but requires components to be resilient to effects being mounted and destroyed multiple times. Most effects will work without any changes, but some effects do not properly clean up subscriptions in the destroy callback, or implicitly assume they are only mounted or destroyed once.
+Taka funkcjonalność dałaby Reactowi lepszą wydajność bez żadnej dodatkowej konfiguracji, lecz wymaga ona, by komponenty były odporne na efekty podczas wielokrotnego montowanie i odmontowywania. Większość efektów będzie działać bez żadnych zmian, jednak niektóre nie sprzątają po sobie poprawnie subskrypcji w funkcji zwracanej przez efekt albo po prostu z góry zakładają, że komponent będzie zamontowany lub odmontowany tylko jeden raz.
 
-To help surface these issues, React 18 introduces a new development-only check to Strict Mode. This new check will automatically unmount and remount every component, whenever a component mounts for the first time, restoring the previous state on the second mount.
+Aby uwypuklić te problemy, w Reakcie 18 do trybu rygorystycznego dodaliśmy nowy test, działający tylko w środowisku deweloperskim. Ów test automatycznie odmontuje i zamontuje ponownie każdy komponent renderowany po raz pierwszy, przywracając jego poprzedni stan podczas drugiego montowania.
 
-To demonstrate the development behavior you'll see in Strict Mode with this feature, consider what happens when React mounts a new component. Without this change, when a component mounts, React creates the effects:
-
-```
-* React mounts the component.
-  * Layout effects are created.
-  * Effects are created.
-```
-
-With Strict Mode starting in React 18, whenever a component mounts in development, React will simulate immediately unmounting and remounting the component:
+Aby zademonstrować zachowanie aplikacji w takiej sytuacji, zastanówmy się, co się dzieje, gdy React montuje nowy komponent. Jeśli na chwilę zapomnimy o tym teście, to podczas montowania komponentu React tworzy efekty:
 
 ```
-* React mounts the component.
-    * Layout effects are created.
-    * Effect effects are created.
-* React simulates effects being destroyed on a mounted component.
-    * Layout effects are destroyed.
-    * Effects are destroyed.
-* React simulates effects being re-created on a mounted component.
-    * Layout effects are created
-    * Effect setup code runs
+* React montuje komponent.
+  * Tworzone są efekty układu interfejsu (ang. *layout effects*).
+  * Tworzone są zwykłe efekty.
 ```
 
-On the second mount, React will restore the state from the first mount. This feature simulates user behavior such as a user tabbing away from a screen and back, ensuring that code will properly handle state restoration.
-
-When the component unmounts, effects are destroyed as normal:
+W trybie rygorystycznym w Reakcie 18 podczas montowania komponentu React natychmiast zasymuluje jego odmontowanie i ponowne zamontowanie:
 
 ```
-* React unmounts the component.
-  * Layout effects are destroyed.
-  * Effect effects are destroyed.
+* React montuje komponent.
+    * Tworzone są efekty układu interfejsu.
+    * Tworzone są zwykłe efekty.
+* React symuluje zniszczenie efektów zamontowanego komponentu.
+    * Niszczone są efekty układu interfejsu.
+    * Niszczone są zwykłe efekty.
+* React symuluje ponownie utworzenie efektów zamontowanego komponentu.
+    * Tworzone są efekty układu interfejsu.
+    * Tworzone są zwykłe efekty.
 ```
 
-> Note:
+Przy drugim montowaniu React przywróci stan z pierwszego montowania. Symuluje to zachowanie użytkownika, np. w przypadku przejścia na inną zakładkę i z powrotem na aktualną, upewniając się, że kod poprawnie obsłuży przywrócenie stanu komponentu.
+
+Kiedy komponent zostaje odmontowany, efekty są usuwane standardowo:
+
+```
+* React odmontowuje komponent.
+  * Niszczone są efekty układu interfejsu.
+  * Niszczone są zwykłe efekty.
+```
+
+> Uwaga:
 >
-> This only applies to development mode, _production behavior is unchanged_.
+> Zachowanie opisane powyżej dotyczy tylko trybu deweloperskiego, _zachowanie na produkcji pozostaje bez zmian_.
 
-For help supporting common issues, see:
-  - [How to support Reusable State in Effects](https://github.com/reactwg/react-18/discussions/18)
+Opis najczęstszych błędów znajdziesz na:
+  - [Jak obsłużyć wielorazowy stan w efektach](https://github.com/reactwg/react-18/discussions/18)
