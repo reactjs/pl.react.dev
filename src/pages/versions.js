@@ -45,7 +45,8 @@ const Versions = ({location}: Props) => (
             <blockquote>
               <p>Uwaga</p>
               <p>
-                Ta wersja dokumentacji dotyczy Reacta 18. Dokumentację dla Reacta 17 znajdziesz pod adresem:{' '}
+                Ta wersja dokumentacji dotyczy Reacta 18. Dokumentację dla
+                Reacta 17 znajdziesz pod adresem:{' '}
                 <a href="https://17.reactjs.org">https://17.reactjs.org.</a>
               </p>
             </blockquote>
