@@ -175,13 +175,8 @@ Jeśli jeszcze nie masz zainstalowanej wtyczki React DevTools, możesz znaleźć
 
 > Uwaga
 >
-<<<<<<< HEAD
 > Przed wersją 17 Reakta używaliśmy standardowego [User Timing API (pol. *API do pomiarów czasowych*)](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) w celu profilowania komponentów za pomocą zakładki "Performance" (pol. *Wydajność*) w Chromie.
 > Szczegółowy poradnik dotyczący tego tematu znajdziesz w [tym artykule autorstwa Bena Schwarza](https://calibreapp.com/blog/react-performance-profiling-optimization).
-=======
-> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab.
-> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ## Wirtualizacja długich list {#virtualize-long-lists}
 

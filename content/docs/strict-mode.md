@@ -15,22 +15,13 @@ Możesz uruchomić tryb rygorystyczny dla jakiejkolwiek części swojej aplikacj
 
 W powyższym przykładzie sprawdzenia trybu rygorystycznego *nie* zostaną uruchomione dla komponentów `Header` i `Footer`. Zadziałają one natomiast dla `ComponentOne` i `ComponentTwo` oraz wszystkich ich potomków.
 
-<<<<<<< HEAD
 `StrictMode` aktualnie pomaga w:
 * [Identyfikacji komponentów używających niebezpiecznych metod cyklu życia komponentu](#identifying-unsafe-lifecycles)
 * [Ostrzeganiu o użyciu przestarzałego API tekstowych referencji](#warning-about-legacy-string-ref-api-usage)
 * [Ostrzeganiu o użyciu przestarzałego findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Wykrywaniu nieoczekiwanych efektów ubocznych](#detecting-unexpected-side-effects)
 * [Wykrywaniu użycia przestrzałego API kontekstów](#detecting-legacy-context-api)
-=======
-`StrictMode` currently helps with:
-* [Identifying components with unsafe lifecycles](#identifying-unsafe-lifecycles)
-* [Warning about legacy string ref API usage](#warning-about-legacy-string-ref-api-usage)
-* [Warning about deprecated findDOMNode usage](#warning-about-deprecated-finddomnode-usage)
-* [Detecting unexpected side effects](#detecting-unexpected-side-effects)
-* [Detecting legacy context API](#detecting-legacy-context-api)
-* [Detecting unsafe effects](#detecting-unsafe-effects)
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+* [Wykrywaniu niebezpiecznych efektów](#detecting-unsafe-effects)
 
 Dodatkowe funkcjonalności zostaną dodane w przyszłych wydaniach Reacta.
 
@@ -128,13 +119,9 @@ Przez celowe podwójne wywołanie metod, takich jak konstruktor komponentu, tryb
 
 > Uwaga:
 >
-<<<<<<< HEAD
 > Począwszy od wersji 17, React automatycznie modyfikuje metody takie jak `console.log()`, aby uciszyć logi przy powtórnym wywołaniu funkcji odpowiedzialnych za cykl życia komponentów. Jednak w niektórych przypadkach może to prowadzić do niepożądanych zachowań, [na co można zaradzić w ten sposób](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
-=======
-> In React 17, React automatically modifies the console methods like `console.log()` to silence the logs in the second call to lifecycle functions. However, it may cause undesired behavior in certain cases where [a workaround can be used](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
 >
-> Starting from React 18, React does not suppress any logs. However, if you have React DevTools installed, the logs from the second call will appear slightly dimmed. React DevTools also offers a setting (off by default) to suppress them completely.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+> Od wersji React 18, React nie ucisza żadnych logów. Jeśli jednak korzystasz z React DevTools, logi z drugiego wywołania będą nieco bardziej wyszarzone. React DevTools posiada również opcję (domyślnie wyłączoną), która pozwala całkowicie je uciszyć.
 
 ### Wykrywanie przestarzałego API kontekstów {#detecting-legacy-context-api}
 
@@ -142,10 +129,7 @@ Przestarzałe API kontekstów jest podatne na błędy i może zostać usunięte 
 
 ![](../images/blog/warn-legacy-context-in-strict-mode.png)
 
-<<<<<<< HEAD
 Przeczytaj [dokumentację nowego API kontekstów](/docs/context.html), aby dowiedzieć się, jak zmigrować do nowej wersji.
-=======
-Read the [new context API documentation](/docs/context.html) to help migrate to the new version.
 
 
 ### Ensuring reusable state {#ensuring-reusable-state}
@@ -194,4 +178,3 @@ When the component unmounts, effects are destroyed as normal:
 
 For help supporting common issues, see:
   - [How to support Reusable State in Effects](https://github.com/reactwg/react-18/discussions/18)
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1

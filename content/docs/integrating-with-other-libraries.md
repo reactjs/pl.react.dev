@@ -190,15 +190,9 @@ class Chosen extends React.Component {
 
 ## Integracja z innymi bibliotekami do obsługi widoków {#integrating-with-other-view-libraries}
 
-<<<<<<< HEAD
-Osadzenie Reacta wewnątrz innych aplikacji jest możliwe dzięki elastyczności funkcji [`ReactDOM.render()`](/docs/react-dom.html#render).
+Osadzenie Reacta wewnątrz innych aplikacji jest możliwe dzięki elastyczności funkcji [`createRoot()`](/docs/react-dom-client.html#createRoot).
 
-Mimo że Reacta zwykle używa się na starcie aplikacji do załadowania jednego głównego komponentu do DOM, funkcję `ReactDOM.render()` można wywołać wielokrotnie w niezależnych fragmentach interfejsu, niezależnie od tego, czy są małe jak przycisk, czy dużych jak cała aplikacja.
-=======
-React can be embedded into other applications thanks to the flexibility of [`createRoot()`](/docs/react-dom-client.html#createRoot).
-
-Although React is commonly used at startup to load a single root React component into the DOM, `root.render()` can also be called multiple times for independent parts of the UI which can be as small as a button, or as large as an app.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Mimo że Reacta zwykle używa się na starcie aplikacji do załadowania jednego głównego komponentu do DOM, funkcję `root.render()` można wywołać wielokrotnie w niezależnych fragmentach interfejsu, niezależnie od tego, czy są małe jak przycisk, czy dużych jak cała aplikacja.
 
 Prawdę mówiąc, właśnie w taki sposób używamy Reacta na Facebooku. To podejście pozwala nam pisać aplikacje kawałek po kawałku i łączyć je z istniejącymi szablonami wygenerowanymi po stronie serwera czy z innym kodem klienckim.
 
@@ -222,21 +216,9 @@ function Button() {
   return <button id="btn">Przywitaj się</button>;
 }
 
-<<<<<<< HEAD
-ReactDOM.render(
-  <Button />, 
-  document.getElementById('container'), 
-  function() {
-  $('#btn').click(function() {
-      alert('Cześć!');
-    });
-  }
-);
-=======
 $('#btn').click(function() {
-  alert('Hello!');
+  alert('Cześć!');
 });
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 ```
 
 Od tego momentu możesz zacząć przenosić coraz więcej logiki do samego komponentu i stosować coraz więcej praktyk reactowych. Przykładowo, w komponentach zwykle nie stosuje się identyfikatorów, ponieważ komponenty mogą być renderowane wielokrotnie. Zamiast tego możemy skorzystać z [reactowego systemu zdarzeń](/docs/handling-events.html) i podpiąć detektor zdarzeń bezpośrednio na reactowym elemencie `<button>`:
@@ -256,21 +238,13 @@ function HelloButton() {
 
 [**Wypróbuj kod na CodePen**](https://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
-<<<<<<< HEAD
-Możesz napisać tyle odizolowanych od siebie komponentów, ile tylko zechcesz, a także renderować je do różnych kontenerów w drzewie DOM za pomocą funkcji `ReactDOM.render()`. Stopniowo gdy będziesz przekształcać coraz więcej kodu aplikacji, niektóre z tych komponentów uda się połączyć w większe komponenty, a wywołania funkcji `ReactDOM.render()` będzie można przenieść w górę hierarchii.
-=======
-You can have as many such isolated components as you like, and use `ReactDOM.createRoot()` to render them to different DOM containers. Gradually, as you convert more of your app to React, you will be able to combine them into larger components, and move some of the `ReactDOM.createRoot()` calls up the hierarchy.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Możesz napisać tyle odizolowanych od siebie komponentów, ile tylko zechcesz, a także renderować je do różnych kontenerów w drzewie DOM za pomocą funkcji `ReactDOM.createRoot()`. Stopniowo gdy będziesz przekształcać coraz więcej kodu aplikacji, niektóre z tych komponentów uda się połączyć w większe komponenty, a wywołania funkcji `ReactDOM.createRoot()` będzie można przenieść w górę hierarchii.
 
 ### Osadzanie kodu reactowego w widokach backbone'owych {#embedding-react-in-a-backbone-view}
 
 Widoki biblioteki [Backbone](https://backbonejs.org/) (ang. _Backbone Views_), aby wygenerować zawartość dla swoich elementów DOM, zwykle korzystają z HTML-owych ciągów znaków lub funkcji generujących ciągi znaków. Również i ten proces można zastąpić renderowaniem komponentów reactowych.
 
-<<<<<<< HEAD
-W poniższym kodzie tworzymy widok backbone'owy o nazwie `ParagraphView`. Nadpisujemy w nim backbone'ową funkcję `render()`, w której do elementu DOM dostarczonego przez Backbone'a (`this.el`) renderujemy komponent reactowy `<Paragraph>`. Tutaj również korzystamy z funkcji [`ReactDOM.render()`](/docs/react-dom.html#render):
-=======
-Below, we will create a Backbone view called `ParagraphView`. It will override Backbone's `render()` function to render a React `<Paragraph>` component into the DOM element provided by Backbone (`this.el`). Here, too, we are using [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot):
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+W poniższym kodzie tworzymy widok backbone'owy o nazwie `ParagraphView`. Nadpisujemy w nim backbone'ową funkcję `render()`, w której do elementu DOM dostarczonego przez Backbone'a (`this.el`) renderujemy komponent reactowy `<Paragraph>`. Tutaj również korzystamy z funkcji [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot):
 
 ```js{1,5,8-9,13}
 function Paragraph(props) {
@@ -293,11 +267,7 @@ const ParagraphView = Backbone.View.extend({
 
 [**Wypróbuj kod na CodePen**](https://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
-<<<<<<< HEAD
-Musimy również pamiętać o wywołaniu funkcji `ReactDOM.unmountComponentAtNode()` w metodzie `remove`, dzięki której React podczas odmontowywania usunie detektory zdarzeń i inne zasoby powiązane z drzewem komponentów.
-=======
-It is important that we also call `root.unmount()` in the `remove` method so that React unregisters event handlers and other resources associated with the component tree when it is detached.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Musimy również pamiętać o wywołaniu funkcji `root.unmount()` w metodzie `remove`, dzięki której React podczas odmontowywania usunie detektory zdarzeń i inne zasoby powiązane z drzewem komponentów.
 
 Kiedy komponent jest usuwany _z wewnątrz_ drzewa Reacta, takie czyszczenie jest wykonywane automatycznie. Jednak ponieważ w tym przypadku ręcznie usuwamy całe drzewo, musimy jawnie wywołać tę metodę.
 
@@ -447,17 +417,9 @@ function Example(props) {
   );
 }
 
-<<<<<<< HEAD
 const model = new Backbone.Model({ firstName: 'Staszek' });
-ReactDOM.render(
-  <Example model={model} />,
-  document.getElementById('root')
-);
-=======
-const model = new Backbone.Model({ firstName: 'Frodo' });
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Example model={model} />);
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 ```
 
 [**Wypróbuj kod na CodePen**](https://codepen.io/gaearon/pen/PmWwwa?editors=0010)

@@ -32,15 +32,9 @@ const listItems = numbers.map((number) =>
   <li>{number}</li>
 );
 ```
-<<<<<<< HEAD
  
-Umieszczamy całą tablicę `listItems` wewnątrz elementu `<ul>` i [wyświetlamy ją w DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
- 
-=======
+Umieszczamy całą tablicę `listItems` wewnątrz elementu `<ul>`:
 
-Then, we can include the entire `listItems` array inside a `<ul>` element:
-
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 ```javascript{2}
 <ul>{listItems}</ul>
 ```
@@ -87,15 +81,6 @@ function NumberList(props) {
     <ul>{listItems}</ul>
   );
 }
-<<<<<<< HEAD
- 
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
-=======
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 ```
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -169,15 +154,6 @@ function NumberList(props) {
     </ul>
   );
 }
-<<<<<<< HEAD
- 
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
-=======
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 ```
  
 **Przykład: Poprawne użycie klucza**
@@ -200,15 +176,6 @@ function NumberList(props) {
     </ul>
   );
 }
-<<<<<<< HEAD
- 
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
-=======
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 ```
  
 [**Przetestuj kod na CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)

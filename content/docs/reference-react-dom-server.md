@@ -26,7 +26,7 @@ Kolejne metody zależą od pakietu (`stream`), który **dostępny jest tylko na 
 
 - [`renderToPipeableStream()`](#rendertopipeablestream)
 - [`renderToReadableStream()`](#rendertoreadablestream)
-- [`renderToNodeStream()`](#rendertonodestream) (Deprecated)
+- [`renderToNodeStream()`](#rendertonodestream) (Przestażałe)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
 
 * * *
@@ -41,11 +41,7 @@ ReactDOMServer.renderToString(element)
 
 Renderuje reactowy element do jego początkowego kodu HTML, zwracając go w formie ciągu znaków. Możesz użyć tej metody, aby wygenerować kod HTML po stronie serwera, a następnie wysłać znaczniki jako odpowiedzi na pierwsze żądanie, aby przyspieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowanie jej w celach SEO.
 
-<<<<<<< HEAD
-Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Poprawi to wydajność i wrażenia przy pierwszym ładowaniu strony.
-=======
-If you call [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Jeśli wywołasz metodę [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Poprawi to wydajność i wrażenia przy pierwszym ładowaniu strony.
 
 * * *
 
@@ -57,11 +53,7 @@ ReactDOMServer.renderToStaticMarkup(element)
 
 Działa analogicznie do [`renderToString`](#rendertostring) z tą różnicą, że nie tworzy dodatkowych atrybutów DOM, takich jak `data-reactroot` (używanych wewnętrznie przez Reacta). Przydaje się, jeśli chcesz używać Reacta jako prostego generatora statycznych stron, gdzie usunięcie dodatkowych atrybutów pozwoli zaoszczędzić kilka bajtów.
 
-<<<<<<< HEAD
-Jeżeli planujesz używać Reacta po stronie klienta w celu dodania znacznikom interaktywności, nie używaj tej metody. Zamiast niej użyj [`renderToString`](#rendertostring) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
-=======
-If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToString`](#rendertostring) on the server and [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) on the client.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Jeżeli planujesz używać Reacta po stronie klienta w celu dodania znacznikom interaktywności, nie używaj tej metody. Zamiast niej użyj [`renderToString`](#rendertostring) na serwerze i [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) po stronie klienta.
 
 * * *
 
@@ -142,7 +134,7 @@ try {
 ```
 * * *
 
-### `renderToNodeStream()` {#rendertonodestream} (Deprecated)
+### `renderToNodeStream()` {#rendertonodestream} (Przestażałe)
 
 ```javascript
 ReactDOMServer.renderToNodeStream(element)
@@ -150,11 +142,7 @@ ReactDOMServer.renderToNodeStream(element)
 
 Renderuje reactowy element do jego początkowego kodu HTML. Zwraca [strumień do odczytu](https://nodejs.org/api/stream.html#stream_readable_streams), który na wyjściu zwróci ciąg znaków HTML. Zwrócony przez strumień kod HTML jest identyczny z tym, co zwróciłaby funkcja [`ReactDOMServer.renderToString`](#rendertostring). Możesz użyć tej metody, aby wygenerować kod HTML po stronie serwera, a następnie wysłać znaczniki jako odpowiedź na pierwsze żądanie, co pozwoli przyspieszyć ładowanie strony i umożliwić wyszukiwarkom indeksowanie jej w celach SEO.
 
-<<<<<<< HEAD
-Jeśli wywołasz metodę [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Poprawi to wydajność i wrażenia przy pierwszym ładowaniu strony.
-=======
-If you call [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Jeśli wywołasz metodę [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) na węźle, który zawiera już znaczniki wyrenderowane po stronie serwera, React zachowa je i dołączy jedynie procedury obsługi zdarzeń. Poprawi to wydajność i wrażenia przy pierwszym ładowaniu strony.
 
 > Uwaga:
 >
@@ -174,11 +162,7 @@ Działa analogicznie do [`renderToNodeStream`](#rendertonodestream), z tą róż
 
 Kod HTML zwrócony przez strumień jest identyczny z tym, jaki zwróciłaby funkcja [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup).
 
-<<<<<<< HEAD
-Jeżeli planujesz używać Reacta po stronie klienta w celu dodania znacznikom interaktywności, nie używaj tej metody. Zamiast niej użyj [`renderToNodeStream`](#rendertonodestream) na serwerze i [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) po stronie klienta.
-=======
-If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToNodeStream`](#rendertonodestream) on the server and [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) on the client.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+Jeżeli planujesz używać Reacta po stronie klienta w celu dodania znacznikom interaktywności, nie używaj tej metody. Zamiast niej użyj [`renderToNodeStream`](#rendertonodestream) na serwerze i [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) po stronie klienta.
 
 > Uwaga:
 >

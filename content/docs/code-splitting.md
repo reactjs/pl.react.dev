@@ -80,18 +80,7 @@ Kiedy używasz [Babela](https://babeljs.io/), musisz się upewnić, że jest on 
 
 ## `React.lazy` {#reactlazy}
 
-<<<<<<< HEAD
-> Uwaga:
->
-> `React.lazy` i `Suspense` nie są jeszcze dostępne dla renderowania po stronie serwera.
-> Jeśli chcesz dzielić kod dla aplikacji renderowanej na serwerze, sugerujemy skorzystać 
-> z pakietu [Loadable Components](https://github.com/gregberge/loadable-components).  
-> Ma on przystępną [instrukcję dzielenia pakietów przy renderowaniu po stronie serwera](https://loadable-components.com/docs/server-side-rendering/).
-
 Funkcja `React.lazy` pozwala renderować dynamicznie importowane komponenty jak zwykłe komponenty.
-=======
-The `React.lazy` function lets you render a dynamic import as a regular component.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 **Przed:**
 
@@ -154,13 +143,10 @@ function MyComponent() {
 }
 ```
 
-<<<<<<< HEAD
-### Granice błędów {#error-boundaries}
-=======
-### Avoiding fallbacks {#avoiding-fallbacks}
-Any component may suspend as a result of rendering, even components that were already shown to the user. In order for screen content to always be consistent, if an already shown component suspends, React has to hide its tree up to the closest `<Suspense>` boundary. However, from the user's perspective, this can be disorienting.
+### Unikanie zastępników {#avoiding-fallbacks}
+Każdy komponent może zawiesić działanie na skutek renderowania, nawet taki, który już został wcześniej wyświetlony użytkownikowi. Aby zapewnić spójność treści na ekranie, w takim przypadku React musi ukryć jego poddrzewo elementów aż do najbliższej granicy `<Suspense>`. Może to jednak zdezorientować użytkownika.
 
-Consider this tab switcher:
+Załóżmy, że mamy poniższy komponent zarządzający zmienianiem zakładek:
 
 ```js
 import React, { Suspense } from 'react';
@@ -176,7 +162,6 @@ function MyComponent() {
   function handleTabSelect(tab) {
     setTab(tab);
   };
-
   return (
     <div>
       <Tabs onTabSelect={handleTabSelect} />
@@ -186,12 +171,11 @@ function MyComponent() {
     </div>
   );
 }
-
 ```
 
-In this example, if tab gets changed from `'photos'` to `'comments'`, but `Comments` suspends, the user will see a glimmer. This makes sense because the user no longer wants to see `Photos`, the `Comments` component is not ready to render anything, and React needs to keep the user experience consistent, so it has no choice but to show the `Glimmer` above.
+Jeśli w powyższym przykładzie zakładka zmieni się z `'photos'` na `'comments'`, ale komponent `Comments` zawiesi działanie, na ekranie na chwilę wyświetli się `Glimmer`. Ma to sens, ponieważ użytkownik nie chce już widzieć komponentu `Photos`, zaś komponent `Comments` nie jest jeszcze gotowy na wyrenderowanie treści, a React musi zapewnić spójność zawartości, więc nie ma innego wyjścia, jak tylko wyświetlić komponent `Glimmer`.
 
-However, sometimes this user experience is not desirable. In particular, it is sometimes better to show the "old" UI while the new UI is being prepared. You can use the new [`startTransition`](/docs/react-api.html#starttransition) API to make React do this:
+Czasem jednak taki ciąg zdarzeń nie jest satysfakcjonujący. Czasem lepiej wyświetlić "stary" widok, podczas gdy nowy jest w trakcie przygotowywania. Można to osiągnąć za pomocą nowej funkcji [`startTransition`](/docs/react-api.html#starttransition):
 
 ```js
 function handleTabSelect(tab) {
@@ -201,10 +185,9 @@ function handleTabSelect(tab) {
 }
 ```
 
-Here, you tell React that setting tab to `'comments'` is not an urgent update, but is a [transition](/docs/react-api.html#transitions) that may take some time. React will then keep the old UI in place and interactive, and will switch to showing `<Comments />` when it is ready. See [Transitions](/docs/react-api.html#transitions) for more info.
+Tym poleceniem mówisz Reactowi, że zmiana zakładki na `'comments'` nie jest bardzo pilna, jest jedynie [stanem przejściowym](/docs/react-api.html#transitions), który może chwilę potrwać. React w tym wypadku będzie nadal wyświetlać stary interfejs, który na dodatek będzie w pełni interaktywny. Gdy jednak `<Comments />` skończy się renderować, React podmieni zawartość na ekranie. Aby dowiedzieć się więcej, przejdź do sekcji [stanu przejściowe](/docs/react-api.html#transitions).
 
-### Error boundaries {#error-boundaries}
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
+### Granice błędów {#error-boundaries}
 
 Jeśli inny moduł nie wczyta się poprawnie (na przykład z powodu awarii sieci), spowoduje to błąd. 
 Możesz go obsłużyć aby zapewnić użytkownikowi lepsze doświadczenie, a także aby określić sposób obsługi błędu za pomocą 

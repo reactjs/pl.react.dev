@@ -1154,11 +1154,7 @@ Następnie zmienimy nieco metodę `handleClick` w komponencie `Game`, która wyw
 
 Zmienna `stepNumber` obecnie odzwierciedla numer ruchu, który wyświetlany jest na ekranie. Po wykonaniu kolejnego ruchu powinniśmy ją ustawiać na `stepNumber: history.length`. Zapobiegnie to utknięciu na jednym i tym samym kroku, nawet pomimo wykonania przez gracza ruchu.
 
-<<<<<<< HEAD
 Zamienimy również odczytywanie wartości `this.state.history` na `this.state.history.slice(0, this.state.stepNumber + 1)`. Dzięki temu, gdy "cofniemy się w czasie", a następnie wykonamy jakiś ruch, odrzucimy wszelkie kolejne zapisane w historii wpisy "z przyszłości", które stałyby się nieprawidłowe w zaistniałej sytuacji.
-=======
-We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now be incorrect.
->>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ```javascript{2,13}
   handleClick(i) {
