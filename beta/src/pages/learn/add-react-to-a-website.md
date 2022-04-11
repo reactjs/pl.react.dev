@@ -126,7 +126,54 @@ Niezminifikowany kod javascriptowy może znacząco spowolnić czas ładowania dl
 
 ## Wypróbuj Reacta ze składnią JSX {/*try-react-with-jsx*/}
 
+<<<<<<< HEAD
 Powyższe przykłady bazują na funkcjonalnościach wspieranych natywnie przez przeglądarki. To właśnie dlatego **like_button.js** używa javascriptowego wywołania funkcji, żeby powiedzieć Reactowi, co ma wyświetlić:
+=======
+The examples above rely on features that are natively supported by browsers. This is why **like_button.js** uses a JavaScript function call to tell React what to display:
+
+```js
+return React.createElement('button', {onClick: () => setLiked(true)}, 'Like');
+```
+
+However, React also offers an option to use [JSX](/learn/writing-markup-with-jsx), an HTML-like JavaScript syntax, instead:
+
+```jsx
+return <button onClick={() => setLiked(true)}>Like</button>;
+```
+
+These two code snippets are equivalent. JSX is popular syntax for describing markup in JavaScript. Many people find it familiar and helpful for writing UI code--both with React and with other libraries. You might see "markup sprinkled throughout your JavaScript" in other projects!
+
+> You can play with transforming HTML markup into JSX using [this online converter](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.17).
+
+### Try JSX {/*try-jsx*/}
+
+The quickest way to try JSX in your project is to add the Babel compiler to your page's `<head>` along with React and ReactDOM like so:
+
+```html {6}
+<!-- ... rest of <head> ... -->
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<!-- ... rest of <body> ... -->
+```
+
+Now you can use JSX in any `<script>` tag by adding `type="text/babel"` attribute to it. For instance:
+
+```jsx {1}
+<script type="text/babel">
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<h1>Hello, world!</h1>);
+</script>
+```
+
+To convert **like_button.js** to use JSX:
+
+1. In **like_button.js**, replace
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 ```js
 return React.createElement(

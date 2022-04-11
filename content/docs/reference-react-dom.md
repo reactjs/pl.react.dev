@@ -62,11 +62,27 @@ Tworzy portal. Portale umożliwiają [renderowanie elementów do węzła DOM ist
 flushSync(callback)
 ```
 
+<<<<<<< HEAD
 Wymusza synchroniczne wykonanie wszelkich aktualizacji zawartych wewnątrz przekazanej funkcji. Metoda ta jest przydatna, gdy chcemy mieć natychmiastowy dostęp do wyników tych aktualizacji.
+=======
+Force React to flush any updates inside the provided callback synchronously. This ensures that the DOM is updated immediately.
+
+```javascript
+// Force this state update to be synchronous.
+flushSync(() => {
+  setCount(count + 1);
+});
+// By this point, DOM is updated.
+```
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 > Uwaga:
 > 
+<<<<<<< HEAD
 > `flushSync` może mieć znaczący wpływ na wydajność aplikacji. Używaj z rozwagą.
+=======
+> `flushSync` can significantly hurt performance. Use sparingly.
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 > 
 > `flushSync` może wymusić na granicach zawieszenia (ang. *Suspense boundaries*), aby wyświetliły swój komponent zastępczy (ang. *fallback*).
 > 
