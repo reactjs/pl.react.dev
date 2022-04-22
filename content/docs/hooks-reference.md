@@ -108,6 +108,14 @@ Jeżeli zaktualizujesz hook stanu do takiej samej wartości, jaka jest aktualnie
 
 Pamiętaj, że React może nadal wymagać wyrenderowania tego konkretnego komponentu, zanim wymiga się od dalszych zmian. Nie powinno to być problemem, ponieważ React nie będzie niepotrzebnie wchodził „głębiej” w drzewo. Jeśli wykonujesz kosztowne obliczenia podczas renderowania, możesz je zoptymalizować za pomocą `useMemo`.
 
+#### Grupowanie zmian stanu {#batching-of-state-updates}
+
+React w celach optymalizacyjnych potrafi zgrupować kilka zmian stanu, powodując tylko jedno ponowne renderowanie. W większości przypadków zwiększa to szybkość aplikacji i nie powinno wpływać na zachowanie twojej aplikacji.
+
+Przed Reactem 18 grupowane były wyłącznie aktualizacje stanu wywołane z procedur obsługi zdarzeń (ang. *event handlers*). Od wersji React 18, [grupowanie jest włączone domyślnie dla wszystkich aktualizacji](/blog/2022/03/08/react-18-upgrade-guide.html#automatic-batching). Pamiętaj jednak, że React sam upewnia się, aby zmiany z kilku *różnych* zdarzeń zainicjowanych przez użytkownika (np. poprzez kliknięcie na przycisk dwukrotnie) zawsze były przetwarzane osobno i nigdy nie były grupowane. Zapobiega to błędom w logice.
+
+W rzadkich sytuacjach, kiedy zajdzie potrzeba wymuszenia synchronicznej aktualizacji DOM, możesz skorzystać z [`flushSync`](/docs/react-dom.html#flushsync). Pamiętaj jednak, że taki zabieg wiąże się z spadkiem wydajności, więc korzystaj z niego z rozwagą.
+
 ### `useEffect` {#useeffect}
 
 ```js
@@ -608,6 +616,10 @@ const id = useId();
 ```
 
 `useId` służy do generowania unikalnych ID, które mają gwarancję stabilności pomiędzy serwerem i klientem, co pozwala uniknąć nieścisłości podczas hydratacji (ang. *hydration*).
+
+> Uwaga
+>
+> Hook `useId` **nie służy** do generowania [kluczy w listach](/docs/lists-and-keys.html#keys). Klucze powinny być generowane na podstawie danych.
 
 Dla przykładu, możesz przekazać wygenerowane w ten sposób `id` bezpośrednio do komponentów, które go potrzebują:
 

@@ -64,6 +64,14 @@ flushSync(callback)
 
 Wymusza synchroniczne wykonanie wszelkich aktualizacji zawartych wewnątrz przekazanej funkcji. Metoda ta jest przydatna, gdy chcemy mieć natychmiastowy dostęp do wyników tych aktualizacji.
 
+```javascript
+// Spraw, żeby ta zmiana stanu była synchroniczna.
+flushSync(() => {
+  setCount(count + 1);
+});
+// W tym miejscu stan jest już zaktualizowany.
+```
+
 > Uwaga:
 > 
 > `flushSync` może mieć znaczący wpływ na wydajność aplikacji. Używaj z rozwagą.
