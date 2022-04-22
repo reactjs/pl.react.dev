@@ -512,11 +512,7 @@ setState(updater, [callback])
 
 `setState()` ustawia w kolejce zmiany stanu komponentu i daje znać Reactowi, że komponent i jego komponenty potomne powinny zostać ponownie wyrenderowane ze zaktualizowanym stanem. Jest to podstawowa metoda używana do aktualizacji interfejsu użytkownika w odpowiedzi na procedury obsługi zdarzeń i odpowiedzi z serwera.
 
-<<<<<<< HEAD
-Myśl o metodzie `setState()` bardziej jako o *prośbie* niż o natychmiastowym poleceniu aktualizacji komponentu. Dla lepszej postrzeganej wydajności, React może ją opóźnić, a potem zaktualizować kilka komponentów za jednym zamachem. React nie gwarantuje natychmiastowego zastosowania zmian stanu.
-=======
-Think of `setState()` as a *request* rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. In the rare case that you need to force the DOM update to be applied synchronously, you may wrap it in [`flushSync`](/docs/react-dom.html#flushsync), but this may hurt performance.
->>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
+Myśl o metodzie `setState()` bardziej jako o *prośbie* niż o natychmiastowym poleceniu aktualizacji komponentu. Dla lepszej postrzeganej wydajności, React może ją opóźnić, a potem zaktualizować kilka komponentów za jednym zamachem. W rzadkich sytuacjach, kiedy potrzebujesz wymusić synchroniczną aktualizację DOM, możesz opakować ją w [`flushSync`](/docs/react-dom.html#flushsync). Ale pamiętaj, że może na tym ucierpieć wydajność aplikacji.
 
 Metoda `setState()` nie zawsze od razu aktualizuje komponent. Może ona złączyć lub odłożyć aktualizację na później. Sprawia to, że odczytywanie `this.state` zaraz po wywołaniu `setState()` jest potencjalną pułapką. Zamiast tego, użyj metody `componentDidUpdate` lub funkcji zwrotnej (ang. *callback*) `setState` (`setState(updater, callback)`), które są wywoływane po zastosowaniu aktualizacji. Jeśli potrzebujesz zmienić stan w oparciu o poprzedni stan, zapoznaj się z poniższym argumentem `updater`.
 

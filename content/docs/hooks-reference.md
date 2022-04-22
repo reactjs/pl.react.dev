@@ -108,13 +108,13 @@ Jeżeli zaktualizujesz hook stanu do takiej samej wartości, jaka jest aktualnie
 
 Pamiętaj, że React może nadal wymagać wyrenderowania tego konkretnego komponentu, zanim wymiga się od dalszych zmian. Nie powinno to być problemem, ponieważ React nie będzie niepotrzebnie wchodził „głębiej” w drzewo. Jeśli wykonujesz kosztowne obliczenia podczas renderowania, możesz je zoptymalizować za pomocą `useMemo`.
 
-#### Batching of state updates {#batching-of-state-updates}
+#### Grupowanie zmian stanu {#batching-of-state-updates}
 
-React may group several state updates into a single re-render to improve performance. Normally, this improves performance and shouldn't affect your application's behavior.
+React w celach optymalizacyjnych potrafi zgrupować kilka zmian stanu, powodując tylko jedno ponowne renderowanie. W większości przypadków zwiększa to szybkość aplikacji i nie powinno wpływać na zachowanie twojej aplikacji.
 
-Before React 18, only updates inside React event handlers were batched. Starting with React 18, [batching is enabled for all updates by default](/blog/2022/03/08/react-18-upgrade-guide.html#automatic-batching). Note that React makes sure that updates from several *different* user-initiated events -- for example, clicking a button twice -- are always processed separately and do not get batched. This prevents logical mistakes.
+Przed Reactem 18 grupowane były wyłącznie aktualizacje stanu wywołane z procedur obsługi zdarzeń (ang. *event handlers*). Od wersji React 18, [grupowanie jest włączone domyślnie dla wszystkich aktualizacji](/blog/2022/03/08/react-18-upgrade-guide.html#automatic-batching). Pamiętaj jednak, że React sam upewnia się, aby zmiany z kilku *różnych* zdarzeń zainicjowanych przez użytkownika (np. poprzez kliknięcie na przycisk dwukrotnie) zawsze były przetwarzane osobno i nigdy nie były grupowane. Zapobiega to błędom w logice.
 
-In the rare case that you need to force the DOM update to be applied synchronously, you may wrap it in [`flushSync`](/docs/react-dom.html#flushsync). However, this can hurt performance so do this only where needed.
+W rzadkich sytuacjach, kiedy zajdzie potrzeba wymuszenia synchronicznej aktualizacji DOM, możesz skorzystać z [`flushSync`](/docs/react-dom.html#flushsync). Pamiętaj jednak, że taki zabieg wiąże się z spadkiem wydajności, więc korzystaj z niego z rozwagą.
 
 ### `useEffect` {#useeffect}
 
@@ -617,15 +617,11 @@ const id = useId();
 
 `useId` służy do generowania unikalnych ID, które mają gwarancję stabilności pomiędzy serwerem i klientem, co pozwala uniknąć nieścisłości podczas hydratacji (ang. *hydration*).
 
-<<<<<<< HEAD
-Dla przykładu, możesz przekazać wygenerowane w ten sposób `id` bezpośrednio do komponentów, które go potrzebują:
-=======
-> Note
+> Uwaga
 >
-> `useId` is **not** for generating [keys in a list](/docs/lists-and-keys.html#keys). Keys should be generated from your data.
+> Hook `useId` **nie służy** do generowania [kluczy w listach](/docs/lists-and-keys.html#keys). Klucze powinny być generowane na podstawie danych.
 
-For a basic example, pass the `id` directly to the elements that need it:
->>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
+Dla przykładu, możesz przekazać wygenerowane w ten sposób `id` bezpośrednio do komponentów, które go potrzebują:
 
 ```js
 function Checkbox() {
