@@ -192,7 +192,11 @@ class Chosen extends React.Component {
 
 Osadzenie Reacta wewnątrz innych aplikacji jest możliwe dzięki elastyczności funkcji [`createRoot()`](/docs/react-dom-client.html#createRoot).
 
+<<<<<<< HEAD
 Mimo że Reacta zwykle używa się na starcie aplikacji do załadowania jednego głównego komponentu do DOM, funkcję `root.render()` można wywołać wielokrotnie w niezależnych fragmentach interfejsu, niezależnie od tego, czy są małe jak przycisk, czy dużych jak cała aplikacja.
+=======
+Although React is commonly used at startup to load a single root React component into the DOM, `createRoot()` can also be called multiple times for independent parts of the UI which can be as small as a button, or as large as an app.
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 Prawdę mówiąc, właśnie w taki sposób używamy Reacta na Facebooku. To podejście pozwala nam pisać aplikacje kawałek po kawałku i łączyć je z istniejącymi szablonami wygenerowanymi po stronie serwera czy z innym kodem klienckim.
 
