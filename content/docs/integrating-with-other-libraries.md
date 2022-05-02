@@ -192,7 +192,11 @@ class Chosen extends React.Component {
 
 Osadzenie Reacta wewnątrz innych aplikacji jest możliwe dzięki elastyczności funkcji [`createRoot()`](/docs/react-dom-client.html#createRoot).
 
+<<<<<<< HEAD
 Mimo że Reacta zwykle używa się na starcie aplikacji do załadowania jednego głównego komponentu do DOM, funkcję `root.render()` można wywołać wielokrotnie w niezależnych fragmentach interfejsu, niezależnie od tego, czy są małe jak przycisk, czy dużych jak cała aplikacja.
+=======
+Although React is commonly used at startup to load a single root React component into the DOM, `createRoot()` can also be called multiple times for independent parts of the UI which can be as small as a button, or as large as an app.
+>>>>>>> 5f3a9756e00e256735a5f52df19b403d8fdd3a9d
 
 Prawdę mówiąc, właśnie w taki sposób używamy Reacta na Facebooku. To podejście pozwala nam pisać aplikacje kawałek po kawałku i łączyć je z istniejącymi szablonami wygenerowanymi po stronie serwera czy z innym kodem klienckim.
 
@@ -246,20 +250,22 @@ Widoki biblioteki [Backbone](https://backbonejs.org/) (ang. _Backbone Views_), a
 
 W poniższym kodzie tworzymy widok backbone'owy o nazwie `ParagraphView`. Nadpisujemy w nim backbone'ową funkcję `render()`, w której do elementu DOM dostarczonego przez Backbone'a (`this.el`) renderujemy komponent reactowy `<Paragraph>`. Tutaj również korzystamy z funkcji [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot):
 
-```js{1,5,8-9,13}
+```js{7,11,15}
 function Paragraph(props) {
   return <p>{props.text}</p>;
 }
 
 const ParagraphView = Backbone.View.extend({
+  initialize(options) {
+    this.reactRoot = ReactDOM.createRoot(this.el);
+  },
   render() {
     const text = this.model.get('text');
-    this.root = ReactDOM.createRoot(this.el);
-    this.root.render(<Paragraph text={text} />);
+    this.reactRoot.render(<Paragraph text={text} />);
     return this;
   },
   remove() {
-    this.root.unmount();
+    this.reactRoot.unmount();
     Backbone.View.prototype.remove.call(this);
   }
 });
