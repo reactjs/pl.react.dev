@@ -64,13 +64,13 @@ Kiedy React widzi element reprezentujący komponent zdefiniowany przez użytkown
 
 Dla przykładu, poniższy kod renderuje na stronie napis "Cześć, Sara":
 
-```js{1,5}
+```js{1,6}
 function Welcome(props) {
   return <h1>Cześć, {props.name}</h1>;
 }
 
-const element = <Welcome name="Sara" />;
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const element = <Welcome name="Sara" />;
 root.render(element);
 ```
 

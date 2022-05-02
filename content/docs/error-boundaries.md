@@ -65,7 +65,7 @@ Należy pamiętać, że **granice błędów wyłapują błędy w komponentach po
 
 ## Demo {#live-demo}
 
-[Przykład tworzenia i użycia granicy błędów](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) z wykorzystaniem [Reacta 16](/blog/2017/09/26/react-v16.0.html).
+[Przykład tworzenia i użycia granicy błędów](https://codepen.io/gaearon/pen/wqvxGa?editors=0010).
 
 ## Gdzie umiejscowić granice błędów {#where-to-place-error-boundaries}
 
