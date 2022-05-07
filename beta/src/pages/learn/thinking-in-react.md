@@ -1,18 +1,18 @@
 ---
-title: Thinking in React
+title: Myślenie reactowe
 ---
 
 <Intro>
 
-React can change how you think about the designs you look at and the apps you build. Where once you might have seen a forest, after working with React, you will appreciate the individual trees. React makes it easier to think in design systems and UI states. In this tutorial, we'll guide you through the thought process of building a searchable product data table with React.
+React potrafi zmienić sposób myślenia o designach, na których się wzorujemy, i aplikacjach, które tworzymy. Gdzie kiedyś widzieliśmy las, po pracy z Reactem, zauważamy poszczególne drzewa. React ułatwia myślenie w kategoriach systemów designerskich i stanów interfejsu użytkownika. W tym samouczku oprowadzimy cię po procesie tworzenia w Reakcie tabeli z funkcją wyszukiwania.
 
 </Intro>
 
-## Start with the mockup {/*start-with-the-mockup*/}
+## Rozpoczynanie od makiety interfejsu {/*start-with-the-mockup*/}
 
-Imagine that you already have a JSON API and a mockup from a designer.
+Załóżmy, że masz już API JSON-owe oraz makiety interfejsu od designerów.
 
-The JSON API returns some data that looks like this:
+Niech API zwraca dane podobne do tych:
 
 ```json
 [
@@ -25,25 +25,25 @@ The JSON API returns some data that looks like this:
 ]
 ```
 
-The mockup looks like this:
+A designy niech wyglądają tak:
 
 <img src="/images/docs/s_thinking-in-react_ui.png" width="300" style={{margin: '0 auto'}} />
 
-To implement a UI in React, you will usually follow the same five steps.
+Implementacja interfejsu w Reakcie zwykle sprowadza się do tych samych pięciu kroków.
 
-## Step 1: Break the UI into a component hierarchy {/*step-1-break-the-ui-into-a-component-hierarchy*/}
+## Krok 1: Rozbij UI na hierarchię komponentów {/*step-1-break-the-ui-into-a-component-hierarchy*/}
 
-Start by drawing boxes around every component and subcomponent in the mockup and naming them. If you work with a designer, they may have already named these components in their design tool. Check in with them!
+Zacznij od narysowania na designach prostokątów wokół każdego komponentu i podkomponentu, a następnie nadaj im nazwy. Jeśli współpracujesz z designerem, spytaj go o to - być może ma już dla nich gotowe nazwy.
 
-Depending on your background, you can think about splitting up a design into components in different ways:
+Zależnie od tego, z jakiej działki się wywodzisz, możesz myśleć o podziale na komponenty na różne sposoby:
 
-* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents. 
-* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
-* **Design**--consider how you would organize the design's layers.
+* **Programowanie** - zastosuj te same techniki, co przy decydowaniu, czy warto stworzyć nową funkcję lub obiekt. Jedną z takich technik jest [zasada jednej odpowiedzialności](https://pl.wikipedia.org/wiki/Zasada_jednej_odpowiedzialno%C5%9Bci), to znaczy, że idealnie by było, gdyby komponent robił tylko jedną rzeczy. Jeśli za bardzo się rozrośnie, warto zastanowić się nad podzialeniem go na kilka mniejszych.
+* **CSS** - pomyśl, co powinno otrzymać swój własny selektor CSS-owy. (Chociaż komponenty zwykle są nieco bardziej rozdrobnione.)
+* **Design** - pomyśl, jak należałoby zorganizować warstwy projektu graficznego.
 
-If your JSON is well-structured, you'll often find that it naturally maps to the component structure of your UI. That's because UI and data models often have the same information architecture--that is, the same shape. Separate your UI into components, where each component matches one piece of your data model.
+Jeśli dane z API są dobrze zorganizowane, często naturalnie mapują się na strukturę komponentów UI, ponieważ mają taką samą strukturę informacyjną - czyli kształt. Porozdzielaj komponenty od siebie tak, by każdy z nich pasował do jednej części modelu danych.
 
-There are five components on this screen:
+Na naszej makiecie możemy wyróżnić pięć komponentów:
 
 <FullWidth>
 
@@ -51,19 +51,19 @@ There are five components on this screen:
 
 <img src="/images/docs/s_thinking-in-react_ui_outline.png" width="500" style={{margin: '0 auto'}} />
 
-1. `FilterableProductTable` (grey) contains the entire app.
-2. `SearchBar` (blue) receives the user input.
-3. `ProductTable` (lavender) displays and filters the list according to the user input.
-4. `ProductCategoryRow` (green) displays a heading for each category.
-5. `ProductRow`	(yellow) displays a row for each product.
+1. `FilterableProductTable` (szary) zawiera cały UI aplikacji.
+2. `SearchBar` (niebieski) zbiera dane od użytkownika.
+3. `ProductTable` (fioletowy) wyświetla i filtruje listę elementów na podstawie ustawień użytkownika.
+4. `ProductCategoryRow` (zielony) wyświetla nagłówek każdej z kategorii.
+5. `ProductRow`	(żółty) wyświetla wiersz dla każdego produktu.
 
 </CodeDiagram>
 
 </FullWidth>
 
-If you look at `ProductTable` (lavender), you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and you could go either way. For this example, it is a part of `ProductTable` because it appears inside the `ProductTable`'s list. However, if this header grows to be complex (e.g., if you add sorting), it would make sense to make this its own `ProductTableHeader` component.
+Jeśli spojrzysz na `ProductTable` (fioletowy), zauważysz, że nagłówek tabeli (zawierający tekst "Name" i "Price") nie jest osobnym komponentem. To kwestia preferencji i można to zrobić inaczej. W tym przykładzie jest on częścią `ProductTable`, ponieważ wyświetlany jest wewnątrz listy `ProductTable`. Jednakże jeśli logika tego nagłówka się skomplikuje (np. jeśli dodamy sortowanie), sensownym byłoby wydzielenie go jako osobny komponent o nazwie `ProductTableHeader`.
 
-Now that you've identified the components in the mockup, arrange them into a hierarchy. Components that appear within another component in the mockup should appear as a child in the hierarchy:
+Teraz, kiedy już zidentyfikowaliśmy wszystkie komponenty na grafice, możemy rozmieścić je w hierarchii. Komponenty, które znajdują się wewnątrz innych, w hierarchii powinny być głębiej:
 
 * `FilterableProductTable`
     * `SearchBar`
@@ -71,13 +71,13 @@ Now that you've identified the components in the mockup, arrange them into a hie
         * `ProductCategoryRow`
         * `ProductRow`
 
-## Step 2: Build a static version in React {/*step-2-build-a-static-version-in-react*/}
+## Krok 2: Zbuduj statyczną wersję w Reakcie {/*step-2-build-a-static-version-in-react*/}
 
-Now that you have your component hierarchy, it's time to implement your app. The most straightforward approach is to build a version that renders the UI from your data model without adding any interactivity... yet! It's often easier to build the static version first and then add interactivity separately. Building a static version requires a lot of typing and no thinking, but adding interactivity requires a lot of thinking and not a lot of typing.
+Teraz, gdy już mamy gotową hierarchię komponentów, czas na implementację aplikacji. Najprościej będzie zbudować taką wersję, która renderuje interfejs z modelu danych bez dodawania żadnej interaktywności. Przynajmniej na razie! Często łatwiej jest najpierw zbudować statyczną wersję interfejsu, a następnie dodać do niej interakcje. Budowanie statycznej wersji wymaga dużo pisania i niewiele myślenia, natomiast dodawanie interaktywności wymaga dużo myślenia i niewiele pisania.
 
-To build a static version of your app that renders your data model, you'll want to build [components](/learn/your-first-component) that reuse other components and pass data using [props](/learn/passing-props-to-a-component). Props are a way of passing data from parent to child. (If you're familiar with the concept of [state](/learn/state-a-components-memory), don't use state at all to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.)
+Aby zbudować statyczną wersję aplikacji, która renderuje dane, należy stworzyć [komponenty](/learn/your-first-component), które używają innych komponentów i przekazują do nich dane za pomocą [właściwości (ang. *props*)](/learn/passing-props-to-a-component). Właściwości pozwalają przekazywać dane z rodzica do potomka. (Jeśli wiesz, co to [stan](/learn/state-a-components-memory), nie dodawaj go do wersji statycznej. Stan jest zarezerwowany tylko dla interakcji, a konkretniej dla danych, które zmieniają się w czasie. A ponieważ to tylko wersja statyczna, zwyczajnie go nie potrzebujesz.)
 
-You can either build "top down" by starting with building the components higher up in the hierarchy (like `FilterableProductTable`) or "bottom up" by working from components lower down (like `ProductRow`). In simpler examples, it’s usually easier to go top-down, and on larger projects, it’s easier to go bottom-up.
+Możesz zacząć budować "od góry do dołu", zaczynając od komponentów znajdujących się wyżej w hierarchii (np. `FilterableProductTable`) lub "od dołu do góry", zaczynając od tych najniżej (np. `ProductRow`). W prostszych przypadkach łatwiej jest iść z góry na dół, natomiast w większych projektach zwykle lepiej sprawdza się to drugie podejście.
 
 <Sandpack>
 
@@ -195,83 +195,83 @@ td {
 
 </Sandpack>
 
-(If this code looks intimidating, go through the [Quick Start](/learn/) first!)
+(Jeśli powyższy kod wydaje ci się za trudny, zajrzyj najpierw do rozdziału pt. [Szybki start](/learn/)!)
 
-After building your components, you'll have a library of reusable components that render your data model. Because this is a static app, the components will only return JSX. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. This is called _one-way data flow_ because the data flows down from the top-level component to the ones at the bottom of the tree.
+Po zakończeniu zadania będziesz mieć bibliotekę komponentów, które renderują twój model danych. Jako że na razie jest to statyczna wersja aplikacji, komponenty te będą jedynie zwracać kod JSX. Komponent na górze hierarchii (`FilterableProductTable`) otrzyma dane przez właściwość. Nazywamy to _przepływem jednokierunkowym_ (ang. *one-way data flow*), ponieważ dane przechodzą z górnego komponentu do komponentów potomnych.
 
 <Gotcha>
 
-At this point, you should not be using any state values. That’s for the next step!
+Na tym etapie twoje komponenty nie powinny mieć żadnego stanu. Zajmiemy się tym w następnym kroku!
 
 </Gotcha>
 
-## Step 3: Find the minimal but complete representation of UI state {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
+## Krok 3: Znajdź minimalną, ale kompletną reprezentację stanu interfejsu {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
 
-To make the UI interactive, you need to let users change your underlying data model. You will use *state* for this.
+Aby nadać interfejsowi interaktywności, musisz pozwolić użytkownikom zmieniać model danych znajdujący się pod spodem. W tym celu użyj *stanu*.
 
-Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it [DRY (Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)). Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand. For example, if you're building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don't store the number of items as another state value--instead, read the length of your array.
+Pomyśl o stanie jako o minimalnym zestawie zmieniających się danych, które twoja aplikacja musi pamiętać. Najważniejszą zasadą projektowania stanu jest to, by [nie powtarzać się (DRY)](https://pl.wikipedia.org/wiki/DRY). Wymyśl absolutnie minimalną reprezentację stanu, jakiej potrzebuje twoja aplikacja, a wszystko inne obliczaj w razie potrzeby. Na przykład, jeśli tworzysz listę zakupów, możesz przechowywać produkty w tablicy. Jeśli chcesz dodatkowo wyświetlić liczbę produktów na liście, nie przechowuj tej liczby w osobnej zmiennej stanu. Zamiast tego odczytaj długość tablicy.
 
-Now think of all of the pieces of data in this example application:
+Zastanówmy się teraz nad wszystkimi kawałkami danych, które przetwarzać będzie nasza aplikacja:
 
-1. The original list of products
-2. The search text the user has entered
-3. The value of the checkbox
-4. The filtered list of products
+1. Oryginalna lista produktów
+2. Tekst wpisany przez użytkownika w polu wyszukiwania
+3. Wartość pola wyboru
+4. Przefiltrowana lista produktów
 
-Which of these are state? Identify the ones that are not:
+Które z nich kwalifikują się na stan? Wybierając je, kieruj się następującymi zasadami:
 
-* Does it **remain unchanged** over time? If so, it isn't state.
-* Is it **passed in from a parent** via props? If so, it isn't state.
-* **Can you compute it** based on existing state or props in your component? If so, it *definitely* isn't state!
+* Czy wartość **pozostaje stała** w czasie? Jeśli tak, to nie jest to stan.
+* Czy wartość **jest przekazywana od rodzica** przez właściwości? Jeśli tak, to nie jest to stan.
+* **Czy możesz obliczyć ją** na podstawie istniejącego stanu lub właściwości komponentu? Jeśli tak, to *z pewnością* nie jest stan!
 
-What's left is probably state.
+Wszystko inne najprawdopodobniej jest stanem.
 
-Let's go through them one by one again:
+Przejdźmy przez wszystkie pozycje krok po kroku:
 
-1. The original list of products is **passed in as props, so it's not state**. 
-2. The search text seems to be state since it changes over time and can't be computed from anything.
-3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
-4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
+1. Oryginalna lista produktów **jest przekazywana przez właściwości, więc nie jest stanem**. 
+2. Tekst wyszukiwarki wydaje się być stanem, bo zmienia się w czasie i nie można go obliczyć na podstawie niczego innego.
+3. Wartość pola wyboru wydaje się być stanem, bo zmienia się w czasie i nie można go obliczyć na podstawie niczego innego.
+4. Przefiltrowana lista produktów **nie jest stanem, bo można ją wyliczyć**, biorąc oryginalną listę produktów i filtrując ją zgodnie z tekstem wyszukiwarki i wartością pola wyboru.
 
-This means only the search text and the value of the checkbox are state! Nicely done!
+Oznacza to, że jedynie tekst wyszukiwarki i wartość pola wyboru są stanem! Dobra robota!
 
-<DeepDive title="Props vs State">
+<DeepDive title="Właściwości a stan">
 
-There are two types of "model" data in React: props and state. The two are very different:
+W Reakcie rozróżniamy dwa typy danych "modelowych": właściwości i stan. Obydwa różnią się od siebie:
 
-* [**Props** are like arguments you pass](/learn/passing-props-to-a-component) to a function. They let a parent component pass data to a child component and customize its appearance. For example, a `Form` can pass a `color` prop to a `Button`.
-* [**State** is like a component’s memory.](/learn/state-a-components-memory) It lets a component keep track of some information and change it in response to interactions. For example, a `Button` might keep track of `isHovered` state.
+* [**Właściwości** są jak argumenty, które przekazujemy](/learn/passing-props-to-a-component) do funkcji. Pozwalają komponentowi nadrzędnemu przekazać dane do komponentu potomnego i skonfigurować jego wygląd. Na przykład, `Form` może przekazać właściwość `color` do komponentu `Button`.
+* [**Stan** jest jak pamięć komponentu.](/learn/state-a-components-memory) Pozwala komponentowi śledzić jakąś informację i zmieniać jej wartość w odpowiedzi na interakcje. Na przykład, `Button` może śledzić stan `isHovered`.
 
-Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and *pass it down* to child components as their props. It's okay if the difference still feels fuzzy on the first read. It takes a bit of practice for it to really stick!
+Właściwości i stan różnią się od siebie, ale dobrze ze sobą współgrają. Komponent nadrzędny często trzyma jakieś informacje w stanie (tak, aby mógł je zmieniać), a następnie *przekazuje je w dół* do komponentów potomnych poprzez właściwości. Nie przejmuj się, jeśli za pierwszym razem te różnice wydają ci się jeszcze trochę niejasne. Dokładne zrozumienie tego tematu wymaga nieco praktyki!
 
 </DeepDive>
 
-## Step 4: Identify where your state should live {/*step-4-identify-where-your-state-should-live*/}
+## Krok 4: Zdecyduj, gdzie stan powinien być trzymany {/*step-4-identify-where-your-state-should-live*/}
 
-After identifying your app’s minimal state data, you need to identify which component is responsible for changing this state, or *owns* the state. Remember: React uses one-way data flow, passing data down the component hierarchy from parent to child component. It may not be immediately clear which component should own what state. This can be challenging if you’re new to this concept, but you can figure it out by following these steps!
+Po zidentyfikowaniu minimalnego stanu aplikacji, musisz zdecydować, który komponent powinien być odpowiedzialny za zmianę tego stanu - lub innymi słowy: który jest *właścicielem* stanu. Pamiętaj, że w Reakcie stosuje się jednokierunkowy przepływ danych, w którym dane przechodzą z góry na dół, od rodzica do potomka. To, który komponent powinien zarządzać stanem, może jeszcze wydawać się niejasne. Jeśli ta koncepcja jest dla ciebie nowa, może wydawać się trudna, ale kolejne akapity powinny pomóc ci ją lepiej zrozumieć!
 
-For each piece of state in your application:
+Dla każdego fragmentu stanu aplikacji:
 
-1. Identify *every* component that renders something based on that state.
-2. Find their closest common parent component--a component above them all in the hierarchy.
-3. Decide where the state should live:
-    1. Often, you can put the state directly into their common parent.
-    2. You can also put the state into some component above their common parent.
-    3. If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common parent component.
+1. Zidentyfikuj *każdy* komponent, który renderuje coś na podstawie tego stanu.
+2. Znajdź ich najbliższego wspólnego rodzica - komponent powyżej nich w hierarchii.
+3. Zdecyduj, gdzie stan powinien być umieszczony:
+    1. Często wystarczy umieścić go we wspólnym rodzicu.
+    2. Możesz go również umieścić w komponencie powyżej tego rodzica.
+    3. Jeśli nie możesz znaleźć odpowiedniego komponentu, stwórz go specjalnie w celu przechowywania stanu i dodaj go gdzieś wyżej w hierarchii, nad wspólnym rodzicem.
 
-In the previous step, you found two pieces of state in this application: the search input text, and the value of the checkbox. In this example, they always appear together, so it is easier to think of them as a single piece of state.
+W poprzednim kroku znaleźliśmy dwa fragmenty stanu aplikacji: tekst wyszukiwarki oraz wartość pola wyboru. Akurat w tym przykładzie zawsze występują one równocześnie, dlatego łatwiej jest myśleć o nich jak o pojedynczym fragmencie stanu.
 
-Now let's run through our strategy for this state:
+Zastosujmy na tym stanie poznaną przez nas strategię:
 
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
-    * `SearchBar` needs to display that state (search text and checkbox value).
-1. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-2. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
+1. **Zidentyfikuj komponenty, które korzystają z tego stanu:**
+    * `ProductTable` musi filtrować produkty na podstawie tego stanu (tekstu wyszukiwarki i wartości pola wyboru). 
+    * `SearchBar` musi wyświetlać ten stan (tekst wyszukiwarki i wartość pola wyboru).
+1. **Znajdź ich wspólnego rodzica:** Pierwszym rodzicem wspólnym dla obydwu komponentów jest `FilterableProductTable`.
+2. **Zdecyduj, gdzie stan powinien być umieszczony**: Będziemy trzymać go w `FilterableProductTable`.
 
-So the state values will live in `FilterableProductTable`. 
+Tak więc wartości stanu będą przechowywane w komponencie `FilterableProductTable`. 
 
-Add state to the component with the [`useState()` Hook](/apis/usestate). Hooks let you "hook into" a component's [render cycle](/learn/render-and-commit). Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
+Aby dodać stan do komponentu, użyj [hooka `useState()`](/apis/usestate). Hooki pozwalają "zahaczyć" się o [cykl renderowania (ang. *render cycle*)](/learn/render-and-commit) komponentu. Dodaj dwie zmienne stanu na górze ciała komponentu `FilterableProductTable` i określ początkowy stan aplikacji:
 
 ```js
 function FilterableProductTable({ products }) {
@@ -279,7 +279,7 @@ function FilterableProductTable({ products }) {
   const [inStockOnly, setInStockOnly] = useState(false);  
 ```
 
-Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as props:
+Następnie przekaż właściwości `filterText` i `inStockOnly` do komponentów `ProductTable` i `SearchBar`:
 
 ```js
 <div>
@@ -293,7 +293,7 @@ Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as p
 </div>
 ```
 
-You can start seeing how your application will behave. Edit the `filterText` initial value from `useState('')` to `useState('fruit')` in the sandbox code below. You'll see both the search input text and the table update:
+Teraz możesz przetestować zachowanie aplikacji. Zmień w poniższym kodzie początkową wartość stanu `filterText` z `useState('')` na `useState('fruit')`. Zauważ, że aktualizuje się zarówno tekst wyszukiwarki, jak i tabela pod spodem:
 
 <Sandpack>
 
@@ -435,7 +435,7 @@ td {
 
 </Sandpack>
 
-In the sandbox above, `ProductTable` and `SearchBar` read the `filterText` and `inStockOnly` props to render the table, the input, and the checkbox. For example, here is how `SearchBar` populates the input value:
+W powyższym kodzie komponenty `ProductTable` i `SearchBar` odczytują właściwości `filterText` i `inStockOnly`, aby wyrenderować tabelę, pole tekstowe i pole wyboru. Dla przykładu, tak `SearchBar` wypełnia pole tekstowe:
 
 ```js {1,6}
 function SearchBar({ filterText, inStockOnly }) {
@@ -448,15 +448,15 @@ function SearchBar({ filterText, inStockOnly }) {
 ```
 
 
-Refer to the [Managing State](/learn/managing-state) to dive deeper into how React uses state and how you can organize your app with it.
+Możesz dokładniej zgłębić temat [zarządzania stanem](/learn/managing-state) i organizowania struktury aplikacji.
 
-## Step 5: Add inverse data flow {/*step-5-add-inverse-data-flow*/}
+## Krok 5: Dodaj odwrócony przepływ danych {/*step-5-add-inverse-data-flow*/}
 
-Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`. 
+Aktualnie nasza aplikacja poprawnie renderuje się na podstawie właściwości i stanu płynących z góry hierarchii. Jednak aby można było zmienić stan na podstawie danych wprowadzonych przez użytkownika, należy dodać przepływ w drugą stronę: komponenty formularza będące głęboko w hierarchii muszą móc aktualizować stan z `FilterableProductTable`. 
 
-React makes this data flow explicit, but it requires a little more typing than two-way data binding. If you try to type or check the box in the example above, you'll see that React ignores your input. This is intentional. By writing `<input value={filterText} />`, you've set the `value` prop of the `input` to always be equal to the `filterText` state passed in from `FilterableProductTable`. Since `filterText` state is never set, the input never changes.
+React wymusza jawność tego przepływu danych, co wymaga trochę więcej pisania kodu niż wiązanie dwukierunkowe (ang. *two-way data binding*). Jeśli spróbujesz wpisać tekst lub zmienić zaznaczenie w przykładzie powyżej, zauważysz, że React ignoruje twoje zmiany. I robi to celowo. Pisząc `<input value={filterText} />` ustawiasz właściwość `value` elementu `input` tak, by zawsze odzwierciedlała stan `filterText` przekazany z `FilterableProductTable`. A ponieważ stan `filterText` nigdy się nie zmienia, również polem tekstowym się nie zmienia.
 
-You want to make it so whenever the user changes the form inputs, the state updates to reflect those changes. The state is owned by `FilterableProductTable`, so only it can call `setFilterText` and `setInStockOnly`. To let `SearchBar` update the `FilterableProductTable`'s state, you need to pass these functions down to `SearchBar`:
+Naszym celem jest, aby każdorazowa zmiana kontrolek formularza powodowała zmianę stanu. Stan jest zarządzany przez komponent `FilterableProductTable`, dlatego tylko on może wywołać `setFilterText` i `setInStockOnly`. Aby umożliwić komponentowi `SearchBar` aktualizację stanu w `FilterableProductTable`, trzeba przekazać te funkcje do `SearchBar`:
 
 ```js {2,3,10,11}
 function FilterableProductTable({ products }) {
@@ -472,7 +472,7 @@ function FilterableProductTable({ products }) {
         onInStockOnlyChange={setInStockOnly} />
 ```
 
-Inside the `SearchBar`, you will add the `onChange` event handlers and set the parent state from them:
+Wewnątrz komponentu `SearchBar` nalezy dodać procedurę obsługi zdarzenia `onChange` i ustawiać w niej wartość stanu rodzica:
 
 ```js {5}
 <input 
@@ -482,7 +482,7 @@ Inside the `SearchBar`, you will add the `onChange` event handlers and set the p
   onChange={(e) => onFilterTextChange(e.target.value)} />
 ```
 
-Now the application fully works!
+Teraz nasza aplikacja jest w pełni funkcjonalna!
 
 <Sandpack>
 
@@ -632,8 +632,8 @@ td {
 
 </Sandpack>
 
-You can learn all about handling events and updating state in the [Adding Interactivity](/learn/adding-interactivity) section.
+Więcej na temat obsługi zdarzeń i aktualizowania stanu możesz dowiedzieć się z rozdziału pt. [Dodawanie interaktywności](/learn/adding-interactivity).
 
-## Where to go from here {/*where-to-go-from-here*/}
+## Dokąd teraz {/*where-to-go-from-here*/}
 
-This was a very brief introduction to how to think about building components and applications with React. You can [start a React project](/learn/installation) right now or [dive deeper on all the syntax](/learn/describing-the-ui) used in this tutorial.
+To było bardzo krótkie wprowadzenie do tego, w jaki sposób należy myśleć o tworzeniu komponentów i aplikacji w Reakcie. Możesz teraz [stworzyć projekt reactowy](/learn/installation) lub [zgłębić tajniki składni](/learn/describing-the-ui) użytej w tym samouczku.
