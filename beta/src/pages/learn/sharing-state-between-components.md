@@ -278,7 +278,7 @@ In a React application, many components will have their own state. Some state ma
 
 Your app will change as you work on it. It is common that you will move state down or back up while you're still figuring out where each piece of the state "lives". This is all part of the process!
 
-To see what this feels like in practice with a few more components, read [Thinking in React](/learn/thinking-in-react).
+To see what this feels like in practice with a few more components, read [Myślenie reactowe](/learn/thinking-in-react).
 
 <Recap>
 

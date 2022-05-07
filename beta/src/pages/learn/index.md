@@ -535,4 +535,4 @@ button {
 
 By now, you know the basics of how to write React code!
 
-Head to [Thinking in React](/learn/thinking-in-react) to see how it feels to build a UI with React in practice.
+Head to [Myślenie reactowe](/learn/thinking-in-react) to see how it feels to build a UI with React in practice.
