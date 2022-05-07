@@ -14,7 +14,7 @@ We wrote this document so that you have a better idea of how we decide what Reac
 >
 >This document assumes a strong understanding of React. It describes the design principles of *React itself*, not React components or applications.
 >
->For an introduction to React, check out [Thinking in React](/docs/thinking-in-react.html) instead.
+>For an introduction to React, check out [Myślenie reactowe](/docs/thinking-in-react.html) instead.
 
 ### Composition {#composition}
 

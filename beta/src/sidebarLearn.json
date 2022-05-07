@@ -33,7 +33,7 @@
           "title": "Quick Start",
           "path": "/learn",
           "routes": [{
-            "title": "Thinking in React",
+            "title": "Myślenie reactowe",
             "path": "/learn/thinking-in-react"
           }]
         },
