@@ -30,7 +30,7 @@
           ]
         },
         {
-          "title": "Quick Start",
+          "title": "Szybki start",
           "path": "/learn",
           "routes": [{
             "title": "Myślenie reactowe",
