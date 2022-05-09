@@ -21,9 +21,9 @@ Witaj w dokumentacji Reacta! Ten rozdział przedstawi ci 80% zagadnień związan
 
 ## Tworzenie i zagnieżdżanie komponentów {/*components*/}
 
-Aplikacje reactowe składają się z komponentów. Komponent to kawałek UI (interfejsu użytkownika, ang. *user interface*), który ma swoją wyodrębnioną logikę i wygląd. Komponent może być mały, np. przycisk, lub duży, jak np. cała strona.
+Aplikacje reactowe składają się z komponentów. Komponent to kawałek UI (interfejsu użytkownika, ang. *user interface*), który ma swoją wyodrębnioną logikę i wygląd. Komponent może być mały, np. przycisk, lub duży, np. cała strona.
 
-Komponenty reactowe to funkcje javascriptowe, które zwracają kod znaczników:
+Komponenty reactowe to funkcje javascriptowe, które zwracają kod znaczników (ang. *markup*):
 
 ```js
 function MyButton() {
@@ -73,13 +73,13 @@ export default function MyApp() {
 
 </Sandpack>
 
-Słowa kluczowe `export default` określają główny komponent pliku. Jeśli jakiś fragment kodu javascriptowego będzie dla ciebie niezrozumiały, zajrzyj do [MDN](https://developer.mozilla.org/pl/docs/web/javascript/reference/statements/export) oraz [javascript.info](https://javascript.info/import-export) po więcej szczegółów.
+Słowa kluczowe `export default` określają główny komponent pliku. Jeśli nie rozumiesz tego zagadnienia, zajrzyj do [MDN](https://developer.mozilla.org/pl/docs/web/javascript/reference/statements/export) oraz [javascript.info](https://javascript.info/import-export) po więcej szczegółów.
 
 ## Pisanie kodu znaczników w składni JSX {/*writing-markup-with-jsx*/}
 
-Kod znaczników, który widzieliśmy w poprzedniej sekcji, nazywa się JSX. Nie jest on wymagany, jednak większość projektów reactowych korzysta z niego dla wygody. Wszystkie [polecane przez nas narzędzia do programowania w środowisku lokalnym](/learn/installation) domyślnie wspierają składnię JSX.
+Kod znaczników, który widzieliśmy w poprzedniej sekcji, nazywa się JSX. Nie jest on obowiązkowy, jednak większość projektów reactowych korzysta z niego dla wygody. Wszystkie [polecane przez nas narzędzia do programowania w środowisku lokalnym](/learn/installation) domyślnie wspierają składnię JSX.
 
-Składnia JSX jest bardziej restrykcyjna niż HTML. Zawsze trzeba w niej zamykać znaczniki, np. `<br />`. Dodatkowo, twój komponent nie może zwracać kilku znaczników JSX jednocześnie. Musisz je opakować we wspólnego rodzica, np. `<div>...</div>` czy pusty fragment `<>...</>`:
+Składnia JSX jest bardziej restrykcyjna niż HTML. Zawsze trzeba w niej zamykać znaczniki, np. `<br />`. Dodatkowo, twój komponent nie może zwracać kilku znaczników JSX jednocześnie. Jeśli chcesz zwrócić kilka elementów, musisz je opakować we wspólnego rodzica, np. `<div>...</div>` lub pusty fragment `<>...</>`:
 
 ```js {3,6}
 function AboutPage() {
@@ -111,11 +111,11 @@ Deklaracje CSS piszemy w osobnym pliku:
 }
 ```
 
-React nie wymusza jednego sposobu dodawania plików CSS-owych. W najprostszym przypadku możesz dodać znacznik [`<link>`](https://developer.mozilla.org/pl/docs/Web/HTML/Element/link) do kodu HTML strony. Jeśli korzystasz z jakiegoś narzędzia budującego lub frameworku, zajrzyj do ich dokumentacji, aby dowiedzieć się, jak poprawnie dodać pliki CSS do projektu.
+React nie wymusza jednego sposobu dodawania plików CSS-owych. W najprostszym przypadku możesz dodać znacznik [`<link>`](https://developer.mozilla.org/pl/docs/Web/HTML/Element/link) do kodu HTML strony. Jeśli korzystasz z jakiegoś narzędzia budującego lub frameworka, zajrzyj do ich dokumentacji, aby dowiedzieć się, jak poprawnie dodać pliki CSS do projektu.
 
 ## Wyświetlanie danych {/*displaying-data*/}
 
-Składnia JSx pozwala umieszczać kod znaczników w kodzie javascriptowym. Za pomocą nawiasów klamrowych możesz "przeskoczyć" do JavaScriptu, aby umieścić jakąś zmienną i wyświetlić ją użytkownikowi. Na przykład, poniższy kod wyświetli wartość `user.name`:
+Składnia JSX pozwala umieszczać kod znaczników w kodzie javascriptowym. Za pomocą nawiasów klamrowych możesz "przeskoczyć" do JavaScriptu, aby umieścić jakąś zmienną i wyświetlić ją użytkownikowi. Na przykład, poniższy kod wyświetli wartość `user.name`:
 
 ```js {3}
 return (
@@ -217,7 +217,7 @@ W przypadku gdy nie potrzebujesz gałęzi `else`, możesz zastosować krótszy z
 </div>
 ```
 
-Wszystkie z powyższych metod działają także przy warunkowym określaniu atrybutów. Jeśli nie znasz się jeszcze na składni JavaScriptu, możesz zacząć od używania `if...else`.
+Wszystkie z powyższych metod działają także przy warunkowym określaniu atrybutów. Jeśli nie znasz się jeszcze zbyt dobrze na składni JavaScriptu, możesz zacząć od używania `if...else`.
 
 ## Renderowanie list {/*rendering-lists*/}
 
@@ -247,7 +247,7 @@ return (
 );
 ```
 
-Zwróć uwagę, że `<li>` ma atrybut klucza `key`. Każdy element listy powinien posiadać ciąg znaków lub liczbę, które jednoznacznie identyfikują go spośród "rodzeństwa". Zwykle wartość klucza wyciąga się z danych, np. ID rekordu z bazy danych. React korzysta z tych kluczy, aby później lepiej zrozumieć, co się dzieje z interfejsem, gdy dodajesz, usuwasz lub zmieniasz kolejność elementów listy.
+Zwróć uwagę, że `<li>` ma atrybut klucza - `key`. Każdy element listy powinien posiadać ciąg znaków lub liczbę, które jednoznacznie identyfikują go spośród "rodzeństwa". Zwykle wartość klucza wyciąga się z danych, np. ID rekordu z bazy danych. React korzysta z tych kluczy, aby później lepiej zrozumieć, co się dzieje z interfejsem, gdy dodajesz, usuwasz lub zmieniasz kolejność elementów listy.
 
 <Sandpack>
 
@@ -296,11 +296,11 @@ function MyButton() {
 }
 ```
 
-Zwróć uwagę, że `onClick={handleClick}` nie ma na końcu nawiasów! Nie _wywołuj_ procedury obsługi zdarzeń: musisz ją jedynie *przekazać*. React wywoła ją, gdy użytkownik kliknie na przycisk.
+Zwróć uwagę, że `onClick={handleClick}` nie ma na końcu nawiasów! Nie _wywołuj_ procedury obsługi zdarzeń: musisz ją jedynie *przekazać*. React wywoła ją za ciebie, gdy użytkownik kliknie na przycisk.
 
 ## Aktualizowanie interfejsu {/*updating-the-screen*/}
 
-Często twoje komponenty będą musiały "zapamiętać" jakąś informację i wyświetlić ją na ekranie. Na przykład, być może zechcesz zliczać, ile raz przycisk został kliknięty. Aby to zrobić, dodaj *stan* do komponentu.
+Często twoje komponenty będą musiały "zapamiętać" jakąś informację i wyświetlić ją na ekranie. Na przykład, być może zechcesz zliczać, ile razy przycisk został kliknięty. Aby to zrobić, dodaj *stan* do komponentu.
 
 Najpierw zaimportuj [`useState`](/apis/usestate) z Reacta:
 
@@ -329,7 +329,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Kliknięci {count} razy
+      Kliknięto {count} razy
     </button>
   );
 }
@@ -384,7 +384,7 @@ Zwróć uwagę, że każdy z przycisków "pamięta" swoją własną wartość st
 
 Funkcje o nazwie rozpoczynającej się od `use` nazywamy hookami. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
 
-Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu i go wyrenderuj.
+Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu, a następnie wyrenderuj ten komponent.
 
 ## Dzielenie danych między komponentami {/*sharing-data-between-components*/}
 
@@ -454,7 +454,7 @@ export default function MyApp() {
 }
 ```
 
-Teraz *przekaż stan w dół* z `MyApp` do każdego z komponentów `MyButton`. Nie zapomnij także o procedurze obsługi kliknięcia. Możesz przekazać informacje do `MyButton` używając nawiasów klamrowych, tak jak zrobiliśmy to poprzednio na `<img>`:
+Teraz *przekaż stan w dół* z `MyApp` do każdego z komponentów `MyButton`. Nie zapomnij także o obsłudze kliknięcia. Możesz przekazać informacje do `MyButton` używając nawiasów klamrowych, tak jak zrobiliśmy to poprzednio na `<img>`:
 
 ```js {11-12}
 export default function MyApp() {
@@ -476,7 +476,7 @@ export default function MyApp() {
 
 Informacja, którą przekazujesz w dół w ten sposób, nazywana jest _właściwością_. Teraz komponent `MyApp` zawiera stan `count` i procedurę obsługi zdarzenia `handleClick`, które *przekazuje w dół jako właściwości* do każdego z przycisków.
 
-Teraz tylko zmodyfikuj `MyButton` tak, by *odczytywał* właściwości przekazane mu przez rodzica:
+Na koniec zmodyfikuj `MyButton` tak, aby *odczytywał* właściwości przekazane mu przez rodzica:
 
 ```js {1,3}
 function MyButton({ count, onClick }) {
@@ -490,7 +490,7 @@ function MyButton({ count, onClick }) {
 
 Kiedy klikasz w przycisk, wywoływana jest procedura z właściwości `onClick`. Właściwość `onClick` dla każdego z przycisków została ustawiona w `MyApp` na `handleClick`, dlatego to `handleClick` jest wywoływana, a co za tym idzie, wywoływany jest kod `setCount(count + 1)`, który zwiększa wartość stanu `count` o jeden. Nowa wartość `count` jest przekazywana przez właściwość do każdego z przycisków, dzięki czemu mogą one ją wyświetlić.
 
-Opisany tu proces nazywa się "wynoszeniem stanu w górę". Przenosząc stan w górę dzielimy go między komponentami.
+Opisany tu proces nazywa się "wynoszeniem stanu w górę". Przenosząc stan w górę umożliwiamy dzielenie go między komponentami.
 
 <Sandpack>
 
