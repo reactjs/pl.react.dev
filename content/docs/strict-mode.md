@@ -15,6 +15,7 @@ Możesz uruchomić tryb rygorystyczny dla jakiejkolwiek części swojej aplikacj
 
 W powyższym przykładzie sprawdzenia trybu rygorystycznego *nie* zostaną uruchomione dla komponentów `Header` i `Footer`. Zadziałają one natomiast dla `ComponentOne` i `ComponentTwo` oraz wszystkich ich potomków.
 
+<<<<<<< HEAD
 `StrictMode` aktualnie pomaga w:
 * [Identyfikacji komponentów używających niebezpiecznych metod cyklu życia komponentu](#identifying-unsafe-lifecycles)
 * [Ostrzeganiu o użyciu przestarzałego API tekstowych referencji](#warning-about-legacy-string-ref-api-usage)
@@ -22,6 +23,15 @@ W powyższym przykładzie sprawdzenia trybu rygorystycznego *nie* zostaną uruch
 * [Wykrywaniu nieoczekiwanych efektów ubocznych](#detecting-unexpected-side-effects)
 * [Wykrywaniu użycia przestrzałego API kontekstów](#detecting-legacy-context-api)
 * [Wykrywaniu niebezpiecznych efektów](#detecting-unsafe-effects)
+=======
+`StrictMode` currently helps with:
+* [Identifying components with unsafe lifecycles](#identifying-unsafe-lifecycles)
+* [Warning about legacy string ref API usage](#warning-about-legacy-string-ref-api-usage)
+* [Warning about deprecated findDOMNode usage](#warning-about-deprecated-finddomnode-usage)
+* [Detecting unexpected side effects](#detecting-unexpected-side-effects)
+* [Detecting legacy context API](#detecting-legacy-context-api)
+* [Ensuring reusable state](#ensuring-reusable-state)
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 Dodatkowe funkcjonalności zostaną dodane w przyszłych wydaniach Reacta.
 
@@ -172,7 +182,19 @@ Kiedy komponent zostaje odmontowany, efekty są usuwane standardowo:
   * Niszczone są zwykłe efekty.
 ```
 
+<<<<<<< HEAD
 > Uwaga:
+=======
+Unmounting and remounting includes:
+
+- `componentDidMount`
+- `componentWillUnmount`
+- `useEffect`
+- `useLayoutEffect`
+- `useInsertionEffect`
+
+> Note:
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 >
 > Zachowanie opisane powyżej dotyczy tylko trybu deweloperskiego, _zachowanie na produkcji pozostaje bez zmian_.
 

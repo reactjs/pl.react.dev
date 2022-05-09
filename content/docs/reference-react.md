@@ -366,16 +366,28 @@ function MyComponent() {
 
 W naszej [dokumentacji poświęconej rozdzielaniu kodu](/docs/code-splitting.html#reactlazy) zamieściliśmy więcej informacji na ten temat. Zwróć uwagę na to, że komponenty `lazy` mogą być zawarte w drzewie wiele poziomów poniżej `Suspense`. Dobrą praktyką jest umieszczanie `<Suspense>` w miejscu, w którym powinien pojawić się wskaźnik ładowania, natomiast `lazy()` w miejscu, w którym chcesz rozdzielić kod.
 
+<<<<<<< HEAD
 > Uwaga
 > 
 > Jeśli jakaś treść jest już wyświetlona na ekranie, przełączenie na wskaźnik aktywności może być dezorientujące dla użytkownika. Czasami lepiej jest wyświetlić "stary" interfejs, podczas gdy nowy jest jeszcze przygotowywany. Aby to zrobić, możesz użyć nowego API [`startTransition`](#starttransition) oraz [`useTransition`](/docs/hooks-reference.html#usetransition), oznaczając w ten sposób niektóre aktualizacje jako "tranzycje" i unikając niepotrzebnego mrugania ekranu.
+=======
+> Note
+>
+> For content that is already shown to the user, switching back to a loading indicator can be disorienting. It is sometimes better to show the "old" UI while the new UI is being prepared. To do this, you can use the new transition APIs [`startTransition`](#starttransition) and [`useTransition`](/docs/hooks-reference.html#usetransition) to mark updates as transitions and avoid unexpected fallbacks.
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 #### `React.Suspense` w renderowaniu po stronie serwera {#reactsuspense-in-server-side-rendering}
 Podczas renderowania po stronie serwera granice zawieszenia (ang. *Suspense boundaries*) pozwalają wysłać aplikację w mniejszych kawałkach poprzez zawieszanie (ang. *suspending*) komponentów.
 Kiedy komponent jest zawieszony, React każe najbliższej granicy Suspense wyrenderować swój komponent zastępczy. Jeśli komponent się odwiesi przed wysłaniem kodu do klienta, komponent zastępczy jest wyrzucany, a w jego miejsce trafia właściwa zawartość.
 
+<<<<<<< HEAD
 #### `React.Suspense` podczas hydratacji {#reactsuspense-during-hydration}
 Granice zawieszenia (ang. *Suspense boundaries*) są zależne od tego, czy ich granice nadrzędne ulegną hydratacji przed nimi, lecz nie muszą czekać na swoje "rodzeństwo", czyli granice na tym samym poziomie. W przypadku wystąpienia jakiegoś zdarzenia na którejś z granic przed jej całkowitą hydratacją, otrzyma ona wyższy priorytet niż pozostałe. [Czytaj więcej.](https://github.com/reactwg/react-18/discussions/130)
+=======
+#### `React.Suspense` during hydration {#reactsuspense-during-hydration}
+Suspense boundaries depend on their parent boundaries being hydrated before they can hydrate, but they can hydrate independently from sibling boundaries. Events on a boundary before its hydrated will cause the boundary to hydrate at
+a higher priority than neighboring boundaries. [Read more](https://github.com/reactwg/react-18/discussions/130)
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 ### `React.startTransition` {#starttransition}
 
@@ -388,6 +400,10 @@ React.startTransition(callback)
 >
 > Aktualizacje w tranzycjach ustępują pierwszeństwa bardziej pilnym aktualizacjom, jak np. kliknięciom na ekranie.
 >
+<<<<<<< HEAD
 > Aktualizacje w tranzycjach nie powodują wyświetlenia komponentu zastępczego (ang. *fallback*) przy ponownym zawieszeniu, dzięki czemu użytkownik może kontynuować interację ze "starym" interfejsem, dopóki nie zakończy się tranzycja.
+=======
+> Updates in a transition will not show a fallback for re-suspended content, allowing the user to continue interacting while rendering the update.
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 >
 > `React.startTransition` nie zwraca flagi `isPending`. Aby śledzić status tranzycji, użyj hooka [`React.useTransition`](/docs/hooks-reference.html#usetransition).
