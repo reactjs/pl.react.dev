@@ -4,7 +4,11 @@ title: Pisanie kodu w JSX
 
 <Intro>
 
+<<<<<<< HEAD
 JSX to rozszerzenie składni JavaScriptu, które pozwala używać znaczników podobnych do tych w HTML-u wewnątrz pliku javascriptowego. Większość deweloperów korzysta z niego ze względu na zwięzłość, mimo że istnieją inne sposoby na tworzenie komponentów.
+=======
+*JSX* is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 </Intro>
 
@@ -36,19 +40,23 @@ JavaScript
 
 </DiagramGroup>
 
+<<<<<<< HEAD
 Jednak z czasem strony WWW stały się bardziej interaktywne, a logika częściej stanowiła o zawartości. JavaScript stał się odpowiedzialny za HTML! To dlatego **w Reakcie logika renderowania i znaczniki żyją w tym samym miejscu - w komponencie!**
+=======
+But as the Web became more interactive, logic increasingly determined content. JavaScript was in charge of the HTML! This is why **in React, rendering logic and markup live together in the same place—components.**
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 <DiagramGroup>
 
 <Diagram name="writing_jsx_sidebar" height={330} width={325} alt="Komponent reactowy zawierający kod HTML i JavaScript z poprzednich przykładów. Funkcja o nazwie Sidebar wywołuje funkcję isLoggedIn, podświetloną na żółto. Wewnątrz funkcji, podświetlony na fioletowo, jest znacznik p z poprzedniego przykładu, oraz znacznik Form, odnoszący się do komponentu przedstawionego na następnym diagramie.">
 
-Sidebar.js
+`Sidebar.js` React component
 
 </Diagram>
 
 <Diagram name="writing_jsx_form" height={330} width={325} alt="Komponent reactowy zawierający kod HTML i JavaScript z poprzednich przykładów. Funkcja Form, podświetlona na żółto, zawiera dwie procedury obsługi zdarzeń: onClick i onSubmit. Pod spodem przedstawiony jest kod HTML, oznaczony kolorem fioletowym. Kod HTML zawiera element formularza z zagnieżdżonym elementem input, gdzie do każdego z nich przekazano właściwość onClick.">
 
-Form.js
+`Form.js` React component
 
 </Diagram>
 
