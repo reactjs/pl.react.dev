@@ -1,24 +1,24 @@
 ---
-title: Rendering Lists
+title: Renderowanie list
 ---
 
 <Intro>
 
-You will often want to display multiple similar components from a collection of data. You can use the [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) to manipulate an array of data. On this page, you'll use [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) and [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) with React to filter and transform your array of data into an array of components.
+Często zdarzy się tak, że będziesz chciał/a wyświetlić podobne komponenty na podstawie kolekcji danych. W tym celu, możesz użyć [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#), aby manipulować tablicą danych. Na tej stronie będziesz używać metod: [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) oraz [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) wspólnie z React, aby filtrować i transformować swoją tablicę danych do tablicy komponentów. 
 
 </Intro>
 
 <YouWillLearn>
 
-* How to render components from an array using JavaScript's `map()`
-* How to render only specific components using JavaScript's `filter()`
-* When and why to use React keys
+* Jak renderować komponenty na podstawie tablicy używając metody `Array.map()`
+* Jak renderować tylko określone komponenty używając metody `Array.filter()`
+* Kiedy i dlaczego używać mechanizmu kluczy w React
 
 </YouWillLearn>
 
-## Rendering data from arrays {/*rendering-data-from-arrays*/}
+## Renderowanie danych na podstawie tablic {/*rendering-data-from-arrays*/}
 
-Say that you have a list of content.
+Powiedzmy, że masz listę treści.
 
 ```js
 <ul>
