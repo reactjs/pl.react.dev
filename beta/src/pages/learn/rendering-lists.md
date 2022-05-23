@@ -30,11 +30,11 @@ Powiedzmy, że masz listę treści.
 </ul>
 ```
 
-The only difference among those list items is their contents, their data. You will often need to show several instances of the same component using different data when building interfaces: from lists of comments to galleries of profile images. In these situations, you can store that data in JavaScript objects and arrays and use methods like [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to render lists of components from them.
+Jedyna różnica wśród tych pozycji na liście to ich treść, ich dane. Często będziesz potrzebował/a, aby pokazać kilka instancji tego samego komponentu, używając innych danych podczas budowania interfejsów: począwszy od list komentarzy, aż do galerii obrazków profili. W tych sytuacjach, możesz przechowywać te dane jako obiekty lub/i tablice JavaScript i używać metod takich jak: [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) oraz [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), aby renderować z nich listy komponentów.
 
-Here’s a short example of how to generate a list of items from an array:
+Poniżej przedstawiony jest krótki przykład, w jaki sposób generować listę na podstawie tablicy:
 
-1. **Move** the data into an array:
+1. **Przenieś** dane do tablicy:
 
 ```js
 const people = [
@@ -46,19 +46,19 @@ const people = [
 ];
 ```
 
-2. **Map** the `people` members into a new array of JSX nodes, `listItems`:
+2. **Zmapuj** elementy z tablicy `people` do nowej tablicy elementów JSX, `listItems`:
 
 ```js
 const listItems = people.map(person => <li>{person}</li>);
 ```
 
-3. **Return** `listItems` from your component wrapped in a `<ul>`:
+3. **Zwróć** `listItems` ze swojego komponentu opakowanego w `<ul>`:
 
 ```js
 return <ul>{listItems}</ul>;
 ```
 
-Here is the result:
+Taki jest rezultat:
 
 <Sandpack>
 
