@@ -58,7 +58,7 @@ const listItems = people.map(person => <li>{person}</li>);
 return <ul>{listItems}</ul>;
 ```
 
-Taki jest rezultat:
+Taki powinien być rezultat:
 
 <Sandpack>
 
@@ -85,9 +85,9 @@ li { margin-bottom: 10px; }
 
 </Sandpack>
 
-## Filtering arrays of items {/*filtering-arrays-of-items*/}
+## Filtrowanie elementów tablic {/*filtering-arrays-of-items*/}
 
-This data can be structured even more.
+Dane te można jeszcze bardziej uporządkować.
 
 ```js
 const people = [{
@@ -111,11 +111,11 @@ const people = [{
 }];
 ```
 
-Let's say you want a way to only show people whose profession is `'chemist'`. You can use JavaScript's `filter()` method to return just those people. This method takes an array of items, passes them through a “test” (a function that returns `true` or `false`), and returns a new array of only those items that passed the test (returned `true`).
+Powiedzmy, że chcesz pokazać jedynie osoby, których profesja to `'chemist'`. W tym celu możesz użyc metody `filter()`, aby zwrócić tylko te osoby. Ta metoda przyjmuje tablice elementów, przekazuje je przez “test” (funkcję, która zwraca `true` lub `false`) i zwraca nową tablicę tylko tych elementów, które przeszły pozytywnie “test” (zwrócone `true`).
 
-You only want the items where `profession` is `'chemist'`. The "test" function for this looks like `(person) => person.profession === 'chemist'`. Here's how to put it together:
+Chcesz jedynie elementy, których profesja to `'chemist'`. Funkcja "test" w tym wypadku powinna wyglądać tak: `(person) => person.profession === 'chemist'`. Poniżej zobaczysz, jak to złożyć:
 
-1. **Create** a new array of just “chemist” people, `chemists`, by calling `filter()` on the `people` filtering by `person.profession === 'chemist'`:
+1. **Utwórz** nową tablice z ludźmi, którzy mają profesję chemika, poprzez zawołanie metody `filter()` na tablicy `people` filtrując po `person.profession === 'chemist'`:
 
 ```js
 const chemists = people.filter(person =>
@@ -123,7 +123,7 @@ const chemists = people.filter(person =>
 );
 ```
 
-2. Now **map** over `chemists`:
+2. Kolejno **mapuj** po tablicy `chemists`:
 
 ```js {1,13}
 const listItems = chemists.map(person =>
@@ -141,7 +141,7 @@ const listItems = chemists.map(person =>
 );
 ```
 
-3. Lastly, **return** the `listItems` from your component:
+3. Finalnie, **zwróć** `listItems` ze swojego komponentu:
 
 ```js
 return <ul>{listItems}</ul>;
@@ -234,7 +234,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Gotcha>
 
-Arrow functions implicitly return the expression right after `=>`, so you didn't need a `return` statement:
+Funkcje strzałkowe niejawnie zwracają wyrażenie zaraz po `=>`, więc nie potrzebujesz słowa kluczowego `return`:
 
 ```js
 const listItems = chemists.map(person =>
@@ -242,7 +242,7 @@ const listItems = chemists.map(person =>
 );
 ```
 
-However, **you must write `return` explicitly if your `=>` is followed by a `{` curly brace!**
+Jednak, **musisz napisać `return` jawnie, jeśli po `=>` następuje `{` nawias klamrowy!**
 
 ```js
 const listItems = chemists.map(person => { // Curly brace
@@ -250,7 +250,7 @@ const listItems = chemists.map(person => { // Curly brace
 });
 ```
 
-Arrow functions containing `=> {` are said to have a ["block body"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body). They let you write more than a single line of code, but you *have to* write a `return` statement yourself. If you forget it, nothing gets returned!
+O funkcjach strzałkowych, które zawierają `=> {`, mówi się, że mają ["block body"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body). Pozwalają napisać więcej niż jedną linię kodu, ale *musisz* napisać słowo kluczowe `return` samodzielnie. Jeśli o tym zapomnisz, nic nie zostanie zwrócone!
 
 </Gotcha>
 
