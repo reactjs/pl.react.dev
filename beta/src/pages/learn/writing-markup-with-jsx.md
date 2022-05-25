@@ -4,11 +4,7 @@ title: Pisanie kodu w JSX
 
 <Intro>
 
-<<<<<<< HEAD
-JSX to rozszerzenie składni JavaScriptu, które pozwala używać znaczników podobnych do tych w HTML-u wewnątrz pliku javascriptowego. Większość deweloperów korzysta z niego ze względu na zwięzłość, mimo że istnieją inne sposoby na tworzenie komponentów.
-=======
-*JSX* is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+*JSX* to rozszerzenie składni JavaScriptu, które pozwala używać znaczników podobnych do tych w HTML-u wewnątrz pliku javascriptowego. Większość deweloperów korzysta z niego ze względu na zwięzłość, mimo że istnieją inne sposoby na tworzenie komponentów.
 
 </Intro>
 
@@ -40,11 +36,7 @@ JavaScript
 
 </DiagramGroup>
 
-<<<<<<< HEAD
 Jednak z czasem strony WWW stały się bardziej interaktywne, a logika częściej stanowiła o zawartości. JavaScript stał się odpowiedzialny za HTML! To dlatego **w Reakcie logika renderowania i znaczniki żyją w tym samym miejscu - w komponencie!**
-=======
-But as the Web became more interactive, logic increasingly determined content. JavaScript was in charge of the HTML! This is why **in React, rendering logic and markup live together in the same place—components.**
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 
 <DiagramGroup>
 

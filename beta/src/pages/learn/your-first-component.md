@@ -4,11 +4,7 @@ title: Twój pierwszy komponent
 
 <Intro>
 
-<<<<<<< HEAD
-Komponent jest jednym z podstawowych pojęć w świecie Reacta. Jest bazą, na której buduje się interfejsy użytkownika (UI), przez co idealnie nadaje się na pierwszy temat do nauki!
-=======
-*Components* are one of the core concepts of React. They are the foundation upon which you build user interfaces (UI), which makes them the perfect place to start your React journey!
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+*Komponent* jest jednym z podstawowych pojęć w świecie Reacta. Jest bazą, na której buduje się interfejsy użytkownika (UI), przez co idealnie nadaje się na pierwszy temat do nauki!
 
 </Intro>
 

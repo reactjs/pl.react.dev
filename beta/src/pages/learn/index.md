@@ -21,11 +21,7 @@ Witaj w dokumentacji Reacta! Ten rozdział przedstawi ci 80% zagadnień związan
 
 ## Tworzenie i zagnieżdżanie komponentów {/*components*/}
 
-<<<<<<< HEAD
-Aplikacje reactowe składają się z komponentów. Komponent to kawałek UI (interfejsu użytkownika, ang. *user interface*), który ma swoją wyodrębnioną logikę i wygląd. Komponent może być mały, np. przycisk, lub duży, np. cała strona.
-=======
-React apps are made out of *components*. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Aplikacje reactowe składają się z *komponentów*. Komponent to kawałek UI (interfejsu użytkownika, ang. *user interface*), który ma swoją wyodrębnioną logikę i wygląd. Komponent może być mały, np. przycisk, lub duży, np. cała strona.
 
 Komponenty reactowe to funkcje javascriptowe, które zwracają kod znaczników (ang. *markup*):
 
@@ -81,11 +77,7 @@ Słowa kluczowe `export default` określają główny komponent pliku. Jeśli ni
 
 ## Pisanie kodu znaczników w składni JSX {/*writing-markup-with-jsx*/}
 
-<<<<<<< HEAD
-Kod znaczników, który widzieliśmy w poprzedniej sekcji, nazywa się JSX. Nie jest on obowiązkowy, jednak większość projektów reactowych korzysta z niego dla wygody. Wszystkie [polecane przez nas narzędzia do programowania w środowisku lokalnym](/learn/installation) domyślnie wspierają składnię JSX.
-=======
-The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Kod znaczników, który widzieliśmy w poprzedniej sekcji, nazywa się *JSX*. Nie jest on obowiązkowy, jednak większość projektów reactowych korzysta z niego dla wygody. Wszystkie [polecane przez nas narzędzia do programowania w środowisku lokalnym](/learn/installation) domyślnie wspierają składnię JSX.
 
 Składnia JSX jest bardziej restrykcyjna niż HTML. Zawsze trzeba w niej zamykać znaczniki, np. `<br />`. Dodatkowo, twój komponent nie może zwracać kilku znaczników JSX jednocześnie. Jeśli chcesz zwrócić kilka elementów, musisz je opakować we wspólnego rodzica, np. `<div>...</div>` lub pusty fragment `<>...</>`:
 
@@ -288,11 +280,7 @@ export default function ShoppingList() {
 
 ## Reagowanie na zdarzenia {/*responding-to-events*/}
 
-<<<<<<< HEAD
-Możesz reagować na zdarzenia, deklarując procedurę obsługi zdarzeń:
-=======
-You can respond to events by declaring *event handler* functions inside your components:
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Możesz reagować na zdarzenia, deklarując *procedurę obsługi zdarzeń* wewnątrz komponentu:
 
 ```js {2-4,7}
 function MyButton() {
@@ -394,11 +382,7 @@ Zwróć uwagę, że każdy z przycisków "pamięta" swoją własną wartość st
 
 ## Używanie hooków {/*using-hooks*/}
 
-<<<<<<< HEAD
-Funkcje o nazwie rozpoczynającej się od `use` nazywamy hookami. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
-=======
-Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference](/apis). You can also write your own Hooks by combining the existing ones.
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Funkcje o nazwie rozpoczynającej się od `use` nazywamy *hookami*. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
 
 Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu, a następnie wyrenderuj ten komponent.
 
@@ -408,27 +392,15 @@ W poprzednim przykładzie każdy `MyButton` miał swój własny licznik `count`,
 
 <DiagramGroup>
 
-<<<<<<< HEAD
-<Diagram name="sharing_data_child" height={734} width={814} alt="Diagram przedstawiający drzewo trzech komponentów: jednego rodzica podpisanego MyApp i dwóch potomków podpisanych MyButton. Obydwa komponenty MyButton zawierają licznik z wartością zero.">
+<Diagram name="sharing_data_child" height={367} width={407} alt="Diagram przedstawiający drzewo trzech komponentów: jednego rodzica podpisanego MyApp i dwóch potomków podpisanych MyButton. Obydwa komponenty MyButton zawierają licznik z wartością zero.">
 
-Przed kliknięciem każdy z komponentów `MyButton` ma wartość licznika równą zero.
-
-</Diagram>
-
-<Diagram name="sharing_data_child_clicked" height={734} width={814} alt="Ten sam diagram co poprzednio, jednak wartość licznika pierwszego potomka jest podświetlona, sygnalizując kliknięcie, i ma wartość zwiększoną do jedynki. Drugi komponent MyButton nadal ma wartość zero." >
-
-Po kliknięciu wartość tylko jednego licznika `MyButton` została zaktualizowana.
-=======
-<Diagram name="sharing_data_child" height={367} width={407} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero.">
-
-Initially, each `MyButton`'s `count` state is `0`
+Początkowo każdy `MyButton` ma wartość licznika `count` równą `0`.
 
 </Diagram>
 
-<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero." >
+<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="Ten sam diagram co poprzednio, jednak wartość licznika pierwszego potomka jest podświetlona, sygnalizując kliknięcie, i ma wartość zwiększoną do jedynki. Drugi komponent MyButton nadal ma wartość zero." >
 
-The first `MyButton` updates its `count` to `1`
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Pierwszy `MyButton` aktualizuje stan licznika `count` do `1`.
 
 </Diagram>
 
@@ -442,27 +414,15 @@ W naszym przykładzie będzie to `MyApp`:
 
 <DiagramGroup>
 
-<<<<<<< HEAD
-<Diagram name="sharing_data_parent" height={770} width={820} alt="Diagram przedstawiający drzewo trzech komponentów: jednego rodzica podpisanego jako MyApp i dwóch potomków podpisanych jako MyButton. MyApp zawiera licznik o wartości zero, który przekazywany jest do obydwóch komponentów MyButton, które również pokazują zero." >
+<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagram przedstawiający drzewo trzech komponentów: jednego rodzica podpisanego jako MyApp i dwóch potomków podpisanych jako MyButton. MyApp zawiera licznik o wartości zero, który przekazywany jest do obydwóch komponentów MyButton, które również pokazują zero." >
 
-Przed kliknięciem licznik jest przechowywany w `MyApp` i przekazywany w dół do obydwóch potomków poprzez właściwość.
-
-</Diagram>
-
-<Diagram name="sharing_data_parent_clicked" height={770} width={820} alt="Ten sam diagram co poprzednio, jednak wartość licznika komponentów-rodzica MyApp jest podświetlona, sygnalizując kliknięcie, i ma wartość zwiększoną do jedynki. Przepływ danych do obydwóch komponentów potomnych MyButton jest również podświetlony, a wartość licznika każdego z nich jest ustawiona na jedynkę, sugerując fakt, że wartość została przekazana od rodzica." >
-
-Po kliknięciu wartość licznika w `MyApp` zwiększa się, a nowa wartość przekazywana jest do obydwóch potomków poprzez właściwość.
-=======
-<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero." >
-
-Initially, `MyApp`'s `count` state is `0` and is passed down to both children
+Początkowo stan `count` w `MyApp` jest równy `0` i jest przekazywany do obydwóch potomków.
 
 </Diagram>
 
-<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." >
+<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="Ten sam diagram co poprzednio, jednak wartość licznika komponentów-rodzica MyApp jest podświetlona, sygnalizując kliknięcie, i ma wartość zwiększoną do jedynki. Przepływ danych do obydwóch komponentów potomnych MyButton jest również podświetlony, a wartość licznika każdego z nich jest ustawiona na jedynkę, sugerując fakt, że wartość została przekazana od rodzica." >
 
-On click, `MyApp` updates its `count` state to `1` and passes it down to both children
->>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
+Po kliknięciu wartość licznika w `MyApp` zwiększa się do `1`, a nowa wartość przekazywana jest do obydwóch potomków poprzez właściwość.
 
 </Diagram>
 
