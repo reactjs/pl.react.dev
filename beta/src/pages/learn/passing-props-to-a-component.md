@@ -4,7 +4,7 @@ title: Przekazywanie wartości do komponentu
 
 <Intro>
 
-Komponenty reactowe używają **właściwości** (_ang._ props, od "properties") do komunikowania się między sobą. Każdy komponent nadrzędny może przekazać informacje do własnych potomków poprzez właściwości. Właściwości mogą kojarzyć się z atrybutami HTML-owymi, jednak różnica polega na tym, że przez właściwości można przekazywać dowolne wartości javascriptowe, w tym obiekty, tablice czy funkcje.
+Komponenty reactowe używają *właściwości* (_ang._ props, od "properties") do komunikowania się między sobą. Każdy komponent nadrzędny może przekazać informacje do własnych potomków poprzez właściwości. Właściwości mogą kojarzyć się z atrybutami HTML-owymi, jednak różnica polega na tym, że przez właściwości można przekazywać dowolne wartości javascriptowe, w tym obiekty, tablice czy funkcje.
 
 </Intro>
 

@@ -35,7 +35,9 @@ export default function App() {
 
 </Sandpack>
 
-W całej dokumentacji natkniesz się na wiele takich sandboxów. Używamy ich, aby pomóc ci zapoznać się z działaniem Reacta i zdecydować, czy jest on dla ciebie odpowiedni. Poza samą dokumentacją istnieje wiele niezależnych sandboxów, które posiadają wsparcie dla Reacta, na przykład: [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react) czy [CodePen](https://codepen.io/pen/?template=wvdqJJm).
+Możesz edytować kod bezpośrednio lub otworzyć go w nowej zakładce, klikając na przycisk "Forkuj" w prawym górnym rogu.
+
+W całej dokumentacji natkniesz się na wiele takich sandboxów. Poza samą dokumentacją, w sieci istnieje także wiele niezależnych sandboxów, które posiadają wsparcie dla Reacta, na przykład: [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react) czy [CodePen](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb).
 
 ### Wypróbuj Reacta lokalnie {/*try-react-locally*/}
 
@@ -51,4 +53,4 @@ Jeśli chcesz [stworzyć nowy, niezależny projekt](/learn/start-a-new-react-pro
 
 ## Kolejne kroki {/*next-steps*/}
 
-To, gdzie najlepiej zacząć, zależy od sposobu, w jaki lubisz się uczyć i co chcesz osiągnąć! Możesz, na przykład, przeczytać rozdział pt. [Myślenie reactowe](/learn/thinking-in-react) - nasz samouczek wprowadzający. Albo przeskoczyć od razu do rozdziału pt. [Opisywanie UI](/learn/describing-the-ui), by pobawić się wieloma przykładowymi aplikacjami i nauczyć się zagadnień krok po kroku. Każdy sposób jest dobry, by zgłębić tajniki Reacta!
+Przejdź do rozdziału pt. [Szybki start](/learn), aby zapoznać się z najważniejszymi pojęciami używanymi w codziennej pracy.

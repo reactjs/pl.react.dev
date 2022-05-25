@@ -8,6 +8,12 @@ Użyj narzędzi deweloperskich dla Reacta, aby zbadać [komponenty reactowe](/le
 
 </Intro>
 
+<YouWillLearn>
+
+* Jak zainstalować narzędzia deweloperskie dla Reacta
+
+</YouWillLearn>
+
 ## Rozszerzenie dla przeglądarki {/*browser-extension*/}
 
 Najprostszym sposobem na debugowanie stron internetowych stworzonych w Reakcie jest zainstalowanie rozszerzenia dla przeglądarki o nazwie React Developer Tools (_pol._ narzędzia deweloperskie dla Reacta). Jest ono dostępne dla kilku popularnych przeglądarek:

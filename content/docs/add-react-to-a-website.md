@@ -185,7 +185,7 @@ Gratulacje! Właśnie udało ci się dodać do swojego projektu **konfigurację 
 
 Utwórz folder o nazwie `src` i uruchom polecenie w terminalu:
 
-```
+```console
 npx babel --watch src --out-dir . --presets react-app/prod
 ```
 

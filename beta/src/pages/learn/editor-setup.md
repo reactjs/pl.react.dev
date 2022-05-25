@@ -8,15 +8,22 @@ Prawidłowo skonfigurowany edytor może sprawić, że kod będzie łatwiejszy w 
 
 </Intro>
 
+<YouWillLearn>
+
+* Jakie są najpopularniejsze edytory
+* Jak automatycznie formatować kod
+
+</YouWillLearn>
+
 ## Twój edytor {/*your-editor*/}
 
 [VS Code](https://code.visualstudio.com/) jest obecnie jednym z najbardziej popularnych edytorów. Posiada ogromną bazę rozszerzeń i doskonale integruje się z popularnymi usługami, jak np. GitHub. Większość z funkcjonalności wymienionych poniżej można także dodać do VS Code w formie rozszerzeń, co sprawia, że jest bardzo dobrze konfigurowalny!
 
 Społeczność Reacta używa także:
 
-- [WebStorm](https://www.jetbrains.com/webstorm/) — zintegrowane środowisko deweloperskie zaprojektowane specjalnie do pracy z JavaScriptem.
-- [Sublime Text](https://www.sublimetext.com/) — posiada wbudowane wsparcie dla JSX oraz TypeScriptu, [podświetlanie składni](https://stackoverflow.com/a/70960574/458193) i autouzupełnianie.
-- [Vim](https://www.vim.org/) — elastyczny edytor tekstu stworzony do efektywnego pisania i modyfikowania dowolnego tekstu. W większości systemów UNIX-owych oraz w Apple OS X występuje pod nazwą "vi".
+- [WebStorm](https://www.jetbrains.com/webstorm/) to zintegrowane środowisko deweloperskie zaprojektowane specjalnie do pracy z JavaScriptem.
+- [Sublime Text](https://www.sublimetext.com/) posiada wbudowane wsparcie dla JSX oraz TypeScriptu, [podświetlanie składni](https://stackoverflow.com/a/70960574/458193) i autouzupełnianie.
+- [Vim](https://www.vim.org/) to elastyczny edytor tekstu stworzony do efektywnego pisania i modyfikowania dowolnego tekstu. W większości systemów UNIX-owych oraz w Apple OS X występuje pod nazwą "vi".
 
 ## Zalecane funkcje edytora tekstu {/*recommended-text-editor-features*/}
 
@@ -36,7 +43,7 @@ Ostatnia rzecz, jaka powinna się wydarzyć po udostępnieniu twojego kodu wspó
 Aby zainstalować [rozszerzenie Prettier dla VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), musisz:
 
 1. Uruchomić VS Code
-2. Użyć komendy szybkiego otwarcia (naciśnij `CTRL/CMD + P`)
+2. Użyć komendy szybkiego otwarcia (naciśnij `Ctrl/Cmd + P`)
 3. Wkleić w pole `ext install esbenp.prettier-vscode`
 4. Nacisnąć Enter
 
@@ -44,10 +51,10 @@ Aby zainstalować [rozszerzenie Prettier dla VSCode](https://marketplace.visuals
 
 Idealnie by było, gdyby kod sam się formatował przy każdym zapisie pliku. VS Code ma do tego specjalny zestaw ustawień!
 
-1. W VS Code naciśnij `CTRL/CMD + SHIFT + P`.
+1. W VS Code naciśnij `Ctrl/Cmd + Shift + P`.
 2. Wpisz "settings"
 3. Naciśnij Enter
 4. W polu wyszukiwarki wpisz "format on save"
 5. Upewnij się, że opcja "format on save" jest zaznaczona!
 
-> Prettier może czasem wejść w konflikt z innymi linterami, jednak zwykle da się je ze sobą pogodzić. Na przykład, jeśli używasz Prettiera z ESLintem, możesz zainstalować wtyczkę [eslint-prettier](https://github.com/prettier/eslint-plugin-prettier), aby uruchamiać Prettiera jako regułę ESLinta.
+> Jeśli twój zestaw reguł dla ESLinta zawiera reguły dotyczące formatowania, mogą one wchodzić w konflikt z Prettierem. Zalecamy wyłączenie wszystkich reguł formatujących w ESLincie za pomocą wtyczki [eslint-prettier](https://github.com/prettier/eslint-plugin-prettier), aby wykorzystać ESLinta *tylko* do wyłapywania błędów logicznych w kodzie. Jeśli chcesz sprawdzić formatowanie plików przed zmergowaniem pull requesta, użyj komendy [`prettier --check`](https://prettier.io/docs/en/cli.html#--check) w skrypcie ciągłej integracji (ang. *continuous integration*).

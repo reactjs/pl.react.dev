@@ -367,7 +367,7 @@ function MyComponent() {
 W naszej [dokumentacji poświęconej rozdzielaniu kodu](/docs/code-splitting.html#reactlazy) zamieściliśmy więcej informacji na ten temat. Zwróć uwagę na to, że komponenty `lazy` mogą być zawarte w drzewie wiele poziomów poniżej `Suspense`. Dobrą praktyką jest umieszczanie `<Suspense>` w miejscu, w którym powinien pojawić się wskaźnik ładowania, natomiast `lazy()` w miejscu, w którym chcesz rozdzielić kod.
 
 > Uwaga
-> 
+>
 > Jeśli jakaś treść jest już wyświetlona na ekranie, przełączenie na wskaźnik aktywności może być dezorientujące dla użytkownika. Czasami lepiej jest wyświetlić "stary" interfejs, podczas gdy nowy jest jeszcze przygotowywany. Aby to zrobić, możesz użyć nowego API [`startTransition`](#starttransition) oraz [`useTransition`](/docs/hooks-reference.html#usetransition), oznaczając w ten sposób niektóre aktualizacje jako "tranzycje" i unikając niepotrzebnego mrugania ekranu.
 
 #### `React.Suspense` w renderowaniu po stronie serwera {#reactsuspense-in-server-side-rendering}
@@ -388,6 +388,6 @@ React.startTransition(callback)
 >
 > Aktualizacje w tranzycjach ustępują pierwszeństwa bardziej pilnym aktualizacjom, jak np. kliknięciom na ekranie.
 >
-> Aktualizacje w tranzycjach nie powodują wyświetlenia komponentu zastępczego (ang. *fallback*) przy ponownym zawieszeniu, dzięki czemu użytkownik może kontynuować interację ze "starym" interfejsem, dopóki nie zakończy się tranzycja.
+> Aktualizacje w tranzycji nie powodują wyświetlenia komponentu zastępczego (ang. *fallback*) przy ponownym zawieszeniu, dzięki czemu użytkownik może kontynuować interację ze "starym" interfejsem, dopóki nie zakończy się tranzycja.
 >
 > `React.startTransition` nie zwraca flagi `isPending`. Aby śledzić status tranzycji, użyj hooka [`React.useTransition`](/docs/hooks-reference.html#usetransition).

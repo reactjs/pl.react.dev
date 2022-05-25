@@ -4,7 +4,7 @@ title: Pisanie kodu w JSX
 
 <Intro>
 
-JSX to rozszerzenie składni JavaScriptu, które pozwala używać znaczników podobnych do tych w HTML-u wewnątrz pliku javascriptowego. Większość deweloperów korzysta z niego ze względu na zwięzłość, mimo że istnieją inne sposoby na tworzenie komponentów.
+*JSX* to rozszerzenie składni JavaScriptu, które pozwala używać znaczników podobnych do tych w HTML-u wewnątrz pliku javascriptowego. Większość deweloperów korzysta z niego ze względu na zwięzłość, mimo że istnieją inne sposoby na tworzenie komponentów.
 
 </Intro>
 
@@ -42,13 +42,13 @@ Jednak z czasem strony WWW stały się bardziej interaktywne, a logika częście
 
 <Diagram name="writing_jsx_sidebar" height={330} width={325} alt="Komponent reactowy zawierający kod HTML i JavaScript z poprzednich przykładów. Funkcja o nazwie Sidebar wywołuje funkcję isLoggedIn, podświetloną na żółto. Wewnątrz funkcji, podświetlony na fioletowo, jest znacznik p z poprzedniego przykładu, oraz znacznik Form, odnoszący się do komponentu przedstawionego na następnym diagramie.">
 
-Sidebar.js
+`Sidebar.js` React component
 
 </Diagram>
 
 <Diagram name="writing_jsx_form" height={330} width={325} alt="Komponent reactowy zawierający kod HTML i JavaScript z poprzednich przykładów. Funkcja Form, podświetlona na żółto, zawiera dwie procedury obsługi zdarzeń: onClick i onSubmit. Pod spodem przedstawiony jest kod HTML, oznaczony kolorem fioletowym. Kod HTML zawiera element formularza z zagnieżdżonym elementem input, gdzie do każdego z nich przekazano właściwość onClick.">
 
-Form.js
+`Form.js` React component
 
 </Diagram>
 

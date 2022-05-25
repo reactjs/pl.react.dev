@@ -21,7 +21,7 @@ W powyższym przykładzie sprawdzenia trybu rygorystycznego *nie* zostaną uruch
 * [Ostrzeganiu o użyciu przestarzałego findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Wykrywaniu nieoczekiwanych efektów ubocznych](#detecting-unexpected-side-effects)
 * [Wykrywaniu użycia przestrzałego API kontekstów](#detecting-legacy-context-api)
-* [Wykrywaniu niebezpiecznych efektów](#detecting-unsafe-effects)
+* [Zapewnianiu wielokrotności użycia stanu](#ensuring-reusable-state)
 
 Dodatkowe funkcjonalności zostaną dodane w przyszłych wydaniach Reacta.
 
@@ -171,6 +171,14 @@ Kiedy komponent zostaje odmontowany, efekty są usuwane standardowo:
   * Niszczone są efekty układu interfejsu.
   * Niszczone są zwykłe efekty.
 ```
+
+Do cyklu odmontowywania i ponowne montowania zalicza się:
+
+- `componentDidMount`
+- `componentWillUnmount`
+- `useEffect`
+- `useLayoutEffect`
+- `useInsertionEffect`
 
 > Uwaga:
 >

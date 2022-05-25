@@ -4,7 +4,7 @@ title: Twój pierwszy komponent
 
 <Intro>
 
-Komponent jest jednym z podstawowych pojęć w świecie Reacta. Jest bazą, na której buduje się interfejsy użytkownika (UI), przez co idealnie nadaje się na pierwszy temat do nauki!
+*Komponent* jest jednym z podstawowych pojęć w świecie Reacta. Jest bazą, na której buduje się interfejsy użytkownika (UI), przez co idealnie nadaje się na pierwszy temat do nauki!
 
 </Intro>
 
