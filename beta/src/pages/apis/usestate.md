@@ -1276,7 +1276,7 @@ setTodos(prevTodos => {
 
 Now that this updater function is pure, calling it an extra time doesn't make a difference in behavior. This is why React calling it twice helps you find mistakes. **Only component, initializer, and updater functions need to be pure.** Event handlers don't need to be pure, so React will never call your event handlers twice.
 
-Read [keeping components pure](/learn/keeping-components-pure) to learn more.
+Read [Czyste komponenty](/learn/keeping-components-pure) to learn more.
 
 ---
 

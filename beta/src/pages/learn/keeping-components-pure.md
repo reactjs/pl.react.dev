@@ -1,5 +1,5 @@
 ---
-title: Keeping Components Pure
+title: Czyste komponenty
 ---
 
 <Intro>
