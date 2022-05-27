@@ -191,6 +191,8 @@ Z początku może wydawać się to nieintuicyjne, że do kodu javascriptowego do
 
 Kompilator Babel ze `<script>` nada się do nauki i tworzenia prostych dem. Jednak **spowalnia on działanie strony i nie nadaje się do środowisk produkcyjnych**. Kiedy już stwierdzisz, że czas ruszać dalej, usuń znacznik `<script>` z Babelem i usuń niedawno dodany atrybut `type="text/babel"`. Zamiast nich użyjemy preprocesora JSX, który przekonwertuje wszystkie znaczniki `<script>` z JSX na JS - ale o tym w następnej sekcji.
 
+</Gotcha>
+
 ### Dodaj JSX do projektu {/*add-jsx-to-a-project*/}
 
 Dodanie wsparcia dla składni JSX w projekcie nie wymaga użycia skomplikowanych narzędzi jak [bundler (_pol._ skrypt pakujący)](/learn/start-a-new-react-project#custom-toolchains) czy serwer deweloperski. Dodanie preprocesora JSX przypomina nieco dodawanie preprocesora CSS.
