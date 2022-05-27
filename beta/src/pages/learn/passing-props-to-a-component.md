@@ -407,7 +407,7 @@ Ten przykład pokazuje, że **komponent może otrzymywać wartości właściwoś
 
 Warto jednak pamiętać, że właściwości są [niemutowalne (_ang_. immutable)](https://en.wikipedia.org/wiki/Immutable_object) — określenie to pochodzi z informatyki i oznacza "niezmienność". Kiedy komponent chce zmienić swoje właściwości (na przykład w odpowiedzi na interakcję użytkownika lub nowe dane), musi "poprosić" swojego "rodzica", aby ten przekazał mu _inne wartości_ - czyli nowy obiekt! Wtedy stare właściwości zostaną zapomniane, a niedługo potem silnik JavaScriptu odzyska zajmowaną przez nie pamięć.
 
-**Nie próbuj "zmieniać właściwości".** Kiedy zechcesz zareagować na dane wprowadzone przez użytkownika (jak np. zmiana wybranego koloru), musisz "ustawić stan", o czym nauczysz się w rozdziale pt. [Stan: Pamięć komponentu](/learn/state-a-components-memory).
+**Nie próbuj "zmieniać właściwości".** Kiedy zechcesz zareagować na dane wprowadzone przez użytkownika (jak np. zmiana wybranego koloru), musisz "ustawić stan", o czym nauczysz się w rozdziale pt. [Stan - Pamięć komponentu](/learn/state-a-components-memory).
 
 <Recap>
 
