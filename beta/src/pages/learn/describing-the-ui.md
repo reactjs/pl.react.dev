@@ -358,7 +358,7 @@ export default function PackingList() {
 
 <LearnMore path="/learn/conditional-rendering">
 
-Read **[Conditional Rendering](/learn/conditional-rendering)** to learn the different ways to render content conditionally.
+Read **[Renderowanie warunkowe](/learn/conditional-rendering)** to learn the different ways to render content conditionally.
 
 </LearnMore>
 
