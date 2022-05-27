@@ -79,7 +79,7 @@ export function Footer() {
                 Opisywanie UI
               </FooterLink>
               <FooterLink href="/learn/adding-interactivity">
-                Adding Interactivity
+                Dodawanie interaktywności
               </FooterLink>
               <FooterLink href="/learn/managing-state">
                 Managing State
