@@ -1,5 +1,5 @@
 ---
-title: Updating Arrays in State
+title: Aktualizowanie tablic w stanie
 ---
 
 <Intro>
