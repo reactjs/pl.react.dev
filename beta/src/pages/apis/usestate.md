@@ -4,7 +4,7 @@ title: useState
 
 <Intro>
 
-`useState` is a React Hook that lets you add a [state variable](/learn/state-a-components-memory) to your component.
+`useState` jest hookiem reactowym, który pozwala na dodanie do komponentu [zmiennej stanu](/learn/state-a-components-memory).
 
 ```js
 const [state, setState] = useState(initialState)
