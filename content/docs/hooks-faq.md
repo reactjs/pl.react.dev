@@ -256,7 +256,7 @@ Jeżeli chcielibyśmy po prostu ustawić interwał, nie potrzebowalibyśmy refer
   // ...
 ```
 
-Działanie referencji jest takie samo, jak użycie zmiennych instancji w klasie. Jeśli nie korzystasz z [leniwej inicjalizacji](#how-to-create-expensive-objects-lazily), unikaj używania referencji podczas renderowania  -- może to prowadzić do niepożądanych zachowań. Zamiast tego modyfikuj referencje wewnątrz efektów lub procedur obsługi zdarzeń.
+Działanie referencji jest takie samo jak użycie zmiennych instancji w klasie. Jeśli nie korzystasz z [leniwej inicjalizacji](#how-to-create-expensive-objects-lazily), unikaj używania referencji podczas renderowania  -- może to prowadzić do niepożądanych zachowań. Zamiast tego modyfikuj referencje wewnątrz efektów lub procedur obsługi zdarzeń.
 
 ### Lepiej używać jednej czy wielu zmiennych stanu? {#should-i-use-one-or-many-state-variables}
 

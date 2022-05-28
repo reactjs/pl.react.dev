@@ -10,7 +10,7 @@ redirect_from:
 
 React umożliwia tworzenie odrębnych komponentów, które hermetyzują (ang. *encapsulate*) pożądane przez ciebie metody. Wybrane komponenty mogą być renderowane bądź nie, w zależności od stanu twojej aplikacji.
 
-Renderowanie warunkowe działa w Reakcie tak samo, jak instrukcje warunkowe w javascripcie. Aby stworzyć elementy odzwierciedlające aktualny stan aplikacji, należy użyć instrukcji [if](https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/JavaScript_basics#Warunki) lub [operatora warunkowego](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_warunkowy) oraz pozwolić Reactowi je dopasować poprzez aktualizację interfejsu użytkownika.
+Renderowanie warunkowe działa w Reakcie tak samo jak instrukcje warunkowe w javascripcie. Aby stworzyć elementy odzwierciedlające aktualny stan aplikacji, należy użyć instrukcji [if](https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/JavaScript_basics#Warunki) lub [operatora warunkowego](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_warunkowy) oraz pozwolić Reactowi je dopasować poprzez aktualizację interfejsu użytkownika.
 
 Rozważmy następujące dwa komponenty:
 
