@@ -253,7 +253,7 @@ Wywołuje funkcję na każdym bezpośrednim komponencie potomnych zawartym w `ch
 React.Children.forEach(children, function[(thisArg)])
 ```
 
-Działa tak samo, jak [`React.Children.map()`](#reactchildrenmap), ale nie zwraca tablicy.
+Działa tak samo jak [`React.Children.map()`](#reactchildrenmap), ale nie zwraca tablicy.
 
 #### `React.Children.count` {#reactchildrencount}
 
