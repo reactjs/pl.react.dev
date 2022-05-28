@@ -102,11 +102,11 @@
               "path": "/learn/queueing-a-series-of-state-updates"
             },
             {
-              "title": "Updating Objects in State",
+              "title": "Aktualizowanie obiektów w stanie",
               "path": "/learn/updating-objects-in-state"
             },
             {
-              "title": "Updating Arrays in State",
+              "title": "Aktualizowanie tablic w stanie",
               "path": "/learn/updating-arrays-in-state"
             }
           ]
@@ -131,7 +131,7 @@
               "path": "/learn/sharing-state-between-components"
             },
             {
-              "title": "Preserving and Resetting State",
+              "title": "Utrzymywanie i resetowanie stanu",
               "path": "/learn/preserving-and-resetting-state"
             },
             {

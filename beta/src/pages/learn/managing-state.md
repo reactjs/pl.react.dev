@@ -300,7 +300,7 @@ Read **[Sharing State Between Components](/learn/sharing-state-between-component
 
 </LearnMore>
 
-## Preserving and resetting state {/*preserving-and-resetting-state*/}
+## Utrzymywanie i resetowanie stanu {/*preserving-and-resetting-state*/}
 
 When you re-render a component, React needs to decide which parts of the tree to keep (and update), and which parts to discard or re-create from scratch. In most cases, React's automatic behavior works well enough. By default, React preserves the parts of the tree that "match up" with the previously rendered component tree.
 
@@ -496,7 +496,7 @@ textarea {
 
 <LearnMore path="/learn/preserving-and-resetting-state">
 
-Read **[Preserving and Resetting State](/learn/preserving-and-resetting-state)** to learn the lifetime of state and how to control it.
+Read **[Utrzymywanie i resetowanie stanu](/learn/preserving-and-resetting-state)** to learn the lifetime of state and how to control it.
 
 </LearnMore>
 

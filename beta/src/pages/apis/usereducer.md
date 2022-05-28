@@ -185,7 +185,7 @@ function reducer(state, action) {
     }
 ```
 
-Read [updating objects in state](/learn/updating-objects-in-state) and [updating arrays in state](/learn/updating-arrays-in-state) to learn more.
+Read [Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state) and [Aktualizowanie tablic w stanie](/learn/updating-arrays-in-state) to learn more.
 
 </Gotcha>
 

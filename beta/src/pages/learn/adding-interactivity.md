@@ -401,7 +401,7 @@ Read **[Queueing a Series of State Changes](/learn/queueing-a-series-of-state-ch
 
 </LearnMore>
 
-## Updating objects in state {/*updating-objects-in-state*/}
+## Aktualizowanie obiektów w stanie {/*updating-objects-in-state*/}
 
 State can hold any kind of JavaScript value, including objects. But you shouldn't change objects and arrays that you hold in the React state directly. Instead, when you want to update an object and array, you need to create a new one (or make a copy of an existing one), and then update the state to use that copy.
 
@@ -628,11 +628,11 @@ img { width: 200px; height: 200px; }
 
 <LearnMore path="/learn/updating-objects-in-state">
 
-Read **[Updating Objects in State](/learn/updating-objects-in-state)** to learn how to update objects correctly.
+Read **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state)** to learn how to update objects correctly.
 
 </LearnMore>
 
-## Updating arrays in state {/*updating-arrays-in-state*/}
+## Aktualizowanie tablic w stanie {/*updating-arrays-in-state*/}
 
 Arrays are another type of mutable JavaScript objects you can store in state and should treat as read-only. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array:
 
@@ -786,7 +786,7 @@ function ItemList({ artworks, onToggle }) {
 
 <LearnMore path="/learn/updating-arrays-in-state">
 
-Read **[Updating Arrays in State](/learn/updating-arrays-in-state)** to learn how to update arrays correctly.
+Read **[Aktualizowanie tablic w stanie](/learn/updating-arrays-in-state)** to learn how to update arrays correctly.
 
 </LearnMore>
 
