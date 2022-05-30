@@ -79,5 +79,9 @@ Być może jednak interesuje cię stworzenie i skonfigurowanie własnego zestawu
 * **Lintera** — sprawdza kod pod kątem częstych błędów. Popularne lintery: [ESLint](https://eslint.org/).
 * **Narzędzia do testów** — pozwala uruchomić testy i sprawdzić poprawność działania kodu. Popularne narzędzia do testów: [Jest](https://jestjs.io/).
 
+<<<<<<< HEAD
+=======
+If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality. A framework will usually also provide a routing and a data fetching solution. In a larger project, you might also want to manage multiple packages in a single repository with a tool like [Nx](https://nx.dev/react) or [Turborepo](https://turborepo.org/).
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 
 Jeśli jednak wolisz samodzielnie skonfigurować zestaw narzędzi dla JavaScriptu, [zajrzyj do tego artykułu](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658), w którym odtwarzana jest część funkcjonalności Create React App. Frameworki zwykle dodatkowo dostarczają rozwiązania dla routingu i pobierania danych. W większych projektach do zarządzania wieloma paczkami w ramach jednego repozytorium przydatny może okazać się [Nx](https://nx.dev/react).
