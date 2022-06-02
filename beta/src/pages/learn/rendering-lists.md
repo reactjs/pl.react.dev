@@ -157,6 +157,7 @@ export default function List() {
   const chemists = people.filter(person =>
     person.profession === 'chemist'
   );
+
   const listItems = chemists.map(person =>
     <li>
       <img
@@ -170,6 +171,7 @@ export default function List() {
       </p>
     </li>
   );
+
   return <ul>{listItems}</ul>;
 }
 ```
@@ -254,9 +256,9 @@ O funkcjach strzałkowych, które zawierają `=> {`, mówi się, że mają ["blo
 
 </Gotcha>
 
-## Keeping list items in order with `key` {/*keeping-list-items-in-order-with-key*/}
+## Utrzymywanie listy w odpowiednim porządku za pomocą `key` {/*keeping-list-items-in-order-with-key*/}
 
-If you open any of the sandboxes above in a new tab, you'll see an error in the console:
+Jeśli otworzysz dowolny z powyższych przykładów w przeglądarce, zobaczysz w konsoli błąd o treści:
 
 <ConsoleBlock level="error">
 
@@ -264,7 +266,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-You need to give each array item a `key` -- a string or a number that uniquely identifies it among other items in that array:
+Potrzebujesz nadać każdemu elementowi tablicy odpowiedni `key` -- wartość typu string lub number, która unikatowo identyfikuje dany element wśród innych elementów tej tablicy:
 
 ```js
 <li key={person.id}>...</li>
@@ -272,13 +274,13 @@ You need to give each array item a `key` -- a string or a number that uniquely i
 
 <Note>
 
-JSX elements directly inside a `map()` call always need keys!
+Elementy JSX bezpośrednio wewnątrz wywołania `map()` zawsze potrzebują kluczy - `key`!
 
 </Note>
 
-Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+Klucze (`key`) informują React, któremu elementowi tablicy odpowiada każdy renderowany komponent, aby następnie mógł być dopasowany. Staje się to ważne, jeśli elementy tablicy mogą się przemieszczać (np. z powodu sortowania), zostać wstawione lub usunięte. Dobrze dobrany `key` pomaga Reactowi wywnioskować, co dokładnie się stało i dokonać poprawnych aktualizacji drzewa DOM.
 
-Rather than generating keys on the fly, you should include them in your data:
+Zamiast generować klucze w locie, powinieneś uwzględnić je w swoich danych:
 
 <Sandpack>
 
@@ -300,37 +302,38 @@ export default function List() {
       </p>
     </li>
   );
+
   return <ul>{listItems}</ul>;
 }
 ```
 
 ```js data.js active
 export const people = [{
-  id: 0, // Used in JSX as a key
+  id: 0, // Użyto w JSX jako "key"
   name: 'Creola Katherine Johnson',
   profession: 'mathematician',
   accomplishment: 'spaceflight calculations',
   imageId: 'MK3eW3A'
 }, {
-  id: 1, // Used in JSX as a key
+  id: 1, // Użyto w JSX jako "key"
   name: 'Mario José Molina-Pasquel Henríquez',
   profession: 'chemist',
   accomplishment: 'discovery of Arctic ozone hole',
   imageId: 'mynHUSa'
 }, {
-  id: 2, // Used in JSX as a key
+  id: 2, // Użyto w JSX jako "key"
   name: 'Mohammad Abdus Salam',
   profession: 'physicist',
   accomplishment: 'electromagnetism theory',
   imageId: 'bE7W1ji'
 }, {
-  id: 3, // Used in JSX as a key
+  id: 3, // Użyto w JSX jako "key"
   name: 'Percy Lavon Julian',
   profession: 'chemist',
   accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Użyto w JSX jako "key"
   name: 'Subrahmanyan Chandrasekhar',
   profession: 'astrophysicist',
   accomplishment: 'white dwarf star mass calculations',
@@ -362,11 +365,11 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-<DeepDive title="Displaying several DOM nodes for each list item">
+<DeepDive title="Wyświetlanie kilku elementów DOM dla każdego elementu listy">
 
-What do you do when each item needs to render not one, but several DOM nodes?
+Co robić, gdy każdy element musi renderować nie jeden, ale kilka węzłów DOM?
 
-The short `<> </>` fragment syntax won't let you pass a key, so you need to either group them into a single `<div>`, or use the slightly longer and more explicit `<Fragment>` syntax:
+Krótka składnia fragmentów `<></>` nie pozwoli Ci przekazać klucza, więc musisz albo zgrupować je w pojedynczy `<div>`, albo użyć nieco dłuższej i bardziej wyraźnej składni `<Fragment>`:
 
 ```js
 import { Fragment } from 'react';
@@ -381,11 +384,11 @@ const listItems = people.map(person =>
 );
 ```
 
-Fragments disappear from the DOM, so this will produce a flat list of `<h1>`, `<p>`, `<h1>`, `<p>`, and so on.
+Fragmenty znikają z DOM, więc powyższy kod wygeneruje płaską listę `<h1>`, `<p>`, `<h1>`, `<p>` i tak dalej.
 
 </DeepDive>
 
-### Where to get your `key` {/*where-to-get-your-key*/}
+### Skąd wziąć `key` {/*where-to-get-your-key*/}
 
 Different sources of data provide different sources of keys:
 
