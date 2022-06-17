@@ -390,40 +390,40 @@ Fragmenty znikają z DOM, więc powyższy kod wygeneruje płaską listę `<h1>`,
 
 ### Skąd wziąć `key` {/*where-to-get-your-key*/}
 
-Different sources of data provide different sources of keys:
+Różne źródła danych, dostarczają różne źródła kluczy:
 
-* **Data from a database:** If your data is coming from a database, you can use the database keys/IDs, which are unique by nature.
-* **Locally generated data:** If your data is generated and persisted locally (e.g. notes in a note-taking app), use an incrementing counter, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) or a package like [`uuid`](https://www.npmjs.com/package/uuid) when creating items.
+* **Dane z bazy danych:** Jeśli Twoje dane pochodzą z bazy danych, możezz użyć kluczy/identyfikatorów podchodzących z tabel baz danych, które z natury są unikatowe.
+* **Dane generowane lokalnie:** Jeśli Twoje dane są generowane i przechowywane lokalnie (np. notatki w aplikacji notatnika), możesz użyć inkrementowanego licznika, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) lub modułu jak [`uuid`](https://www.npmjs.com/package/uuid) podczas tworzenia elementów.
 
-### Rules of keys {/*rules-of-keys*/}
+### Reguły kluczy {/*rules-of-keys*/}
 
-* **Keys must be unique among siblings.** However, it’s okay to use the same keys for JSX nodes in _different_ arrays.
-* **Keys must not change** or that defeats their purpose! Don't generate them while rendering.
+* **Klucze muszą być unikalne wśród rodzeństwa.** Można jednak używać tych samych kluczy dla węzłów JSX w _różnych_ tablicach.
+* **Klucze nie mogą się zmieniać.** Inaczej to narusza ich cel! Nie generuj ich podczas renderowania.
 
-### Why does React need keys? {/*why-does-react-need-keys*/}
+### Dlaczego React potrzebuje kluczy? {/*why-does-react-need-keys*/}
 
-Imagine that files on your desktop didn't have names. Instead, you'd refer to them by their order -- the first file, the second file, and so on. You could get used to it, but once you delete a file, it would get confusing. The second file would become the first file, the third file would be the second file, and so on.
+Wyobraź sobie, że pliki na twoim pulpicie nie mają nazw. Zamiast tego odwołujesz się do nich według ich kolejności — pierwszy plik, drugi plik i tak dalej. Możesz się do tego przyzwyczaić, ale gdy usuniesz plik, stanie się to zagmatwane. Drugi plik stałby się pierwszym plikiem, trzeci plik byłby drugim plikiem itd.
 
-File names in a folder and JSX keys in an array serve a similar purpose. They let us uniquely identify an item between its siblings. A well-chosen key provides more information than the position within the array. Even if the _position_ changes due to reordering, the `key` lets React identify the item throughout its lifetime.
+Nazwy plików w folderze oraz klucze JSX w tablicy służą podobnemu celowi. Pozwalają nam jednoznacznie zidentyfikować element między rodzeństwem. Dobrze dobrany klucz dostarcza więcej informacji niż pozycja w tablicy. Nawet jeśli _pozycja_ zmieni się z powodu zmiany kolejności, `key` pozwala Reactowi identyfikować element przez cały okres jego istnienia.
 
 <Gotcha>
 
-You might be tempted to use an item's index in the array as its key. In fact, that's what React will use if you don't specify a `key` at all. But the order in which you render items will change over time if an item is inserted, deleted, or if the array gets reordered. Index as a key often leads to subtle and confusing bugs.
+Możesz pokusić się o użycie indeksu elementu w tablicy jako klucza. Właściwie to właśnie tego użyje React, jeśli w ogóle nie podasz `key`. Jednak kolejność renderowania elementów zmieni się w czasie, jeśli element zostanie wstawiony, usunięty lub jeśli tablica zostanie zmieniona. Indeks jako klucz często prowadzi do subtelnych i mylących błędów.
 
-Similarly, do not generate keys on the fly, e.g. with `key={Math.random()}`. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time. Not only is this slow, but it will also lose any user input inside the list items. Instead, use a stable ID based on the data.
+Podobnie nie generuj kluczy w locie, np. za pomocą `key={Math.random()}`. Spowoduje to, że klucze nigdy nie będą pasować między renderowaniami, co doprowadzi do odtworzenia wszystkich komponentów i DOM za każdym razem. Jest to nie tylko powolne, ale także powoduje utratę danych wejściowych użytkownika w elementach listy. Zamiast tego użyj stabilnego identyfikatora opartego na danych.
 
-Note that your components won't receive `key` as a prop. It's only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: `<Profile key={id} userId={id} />`.
+Zauważ, że twoje komponenty nie otrzymają `key` jako property komponentu. Jest on używany tylko jako wskazówka przez sam React. Jeśli twój komponent potrzebuje identyfikatora, musisz przekazać go jako osobną właściwość. Przykład: `<Profile key={id} userId={id} />`.
 
 </Gotcha>
 
 <Recap>
 
-On this page you learned:
+Na tej stronie dowiedziałeś się:
 
-* How to move data out of components and into data structures like arrays and objects.
-* How to generate sets of similar components with JavaScript's `map()`.
-* How to create arrays of filtered items with JavaScript's `filter()`.
-* Why and how to set `key` on each component in a collection so React can keep track of each of them even if their position or data changes.
+* Jak przenieść dane do struktur danych, takich jak tablice i obiekty.
+* Jak generować zestawy podobnych sobie komponentów za pomocą funkcji `map()` JavaScriptu.
+* Jak tworzyć tablice przefiltrowanych elementów za pomocą funkcji `filter()` w JavaScript.
+* Dlaczego i jak ustawić `key` na każdym komponencie w kolekcji, aby React mógł śledzić każdy z nich, nawet jeśli zmieni się ich pozycja lub dane.
 
 </Recap>
 
@@ -457,6 +457,7 @@ export default function List() {
       </p>
     </li>
   );
+
   return (
     <article>
       <h1>Scientists</h1>
@@ -1245,7 +1246,7 @@ hr {
 
 </Sandpack>
 
-Remember, fragments (often written as `<> </>`) let you group JSX nodes without adding extra `<div>`s!
+Pamiętaj, fragmenty (zazwyczaj pisane jako `<> </>`) pozwalają Ci grupować węzły JSX bez pisania dodatkowych `<div>`ów.
 
 </Solution>
 
