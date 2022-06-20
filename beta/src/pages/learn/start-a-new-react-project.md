@@ -72,7 +72,7 @@ Więcej informacji o tym, [jak zacząć projekt z Next.js](https://nextjs.org/do
 Być może jednak interesuje cię stworzenie i skonfigurowanie własnego zestawu narzędzi. Taki zestaw zwykle składa się z:
 
 * **Menadżera pakietów** — pozwala instalować, aktualizować i zarządzać zewnętrznymi bibliotekami. Najpopularniejsze z nich to: [npm](https://www.npmjs.com/) (wbudowany w Node.js), [Yarn](https://yarnpkg.com/) oraz [pnpm](https://pnpm.io/).
-* **Kompilatora** — pozwala skompilować nowoczesną składnię (np. JSX lub typy), tak, aby rozumiały ją przeglądarki. Popularne kompilatory: [Babel](https://babeljs.io/), [TypeScript](http://typescript.org/), [swc](https://swc.rs/).
+* **Kompilatora** — pozwala skompilować nowoczesną składnię (np. JSX lub typy), tak, aby rozumiały ją przeglądarki. Popularne kompilatory: [Babel](https://babeljs.io/), [TypeScript](https://www.typescriptlang.org/), [swc](https://swc.rs/).
 * **Bundlera** (_pol._ skrypt pakujący) — pozwala pisać modularny kod i spakować go do małych pakietów w celu zoptymalizowania czasu ładowania aplikacji. Najpopularniejsze przykłady to: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/) oraz [swc](https://swc.rs/).
 * **Minifikatora** — sprawia, że kod jest bardziej zwięzły, przez co ładuje się szybciej. Popularne minifikatory to: [Terser](https://terser.org/), [swc](https://swc.rs/).
 * **Serwera** — obsługuje żądania, jednocześnie renderując komponenty do HTML-a. Popularne serwery: [Express](https://expressjs.com/).
@@ -80,4 +80,4 @@ Być może jednak interesuje cię stworzenie i skonfigurowanie własnego zestawu
 * **Narzędzia do testów** — pozwala uruchomić testy i sprawdzić poprawność działania kodu. Popularne narzędzia do testów: [Jest](https://jestjs.io/).
 
 
-Jeśli jednak wolisz samodzielnie skonfigurować zestaw narzędzi dla JavaScriptu, [zajrzyj do tego artykułu](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658), w którym odtwarzana jest część funkcjonalności Create React App. Frameworki zwykle dodatkowo dostarczają rozwiązania dla routingu i pobierania danych. W większych projektach do zarządzania wieloma paczkami w ramach jednego repozytorium przydatny może okazać się [Nx](https://nx.dev/react).
+Jeśli jednak wolisz samodzielnie skonfigurować zestaw narzędzi dla JavaScriptu, [zajrzyj do tego artykułu](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658), w którym odtwarzana jest część funkcjonalności Create React App. Frameworki zwykle dodatkowo dostarczają rozwiązania dla routingu i pobierania danych. W większych projektach do zarządzania wieloma paczkami w ramach jednego repozytorium przydatny może okazać się [Nx](https://nx.dev/react) lub [Turborepo](https://turborepo.org/).

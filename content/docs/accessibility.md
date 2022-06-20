@@ -407,9 +407,7 @@ Upewnij się, że wszystkie teksty na twojej stronie mają wystarczający kontra
 - [Wszystko o kontraście kolorów i dlaczego warto się nad nim zastanowić](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - Czym jest kontrast kolorów](https://a11yproject.com/posts/what-is-color-contrast/)
 
-Ręczne obliczanie odpowiednich kombinacji kolorów dla wszystkich przypadków na swojej stronie internetowej może być nudne. Zamiast tego możesz użyć [Colorable do przeliczenia całej palety kolorów dla zachowania dobrej dostępności aplikacji](https://jxnblk.com/colorable/).
-
-Wymienione poniżej narzędzia aXe i WAVE zawierają również testy kontrastu kolorów i będą zgłaszać błędy kontrastu.
+Ręczne obliczanie odpowiednich kombinacji kolorów dla wszystkich przypadków na swojej stronie internetowej może być nudne. Zamiast tego możesz użyć [Colorable do przeliczenia całej palety kolorów dla zachowania dobrej dostępności aplikacji](https://colorable.jxnblk.com/).
 
 Jeśli chcesz rozszerzyć możliwości testowania kontrastu, możesz użyć następujących narzędzi:
 
