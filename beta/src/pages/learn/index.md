@@ -28,7 +28,11 @@ Komponenty reactowe to funkcje javascriptowe, które zwracają kod znaczników (
 ```js
 function MyButton() {
   return (
+<<<<<<< HEAD
     <button>Kliknij mnie</button>
+=======
+    <button>I'm a button</button>
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
   );
 }
 ```
@@ -56,7 +60,11 @@ Przyjrzyj się wynikowi poniższego kodu:
 function MyButton() {
   return (
     <button>
+<<<<<<< HEAD
       Kliknij mnie
+=======
+      I'm a button
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
     </button>
   );
 }

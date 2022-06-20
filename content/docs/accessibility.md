@@ -409,7 +409,11 @@ Upewnij się, że wszystkie teksty na twojej stronie mają wystarczający kontra
 
 Ręczne obliczanie odpowiednich kombinacji kolorów dla wszystkich przypadków na swojej stronie internetowej może być nudne. Zamiast tego możesz użyć [Colorable do przeliczenia całej palety kolorów dla zachowania dobrej dostępności aplikacji](https://jxnblk.com/colorable/).
 
+<<<<<<< HEAD
 Wymienione poniżej narzędzia aXe i WAVE zawierają również testy kontrastu kolorów i będą zgłaszać błędy kontrastu.
+=======
+It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://colorable.jxnblk.com/).
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 Jeśli chcesz rozszerzyć możliwości testowania kontrastu, możesz użyć następujących narzędzi:
 
