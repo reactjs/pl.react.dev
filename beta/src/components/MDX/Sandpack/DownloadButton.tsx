@@ -92,15 +92,7 @@ ${css}
       onClick={downloadHTML}
       title="Pobierz Sandbox"
       type="button">
-<<<<<<< HEAD
-      <IconArrowSmall
-        displayDirection="down"
-        className="inline mb-0.5 mr-1 mt-1"
-      />{' '}
-      Pobierz
-=======
-      <IconDownload className="inline mr-1" /> Download
->>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
+      <IconDownload className="inline mr-1" /> Pobierz
     </button>
   );
 };

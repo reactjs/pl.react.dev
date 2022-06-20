@@ -395,11 +395,7 @@ img { margin: 0 10px 10px 0; }
 
 ### Napisz swój własny komponent {/*your-own-component*/}
 
-<<<<<<< HEAD
 Napisz komponent od zera. Możesz nadać mu dowolną poprawną nazwę i zwrócić dowolną strukturę znaczników. Jeśli brakuje ci pomysłów, stwórz komponent `Congratulations`, który wyświetla `<h1>Dobra robota!</h1>`. Nie zapomnij go wyeksportować!
-=======
-Write a component from scratch. You can give it any valid name and return any markup. If you're out of ideas, you can write a `Congratulations` component that shows `<h1>Good job!</h1>`. Don't forget to export it!
->>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 <Sandpack>
 

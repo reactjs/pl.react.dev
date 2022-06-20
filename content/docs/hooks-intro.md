@@ -31,13 +31,8 @@ Funkcja `useState` jest pierwszym „hookiem”, o którym będziemy się uczyć
 
 >Uwaga
 >
-<<<<<<< HEAD
 >React 16.8.0 jest pierwszą wersją, która wspiera hooki. Podczas aktualizacji nie zapomnij zaktualizować wszystkich paczek, w tym React DOM. 
->[React Native wspiera hooki od wersji 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
-=======
->React 16.8.0 is the first release to support Hooks. When upgrading, don't forget to update all packages, including React DOM.
->React Native has supported Hooks since [the 0.59 release of React Native](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
->>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
+>React Native wspiera hooki [od wersji 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
 
 ## Wprowadzenie wideo {#video-introduction}
 
@@ -101,11 +96,7 @@ Aby rozwiązać te problemy, **Hooki pozwalają na korzystanie z większej liczb
 
 Zdajemy sobie sprawę, że programiści Reacta są skupieni na dostarczaniu produktów i nie mają czasu przyglądać się każdemu nowemu interfejsowi API, który jest wypuszczany. Hooki są wielką nowością i być może lepiej będzie zaczekać na więcej przykładów i poradników, zanim rozważysz ich naukę lub wdrożenie.
 
-<<<<<<< HEAD
 Rozumiemy też, że przy dodawaniu do Reacta nowego, podstawowego mechanizmu poprzeczka została postawiona niezwykle wysoko. Dla zainteresowanych przygotowaliśmy [szczegółowy RFC](https://github.com/reactjs/rfcs/pull/68), który dokładnie zgłębia nasze motywy oraz rzuca dodatkowe światło na konkretne decyzje projektowe i obecny stan techniki.
-=======
-We also understand that the bar for adding a new primitive to React is extremely high. For curious readers, we have prepared a [detailed RFC](https://github.com/reactjs/rfcs/pull/68) that dives into the motivation with more details, and provides extra perspective on the specific design decisions and related prior art.
->>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 **Co najważniejsze, hooki działają równolegle z istniejącym kodem, więc możesz wdrażać je stopniowo.** Nie ma pośpiechu, aby migrować kod do hooków. Zalecamy unikanie „wielkiego przepisywania”, szczególnie dla istniejących, skomplikowanych komponentów klasowych. Potrzeba delikatnie przestawić myślenie, aby zacząć „myśleć hookami”. Z naszego doświadczenia wynika, że najlepiej poćwiczyć używanie hooków na nowych, niekrytycznych komponentach i upewnić się, że wszyscy członkowie zespołu czują się z nimi komfortowo. Po wypróbowaniu hooków, prosimy - [prześlij nam opinię](https://github.com/facebook/react/issues/new). Zarówno pozytywną, jak i negatywną.
 
