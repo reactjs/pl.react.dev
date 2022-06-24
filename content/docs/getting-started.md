@@ -32,7 +32,7 @@ Ta podstrona to przegląd dokumentacji Reacta oraz powiązanych zasobów.
 
 ## Wypróbuj Reacta {#try-react}
 
-Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb.  Linki zawarte w tej części przewodnika wprowadzą cię do Reacta. Znajdziesz tu materiały, które pozwolą ci nie tylko dodawać elementy interaktywne do prostych stron HTML, lecz także rozpocząć prace nad bardziej zaawansowanymi aplikacjami bazującymi na Reakcie.
+Biblioteka React została zaprojektowana z myślą o stopniowym wdrażaniu. **Dzięki temu zawarte w niej rozwiązania możesz stosować wybiórczo w zależności od potrzeb**. Linki zawarte w tej części przewodnika wprowadzą cię do Reacta. Znajdziesz tu materiały, które pozwolą ci nie tylko dodawać elementy interaktywne do prostych stron HTML, lecz także rozpocząć prace nad bardziej zaawansowanymi aplikacjami bazującymi na Reakcie.
 
 ### Środowisko doświadczalne {#online-playgrounds}
 
@@ -46,7 +46,7 @@ Możesz [dodać Reacta do swojej strony HTML w ciągu minuty](/docs/add-react-to
 
 ### Stwórz nową aplikację reactową {#create-a-new-react-app}
 
-Gdy zaczynasz projekt w Reakcie, najlepiej zacząć od [napisania prostej strony w HTML-u przy użyciu tagów <script>](/docs/add-react-to-a-website.html). Zajmie ci to tylko minutę!
+Gdy zaczynasz projekt w Reakcie, najlepiej zacząć od [napisania prostej strony w HTML-u przy użyciu tagów \<script\>](/docs/add-react-to-a-website.html). Zajmie ci to tylko minutę!
 
 W miarę jak będziesz rozwijać swoją aplikację, możesz zacząć myśleć o bardziej zintegrowanym środowisku. Istnieje kilka JavaScriptowych narzędzi, które polecamy do rozwoju większych aplikacji. Każde z nich, przy drobnej lub znikomej konfiguracji, pozwoli ci korzystać z pełni mocy systemu Reacta. [Kliknij tutaj, aby dowiedzieć się, jak to zrobić.](/docs/create-a-new-react-app.html)
 
