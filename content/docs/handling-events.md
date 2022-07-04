@@ -92,6 +92,7 @@ Należy zwrócić szczególną uwagę na znaczenie `this` funkcjach zwrotnych (a
 
 To zachowanie nie jest specyficzne dla Reacta; [tak właśnie działają funkcje w JavaScripcie](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generalnie, jeśli odwołujesz się do metody bez `()` po nazwie, jak na przykład `onClick={this.handleClick}`, pamiętaj, aby zawsze dowiązywać ją do instancji.
 
+<<<<<<< HEAD
 Jeśli denerwuje Cię ciągłe wywoływanie `bind`, istnieją dwa sposoby na obejście tego problemu. Jeśli używasz eksperymentalnej [składni publicznych pól klasy](https://babeljs.io/docs/plugins/transform-class-properties/), możesz dowiązać metody do instancji poprzez zadeklarowanie ich jako pola klasy:
 
 ```js{2-6}
@@ -101,6 +102,16 @@ class LoggingButton extends React.Component {
   handleClick = () => {
     console.log('this ma wartość:', this);
   }
+=======
+If calling `bind` annoys you, there are two ways you can get around this. You can use [public class fields syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) to correctly bind callbacks:
+
+```js{2-6}
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  handleClick = () => {
+    console.log('this is:', this);
+  };
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3
 
   render() {
     return (

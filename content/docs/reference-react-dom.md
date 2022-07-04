@@ -108,7 +108,11 @@ Jeśli w argumencie `callback` przekażesz funkcję zwrotną, zostanie ona wywo�
 > i należy jej unikać, ponieważ przyszłe wersje Reacta mogą w niektórych przypadkach renderować komponenty asynchronicznie. Jeśli potrzebujesz referencji do instancji korzenia, sugerujemy przekazanie do niego
 > [referencyjnej funkcji zwrotnej](/docs/refs-and-the-dom.html#callback-refs).
 >
+<<<<<<< HEAD
 > Używanie `render()` do hydratacji (ang. _hydrating_) kontenera renderowanego po stronie serwera jest przestarzałą praktyką i zostanie uniemożliwione w Reakcie 17. Zamiast tego użyj funkcji [`hydrate()`](#hydrate).
+=======
+> Using `render()` to hydrate a server-rendered container is deprecated. Use [`hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) instead.
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3
 
 ---
 
