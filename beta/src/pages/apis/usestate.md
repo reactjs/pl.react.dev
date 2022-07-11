@@ -1078,7 +1078,11 @@ button { margin-bottom: 10px; }
 
 Zwróć uwagę, że jeśli wywołujesz funkcję `set` podczas renderowania, musi się to odbywać w warunku `prevCount !== count`, w którym to również wywołujesz `setPrevCount(count)`. W przeciwnym wypadku komponent renderowałby się ponownie w nieskończoność, co doprowadziłoby do zawieszenia aplikacji. Pamiętaj, że możesz w ten sposób aktualizować stan tylko *aktualnie renderowanego* komponentu. Wywoływanie funkcji `set` pochodzącej z *innego* komponentu podczas renderowania byłoby błędem. I wreszcie, pamiętaj, że wywołanie funkcji `set` powinno [aktualizować stan bez jego mutowania](#updating-objects-and-arrays-in-state) -- to, że obsługujemy tu przypadek specjalny, nie oznacza, że możemy łamać inne zasady [czystych funkcji](/learn/keeping-components-pure).
 
+<<<<<<< HEAD
 Powyższy schemat działania może wydawać się trudny do zrozumienia i generalnie lepiej go unikać. Mimo wszystko jest on lepszy niż aktualizowanie stanu w efekcie. Kiedy wywołujesz funkcję `set` podczas renderowania, React wyrenderuje go ponownie tuż po tym, jak zwróci on coś za pomocą instrukcji `return`, ale jeszcze przed wyrenderowaniem potomków. Dzięki temu komponenty potomne nie będą renderowały się dwa razy. Pozostała część funkcji komponentu nadal będzie wywołana (a wynik zostanie "wyrzucony do kosza"), dlatego jeśli taki warunek znajduje się pod wywołaniami hooków, możesz dopisać do niego `return null`, aby zakończyć renderowanie wcześniej.
+=======
+This pattern can be hard to understand and is usually best avoided. However, it's better than updating state in an effect. When you call the `set` function during render, React will re-render that component immediately after your component exits with a `return` statement, and before rendering the children. This way, children don't need to render twice. The rest of your component function will still execute (and the result will be thrown away), but if your condition is below all the calls to Hooks, you may add an early `return;` inside it to restart rendering earlier.
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
 ---
 
