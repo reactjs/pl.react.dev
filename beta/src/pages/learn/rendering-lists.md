@@ -431,11 +431,11 @@ Na tej stronie dowiedziałeś się:
 
 <Challenges>
 
-### Splitting a list in two {/*splitting-a-list-in-two*/}
+### Dzielenie listy na dwie części {/*splitting-a-list-in-two*/}
 
-This example shows a list of all people.
+Ten przykład ukazuje listę wszystkich ludzi.
 
-Change it to show two separate lists one after another: **Chemists** and **Everyone Else**. Like previously, you can determine whether a person is a chemist by checking if `person.profession === 'chemist'`.
+Zmieńmy go, aby pokazać dwie osobne listy, jedna pod drugą: **Chemicy** oraz **Wszyscy inni**. Podobnie jak poprzednio, możesz określić, która osoba jest chemikiem, sprawdzając czy `person.profession === 'chemist'`.
 
 <Sandpack>
 
@@ -527,7 +527,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Solution>
 
-You could use `filter()` twice, creating two separate arrays, and then `map` over both of them:
+Mógłbyś użyć `filter()` dwukrotnie, tworząc dwie oddzielne tablice, a następnie `mapować` je obie:
 
 <Sandpack>
 
@@ -539,9 +539,11 @@ export default function List() {
   const chemists = people.filter(person =>
     person.profession === 'chemist'
   );
+  
   const everyoneElse = people.filter(person =>
     person.profession !== 'chemist'
   );
+
   return (
     <article>
       <h1>Scientists</h1>
@@ -640,9 +642,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-In this solution, the `map` calls are placed directly inline into the parent `<ul>` elements, but you could introduce variables for them if you find that more readable.
+W tym rozwiązaniu wywołania `map` są umieszczane bezpośrednio w linii nadrzędnych elementów `<ul>`, ale możesz wprowadzić dla nich zmienne, jeśli uznasz to za bardziej czytelne.
 
-There is still a bit duplication between the rendered lists. You can go further and extract the repetitive parts into a `<ListSection>` component:
+Nadal występuje duplikacja między renderowanymi listami. Możesz pójść dalej i wyodrębnić powtarzające się części do komponentu `<ListSection>`:
 
 <Sandpack>
 
@@ -754,9 +756,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-A very attentive reader might notice that with two `filter` calls, we check each person's profession twice. Checking a property is very fast, so in this example it's fine. If your logic was more expensive than that, you could replace the `filter` calls with a loop that manually constructs the arrays and checks each person once.
+Bardzo uważna osoba może zauważyć, że przy dwóch wywołaniach `filter` sprawdzamy zawód każdej osoby dwa razy. Sprawdzenie właściwości jest bardzo szybkie, więc w tym przykładzie jest w porządku. Jeśli twoja logika byłaby droższa, możesz zastąpić wywołania `filter` pętlą, która ręcznie konstruuje tablice i sprawdza każdą osobę tylko jeden raz.
 
-In fact, if `people` never change, you could move this code out of your component. From React's perspective, all that matters if that you give it an array of JSX nodes in the end. It doesn't care how you produce that array:
+W rzeczywistości, jeśli `people` nigdy się nie zmienią, mógłbyś przenieść ten kod na zewnątrz swojego komponentu. Z perspektywy Reacta, jedyne, co ma znaczenie, to końcowa tablica węzłów JSX. Nie obchodzi go, jak utworzysz tę tablicę:
 
 <Sandpack>
 
@@ -874,13 +876,13 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Solution>
 
-### Nested lists in one component {/*nested-lists-in-one-component*/}
+### Listy zagnieżdżone w jednym komponencie {/*nested-lists-in-one-component*/}
 
-Make a list of recipes from this array! For each recipe in the array, display its title as an `<h2>` and list its ingredients in a `<ul>`.
+Zrób listę przepisów z tej tablicy! Dla każdego przepisu w tablicy wyświetl jego tytuł jako `<h2>` i wymień jego składniki za pomocą `<ul>`.
 
 <Hint>
 
-This will require nesting two different `map` calls.
+Będzie to wymagało zagnieżdżenia dwóch różnych wywołań `map`.
 
 </Hint>
 
@@ -918,7 +920,7 @@ export const recipes = [{
 
 <Solution>
 
-Here is one way you could go about it:
+Oto jeden ze sposobów, w jaki możesz to zrobić:
 
 <Sandpack>
 
@@ -964,13 +966,13 @@ export const recipes = [{
 
 </Sandpack>
 
-Each of the `recipes` already includes an `id` field, so that's what the outer loop uses for its `key`. There is no ID you could use to loop over ingredients. However, it's reasonable to assume that the same ingredient won't be listed twice within the same recipe, so its name can serve as a `key`. Alternatively, you could change the data structure to add IDs, or use index as a `key` (with the caveat that you can't safely reorder ingredients).
+Każdy element z `recipes` (przepisów) zawiera już pole `id`, więc tego używa zewnętrzna pętla dla swojego klucza `key`. Nie ma identyfikatora, którego można by użyć do zapętlenia składników. Rozsądne jest jednak założenie, że ten sam składnik nie zostanie wymieniony dwa razy w ramach tego samego przepisu, więc jego nazwa może służyć jako `key`. Alternatywnie możesz zmienić strukturę danych, aby dodać identyfikatory, lub użyć indeksu jako `key` (z zastrzeżeniem, że nie możesz bezpiecznie zmienić kolejności składników).
 
 </Solution>
 
-### Extracting a list item component {/*extracting-a-list-item-component*/}
+### Wyodrębnianie elementu listy {/*extracting-a-list-item-component*/}
 
-This `RecipeList` component contains two nested `map` calls. To simplify it, extract a `Recipe` component from it which will accept `id`, `name`, and `ingredients` props. Where do you place the outer `key` and why?
+Ten komponent `RecipeList` zawiera dwa zagnieżdżone wywołania `map`. Aby to uprościć, wyodrębnij z niego komponent `Recipe`, który akceptuje właściwości `id`, `name` i `ingredients`. Gdzie umieścisz zewnętrzny `key` i dlaczego?
 
 <Sandpack>
 
@@ -1018,7 +1020,7 @@ export const recipes = [{
 
 <Solution>
 
-You can copy-paste the JSX from the outer `map` into a new `Recipe` component and return that JSX. Then you can change `recipe.name` to `name`, `recipe.id` to `id`, and so on, and pass them as props to the `Recipe`:
+Możesz skopiować i wkleić JSX z zewnętrznego wykonania `map` do nowego komponentu `Recipe` i zwrócić ten JSX. Następnie możesz zmienić `recipe.name` na `name`, `recipe.id` to `id` itd. i przekazać je jako właściwości (props) do `Recipe`:
 
 <Sandpack>
 
