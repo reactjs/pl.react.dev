@@ -162,6 +162,21 @@
             {
               "title": "Manipulating the DOM with Refs",
               "path": "/learn/manipulating-the-dom-with-refs"
+<<<<<<< HEAD
+=======
+            },
+            {
+              "title": "Synchronizing with Effects",
+              "path": "/learn/synchronizing-with-effects"
+            },
+            {
+              "title": "You Might Not Need an Effect",
+              "path": "/learn/you-might-not-need-an-effect"
+            },
+            {
+              "title": "Lifecycle of Reactive Effects",
+              "path": "/learn/lifecycle-of-reactive-effects"
+>>>>>>> 4808a469fa782cead9802619b0341b27b342e2d3
             }
           ]
         }
