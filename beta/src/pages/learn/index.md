@@ -384,7 +384,11 @@ Zwróć uwagę, że każdy z przycisków "pamięta" swoją własną wartość st
 
 Funkcje o nazwie rozpoczynającej się od `use` nazywamy *hookami*. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
 
+<<<<<<< HEAD
 Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu, a następnie wyrenderuj ten komponent.
+=======
+Hooks are more restrictive than regular functions. You can only call Hooks *at the top level* of your components (or other Hooks). If you want to use `useState` in a condition or a loop, extract a new component and put it there.
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 
 ## Dzielenie danych między komponentami {/*sharing-data-between-components*/}
 
