@@ -44,11 +44,7 @@ Stary `Counter` zostanie zniszczony i zamontowany zostanie nowy.
 
 >Uwaga:
 >
-<<<<<<< HEAD
->Te metody są przestarzałe i powinno się ich [unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie.
-=======
->This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
->>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
+>Ta metoda jest przestarzała i powinno się jej [unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie.
 >
 >- `UNSAFE_componentWillMount()`
 

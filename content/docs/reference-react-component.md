@@ -52,11 +52,7 @@ Podczas, gdy instancja komponentu zostaje stworzona i włożona do drzewa DOM, w
 
 >Uwaga:
 >
-<<<<<<< HEAD
->Te metody są uznawane za przestarzałe (ang. *legacy*) i powinno się [ich unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
-=======
->This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
->>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
+>Ta metoda jest uznawana za przestarzałą (ang. *legacy*) i powinno się [jej unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 

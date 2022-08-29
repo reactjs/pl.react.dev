@@ -47,11 +47,7 @@ W Node.js [mockowanie modułów](https://jestjs.io/docs/en/manual-mocks) jest ws
 
 ### Mockowanie timerów {#mocking-timers}
 
-<<<<<<< HEAD
-Komponenty mogą korzystać z funkcji opartych na czasie, np. `setTimeout`, `setInterval` czy `Date.now`. W środowisku testowym warto zamieniać tego typu funkcje na ich zastępniki, które pozwalają ręcznie "sterować czasem". Testy korzystające z timerów nadal będą wykonywać się w odpowiedniej kolejności, ale zdecydowanie szybciej [<small>(przykład)</small>](/docs/testing-recipes.html#timers). Większość frameworków, również [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) oraz [lolex](https://github.com/sinonjs/lolex), pozwalają na mockowanie timerów w testach.
-=======
-Components might be using time-based functions like `setTimeout`, `setInterval`, or `Date.now`. In testing environments, it can be helpful to mock these functions out with replacements that let you manually "advance" time. This is great for making sure your tests run fast! Tests that are dependent on timers would still resolve in order, but quicker [<small>(example)</small>](/docs/testing-recipes.html#timers). Most frameworks, including [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/latest/fake-timers) and [lolex](https://github.com/sinonjs/lolex), let you mock timers in your tests.
->>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
+Komponenty mogą korzystać z funkcji opartych na czasie, np. `setTimeout`, `setInterval` czy `Date.now`. W środowisku testowym warto zamieniać tego typu funkcje na ich zastępniki, które pozwalają ręcznie "sterować czasem". To świetny sposób na znaczne przyspieszenie działania testów. Testy korzystające z timerów nadal będą wykonywać się w odpowiedniej kolejności, ale zdecydowanie szybciej [<small>(przykład)</small>](/docs/testing-recipes.html#timers). Większość frameworków, również [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) oraz [lolex](https://github.com/sinonjs/lolex), pozwalają na mockowanie timerów w testach.
 
 Niekiedy jednak możesz chcieć skorzystać z prawdziwych timerów, na przykład, gdy testujesz animację lub interakcję z endpointem, który zależy od czasu (np. ogranicza częstość odpytywania API). Biblioteki zawierające sztuczne timery pozwalają na łatwe włączanie i wyłączanie tego mechanizmu dla każdego zestawu testowego lub pojedynczego testu. Dzięki temu możesz zdecydować, jak poszczególne testy mają być uruchamiane.
 

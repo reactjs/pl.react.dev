@@ -118,9 +118,8 @@ const todoItems = todos.map((todo, index) =>
   </li>
 );
 ```
-<<<<<<< HEAD
  
-Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robina Pokorny'ego ze [szczegółowym wyjaśnieniem negatywnych aspektów używania indeksu jako klucza](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie użyje indeksów jako kluczy.
+Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robina Pokorny'ego ze [szczegółowym wyjaśnieniem negatywnych aspektów używania indeksu jako klucza](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie jako kluczy użyje indeksów.
  
 Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśnienie, dlaczego klucze są niezbędne](/docs/reconciliation.html#recursing-on-children).
  
@@ -128,25 +127,10 @@ Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśn
  
 Klucze mają sens tylko w kontekście otaczającej tablicy.
  
-Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, trzymaj klucz na elementach `<ListItem />` wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz komponentu `ListItem`.
+Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, ustaw klucz na elementach `<ListItem />` wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz komponentu `ListItem`.
  
 **Przykład: Niepoprawne użycie klucza**
  
-=======
-
-We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
-
-Here is an [in-depth explanation about why keys are necessary](/docs/reconciliation.html#recursing-on-children) if you're interested in learning more.
-
-### Extracting Components with Keys {#extracting-components-with-keys}
-
-Keys only make sense in the context of the surrounding array.
-
-For example, if you [extract](/docs/components-and-props.html#extracting-components) a `ListItem` component, you should keep the key on the `<ListItem />` elements in the array rather than on the `<li>` element in the `ListItem` itself.
-
-**Example: Incorrect Key Usage**
-
->>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 ```javascript{4,5,14,15}
 function ListItem(props) {
   const value = props.value;

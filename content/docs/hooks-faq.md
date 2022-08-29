@@ -331,58 +331,10 @@ Jest to rzadki przypadek. Jeżeli masz taką potrzebę, możesz [użyć zmiennej
 
 ### Jak dostać poprzednie właściwości lub stan? {#how-to-get-the-previous-props-or-state}
 
-<<<<<<< HEAD
-Na tę chwilę musisz to robić ręcznie [przy pomocy referencji](#is-there-something-like-instance-variables):
-=======
-There are two cases in which you might want to get previous props or state.
->>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
+Poprzednich właściwości i stanu możesz potrzebować w dwóch przypadkach.
 
-Sometimes, you need previous props to **clean up an effect.** For example, you might have an effect that subscribes to a socket based on the `userId` prop. If the `userId` prop changes, you want to unsubscribe from the _previous_ `userId` and subscribe to the _next_ one. You don't need to do anything special for this to work:
+Czasami będziesz potrzebować poprzednich właściwości, aby **posprzątać po efekcie**. Przykład: masz efekt, który subskrybuje się do socketu na podstawie właściwości `userId`. Jeśli wartość `userId` zmieni się, należałoby anulować subskrypcję z _poprzednim_ `userId` i stworzyć nową z _następną_ wartością. Aby to zrobić, nie potrzeba niczego nadzwyczajnego:
 
-<<<<<<< HEAD
-  const prevCountRef = useRef();
-  useEffect(() => {
-    prevCountRef.current = count;
-  });
-  const prevCount = prevCountRef.current;
-
-  return <h1>Teraz: {count}, poprzednio: {prevCount}</h1>;
-}
-```
-
-Może to wydawać się trochę zawiłe, ale wystarczy wyodrębnić tę logikę do osobnego hooka:
-
-```js{3,7}
-function Counter() {
-  const [count, setCount] = useState(0);
-  const prevCount = usePrevious(count);
-  return <h1>Teraz: {count}, poprzednio: {prevCount}</h1>;
-}
-
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-```
-
-Zauważ, że powyższa funkcja zadziała poprawnie dla właściwości, zmiennej stanu oraz każdej innej wyliczanej wartości.
-
-```js{5}
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  const calculation = count + 100;
-  const prevCalculation = usePrevious(calculation);
-  // ...
-```
-
-Ponieważ jest to powszechny przypadek użycia, bardzo prawdopodobne, że w przyszłości React sam będzie dostarczał implementację hooka `usePrevious`.
-
-Spójrz również na [rekomendowany wzorzec dla stanu pochodnego](#how-do-i-implement-getderivedstatefromprops).
-=======
 ```js
 useEffect(() => {
   ChatAPI.subscribeToSocket(props.userId);
@@ -390,12 +342,11 @@ useEffect(() => {
 }, [props.userId]);
 ```
 
-In the above example, if `userId` changes from `3` to `4`, `ChatAPI.unsubscribeFromSocket(3)` will run first, and then `ChatAPI.subscribeToSocket(4)` will run. There is no need to get "previous" `userId` because the cleanup function will capture it in a closure.
+W powyższym przykładzie, jeśli `userId` zmieni się z `3` na `4`, najpierw wywoła się `ChatAPI.unsubscribeFromSocket(3)`, a następnie `ChatAPI.subscribeToSocket(4)`. Nie ma potrzeby dostępu do "poprzedniego" `userId`, ponieważ funkcja sprzątająca uchwyci go w domknięciu (ang. *closure*).
 
-Other times, you might need to **adjust state based on a change in props or other state**. This is rarely needed and is usually a sign you have some duplicate or redundant state. However, in the rare case that you need this pattern, you can [store previous state or props in state and update them during rendering](#how-do-i-implement-getderivedstatefromprops).
+Innym razem możesz potrzebować **zaktualizować stan przy jakiejś zmianie właściwości lub innego stanu**. Rzadko się tak zdarza i zwykle oznacza, że masz jakiś zduplikowany lub niepotrzebny kawałek stanu. Jeśli jednak naprawdę potrzebujesz skorzystać z tego wzorca, możesz [zapamiętać w stanie poprzednią wartość jakiegoś stanu lub właściwości i aktualizować ją podczas renderowania](#how-do-i-implement-getderivedstatefromprops).
 
-We have previously suggested a custom Hook called `usePrevious` to hold the previous value. However, we've found that most use cases fall into the two patterns described above. If your use case is different, you can [hold a value in a ref](#is-there-something-like-instance-variables) and manually update it when needed. Avoid reading and updating refs during rendering because this makes your component's behavior difficult to predict and understand.
->>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
+Poprzednio do przechowywania poprzedniej wartości zasugerowaliśmy skorzystanie z hooka o nazwie `usePrevious`. Mimo to zauważyliśmy, że w większości przypadku mamy do czynienia z jednym z dwóch powyższych schematów. Jeśli twój przypadek jest inny, możesz [zapisać wartość w referencji (ang. *ref*)](#is-there-something-like-instance-variables) i ręcznie aktualizować ją w razie potrzeby. Spróbuj jednak unikać odczytywania i aktualizowania referencji podczas renderowania, gdyż zmniejszy to przewidywalność i czytelność twojego komponentu.
 
 ### Dlaczego widzę nieaktualne właściwości lub stan wewnątrz mojej funkcji? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
