@@ -1013,7 +1013,7 @@ Stan zazwyczaj aktualizujemy w procedurach obsługi zdarzeń (ang. *event handle
 
 Zwykle jednak nie ma potrzeby tak robić:
 
-* **Jeśli wartość może zostać obliczona w całości na podstawie aktualnych właściwości i innej zmiennej stanu, [należy całkowicie pozbyć się tego nadmiarowego stanu](/learn/choosing-the-state-structure#avoid-redundant-state).** Jeśli martwisz się o zbyt częste przeliczanie wartości, skorzystaj z [hooka `useMemo`](/apis/usememo).
+* **Jeśli wartość może zostać obliczona w całości na podstawie aktualnych właściwości i innej zmiennej stanu, [należy całkowicie pozbyć się tego nadmiarowego stanu](/learn/choosing-the-state-structure#avoid-redundant-state).** Jeśli martwisz się o zbyt częste przeliczanie wartości, skorzystaj z [hooka `useMemo`](/apis/react/usememo).
 * Jeśli chcesz zresetować stan całego poddrzewa komponentu, [przekaż mu inną wartość `key`.](#resetting-state-with-a-key)
 * Jeśli tylko możesz, aktualizuj stan w procedurach obsługi zdarzeń.
 
@@ -1078,7 +1078,7 @@ button { margin-bottom: 10px; }
 
 Zwróć uwagę, że jeśli wywołujesz funkcję `set` podczas renderowania, musi się to odbywać w warunku `prevCount !== count`, w którym to również wywołujesz `setPrevCount(count)`. W przeciwnym wypadku komponent renderowałby się ponownie w nieskończoność, co doprowadziłoby do zawieszenia aplikacji. Pamiętaj, że możesz w ten sposób aktualizować stan tylko *aktualnie renderowanego* komponentu. Wywoływanie funkcji `set` pochodzącej z *innego* komponentu podczas renderowania byłoby błędem. I wreszcie, pamiętaj, że wywołanie funkcji `set` powinno [aktualizować stan bez jego mutowania](#updating-objects-and-arrays-in-state) -- to, że obsługujemy tu przypadek specjalny, nie oznacza, że możemy łamać inne zasady [czystych funkcji](/learn/keeping-components-pure).
 
-Powyższy schemat działania może wydawać się trudny do zrozumienia i generalnie lepiej go unikać. Mimo wszystko jest on lepszy niż aktualizowanie stanu w efekcie. Kiedy wywołujesz funkcję `set` podczas renderowania, React wyrenderuje go ponownie tuż po tym, jak zwróci on coś za pomocą instrukcji `return`, ale jeszcze przed wyrenderowaniem potomków. Dzięki temu komponenty potomne nie będą renderowały się dwa razy. Pozostała część funkcji komponentu nadal będzie wywołana (a wynik zostanie "wyrzucony do kosza"), dlatego jeśli taki warunek znajduje się pod wywołaniami hooków, możesz dopisać do niego `return null`, aby zakończyć renderowanie wcześniej.
+Powyższy schemat działania może wydawać się trudny do zrozumienia i generalnie lepiej go unikać. Mimo wszystko jest on lepszy niż aktualizowanie stanu w efekcie. Kiedy wywołujesz funkcję `set` podczas renderowania, React wyrenderuje go ponownie tuż po tym, jak zwróci on coś za pomocą instrukcji `return`, ale jeszcze przed wyrenderowaniem potomków. Dzięki temu komponenty potomne nie będą renderowały się dwa razy. Pozostała część funkcji komponentu nadal będzie wywołana (a wynik zostanie "wyrzucony do kosza"), dlatego jeśli taki warunek znajduje się pod wywołaniami hooków, możesz dopisać do niego `return;`, aby zakończyć renderowanie wcześniej.
 
 ---
 
@@ -1150,7 +1150,7 @@ Funkcje `set` nie zwracają żadnej wartości.
 
 * Jeśli nowa wartość i aktualny stan są identyczne (na podstawie porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), React **nie wymusi ponownego renderowania komponentu i jego potomków.** Jest to pewna forma optymalizacji. Mimo że czasem React nadal może wywołać twój komponent ponownie przed pominięciem potomków, nie powinno to wpłynąć na logikę działania komponentu.
 
-* React [grupuje aktualizacje stanu](/learn/queueing-a-series-of-state-updates). Aktualizuje on ekran **po zakończeniu działania wszystkich procedur obsługi zdarzeń** i po tym, jak te procedury wywoją odpowiednie funkcje `set` (jeśli w ogóle). Zapobiega to wielokrotnemu renderowaniu komponentu podczas pojedynczego zdarzenia. W rzadkich sytuacjach, kiedy chcesz wymusić wcześniejsze zaktualizowanie ekranu, np. aby odczytać coś z DOM, możesz użyć funkcji [`flushSync`](/apis/flushsync).
+* React [grupuje aktualizacje stanu](/learn/queueing-a-series-of-state-updates). Aktualizuje on ekran **po zakończeniu działania wszystkich procedur obsługi zdarzeń** i po tym, jak te procedury wywoją odpowiednie funkcje `set`. Zapobiega to wielokrotnemu renderowaniu komponentu podczas pojedynczego zdarzenia. W rzadkich sytuacjach, kiedy chcesz wymusić wcześniejsze zaktualizowanie ekranu, np. aby odczytać coś z DOM, możesz użyć funkcji [`flushSync`](/apis/react-dom/flushsync).
 
 * Wywołanie funkcji `set` *podczas renderowania* jest dozwolone tylko w ramach aktualnie renderowanego komponentu. React zignoruje wynik aktualnego renderowania i natychmiast spróbuje wyrenderować go ponownie z nowym stanem. Ten wzorzec jest rzadko stosowany, jednak możesz go użyć, aby **zapisać dane z poprzedniego renderowania**. [Zobacz przykład powyżej.](#storing-information-from-previous-renders)
 
@@ -1233,7 +1233,7 @@ Jeśli nie możesz namierzyć przyczyny tego błędu, kliknij na strzałkę obok
 
 ### Moja funkcja inicjalizująca lub aktualizująca jest uruchamiana dwa razy {/*my-initializer-or-updater-function-runs-twice*/}
 
-W [Trybie Restrykcyjnym (ang. *Strict Mode*)](/apis/strictmode) React wywołuje niektóre funkcje dwukrotnie:
+W [Trybie Restrykcyjnym (ang. *Strict Mode*)](/apis/react/strictmode) React wywołuje niektóre funkcje dwukrotnie:
 
 ```js {2,5-6,11-12}
 function TodoList() {

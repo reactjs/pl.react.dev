@@ -302,7 +302,7 @@ Zwróć uwagę, że `onClick={handleClick}` nie ma na końcu nawiasów! Nie _wyw
 
 Często twoje komponenty będą musiały "zapamiętać" jakąś informację i wyświetlić ją na ekranie. Na przykład, być może zechcesz zliczać, ile razy przycisk został kliknięty. Aby to zrobić, dodaj *stan* do komponentu.
 
-Najpierw zaimportuj [`useState`](/apis/usestate) z Reacta:
+Najpierw zaimportuj [`useState`](/apis/react/useState) z Reacta:
 
 ```js {1,4}
 import { useState } from 'react';
@@ -382,7 +382,7 @@ Zwróć uwagę, że każdy z przycisków "pamięta" swoją własną wartość st
 
 ## Używanie hooków {/*using-hooks*/}
 
-Funkcje o nazwie rozpoczynającej się od `use` nazywamy *hookami*. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
+Funkcje o nazwie rozpoczynającej się od `use` nazywamy *hookami*. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis/react). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
 
 Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu, a następnie wyrenderuj ten komponent.
 

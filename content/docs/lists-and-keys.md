@@ -119,7 +119,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
  
-Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robina Pokorny'ego ze [szczegółowym wyjaśnieniem negatywnych aspektów używania indeksu jako klucza](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie użyje indeksów jako kluczy.
+Nie zalecamy używania indeksów jako kluczy, jeżeli kolejność elementów może ulec zmianie. Może to negatywnie wpłynąć na wydajność i spowodować problemy ze stanem komponentu. Sprawdź artykuł Robina Pokorny'ego ze [szczegółowym wyjaśnieniem negatywnych aspektów używania indeksu jako klucza](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). Jeżeli nie zdecydujesz się jawnie ustawić kluczy dla elementów listy, React domyślnie jako kluczy użyje indeksów.
  
 Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśnienie, dlaczego klucze są niezbędne](/docs/reconciliation.html#recursing-on-children).
  
@@ -127,7 +127,7 @@ Jeżeli chcesz dowiedzieć się więcej, tutaj znajdziesz [szczegółowe wyjaśn
  
 Klucze mają sens tylko w kontekście otaczającej tablicy.
  
-Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, trzymaj klucz na elementach `<ListItem />` wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz komponentu `ListItem`.
+Dla przykładu, jeżeli [wyodrębnisz](/docs/components-and-props.html#extracting-components) komponent `ListItem`, ustaw klucz na elementach `<ListItem />` wewnątrz tablicy zamiast na elemencie `<li>` wewnątrz komponentu `ListItem`.
  
 **Przykład: Niepoprawne użycie klucza**
  

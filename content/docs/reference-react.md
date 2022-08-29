@@ -123,7 +123,7 @@ Jeśli metoda `render()` danego komponentu wyświetla ten sam rezultat przy tych
 
 > Uwaga
 >
-> Metoda `shouldComponentUpdate()` klasy `React.PureComponent` wykonuje jedynie płytkie porównanie obiektów. Jeśli zawierają one skomplikowaną strukturę danych, może to wprowadzić nieprawidłowości podczas zmian na głębszych poziomach struktury. Korzystaj z `PureComponent` tylko, jeśli spodziewasz się prostej struktury właściwości i stanu, lub użyj [`forceUpdate()`](/docs/react-component.html#forceupdate), jeśli wiesz, że dane umieszczone głęboko w strukturze uległy zmianie. Możesz także zastanowić się nad skorzystaniem z [niezmiennych obiektów (ang. *immutable objects*)](https://facebook.github.io/immutable-js/), by ułatwić szybkie porównanie zagnieżdżonych danych.
+> Metoda `shouldComponentUpdate()` klasy `React.PureComponent` wykonuje jedynie płytkie porównanie obiektów. Jeśli zawierają one skomplikowaną strukturę danych, może to wprowadzić nieprawidłowości podczas zmian na głębszych poziomach struktury. Korzystaj z `PureComponent` tylko, jeśli spodziewasz się prostej struktury właściwości i stanu, lub użyj [`forceUpdate()`](/docs/react-component.html#forceupdate), jeśli wiesz, że dane umieszczone głęboko w strukturze uległy zmianie. Możesz także zastanowić się nad skorzystaniem z [niezmiennych obiektów (ang. *immutable objects*)](https://immutable-js.com/), by ułatwić szybkie porównanie zagnieżdżonych danych.
 >
 > Dodatkowo, `shouldComponentUpdate()` klasy `React.PureComponent` pomija aktualizację właściwości dla całego poddrzewa komponentu. Upewnij się, że wszystkie komponenty potomne również korzystają z tego rozwiązania.
 

@@ -135,7 +135,7 @@ var SayHello = createReactClass({
 
 Oznacza to, że korzystanie z klas ES6 wiąże się pisaniem więcej powtarzalnego kodu dla procedur obsługi zdarzeń, jednak na korzyść przemawia znacznie lepsza wydajność w dużych aplikacjach.
 
-Jeśli nie podoba ci się ten nadmiarowy kod, możesz włączyć w Babelu **eksperymentalną** składnię [właściwości klas (ang. *class properties*)](https://babeljs.io/docs/plugins/transform-class-properties/):
+Jeśli nie podoba ci się ten nadmiarowy kod, możesz użyć składni [właściwości klas (ang. *class properties*) w ES2022](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields):
 
 
 ```javascript
@@ -144,11 +144,11 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Witaj!'};
   }
-  // UWAGA: ten zapis jest jeszcze w fazie eksperymentalnej!
+  
   // Użycie funkcji strzałkowej powoduje automatycznie dowiązanie:
   handleClick = () => {
     alert(this.state.message);
-  }
+  };
 
   render() {
     return (
@@ -159,8 +159,6 @@ class SayHello extends React.Component {
   }
 }
 ```
-
-Pamiętaj jednak, że powyższa składnia jest **eksperymentalna**, co oznacza, że może się zmienić lub zostać odrzucona i nie dodana do języka JavaScript.
 
 Jeśli wolisz pewniejsze rozwiązania, masz kilka opcji:
 

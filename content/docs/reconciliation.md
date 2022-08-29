@@ -44,7 +44,7 @@ Stary `Counter` zostanie zniszczony i zamontowany zostanie nowy.
 
 >Uwaga:
 >
->Te metody są przestarzałe i powinno się ich [unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie.
+>Ta metoda jest przestarzała i powinno się jej [unikać](/blog/2018/03/27/update-on-async-rendering.html) w nowym kodzie.
 >
 >- `UNSAFE_componentWillMount()`
 

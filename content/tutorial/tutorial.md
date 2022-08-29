@@ -540,7 +540,7 @@ var player = {score: 1, name: 'Jeff'};
 var newPlayer = Object.assign({}, player, {score: 2});
 // Zmienna "player" nie uległa zmianie, a "newPlayer" jest nowym obiektem o wartościach {score: 2, name: 'Jeff'}
 
-// Jeśli używasz składni "operatora rozszczepienia" (ang. spread operator), możesz napisać:
+// Jeśli używasz składni "operatora rozszczepienia" obiektu (ang. spread operator), możesz napisać:
 // var newPlayer = {...player, score: 2};
 ```
 
