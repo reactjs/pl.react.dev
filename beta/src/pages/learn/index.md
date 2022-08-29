@@ -302,7 +302,11 @@ Zwróć uwagę, że `onClick={handleClick}` nie ma na końcu nawiasów! Nie _wyw
 
 Często twoje komponenty będą musiały "zapamiętać" jakąś informację i wyświetlić ją na ekranie. Na przykład, być może zechcesz zliczać, ile razy przycisk został kliknięty. Aby to zrobić, dodaj *stan* do komponentu.
 
+<<<<<<< HEAD
 Najpierw zaimportuj [`useState`](/apis/usestate) z Reacta:
+=======
+First, import [`useState`](/apis/react/useState) from React:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 ```js {1,4}
 import { useState } from 'react';
@@ -382,9 +386,15 @@ Zwróć uwagę, że każdy z przycisków "pamięta" swoją własną wartość st
 
 ## Używanie hooków {/*using-hooks*/}
 
+<<<<<<< HEAD
 Funkcje o nazwie rozpoczynającej się od `use` nazywamy *hookami*. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
 
 Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu, a następnie wyrenderuj ten komponent.
+=======
+Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference](/apis/react). You can also write your own Hooks by combining the existing ones.
+
+Hooks are more restrictive than regular functions. You can only call Hooks *at the top level* of your components (or other Hooks). If you want to use `useState` in a condition or a loop, extract a new component and put it there.
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 ## Dzielenie danych między komponentami {/*sharing-data-between-components*/}
 

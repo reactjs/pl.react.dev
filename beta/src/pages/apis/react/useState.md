@@ -1013,9 +1013,15 @@ Stan zazwyczaj aktualizujemy w procedurach obsługi zdarzeń (ang. *event handle
 
 Zwykle jednak nie ma potrzeby tak robić:
 
+<<<<<<< HEAD:beta/src/pages/apis/usestate.md
 * **Jeśli wartość może zostać obliczona w całości na podstawie aktualnych właściwości i innej zmiennej stanu, [należy całkowicie pozbyć się tego nadmiarowego stanu](/learn/choosing-the-state-structure#avoid-redundant-state).** Jeśli martwisz się o zbyt częste przeliczanie wartości, skorzystaj z [hooka `useMemo`](/apis/usememo).
 * Jeśli chcesz zresetować stan całego poddrzewa komponentu, [przekaż mu inną wartość `key`.](#resetting-state-with-a-key)
 * Jeśli tylko możesz, aktualizuj stan w procedurach obsługi zdarzeń.
+=======
+* **If the value you need can be computed entirely from the current props or other state, [remove that redundant state altogether](/learn/choosing-the-state-structure#avoid-redundant-state).** If you're worried about recomputing too often, the [`useMemo` Hook](/apis/react/usememo) can help.
+* If you want to reset the entire component tree's state, [pass a different `key` to your component.](#resetting-state-with-a-key)
+* If you can, update all the relevant state in the event handlers.
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606:beta/src/pages/apis/react/useState.md
 
 Są jednak sytuację, w których żadna z powyższych reguł nie ma zastosowania. Można wtedy aktualizować stan na podstawie wartości, które już zostały wyrenderowane, wywołując funkcję `set` w trakcie renderowania komponentu.
 
@@ -1078,7 +1084,11 @@ button { margin-bottom: 10px; }
 
 Zwróć uwagę, że jeśli wywołujesz funkcję `set` podczas renderowania, musi się to odbywać w warunku `prevCount !== count`, w którym to również wywołujesz `setPrevCount(count)`. W przeciwnym wypadku komponent renderowałby się ponownie w nieskończoność, co doprowadziłoby do zawieszenia aplikacji. Pamiętaj, że możesz w ten sposób aktualizować stan tylko *aktualnie renderowanego* komponentu. Wywoływanie funkcji `set` pochodzącej z *innego* komponentu podczas renderowania byłoby błędem. I wreszcie, pamiętaj, że wywołanie funkcji `set` powinno [aktualizować stan bez jego mutowania](#updating-objects-and-arrays-in-state) -- to, że obsługujemy tu przypadek specjalny, nie oznacza, że możemy łamać inne zasady [czystych funkcji](/learn/keeping-components-pure).
 
+<<<<<<< HEAD:beta/src/pages/apis/usestate.md
 Powyższy schemat działania może wydawać się trudny do zrozumienia i generalnie lepiej go unikać. Mimo wszystko jest on lepszy niż aktualizowanie stanu w efekcie. Kiedy wywołujesz funkcję `set` podczas renderowania, React wyrenderuje go ponownie tuż po tym, jak zwróci on coś za pomocą instrukcji `return`, ale jeszcze przed wyrenderowaniem potomków. Dzięki temu komponenty potomne nie będą renderowały się dwa razy. Pozostała część funkcji komponentu nadal będzie wywołana (a wynik zostanie "wyrzucony do kosza"), dlatego jeśli taki warunek znajduje się pod wywołaniami hooków, możesz dopisać do niego `return null`, aby zakończyć renderowanie wcześniej.
+=======
+This pattern can be hard to understand and is usually best avoided. However, it's better than updating state in an effect. When you call the `set` function during render, React will re-render that component immediately after your component exits with a `return` statement, and before rendering the children. This way, children don't need to render twice. The rest of your component function will still execute (and the result will be thrown away), but if your condition is below all the calls to Hooks, you may add an early `return;` inside it to restart rendering earlier.
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606:beta/src/pages/apis/react/useState.md
 
 ---
 
@@ -1150,7 +1160,11 @@ Funkcje `set` nie zwracają żadnej wartości.
 
 * Jeśli nowa wartość i aktualny stan są identyczne (na podstawie porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), React **nie wymusi ponownego renderowania komponentu i jego potomków.** Jest to pewna forma optymalizacji. Mimo że czasem React nadal może wywołać twój komponent ponownie przed pominięciem potomków, nie powinno to wpłynąć na logikę działania komponentu.
 
+<<<<<<< HEAD:beta/src/pages/apis/usestate.md
 * React [grupuje aktualizacje stanu](/learn/queueing-a-series-of-state-updates). Aktualizuje on ekran **po zakończeniu działania wszystkich procedur obsługi zdarzeń** i po tym, jak te procedury wywoją odpowiednie funkcje `set` (jeśli w ogóle). Zapobiega to wielokrotnemu renderowaniu komponentu podczas pojedynczego zdarzenia. W rzadkich sytuacjach, kiedy chcesz wymusić wcześniejsze zaktualizowanie ekranu, np. aby odczytać coś z DOM, możesz użyć funkcji [`flushSync`](/apis/flushsync).
+=======
+* React [batches state updates](/learn/queueing-a-series-of-state-updates). It updates the screen **after all the event handlers have run** and have called their `set` functions. This prevents multiple re-renders during a single event. In the rare case that you need to force React to update the screen earlier, for example to access the DOM, you can use [`flushSync`](/apis/react-dom/flushsync).
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606:beta/src/pages/apis/react/useState.md
 
 * Wywołanie funkcji `set` *podczas renderowania* jest dozwolone tylko w ramach aktualnie renderowanego komponentu. React zignoruje wynik aktualnego renderowania i natychmiast spróbuje wyrenderować go ponownie z nowym stanem. Ten wzorzec jest rzadko stosowany, jednak możesz go użyć, aby **zapisać dane z poprzedniego renderowania**. [Zobacz przykład powyżej.](#storing-information-from-previous-renders)
 
@@ -1233,7 +1247,11 @@ Jeśli nie możesz namierzyć przyczyny tego błędu, kliknij na strzałkę obok
 
 ### Moja funkcja inicjalizująca lub aktualizująca jest uruchamiana dwa razy {/*my-initializer-or-updater-function-runs-twice*/}
 
+<<<<<<< HEAD:beta/src/pages/apis/usestate.md
 W [Trybie Restrykcyjnym (ang. *Strict Mode*)](/apis/strictmode) React wywołuje niektóre funkcje dwukrotnie:
+=======
+In [Strict Mode](/apis/react/strictmode), React will call some of your functions twice instead of once:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606:beta/src/pages/apis/react/useState.md
 
 ```js {2,5-6,11-12}
 function TodoList() {

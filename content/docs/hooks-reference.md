@@ -607,7 +607,11 @@ function App() {
 >
 > Aktualizacje stanu oznaczone jako tranzycje ustępują pierwszeństwa pilniejszym aktualizacjom, np. spowodowanym kliknięciem przez użytkownika.
 >
+<<<<<<< HEAD
 > Aktualizacje zawarte w tranzycji nie aktywują elementu zastępczego (ang. *fallback*) dla zawieszonych (ang. *suspended*) komponentów. Dzięki temu użytkownik może nadal wchodzić w interakcję z aktualną zawartością aplikacji, podczas gdy w tle przygotowywana jest nowa wersja.
+=======
+> Updates in a transition will not show a fallback for re-suspended content. This allows the user to continue interacting with the current content while rendering the update.
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 ### `useId` {#useid}
 

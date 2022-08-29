@@ -135,7 +135,11 @@ var SayHello = createReactClass({
 
 Oznacza to, że korzystanie z klas ES6 wiąże się pisaniem więcej powtarzalnego kodu dla procedur obsługi zdarzeń, jednak na korzyść przemawia znacznie lepsza wydajność w dużych aplikacjach.
 
+<<<<<<< HEAD
 Jeśli nie podoba ci się ten nadmiarowy kod, możesz włączyć w Babelu **eksperymentalną** składnię [właściwości klas (ang. *class properties*)](https://babeljs.io/docs/plugins/transform-class-properties/):
+=======
+If the boilerplate code is too unattractive to you, you may use [ES2022 Class Properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) syntax:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 
 ```javascript
@@ -144,11 +148,16 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Witaj!'};
   }
+<<<<<<< HEAD
   // UWAGA: ten zapis jest jeszcze w fazie eksperymentalnej!
   // Użycie funkcji strzałkowej powoduje automatycznie dowiązanie:
+=======
+  
+  // Using an arrow here binds the method:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
   handleClick = () => {
     alert(this.state.message);
-  }
+  };
 
   render() {
     return (
@@ -160,9 +169,13 @@ class SayHello extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Pamiętaj jednak, że powyższa składnia jest **eksperymentalna**, co oznacza, że może się zmienić lub zostać odrzucona i nie dodana do języka JavaScript.
 
 Jeśli wolisz pewniejsze rozwiązania, masz kilka opcji:
+=======
+You also have a few other options:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 * Dowiązuj metody w konstruktorze.
 * Używaj funkcji strzałkowych, np. `onClick={(e) => this.handleClick(e)}`.
