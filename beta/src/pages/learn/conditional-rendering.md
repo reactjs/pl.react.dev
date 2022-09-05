@@ -453,7 +453,11 @@ Jeśli znasz dobrze JavaScriptu, ta różnorodność sposobów może początkowo
 
 <Challenges>
 
+<<<<<<< HEAD
 ### Wyświetl znacznik dla niespakowanych przedmiotów za pomocą `? :` {/*show-an-icon-for-incomplete-items-with--*/}
+=======
+#### Show an icon for incomplete items with `? :` {/*show-an-icon-for-incomplete-items-with--*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Użyj operatora warunkowego (`warunek ? a : b`), aby wyświetlić ❌, jeśli `isPacked` nie ma wartości `true`.
 
@@ -533,7 +537,11 @@ export default function PackingList() {
 
 </Solution>
 
+<<<<<<< HEAD
 ### Wyświetl priorytet przedmiotu za pomocą `&&` {/*show-the-item-importance-with-*/}
+=======
+#### Show the item importance with `&&` {/*show-the-item-importance-with-*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie, każdy element `Item` otrzymuje właściwość `importance`, która określa jego priorytet. Użyj operatora `&&`, aby wyświetlić "_(Priorytet: X)_" kursywą, ale tylko dla przedmiotów, które otrzymały wartość inną niż 0. Twoja lista przedmiotów powinna wyglądać w następujący sposób:
 
@@ -630,7 +638,11 @@ W tym rozwiązaniu dwa oddzielne warunki zostały użyte w celu wstawienia spacj
 
 </Solution>
 
+<<<<<<< HEAD
 ### Zamień szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
+=======
+#### Refactor a series of `? :` to `if` and variables {/*refactor-a-series-of---to-if-and-variables*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Komponent `Drink` korzysta kilkukrotnie z operatora warunkowego `? :`, aby wyświetlić różne informacje w zależności od tego, czy właściwość `name` ma wartość `"herbata"` lub `"kawa"`. Problem w tym, że informacje o każdym z napojów składają się z kilku warunków. Zmodyfikuj poniższy kod, aby użyć pojedynczej instrukcji `if` zamiast trzech warunków `? :`.
 

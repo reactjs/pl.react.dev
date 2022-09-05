@@ -241,7 +241,11 @@ W tym rozdziale nauczyliśmy się:
 
 <Challenges>
 
+<<<<<<< HEAD
 ### Podziel komponenty {/*split-the-components-further*/}
+=======
+#### Split the components further {/*split-the-components-further*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Aktualnie plik `Gallery.js` eksportuje zarówno `Profile` jak i `Gallery`, co może być mylące.
 

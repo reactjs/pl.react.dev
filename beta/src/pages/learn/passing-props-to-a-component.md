@@ -425,7 +425,11 @@ Warto jednak pamiętać, że właściwości są [niemutowalne (_ang_. immutable)
 
 <Challenges>
 
+<<<<<<< HEAD
 ### Wyodrębnij komponent {/*extract-a-component*/}
+=======
+#### Extract a component {/*extract-a-component*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Ten komponent `Gallery` zawiera bardzo podobny kod dla dwóch profili. Wyodrębnij z niego komponent `Profile`, aby zmniejszyć powtarzalność w kodzie. Następnie pomyśl, jakie właściwości należy przekazać do `Profile`.
 
@@ -727,7 +731,11 @@ Mimo że składnia tutaj wygląda nieco inaczej, ponieważ opisujemy właściwo�
 
 </Solution>
 
+<<<<<<< HEAD
 ### Dostosuj rozmiar obrazka na podstawie właściwości {/*adjust-the-image-size-based-on-a-prop*/}
+=======
+#### Adjust the image size based on a prop {/*adjust-the-image-size-based-on-a-prop*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W kodzie poniżej `Avatar` otrzymuje właściwość numeryczną `size`, która określa szerokość i wysokość dla `<img>`. Właściwość `size` jest w tym przykładzie ustawiona na `40`. Jednakże, jeśli otworzysz obrazek w nowej karcie, zobaczysz, że jest on w rzeczywistości większy (`160` pikseli). Prawdziwy rozmiar obrazka jest określany na podstawie rozmiaru miniatury, o jaką prosisz.
 
@@ -919,7 +927,11 @@ Właściwości pozwalają zamknąć logikę tego typu wewnątrz komponentu `Avat
 
 </Solution>
 
+<<<<<<< HEAD
 ### Przekazywanie kodu JSX do właściwości `children` {/*passing-jsx-in-a-children-prop*/}
+=======
+#### Passing JSX in a `children` prop {/*passing-jsx-in-a-children-prop*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Wyodrębnij z poniższego kodu komponent `Card`, a następnie użyj właściwości `children` tak, by przekazać do niego inny kod JSX-owy:
 

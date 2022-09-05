@@ -245,7 +245,11 @@ Teraz wiesz już niemal wszystko na temat składni JSX:
 
 <Challenges>
 
+<<<<<<< HEAD
 ### Napraw błąd {/*fix-the-mistake*/}
+=======
+#### Fix the mistake {/*fix-the-mistake*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Poniższy kod rzuca błędem o treści `Objects are not valid as a React child` (_pol._ Obiekty nie są prawidłowymi potomkami w Reakcie.):
 
@@ -337,7 +341,11 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
+<<<<<<< HEAD
 ### Wyciągnij informacje do obiektu {/*extract-information-into-an-object*/}
+=======
+#### Extract information into an object {/*extract-information-into-an-object*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Wyciągnij URL obrazka do obiektu `person`.
 
@@ -424,7 +432,11 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
+<<<<<<< HEAD
 ### Umieść wyrażenie w klamrach {/*write-an-expression-inside-jsx-curly-braces*/}
+=======
+#### Write an expression inside JSX curly braces {/*write-an-expression-inside-jsx-curly-braces*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W poniższym kodzie pełny adres URL obrazka został rozdzielony na cztery części: URL bazowy, `imageId`, `imageSize` oraz rozszerzenie pliku.
 

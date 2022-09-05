@@ -203,7 +203,11 @@ Masz za sobą przedsmak tego, co potrafi React! Zróbmy małe podsumowanie.
 
 <Challenges>
 
+<<<<<<< HEAD
 ### Wyeksportuj komponent {/*export-the-component*/}
+=======
+#### Export the component {/*export-the-component*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Poniższy sandbox nie działa, ponieważ główny komponent nie jest wyeksportowany:
 
@@ -255,7 +259,11 @@ Być może zastanawiasz się, dlaczego nie wystarczyło napisać `export`? Róż
 
 </Solution>
 
+<<<<<<< HEAD
 ### Napraw zwracaną wartość {/*fix-the-return-statement*/}
+=======
+#### Fix the return statement {/*fix-the-return-statement*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Coś jest nie tak z tą instrukcją `return`. Potrafisz to naprawić?
 
@@ -321,7 +329,11 @@ img { height: 180px; }
 
 </Solution>
 
+<<<<<<< HEAD
 ### Znajdź pomyłkę {/*spot-the-mistake*/}
+=======
+#### Spot the mistake {/*spot-the-mistake*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Coś jest nie tak z definicją i użyciem komponentu `Profile`. Potrafisz znaleźć pomyłkę? (Spróbuj przypomnieć sobie, jak React odróżnia komponenty od zwykłych znaczników HTML-owych!)
 
@@ -393,7 +405,11 @@ img { margin: 0 10px 10px 0; }
 
 </Solution>
 
+<<<<<<< HEAD
 ### Napisz swój własny komponent {/*your-own-component*/}
+=======
+#### Your own component {/*your-own-component*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Napisz komponent od zera. Możesz nadać mu dowolną poprawną nazwę i zwrócić dowolną strukturę znaczników. Jeśli brakuje ci pomysłów, stwórz komponent `Congratulations`, który wyświetla `<h1>Dobra robota!</h1>`. Nie zapomnij go wyeksportować!
 

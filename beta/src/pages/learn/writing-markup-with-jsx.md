@@ -267,7 +267,11 @@ Teraz już wiesz, po co istnieje składnia JSX i jak jej używać w komponentach
 
 <Challenges>
 
+<<<<<<< HEAD
 ### Przepisz kod HTML na JSX {/*convert-some-html-to-jsx*/}
+=======
+#### Convert some HTML to JSX {/*convert-some-html-to-jsx*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Pewien kod HTML został wklejony do komponentu, jednak nie jest zgodny ze składnią JSX. Napraw go:
 

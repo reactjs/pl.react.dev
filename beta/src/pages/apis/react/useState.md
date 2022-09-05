@@ -80,7 +80,11 @@ Wpływa to tylko na to, co `useState` zwróci przy *następnym* renderowaniu.
 
 <Recipes titleText="Podstawowe przykłady użycia useState" titleId="examples-basic">
 
+<<<<<<< HEAD
 ### Licznik (liczba) {/*counter-number*/}
+=======
+#### Counter (number) {/*counter-number*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie zmienna stanu `count` przechowuje liczbę. Klikanie na przycisk zwiększa tę wartość.
 
@@ -108,7 +112,11 @@ export default function Counter() {
 
 <Solution />
 
+<<<<<<< HEAD
 ### Pole tekstowe (tekst) {/*text-field-string*/}
+=======
+#### Text field (string) {/*text-field-string*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie zmienna stanu `text` przechowuje napis. Po wpisaniu czegoś do pola, `handleChange` odczytuje ostatnią wartość pola tekstowego z elementu DOM, a następnie wywołuje `setText` w celu ustawienia nowego stanu. Pozwala to na wyświetlenie aktualnego tekstu poniżej pola.
 
@@ -140,7 +148,11 @@ export default function MyInput() {
 
 <Solution />
 
+<<<<<<< HEAD
 ### Pole wyboru (wartość logiczna) {/*checkbox-boolean*/}
+=======
+#### Checkbox (boolean) {/*checkbox-boolean*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie zmienna stanu `liked` przechowuje wartość logiczną. Kiedy klikniesz na pole wyboru, `setLiked` zaktualizuje wartość `liked` na postawie tego, czy pole jest zaznaczone, czy nie. Zmienna `liked` jest wykorzystywana do wyrenderowanie tekstu pod polem.
 
@@ -176,7 +188,11 @@ export default function MyCheckbox() {
 
 <Solution />
 
+<<<<<<< HEAD
 ### Formularz (dwie zmienne) {/*form-two-variables*/}
+=======
+#### Form (two variables) {/*form-two-variables*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W komponencie możesz zadeklarować więcej niż jedną zmienną stanu. Każda z nich jest niezależna od pozostałych.
 
@@ -268,7 +284,11 @@ Jeśli lubisz spójność w kodzie, możesz zawsze używać funkcji aktualizują
 
 <Recipes titleText="Różnica między użyciem funkcji aktualizującej a przekazaniem nowego stanu bezpośrednio" titleId="examples-updater">
 
+<<<<<<< HEAD
 ### Przekazywanie funkcji aktualizującej {/*passing-the-updater-function*/}
+=======
+#### Passing the updater function {/*passing-the-updater-function*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie przekazujemy funkcję aktualizującą, więc przycisk "+3" zadziała.
 
@@ -309,7 +329,11 @@ h1 { display: block; margin: 10px; }
 
 <Solution />
 
+<<<<<<< HEAD
 ### Przekazywanie nowego stanu bezpośrednio {/*passing-the-next-state-directly*/}
+=======
+#### Passing the next state directly {/*passing-the-next-state-directly*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie **nie przekazujemy** funkcji aktualizującej, przez co przycisk "+3" **nie działa jak powinien**.
 
@@ -377,7 +401,11 @@ Aby dowiedzieć się więcej na ten temat, przeczytaj rozdziały pt. [Aktualizow
 
 <Recipes titleText="Przykłady obiektów i tablic przechowywanych w stanie" titleId="examples-objects">
 
+<<<<<<< HEAD
 ### Formularz (obiekt) {/*form-object*/}
+=======
+#### Form (object) {/*form-object*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie zmienna stanu `form` przechowuje obiekt. Każda kontrolka formularza ma przypisaną procedurę obsługi zmiany wartości, która wywołuje `setForm` z nowym stanem całego formularza. Składnia `{ ...form }` daje nam pewność, że obiekt w stanie zostanie zastąpiony, a nie tylko zmodyfikowany.
 
@@ -450,7 +478,11 @@ input { margin-left: 5px; }
 
 <Solution />
 
+<<<<<<< HEAD
 ### Formularz (zagnieżdżony obiekt) {/*form-nested-object*/}
+=======
+#### Form (nested object) {/*form-nested-object*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie stan jest nieco bardziej zagnieżdżony. Kiedy aktualizujesz zagnieżdżony stan, musisz stworzyć kopię tego obiektu, jak również wszystkich obiektów wyżej, które go "zawierają". Przeczytaj rozdział pt. [Aktualizowanie zagnieżdżonych obiektów](/learn/updating-objects-in-state#updating-a-nested-object), aby dowiedzieć się więcej.
 
@@ -562,7 +594,11 @@ img { width: 200px; height: 200px; }
 
 <Solution />
 
+<<<<<<< HEAD
 ### Lista (tablica) {/*list-array*/}
+=======
+#### List (array) {/*list-array*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie zmienna stanu `todos` przechowuje tablicę. Każda procedura obsługi kliknięcia na przyciskach wywołuje `setTodos` z następną wersją tej tablicy. Składnia `[...todos]`, `todos.map()` oraz `todos.filter()` daje nam pewność, że tablica w stanie zostanie zastąpiona, a nie tylko zmodyfikowana.
 
@@ -729,7 +765,11 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution />
 
+<<<<<<< HEAD
 ### Pisanie zwięzłej logiki aktualizującej za pomocą Immera {/*writing-concise-update-logic-with-immer*/}
+=======
+#### Writing concise update logic with Immer {/*writing-concise-update-logic-with-immer*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 Jeśli aktualizowanie tablic i obiektów bez modyfikacji wydaje ci się żmudne, możesz użyć biblioteki takiej jak [Immer](https://github.com/immerjs/use-immer) i zmniejszyć ilość powtarzalnego kodu. Immer umożliwia pisanie zwięzłego kodu, który wygląda jak modyfikacja obiektów, ale w rzeczywistości wykonuje on niemutujące aktualizacje:
 
@@ -846,7 +886,11 @@ React może [wywołać twoją funkcję inicjalizującą dwukrotnie](#my-initiali
 
 <Recipes titleText="Różnica między przekazaniem funkcji inicjalizującej a przekazaniem stanu początkowego bezpośrednio" titleId="examples-initializer">
 
+<<<<<<< HEAD
 ### Przekazywanie funkcji inicjalizującej {/*passing-the-initializer-function*/}
+=======
+#### Passing the initializer function {/*passing-the-initializer-function*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie przekazujemy funkcję inicjalizującą, więc `createInitialTodos` jest wywoływana tylko podczas inicjalizacji. Nie wywołuje się podczas kolejnych renderowań, np. po wpisaniu tekstu do pola formularza.
 
@@ -899,7 +943,11 @@ export default function TodoList() {
 
 <Solution />
 
+<<<<<<< HEAD
 ### Przekazywanie wartości początkowej bezpośrednio {/*passing-the-initial-state-directly*/}
+=======
+#### Passing the initial state directly {/*passing-the-initial-state-directly*/}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 W tym przykładzie **nie przekazujemy** funkcji inicjalizującej, więc funkcja `createInitialTodos` jest wywoływana przy każdym renderowaniu, np. kiedy wpiszemy coś w pole formularza. Nie robi to żadnej różnicy w tym, co zostanie wyświetlone na ekranie, jednak taki kod jest mnie efektywny.
 
@@ -1233,7 +1281,11 @@ Jeśli nie możesz namierzyć przyczyny tego błędu, kliknij na strzałkę obok
 
 ### Moja funkcja inicjalizująca lub aktualizująca jest uruchamiana dwa razy {/*my-initializer-or-updater-function-runs-twice*/}
 
+<<<<<<< HEAD
 W [Trybie Restrykcyjnym (ang. *Strict Mode*)](/apis/react/strictmode) React wywołuje niektóre funkcje dwukrotnie:
+=======
+In [Strict Mode](/apis/react/StrictMode), React will call some of your functions twice instead of once:
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 ```js {2,5-6,11-12}
 function TodoList() {
