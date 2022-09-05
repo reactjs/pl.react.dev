@@ -1,24 +1,24 @@
 ---
-title: Rendering Lists
+title: Renderowanie list
 ---
 
 <Intro>
 
-You will often want to display multiple similar components from a collection of data. You can use the [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) to manipulate an array of data. On this page, you'll use [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) and [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) with React to filter and transform your array of data into an array of components.
+Często zdarzy się tak, że będziesz chciał/a wyświetlić podobne komponenty na podstawie kolekcji danych. W tym celu, możesz użyć [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#), aby manipulować tablicą danych. Na tej stronie będziesz używać metod: [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) oraz [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) wspólnie z React, aby filtrować i transformować swoją tablicę danych do tablicy komponentów. 
 
 </Intro>
 
 <YouWillLearn>
 
-* How to render components from an array using JavaScript's `map()`
-* How to render only specific components using JavaScript's `filter()`
-* When and why to use React keys
+* Jak renderować komponenty na podstawie tablicy używając metody `Array.map()`
+* Jak renderować tylko określone komponenty używając metody `Array.filter()`
+* Kiedy i dlaczego używać mechanizmu kluczy w React
 
 </YouWillLearn>
 
-## Rendering data from arrays {/*rendering-data-from-arrays*/}
+## Renderowanie danych na podstawie tablic {/*rendering-data-from-arrays*/}
 
-Say that you have a list of content.
+Powiedzmy, że masz listę treści.
 
 ```js
 <ul>
@@ -30,11 +30,11 @@ Say that you have a list of content.
 </ul>
 ```
 
-The only difference among those list items is their contents, their data. You will often need to show several instances of the same component using different data when building interfaces: from lists of comments to galleries of profile images. In these situations, you can store that data in JavaScript objects and arrays and use methods like [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to render lists of components from them.
+Jedyna różnica wśród tych pozycji na liście to ich treść, ich dane. Często będziesz potrzebował/a, aby pokazać kilka instancji tego samego komponentu, używając innych danych podczas budowania interfejsów: począwszy od list komentarzy, aż do galerii obrazków profili. W tych sytuacjach, możesz przechowywać te dane jako obiekty lub/i tablice JavaScript i używać metod takich jak: [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) oraz [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), aby renderować z nich listy komponentów.
 
-Here’s a short example of how to generate a list of items from an array:
+Poniżej przedstawiony jest krótki przykład, w jaki sposób generować listę na podstawie tablicy:
 
-1. **Move** the data into an array:
+1. **Przenieś** dane do tablicy:
 
 ```js
 const people = [
@@ -46,19 +46,19 @@ const people = [
 ];
 ```
 
-2. **Map** the `people` members into a new array of JSX nodes, `listItems`:
+2. **Zmapuj** elementy z tablicy `people` do nowej tablicy elementów JSX, `listItems`:
 
 ```js
 const listItems = people.map(person => <li>{person}</li>);
 ```
 
-3. **Return** `listItems` from your component wrapped in a `<ul>`:
+3. **Zwróć** `listItems` ze swojego komponentu opakowanego w `<ul>`:
 
 ```js
 return <ul>{listItems}</ul>;
 ```
 
-Here is the result:
+Taki powinien być rezultat:
 
 <Sandpack>
 
@@ -85,9 +85,9 @@ li { margin-bottom: 10px; }
 
 </Sandpack>
 
-## Filtering arrays of items {/*filtering-arrays-of-items*/}
+## Filtrowanie elementów tablic {/*filtering-arrays-of-items*/}
 
-This data can be structured even more.
+Dane te można jeszcze bardziej uporządkować.
 
 ```js
 const people = [{
@@ -111,11 +111,11 @@ const people = [{
 }];
 ```
 
-Let's say you want a way to only show people whose profession is `'chemist'`. You can use JavaScript's `filter()` method to return just those people. This method takes an array of items, passes them through a “test” (a function that returns `true` or `false`), and returns a new array of only those items that passed the test (returned `true`).
+Powiedzmy, że chcesz pokazać jedynie osoby, których profesja to `'chemist'`. W tym celu możesz użyc metody `filter()`, aby zwrócić tylko te osoby. Ta metoda przyjmuje tablice elementów, przekazuje je przez “test” (funkcję, która zwraca `true` lub `false`) i zwraca nową tablicę tylko tych elementów, które przeszły pozytywnie “test” (zwrócone `true`).
 
-You only want the items where `profession` is `'chemist'`. The "test" function for this looks like `(person) => person.profession === 'chemist'`. Here's how to put it together:
+Chcesz jedynie elementy, których profesja to `'chemist'`. Funkcja "test" w tym wypadku powinna wyglądać tak: `(person) => person.profession === 'chemist'`. Poniżej zobaczysz, jak to złożyć:
 
-1. **Create** a new array of just “chemist” people, `chemists`, by calling `filter()` on the `people` filtering by `person.profession === 'chemist'`:
+1. **Utwórz** nową tablice z ludźmi, którzy mają profesję chemika, poprzez zawołanie metody `filter()` na tablicy `people` filtrując po `person.profession === 'chemist'`:
 
 ```js
 const chemists = people.filter(person =>
@@ -123,7 +123,7 @@ const chemists = people.filter(person =>
 );
 ```
 
-2. Now **map** over `chemists`:
+2. Kolejno **mapuj** po tablicy `chemists`:
 
 ```js {1,13}
 const listItems = chemists.map(person =>
@@ -141,7 +141,7 @@ const listItems = chemists.map(person =>
 );
 ```
 
-3. Lastly, **return** the `listItems` from your component:
+3. Finalnie, **zwróć** `listItems` ze swojego komponentu:
 
 ```js
 return <ul>{listItems}</ul>;
@@ -157,6 +157,7 @@ export default function List() {
   const chemists = people.filter(person =>
     person.profession === 'chemist'
   );
+
   const listItems = chemists.map(person =>
     <li>
       <img
@@ -170,6 +171,7 @@ export default function List() {
       </p>
     </li>
   );
+
   return <ul>{listItems}</ul>;
 }
 ```
@@ -234,7 +236,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Gotcha>
 
-Arrow functions implicitly return the expression right after `=>`, so you didn't need a `return` statement:
+Funkcje strzałkowe niejawnie zwracają wyrażenie zaraz po `=>`, więc nie potrzebujesz słowa kluczowego `return`:
 
 ```js
 const listItems = chemists.map(person =>
@@ -242,7 +244,7 @@ const listItems = chemists.map(person =>
 );
 ```
 
-However, **you must write `return` explicitly if your `=>` is followed by a `{` curly brace!**
+Jednak, **musisz napisać `return` jawnie, jeśli po `=>` następuje `{` nawias klamrowy!**
 
 ```js
 const listItems = chemists.map(person => { // Curly brace
@@ -250,13 +252,13 @@ const listItems = chemists.map(person => { // Curly brace
 });
 ```
 
-Arrow functions containing `=> {` are said to have a ["block body"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body). They let you write more than a single line of code, but you *have to* write a `return` statement yourself. If you forget it, nothing gets returned!
+O funkcjach strzałkowych, które zawierają `=> {`, mówi się, że mają ["block body"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body). Pozwalają napisać więcej niż jedną linię kodu, ale *musisz* napisać słowo kluczowe `return` samodzielnie. Jeśli o tym zapomnisz, nic nie zostanie zwrócone!
 
 </Gotcha>
 
-## Keeping list items in order with `key` {/*keeping-list-items-in-order-with-key*/}
+## Utrzymywanie listy w odpowiednim porządku za pomocą `key` {/*keeping-list-items-in-order-with-key*/}
 
-If you open any of the sandboxes above in a new tab, you'll see an error in the console:
+Jeśli otworzysz dowolny z powyższych przykładów w przeglądarce, zobaczysz w konsoli błąd o treści:
 
 <ConsoleBlock level="error">
 
@@ -264,7 +266,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-You need to give each array item a `key` -- a string or a number that uniquely identifies it among other items in that array:
+Potrzebujesz nadać każdemu elementowi tablicy odpowiedni `key` -- wartość typu string lub number, która unikatowo identyfikuje dany element wśród innych elementów tej tablicy:
 
 ```js
 <li key={person.id}>...</li>
@@ -272,13 +274,13 @@ You need to give each array item a `key` -- a string or a number that uniquely i
 
 <Note>
 
-JSX elements directly inside a `map()` call always need keys!
+Elementy JSX bezpośrednio wewnątrz wywołania `map()` zawsze potrzebują kluczy - `key`!
 
 </Note>
 
-Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+Klucze (`key`) informują React, któremu elementowi tablicy odpowiada każdy renderowany komponent, aby następnie mógł być dopasowany. Staje się to ważne, jeśli elementy tablicy mogą się przemieszczać (np. z powodu sortowania), zostać wstawione lub usunięte. Dobrze dobrany `key` pomaga Reactowi wywnioskować, co dokładnie się stało i dokonać poprawnych aktualizacji drzewa DOM.
 
-Rather than generating keys on the fly, you should include them in your data:
+Zamiast generować klucze w locie, powinieneś uwzględnić je w swoich danych:
 
 <Sandpack>
 
@@ -300,37 +302,38 @@ export default function List() {
       </p>
     </li>
   );
+
   return <ul>{listItems}</ul>;
 }
 ```
 
 ```js data.js active
 export const people = [{
-  id: 0, // Used in JSX as a key
+  id: 0, // Użyto w JSX jako "key"
   name: 'Creola Katherine Johnson',
   profession: 'mathematician',
   accomplishment: 'spaceflight calculations',
   imageId: 'MK3eW3A'
 }, {
-  id: 1, // Used in JSX as a key
+  id: 1, // Użyto w JSX jako "key"
   name: 'Mario José Molina-Pasquel Henríquez',
   profession: 'chemist',
   accomplishment: 'discovery of Arctic ozone hole',
   imageId: 'mynHUSa'
 }, {
-  id: 2, // Used in JSX as a key
+  id: 2, // Użyto w JSX jako "key"
   name: 'Mohammad Abdus Salam',
   profession: 'physicist',
   accomplishment: 'electromagnetism theory',
   imageId: 'bE7W1ji'
 }, {
-  id: 3, // Used in JSX as a key
+  id: 3, // Użyto w JSX jako "key"
   name: 'Percy Lavon Julian',
   profession: 'chemist',
   accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Użyto w JSX jako "key"
   name: 'Subrahmanyan Chandrasekhar',
   profession: 'astrophysicist',
   accomplishment: 'white dwarf star mass calculations',
@@ -362,11 +365,11 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-<DeepDive title="Displaying several DOM nodes for each list item">
+<DeepDive title="Wyświetlanie kilku elementów DOM dla każdego elementu listy">
 
-What do you do when each item needs to render not one, but several DOM nodes?
+Co robić, gdy każdy element musi renderować nie jeden, ale kilka węzłów DOM?
 
-The short `<> </>` fragment syntax won't let you pass a key, so you need to either group them into a single `<div>`, or use the slightly longer and more explicit `<Fragment>` syntax:
+Krótka składnia fragmentów `<></>` nie pozwoli Ci przekazać klucza, więc musisz albo zgrupować je w pojedynczy `<div>`, albo użyć nieco dłuższej i bardziej wyraźnej składni `<Fragment>`:
 
 ```js
 import { Fragment } from 'react';
@@ -381,46 +384,46 @@ const listItems = people.map(person =>
 );
 ```
 
-Fragments disappear from the DOM, so this will produce a flat list of `<h1>`, `<p>`, `<h1>`, `<p>`, and so on.
+Fragmenty znikają z DOM, więc powyższy kod wygeneruje płaską listę `<h1>`, `<p>`, `<h1>`, `<p>` i tak dalej.
 
 </DeepDive>
 
-### Where to get your `key` {/*where-to-get-your-key*/}
+### Skąd wziąć `key` {/*where-to-get-your-key*/}
 
-Different sources of data provide different sources of keys:
+Różne źródła danych, dostarczają różne źródła kluczy:
 
-* **Data from a database:** If your data is coming from a database, you can use the database keys/IDs, which are unique by nature.
-* **Locally generated data:** If your data is generated and persisted locally (e.g. notes in a note-taking app), use an incrementing counter, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) or a package like [`uuid`](https://www.npmjs.com/package/uuid) when creating items.
+* **Dane z bazy danych:** Jeśli Twoje dane pochodzą z bazy danych, możezz użyć kluczy/identyfikatorów podchodzących z tabel baz danych, które z natury są unikatowe.
+* **Dane generowane lokalnie:** Jeśli Twoje dane są generowane i przechowywane lokalnie (np. notatki w aplikacji notatnika), możesz użyć inkrementowanego licznika, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) lub modułu jak [`uuid`](https://www.npmjs.com/package/uuid) podczas tworzenia elementów.
 
-### Rules of keys {/*rules-of-keys*/}
+### Reguły kluczy {/*rules-of-keys*/}
 
-* **Keys must be unique among siblings.** However, it’s okay to use the same keys for JSX nodes in _different_ arrays.
-* **Keys must not change** or that defeats their purpose! Don't generate them while rendering.
+* **Klucze muszą być unikalne wśród rodzeństwa.** Można jednak używać tych samych kluczy dla węzłów JSX w _różnych_ tablicach.
+* **Klucze nie mogą się zmieniać.** Inaczej to narusza ich cel! Nie generuj ich podczas renderowania.
 
-### Why does React need keys? {/*why-does-react-need-keys*/}
+### Dlaczego React potrzebuje kluczy? {/*why-does-react-need-keys*/}
 
-Imagine that files on your desktop didn't have names. Instead, you'd refer to them by their order -- the first file, the second file, and so on. You could get used to it, but once you delete a file, it would get confusing. The second file would become the first file, the third file would be the second file, and so on.
+Wyobraź sobie, że pliki na twoim pulpicie nie mają nazw. Zamiast tego odwołujesz się do nich według ich kolejności — pierwszy plik, drugi plik i tak dalej. Możesz się do tego przyzwyczaić, ale gdy usuniesz plik, stanie się to zagmatwane. Drugi plik stałby się pierwszym plikiem, trzeci plik byłby drugim plikiem itd.
 
-File names in a folder and JSX keys in an array serve a similar purpose. They let us uniquely identify an item between its siblings. A well-chosen key provides more information than the position within the array. Even if the _position_ changes due to reordering, the `key` lets React identify the item throughout its lifetime.
+Nazwy plików w folderze oraz klucze JSX w tablicy służą podobnemu celowi. Pozwalają nam jednoznacznie zidentyfikować element między rodzeństwem. Dobrze dobrany klucz dostarcza więcej informacji niż pozycja w tablicy. Nawet jeśli _pozycja_ zmieni się z powodu zmiany kolejności, `key` pozwala Reactowi identyfikować element przez cały okres jego istnienia.
 
 <Gotcha>
 
-You might be tempted to use an item's index in the array as its key. In fact, that's what React will use if you don't specify a `key` at all. But the order in which you render items will change over time if an item is inserted, deleted, or if the array gets reordered. Index as a key often leads to subtle and confusing bugs.
+Możesz pokusić się o użycie indeksu elementu w tablicy jako klucza. Właściwie to właśnie tego użyje React, jeśli w ogóle nie podasz `key`. Jednak kolejność renderowania elementów zmieni się w czasie, jeśli element zostanie wstawiony, usunięty lub jeśli tablica zostanie zmieniona. Indeks jako klucz często prowadzi do subtelnych i mylących błędów.
 
-Similarly, do not generate keys on the fly, e.g. with `key={Math.random()}`. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time. Not only is this slow, but it will also lose any user input inside the list items. Instead, use a stable ID based on the data.
+Podobnie nie generuj kluczy w locie, np. za pomocą `key={Math.random()}`. Spowoduje to, że klucze nigdy nie będą pasować między renderowaniami, co doprowadzi do odtworzenia wszystkich komponentów i DOM za każdym razem. Jest to nie tylko powolne, ale także powoduje utratę danych wejściowych użytkownika w elementach listy. Zamiast tego użyj stabilnego identyfikatora opartego na danych.
 
-Note that your components won't receive `key` as a prop. It's only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: `<Profile key={id} userId={id} />`.
+Zauważ, że twoje komponenty nie otrzymają `key` jako property komponentu. Jest on używany tylko jako wskazówka przez sam React. Jeśli twój komponent potrzebuje identyfikatora, musisz przekazać go jako osobną właściwość. Przykład: `<Profile key={id} userId={id} />`.
 
 </Gotcha>
 
 <Recap>
 
-On this page you learned:
+Na tej stronie dowiedziałeś się:
 
-* How to move data out of components and into data structures like arrays and objects.
-* How to generate sets of similar components with JavaScript's `map()`.
-* How to create arrays of filtered items with JavaScript's `filter()`.
-* Why and how to set `key` on each component in a collection so React can keep track of each of them even if their position or data changes.
+* Jak przenieść dane do struktur danych, takich jak tablice i obiekty.
+* Jak generować zestawy podobnych sobie komponentów za pomocą funkcji `map()` JavaScriptu.
+* Jak tworzyć tablice przefiltrowanych elementów za pomocą funkcji `filter()` w JavaScript.
+* Dlaczego i jak ustawić `key` na każdym komponencie w kolekcji, aby React mógł śledzić każdy z nich, nawet jeśli zmieni się ich pozycja lub dane.
 
 </Recap>
 
@@ -428,11 +431,11 @@ On this page you learned:
 
 <Challenges>
 
-### Splitting a list in two {/*splitting-a-list-in-two*/}
+### Dzielenie listy na dwie części {/*splitting-a-list-in-two*/}
 
-This example shows a list of all people.
+Ten przykład ukazuje listę wszystkich ludzi.
 
-Change it to show two separate lists one after another: **Chemists** and **Everyone Else**. Like previously, you can determine whether a person is a chemist by checking if `person.profession === 'chemist'`.
+Zmieńmy go, aby pokazać dwie osobne listy, jedna pod drugą: **Chemicy** oraz **Wszyscy inni**. Podobnie jak poprzednio, możesz określić, która osoba jest chemikiem, sprawdzając czy `person.profession === 'chemist'`.
 
 <Sandpack>
 
@@ -454,6 +457,7 @@ export default function List() {
       </p>
     </li>
   );
+
   return (
     <article>
       <h1>Scientists</h1>
@@ -523,7 +527,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Solution>
 
-You could use `filter()` twice, creating two separate arrays, and then `map` over both of them:
+Mógłbyś użyć `filter()` dwukrotnie, tworząc dwie oddzielne tablice, a następnie `mapować` je obie:
 
 <Sandpack>
 
@@ -535,9 +539,11 @@ export default function List() {
   const chemists = people.filter(person =>
     person.profession === 'chemist'
   );
+  
   const everyoneElse = people.filter(person =>
     person.profession !== 'chemist'
   );
+
   return (
     <article>
       <h1>Scientists</h1>
@@ -636,9 +642,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-In this solution, the `map` calls are placed directly inline into the parent `<ul>` elements, but you could introduce variables for them if you find that more readable.
+W tym rozwiązaniu wywołania `map` są umieszczane bezpośrednio w linii nadrzędnych elementów `<ul>`, ale możesz wprowadzić dla nich zmienne, jeśli uznasz to za bardziej czytelne.
 
-There is still a bit duplication between the rendered lists. You can go further and extract the repetitive parts into a `<ListSection>` component:
+Nadal występuje duplikacja między renderowanymi listami. Możesz pójść dalej i wyodrębnić powtarzające się części do komponentu `<ListSection>`:
 
 <Sandpack>
 
@@ -750,9 +756,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-A very attentive reader might notice that with two `filter` calls, we check each person's profession twice. Checking a property is very fast, so in this example it's fine. If your logic was more expensive than that, you could replace the `filter` calls with a loop that manually constructs the arrays and checks each person once.
+Bardzo uważna osoba może zauważyć, że przy dwóch wywołaniach `filter` sprawdzamy zawód każdej osoby dwa razy. Sprawdzenie właściwości jest bardzo szybkie, więc w tym przykładzie jest w porządku. Jeśli twoja logika byłaby droższa, możesz zastąpić wywołania `filter` pętlą, która ręcznie konstruuje tablice i sprawdza każdą osobę tylko jeden raz.
 
-In fact, if `people` never change, you could move this code out of your component. From React's perspective, all that matters if that you give it an array of JSX nodes in the end. It doesn't care how you produce that array:
+W rzeczywistości, jeśli `people` nigdy się nie zmienią, mógłbyś przenieść ten kod na zewnątrz swojego komponentu. Z perspektywy Reacta, jedyne, co ma znaczenie, to końcowa tablica węzłów JSX. Nie obchodzi go, jak utworzysz tę tablicę:
 
 <Sandpack>
 
@@ -870,13 +876,13 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Solution>
 
-### Nested lists in one component {/*nested-lists-in-one-component*/}
+### Listy zagnieżdżone w jednym komponencie {/*nested-lists-in-one-component*/}
 
-Make a list of recipes from this array! For each recipe in the array, display its title as an `<h2>` and list its ingredients in a `<ul>`.
+Zrób listę przepisów z tej tablicy! Dla każdego przepisu w tablicy wyświetl jego tytuł jako `<h2>` i wymień jego składniki za pomocą `<ul>`.
 
 <Hint>
 
-This will require nesting two different `map` calls.
+Będzie to wymagało zagnieżdżenia dwóch różnych wywołań `map`.
 
 </Hint>
 
@@ -914,7 +920,7 @@ export const recipes = [{
 
 <Solution>
 
-Here is one way you could go about it:
+Oto jeden ze sposobów, w jaki możesz to zrobić:
 
 <Sandpack>
 
@@ -960,13 +966,13 @@ export const recipes = [{
 
 </Sandpack>
 
-Each of the `recipes` already includes an `id` field, so that's what the outer loop uses for its `key`. There is no ID you could use to loop over ingredients. However, it's reasonable to assume that the same ingredient won't be listed twice within the same recipe, so its name can serve as a `key`. Alternatively, you could change the data structure to add IDs, or use index as a `key` (with the caveat that you can't safely reorder ingredients).
+Każdy element z `recipes` (przepisów) zawiera już pole `id`, więc tego używa zewnętrzna pętla dla swojego klucza `key`. Nie ma identyfikatora, którego można by użyć do zapętlenia składników. Rozsądne jest jednak założenie, że ten sam składnik nie zostanie wymieniony dwa razy w ramach tego samego przepisu, więc jego nazwa może służyć jako `key`. Alternatywnie możesz zmienić strukturę danych, aby dodać identyfikatory, lub użyć indeksu jako `key` (z zastrzeżeniem, że nie możesz bezpiecznie zmienić kolejności składników).
 
 </Solution>
 
-### Extracting a list item component {/*extracting-a-list-item-component*/}
+### Wyodrębnianie elementu listy {/*extracting-a-list-item-component*/}
 
-This `RecipeList` component contains two nested `map` calls. To simplify it, extract a `Recipe` component from it which will accept `id`, `name`, and `ingredients` props. Where do you place the outer `key` and why?
+Ten komponent `RecipeList` zawiera dwa zagnieżdżone wywołania `map`. Aby to uprościć, wyodrębnij z niego komponent `Recipe`, który akceptuje właściwości `id`, `name` i `ingredients`. Gdzie umieścisz zewnętrzny `key` i dlaczego?
 
 <Sandpack>
 
@@ -1014,7 +1020,7 @@ export const recipes = [{
 
 <Solution>
 
-You can copy-paste the JSX from the outer `map` into a new `Recipe` component and return that JSX. Then you can change `recipe.name` to `name`, `recipe.id` to `id`, and so on, and pass them as props to the `Recipe`:
+Możesz skopiować i wkleić JSX z zewnętrznego wykonania `map` do nowego komponentu `Recipe` i zwrócić ten JSX. Następnie możesz zmienić `recipe.name` na `name`, `recipe.id` to `id` itd. i przekazać je jako właściwości (props) do `Recipe`:
 
 <Sandpack>
 
@@ -1242,7 +1248,7 @@ hr {
 
 </Sandpack>
 
-Remember, fragments (often written as `<> </>`) let you group JSX nodes without adding extra `<div>`s!
+Pamiętaj, fragmenty (zazwyczaj pisane jako `<> </>`) pozwalają Ci grupować węzły JSX bez pisania dodatkowych `<div>`ów.
 
 </Solution>
 
