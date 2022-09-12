@@ -7,9 +7,9 @@ import {useRouter} from 'next/router';
 import {ga} from '../../utils/analytics';
 
 export function Feedback({onSubmit = () => {}}: {onSubmit?: () => void}) {
-  const {pathname} = useRouter();
+  const {asPath} = useRouter();
   // Reset on route changes.
-  return <SendFeedback key={pathname} onSubmit={onSubmit} />;
+  return <SendFeedback key={asPath} onSubmit={onSubmit} />;
 }
 
 const thumbsUpIcon = (
@@ -61,8 +61,13 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   return (
     <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
+<<<<<<< HEAD
       <p className="w-full font-bold text-primary dark:text-primary-dark text-lg">
         {isSubmitted ? 'Dziękujemy za opinię!' : 'Czy ta strona była pomocna?'}
+=======
+      <p className="w-full font-bold text-primary dark:text-primary-dark text-lg mr-4">
+        {isSubmitted ? 'Thank you for your feedback!' : 'Is this page useful?'}
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
       </p>
       {!isSubmitted && (
         <button
