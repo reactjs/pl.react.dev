@@ -134,7 +134,11 @@ Przeczytaj [dokumentację nowego API kontekstów](/docs/context.html), aby dowie
 
 ### Zapewnienie wielorazowego stanu {#ensuring-reusable-state}
 
+<<<<<<< HEAD
 W przyszłości planujemy dodać do Reacta funkcjonalność, która pozwalałaby na dodawanie i usuwanie fragmentów interfejsu, jednocześnie zachowując ich stan. Na przykład, kiedy użytkownik zmienia zakładkę i za chwilę wraca z powrotem, React powinien być w stanie natychmiast pokazać poprzedni widok. Aby to było możliwe, React musi móc ponownie zamontować poddrzewo z takim samym stanem, jaki był przed jego odmontowaniem.
+=======
+In the future, we’d like to add a feature that allows React to add and remove sections of the UI while preserving state. For example, when a user tabs away from a screen and back, React should be able to immediately show the previous screen. To do this, React will support remounting trees using the same component state used before unmounting.
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 
 Taka funkcjonalność dałaby Reactowi lepszą wydajność bez żadnej dodatkowej konfiguracji, lecz wymaga ona, by komponenty były odporne na efekty podczas wielokrotnego montowanie i odmontowywania. Większość efektów będzie działać bez żadnych zmian, jednak niektóre nie sprzątają po sobie poprawnie subskrypcji w funkcji zwracanej przez efekt albo po prostu z góry zakładają, że komponent będzie zamontowany lub odmontowany tylko jeden raz.
 

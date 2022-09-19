@@ -169,4 +169,8 @@ W Facebooku korzystamy z Reacta w tysiącach komponentów i nie znaleźliśmy ja
 
 Atrybuty i kompozycja dają wystarczającą dowolność w dostosowaniu zarówno wyglądu, jak i zachowania komponentu, w sposób jawny i bezpieczny. Pamiętaj, że komponenty mogą przyjmować atrybuty dowolnego rodzaju: typy podstawowe, elementy reactowe czy funkcje.
 
+<<<<<<< HEAD
 Jeśli planujesz wielokrotnie używać w różnych komponentach funkcjonalności niezwiązanej z renderowaniem, sugerujemy wydzielić ją do osobnego modułu javascriptowego. Wtedy komponenty będą mogły ją zaimportować bez rozszerzania, bez względu na to, czy to funkcja, obiekt czy klasa.
+=======
+If you want to reuse non-UI functionality between components, we suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or class, without extending it.
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
