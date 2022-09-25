@@ -1218,7 +1218,7 @@ Jeśli nie możesz namierzyć przyczyny tego błędu, kliknij na strzałkę obok
 
 ### Moja funkcja inicjalizująca lub aktualizująca jest uruchamiana dwa razy {/*my-initializer-or-updater-function-runs-twice*/}
 
-W [Trybie Restrykcyjnym (ang. *Strict Mode*)](/apis/react/strictmode) React wywołuje niektóre funkcje dwukrotnie:
+W [Trybie Restrykcyjnym (ang. *Strict Mode*)](/apis/react/StrictMode) React wywołuje niektóre funkcje dwukrotnie:
 
 ```js {2,5-6,11-12}
 function TodoList() {

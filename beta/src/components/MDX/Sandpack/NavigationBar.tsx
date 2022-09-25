@@ -87,7 +87,7 @@ export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
   }, [isMultiFile]);
 
   const handleReset = () => {
-    if (confirm('Reset all your edits too?')) {
+    if (confirm('Zresetować także wszystkie twoje modyfikacje?')) {
       sandpack.resetAllFiles();
     }
     refresh();

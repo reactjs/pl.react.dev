@@ -4,7 +4,7 @@ title: Myślenie reactowe
 
 <Intro>
 
-React potrafi zmienić sposób myślenia o designach, na których się wzorujemy, i aplikacjach, które tworzymy. Gdzie kiedyś widzieliśmy las, po pracy z Reactem, zauważamy poszczególne drzewa. React ułatwia myślenie w kategoriach systemów designerskich i stanów interfejsu użytkownika. W tym samouczku oprowadzimy cię po procesie tworzenia w Reakcie tabeli z funkcją wyszukiwania.
+React potrafi zmienić sposób myślenia o designach, na których się wzorujemy, i aplikacjach, które tworzymy. Kiedy tworzysz interfejs użytkownika w Reakcie, najpierw rozbijasz go na kawałki zwane *komponentami*. Następnie, opisujesz różne stany wizualne każdego z komponentów. Na koniec łączysz komponenty ze sobą, tak aby mogły przez nie przepływać dane. W tym samouczku poprowadzimy cię przez proces tworzenia w Reakcie tabeli z danymi produktowymi.
 
 </Intro>
 
