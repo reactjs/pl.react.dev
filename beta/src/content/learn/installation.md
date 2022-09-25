@@ -37,19 +37,11 @@ export default function App() {
 
 Możesz edytować kod bezpośrednio lub otworzyć go w nowej zakładce, klikając na przycisk "Forkuj" w prawym górnym rogu.
 
-<<<<<<< HEAD:beta/src/pages/learn/installation.md
 W całej dokumentacji natkniesz się na wiele takich sandboxów. Poza samą dokumentacją, w sieci istnieje także wiele niezależnych sandboxów, które posiadają wsparcie dla Reacta, na przykład: [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react) czy [CodePen](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb).
-=======
-Most pages in the React documentation contain sandboxes like this. Outside of the React documentation, there are many online sandboxes that support React: for example, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/installation.md
 
 ### Wypróbuj Reacta lokalnie {/*try-react-locally*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/installation.md
-Aby wypróbować Reacta lokalnie, na własnym komputerze, [pobierz tę stronę HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html). Następnie otwórz ją w wybranym edytorze kodu i w przeglądarce.
-=======
-To try React locally on your computer, [download this HTML page.](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html) Open it in your editor and in your browser!
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/installation.md
+Aby wypróbować Reacta lokalnie na własnym komputerze, [pobierz tę stronę HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html). Następnie otwórz ją w wybranym edytorze kodu i w przeglądarce.
 
 ## Dodawaj Reacta do istniejącej strony {/*add-react-to-a-page*/}
 

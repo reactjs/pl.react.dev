@@ -21,27 +21,15 @@ Jeśli dopiero zaczynasz nowy projekt, sugerujemy użyć któregoś z zestawów 
 
 React jest biblioteką, która pozwala zorganizować kod UI poprzez jego podział na tak zwane komponenty. React nie zajmuje się routingiem czy zarządzaniem danymi. Oznacza to jednak, że projekt reactowy można rozpocząć na kilka sposobów:
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 * [Z **plikiem HTML i znacznikiem script**.](/learn/add-react-to-a-website), które nie wymagają instalacji Node.js, lecz oferują ograniczone możliwości.
 * Z **minimalną konfiguracją i zestawem narzędzi,** dodając samodzielnie kolejne funkcjonalności do projektu w razie potrzeby. (Świetne do nauki!)
 * Z jednym z **dogmatycznych frameworków** posiadających większość potrzebnych rzeczy, jak pobieranie danych czy routing.
-=======
-* [Start with an **HTML file and a script tag.**](/learn/add-react-to-a-website) This doesn't require Node.js setup but offers limited features.
-* Start with a **minimal toolchain,** adding more features to your project as you go. (Great for learning!)
-* Start with an **opinionated framework** that has common features like data fetching and routing built-in.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 ## Start z zestawem narzędzi reactowych {/*getting-started-with-a-react-toolchain*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 Jeśli dopiero **uczysz się Reacta**, polecamy skorzystać z [Create React App](https://create-react-app.dev/), najpopularniejszego skryptu do eksperymentowania z Reactem i jednocześnie świetnego narzędzia do budowania nowych single-page applications (_pol._ jednostronnicowych aplikacji) działających po stronie klienta. To narzędzie stworzone wprost pod Reacta, jednak nie narzuca rozwiązań takich, jak routing czy pobieranie danych.
 
 Zacznij od zainstalowania [Node.js](https://nodejs.org/en/). Następnie otwórz terminal i uruchom następującą komendę, aby utworzyć nowy projekt:
-=======
-If you're **learning React,** we recommend [Create React App.](https://create-react-app.dev/) It is the most popular way to try out React and build a new single-page, client-side application. It's made for React but isn't opinionated about routing or data fetching.
-
-First, install [Node.js.](https://nodejs.org/en/) Then open your terminal and run this line to create a project:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 <TerminalBlock>
 
@@ -58,11 +46,7 @@ npm start
 
 </TerminalBlock>
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 Po więcej informacji [sięgnij do oficjalnego poradnika](https://create-react-app.dev/docs/getting-started).
-=======
-For more information, [check out the official guide.](https://create-react-app.dev/docs/getting-started)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 > Create React App nie obsługuje logiki backendowej ani baz danych. Oznacza to, że możesz go używać z dowolnym backendem. Kiedy budujesz projekt, na wyjściu dostaniesz folder ze statycznymi plikami HTML, CSS i JS. Z racji tego, że Create React App nie ma dostępu do serwera, nie zapewnia najlepszej wydajności. Jeśli szukasz rozwiązań, które dadzą szybsze czasy wczytywania aplikacji czy wbudowane funkcjonalności, jak routing czy logika serwerowa, zalecamy skorzystać z frameworka.
 
@@ -87,7 +71,6 @@ Więcej informacji o tym, [jak zacząć projekt z Next.js](https://nextjs.org/do
 
 Być może jednak interesuje cię stworzenie i skonfigurowanie własnego zestawu narzędzi. Taki zestaw zwykle składa się z:
 
-<<<<<<< HEAD:beta/src/pages/learn/start-a-new-react-project.md
 * **Menadżera pakietów** — pozwala instalować, aktualizować i zarządzać zewnętrznymi bibliotekami. Najpopularniejsze z nich to: [npm](https://www.npmjs.com/) (wbudowany w Node.js), [Yarn](https://yarnpkg.com/) oraz [pnpm](https://pnpm.io/).
 * **Kompilatora** — pozwala skompilować nowoczesną składnię (np. JSX lub typy), tak, aby rozumiały ją przeglądarki. Popularne kompilatory: [Babel](https://babeljs.io/), [TypeScript](https://www.typescriptlang.org/), [swc](https://swc.rs/).
 * **Bundlera** (_pol._ skrypt pakujący) — pozwala pisać modularny kod i spakować go do małych pakietów w celu zoptymalizowania czasu ładowania aplikacji. Najpopularniejsze przykłady to: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/) oraz [swc](https://swc.rs/).
@@ -95,17 +78,5 @@ Być może jednak interesuje cię stworzenie i skonfigurowanie własnego zestawu
 * **Serwera** — obsługuje żądania, jednocześnie renderując komponenty do HTML-a. Popularne serwery: [Express](https://expressjs.com/).
 * **Lintera** — sprawdza kod pod kątem częstych błędów. Popularne lintery: [ESLint](https://eslint.org/).
 * **Narzędzia do testów** — pozwala uruchomić testy i sprawdzić poprawność działania kodu. Popularne narzędzia do testów: [Jest](https://jestjs.io/).
-
-=======
-* A **package manager** lets you install, update, and manage third-party packages. Popular package managers: [npm](https://www.npmjs.com/) (built into Node.js), [Yarn](https://yarnpkg.com/), [pnpm.](https://pnpm.io/)
-* A **compiler** lets you compile modern language features and additional syntax like JSX or type annotations for the browsers. Popular compilers: [Babel](https://babeljs.io/), [TypeScript](https://www.typescriptlang.org/), [swc.](https://swc.rs/)
-* A **bundler** lets you write modular code and bundle it together into small packages to optimize load time. Popular bundlers: [webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), [esbuild](https://esbuild.github.io/), [swc.](https://swc.rs/)
-* A **minifier** makes your code more compact so that it loads faster. Popular minifiers: [Terser](https://terser.org/), [swc.](https://swc.rs/)
-* A **server** handles server requests so that you can render components to HTML. Popular servers: [Express.](https://expressjs.com/)
-* A **linter** checks your code for common mistakes. Popular linters: [ESLint.](https://eslint.org/)
-* A **test runner** lets you run tests against your code. Popular test runners: [Jest.](https://jestjs.io/)
-
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality. A framework will usually also provide a routing and a data fetching solution. In a larger project, you might also want to manage multiple packages in a single repository with a tool like [Nx](https://nx.dev/react) or [Turborepo.](https://turborepo.org/)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/start-a-new-react-project.md
 
 Jeśli jednak wolisz samodzielnie skonfigurować zestaw narzędzi dla JavaScriptu, [zajrzyj do tego artykułu](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658), w którym odtwarzana jest część funkcjonalności Create React App. Frameworki zwykle dodatkowo dostarczają rozwiązania dla routingu i pobierania danych. W większych projektach do zarządzania wieloma paczkami w ramach jednego repozytorium przydatny może okazać się [Nx](https://nx.dev/react) lub [Turborepo](https://turborepo.org/).

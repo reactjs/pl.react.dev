@@ -26,54 +26,6 @@ export function MarkdownPage<
   const title = meta.title || route?.title || '';
   const description = meta.description || route?.description || '';
 
-<<<<<<< HEAD
-  let anchors: Array<{
-    url: string;
-    text: React.ReactNode;
-    depth: number;
-  }> = React.Children.toArray(children)
-    .filter((child: any) => {
-      if (child.props?.mdxType) {
-        return ['h1', 'h2', 'h3', 'Challenges', 'Recap'].includes(
-          child.props.mdxType
-        );
-      }
-      return false;
-    })
-    .map((child: any) => {
-      if (child.props.mdxType === 'Challenges') {
-        return {
-          url: '#challenges',
-          depth: 0,
-          text: 'Wyzwania',
-        };
-      }
-      if (child.props.mdxType === 'Recap') {
-        return {
-          url: '#recap',
-          depth: 0,
-          text: 'Powtórka',
-        };
-      }
-      return {
-        url: '#' + child.props.id,
-        depth:
-          (child.props?.mdxType &&
-            parseInt(child.props.mdxType.replace('h', ''), 0)) ??
-          0,
-        text: child.props.children,
-      };
-    });
-  if (anchors.length > 0) {
-    anchors.unshift({
-      depth: 1,
-      text: 'Ogólne',
-      url: '#',
-    });
-  }
-
-=======
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
   if (!route) {
     console.error('This page was not added to one of the sidebar JSON files.');
   }

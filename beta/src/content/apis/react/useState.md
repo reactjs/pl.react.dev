@@ -12,26 +12,7 @@ const [state, setState] = useState(initialState)
 
 </Intro>
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-- [Sposób użycia](#usage)
-  - [Dodawanie stanu do komponentu](#adding-state-to-a-component)
-  - [Aktualizowanie stanu w oparciu o poprzedni stan](#updating-state-based-on-the-previous-state)
-  - [Aktualizowanie obiektów i tablic przechowywanych w stanie](#updating-objects-and-arrays-in-state)
-  - [Unikanie ponownego tworzenia stanu początkowego](#avoiding-recreating-the-initial-state)
-  - [Resetowanie stanu za pomocą właściwości `key`](#resetting-state-with-a-key)
-  - [Przechowywanie informacji z poprzednich renderowań](#storing-information-from-previous-renders)
-- [Dokumentacja](#reference)
-  - [`useState(initialState)`](#usestate)
-  - [Funkcja `set`, np. `setSomething(nextState)`](#setstate)
-- [Znane problemy](#troubleshooting)
-  - [Aktualizuję wartość stanu, ale w konsoli wyświetla mi się stan poprzedni](#ive-updated-the-state-but-logging-gives-me-the-old-value)
-  - [Aktualizuję wartość stanu, ale ekran się nie odświeża](#ive-updated-the-state-but-the-screen-doesnt-update)
-  - [Dostaję błąd: "Too many re-renders"](#im-getting-an-error-too-many-re-renders)
-  - [Moja funkcja inicjalizująca lub aktualizująca jest uruchamiana dwa razy](#my-initializer-or-updater-function-runs-twice)
-  - [Próbuję zapisać w stanie funkcję, ale zamiast tego moja funkcja jest wywoływana](#im-trying-to-set-state-to-a-function-but-it-gets-called-instead)
-=======
 <InlineToc />
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 ---
 
@@ -39,11 +20,7 @@ const [state, setState] = useState(initialState)
 
 ### Dodawanie stanu do komponentu {/*adding-state-to-a-component*/}
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 Wywołaj `useState` na głównym poziomie komponentu, aby zadeklarować jedną lub więcej [zmiennych stanu](/learn/state-a-components-memory).
-=======
-Call `useState` at the top level of your component to declare one or more [state variables.](/learn/state-a-components-memory)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 ```js [[1, 4, "age"], [2, 4, "setAge"], [3, 4, "42"], [1, 5, "name"], [2, 5, "setName"], [3, 5, "'Taylor'"]]
 import { useState } from 'react';
@@ -54,11 +31,7 @@ function MyComponent() {
   // ...
 ```
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-Przyjęło się, że zmienne stanu nazywamy `[something, setSomething]`, korzystając przy tym z [destrukturyzacji tablicy](/learn/a-javascript-refresher#array-destructuring).
-=======
-The convention is to name state variables like `[something, setSomething]` using [array destructuring.](TODO:/learn/a-javascript-refresher#array-destructuring)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+Przyjęło się, że zmienne stanu nazywamy `[something, setSomething]`, korzystając przy tym z [destrukturyzacji tablicy](TODO:/learn/a-javascript-refresher#array-destructuring).
 
 `useState` zwraca tablicę o dokładnie dwóch elementach:
 
@@ -92,11 +65,7 @@ Wpływa to tylko na to, co `useState` zwróci przy *następnym* renderowaniu.
 
 <Recipes titleText="Podstawowe przykłady użycia useState" titleId="examples-basic">
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Licznik (liczba) {/*counter-number*/}
-=======
-#### Counter (number) {/*counter-number*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Licznik (liczba) {/*counter-number*/}
 
 W tym przykładzie zmienna stanu `count` przechowuje liczbę. Klikanie na przycisk zwiększa tę wartość.
 
@@ -124,11 +93,7 @@ export default function Counter() {
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Pole tekstowe (tekst) {/*text-field-string*/}
-=======
-#### Text field (string) {/*text-field-string*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Pole tekstowe (tekst) {/*text-field-string*/}
 
 W tym przykładzie zmienna stanu `text` przechowuje napis. Po wpisaniu czegoś do pola, `handleChange` odczytuje ostatnią wartość pola tekstowego z elementu DOM, a następnie wywołuje `setText` w celu ustawienia nowego stanu. Pozwala to na wyświetlenie aktualnego tekstu poniżej pola.
 
@@ -160,11 +125,7 @@ export default function MyInput() {
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Pole wyboru (wartość logiczna) {/*checkbox-boolean*/}
-=======
-#### Checkbox (boolean) {/*checkbox-boolean*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Pole wyboru (wartość logiczna) {/*checkbox-boolean*/}
 
 W tym przykładzie zmienna stanu `liked` przechowuje wartość logiczną. Kiedy klikniesz na pole wyboru, `setLiked` zaktualizuje wartość `liked` na postawie tego, czy pole jest zaznaczone, czy nie. Zmienna `liked` jest wykorzystywana do wyrenderowanie tekstu pod polem.
 
@@ -200,11 +161,7 @@ export default function MyCheckbox() {
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Formularz (dwie zmienne) {/*form-two-variables*/}
-=======
-#### Form (two variables) {/*form-two-variables*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Formularz (dwie zmienne) {/*form-two-variables*/}
 
 W komponencie możesz zadeklarować więcej niż jedną zmienną stanu. Każda z nich jest niezależna od pozostałych.
 
@@ -270,11 +227,7 @@ function handleClick() {
 
 W tym przykładzie `a => a + 1` jest twoją funkcją aktualizującą. Otrzymuje ona <CodeStep step={1}>aktualny stan</CodeStep> i oblicza na jego podstawie <CodeStep step={2}>następny stan</CodeStep>.
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 React umieszcza funkcje aktualizujące w [kolejce](/learn/queueing-a-series-of-state-updates). Następnie, podczas kolejnego renderowania, wywołuje je w takiej samej kolejności:
-=======
-React puts your updater functions in a [queue.](/learn/queueing-a-series-of-state-updates) Then, during the next render, it will call them in the same order:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 1. `a => a + 1` otrzyma aktualny stan równy `42` i zwróci następny stan jako `43`.
 1. `a => a + 1` otrzyma aktualny stan równy `43` i zwróci następny stan jako `44`.
@@ -284,11 +237,7 @@ W tym przypadku nie mamy więcej zakolejkowanych zmian, więc React na koniec za
 
 Przyjęło się, żeby nazywać argument odpowiadający za poprzedni stan używając pierwszej litery nazwy zmiennej stanu, na przykład `a` dla `age`. Możesz jednak nazwać go dowolnie, np. `prevAge`.
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 React może [wywołać twoje funkcje aktualizujące dwukrotnie](#my-initializer-or-updater-function-runs-twice) w środowisku deweloperskim, aby upewnić się, że są one ["czyste"](/learn/keeping-components-pure).
-=======
-React may [call your updaters twice](#my-initializer-or-updater-function-runs-twice) in development to verify that they are [pure.](/learn/keeping-components-pure)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 <DeepDive title="Czy zawsze powinno się używać funkcji aktualizującej?">
 
@@ -298,21 +247,13 @@ W większości przypadków nie ma różnicy między tymi dwoma podejściami. Rea
 
 Jeśli jednak wykonujesz kilka aktualizacji stanu przy okazji jednego zdarzenia, funkcje aktualizujące mogą okazać się pomocne. Pomagają one również w sytuacjach, kiedy dostęp do zmiennej stanu jest utrudniony (może się tak zdarzyć po wdrożeniu różnych strategii optymalizujących renderowanie).
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 Jeśli lubisz spójność w kodzie, możesz zawsze używać funkcji aktualizującej, kiedy nowy stan zależy od poprzedniego. Jeśli jednak nowy stan zależy od poprzedniej wartości *innej* zmiennej stanu, warto zastanowić się nad połączeniem ich w jeden obiekt i [użyciem reduktora (ang. *reducer*)](/learn/extracting-state-logic-into-a-reducer).
-=======
-If you prefer consistency over slightly more verbose syntax, it's reasonable to always write an updater if the state you're setting is calculated from the previous state. If it's calculated from the previous state of some *other* state variable, you might want to combine them into one object and [use a reducer.](/learn/extracting-state-logic-into-a-reducer)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 </DeepDive>
 
 <Recipes titleText="Różnica między użyciem funkcji aktualizującej a przekazaniem nowego stanu bezpośrednio" titleId="examples-updater">
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Przekazywanie funkcji aktualizującej {/*passing-the-updater-function*/}
-=======
-#### Passing the updater function {/*passing-the-updater-function*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Przekazywanie funkcji aktualizującej {/*passing-the-updater-function*/}
 
 W tym przykładzie przekazujemy funkcję aktualizującą, więc przycisk "+3" zadziała.
 
@@ -353,11 +294,7 @@ h1 { display: block; margin: 10px; }
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Przekazywanie nowego stanu bezpośrednio {/*passing-the-next-state-directly*/}
-=======
-#### Passing the next state directly {/*passing-the-next-state-directly*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Przekazywanie nowego stanu bezpośrednio {/*passing-the-next-state-directly*/}
 
 W tym przykładzie **nie przekazujemy** funkcji aktualizującej, przez co przycisk "+3" **nie działa jak powinien**.
 
@@ -425,11 +362,7 @@ Aby dowiedzieć się więcej na ten temat, przeczytaj rozdziały pt. [Aktualizow
 
 <Recipes titleText="Przykłady obiektów i tablic przechowywanych w stanie" titleId="examples-objects">
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Formularz (obiekt) {/*form-object*/}
-=======
-#### Form (object) {/*form-object*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Formularz (obiekt) {/*form-object*/}
 
 W tym przykładzie zmienna stanu `form` przechowuje obiekt. Każda kontrolka formularza ma przypisaną procedurę obsługi zmiany wartości, która wywołuje `setForm` z nowym stanem całego formularza. Składnia `{ ...form }` daje nam pewność, że obiekt w stanie zostanie zastąpiony, a nie tylko zmodyfikowany.
 
@@ -502,11 +435,7 @@ input { margin-left: 5px; }
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Formularz (zagnieżdżony obiekt) {/*form-nested-object*/}
-=======
-#### Form (nested object) {/*form-nested-object*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Formularz (zagnieżdżony obiekt) {/*form-nested-object*/}
 
 W tym przykładzie stan jest nieco bardziej zagnieżdżony. Kiedy aktualizujesz zagnieżdżony stan, musisz stworzyć kopię tego obiektu, jak również wszystkich obiektów wyżej, które go "zawierają". Przeczytaj rozdział pt. [Aktualizowanie zagnieżdżonych obiektów](/learn/updating-objects-in-state#updating-a-nested-object), aby dowiedzieć się więcej.
 
@@ -618,11 +547,7 @@ img { width: 200px; height: 200px; }
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Lista (tablica) {/*list-array*/}
-=======
-#### List (array) {/*list-array*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Lista (tablica) {/*list-array*/}
 
 W tym przykładzie zmienna stanu `todos` przechowuje tablicę. Każda procedura obsługi kliknięcia na przyciskach wywołuje `setTodos` z następną wersją tej tablicy. Składnia `[...todos]`, `todos.map()` oraz `todos.filter()` daje nam pewność, że tablica w stanie zostanie zastąpiona, a nie tylko zmodyfikowana.
 
@@ -789,11 +714,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Pisanie zwięzłej logiki aktualizującej za pomocą Immera {/*writing-concise-update-logic-with-immer*/}
-=======
-#### Writing concise update logic with Immer {/*writing-concise-update-logic-with-immer*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Pisanie zwięzłej logiki aktualizującej za pomocą Immera {/*writing-concise-update-logic-with-immer*/}
 
 Jeśli aktualizowanie tablic i obiektów bez modyfikacji wydaje ci się żmudne, możesz użyć biblioteki takiej jak [Immer](https://github.com/immerjs/use-immer) i zmniejszyć ilość powtarzalnego kodu. Immer umożliwia pisanie zwięzłego kodu, który wygląda jak modyfikacja obiektów, ale w rzeczywistości wykonuje on niemutujące aktualizacje:
 
@@ -906,19 +827,11 @@ function TodoList() {
 
 Zwróć uwagę, że przekazaliśmy tutaj `createInitialTodos`, która *jest funkcją*, a nie `createInitialTodos()`, które jest wynikiem jej wywołania. Jeśli do `useState` przekażesz jakąś funkcję, React wywoła ją tylko podczas inicjalizacji.
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 React może [wywołać twoją funkcję inicjalizującą dwukrotnie](#my-initializer-or-updater-function-runs-twice) w środowisku deweloperskim, aby sprawdzić, czy jest ona ["czysta"](/learn/keeping-components-pure).
-=======
-React may [call your initializers twice](#my-initializer-or-updater-function-runs-twice) in development to verify that they are [pure.](/learn/keeping-components-pure)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 <Recipes titleText="Różnica między przekazaniem funkcji inicjalizującej a przekazaniem stanu początkowego bezpośrednio" titleId="examples-initializer">
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Przekazywanie funkcji inicjalizującej {/*passing-the-initializer-function*/}
-=======
-#### Passing the initializer function {/*passing-the-initializer-function*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Przekazywanie funkcji inicjalizującej {/*passing-the-initializer-function*/}
 
 W tym przykładzie przekazujemy funkcję inicjalizującą, więc `createInitialTodos` jest wywoływana tylko podczas inicjalizacji. Nie wywołuje się podczas kolejnych renderowań, np. po wpisaniu tekstu do pola formularza.
 
@@ -971,11 +884,7 @@ export default function TodoList() {
 
 <Solution />
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-### Przekazywanie wartości początkowej bezpośrednio {/*passing-the-initial-state-directly*/}
-=======
-#### Passing the initial state directly {/*passing-the-initial-state-directly*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+#### Przekazywanie wartości początkowej bezpośrednio {/*passing-the-initial-state-directly*/}
 
 W tym przykładzie **nie przekazujemy** funkcji inicjalizującej, więc funkcja `createInitialTodos` jest wywoływana przy każdym renderowaniu, np. kiedy wpiszemy coś w pole formularza. Nie robi to żadnej różnicy w tym, co zostanie wyświetlone na ekranie, jednak taki kod jest mnie efektywny.
 
@@ -1034,11 +943,7 @@ export default function TodoList() {
 
 ### Resetowanie stanu za pomocą właściwości `key` {/*resetting-state-with-a-key*/}
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 W większości przypadków z właściwością `key` spotkasz się tylko przy okazji [renderowania list](/learn/rendering-lists). Czasami jednak służy ona do czegoś innego.
-=======
-Typically, you might encounter the `key` attribute when [rendering lists.](/learn/rendering-lists) However, it also serves another purpose.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 **Przekazując inną wartość `key` do komponentu możesz zresetować jego stan.** W poniższym przykładzie przycisk resetujący ustawia zmienną stanu `version`, którą możemy przekazać jako właściwość `key` do `Form`. Kiedy zmieni się `key`, React stworzy komponent `Form` od nowa (razem ze wszystkimi potomkami), dzięki czemu ich stan zostanie zresetowany.
 
@@ -1093,15 +998,9 @@ Stan zazwyczaj aktualizujemy w procedurach obsługi zdarzeń (ang. *event handle
 
 Zwykle jednak nie ma potrzeby tak robić:
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 * **Jeśli wartość może zostać obliczona w całości na podstawie aktualnych właściwości i innej zmiennej stanu, [należy całkowicie pozbyć się tego nadmiarowego stanu](/learn/choosing-the-state-structure#avoid-redundant-state).** Jeśli martwisz się o zbyt częste przeliczanie wartości, skorzystaj z [hooka `useMemo`](/apis/react/usememo).
 * Jeśli chcesz zresetować stan całego poddrzewa komponentu, [przekaż mu inną wartość `key`.](#resetting-state-with-a-key)
 * Jeśli tylko możesz, aktualizuj stan w procedurach obsługi zdarzeń.
-=======
-* **If the value you need can be computed entirely from the current props or other state, [remove that redundant state altogether.](/learn/choosing-the-state-structure#avoid-redundant-state)** If you're worried about recomputing too often, the [`useMemo` Hook](/apis/react/usememo) can help.
-* If you want to reset the entire component tree's state, [pass a different `key` to your component.](#resetting-state-with-a-key)
-* If you can, update all the relevant state in the event handlers.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 Są jednak sytuację, w których żadna z powyższych reguł nie ma zastosowania. Można wtedy aktualizować stan na podstawie wartości, które już zostały wyrenderowane, wywołując funkcję `set` w trakcie renderowania komponentu.
 
@@ -1162,11 +1061,7 @@ button { margin-bottom: 10px; }
 
 </Sandpack>
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 Zwróć uwagę, że jeśli wywołujesz funkcję `set` podczas renderowania, musi się to odbywać w warunku `prevCount !== count`, w którym to również wywołujesz `setPrevCount(count)`. W przeciwnym wypadku komponent renderowałby się ponownie w nieskończoność, co doprowadziłoby do zawieszenia aplikacji. Pamiętaj, że możesz w ten sposób aktualizować stan tylko *aktualnie renderowanego* komponentu. Wywoływanie funkcji `set` pochodzącej z *innego* komponentu podczas renderowania byłoby błędem. I wreszcie, pamiętaj, że wywołanie funkcji `set` powinno [aktualizować stan bez jego mutowania](#updating-objects-and-arrays-in-state) -- to, że obsługujemy tu przypadek specjalny, nie oznacza, że możemy łamać inne zasady [czystych funkcji](/learn/keeping-components-pure).
-=======
-Note that if you call a `set` function while rendering, it must be inside a condition like `prevCount !== count`, and there must be a call like `setPrevCount(count)` inside of the condition. Otherwise, your component would re-render in a loop until it crashes. Also, you can only update the state of the *currently rendering* component like this. Calling the `set` function of *another* component during rendering is an error. Finally, your `set` call should still [update state without mutation](#updating-objects-and-arrays-in-state) -- this special case doesn't mean you can break other rules of [pure functions.](/learn/keeping-components-pure)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 Powyższy schemat działania może wydawać się trudny do zrozumienia i generalnie lepiej go unikać. Mimo wszystko jest on lepszy niż aktualizowanie stanu w efekcie. Kiedy wywołujesz funkcję `set` podczas renderowania, React wyrenderuje go ponownie tuż po tym, jak zwróci on coś za pomocą instrukcji `return`, ale jeszcze przed wyrenderowaniem potomków. Dzięki temu komponenty potomne nie będą renderowały się dwa razy. Pozostała część funkcji komponentu nadal będzie wywołana (a wynik zostanie "wyrzucony do kosza"), dlatego jeśli taki warunek znajduje się pod wywołaniami hooków, możesz dopisać do niego `return;`, aby zakończyć renderowanie wcześniej.
 
@@ -1176,11 +1071,7 @@ Powyższy schemat działania może wydawać się trudny do zrozumienia i general
 
 ### `useState(initialState)` {/*usestate*/}
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 Wywołaj `useState` na głównym poziomie komponentu, aby zadeklarować [zmienną stanu](/learn/state-a-components-memory).
-=======
-Call `useState` at the top level of your component to declare a [state variable.](/learn/state-a-components-memory)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 ```js
 import { useState } from 'react';
@@ -1192,11 +1083,7 @@ function MyComponent() {
   // ...
 ```
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-Przyjęło się nazywać stan `[something, setSomething]`, używając przy tym składni [destrukturyzacji tablicy](/learn/a-javascript-refresher#array-destructuring).
-=======
-The convention is to name state variables like `[something, setSomething]` using [array destructuring.](TODO:/learn/a-javascript-refresher#array-destructuring)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+Przyjęło się nazywać stan `[something, setSomething]`, używając przy tym składni [destrukturyzacji tablicy](TODO:/learn/a-javascript-refresher#array-destructuring).
 
 [Więcej przykładów znajdziesz powyżej.](#examples-basic)
 
@@ -1214,13 +1101,8 @@ The convention is to name state variables like `[something, setSomething]` using
 
 #### Zastrzeżenia {/*caveats*/}
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 * `useState` jest hookiem, więc można go wywoływać tylko **na głównym poziomie komponentu** lub innego hooka. Nie można go wywołać w pętli lub instrukcji warunkowej. Jeśli masz sytuację, która wymaga pętli lub warunku, stwórz nowy komponent i przenieś do niego ten stan.
 * W Trybie Restrykcyjnym (ang. *Strict Mode*) React **wywoła twoją funkcję inicjalizującą dwukrotnie**, aby [pomóc ci w zlokalizowaniu niechcianych "nieczystości"](#my-initializer-or-updater-function-runs-twice). To zachowanie tyczy się tylko środowiska deweloperskiego i nie wpływa na produkcję. Jeśli twoja funkcja inicjalizująca jest "czysta" (a powinna być), nie wpłynie to w żaden sposób na logikę twojego komponentu. Wynik z jednego z wywołań tej funkcji zostanie zwyczajnie zignorowany.
-=======
-* `useState` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
-* In Strict Mode, React will **call your initializer function twice** in order to [help you find accidental impurities.](#my-initializer-or-updater-function-runs-twice) This is development-only behavior and does not affect production. If your initializer function is pure (as it should be), this should not affect the logic of your component. The result from one of the calls will be ignored.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 ---
 
@@ -1253,19 +1135,11 @@ Funkcje `set` nie zwracają żadnej wartości.
 
 * Jeśli nowa wartość i aktualny stan są identyczne (na podstawie porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), React **nie wymusi ponownego renderowania komponentu i jego potomków.** Jest to pewna forma optymalizacji. Mimo że czasem React nadal może wywołać twój komponent ponownie przed pominięciem potomków, nie powinno to wpłynąć na logikę działania komponentu.
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 * React [grupuje aktualizacje stanu](/learn/queueing-a-series-of-state-updates). Aktualizuje on ekran **po zakończeniu działania wszystkich procedur obsługi zdarzeń** i po tym, jak te procedury wywoją odpowiednie funkcje `set`. Zapobiega to wielokrotnemu renderowaniu komponentu podczas pojedynczego zdarzenia. W rzadkich sytuacjach, kiedy chcesz wymusić wcześniejsze zaktualizowanie ekranu, np. aby odczytać coś z DOM, możesz użyć funkcji [`flushSync`](/apis/react-dom/flushsync).
-=======
-* React [batches state updates.](/learn/queueing-a-series-of-state-updates) It updates the screen **after all the event handlers have run** and have called their `set` functions. This prevents multiple re-renders during a single event. In the rare case that you need to force React to update the screen earlier, for example to access the DOM, you can use [`flushSync`.](/apis/react-dom/flushsync)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 * Wywołanie funkcji `set` *podczas renderowania* jest dozwolone tylko w ramach aktualnie renderowanego komponentu. React zignoruje wynik aktualnego renderowania i natychmiast spróbuje wyrenderować go ponownie z nowym stanem. Ten wzorzec jest rzadko stosowany, jednak możesz go użyć, aby **zapisać dane z poprzedniego renderowania**. [Zobacz przykład powyżej.](#storing-information-from-previous-renders)
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 * W Trybie Restrykcyjnym (ang. *Strict Mode*) React **wywoła twoją funkcję aktualizującą dwukrotnie**, aby [pomóc ci w zlokalizowaniu niechcianych "nieczystości"](#my-initializer-or-updater-function-runs-twice). To zachowanie tyczy się tylko środowiska deweloperskiego i nie wpływa na produkcję. Jeśli twoja funkcja aktualizująca jest "czysta" (a powinna być), nie wpłynie to w żaden sposób na logikę twojego komponentu. Wynik z jednego z wywołań tej funkcji zostanie zwyczajnie zignorowany.
-=======
-* In Strict Mode, React will **call your updater function twice** in order to [help you find accidental impurities.](#my-initializer-or-updater-function-runs-twice) This is development-only behavior and does not affect production. If your updater function is pure (as it should be), this should not affect the logic of your component. The result from one of the calls will be ignored.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 ---
 
@@ -1288,11 +1162,7 @@ function handleClick() {
 }
 ```
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
-Dzieje się tak dlatego, że [stan zachowuje się jak migawka (ang. *snapshot*)](/learn/state-as-a-snapshot). Aktualizacja stanu wysyła żądanie przerenderowania komponentu z nową wartością, lecz nie wpływa na zmienną javascriptową `count` w aktualnie wykoływanym fragmencie kodu.
-=======
-This is because [states behaves like a snapshot.](/learn/state-as-a-snapshot) Updating state requests another render with the new state value, but does not affect the `count` JavaScript variable in your already-running event handler.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
+Dzieje się tak dlatego, że [stan zachowuje się jak migawka aparatu (ang. *snapshot*)](/learn/state-as-a-snapshot). Aktualizacja stanu wysyła żądanie przerenderowania komponentu z nową wartością, lecz nie wpływa na zmienną javascriptową `count` w aktualnie wykoływanym fragmencie kodu.
 
 Jeśli potrzebujesz od razu skorzystać z nowej wartości stanu, przed przekazaniem jej do funkcji `set` zapisz ją do zmiennej lokalnej:
 
@@ -1348,11 +1218,7 @@ Jeśli nie możesz namierzyć przyczyny tego błędu, kliknij na strzałkę obok
 
 ### Moja funkcja inicjalizująca lub aktualizująca jest uruchamiana dwa razy {/*my-initializer-or-updater-function-runs-twice*/}
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 W [Trybie Restrykcyjnym (ang. *Strict Mode*)](/apis/react/strictmode) React wywołuje niektóre funkcje dwukrotnie:
-=======
-In [Strict Mode](/apis/react/StrictMode), React will call some of your functions twice instead of once:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 ```js {2,5-6,11-12}
 function TodoList() {
@@ -1374,11 +1240,7 @@ function TodoList() {
 
 To zachowanie jest celowe i nie powinno popsuć działania aplikacji.
 
-<<<<<<< HEAD:beta/src/pages/apis/react/useState.md
 Takie zachowanie, wystepujące **tylko w środowisku deweloperskim**, pozwala na [sprawdzenie "czystości" komponentów](/learn/keeping-components-pure). React wykorzysta wynik z jednego z wywołań tych funkcji, a zignoruje drugi. Dopóki twój komponent oraz funkcje inicjalizujące i aktualizujące są czyste, nic nie powinno się popsuć. Jeśli jednak któraś z nich nie jest czysta, taki mechanizm pomoże ci ją znaleźć i naprawić.
-=======
-This **development-only** behavior helps you [keep components pure.](/learn/keeping-components-pure) React uses the result of one of the calls, and ignores the result of the other call. As long as your component, initializer, and updater functions are pure, this shouldn't affect your logic. However, if they are accidentally impure, this helps you notice the mistakes and fix it.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/apis/react/useState.md
 
 Dla przykładu, poniższa nieczysta funkcja aktualizująca mutuje tablicę przechowywaną w stanie:
 

@@ -115,13 +115,8 @@ export default function TodoList() {
 
 W składni JSX można używać nawiasów klamrowych na dwa sposoby:
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
 1. **Jako treść** bezpośrednio wewnątrz znacznika JSX-owego: `<h1>{name} - lista zadań</h1>` działa, ale `<{tag}>Gregorio Y. Zara - lista zadań</{tag}>` już nie.
 2. **Jako atrybuty**, zaraz po znaku `=`: `src={avatar}` przekaże wartość zmiennej `avatar`, ale `src="{avatar}"` już przekaże tekst `{avatar}`.
-=======
-1. **As text** directly inside a JSX tag: `<h1>{name}'s To Do List</h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List</{tag}>`  will not.
-2. **As attributes** immediately following the `=` sign: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string `"{avatar}"`.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
 
 ## Używanie "podwójnych klamerek": CSS i inne obiekty w JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
 
@@ -250,11 +245,7 @@ Teraz wiesz już niemal wszystko na temat składni JSX:
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
-### Napraw błąd {/*fix-the-mistake*/}
-=======
-#### Fix the mistake {/*fix-the-mistake*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
+#### Napraw błąd {/*fix-the-mistake*/}
 
 Poniższy kod rzuca błędem o treści `Objects are not valid as a React child` (_pol._ Obiekty nie są prawidłowymi potomkami w Reakcie.):
 
@@ -346,11 +337,7 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
-### Wyciągnij informacje do obiektu {/*extract-information-into-an-object*/}
-=======
-#### Extract information into an object {/*extract-information-into-an-object*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
+#### Wyciągnij informacje do obiektu {/*extract-information-into-an-object*/}
 
 Wyciągnij URL obrazka do obiektu `person`.
 
@@ -437,15 +424,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/javascript-in-jsx-with-curly-braces.md
-### Umieść wyrażenie w klamrach {/*write-an-expression-inside-jsx-curly-braces*/}
+#### Umieść wyrażenie w klamrach {/*write-an-expression-inside-jsx-curly-braces*/}
 
 W poniższym kodzie pełny adres URL obrazka został rozdzielony na cztery części: URL bazowy, `imageId`, `imageSize` oraz rozszerzenie pliku.
-=======
-#### Write an expression inside JSX curly braces {/*write-an-expression-inside-jsx-curly-braces*/}
-
-In the object below, the full image URL is split into four parts: base URL, `imageId`, `imageSize`, and file extension.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/javascript-in-jsx-with-curly-braces.md
 
 Chcielibyśmy teraz, żeby finalny URL obrazka składał się z tych wartości połączonych w jeden tekst: URL bazowy (zawsze `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`) oraz rozszerzenie pliku (zawsze `'.jpg'`). Coś jednak jest nie tak z atrybutem `src` znacznika `<img>`.
 

@@ -36,13 +36,9 @@ Lintery kodu znajdują problemy w kodzie podczas jego pisania i pomagają je zaw
 - [Zainstaluj ESLinta z konfiguracją zalecaną dla Reacta](https://www.npmjs.com/package/eslint-config-react-app) (upewnij się, że masz [zainstalowany Node!](https://nodejs.org/en/download/current/))
 - [Zintegruj ESLint z VS Code za pomocą oficjalnego rozszerzenia](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-<<<<<<< HEAD:beta/src/pages/learn/editor-setup.md
-### Formatowanie {/*formatting*/}
-=======
-**Make sure that you've enabled all the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) rules for your project.** They are essential and catch the most severe bugs early. The recommended [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) preset already includes them.
+**Upewnij się, że masz włączone w projekcie wszystkie reguły z [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks).** Są one istotne, ponieważ wychwytują zawczasu większość poważnych błedów. Są one domyślnie włączone w rekomendowanym zestawie reguł [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app).
 
-### Formatting {/*formatting*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/editor-setup.md
+### Formatowanie {/*formatting*/}
 
 Ostatnia rzecz, jaka powinna się wydarzyć po udostępnieniu twojego kodu współtwórcom projektu, jest dyskusja pt. [tabulatory vs spacje](https://www.google.com/search?q=tabulatory+vs+spacje)! Na szczęście jest [Prettier](https://prettier.io/), który posprząta w twoim kodzie, formatując go według ustalonych reguł. Uruchom Prettiera, a wszystkie tabulatory w kodzie zamienią się na spacje; wszelkie wcięcia, cudzysłowy i apostrofy itp. również zostaną podmienione na podstawie ustawień. Idealnie by było, gdyby Prettier był uruchamiany przy każdym zapisaniu pliku, automatycznie aplikując te reguły za ciebie.
 

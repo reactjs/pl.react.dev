@@ -107,19 +107,11 @@ img { margin: 0 10px 10px 0; height: 90px; }
 Zauważ, że teraz nasz przykład składa się z dwóch plików:
 
 1. `Gallery.js`:
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
      - Definiuje komponent `Profile`, który jest użyty tylko w tym samym pliku i dlatego nie jest wyeksportowany.
      - Eksportuje komponent `Gallery` jako **eksport domyślny**.
 2. `App.js`:
      - Importuje `Gallery` jako **import domyślny** z pliku `Gallery.js`.
      - Eksportuje główny komponent `App` jako **eksport domyślny**.
-=======
-     - Defines the `Profile` component which is only used within the same file and is not exported.
-     - Exports the `Gallery` component as a **default export.**
-2. `App.js`:
-     - Imports `Gallery` as a **default import** from `Gallery.js`.
-     - Exports the root `App` component as a **default export.**
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
 
 
 <Note>
@@ -134,11 +126,7 @@ W Reakcie możesz napisać zarówno `'./Gallery.js'` jak i `'./Gallery'`, jednak
 
 </Note>
 
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
-<DeepDive title="Eksporty domyślne kontra nazwane">
-=======
-<DeepDive title="Default vs named exports">
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
+<DeepDive title="Eksporty domyślne a nazwane">
 
 W JavaScripcie istnieją dwa sposoby eksportowania wartości: eksport domyślny oraz eksport nazwany. Dotychczasowe przykłady używały jedynie eksportów domyślnych. Ale w ramach jednego pliku można używać obydwu. **W danym pliku nie może być więcej niż jeden _domyślny_ eksport, natomiast _nazwanych_ eksportów możesz dodać tyle, ile chcesz.**
 
@@ -231,21 +219,12 @@ img { margin: 0 10px 10px 0; height: 90px; }
 Mamy teraz miks domyślnego i nazwanego eksportu:
 
 * `Gallery.js`:
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
   - Eksportuje komponent `Profile` jako **nazwany eksport `Profile`**.
   - Eksportuje komponent `Gallery` jako **domyślny eksport**.
 * `App.js`:
   - Importuje `Profile` z pliku `Gallery.js` jako **nazwany import `Profile`**.
   - Importuje `Gallery` z pliku `Gallery.js` jako **domyślny import**.
   - Eksportuje główny komponent `App` jako **domyślny eksport**.
-=======
-  - Exports the `Profile` component as a **named export called `Profile`.**
-  - Exports the `Gallery` component as a **default export.**
-* `App.js`:
-  - Imports `Profile` as a **named import called `Profile`** from `Gallery.js`.
-  - Imports `Gallery` as a **default import** from `Gallery.js`.
-  - Exports the root `App` component as a **default export.**
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
 
 <Recap>
 
@@ -262,11 +241,7 @@ W tym rozdziale nauczyliśmy się:
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/importing-and-exporting-components.md
-### Podziel komponenty {/*split-the-components-further*/}
-=======
-#### Split the components further {/*split-the-components-further*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/importing-and-exporting-components.md
+#### Podziel komponenty jeszcze bardziej {/*split-the-components-further*/}
 
 Aktualnie plik `Gallery.js` eksportuje zarówno `Profile` jak i `Gallery`, co może być mylące.
 

@@ -61,13 +61,8 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   return (
     <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
-<<<<<<< HEAD
-      <p className="w-full font-bold text-primary dark:text-primary-dark text-lg">
-        {isSubmitted ? 'Dziękujemy za opinię!' : 'Czy ta strona była pomocna?'}
-=======
       <p className="w-full font-bold text-primary dark:text-primary-dark text-lg mr-4">
-        {isSubmitted ? 'Thank you for your feedback!' : 'Is this page useful?'}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
+        {isSubmitted ? 'Dziękujemy za opinię!' : 'Czy ta strona była pomocna?'}
       </p>
       {!isSubmitted && (
         <button

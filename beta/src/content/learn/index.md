@@ -92,11 +92,7 @@ function AboutPage() {
 }
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/index.md
 Jeśli masz już sporo kodu HTML i chcesz go przenieść do składni JSX, możesz skorzystać z [konwertera online](https://transform.tools/html-to-jsx).
-=======
-If you have a lot of HTML to port to JSX, you can use an [online converter.](https://transform.tools/html-to-jsx)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/index.md
 
 ## Dodawanie styli {/*adding-styles*/}
 
@@ -201,11 +197,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/index.md
 Jeśli wolisz bardziej zwięzły kod, możesz użyć [operatora warunkowego `?`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). W przeciwieństwie do `if`, działa on wewnątrz składni JSX:
-=======
-If you prefer more compact code, you can use the [conditional `?` operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) Unlike `if`, it works inside JSX:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/index.md
 
 ```js
 <div>
@@ -390,11 +382,7 @@ Zwróć uwagę, że każdy z przycisków "pamięta" swoją własną wartość st
 
 ## Używanie hooków {/*using-hooks*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/index.md
 Funkcje o nazwie rozpoczynającej się od `use` nazywamy *hookami*. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis/react). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
-=======
-Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference.](/apis/react) You can also write your own Hooks by combining the existing ones.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/index.md
 
 Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu, a następnie wyrenderuj ten komponent.
 

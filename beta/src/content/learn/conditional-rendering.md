@@ -64,11 +64,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
-Jeśli prop `isPacked` jest ustawiony na `true`, ten kod **zwróci odmienne drzewo JSX**. Wraz z tą zmianą, pewne przedmioty dostaną znacznik ✔.
-=======
-If the `isPacked` prop is `true`, this code **returns a different JSX tree.** With this change, some of the items get a checkmark at the end:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
+Jeśli właściwość `isPacked` jest ustawiona na `true`, ten kod **zwróci odmienne drzewo JSX**. Wraz z tą zmianą, niektóre z elementów zostaną wyrenderowane wraz z znacznikiem ✔.
 
 <Sandpack>
 
@@ -183,19 +179,11 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
-W tym przypadku powielenia nie są szkodliwe, jednak mogą one utrudniać utrzymanie kodu. Co w sytuacji, gdybyśmy chcieli zmienić `className`? Wówczas, musielibyśmy to zrobić w dwóch miejscach w kodzie. W takich sytuacjach można warunkowo dołączyć JSX, aby kod był bardziej [DRY](https://pl.wikipedia.org/wiki/DRY).
-=======
-While this duplication isn't harmful, it could make your code harder to maintain. What if you want to change the `className`? You'd have to do it in two places in your code! In such a situation, you could conditionally include a little JSX to make your code more [DRY.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
+W tym przypadku powielenia nie są szkodliwe, jednak mogą one utrudniać utrzymanie kodu. Co w sytuacji, gdybyśmy chcieli zmienić `className`? Wówczas musielibyśmy to zrobić w dwóch miejscach w kodzie. W takich sytuacjach można warunkowo dołączyć JSX, aby kod był bardziej [DRY](https://pl.wikipedia.org/wiki/DRY).
 
 ### Operator warunkowy (`? :`) {/*conditional-ternary-operator--*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 JavaScript posiada zwartą składnię do tworzenia wyrażenia warunkowego -- [operator warunkowy](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Conditional_Operator), zwany także "operatorem ternarnym" (trójargumentowym).
-=======
-JavaScript has a compact syntax for writing a conditional expression -- the [conditional operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator".
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 Zamiast poniższego kodu:
 
@@ -216,11 +204,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 Możesz to wyrażenie przeczytać jako: *"jeśli `isPacked` ma wartość `true`, wtedy (`?`) wyrenderuj `name + ' ✔'`, w przeciwnym razie (`:`) wyrenderuj `name`."*)
-=======
-You can read it as *"if `isPacked` is true, then (`?`) render `name + ' ✔'`, otherwise (`:`) render `name`"*.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 <DeepDive title="Czy te dwa przykłady są w pełni równoważne?">
 
@@ -276,11 +260,7 @@ Ten sposób sprawdza się przy prostych warunkach, używaj go jednak z umiarem. 
 
 ### Operator logiczny AND (`&&`) {/*logical-and-operator-*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
-Kolejnym powszechnie stosowanym skrótem, z którym możesz się zetknąć, jest [javascriptowy operator logiczny AND (`&&`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentów reactowych często wykorzystujemy go, gdy chcemy wyrenderować JSX przy spełnieniu warunku (posiada wartość `true`) **lub gdy nie chcemy nic renderować.** Przy pomocy operatora `&&` możesz warunkowo wyrenderować "ptaszek" (✔) tylko wtedy, kiedy właściwość `isPacked` jest ustawiona na `true`.
-=======
-Another common shortcut you'll encounter is the [JavaScript logical AND (`&&`) operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) Inside React components, it often comes up when you want to render some JSX when the condition is true, **or render nothing otherwise.** With `&&`, you could conditionally render the checkmark only if `isPacked` is `true`:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
+Kolejnym powszechnie stosowanym skrótem, z którym możesz się zetknąć, jest [javascriptowy operator logiczny AND (`&&`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Wewnątrz komponentów reactowych często wykorzystujemy go, gdy chcemy wyrenderować JSX przy spełnieniu warunku **lub gdy nie chcemy nic renderować przy niespełnionym warunku.** Przy pomocy operatora `&&` możesz warunkowo wyrenderować "ptaszek" (✔) tylko wtedy, kiedy właściwość `isPacked` jest ustawiona na `true`.
 
 ```js
 return (
@@ -290,11 +270,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
 Możesz to wyrażenie przeczytać jako: *“jeśli `isPacked`, wtedy (`&&`) wyrenderuj "ptaszek" ✔; w przeciwnym razie nic nie renderuj.”*
-=======
-You can read this as *"if `isPacked`, then (`&&`) render the checkmark, otherwise, render nothing"*.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
 
 Poniżej przedstawiono przykład:
 
@@ -477,11 +453,7 @@ Jeśli znasz dobrze JavaScriptu, ta różnorodność sposobów może początkowo
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
-### Wyświetl znacznik dla niespakowanych przedmiotów za pomocą `? :` {/*show-an-icon-for-incomplete-items-with--*/}
-=======
-#### Show an icon for incomplete items with `? :` {/*show-an-icon-for-incomplete-items-with--*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
+#### Wyświetl znacznik dla niespakowanych przedmiotów za pomocą `? :` {/*show-an-icon-for-incomplete-items-with--*/}
 
 Użyj operatora warunkowego (`warunek ? a : b`), aby wyświetlić ❌, jeśli `isPacked` nie ma wartości `true`.
 
@@ -561,11 +533,7 @@ export default function PackingList() {
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
-### Wyświetl priorytet przedmiotu za pomocą `&&` {/*show-the-item-importance-with-*/}
-=======
-#### Show the item importance with `&&` {/*show-the-item-importance-with-*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
+#### Wyświetl priorytet przedmiotu za pomocą `&&` {/*show-the-item-importance-with-*/}
 
 W tym przykładzie, każdy element `Item` otrzymuje właściwość `importance`, która określa jego priorytet. Użyj operatora `&&`, aby wyświetlić "_(Priorytet: X)_" kursywą, ale tylko dla przedmiotów, które otrzymały wartość inną niż 0. Twoja lista przedmiotów powinna wyglądać w następujący sposób:
 
@@ -662,11 +630,7 @@ W tym rozwiązaniu dwa oddzielne warunki zostały użyte w celu wstawienia spacj
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/conditional-rendering.md
-### Zamień szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
-=======
-#### Refactor a series of `? :` to `if` and variables {/*refactor-a-series-of---to-if-and-variables*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/conditional-rendering.md
+#### Zamień szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
 
 Komponent `Drink` korzysta kilkukrotnie z operatora warunkowego `? :`, aby wyświetlić różne informacje w zależności od tego, czy właściwość `name` ma wartość `"herbata"` lub `"kawa"`. Problem w tym, że informacje o każdym z napojów składają się z kilku warunków. Zmodyfikuj poniższy kod, aby użyć pojedynczej instrukcji `if` zamiast trzech warunków `? :`.
 

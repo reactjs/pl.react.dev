@@ -7,17 +7,9 @@ import React from 'react';
 import cn from 'classnames';
 import {ExternalLink} from './ExternalLink';
 
-<<<<<<< HEAD
-// TODO: Unify with the old site settings.
-// Turning this off also requires changing the Page top value to pull up the sidebar.
 const bannerText = 'Wesprzyj Ukrainę 🇺🇦';
 const bannerLink = 'https://opensource.fb.com/support-ukraine';
 const bannerLinkText = 'Wesprzyj pomoc humanitarną dla Ukrainy.';
-=======
-const bannerText = 'Support Ukraine 🇺🇦';
-const bannerLink = 'https://opensource.fb.com/support-ukraine';
-const bannerLinkText = 'Help Provide Humanitarian Aid to Ukraine';
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 
 export default function SocialBanner() {
   const ref = React.useRef<HTMLDivElement | null>(null);

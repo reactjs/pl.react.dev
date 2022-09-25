@@ -4,11 +4,7 @@ title: Myślenie reactowe
 
 <Intro>
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 React potrafi zmienić sposób myślenia o designach, na których się wzorujemy, i aplikacjach, które tworzymy. Gdzie kiedyś widzieliśmy las, po pracy z Reactem, zauważamy poszczególne drzewa. React ułatwia myślenie w kategoriach systemów designerskich i stanów interfejsu użytkownika. W tym samouczku oprowadzimy cię po procesie tworzenia w Reakcie tabeli z funkcją wyszukiwania.
-=======
-React can change how you think about the designs you look at and the apps you build. When you build a user interface with React, you will first break it apart into pieces called *components.* Then, you will describe the different visual states for each of your components. Finally, you will connect your components together so that the data flows through them. In this tutorial, we'll guide you through the thought process of building a searchable product data table with React.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 </Intro>
 
@@ -79,11 +75,7 @@ Teraz, kiedy już zidentyfikowaliśmy wszystkie komponenty na grafice, możemy r
 
 Teraz, gdy już mamy gotową hierarchię komponentów, czas na implementację aplikacji. Najprościej będzie zbudować taką wersję, która renderuje interfejs z modelu danych bez dodawania żadnej interaktywności. Przynajmniej na razie! Często łatwiej jest najpierw zbudować statyczną wersję interfejsu, a następnie dodać do niej interakcje. Budowanie statycznej wersji wymaga dużo pisania i niewiele myślenia, natomiast dodawanie interaktywności wymaga dużo myślenia i niewiele pisania.
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 Aby zbudować statyczną wersję aplikacji, która renderuje dane, należy stworzyć [komponenty](/learn/your-first-component), które używają innych komponentów i przekazują do nich dane za pomocą [właściwości (ang. *props*)](/learn/passing-props-to-a-component). Właściwości pozwalają przekazywać dane z rodzica do potomka. (Jeśli wiesz, co to [stan](/learn/state-a-components-memory), nie dodawaj go do wersji statycznej. Stan jest zarezerwowany tylko dla interakcji, a konkretniej dla danych, które zmieniają się w czasie. A ponieważ to tylko wersja statyczna, zwyczajnie go nie potrzebujesz.)
-=======
-To build a static version of your app that renders your data model, you'll want to build [components](/learn/your-first-component) that reuse other components and pass data using [props.](/learn/passing-props-to-a-component) Props are a way of passing data from parent to child. (If you're familiar with the concept of [state](/learn/state-a-components-memory), don't use state at all to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 Możesz zacząć budować "od góry do dołu", zaczynając od komponentów znajdujących się wyżej w hierarchii (np. `FilterableProductTable`) lub "od dołu do góry", zaczynając od tych najniżej (np. `ProductRow`). W prostszych przypadkach łatwiej jest iść z góry na dół, natomiast w większych projektach zwykle lepiej sprawdza się to drugie podejście.
 
@@ -217,11 +209,7 @@ Na tym etapie twoje komponenty nie powinny mieć żadnego stanu. Zajmiemy się t
 
 Aby nadać interfejsowi interaktywności, musisz pozwolić użytkownikom zmieniać model danych znajdujący się pod spodem. W tym celu użyj *stanu*.
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 Pomyśl o stanie jako o minimalnym zestawie zmieniających się danych, które twoja aplikacja musi pamiętać. Najważniejszą zasadą projektowania stanu jest to, by [nie powtarzać się (DRY)](https://pl.wikipedia.org/wiki/DRY). Wymyśl absolutnie minimalną reprezentację stanu, jakiej potrzebuje twoja aplikacja, a wszystko inne obliczaj w razie potrzeby. Na przykład, jeśli tworzysz listę zakupów, możesz przechowywać produkty w tablicy. Jeśli chcesz dodatkowo wyświetlić liczbę produktów na liście, nie przechowuj tej liczby w osobnej zmiennej stanu. Zamiast tego odczytaj długość tablicy.
-=======
-Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it [DRY (Don't Repeat Yourself).](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand. For example, if you're building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don't store the number of items as another state value--instead, read the length of your array.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 Zastanówmy się teraz nad wszystkimi kawałkami danych, które przetwarzać będzie nasza aplikacja:
 
@@ -240,17 +228,10 @@ Wszystko inne najprawdopodobniej jest stanem.
 
 Przejdźmy przez wszystkie pozycje krok po kroku:
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 1. Oryginalna lista produktów **jest przekazywana przez właściwości, więc nie jest stanem**. 
 2. Tekst wyszukiwarki wydaje się być stanem, bo zmienia się w czasie i nie można go obliczyć na podstawie niczego innego.
 3. Wartość pola wyboru wydaje się być stanem, bo zmienia się w czasie i nie można go obliczyć na podstawie niczego innego.
 4. Przefiltrowana lista produktów **nie jest stanem, bo można ją wyliczyć**, biorąc oryginalną listę produktów i filtrując ją zgodnie z tekstem wyszukiwarki i wartością pola wyboru.
-=======
-1. The original list of products is **passed in as props, so it's not state.** 
-2. The search text seems to be state since it changes over time and can't be computed from anything.
-3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
-4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 Oznacza to, że jedynie tekst wyszukiwarki i wartość pola wyboru są stanem! Dobra robota!
 
@@ -290,11 +271,7 @@ Zastosujmy na tym stanie poznaną przez nas strategię:
 
 Tak więc wartości stanu będą przechowywane w komponencie `FilterableProductTable`. 
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
 Aby dodać stan do komponentu, użyj [hooka `useState()`](/apis/react/useState). Hooki pozwalają "zahaczyć" się o [cykl renderowania (ang. *render cycle*)](/learn/render-and-commit) komponentu. Dodaj dwie zmienne stanu na górze ciała komponentu `FilterableProductTable` i określ początkowy stan aplikacji:
-=======
-Add state to the component with the [`useState()` Hook.](/apis/react/useState) Hooks let you "hook into" a component's [render cycle.](/learn/render-and-commit) Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
 
 ```js
 function FilterableProductTable({ products }) {
@@ -458,10 +435,7 @@ td {
 
 </Sandpack>
 
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
-W powyższym kodzie komponenty `ProductTable` i `SearchBar` odczytują właściwości `filterText` i `inStockOnly`, aby wyrenderować tabelę, pole tekstowe i pole wyboru. Dla przykładu, tak `SearchBar` wypełnia pole tekstowe:
-=======
-Notice that editing the form doesn't work yet. There is a console error in the sandbox above explaining why:
+Zwróć uwagę, że edytowanie formularza jeszcze nie działa. W konsoli sandboxu wyświetla się błąd, który tłumaczy, co się stało:
 
 <ConsoleBlock level="error">
 
@@ -469,8 +443,9 @@ You provided a \`value\` prop to a form field without an \`onChange\` handler. T
 
 </ConsoleBlock>
 
-In the sandbox above, `ProductTable` and `SearchBar` read the `filterText` and `inStockOnly` props to render the table, the input, and the checkbox. For example, here is how `SearchBar` populates the input value:
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
+Co oznacza: "Do pola formularza przekazano właściwość `value` bez podania `onChange`. Spowoduje to wyrenderowanie pola tylko do odczytu."
+
+W powyższym kodzie komponenty `ProductTable` i `SearchBar` odczytują właściwości `filterText` i `inStockOnly`, aby wyrenderować tabelę, pole tekstowe i pole wyboru. Dla przykładu, tak `SearchBar` wypełnia pole tekstowe:
 
 ```js {1,6}
 function SearchBar({ filterText, inStockOnly }) {
@@ -479,15 +454,10 @@ function SearchBar({ filterText, inStockOnly }) {
       <input 
         type="text" 
         value={filterText} 
-        placeholder="Search..."/>
+        placeholder="Wyszukaj..."/>
 ```
 
-However, you haven't added any code to respond to the user actions like typing yet. This will be your final step.
-
-<<<<<<< HEAD:beta/src/pages/learn/thinking-in-react.md
-Możesz dokładniej zgłębić temat [zarządzania stanem](/learn/managing-state) i organizowania struktury aplikacji.
-=======
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/thinking-in-react.md
+Nie dodaliśmy jeszcze żadnego kodu, który by obsłużył akcje użytkownika, jak na przykład wpisywanie tekstu. To będzie nasze ostatnie zadanie.
 
 ## Krok 5: Dodaj odwrócony przepływ danych {/*step-5-add-inverse-data-flow*/}
 

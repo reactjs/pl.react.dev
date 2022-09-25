@@ -4,21 +4,21 @@ title: Przekazywanie wartości do komponentu
 
 <Intro>
 
-Komponenty reactowe używają *właściwości* (_ang._ props, od "properties") do komunikowania się między sobą. Każdy komponent nadrzędny może przekazać informacje do własnych potomków poprzez właściwości. Właściwości mogą kojarzyć się z atrybutami HTML-owymi, jednak różnica polega na tym, że przez właściwości można przekazywać dowolne wartości javascriptowe, w tym obiekty, tablice czy funkcje.
+Komponenty reactowe używają _właściwości_ (_ang._ props, od "properties") do komunikowania się między sobą. Każdy komponent nadrzędny może przekazać informacje do własnych potomków poprzez właściwości. Właściwości mogą kojarzyć się z atrybutami HTML-owymi, jednak różnica polega na tym, że przez właściwości można przekazywać dowolne wartości javascriptowe, w tym obiekty, tablice czy funkcje.
 
 </Intro>
 
 <YouWillLearn>
 
-* Jak przekazać wartości do komponentu
-* Jak odczytać właściwości komponentu
-* Jak określić domyślną wartość dla właściwości
-* Jak przekazać kod JSX-owy do komponentu
-* Jak właściwości zmieniają się w czasie
+- Jak przekazać wartości do komponentu
+- Jak odczytać właściwości komponentu
+- Jak określić domyślną wartość dla właściwości
+- Jak przekazać kod JSX-owy do komponentu
+- Jak właściwości zmieniają się w czasie
 
 </YouWillLearn>
 
-## Właściwości, które możesz już znać {/*familiar-props*/}
+## Właściwości, które możesz już znać {/* familiar-props */}
 
 Właściwości (_ang._ props) to informacje, które przekazujemy znacznikowi JSX-owemu. Na przykład, znacznikowi `<img>` możemy przekazać właściwości `className`, `src`, `alt`, `width` czy `height`:
 
@@ -38,46 +38,44 @@ function Avatar() {
 }
 
 export default function Profile() {
-  return (
-    <Avatar />
-  );
+  return <Avatar />;
 }
 ```
 
 ```css
-body { min-height: 120px; }
-.avatar { margin: 20px; border-radius: 50%; }
+body {
+  min-height: 120px;
+}
+.avatar {
+  margin: 20px;
+  border-radius: 50%;
+}
 ```
 
 </Sandpack>
 
-Właściwości, które możesz przekazać do znacznika `<img>`, są predefiniowane (ReactDOM przestrzega [standardu HTML](https://www.w3.org/TR/html52/semantics-embedded-content.html#the-img-element)). Jednak do *własnych* komponentów, np. `<Avatar>`, możesz przekazać dowolne właściwości!
+Właściwości, które możesz przekazać do znacznika `<img>`, są predefiniowane (ReactDOM przestrzega [standardu HTML](https://www.w3.org/TR/html52/semantics-embedded-content.html#the-img-element)). Jednak do _własnych_ komponentów, np. `<Avatar>`, możesz przekazać dowolne właściwości!
 
-## Przekazywanie wartości do komponentu {/*passing-props-to-a-component*/}
+## Przekazywanie wartości do komponentu {/* passing-props-to-a-component */}
 
 W poniższym kodzie komponent `Profile` nie przekazuje swojemu potomkowi `Avatar` żadnych wartości:
 
 ```js
 export default function Profile() {
-  return (
-    <Avatar />
-  );
+  return <Avatar />;
 }
 ```
 
 Aby dodać do komponentu `Avatar` właściwości, wystarczą dwa kroki.
 
-### Krok 1: Przekaż właściwości do komponentu potomnego {/*step-1-pass-props-to-the-child-component*/}
+### Krok 1: Przekaż właściwości do komponentu potomnego {/* step-1-pass-props-to-the-child-component */}
 
 Najpierw przekażmy do komponentu `Avatar` jakieś wartości. Na przykład, niech będą to `person` (obiekt) oraz `size` (liczba):
 
 ```js
 export default function Profile() {
   return (
-    <Avatar
-      person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }}
-      size={100}
-    />
+    <Avatar person={{name: 'Lin Lanying', imageId: '1bX5QH6'}} size={100} />
   );
 }
 ```
@@ -86,12 +84,12 @@ export default function Profile() {
 
 Teraz możemy odczytać te wartości wewnątrz komponentu `Avatar`.
 
-### Krok 2: Odczytaj wartości wewnątrz komponentu potomnego {/*step-2-read-props-inside-the-child-component*/}
+### Krok 2: Odczytaj wartości wewnątrz komponentu potomnego {/* step-2-read-props-inside-the-child-component */}
 
 Aby odczytać te właściwości, wypiszmy ich nazwy oddzielone przecinkiem i zapisane wewnątrz `({` oraz `})` zaraz po słowach `function Avatar`. Dzięki temu będziemy mogli odwołać się do nich jak do zmiennych.
 
 ```js
-function Avatar({ person, size }) {
+function Avatar({person, size}) {
   // tutaj można używać person i size
 }
 ```
@@ -103,9 +101,9 @@ To, co wyrenderuje `Avatar`, możemy kontrolować na wiele różnych sposobów, 
 <Sandpack>
 
 ```js App.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
-function Avatar({ person, size }) {
+function Avatar({person, size}) {
   return (
     <img
       className="avatar"
@@ -122,23 +120,23 @@ export default function Profile() {
     <div>
       <Avatar
         size={100}
-        person={{ 
-          name: 'Katsuko Saruhashi', 
-          imageId: 'YfeOqp2'
+        person={{
+          name: 'Katsuko Saruhashi',
+          imageId: 'YfeOqp2',
         }}
       />
       <Avatar
         size={80}
         person={{
-          name: 'Aklilu Lemma', 
-          imageId: 'OKS67lh'
+          name: 'Aklilu Lemma',
+          imageId: 'OKS67lh',
         }}
       />
       <Avatar
         size={50}
-        person={{ 
+        person={{
           name: 'Lin Lanying',
-          imageId: '1bX5QH6'
+          imageId: '1bX5QH6',
         }}
       />
     </div>
@@ -148,18 +146,18 @@ export default function Profile() {
 
 ```js utils.js
 export function getImageUrl(person, size = 's') {
-  return (
-    'https://i.imgur.com/' +
-    person.imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
 ```
 
 ```css
-body { min-height: 120px; }
-.avatar { margin: 10px; border-radius: 50%; }
+body {
+  min-height: 120px;
+}
+.avatar {
+  margin: 10px;
+  border-radius: 50%;
+}
 ```
 
 </Sandpack>
@@ -183,7 +181,7 @@ Zwykle jednak nie ma potrzeby korzystać z samego obiektu `props`, dlatego zazwy
 **Nie zapomnij o parze klamer `{` i `}`** wewnątrz nawiasów okrągłych `(` i `)`:
 
 ```js
-function Avatar({ person, size }) {
+function Avatar({person, size}) {
   // ...
 }
 ```
@@ -200,12 +198,12 @@ function Avatar(props) {
 
 </Gotcha>
 
-## Określanie domyślnej wartości dla właściwości {/*specifying-a-default-value-for-a-prop*/}
+## Określanie domyślnej wartości dla właściwości {/* specifying-a-default-value-for-a-prop */}
 
 Jeśli chcesz nadać właściwości domyślną wartość, która będzie użyta za każdym razem, gdy nie przekażemy żadnej wartości do komponentu, możesz to zrobić dodając do zapisu destrukturyzującego symbol `=` i podając po nim wartość domyślną:
 
 ```js
-function Avatar({ person, size = 100 }) {
+function Avatar({person, size = 100}) {
   // ...
 }
 ```
@@ -214,12 +212,12 @@ Teraz gdy wyrenderujemy `<Avatar person={...} />` bez podawania właściwości `
 
 Wartość domyślna jest używana tylko wtedy, gdy właściwość `size` zostanie pominięta lub otrzyma wartość `size={undefined}`. Jeśli jednak przekażesz `size={null}` lub `size={0}`, domyślna wartość **nie** zostanie użyta.
 
-## Przekazywanie właściwości za pomocą operatora rozwinięcia {/*forwarding-props-with-the-jsx-spread-syntax*/}
+## Przekazywanie właściwości za pomocą operatora rozwinięcia {/* forwarding-props-with-the-jsx-spread-syntax */}
 
 Niekiedy przekazywanie właściwości może okazać się bardzo uciążliwe:
 
 ```js
-function Profile({ person, size, isSepia, thickBorder }) {
+function Profile({person, size, isSepia, thickBorder}) {
   return (
     <div className="card">
       <Avatar
@@ -249,7 +247,7 @@ To sprawi, że wszystkie właściwości komponentu `Profile` trafią do `Avatar`
 
 **Używaj operatora rozwinięcia z umiarem.** Jeśli nagminnie używasz go w niemal każdym komponencie, to coś jest nie tak. Zwykle świadczy to o potrzebie podzielenia komponentów i przekazania potomków jako JSX. Ale o tym za chwilę!
 
-## Przekazywanie potomków jako JSX {/*passing-jsx-as-children*/}
+## Przekazywanie potomków jako JSX {/* passing-jsx-as-children */}
 
 Dość często można spotkać takie oto zagnieżdżenie wbudowanych znaczników przeglądarkowych:
 
@@ -274,12 +272,8 @@ Kiedy zagnieżdżasz jakiś kod wewnątrz znacznika JSX, komponent nadrzędny do
 ```js App.js
 import Avatar from './Avatar.js';
 
-function Card({ children }) {
-  return (
-    <div className="card">
-      {children}
-    </div>
-  );
+function Card({children}) {
+  return <div className="card">{children}</div>;
 }
 
 export default function Profile() {
@@ -287,9 +281,9 @@ export default function Profile() {
     <Card>
       <Avatar
         size={100}
-        person={{ 
+        person={{
           name: 'Katsuko Saruhashi',
-          imageId: 'YfeOqp2'
+          imageId: 'YfeOqp2',
         }}
       />
     </Card>
@@ -298,9 +292,9 @@ export default function Profile() {
 ```
 
 ```js Avatar.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
-export default function Avatar({ person, size }) {
+export default function Avatar({person, size}) {
   return (
     <img
       className="avatar"
@@ -315,12 +309,7 @@ export default function Avatar({ person, size }) {
 
 ```js utils.js
 export function getImageUrl(person, size = 's') {
-  return (
-    'https://i.imgur.com/' +
-    person.imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
 ```
 
@@ -345,15 +334,14 @@ export function getImageUrl(person, size = 's') {
 
 Spróbuj zastąpić `<Avatar>` wewnątrz `<Card>` jakimś tekstem, aby zobaczyć na własne oczy, że komponent `Card` może opakowywać dowolną treść. Nie musi on "wiedzieć", co renderuje. Ten wzorzec ma szerokie spektrum zastosowań i z pewnością spotkasz się z nim jeszcze nieraz.
 
-<<<<<<< HEAD:beta/src/pages/learn/passing-props-to-a-component.md
-Komponent z właściwością `children` można sobie wyobrazić jako taki z "dziurą", którą komponent nadrzędny może "zapełnić" dowolnym kodem JSX. Dość często stosuje się `children` w komponentach opakowujących coś wizualnie: panelach, siatkach itp. Więcej na ten temat dowiesz się w rozdziale pt. [Wyodrębnianie komponentów układających interfejs](/learn/extracting-layout-components).
-=======
-You can think of a component with a `children` prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX. You will often use the `children` prop for visual wrappers: panels, grids, and so on. You can explore this in more detail in [Extracting Layout Components.](TODO:/learn/extracting-layout-components)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/passing-props-to-a-component.md
+Komponent z właściwością `children` można sobie wyobrazić jako taki z "dziurą", którą komponent nadrzędny może "zapełnić" dowolnym kodem JSX. Dość często stosuje się `children` w komponentach opakowujących coś wizualnie: panelach, siatkach itp. Więcej na ten temat dowiesz się w rozdziale pt. [Wyodrębnianie komponentów układających interfejs](TODO:/learn/extracting-layout-components).
 
-<Illustration src="/images/docs/illustrations/i_children-prop.png" alt='Komponent Card w kształcie puzzla z miejscem na elementy "potomne" jak tekst czy Avatar' />
+<Illustration
+  src="/images/docs/illustrations/i_children-prop.png"
+  alt='Komponent Card w kształcie puzzla z miejscem na elementy "potomne" jak tekst czy Avatar'
+/>
 
-## Jak właściwości zmieniają się w czasie {/*how-props-change-over-time*/}
+## Jak właściwości zmieniają się w czasie {/* how-props-change-over-time */}
 
 Komponent `Clock` przedstawiony poniżej otrzymuje od swojego "rodzica" dwie właściwości: `color` oraz `time`. (Celowo pominęliśmy tu kod rodzica, ponieważ korzysta on ze [stanu](/learn/state-a-components-memory), o którym będzie mowa w dalszych rozdziałach.)
 
@@ -362,17 +350,13 @@ Spróbuj zmienić kolor, wybierając opcję z poniższej listy rozwijanej:
 <Sandpack>
 
 ```js Clock.js active
-export default function Clock({ color, time }) {
-  return (
-    <h1 style={{ color: color }}>
-      {time}
-    </h1>
-  );
+export default function Clock({color, time}) {
+  return <h1 style={{color: color}}>{time}</h1>;
 }
 ```
 
 ```js App.js hidden
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import Clock from './Clock.js';
 
 function useTime() {
@@ -393,7 +377,7 @@ export default function App() {
     <div>
       <p>
         Pick a color:{' '}
-        <select value={color} onChange={e => setColor(e.target.value)}>
+        <select value={color} onChange={(e) => setColor(e.target.value)}>
           <option value="lightcoral">lightcoral</option>
           <option value="midnightblue">midnightblue</option>
           <option value="rebeccapurple">rebeccapurple</option>
@@ -409,44 +393,32 @@ export default function App() {
 
 Ten przykład pokazuje, że **komponent może otrzymywać wartości właściwości zmienne w czasie.** Właściwości nie są zawsze statyczne! Tutaj wartość dla `time` zmienia się co sekundę, a dla `color` w momencie wybrania opcji z listy rozwijanej. Właściwości odzwierciedlają dane komponentu w określonym momencie, a nie tylko na początku.
 
-<<<<<<< HEAD:beta/src/pages/learn/passing-props-to-a-component.md
 Warto jednak pamiętać, że właściwości są [niemutowalne (_ang_. immutable)](https://en.wikipedia.org/wiki/Immutable_object) — określenie to pochodzi z informatyki i oznacza "niezmienność". Kiedy komponent chce zmienić swoje właściwości (na przykład w odpowiedzi na interakcję użytkownika lub nowe dane), musi "poprosić" swojego "rodzica", aby ten przekazał mu _inne wartości_ - czyli nowy obiekt! Wtedy stare właściwości zostaną zapomniane, a niedługo potem silnik JavaScriptu odzyska zajmowaną przez nie pamięć.
 
-**Nie próbuj "zmieniać właściwości".** Kiedy zechcesz zareagować na dane wprowadzone przez użytkownika (jak np. zmiana wybranego koloru), musisz "ustawić stan", o czym nauczysz się w rozdziale pt. [Stan - Pamięć komponentu](/learn/state-a-components-memory).
-=======
-However, props are [immutable](https://en.wikipedia.org/wiki/Immutable_object)—a term from computer science meaning "unchangeable". When a component needs to change its props (for example, in response to a user interaction or new data), it will have to "ask" its parent component to pass it _different props_—a new object! Its old props will then be cast aside, and eventually the JavaScript engine will reclaim the memory taken by them.
-
-**Don't try to "change props".** When you need to respond to the user input (like changing the selected color), you will need to "set state", which you can learn about in [State: A Component's Memory.](/learn/state-a-components-memory)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/passing-props-to-a-component.md
+# **Nie próbuj "zmieniać właściwości".** Kiedy zechcesz zareagować na dane wprowadzone przez użytkownika (jak np. zmiana wybranego koloru), musisz "ustawić stan", o czym nauczysz się w rozdziale pt. [Stan - Pamięć komponentu](/learn/state-a-components-memory). {/*nie-próbuj-zmieniać-właściwości-kiedy-zechcesz-zareagować-na-dane-wprowadzone-przez-użytkownika-jak-np-zmiana-wybranego-koloru-musisz-ustawić-stan-o-czym-nauczysz-się-w-rozdziale-pt-stan---pamięć-komponentu*/}
 
 <Recap>
 
-* Aby przekazać właściwości, dodaj je do kodu JSX, tak jak to robisz z atrybutami w HTML-u.
-* Aby odczytać wartości właściwości, użyj destrukturyzacji `function Avatar({ person, size })`.
-* Możesz ustawić domyślną wartość, np. `size = 100`, która zostanie użyta, gdy właściwość nie ma wartości lub jest ona ustawiona na `undefined`.
-* Możesz przekazać wszystkie właściwości za pomocą operatora rozwinięcia `<Avatar {...props} />`; ale nie nadużywaj tego sposobu!
-* Zagnieżdżony kod JSX, jak np. `<Card><Avatar /></Card>`, zostanie przekazany do komponentu `Card` jako właściwość `children`.
-* Właściwości są jak niezmienialne "migawki" z danego momentu w czasie: każde renderowanie komponentu dostarcza nową wersję właściwości.
-* Nie można zmieniać wartości właściwości. Jeśli potrzebujesz interaktywności, musisz ustawiać stan.
+- Aby przekazać właściwości, dodaj je do kodu JSX, tak jak to robisz z atrybutami w HTML-u.
+- Aby odczytać wartości właściwości, użyj destrukturyzacji `function Avatar({ person, size })`.
+- Możesz ustawić domyślną wartość, np. `size = 100`, która zostanie użyta, gdy właściwość nie ma wartości lub jest ona ustawiona na `undefined`.
+- Możesz przekazać wszystkie właściwości za pomocą operatora rozwinięcia `<Avatar {...props} />`; ale nie nadużywaj tego sposobu!
+- Zagnieżdżony kod JSX, jak np. `<Card><Avatar /></Card>`, zostanie przekazany do komponentu `Card` jako właściwość `children`.
+- Właściwości są jak niezmienialne "migawki" z danego momentu w czasie: każde renderowanie komponentu dostarcza nową wersję właściwości.
+- Nie można zmieniać wartości właściwości. Jeśli potrzebujesz interaktywności, musisz ustawiać stan.
 
 </Recap>
 
-
-
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/passing-props-to-a-component.md
-### Wyodrębnij komponent {/*extract-a-component*/}
-=======
-#### Extract a component {/*extract-a-component*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/passing-props-to-a-component.md
+#### Wyodrębnij komponent {/* extract-a-component */}
 
 Ten komponent `Gallery` zawiera bardzo podobny kod dla dwóch profili. Wyodrębnij z niego komponent `Profile`, aby zmniejszyć powtarzalność w kodzie. Następnie pomyśl, jakie właściwości należy przekazać do `Profile`.
 
 <Sandpack>
 
 ```js App.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
 export default function Gallery() {
   return (
@@ -463,12 +435,13 @@ export default function Gallery() {
         />
         <ul>
           <li>
-            <b>Profesja: </b> 
+            <b>Profesja: </b>
             fizyka i chemia
           </li>
           <li>
-            <b>Nagrody: 4 </b> 
-            (Nagroda Nobla w dziedzinie fizyki, Nagroda Nobla w dziedzinie chemii, Medal Davy'ego, Medal Matteucciego)
+            <b>Nagrody: 4 </b>
+            (Nagroda Nobla w dziedzinie fizyki, Nagroda Nobla w dziedzinie chemii,
+            Medal Davy'ego, Medal Matteucciego)
           </li>
           <li>
             <b>Odkrycia: </b>
@@ -487,11 +460,11 @@ export default function Gallery() {
         />
         <ul>
           <li>
-            <b>Profesja: </b> 
+            <b>Profesja: </b>
             geochemia
           </li>
           <li>
-            <b>Nagrody: 2 </b> 
+            <b>Nagrody: 2 </b>
             (Nagroda Miyake w dziedzinie geochemii, Nagroda Tanaki)
           </li>
           <li>
@@ -507,27 +480,35 @@ export default function Gallery() {
 
 ```js utils.js
 export function getImageUrl(imageId, size = 's') {
-  return (
-    'https://i.imgur.com/' +
-    imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + imageId + size + '.jpg';
 }
 ```
 
 ```css
-.avatar { margin: 5px; border-radius: 50%; min-height: 70px; }
+.avatar {
+  margin: 5px;
+  border-radius: 50%;
+  min-height: 70px;
+}
 .profile {
   border: 1px solid #aaa;
   border-radius: 6px;
   margin-top: 20px;
   padding: 10px;
 }
-h1, h2 { margin: 5px; }
-h1 { margin-bottom: 10px; }
-ul { padding: 0px 10px 0px 20px; }
-li { margin: 5px; }
+h1,
+h2 {
+  margin: 5px;
+}
+h1 {
+  margin-bottom: 10px;
+}
+ul {
+  padding: 0px 10px 0px 20px;
+}
+li {
+  margin: 5px;
+}
 ```
 
 </Sandpack>
@@ -547,7 +528,7 @@ Zwróć uwagę, że właściwość `imageSize` ma wartość domyślną. To dlate
 <Sandpack>
 
 ```js App.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
 function Profile({
   imageId,
@@ -555,7 +536,7 @@ function Profile({
   profession,
   awards,
   discovery,
-  imageSize = 70
+  imageSize = 70,
 }) {
   return (
     <section className="profile">
@@ -568,10 +549,11 @@ function Profile({
         height={imageSize}
       />
       <ul>
-        <li><b>Profesja:</b> {profession}</li>
         <li>
-          <b>Nagrody: {awards.length} </b>
-          ({awards.join(', ')})
+          <b>Profesja:</b> {profession}
+        </li>
+        <li>
+          <b>Nagrody: {awards.length} </b>({awards.join(', ')})
         </li>
         <li>
           <b>Odkrycia: </b>
@@ -594,19 +576,16 @@ export default function Gallery() {
         awards={[
           'Nagroda Nobla w dziedzinie fizyki',
           'Nagroda Nobla w dziedzinie chemii',
-          'Medal Davy\'ego',
-          'Medal Matteucciego'
+          "Medal Davy'ego",
+          'Medal Matteucciego',
         ]}
       />
       <Profile
-        imageId='YfeOqp2'
-        name='Katsuko Saruhashi'
-        profession='geochemia'
+        imageId="YfeOqp2"
+        name="Katsuko Saruhashi"
+        profession="geochemia"
         discovery="metoda pomiaru dwutlenku węgla w wodzie morskiej"
-        awards={[
-          'Nagroda Miyake w dziedzinie geochemii',
-          'Nagroda Tanaki'
-        ]}
+        awards={['Nagroda Miyake w dziedzinie geochemii', 'Nagroda Tanaki']}
       />
     </div>
   );
@@ -615,27 +594,35 @@ export default function Gallery() {
 
 ```js utils.js
 export function getImageUrl(imageId, size = 's') {
-  return (
-    'https://i.imgur.com/' +
-    imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + imageId + size + '.jpg';
 }
 ```
 
 ```css
-.avatar { margin: 5px; border-radius: 50%; min-height: 70px; }
+.avatar {
+  margin: 5px;
+  border-radius: 50%;
+  min-height: 70px;
+}
 .profile {
   border: 1px solid #aaa;
   border-radius: 6px;
   margin-top: 20px;
   padding: 10px;
 }
-h1, h2 { margin: 5px; }
-h1 { margin-bottom: 10px; }
-ul { padding: 0px 10px 0px 20px; }
-li { margin: 5px; }
+h1,
+h2 {
+  margin: 5px;
+}
+h1 {
+  margin-bottom: 10px;
+}
+ul {
+  padding: 0px 10px 0px 20px;
+}
+li {
+  margin: 5px;
+}
 ```
 
 </Sandpack>
@@ -647,10 +634,10 @@ Inne rozwiązanie, nieco bardziej podobne do poprzednich przykładów na tej str
 <Sandpack>
 
 ```js App.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
-function Profile({ person, imageSize = 70 }) {
-  const imageSrc = getImageUrl(person)
+function Profile({person, imageSize = 70}) {
+  const imageSrc = getImageUrl(person);
 
   return (
     <section className="profile">
@@ -667,8 +654,7 @@ function Profile({ person, imageSize = 70 }) {
           <b>Profesja:</b> {person.profession}
         </li>
         <li>
-          <b>Nagrody: {person.awards.length} </b>
-          ({person.awards.join(', ')})
+          <b>Nagrody: {person.awards.length} </b>({person.awards.join(', ')})
         </li>
         <li>
           <b>Odkrycia: </b>
@@ -676,35 +662,36 @@ function Profile({ person, imageSize = 70 }) {
         </li>
       </ul>
     </section>
-  )
+  );
 }
 
 export default function Gallery() {
   return (
     <div>
       <h1>Wybitni naukowcy</h1>
-      <Profile person={{
-        imageId: 'szV5sdG',
-        name: 'Maria Skłodowska-Curie',
-        profession: 'fizyka i chemia',
-        discovery: 'polon (pierwiastek chemiczny)',
-        awards: [
-          'Nagroda Nobla w dziedzinie fizyki',
-          'Nagroda Nobla w dziedzinie chemii',
-          'Medal Davy\'ego',
-          'Medal Matteucciego'
-        ],
-      }} />
-      <Profile person={{
-        imageId: 'YfeOqp2',
-        name: 'Katsuko Saruhashi',
-        profession: 'geochemia',
-        discovery: 'metoda pomiaru dwutlenku węgla w wodzie morskiej',
-        awards: [
-          'Nagroda Miyake w dziedzinie geochemii',
-          'Nagroda Tanaki'
-        ],
-      }} />
+      <Profile
+        person={{
+          imageId: 'szV5sdG',
+          name: 'Maria Skłodowska-Curie',
+          profession: 'fizyka i chemia',
+          discovery: 'polon (pierwiastek chemiczny)',
+          awards: [
+            'Nagroda Nobla w dziedzinie fizyki',
+            'Nagroda Nobla w dziedzinie chemii',
+            "Medal Davy'ego",
+            'Medal Matteucciego',
+          ],
+        }}
+      />
+      <Profile
+        person={{
+          imageId: 'YfeOqp2',
+          name: 'Katsuko Saruhashi',
+          profession: 'geochemia',
+          discovery: 'metoda pomiaru dwutlenku węgla w wodzie morskiej',
+          awards: ['Nagroda Miyake w dziedzinie geochemii', 'Nagroda Tanaki'],
+        }}
+      />
     </div>
   );
 }
@@ -712,27 +699,35 @@ export default function Gallery() {
 
 ```js utils.js
 export function getImageUrl(person, size = 's') {
-  return (
-    'https://i.imgur.com/' +
-    person.imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
 ```
 
 ```css
-.avatar { margin: 5px; border-radius: 50%; min-height: 70px; }
+.avatar {
+  margin: 5px;
+  border-radius: 50%;
+  min-height: 70px;
+}
 .profile {
   border: 1px solid #aaa;
   border-radius: 6px;
   margin-top: 20px;
   padding: 10px;
 }
-h1, h2 { margin: 5px; }
-h1 { margin-bottom: 10px; }
-ul { padding: 0px 10px 0px 20px; }
-li { margin: 5px; }
+h1,
+h2 {
+  margin: 5px;
+}
+h1 {
+  margin-bottom: 10px;
+}
+ul {
+  padding: 0px 10px 0px 20px;
+}
+li {
+  margin: 5px;
+}
 ```
 
 </Sandpack>
@@ -741,11 +736,7 @@ Mimo że składnia tutaj wygląda nieco inaczej, ponieważ opisujemy właściwo�
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/passing-props-to-a-component.md
-### Dostosuj rozmiar obrazka na podstawie właściwości {/*adjust-the-image-size-based-on-a-prop*/}
-=======
-#### Adjust the image size based on a prop {/*adjust-the-image-size-based-on-a-prop*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/passing-props-to-a-component.md
+#### Dostosuj rozmiar obrazka na podstawie właściwości {/* adjust-the-image-size-based-on-a-prop */}
 
 W kodzie poniżej `Avatar` otrzymuje właściwość numeryczną `size`, która określa szerokość i wysokość dla `<img>`. Właściwość `size` jest w tym przykładzie ustawiona na `40`. Jednakże, jeśli otworzysz obrazek w nowej karcie, zobaczysz, że jest on w rzeczywistości większy (`160` pikseli). Prawdziwy rozmiar obrazka jest określany na podstawie rozmiaru miniatury, o jaką prosisz.
 
@@ -754,9 +745,9 @@ Zmień komponent `Avatar` tak, aby ustawiał rozmiar obrazka na podstawie właś
 <Sandpack>
 
 ```js App.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
-function Avatar({ person, size }) {
+function Avatar({person, size}) {
   return (
     <img
       className="avatar"
@@ -772,9 +763,9 @@ export default function Profile() {
   return (
     <Avatar
       size={40}
-      person={{ 
-        name: 'Gregorio Y. Zara', 
-        imageId: '7vQD0fP'
+      person={{
+        name: 'Gregorio Y. Zara',
+        imageId: '7vQD0fP',
       }}
     />
   );
@@ -783,17 +774,15 @@ export default function Profile() {
 
 ```js utils.js
 export function getImageUrl(person, size) {
-  return (
-    'https://i.imgur.com/' +
-    person.imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
 ```
 
 ```css
-.avatar { margin: 20px; border-radius: 50%; }
+.avatar {
+  margin: 20px;
+  border-radius: 50%;
+}
 ```
 
 </Sandpack>
@@ -805,9 +794,9 @@ Oto możliwe rozwiązanie:
 <Sandpack>
 
 ```js App.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
-function Avatar({ person, size }) {
+function Avatar({person, size}) {
   let thumbnailSize = 's';
   if (size > 90) {
     thumbnailSize = 'b';
@@ -828,16 +817,16 @@ export default function Profile() {
     <>
       <Avatar
         size={40}
-        person={{ 
-          name: 'Gregorio Y. Zara', 
-          imageId: '7vQD0fP'
+        person={{
+          name: 'Gregorio Y. Zara',
+          imageId: '7vQD0fP',
         }}
       />
       <Avatar
         size={120}
-        person={{ 
-          name: 'Gregorio Y. Zara', 
-          imageId: '7vQD0fP'
+        person={{
+          name: 'Gregorio Y. Zara',
+          imageId: '7vQD0fP',
         }}
       />
     </>
@@ -847,17 +836,15 @@ export default function Profile() {
 
 ```js utils.js
 export function getImageUrl(person, size) {
-  return (
-    'https://i.imgur.com/' +
-    person.imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
 ```
 
 ```css
-.avatar { margin: 20px; border-radius: 50%; }
+.avatar {
+  margin: 20px;
+  border-radius: 50%;
+}
 ```
 
 </Sandpack>
@@ -867,11 +854,11 @@ Możesz także pokazać nieco ostrzejszą wersję obrazka dla ekranów z wysokim
 <Sandpack>
 
 ```js App.js
-import { getImageUrl } from './utils.js';
+import {getImageUrl} from './utils.js';
 
 const ratio = window.devicePixelRatio;
 
-function Avatar({ person, size }) {
+function Avatar({person, size}) {
   let thumbnailSize = 's';
   if (size * ratio > 90) {
     thumbnailSize = 'b';
@@ -892,23 +879,23 @@ export default function Profile() {
     <>
       <Avatar
         size={40}
-        person={{ 
-          name: 'Gregorio Y. Zara', 
-          imageId: '7vQD0fP'
+        person={{
+          name: 'Gregorio Y. Zara',
+          imageId: '7vQD0fP',
         }}
       />
       <Avatar
         size={70}
-        person={{ 
-          name: 'Gregorio Y. Zara', 
-          imageId: '7vQD0fP'
+        person={{
+          name: 'Gregorio Y. Zara',
+          imageId: '7vQD0fP',
         }}
       />
       <Avatar
         size={120}
-        person={{ 
-          name: 'Gregorio Y. Zara', 
-          imageId: '7vQD0fP'
+        person={{
+          name: 'Gregorio Y. Zara',
+          imageId: '7vQD0fP',
         }}
       />
     </>
@@ -918,17 +905,15 @@ export default function Profile() {
 
 ```js utils.js
 export function getImageUrl(person, size) {
-  return (
-    'https://i.imgur.com/' +
-    person.imageId +
-    size +
-    '.jpg'
-  );
+  return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
 ```
 
 ```css
-.avatar { margin: 20px; border-radius: 50%; }
+.avatar {
+  margin: 20px;
+  border-radius: 50%;
+}
 ```
 
 </Sandpack>
@@ -937,11 +922,7 @@ Właściwości pozwalają zamknąć logikę tego typu wewnątrz komponentu `Avat
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/passing-props-to-a-component.md
-### Przekazywanie kodu JSX do właściwości `children` {/*passing-jsx-in-a-children-prop*/}
-=======
-#### Passing JSX in a `children` prop {/*passing-jsx-in-a-children-prop*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/passing-props-to-a-component.md
+#### Przekazywanie kodu JSX do właściwości `children` {/* passing-jsx-in-a-children-prop */}
 
 Wyodrębnij z poniższego kodu komponent `Card`, a następnie użyj właściwości `children` tak, by przekazać do niego inny kod JSX-owy:
 
@@ -966,7 +947,10 @@ export default function Profile() {
       <div className="card">
         <div className="card-content">
           <h1>O postaci</h1>
-          <p>Aklilu Lemma był wybitnym etiopskim naukowcem, który wynalazł naturalny sposób leczenia schistosomatozy.</p>
+          <p>
+            Aklilu Lemma był wybitnym etiopskim naukowcem, który wynalazł
+            naturalny sposób leczenia schistosomatozy.
+          </p>
         </div>
       </div>
     </div>
@@ -1012,12 +996,10 @@ Oto w jaki sposób można użyć komponentu `Card` w obu miejscach:
 <Sandpack>
 
 ```js
-function Card({ children }) {
+function Card({children}) {
   return (
     <div className="card">
-      <div className="card-content">
-        {children}
-      </div>
+      <div className="card-content">{children}</div>
     </div>
   );
 }
@@ -1037,7 +1019,10 @@ export default function Profile() {
       </Card>
       <Card>
         <h1>O postaci</h1>
-        <p>Aklilu Lemma był wybitnym etiopskim naukowcem, który wynalazł naturalny sposób leczenia schistosomatozy.</p>
+        <p>
+          Aklilu Lemma był wybitnym etiopskim naukowcem, który wynalazł
+          naturalny sposób leczenia schistosomatozy.
+        </p>
       </Card>
     </div>
   );
@@ -1074,7 +1059,7 @@ Możesz także stworzyć oddzielną właściwość `title`, jeśli chcesz, aby `
 <Sandpack>
 
 ```js
-function Card({ children, title }) {
+function Card({children, title}) {
   return (
     <div className="card">
       <div className="card-content">
@@ -1098,7 +1083,10 @@ export default function Profile() {
         />
       </Card>
       <Card title="O postaci">
-        <p>Aklilu Lemma był wybitnym etiopskim naukowcem, który wynalazł naturalny sposób leczenia schistosomatozy.</p>
+        <p>
+          Aklilu Lemma był wybitnym etiopskim naukowcem, który wynalazł
+          naturalny sposób leczenia schistosomatozy.
+        </p>
       </Card>
     </div>
   );

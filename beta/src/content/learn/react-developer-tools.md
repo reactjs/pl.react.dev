@@ -22,11 +22,7 @@ Najprostszym sposobem na debugowanie stron internetowych stworzonych w Reakcie j
 - [Zainstaluj rozszerzenie dla **Firefoksa**](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 - [Zainstaluj rozszerzenie dla **Edge'a**](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
 
-<<<<<<< HEAD:beta/src/pages/learn/react-developer-tools.md
 Teraz, gdy wejdziesz na stronę **zbudowaną w Reakcie**, zobaczysz dodatkowe zakładki o nazwie _Components_ oraz _Profiler_.
-=======
-Now, if you visit a website **built with React,** you will see the _Components_ and _Profiler_ panels.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/react-developer-tools.md
 
 ![Narzędzia deweloperskie dla Reacta w przeglądarce](/images/docs/react-devtools-extension.png)
 

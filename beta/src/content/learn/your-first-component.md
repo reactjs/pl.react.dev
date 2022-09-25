@@ -33,11 +33,7 @@ W świecie aplikacji internetowych HTML pozwala nam na tworzenie dokumentów o b
 
 Powyższy kod odzwierciedla czytany przez ciebie artykuł `<article>`, jego nagłówek `<h1>` i (skrócony) spis treści w postaci listy numerowanej `<ol>`. Tego typu kod, połączony ze stylami CSS oraz interaktywnością napisaną w JavaScripcie, stoi za każdym paskiem bocznym, awatarem, oknem dialogowym, listą rozwijaną - każdym fragmentem UI-a widocznym w sieci.
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
 React pozwala na połączenie znaczników, CSS-a i JavaScriptu w "komponent", **element wielokrotnego użytku stanowiący część UI-a twojej aplikacji.** Powyższy kod, reprezentujący spis treści, mógłby zostać zastąpiony komponentem `<TableOfContents />`, renderowanym na każdej stronie. Pod spodem nadal byłby to ten sam kod HTML, składający się z `<article>`, `<h1>` itd.
-=======
-React lets you combine your markup, CSS, and JavaScript into custom "components", **reusable UI elements for your app.** The table of contents code you saw above could be turned into a `<TableOfContents />` component you could render on every page. Under the hood, it still uses the same HTML tags like `<article>`, `<h1>`, etc.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
 
 Podobnie jak w przypadku znaczników HTML-owych, komponenty można łączyć, zagnieżdżać i zmieniać im kolejność, tworząc w ten sposób całe strony. Dla przykładu, dokumentacja, którą właśnie czytasz, składa się z następujących komponentów:
 
@@ -55,19 +51,11 @@ Podobnie jak w przypadku znaczników HTML-owych, komponenty można łączyć, za
 </PageLayout>
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
 Wraz ze wzrostem złożoności projektu z pewnością zauważysz, że wiele widoków można poskładać z istniejących już komponentów, co znacznie skróci czas pisania kodu. Nasz spis treści mógłby być dodawany do każdej strony jako `<TableOfContents />`! Co więcej, możesz rozpędzić prace nad aplikacją korzystając z tysięcy komponentów udostępnianych przez reactową społeczność open-source'ową, takich jak [Chakra UI](https://chakra-ui.com/) czy [Material UI](https://material-ui.com/).
-=======
-As your project grows, you will notice that many of your designs can be composed by reusing components you already wrote, speeding up your development. Our table of contents above could be added to any screen with `<TableOfContents />`! You can even jumpstart your project with the thousands of components shared by the React open source community like [Chakra UI](https://chakra-ui.com/) and [Material UI.](https://material-ui.com/)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
 
 ## Definiowanie komponentu {/*defining-a-component*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
 W przeszłości, kiedy programiści tworzyli stronę internetową, składali najpierw HTML, aby zbudować treść, a następnie dokładali kod javascriptowy dodający interakcje. Takie podejście działało, gdy interakcje na stronie były tylko przyjemnym dodatkiem; teraz dla wielu stron jest to mus. React stawia interakcje na pierwszym miejscu, w dalszym ciągu korzystając z tej samej technologii: **komponent reactowy jest więc funkcją javascriptową _okraszony znacznikami_**. Oto przykład, jak to może wyglądać w rzeczywistości (poniższy kod można edytować):
-=======
-Traditionally when creating web pages, web developers marked up their content and then added interaction by sprinkling on some JavaScript. This worked great when interaction was a nice-to-have on the web. Now it is expected for many sites and all apps. React puts interactivity first while still using the same technology: **a React component is a JavaScript function that you can _sprinkle with markup_.** Here's what that looks like (you can edit the example below):
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
 
 <Sandpack>
 
@@ -184,19 +172,11 @@ A sam `Profile` zawiera jeszcze więcej kodu HTML: `<img />`. Ostatecznie, to, c
 
 ### Zagnieżdżanie i rozmieszczanie komponentów {/*nesting-and-organizing-components*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
 Komponenty są zwykłymi funkcjami javascriptowymi, dzięki czemu możesz mieć kilka komponentów w tym samym pliku. Jest to wygodne, gdy komponenty są małe lub mocno ze sobą powiązane. Jeśli jednak plik zacznie robić się długi i skomplikowany, zawsze możesz przenieść `Profile` do osobnego pliku. Wkrótce dowiesz się, jak to zrobić, na [stronie o importach](/learn/importing-and-exporting-components).
-=======
-Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other. If this file gets crowded, you can always move `Profile` to a separate file. You will learn how to do this shortly on the [page about imports.](/learn/importing-and-exporting-components)
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
 
 Ponieważ komponenty `Profile` są renderowane wewnątrz `Gallery` — nawet kilka razy! — możemy powiedzieć, że `Gallery` jest **komponentem-rodzicem** (nadrzędnym), a każdy z `Profile` jest "dzieckiem" (potomkiem). Na tym właśnie polega magia Reacta: możesz zdefiniować komponent jeden raz, a używać go wielokrotnie w wielu miejscach.
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
 <DeepDive title="Komponenty od góry do dołu">
-=======
-<DeepDive title="Components all the way down">
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
 
 Twoja aplikacja reactowa zaczyna się w komponencie głównym (_ang._ root - "korzeń"). Zwykle jest on tworzony automatycznie przy starcie nowego projektu. Na przykład, jeśli używasz [CodeSandbox](https://codesandbox.io/) lub [Create React App](https://create-react-app.dev/), komponent główny jest zdefiniowany w pliku `src/App.js`. Jeśli używasz frameworka [Next.js](https://nextjs.org/), komponent główny jest zdefiniowany w pliku `pages/index.js`. W poprzednich przykładach eksportowaliśmy własne komponenty główne.
 
@@ -204,11 +184,7 @@ Większość aplikacji reactowych używa komponentów "od góry do dołu". Oznac
 
 Frameworki takie jak Next.js idą o krok dalej. Zamiast tworzyć pusty plik HTML i pozwolić Reactowi "przejąć kontrolę" nad stroną poprzez JavaScript, niektóre frameworki _również_ automatycznie generują kod HTML z komponentów. Umożliwia to wyświetlenie choć części treści strony, podczas gdy kod javascriptowy jest ładowany.
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
 Mimo wszystko wiele stron używa Reacta tylko po to, by [dodać do nich "szczyptę interaktywności"](/learn/add-react-to-a-website). Mają one wiele komponentów głównych zamiast jednego na całą stronę. Świadczy to o tym, że Reacta można używać w takim stopniu, jaki jest aktualnie potrzebny.
-=======
-Still, many websites only use React to [add "sprinkles of interactivity".](/learn/add-react-to-a-website) They have many root components instead of a single one for the entire page. You can use as much—or as little—React as you need.
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
 
 </DeepDive>
 
@@ -227,11 +203,7 @@ Masz za sobą przedsmak tego, co potrafi React! Zróbmy małe podsumowanie.
 
 <Challenges>
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
-### Wyeksportuj komponent {/*export-the-component*/}
-=======
-#### Export the component {/*export-the-component*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
+#### Wyeksportuj komponent {/*export-the-component*/}
 
 Poniższy sandbox nie działa, ponieważ główny komponent nie jest wyeksportowany:
 
@@ -279,19 +251,11 @@ img { height: 181px; }
 
 </Sandpack>
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
 Być może zastanawiasz się, dlaczego nie wystarczyło napisać `export`? Różnice pomiędzy `export` a `export default` opisaliśmy w rozdziale pt. [Importowanie i eksportowanie komponentów](/learn/importing-and-exporting-components).
 
 </Solution>
 
-### Napraw zwracaną wartość {/*fix-the-return-statement*/}
-=======
-You might be wondering why writing `export` alone is not enough to fix this example. You can learn the difference between `export` and `export default` in [Importing and Exporting Components.](/learn/importing-and-exporting-components)
-
-</Solution>
-
-#### Fix the return statement {/*fix-the-return-statement*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
+#### Napraw zwracaną wartość {/*fix-the-return-statement*/}
 
 Coś jest nie tak z tą instrukcją `return`. Potrafisz to naprawić?
 
@@ -357,11 +321,7 @@ img { height: 180px; }
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
-### Znajdź pomyłkę {/*spot-the-mistake*/}
-=======
-#### Spot the mistake {/*spot-the-mistake*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
+#### Znajdź pomyłkę {/*spot-the-mistake*/}
 
 Coś jest nie tak z definicją i użyciem komponentu `Profile`. Potrafisz znaleźć pomyłkę? (Spróbuj przypomnieć sobie, jak React odróżnia komponenty od zwykłych znaczników HTML-owych!)
 
@@ -433,11 +393,7 @@ img { margin: 0 10px 10px 0; }
 
 </Solution>
 
-<<<<<<< HEAD:beta/src/pages/learn/your-first-component.md
-### Napisz swój własny komponent {/*your-own-component*/}
-=======
-#### Your own component {/*your-own-component*/}
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd:beta/src/content/learn/your-first-component.md
+#### Napisz swój własny komponent {/*your-own-component*/}
 
 Napisz komponent od zera. Możesz nadać mu dowolną poprawną nazwę i zwrócić dowolną strukturę znaczników. Jeśli brakuje ci pomysłów, stwórz komponent `Congratulations`, który wyświetla `<h1>Dobra robota!</h1>`. Nie zapomnij go wyeksportować!
 

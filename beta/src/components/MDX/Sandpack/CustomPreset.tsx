@@ -87,22 +87,6 @@ export function CustomPreset({
                       inline: 'nearest',
                     });
                   }
-<<<<<<< HEAD
-                }}>
-                <span className="flex p-2 focus:outline-none text-primary dark:text-primary-dark">
-                  <IconChevron
-                    className="inline mr-1.5 text-xl"
-                    displayDirection={isExpanded ? 'up' : 'down'}
-                  />
-                  {isExpanded ? 'Pokaż mniej' : 'Pokaż więcej'}
-                </span>
-              </button>
-            )}
-          </div>
-
-          {showDevTools && (
-            <SandpackReactDevTools onLoadModule={onDevToolsLoad} />
-=======
                 }
               }}>
               <span className="flex p-2 focus:outline-none text-primary dark:text-primary-dark">
@@ -110,10 +94,9 @@ export function CustomPreset({
                   className="inline mr-1.5 text-xl"
                   displayDirection={isExpanded ? 'up' : 'down'}
                 />
-                {isExpanded ? 'Show less' : 'Show more'}
+                {isExpanded ? 'Pokaż mniej' : 'Pokaż więcej'}
               </span>
             </button>
->>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
           )}
         </SandpackLayout>
 
