@@ -11,15 +11,15 @@ const {Intro, MaxWidth, p: P, a: A} = MDXComponents;
 export default function NotFound() {
   return (
     <Page toc={[]}>
-      <MarkdownPage meta={{title: 'Not Found'}}>
+      <MarkdownPage meta={{title: 'Nie znaleziono'}}>
         <MaxWidth>
           <Intro>
-            <P>This page doesn’t exist.</P>
+            <P>Podana strona nie istnieje.</P>
             <P>
-              Quite possibly, it hasn’t been written yet. This beta is a{' '}
-              <A href="/#how-much-content-is-ready">work in progress!</A>
+              Całkiem możliwe, że nie została jeszcze napisana. Ta beta jest{' '}
+              <A href="/#how-much-content-is-ready">ciągle w budowie!</A>
             </P>
-            <P>Please check back later.</P>
+            <P>Wróć za jakiś czas.</P>
           </Intro>
         </MaxWidth>
       </MarkdownPage>
