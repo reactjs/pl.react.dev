@@ -31,7 +31,11 @@ function MyComponent() {
   // ...
 ```
 
+<<<<<<< HEAD
 Przyjęło się, że zmienne stanu nazywamy `[something, setSomething]`, korzystając przy tym z [destrukturyzacji tablicy](TODO:/learn/a-javascript-refresher#array-destructuring).
+=======
+  The convention is to name state variables like `[something, setSomething]` using [array destructuring.](https://javascript.info/destructuring-assignment)
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
 
 `useState` zwraca tablicę o dokładnie dwóch elementach:
 
@@ -1083,7 +1087,11 @@ function MyComponent() {
   // ...
 ```
 
+<<<<<<< HEAD
 Przyjęło się nazywać stan `[something, setSomething]`, używając przy tym składni [destrukturyzacji tablicy](TODO:/learn/a-javascript-refresher#array-destructuring).
+=======
+The convention is to name state variables like `[something, setSomething]` using [array destructuring.](https://javascript.info/destructuring-assignment)
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
 
 [Więcej przykładów znajdziesz powyżej.](#examples-basic)
 
