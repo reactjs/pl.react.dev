@@ -213,11 +213,11 @@ To dlatego w Reakcie wiele atrybutów HTML-owych i SVG zapisujemy camelCasem. Dl
 
 [Wszystkie te atrybuty znajdziesz w elementach React DOM](TODO). Jeśli zdarzy ci się pomylić, nie martw się - React wyświetli w [konsoli przeglądarki](https://developer.mozilla.org/docs/Tools/Browser_Console) błąd z instrukcją, jak naprawić problem.
 
-<Gotcha>
+<Pitfall>
 
 Ze względów historycznych atrybuty [`aria-*`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) oraz [`data-*`](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) piszemy tak, jak w HTML-u, czyli z myślnikami.
 
-</Gotcha>
+</Pitfall>
 
 ### Wskazówka: Używaj konwertera JSX {/*pro-tip-use-a-jsx-converter*/}
 

@@ -163,11 +163,11 @@ Aby obiekt javascriptowy w klamrach stał się jeszcze bardziej widoczny, możes
 
 Następnym razem, gdy zobaczysz w JSX-ie parę `{{` i `}}`, przypomnij sobie, że to nic więcej jak zwykły obiekt zapisany wewnątrz JSX-owych nawiasów klamrowych!
 
-<Gotcha>
+<Pitfall>
 
 Właściwości atrybutu `style` piszemy camelCasem. Na przykład, kod HTML `<ul style="background-color: black">` wewnątrz komponentu należałoby zapisać jako `<ul style={{ backgroundColor: 'black' }}>`.
 
-</Gotcha>
+</Pitfall>
 
 ## Zabawa z obiektami javascriptowymi i klamrami {/*more-fun-with-javascript-objects-and-curly-braces*/}
 
