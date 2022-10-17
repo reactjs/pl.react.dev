@@ -57,11 +57,11 @@ Twój kod HTML powinien teraz wyglądać tak:
 </html>
 ```
 
-<Gotcha>
+<Pitfall>
 
 Zanim opublikujesz swoją stronę, podmień `development.js` na `production.min.js`! React zbudowany w trybie deweloperskim dostarcza więcej pomocnych błędów, jednak *znacznie* spowalnia działanie aplikacji.
 
-</Gotcha>
+</Pitfall>
 
 ### Krok 3: Stwórz komponent reactowy {/*step-3-create-a-react-component*/}
 
@@ -121,8 +121,13 @@ Jeśli chcesz wyrenderować ten sam komponent w kilku miejscach, zamiast `id` mo
 
 Niezminifikowany kod javascriptowy może znacząco spowolnić czas ładowania dla użytkowników strony. Zanim wrzucisz kod na produkcję, dobrym pomysłem będzie minifikacja kodu.
 
+<<<<<<< HEAD
 - **Jeśli nie masz skonfigurowanego kroku minifikującego** w swoich skryptach, [oto jeden ze sposobów na jego dodanie](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
 - **Jeśli masz już ustawiony skrypt minifikujący**, twoja strona będzie gotowa na produkcję pod warunkiem, że będziesz używać wersji Reacta kończących się na `production.min.js`, jak poniżej:
+=======
+- **If you don't have a minification step** for your scripts, [here's one way to set it up.](https://gist.github.com/gaearon/ee0201910608f15df3f8cd66aa83f98e)
+- **If you already minify** your application scripts, your site will be production-ready if you ensure that the deployed HTML loads the versions of React ending in `production.min.js` like so:
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
 
 ```html
 <script
@@ -187,11 +192,11 @@ return (
 
 Z początku może wydawać się to nieintuicyjne, że do kodu javascriptowego dodajemy znaczniki, ale z czasem przywykniesz! Wstęp do tego tematu znajdziesz w rozdziale pt. [Pisanie kodu w JSX](/learn/writing-markup-with-jsx). Tutaj natomiast znajdziesz [przykładowy plik HTML ze składnią JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), który możesz pobrać i się z nim pobawić.
 
-<Gotcha>
+<Pitfall>
 
 Kompilator Babel ze `<script>` nada się do nauki i tworzenia prostych dem. Jednak **spowalnia on działanie strony i nie nadaje się do środowisk produkcyjnych**. Kiedy już stwierdzisz, że czas ruszać dalej, usuń znacznik `<script>` z Babelem i usuń niedawno dodany atrybut `type="text/babel"`. Zamiast nich użyjemy preprocesora JSX, który przekonwertuje wszystkie znaczniki `<script>` z JSX na JS - ale o tym w następnej sekcji.
 
-</Gotcha>
+</Pitfall>
 
 ### Dodaj JSX do projektu {/*add-jsx-to-a-project*/}
 
@@ -210,17 +215,23 @@ Gratulacje! Właśnie udało ci się **skonfigurować JSX pod produkcję**.
 
 Możesz uruchamiać preprocesor na kodzie JSX za każdym razem, gdy zapisujesz plik. Dzięki temu transformacja zostanie przeprowadzona ponownie, zamieniając plik JSX na nowy plik napisany w czystym JavaScripcie, który jest zrozumiały dla przeglądarki. Oto jak to zrobić:
 
+<<<<<<< HEAD
 1. Stwórz folder o nazwie **`src`**
 2. W terminalu uruchom polecenie: `npx babel --watch src --out-dir . --presets react-app/prod ` (Nie czekaj, aż polecenie się skończy! Ta komenda uruchamia automatyczny skrypt nasłuchujący zmian w plikach JSX-owych.)
 3. Przenieś swój świeżo przerobiony plik **`like-button.js`** ([powinien wyglądać tak!](https://gist.githubusercontent.com/gaearon/1884acf8834f1ef9a574a953f77ed4d8/raw/dfc664bbd25992c5278c3bf3d8504424c1104ecf/like-button.js)) do nowego folderu **`src`**.
+=======
+1. Create a folder called **`src`.**
+2. In your terminal, run this command: `npx babel --watch src --out-dir . --presets react-app/prod ` (Don't wait for it to finish! This command starts an automated watcher for edits to JSX inside `src`.)
+3. Move your JSX-ified **`like-button.js`** ([it should look like this!](https://gist.githubusercontent.com/gaearon/be5ae0fbf563d6c5fe5c1563907b13d2/raw/4c0d0b8c7f4fcb341720424c28c72059f8174c62/like-button.js)) to the new **`src`** folder.
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
 
 Skrypt nasłuchujący automatycznie stworzy przekonwertowany plik **`like-button.js`**, zawierający czysty kod javascriptowy zrozumiały dla przeglądarki.
 
-<Gotcha>
+<Pitfall>
 
 Jeśli widzisz błąd o treści: "You have mistakenly installed the `babel` package" (_pol._ "Omyłkowo zainstalowano pakiet `babel`"), wróć do [poprzedniego kroku](#add-jsx-to-a-project). Wykonaj zawarte w nim instrukcje w tym samym folderze, a następnie spróbuj ponownie.
 
-</Gotcha>
+</Pitfall>
 
 Narzędzie, którego dopiero co użyliśmy, to Babel. Możesz poczytać o nim więcej w [oficjalnej dokumentacji](https://babeljs.io/docs/en/babel-cli/). Poza obsługą składni JSX, pozwala również na korzystanie z nowoczesnej składni JavaScriptu bez obaw o wsparcie starszych przeglądarek.
 
