@@ -199,11 +199,11 @@ td {
 
 Po zakończeniu zadania będziesz mieć bibliotekę komponentów, które renderują twój model danych. Jako że na razie jest to statyczna wersja aplikacji, komponenty te będą jedynie zwracać kod JSX. Komponent na górze hierarchii (`FilterableProductTable`) otrzyma dane przez właściwość. Nazywamy to _przepływem jednokierunkowym_ (ang. *one-way data flow*), ponieważ dane przechodzą z górnego komponentu do komponentów potomnych.
 
-<Gotcha>
+<Pitfall>
 
 Na tym etapie twoje komponenty nie powinny mieć żadnego stanu. Zajmiemy się tym w następnym kroku!
 
-</Gotcha>
+</Pitfall>
 
 ## Krok 3: Znajdź minimalną, ale kompletną reprezentację stanu interfejsu {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
 
