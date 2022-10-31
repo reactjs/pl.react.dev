@@ -86,11 +86,11 @@ Prefiks `export default` należy do [standardowej składni JavaScriptu](https://
 
 Za pomocą `function Profile() { }` definiujemy funkcję javascriptową o nazwie `Profile`.
 
-<Gotcha>
+<Pitfall>
 
 Komponenty reactowe są zwykłymi funkcjami javascriptowymi, lecz **ich nazwy muszą naczynać od wiekiej litery**. W przeciwnym razie nie będą działać!
 
-</Gotcha>
+</Pitfall>
 
 ### Krok 3: Dodaj kod {/*step-3-add-markup*/}
 
@@ -112,11 +112,11 @@ return (
 );
 ```
 
-<Gotcha>
+<Pitfall>
 
 Jeśli nie dodasz nawiasów, kod zawarty w kolejnych liniach po `return` [zostanie zignorowany](https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)!
 
-</Gotcha>
+</Pitfall>
 
 ## Używanie komponentu {/*using-a-component*/}
 
@@ -176,7 +176,42 @@ Komponenty są zwykłymi funkcjami javascriptowymi, dzięki czemu możesz mieć 
 
 Ponieważ komponenty `Profile` są renderowane wewnątrz `Gallery` — nawet kilka razy! — możemy powiedzieć, że `Gallery` jest **komponentem-rodzicem** (nadrzędnym), a każdy z `Profile` jest "dzieckiem" (potomkiem). Na tym właśnie polega magia Reacta: możesz zdefiniować komponent jeden raz, a używać go wielokrotnie w wielu miejscach.
 
+<<<<<<< HEAD
 <DeepDive title="Komponenty od góry do dołu">
+=======
+<Pitfall>
+
+Components can render other components, but **you must never nest their definitions:**
+
+```js {2-5}
+export default function Gallery() {
+  // 🔴 Never define a component inside another component!
+  function Profile() {
+    // ...
+  }
+  // ...
+}
+```
+
+The snippet above is [very slow and causes bugs.](/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state) Instead, define every component at the top level:
+
+```js {5-8}
+export default function Gallery() {
+  // ...
+}
+
+// ✅ Declare components at the top level
+function Profile() {
+  // ...
+}
+```
+
+When a child component needs some data from a parent, [pass it by props](/learn/passing-props-to-a-component) instead of nesting definitions.
+
+</Pitfall>
+
+<DeepDive title="Components all the way down">
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 Twoja aplikacja reactowa zaczyna się w komponencie głównym (_ang._ root - "korzeń"). Zwykle jest on tworzony automatycznie przy starcie nowego projektu. Na przykład, jeśli używasz [CodeSandbox](https://codesandbox.io/) lub [Create React App](https://create-react-app.dev/), komponent główny jest zdefiniowany w pliku `src/App.js`. Jeśli używasz frameworka [Next.js](https://nextjs.org/), komponent główny jest zdefiniowany w pliku `pages/index.js`. W poprzednich przykładach eksportowaliśmy własne komponenty główne.
 

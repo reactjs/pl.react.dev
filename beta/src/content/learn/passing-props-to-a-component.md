@@ -176,7 +176,7 @@ function Avatar(props) {
 
 Zwykle jednak nie ma potrzeby korzystać z samego obiektu `props`, dlatego zazwyczaj się je destrukturyzuje na poszczególne właściwości.
 
-<Gotcha>
+<Pitfall>
 
 **Nie zapomnij o parze klamer `{` i `}`** wewnątrz nawiasów okrągłych `(` i `)`:
 
@@ -196,7 +196,7 @@ function Avatar(props) {
 }
 ```
 
-</Gotcha>
+</Pitfall>
 
 ## Określanie domyślnej wartości dla właściwości {/* specifying-a-default-value-for-a-prop */}
 
@@ -334,7 +334,11 @@ export function getImageUrl(person, size = 's') {
 
 Spróbuj zastąpić `<Avatar>` wewnątrz `<Card>` jakimś tekstem, aby zobaczyć na własne oczy, że komponent `Card` może opakowywać dowolną treść. Nie musi on "wiedzieć", co renderuje. Ten wzorzec ma szerokie spektrum zastosowań i z pewnością spotkasz się z nim jeszcze nieraz.
 
+<<<<<<< HEAD
 Komponent z właściwością `children` można sobie wyobrazić jako taki z "dziurą", którą komponent nadrzędny może "zapełnić" dowolnym kodem JSX. Dość często stosuje się `children` w komponentach opakowujących coś wizualnie: panelach, siatkach itp. Więcej na ten temat dowiesz się w rozdziale pt. [Wyodrębnianie komponentów układających interfejs](TODO:/learn/extracting-layout-components).
+=======
+You can think of a component with a `children` prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX. You will often use the `children` prop for visual wrappers: panels, grids, and so on.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 <Illustration
   src="/images/docs/illustrations/i_children-prop.png"
