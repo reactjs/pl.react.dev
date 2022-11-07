@@ -96,7 +96,11 @@ Jeśli masz już sporo kodu HTML i chcesz go przenieść do składni JSX, możes
 
 ## Dodawanie styli {/*adding-styles*/}
 
+<<<<<<< HEAD
 W Reakcie klase CSS-owe określamy za pomocą właściwości `className`. Działa ona tak samo jak atrybut [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) w HTML-u:
+=======
+In React, you specify a CSS class with `className`. It works the same way as the HTML [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) attribute:
+>>>>>>> 822330c3dfa686dbb3424886abce116f20ed20e6
 
 ```js
 <img className="avatar" />
