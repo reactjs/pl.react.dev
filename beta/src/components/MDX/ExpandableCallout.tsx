@@ -2,12 +2,14 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
+import {useRef} from 'react';
 import * as React from 'react';
 import cn from 'classnames';
 import {IconNote} from '../Icon/IconNote';
-import {IconGotcha} from '../Icon/IconGotcha';
+import {IconWarning} from '../Icon/IconWarning';
+import {IconPitfall} from '../Icon/IconPitfall';
 
-type CalloutVariants = 'gotcha' | 'note' | 'wip';
+type CalloutVariants = 'deprecated' | 'pitfall' | 'note' | 'wip';
 
 interface ExpandableCalloutProps {
   children: React.ReactNode;
@@ -15,6 +17,14 @@ interface ExpandableCalloutProps {
 }
 
 const variantMap = {
+  deprecated: {
+    title: 'Deprecated',
+    Icon: IconWarning,
+    containerClasses: 'bg-red-5 dark:bg-red-60 dark:bg-opacity-20',
+    textColor: 'text-red-50 dark:text-red-40',
+    overlayGradient:
+      'linear-gradient(rgba(249, 247, 243, 0), rgba(249, 247, 243, 1)',
+  },
   note: {
     title: 'Notatka',
     Icon: IconNote,
@@ -24,9 +34,15 @@ const variantMap = {
     overlayGradient:
       'linear-gradient(rgba(245, 249, 248, 0), rgba(245, 249, 248, 1)',
   },
+<<<<<<< HEAD
   gotcha: {
     title: 'Zwróć uwagę',
     Icon: IconGotcha,
+=======
+  pitfall: {
+    title: 'Pitfall',
+    Icon: IconPitfall,
+>>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
     containerClasses: 'bg-yellow-5 dark:bg-yellow-60 dark:bg-opacity-20',
     textColor: 'text-yellow-50 dark:text-yellow-40',
     overlayGradient:
@@ -43,7 +59,7 @@ const variantMap = {
 };
 
 function ExpandableCallout({children, type}: ExpandableCalloutProps) {
-  const contentRef = React.useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const variant = variantMap[type];
 
   return (

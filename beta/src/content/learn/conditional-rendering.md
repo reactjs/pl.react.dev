@@ -312,7 +312,7 @@ export default function PackingList() {
 
 [Wyrażenie && w JavaScripcie](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) zwraca wartość z prawej strony operatora (w naszym przypadku "ptaszek" ✔), jeśli po lewej stronie warunek został spełniony (ma wartość `true`). Jeśli jednak warunek ma wartość `false`, całe wyrażenie staje się `false` i nie zostaje spełnione. React traktuje `false` jako "dziurę" w drzewie JSX, podobnie jak `null` czy `undefined` i nie renderuje niczego w tym miejscu.
 
-<Gotcha>
+<Pitfall>
 
 **Nie umieszczaj liczb po lewej stronie znacznika `&&`.**
 
@@ -322,7 +322,7 @@ Na przykład, powszechnym błędem jest pisanie kodu `messageCount && <p>New mes
 
 Aby to naprawić, zastosuj wartość logiczną po lewej stronie: `messageCount > 0 && <p>New messages</p>`.
 
-</Gotcha>
+</Pitfall>
 
 ### Warunkowe przypisywanie JSX-a do zmiennej {/*conditionally-assigning-jsx-to-a-variable*/}
 
