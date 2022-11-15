@@ -31,7 +31,7 @@ function MyComponent() {
   // ...
 ```
 
-Przyjęło się, że zmienne stanu nazywamy `[something, setSomething]`, korzystając przy tym z [destrukturyzacji tablicy](TODO:/learn/a-javascript-refresher#array-destructuring).
+Przyjęło się, że zmienne stanu nazywamy `[something, setSomething]`, korzystając przy tym z [destrukturyzacji tablicy](https://javascript.info/destructuring-assignment).
 
 `useState` zwraca tablicę o dokładnie dwóch elementach:
 
@@ -48,7 +48,7 @@ function handleClick() {
 
 React zapisze nowy stan, wyrenderuje ponownie twój komponent już z nową wartością, a na koniec zaktualizuje UI.
 
-<Gotcha>
+<Pitfall>
 
 Wywoływanie funkcji `set` [**nie zmienia** stanu w trakcie działania kodu](#ive-updated-the-state-but-logging-gives-me-the-old-value):
 
@@ -61,7 +61,7 @@ function handleClick() {
 
 Wpływa to tylko na to, co `useState` zwróci przy *następnym* renderowaniu.
 
-</Gotcha>
+</Pitfall>
 
 <Recipes titleText="Podstawowe przykłady użycia useState" titleId="examples-basic">
 
@@ -1083,7 +1083,7 @@ function MyComponent() {
   // ...
 ```
 
-Przyjęło się nazywać stan `[something, setSomething]`, używając przy tym składni [destrukturyzacji tablicy](TODO:/learn/a-javascript-refresher#array-destructuring).
+Przyjęło się nazywać stan `[something, setSomething]`, używając przy tym składni [destrukturyzacji tablicy](https://javascript.info/destructuring-assignment).
 
 [Więcej przykładów znajdziesz powyżej.](#examples-basic)
 

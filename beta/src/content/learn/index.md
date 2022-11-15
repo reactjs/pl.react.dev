@@ -96,7 +96,7 @@ Jeśli masz już sporo kodu HTML i chcesz go przenieść do składni JSX, możes
 
 ## Dodawanie styli {/*adding-styles*/}
 
-W Reakcie klase CSS-owe określamy za pomocą właściwości `className`. Działa ona tak samo jak atrybut [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) w HTML-u:
+W Reakcie klasy CSS-owe definiujemy za pomocą właściwości `className`. Działa ona tak samo jak atrybut [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) w HTML-u:
 
 ```js
 <img className="avatar" />

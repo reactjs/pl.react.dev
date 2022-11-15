@@ -81,7 +81,7 @@ If you pass `drinkers={4}`, it will return JSX containing `4 cups of milk`. Alwa
 
 Just like a math formula. 
 
-You could think of your components as recipes: if you follow them and don't introduce new ingredients during the cooking process, you will get the same dish every time. That "dish" is the JSX that the component serves to React to [render.](render-and-commit)
+You could think of your components as recipes: if you follow them and don't introduce new ingredients during the cooking process, you will get the same dish every time. That "dish" is the JSX that the component serves to React to [render.](/learn/render-and-commit)
 
 <Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="A tea recipe for x people: take x cups of water, add 2x spoons of spices, and x spoons of tea!" />
 
@@ -202,7 +202,7 @@ When possible, try to express your logic with rendering alone. You'll be surpris
 Writing pure functions takes some habit and discipline. But it also unlocks marvelous opportunities:
 
 * Your components could run in a different environment—for example, on the server! Since they return the same result for the same inputs, one component can serve many user requests.
-* You can improve performance by [skipping rendering](TODO:/learn/skipping-unchanged-trees) components whose inputs have not changed. This is safe because pure functions always return the same results, so they are safe to cache.
+* You can improve performance by [skipping rendering](/apis/react/memo) components whose inputs have not changed. This is safe because pure functions always return the same results, so they are safe to cache.
 * If some data changes in the middle of rendering a deep component tree, React can restart rendering without wasting time to finish the outdated render. Purity makes it safe to stop calculating at any time.
 
 Every new React feature we're building takes advantage of purity. From data fetching to animations to performance, keeping components pure unlocks the power of the React paradigm.

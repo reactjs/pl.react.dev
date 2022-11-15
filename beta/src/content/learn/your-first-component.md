@@ -86,11 +86,11 @@ Prefiks `export default` należy do [standardowej składni JavaScriptu](https://
 
 Za pomocą `function Profile() { }` definiujemy funkcję javascriptową o nazwie `Profile`.
 
-<Gotcha>
+<Pitfall>
 
 Komponenty reactowe są zwykłymi funkcjami javascriptowymi, lecz **ich nazwy muszą naczynać od wiekiej litery**. W przeciwnym razie nie będą działać!
 
-</Gotcha>
+</Pitfall>
 
 ### Krok 3: Dodaj kod {/*step-3-add-markup*/}
 
@@ -112,11 +112,11 @@ return (
 );
 ```
 
-<Gotcha>
+<Pitfall>
 
 Jeśli nie dodasz nawiasów, kod zawarty w kolejnych liniach po `return` [zostanie zignorowany](https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)!
 
-</Gotcha>
+</Pitfall>
 
 ## Używanie komponentu {/*using-a-component*/}
 
@@ -175,6 +175,38 @@ A sam `Profile` zawiera jeszcze więcej kodu HTML: `<img />`. Ostatecznie, to, c
 Komponenty są zwykłymi funkcjami javascriptowymi, dzięki czemu możesz mieć kilka komponentów w tym samym pliku. Jest to wygodne, gdy komponenty są małe lub mocno ze sobą powiązane. Jeśli jednak plik zacznie robić się długi i skomplikowany, zawsze możesz przenieść `Profile` do osobnego pliku. Wkrótce dowiesz się, jak to zrobić, na [stronie o importach](/learn/importing-and-exporting-components).
 
 Ponieważ komponenty `Profile` są renderowane wewnątrz `Gallery` — nawet kilka razy! — możemy powiedzieć, że `Gallery` jest **komponentem-rodzicem** (nadrzędnym), a każdy z `Profile` jest "dzieckiem" (potomkiem). Na tym właśnie polega magia Reacta: możesz zdefiniować komponent jeden raz, a używać go wielokrotnie w wielu miejscach.
+
+<Pitfall>
+
+Komponenty mogą renderować inne komponenty, jednak **nigdy nie należy zagnieżdżać ich definicji**:
+
+```js {2-5}
+export default function Gallery() {
+  // 🔴 Nigdy nie definiuj komponentu wewnątrz innego komponentu!
+  function Profile() {
+    // ...
+  }
+  // ...
+}
+```
+
+Powyższy fragment kodu jest [bardzo wolny i może powodować błędy.](/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state) Zamiast tego definiuj każdy komponent na głównym poziomie pliku:
+
+```js {5-8}
+export default function Gallery() {
+  // ...
+}
+
+// ✅ Deklaruj komponenty na głównym poziomie
+function Profile() {
+  // ...
+}
+```
+
+Jeśli komponent potomny potrzebuje jakichś danych od rodzica, [przekaż je za pomocą właściwości (*ang.* props)](/learn/passing-props-to-a-component), zamiast zagnieżdżać ich definicje.
+
+</Pitfall>
+
 
 <DeepDive title="Komponenty od góry do dołu">
 
