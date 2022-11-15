@@ -18,7 +18,7 @@ Komponenty reactowe używają _właściwości_ (_ang._ props, od "properties") d
 
 </YouWillLearn>
 
-## Właściwości, które możesz już znać {/* familiar-props */}
+## Właściwości, które możesz już znać {/*familiar-props*/}
 
 Właściwości (_ang._ props) to informacje, które przekazujemy znacznikowi JSX-owemu. Na przykład, znacznikowi `<img>` możemy przekazać właściwości `className`, `src`, `alt`, `width` czy `height`:
 
@@ -56,7 +56,7 @@ body {
 
 Właściwości, które możesz przekazać do znacznika `<img>`, są predefiniowane (ReactDOM przestrzega [standardu HTML](https://www.w3.org/TR/html52/semantics-embedded-content.html#the-img-element)). Jednak do _własnych_ komponentów, np. `<Avatar>`, możesz przekazać dowolne właściwości!
 
-## Przekazywanie wartości do komponentu {/* passing-props-to-a-component */}
+## Przekazywanie wartości do komponentu {/*passing-props-to-a-component*/}
 
 W poniższym kodzie komponent `Profile` nie przekazuje swojemu potomkowi `Avatar` żadnych wartości:
 
@@ -68,7 +68,7 @@ export default function Profile() {
 
 Aby dodać do komponentu `Avatar` właściwości, wystarczą dwa kroki.
 
-### Krok 1: Przekaż właściwości do komponentu potomnego {/* step-1-pass-props-to-the-child-component */}
+### Krok 1: Przekaż właściwości do komponentu potomnego {/*step-1-pass-props-to-the-child-component*/}
 
 Najpierw przekażmy do komponentu `Avatar` jakieś wartości. Na przykład, niech będą to `person` (obiekt) oraz `size` (liczba):
 
@@ -84,7 +84,7 @@ export default function Profile() {
 
 Teraz możemy odczytać te wartości wewnątrz komponentu `Avatar`.
 
-### Krok 2: Odczytaj wartości wewnątrz komponentu potomnego {/* step-2-read-props-inside-the-child-component */}
+### Krok 2: Odczytaj wartości wewnątrz komponentu potomnego {/*step-2-read-props-inside-the-child-component*/}
 
 Aby odczytać te właściwości, wypiszmy ich nazwy oddzielone przecinkiem i zapisane wewnątrz `({` oraz `})` zaraz po słowach `function Avatar`. Dzięki temu będziemy mogli odwołać się do nich jak do zmiennych.
 
@@ -198,7 +198,7 @@ function Avatar(props) {
 
 </Pitfall>
 
-## Określanie domyślnej wartości dla właściwości {/* specifying-a-default-value-for-a-prop */}
+## Określanie domyślnej wartości dla właściwości {/*specifying-a-default-value-for-a-prop*/}
 
 Jeśli chcesz nadać właściwości domyślną wartość, która będzie użyta za każdym razem, gdy nie przekażemy żadnej wartości do komponentu, możesz to zrobić dodając do zapisu destrukturyzującego symbol `=` i podając po nim wartość domyślną:
 
@@ -212,7 +212,7 @@ Teraz gdy wyrenderujemy `<Avatar person={...} />` bez podawania właściwości `
 
 Wartość domyślna jest używana tylko wtedy, gdy właściwość `size` zostanie pominięta lub otrzyma wartość `size={undefined}`. Jeśli jednak przekażesz `size={null}` lub `size={0}`, domyślna wartość **nie** zostanie użyta.
 
-## Przekazywanie właściwości za pomocą operatora rozwinięcia {/* forwarding-props-with-the-jsx-spread-syntax */}
+## Przekazywanie właściwości za pomocą operatora rozwinięcia {/*forwarding-props-with-the-jsx-spread-syntax*/}
 
 Niekiedy przekazywanie właściwości może okazać się bardzo uciążliwe:
 
@@ -247,7 +247,7 @@ To sprawi, że wszystkie właściwości komponentu `Profile` trafią do `Avatar`
 
 **Używaj operatora rozwinięcia z umiarem.** Jeśli nagminnie używasz go w niemal każdym komponencie, to coś jest nie tak. Zwykle świadczy to o potrzebie podzielenia komponentów i przekazania potomków jako JSX. Ale o tym za chwilę!
 
-## Przekazywanie potomków jako JSX {/* passing-jsx-as-children */}
+## Przekazywanie potomków jako JSX {/*passing-jsx-as-children*/}
 
 Dość często można spotkać takie oto zagnieżdżenie wbudowanych znaczników przeglądarkowych:
 
@@ -341,7 +341,7 @@ Komponent z właściwością `children` można sobie wyobrazić jako taki z "dzi
   alt='Komponent Card w kształcie puzzla z miejscem na elementy "potomne" jak tekst czy Avatar'
 />
 
-## Jak właściwości zmieniają się w czasie {/* how-props-change-over-time */}
+## Jak właściwości zmieniają się w czasie {/*how-props-change-over-time*/}
 
 Komponent `Clock` przedstawiony poniżej otrzymuje od swojego "rodzica" dwie właściwości: `color` oraz `time`. (Celowo pominęliśmy tu kod rodzica, ponieważ korzysta on ze [stanu](/learn/state-a-components-memory), o którym będzie mowa w dalszych rozdziałach.)
 
@@ -411,7 +411,7 @@ Warto jednak pamiętać, że właściwości są [niemutowalne (_ang_. immutable)
 
 <Challenges>
 
-#### Wyodrębnij komponent {/* extract-a-component */}
+#### Wyodrębnij komponent {/*extract-a-component*/}
 
 Ten komponent `Gallery` zawiera bardzo podobny kod dla dwóch profili. Wyodrębnij z niego komponent `Profile`, aby zmniejszyć powtarzalność w kodzie. Następnie pomyśl, jakie właściwości należy przekazać do `Profile`.
 
@@ -736,7 +736,7 @@ Mimo że składnia tutaj wygląda nieco inaczej, ponieważ opisujemy właściwo�
 
 </Solution>
 
-#### Dostosuj rozmiar obrazka na podstawie właściwości {/* adjust-the-image-size-based-on-a-prop */}
+#### Dostosuj rozmiar obrazka na podstawie właściwości {/*adjust-the-image-size-based-on-a-prop*/}
 
 W kodzie poniżej `Avatar` otrzymuje właściwość numeryczną `size`, która określa szerokość i wysokość dla `<img>`. Właściwość `size` jest w tym przykładzie ustawiona na `40`. Jednakże, jeśli otworzysz obrazek w nowej karcie, zobaczysz, że jest on w rzeczywistości większy (`160` pikseli). Prawdziwy rozmiar obrazka jest określany na podstawie rozmiaru miniatury, o jaką prosisz.
 
@@ -922,7 +922,7 @@ Właściwości pozwalają zamknąć logikę tego typu wewnątrz komponentu `Avat
 
 </Solution>
 
-#### Przekazywanie kodu JSX do właściwości `children` {/* passing-jsx-in-a-children-prop */}
+#### Przekazywanie kodu JSX do właściwości `children` {/*passing-jsx-in-a-children-prop*/}
 
 Wyodrębnij z poniższego kodu komponent `Card`, a następnie użyj właściwości `children` tak, by przekazać do niego inny kod JSX-owy:
 
