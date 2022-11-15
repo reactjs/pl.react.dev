@@ -32,21 +32,21 @@ export const LoadingOverlay = ({
     return (
       <div className="sp-overlay sp-error">
         <div className="sp-error-message">
-          Unable to establish connection with the sandpack bundler. Make sure
-          you are online or try again later. If the problem persists, please
-          report it via{' '}
+          Nie można nawiązać połączenia z bundlerem sandpacka. Upewnij się, że
+          jesteś online lub spróbuj ponownie później. Jeśli problem będzie się
+          powtarzał, prosimy o zgłoszenie tego faktu poprzez{' '}
           <a
             className="sp-error-message"
             href="mailto:hello@codesandbox.io?subject=Sandpack Timeout Error">
-            email
+            mail
           </a>{' '}
-          or submit an issue on{' '}
+          lub wątek na{' '}
           <a
             className="sp-error-message"
             href="https://github.com/codesandbox/sandpack/issues"
             rel="noreferrer noopener"
             target="_blank">
-            GitHub.
+            GitHubie.
           </a>
         </div>
       </div>
@@ -63,7 +63,7 @@ export const LoadingOverlay = ({
         opacity: stillLoading ? 1 : 0,
         transition: `opacity ${FADE_ANIMATION_DURATION}ms ease-out`,
       }}>
-      <div className="sp-cube-wrapper" title="Open in CodeSandbox">
+      <div className="sp-cube-wrapper" title="Otwórz w CodeSandbox">
         <OpenInCodeSandboxButton />
         <div className="sp-cube">
           <div className="sp-sides">

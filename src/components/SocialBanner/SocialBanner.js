@@ -10,18 +10,13 @@ import React from 'react';
 import {colors, media} from 'theme';
 
 const linkProps = {
-  href: 'https://beta.reactjs.org',
+  href: 'https://beta.pl.reactjs.org',
   target: '_blank',
   rel: 'noopener',
 };
 
-<<<<<<< HEAD
-const bannerText = 'Wesprzyj Ukrainę 🇺🇦 ';
-const bannerLink = 'Wesprzyj pomoc humanitarną dla Ukrainy.';
-=======
 const bannerText = 'Try out a preview of the new React Docs!';
-const bannerLink = '👉 beta.reactjs.org';
->>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
+const bannerLink = '👉 beta.pl.reactjs.org';
 
 export default function SocialBanner() {
   return (

@@ -18,7 +18,7 @@ interface ExpandableCalloutProps {
 
 const variantMap = {
   deprecated: {
-    title: 'Deprecated',
+    title: 'Przestarzałe',
     Icon: IconWarning,
     containerClasses: 'bg-red-5 dark:bg-red-60 dark:bg-opacity-20',
     textColor: 'text-red-50 dark:text-red-40',
@@ -34,22 +34,16 @@ const variantMap = {
     overlayGradient:
       'linear-gradient(rgba(245, 249, 248, 0), rgba(245, 249, 248, 1)',
   },
-<<<<<<< HEAD
-  gotcha: {
-    title: 'Zwróć uwagę',
-    Icon: IconGotcha,
-=======
   pitfall: {
-    title: 'Pitfall',
+    title: 'Zwróć uwagę',
     Icon: IconPitfall,
->>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
     containerClasses: 'bg-yellow-5 dark:bg-yellow-60 dark:bg-opacity-20',
     textColor: 'text-yellow-50 dark:text-yellow-40',
     overlayGradient:
       'linear-gradient(rgba(249, 247, 243, 0), rgba(249, 247, 243, 1)',
   },
   wip: {
-    title: 'Under Construction',
+    title: 'W trakcie tworzenia',
     Icon: IconNote,
     containerClasses: 'bg-yellow-5 dark:bg-yellow-60 dark:bg-opacity-20',
     textColor: 'text-yellow-50 dark:text-yellow-40',

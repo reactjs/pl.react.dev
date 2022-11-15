@@ -224,7 +224,7 @@ export default function Nav() {
           <div className="block dark:hidden">
             <button
               type="button"
-              aria-label="Use Dark Mode"
+              aria-label="Użyj Trybu Ciemnego"
               onClick={() => {
                 window.__setPreferredTheme('dark');
               }}
@@ -235,7 +235,7 @@ export default function Nav() {
           <div className="hidden dark:block">
             <button
               type="button"
-              aria-label="Use Light Mode"
+              aria-label="Użyj Trybu Jasnego"
               onClick={() => {
                 window.__setPreferredTheme('light');
               }}
@@ -246,10 +246,10 @@ export default function Nav() {
         </div>
         <div className="px-0 pt-2 w-full 2xl:max-w-xs hidden lg:flex items-center self-center border-b-0 lg:border-b border-border dark:border-border-dark">
           <NavLink href="/" isActive={section === 'home'}>
-            Home
+            Strona główna
           </NavLink>
           <NavLink href="/learn" isActive={section === 'learn'}>
-            Learn
+            Nauka
           </NavLink>
           <NavLink href="/apis/react" isActive={section === 'apis'}>
             API
@@ -272,7 +272,7 @@ export default function Nav() {
           <div className="block dark:hidden">
             <button
               type="button"
-              aria-label="Use Dark Mode"
+              aria-label="Użyj Trybu Ciemnego"
               onClick={() => {
                 window.__setPreferredTheme('dark');
               }}
@@ -298,7 +298,7 @@ export default function Nav() {
           <div className="hidden dark:block">
             <button
               type="button"
-              aria-label="Use Light Mode"
+              aria-label="Użyj Trybu Jasnego"
               onClick={() => {
                 window.__setPreferredTheme('light');
               }}

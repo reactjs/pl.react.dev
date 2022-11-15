@@ -21,7 +21,7 @@ export function Footer() {
           <hr className="max-w-7xl mx-auto border-border dark:border-border-dark" />
           <div className="flex flex-col items-center m-4 p-4">
             <p className="font-bold text-primary dark:text-primary-dark text-lg mb-4">
-              How do you like these docs?
+              Jak podoba ci się ta dokumentacja?
             </p>
             <div>
               <ButtonLink
@@ -30,7 +30,7 @@ export function Footer() {
                 type="primary"
                 size="md"
                 target="_blank">
-                Take our survey!
+                Daj nam znać w ankiecie!
                 <IconNavArrow
                   displayDirection="right"
                   className="inline ml-1"

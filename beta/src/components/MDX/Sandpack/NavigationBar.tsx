@@ -93,9 +93,6 @@ export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
   }, [isMultiFile]);
 
   const handleReset = () => {
-<<<<<<< HEAD
-    if (confirm('Zresetować także wszystkie twoje modyfikacje?')) {
-=======
     /**
      * resetAllFiles must come first, otherwise
      * the previous content will appears for a second
@@ -105,9 +102,8 @@ export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
      */
     if (
       sandpack.editorState === 'dirty' &&
-      confirm('Reset all your edits too?')
+      confirm('Zresetować także wszystkie twoje modyfikacje?')
     ) {
->>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
       sandpack.resetAllFiles();
     }
 

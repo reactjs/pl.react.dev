@@ -50,11 +50,7 @@ Po więcej informacji [sięgnij do oficjalnego poradnika](https://create-react-a
 
 > Create React App nie obsługuje logiki backendowej ani baz danych. Oznacza to, że możesz go używać z dowolnym backendem. Kiedy budujesz projekt, na wyjściu dostaniesz folder ze statycznymi plikami HTML, CSS i JS. Z racji tego, że Create React App nie ma dostępu do serwera, nie zapewnia najlepszej wydajności. Jeśli szukasz rozwiązań, które dadzą szybsze czasy wczytywania aplikacji czy wbudowane funkcjonalności, jak routing czy logika serwerowa, zalecamy skorzystać z frameworka.
 
-<<<<<<< HEAD
-### Popularne alternatywy {/*popular-alternatives*/}
-=======
-### Popular alternatives {/*toolkit-popular-alternatives*/}
->>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
+### Popularne alternatywy {/*toolkit-popular-alternatives*/}
 
 * [Vite](https://vitejs.dev/guide/)
 * [Parcel](https://parceljs.org/getting-started/webapp/)
@@ -65,11 +61,7 @@ Jeśli planujesz **rozpocząć projekt produkcyjny**, zacznij od [Next.js](https
 
 Więcej informacji o tym, [jak zacząć projekt z Next.js](https://nextjs.org/docs/getting-started) znajdziesz w oficjalnym poradniku.
 
-<<<<<<< HEAD
-### Popularne alternatywy {/*popular-alternatives*/}
-=======
-### Popular alternatives {/*framework-popular-alternatives*/}
->>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
+### Popularne alternatywy {/*framework-popular-alternatives*/}
 
 * [Gatsby](https://www.gatsbyjs.org/)
 * [Remix](https://remix.run/)

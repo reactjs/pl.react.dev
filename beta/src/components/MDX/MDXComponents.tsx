@@ -180,24 +180,10 @@ function AuthorCredit({
   authorLink: string;
 }) {
   return (
-<<<<<<< HEAD
-    <p className="text-center text-secondary dark:text-secondary-dark text-base mt-2">
-      <cite>
-        Autor ilustracji{' '}
-        {authorLink ? (
-          <a className="text-link dark:text-link-dark" href={authorLink}>
-            {author}
-          </a>
-        ) : (
-          author
-        )}
-      </cite>
-    </p>
-=======
     <div className="sr-only group-hover:not-sr-only group-focus-within:not-sr-only hover:sr-only">
       <p className="bg-card dark:bg-card-dark text-center text-sm text-secondary dark:text-secondary-dark leading-tight dark:text-secondary-dark p-2 rounded-lg absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full group-hover:flex group-hover:opacity-100 after:content-[''] after:absolute after:left-1/2 after:top-[95%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-card after:dark:border-t-card-dark opacity-0 transition-opacity duration-300">
         <cite>
-          Illustrated by{' '}
+          Autor ilustracji{' '}
           {authorLink ? (
             <a
               target="_blank"
@@ -212,7 +198,6 @@ function AuthorCredit({
         </cite>
       </p>
     </div>
->>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
   );
 }
 
