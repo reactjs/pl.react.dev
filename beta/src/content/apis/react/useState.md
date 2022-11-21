@@ -1135,7 +1135,11 @@ Funkcje `set` nie zwracają żadnej wartości.
 
 * Jeśli nowa wartość i aktualny stan są identyczne (na podstawie porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), React **nie wymusi ponownego renderowania komponentu i jego potomków.** Jest to pewna forma optymalizacji. Mimo że czasem React nadal może wywołać twój komponent ponownie przed pominięciem potomków, nie powinno to wpłynąć na logikę działania komponentu.
 
+<<<<<<< HEAD
 * React [grupuje aktualizacje stanu](/learn/queueing-a-series-of-state-updates). Aktualizuje on ekran **po zakończeniu działania wszystkich procedur obsługi zdarzeń** i po tym, jak te procedury wywoją odpowiednie funkcje `set`. Zapobiega to wielokrotnemu renderowaniu komponentu podczas pojedynczego zdarzenia. W rzadkich sytuacjach, kiedy chcesz wymusić wcześniejsze zaktualizowanie ekranu, np. aby odczytać coś z DOM, możesz użyć funkcji [`flushSync`](/apis/react-dom/flushsync).
+=======
+* React [batches state updates.](/learn/queueing-a-series-of-state-updates) It updates the screen **after all the event handlers have run** and have called their `set` functions. This prevents multiple re-renders during a single event. In the rare case that you need to force React to update the screen earlier, for example to access the DOM, you can use [`flushSync`.](/apis/react-dom/flushSync)
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 * Wywołanie funkcji `set` *podczas renderowania* jest dozwolone tylko w ramach aktualnie renderowanego komponentu. React zignoruje wynik aktualnego renderowania i natychmiast spróbuje wyrenderować go ponownie z nowym stanem. Ten wzorzec jest rzadko stosowany, jednak możesz go użyć, aby **zapisać dane z poprzedniego renderowania**. [Zobacz przykład powyżej.](#storing-information-from-previous-renders)
 
