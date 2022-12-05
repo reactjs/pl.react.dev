@@ -19,9 +19,8 @@ import NavLink from './NavLink';
 import {SidebarContext} from 'components/Layout/useRouteMeta';
 import {SidebarRouteTree} from '../Sidebar/SidebarRouteTree';
 import type {RouteItem} from '../useRouteMeta';
-import sidebarHome from '../../../sidebarHome.json';
 import sidebarLearn from '../../../sidebarLearn.json';
-import sidebarReference from '../../../sidebarReference.json';
+import sidebarAPIs from '../../../sidebarAPIs.json';
 
 declare global {
   interface Window {
@@ -115,13 +114,11 @@ export default function Nav() {
   if (isOpen) {
     switch (tab) {
       case 'home':
-        routeTree = sidebarHome as RouteItem;
-        break;
       case 'learn':
         routeTree = sidebarLearn as RouteItem;
         break;
       case 'apis':
-        routeTree = sidebarReference as RouteItem;
+        routeTree = sidebarAPIs as RouteItem;
         break;
     }
   }
@@ -188,7 +185,7 @@ export default function Nav() {
       });
   }, [showFeedback]);
 
-  function selectTab(nextTab: 'learn' | 'apis' | 'home') {
+  function selectTab(nextTab: 'learn' | 'apis') {
     setTab(nextTab);
     scrollParentRef.current!.scrollTop = 0;
   }
@@ -245,11 +242,18 @@ export default function Nav() {
           </div>
         </div>
         <div className="px-0 pt-2 w-full 2xl:max-w-xs hidden lg:flex items-center self-center border-b-0 lg:border-b border-border dark:border-border-dark">
+<<<<<<< HEAD
           <NavLink href="/" isActive={section === 'home'}>
             Strona główna
           </NavLink>
           <NavLink href="/learn" isActive={section === 'learn'}>
             Nauka
+=======
+          <NavLink
+            href="/learn"
+            isActive={section === 'learn' || section === 'home'}>
+            Learn
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
           </NavLink>
           <NavLink href="/apis/react" isActive={section === 'apis'}>
             API
@@ -312,12 +316,16 @@ export default function Nav() {
       {isOpen && (
         <div className="bg-wash dark:bg-wash-dark px-5 flex justify-end border-b border-border dark:border-border-dark items-center self-center w-full z-10">
           <TabButton
+<<<<<<< HEAD
             isActive={tab === 'home'}
             onClick={() => selectTab('home')}>
             Strona główna
           </TabButton>
           <TabButton
             isActive={tab === 'learn'}
+=======
+            isActive={tab === 'learn' || tab === 'home'}
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
             onClick={() => selectTab('learn')}>
             Nauka
           </TabButton>

@@ -235,7 +235,13 @@ Przejdźmy przez wszystkie pozycje krok po kroku:
 
 Oznacza to, że jedynie tekst wyszukiwarki i wartość pola wyboru są stanem! Dobra robota!
 
+<<<<<<< HEAD
 <DeepDive title="Właściwości a stan">
+=======
+<DeepDive>
+
+#### Props vs State {/*props-vs-state*/}
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 W Reakcie rozróżniamy dwa typy danych "modelowych": właściwości i stan. Obydwa różnią się od siebie:
 
