@@ -207,6 +207,12 @@ Jeśli komponent potomny potrzebuje jakichś danych od rodzica, [przekaż je za 
 
 </Pitfall>
 
+<<<<<<< HEAD
+=======
+<DeepDive>
+
+#### Components all the way down {/*components-all-the-way-down*/}
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 <DeepDive title="Komponenty od góry do dołu">
 

@@ -31,7 +31,11 @@ function MyComponent() {
   // ...
 ```
 
+<<<<<<< HEAD
 Przyjęło się, że zmienne stanu nazywamy `[something, setSomething]`, korzystając przy tym z [destrukturyzacji tablicy](https://javascript.info/destructuring-assignment).
+=======
+The convention is to name state variables like `[something, setSomething]` using [array destructuring.](https://javascript.info/destructuring-assignment)
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 `useState` zwraca tablicę o dokładnie dwóch elementach:
 
@@ -239,7 +243,13 @@ Przyjęło się, żeby nazywać argument odpowiadający za poprzedni stan używa
 
 React może [wywołać twoje funkcje aktualizujące dwukrotnie](#my-initializer-or-updater-function-runs-twice) w środowisku deweloperskim, aby upewnić się, że są one ["czyste"](/learn/keeping-components-pure).
 
+<<<<<<< HEAD
 <DeepDive title="Czy zawsze powinno się używać funkcji aktualizującej?">
+=======
+<DeepDive>
+
+#### Is using an updater always preferred? {/*is-using-an-updater-always-preferred*/}
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 W internecie można natknąć się na porady, które radzą zawsze pisać `setAge(a => a + 1)`, jeśli następna wartość stanu zależy od poprzedniej. Nie ma w tym nic złego, ale też nie jest to wymagane.
 
@@ -1135,7 +1145,11 @@ Funkcje `set` nie zwracają żadnej wartości.
 
 * Jeśli nowa wartość i aktualny stan są identyczne (na podstawie porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), React **nie wymusi ponownego renderowania komponentu i jego potomków.** Jest to pewna forma optymalizacji. Mimo że czasem React nadal może wywołać twój komponent ponownie przed pominięciem potomków, nie powinno to wpłynąć na logikę działania komponentu.
 
+<<<<<<< HEAD
 * React [grupuje aktualizacje stanu](/learn/queueing-a-series-of-state-updates). Aktualizuje on ekran **po zakończeniu działania wszystkich procedur obsługi zdarzeń** i po tym, jak te procedury wywoją odpowiednie funkcje `set`. Zapobiega to wielokrotnemu renderowaniu komponentu podczas pojedynczego zdarzenia. W rzadkich sytuacjach, kiedy chcesz wymusić wcześniejsze zaktualizowanie ekranu, np. aby odczytać coś z DOM, możesz użyć funkcji [`flushSync`](/apis/react-dom/flushsync).
+=======
+* React [batches state updates.](/learn/queueing-a-series-of-state-updates) It updates the screen **after all the event handlers have run** and have called their `set` functions. This prevents multiple re-renders during a single event. In the rare case that you need to force React to update the screen earlier, for example to access the DOM, you can use [`flushSync`.](/apis/react-dom/flushSync)
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 * Wywołanie funkcji `set` *podczas renderowania* jest dozwolone tylko w ramach aktualnie renderowanego komponentu. React zignoruje wynik aktualnego renderowania i natychmiast spróbuje wyrenderować go ponownie z nowym stanem. Ten wzorzec jest rzadko stosowany, jednak możesz go użyć, aby **zapisać dane z poprzedniego renderowania**. [Zobacz przykład powyżej.](#storing-information-from-previous-renders)
 
