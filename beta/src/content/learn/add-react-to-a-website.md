@@ -226,7 +226,13 @@ Narzędzie, którego dopiero co użyliśmy, to Babel. Możesz poczytać o nim wi
 
 Jeśli czujesz się już pewnie z narzędziami do budowania i chcesz, żeby robiły za ciebie więcej rzeczy, [zajrzyj do rozdziału, w którym opisujemy najpopularniejsze, przystępne zestawy narzędzi](/learn/start-a-new-react-project).
 
+<<<<<<< HEAD
 <DeepDive title="React bez składni JSX">
+=======
+<DeepDive>
+
+#### React without JSX {/*react-without-jsx*/}
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 
 Pierwotnie JSX został stworzony po to, aby pisanie komponentów w Reakcie było podobne do pisania kodu HTML. Od tamtej pory używa się go dość powszechnie. Mimo to, czasem możesz nie chcieć lub nie móc użyć JSX-a. Wtedy masz dwie opcje:
 

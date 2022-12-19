@@ -344,6 +344,16 @@ Jeśli wyrenderujesz ten sam komponent wielokrotnie, każdy z nich otrzyma swój
 ```js
 import { useState } from 'react';
 
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
 function MyButton() {
   const [count, setCount] = useState(0);
 
@@ -357,6 +367,7 @@ function MyButton() {
     </button>
   );
 }
+<<<<<<< HEAD
 
 export default function MyApp() {
   return (
@@ -367,6 +378,8 @@ export default function MyApp() {
     </div>
   );
 }
+=======
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 ```
 
 ```css
@@ -432,11 +445,15 @@ Jeśli teraz klikniesz na którykolwiek z przycisków, wartość licznika `count
 
 Najpierw *przenieś stan do góry* z `MyButton` do `MyApp`:
 
+<<<<<<< HEAD
 ```js {2,6-10}
 function MyButton() {
   // ... przenosimy kod stąd ...
 }
 
+=======
+```js {2-6,18}
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -452,6 +469,11 @@ export default function MyApp() {
     </div>
   );
 }
+
+function MyButton() {
+  // ... we're moving code from here ...
+}
+
 ```
 
 Teraz *przekaż stan w dół* z `MyApp` do każdego z komponentów `MyButton`. Nie zapomnij także o obsłudze kliknięcia. Możesz przekazać informacje do `MyButton` używając nawiasów klamrowych, tak jak zrobiliśmy to poprzednio na `<img>`:
@@ -497,6 +519,7 @@ Opisany tu proces nazywa się "wynoszeniem stanu w górę". Przenosząc stan w g
 ```js
 import {useState} from 'react';
 
+<<<<<<< HEAD
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
@@ -505,6 +528,8 @@ function MyButton({ count, onClick }) {
   );
 }
 
+=======
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -518,6 +543,14 @@ export default function MyApp() {
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
+  );
+}
+
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
   );
 }
 ```

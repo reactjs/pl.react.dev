@@ -170,7 +170,13 @@ Jeśli nie chcesz wstawiać dodatkowego `<div>` do struktury, zamiast tego może
 
 Ten pusty znacznik nazywamy *[fragmentem reactowym](/apis/react/Fragment)*. Fragmenty pozwalają grupować rzeczy bez zostawiania śladu w drzewie HTML przesłanym do przeglądarki.
 
+<<<<<<< HEAD
 <DeepDive title="Dlaczego musimy opakowywać kilka znaczników JSX-owych?">
+=======
+<DeepDive>
+
+#### Why do multiple JSX tags need to be wrapped? {/*why-do-multiple-jsx-tags-need-to-be-wrapped*/}
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 
 Składnia JSX wygląda jak HTML, ale pod spodem jest transformowana do zwykłych obiektów javascriptowych. Nie można przecież zwrócić w funkcji dwóch obiektów bez uprzedniego opakowania ich w tablicę. Dlatego właśnie nie można zwrócić dwóch znaczników JSX bez opakowywania ich w jeden główny znacznik lub fragment.
 
