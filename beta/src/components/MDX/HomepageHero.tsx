@@ -29,7 +29,11 @@ function HomepageHero() {
           </YouWillLearnCard>
         </div>
         <div className="flex flex-col justify-center">
+<<<<<<< HEAD
           <YouWillLearnCard title="Dokumentacja API" path="/apis/react">
+=======
+          <YouWillLearnCard title="API Reference" path="/reference/react">
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
             <p>
               Przejrzyj API dla reactowych hooków i zapoznaj się z jego
               kształtem dzięki kolorowym oznaczeniom.
