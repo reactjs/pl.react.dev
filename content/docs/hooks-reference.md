@@ -578,7 +578,7 @@ Zwraca stan informujący o tym, czy tranzycja (ang. *transition*) jest jeszcze w
 ```js
 startTransition(() => {
   setCount(count + 1);
-})
+});
 ```
 
 Zmienna `isPending` informuje, czy tranzycja jest w toku, aby można było na jej podstawie wyświetlić stan ładowania:
@@ -591,7 +591,7 @@ function App() {
   function handleClick() {
     startTransition(() => {
       setCount(c => c + 1);
-    })
+    });
   }
 
   return (

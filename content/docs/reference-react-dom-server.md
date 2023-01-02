@@ -17,7 +17,11 @@ var ReactDOMServer = require('react-dom/server');
 
 ## Ogólne informacje {#overview}
 
+<<<<<<< HEAD
 Następujące metody mogą zostać użyte tylko w **środowiskach obsługujących [strumienie Node.js (ang. *Node.js Streams*)](https://nodejs.dev/learn/nodejs-streams):**
+=======
+These methods are only available in the **environments with [Node.js Streams](https://nodejs.org/api/stream.html):**
+>>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
 
 - [`renderToPipeableStream()`](#rendertopipeablestream)
 - [`renderToNodeStream()`](#rendertonodestream) (przestarzałe)
