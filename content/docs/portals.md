@@ -1,10 +1,10 @@
 ---
 id: portals
-title: Portals
+title: Portale
 permalink: docs/portals.html
 ---
 
-Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+Portale stanowią pierwszorzędny sposób na renderowanie dzieci, w takim węźle DOM, który znajduje się poza strukturą drzewa DOM komponentu - rodzica.
 
 ```js
 ReactDOM.createPortal(child, container)
