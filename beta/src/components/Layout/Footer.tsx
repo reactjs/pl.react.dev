@@ -112,11 +112,21 @@ export function Footer() {
               </FooterLink>
             </div>
             <div className="flex flex-col">
+<<<<<<< HEAD
               <FooterLink href="/apis/react" isHeader={true}>
                 Dokumentacja API
               </FooterLink>
               <FooterLink href="/apis/react">API Reacta</FooterLink>
               <FooterLink href="/apis/react-dom">API React DOM</FooterLink>
+=======
+              <FooterLink href="/reference/react" isHeader={true}>
+                API Reference
+              </FooterLink>
+              <FooterLink href="/reference/react">React APIs</FooterLink>
+              <FooterLink href="/reference/react-dom">
+                React DOM APIs
+              </FooterLink>
+>>>>>>> 3ff6fe871c6212118991ffafa5503358194489a0
             </div>
             <div className="flex flex-col sm:col-start-2 xl:col-start-4">
               <FooterLink href="/" isHeader={true}>
@@ -125,12 +135,21 @@ export function Footer() {
               <FooterLink href="https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md">
                 Kodeks
               </FooterLink>
+<<<<<<< HEAD
               <FooterLink href="/community/acknowledgements">
                 Podziękowania
               </FooterLink>
               <FooterLink href="/community/meet-the-team">
                 Poznaj zespół
+=======
+              <FooterLink href="/learn/acknowledgements">
+                Acknowledgements
               </FooterLink>
+              <FooterLink href="/learn/docs-contributors">
+                Docs Contributors
+>>>>>>> 3ff6fe871c6212118991ffafa5503358194489a0
+              </FooterLink>
+              <FooterLink href="/learn/meet-the-team">Meet the Team</FooterLink>
               <FooterLink href="https://reactjs.org/blog">Blog</FooterLink>
               {/* <FooterLink href="/">Community Resources</FooterLink> */}
             </div>

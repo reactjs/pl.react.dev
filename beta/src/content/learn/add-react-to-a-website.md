@@ -226,12 +226,23 @@ Narzędzie, którego dopiero co użyliśmy, to Babel. Możesz poczytać o nim wi
 
 Jeśli czujesz się już pewnie z narzędziami do budowania i chcesz, żeby robiły za ciebie więcej rzeczy, [zajrzyj do rozdziału, w którym opisujemy najpopularniejsze, przystępne zestawy narzędzi](/learn/start-a-new-react-project).
 
+<<<<<<< HEAD
 <DeepDive title="React bez składni JSX">
+=======
+<DeepDive>
+
+#### React without JSX {/*react-without-jsx*/}
+>>>>>>> 3ff6fe871c6212118991ffafa5503358194489a0
 
 Pierwotnie JSX został stworzony po to, aby pisanie komponentów w Reakcie było podobne do pisania kodu HTML. Od tamtej pory używa się go dość powszechnie. Mimo to, czasem możesz nie chcieć lub nie móc użyć JSX-a. Wtedy masz dwie opcje:
 
+<<<<<<< HEAD
 - Użyć alternatywy dla JSX, np. [htm](https://github.com/developit/htm), która zamiast kompilatora korzysta z [literałów szablonowych (ang. *template literals*)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 - Użyć funkcji [`React.createElement()`](/apis/react/createElement), która ma specyficzną strukturę, opisaną poniżej.
+=======
+- Use a JSX alternative like [htm](https://github.com/developit/htm) which uses JavaScript [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of a compiler.
+- Use [`React.createElement()`](/reference/react/createElement) which has a special structure explained below.
+>>>>>>> 3ff6fe871c6212118991ffafa5503358194489a0
 
 W składni JSX, komponent wyglądałby tak:
 
