@@ -151,6 +151,7 @@ Aby zademonstrować zachowanie aplikacji w takiej sytuacji, zastanówmy się, co
 W trybie rygorystycznym w Reakcie 18 podczas montowania komponentu React natychmiast zasymuluje jego odmontowanie i ponowne zamontowanie:
 
 ```
+<<<<<<< HEAD
 * React montuje komponent.
     * Tworzone są efekty układu interfejsu.
     * Tworzone są zwykłe efekty.
@@ -160,6 +161,17 @@ W trybie rygorystycznym w Reakcie 18 podczas montowania komponentu React natychm
 * React symuluje ponownie utworzenie efektów zamontowanego komponentu.
     * Tworzone są efekty układu interfejsu.
     * Tworzone są zwykłe efekty.
+=======
+* React mounts the component.
+    * Layout effects are created.
+    * Effects are created.
+* React simulates effects being destroyed on a mounted component.
+    * Layout effects are destroyed.
+    * Effects are destroyed.
+* React simulates effects being re-created on a mounted component.
+    * Layout effects are created
+    * Effect setup code runs
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 ```
 
 Przy drugim montowaniu React przywróci stan z pierwszego montowania. Symuluje to zachowanie użytkownika, np. w przypadku przejścia na inną zakładkę i z powrotem na aktualną, upewniając się, że kod poprawnie obsłuży przywrócenie stanu komponentu.
@@ -167,9 +179,15 @@ Przy drugim montowaniu React przywróci stan z pierwszego montowania. Symuluje t
 Kiedy komponent zostaje odmontowany, efekty są usuwane standardowo:
 
 ```
+<<<<<<< HEAD
 * React odmontowuje komponent.
   * Niszczone są efekty układu interfejsu.
   * Niszczone są zwykłe efekty.
+=======
+* React unmounts the component.
+  * Layout effects are destroyed.
+  * Effects are destroyed.
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 ```
 
 Do cyklu odmontowywania i ponowne montowania zalicza się:

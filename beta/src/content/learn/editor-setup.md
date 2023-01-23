@@ -4,7 +4,11 @@ title: Konfiguracja edytora
 
 <Intro>
 
+<<<<<<< HEAD
 Prawidłowo skonfigurowany edytor może sprawić, że kod będzie łatwiejszy w czytaniu i szybszy w pisaniu. Może także pomóc wyłapać błędy w trakcie pisania! Jeśli to twój pierwszy raz z konfiguracją edytora lub jeśli szukasz wskazówek w usprawnieniu pracy z twoim obecnym, ten rozdział jest dla ciebie.
+=======
+A properly configured editor can make code clearer to read and faster to write. It can even help you catch bugs as you write them! If this is your first time setting up an editor or you're looking to tune up your current editor, we have a few recommendations.
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 </Intro>
 

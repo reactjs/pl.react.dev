@@ -374,8 +374,13 @@ W naszej [dokumentacji poświęconej rozdzielaniu kodu](/docs/code-splitting.htm
 Podczas renderowania po stronie serwera granice zawieszenia (ang. *Suspense boundaries*) pozwalają wysłać aplikację w mniejszych kawałkach poprzez zawieszanie (ang. *suspending*) komponentów.
 Kiedy komponent jest zawieszony, React każe najbliższej granicy Suspense wyrenderować swój komponent zastępczy. Jeśli komponent się odwiesi przed wysłaniem kodu do klienta, komponent zastępczy jest wyrzucany, a w jego miejsce trafia właściwa zawartość.
 
+<<<<<<< HEAD
 #### `React.Suspense` podczas hydratacji {#reactsuspense-during-hydration}
 Granice zawieszenia (ang. *Suspense boundaries*) są zależne od tego, czy ich granice nadrzędne ulegną hydratacji przed nimi, lecz nie muszą czekać na swoje "rodzeństwo", czyli granice na tym samym poziomie. W przypadku wystąpienia jakiegoś zdarzenia na którejś z granic przed jej całkowitą hydratacją, otrzyma ona wyższy priorytet niż pozostałe. [Czytaj więcej.](https://github.com/reactwg/react-18/discussions/130)
+=======
+#### `React.Suspense` during hydration {#reactsuspense-during-hydration}
+Suspense boundaries depend on their parent boundaries being hydrated before they can hydrate, but they can hydrate independently from sibling boundaries. Events on a boundary before it is hydrated will cause the boundary to hydrate at a higher priority than neighboring boundaries. [Read more](https://github.com/reactwg/react-18/discussions/130)
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 ### `React.startTransition` {#starttransition}
 
