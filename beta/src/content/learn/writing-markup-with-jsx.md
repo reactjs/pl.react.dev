@@ -168,9 +168,17 @@ Jeśli nie chcesz wstawiać dodatkowego `<div>` do struktury, zamiast tego może
 </>
 ```
 
+<<<<<<< HEAD
 Ten pusty znacznik nazywamy *[fragmentem reactowym](/apis/react/Fragment)*. Fragmenty pozwalają grupować rzeczy bez zostawiania śladu w drzewie HTML przesłanym do przeglądarki.
 
 <DeepDive title="Dlaczego musimy opakowywać kilka znaczników JSX-owych?">
+=======
+This empty tag is called a *[Fragment.](/reference/react/Fragment)* Fragments let you group things without leaving any trace in the browser HTML tree.
+
+<DeepDive>
+
+#### Why do multiple JSX tags need to be wrapped? {/*why-do-multiple-jsx-tags-need-to-be-wrapped*/}
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 Składnia JSX wygląda jak HTML, ale pod spodem jest transformowana do zwykłych obiektów javascriptowych. Nie można przecież zwrócić w funkcji dwóch obiektów bez uprzedniego opakowania ich w tablicę. Dlatego właśnie nie można zwrócić dwóch znaczników JSX bez opakowywania ich w jeden główny znacznik lub fragment.
 
@@ -211,7 +219,11 @@ To dlatego w Reakcie wiele atrybutów HTML-owych i SVG zapisujemy camelCasem. Dl
 />
 ```
 
+<<<<<<< HEAD
 [Wszystkie te atrybuty znajdziesz w elementach React DOM](TODO). Jeśli zdarzy ci się pomylić, nie martw się - React wyświetli w [konsoli przeglądarki](https://developer.mozilla.org/docs/Tools/Browser_Console) błąd z instrukcją, jak naprawić problem.
+=======
+You can [find all these attributes in the list of DOM component props.](/reference/react-dom/components/common) If you get one wrong, don't worry—React will print a message with a possible correction to the [browser console.](https://developer.mozilla.org/docs/Tools/Browser_Console)
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 <Pitfall>
 

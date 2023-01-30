@@ -112,11 +112,21 @@ export function Footer() {
               </FooterLink>
             </div>
             <div className="flex flex-col">
+<<<<<<< HEAD
               <FooterLink href="/apis/react" isHeader={true}>
                 Dokumentacja API
               </FooterLink>
               <FooterLink href="/apis/react">API Reacta</FooterLink>
               <FooterLink href="/apis/react-dom">API React DOM</FooterLink>
+=======
+              <FooterLink href="/reference/react" isHeader={true}>
+                API Reference
+              </FooterLink>
+              <FooterLink href="/reference/react">React APIs</FooterLink>
+              <FooterLink href="/reference/react-dom">
+                React DOM APIs
+              </FooterLink>
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
             </div>
             <div className="flex flex-col sm:col-start-2 xl:col-start-4">
               <FooterLink href="/" isHeader={true}>
@@ -128,9 +138,15 @@ export function Footer() {
               <FooterLink href="/community/acknowledgements">
                 Podziękowania
               </FooterLink>
+<<<<<<< HEAD
               <FooterLink href="/community/meet-the-team">
                 Poznaj zespół
+=======
+              <FooterLink href="/community/docs-contributors">
+                Docs Contributors
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
               </FooterLink>
+              <FooterLink href="/community/team">Meet the Team</FooterLink>
               <FooterLink href="https://reactjs.org/blog">Blog</FooterLink>
               {/* <FooterLink href="/">Community Resources</FooterLink> */}
             </div>
