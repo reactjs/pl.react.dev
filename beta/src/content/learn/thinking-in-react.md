@@ -235,7 +235,13 @@ Przejdźmy przez wszystkie pozycje krok po kroku:
 
 Oznacza to, że jedynie tekst wyszukiwarki i wartość pola wyboru są stanem! Dobra robota!
 
+<<<<<<< HEAD
 <DeepDive title="Właściwości a stan">
+=======
+<DeepDive>
+
+#### Props vs State {/*props-vs-state*/}
+>>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 W Reakcie rozróżniamy dwa typy danych "modelowych": właściwości i stan. Obydwa różnią się od siebie:
 
@@ -271,7 +277,11 @@ Zastosujmy na tym stanie poznaną przez nas strategię:
 
 Tak więc wartości stanu będą przechowywane w komponencie `FilterableProductTable`. 
 
+<<<<<<< HEAD
 Aby dodać stan do komponentu, użyj [hooka `useState()`](/apis/react/useState). Hooki pozwalają "zahaczyć" się o [cykl renderowania (ang. *render cycle*)](/learn/render-and-commit) komponentu. Dodaj dwie zmienne stanu na górze ciała komponentu `FilterableProductTable` i określ początkowy stan aplikacji:
+=======
+Add state to the component with the [`useState()` Hook.](/reference/react/useState) Hooks let you "hook into" a component's [render cycle.](/learn/render-and-commit) Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
+>>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 ```js
 function FilterableProductTable({ products }) {

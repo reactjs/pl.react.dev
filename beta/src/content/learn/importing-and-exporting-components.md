@@ -126,7 +126,13 @@ W Reakcie możesz napisać zarówno `'./Gallery.js'` jak i `'./Gallery'`, jednak
 
 </Note>
 
+<<<<<<< HEAD
 <DeepDive title="Eksporty domyślne a nazwane">
+=======
+<DeepDive>
+
+#### Default vs named exports {/*default-vs-named-exports*/}
+>>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 W JavaScripcie istnieją dwa sposoby eksportowania wartości: eksport domyślny oraz eksport nazwany. Dotychczasowe przykłady używały jedynie eksportów domyślnych. Ale w ramach jednego pliku można używać obydwu. **W danym pliku nie może być więcej niż jeden _domyślny_ eksport, natomiast _nazwanych_ eksportów możesz dodać tyle, ile chcesz.**
 
