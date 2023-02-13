@@ -207,6 +207,12 @@ Jeśli komponent potomny potrzebuje jakichś danych od rodzica, [przekaż je za 
 
 </Pitfall>
 
+<<<<<<< HEAD
+=======
+<DeepDive>
+
+#### Components all the way down {/*components-all-the-way-down*/}
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 <DeepDive title="Komponenty od góry do dołu">
 
@@ -293,7 +299,11 @@ Coś jest nie tak z tą instrukcją `return`. Potrafisz to naprawić?
 
 <Hint>
 
+<<<<<<< HEAD
 Podczas naprawiania tego błędu możesz natknąć się na błąd "Unexpected token". W takim wypadku upewnij się, że średnik znajduje się _po_ nawiasie zamykającym. Jeśli średnik znajdzie się wewnątrz `return ( )`, otrzymasz błąd.
+=======
+You may get an "Unexpected token" error while trying to fix this. In that case, check that the semicolon appears *after* the closing parenthesis. Leaving a semicolon inside `return ( )` will cause an error.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 </Hint>
 

@@ -302,7 +302,11 @@ Zwróć uwagę, że `onClick={handleClick}` nie ma na końcu nawiasów! Nie _wyw
 
 Często twoje komponenty będą musiały "zapamiętać" jakąś informację i wyświetlić ją na ekranie. Na przykład, być może zechcesz zliczać, ile razy przycisk został kliknięty. Aby to zrobić, dodaj *stan* do komponentu.
 
+<<<<<<< HEAD
 Najpierw zaimportuj [`useState`](/apis/react/useState) z Reacta:
+=======
+First, import [`useState`](/reference/react/useState) from React:
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 ```js
 import { useState } from 'react';
@@ -344,6 +348,16 @@ Jeśli wyrenderujesz ten sam komponent wielokrotnie, każdy z nich otrzyma swój
 ```js
 import { useState } from 'react';
 
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
 function MyButton() {
   const [count, setCount] = useState(0);
 
@@ -357,6 +371,7 @@ function MyButton() {
     </button>
   );
 }
+<<<<<<< HEAD
 
 export default function MyApp() {
   return (
@@ -367,6 +382,8 @@ export default function MyApp() {
     </div>
   );
 }
+=======
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 ```
 
 ```css
@@ -382,7 +399,11 @@ Zwróć uwagę, że każdy z przycisków "pamięta" swoją własną wartość st
 
 ## Używanie hooków {/*using-hooks*/}
 
+<<<<<<< HEAD
 Funkcje o nazwie rozpoczynającej się od `use` nazywamy *hookami*. `useState` to wbudowany hook dostarczony przez Reacta. Inne hooki znajdziesz w [dokumentacji API Reacta](/apis/react). Możesz także stworzyć swój własny hook i wywołać w nim te istniejące.
+=======
+Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference.](/reference/react) You can also write your own Hooks by combining the existing ones.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 Hooki są bardziej restrykcyjne od zwykłych funkcji. Możesz je wywołać tylko na *głównym poziomie* komponentu (lub innego hooka). Jeśli chcesz skorzystać z `useState` w warunku lub pętli, przenieś go do nowego komponentu, a następnie wyrenderuj ten komponent.
 
@@ -432,11 +453,15 @@ Jeśli teraz klikniesz na którykolwiek z przycisków, wartość licznika `count
 
 Najpierw *przenieś stan do góry* z `MyButton` do `MyApp`:
 
+<<<<<<< HEAD
 ```js {2,6-10}
 function MyButton() {
   // ... przenosimy kod stąd ...
 }
 
+=======
+```js {2-6,18}
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -452,6 +477,11 @@ export default function MyApp() {
     </div>
   );
 }
+
+function MyButton() {
+  // ... we're moving code from here ...
+}
+
 ```
 
 Teraz *przekaż stan w dół* z `MyApp` do każdego z komponentów `MyButton`. Nie zapomnij także o obsłudze kliknięcia. Możesz przekazać informacje do `MyButton` używając nawiasów klamrowych, tak jak zrobiliśmy to poprzednio na `<img>`:
@@ -497,6 +527,7 @@ Opisany tu proces nazywa się "wynoszeniem stanu w górę". Przenosząc stan w g
 ```js
 import {useState} from 'react';
 
+<<<<<<< HEAD
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
@@ -505,6 +536,8 @@ function MyButton({ count, onClick }) {
   );
 }
 
+=======
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -518,6 +551,14 @@ export default function MyApp() {
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
+  );
+}
+
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
   );
 }
 ```
@@ -535,4 +576,8 @@ button {
 
 Znasz już podstawy pisania kodu reactowego!
 
+<<<<<<< HEAD
 Przejdź do rozdziału pt. [Myślenie reactowe](/learn/thinking-in-react), aby poczuć, co w praktyce oznacza tworzenie UI w Reakcie.
+=======
+Check out the [Tutorial](/learn/tutorial-tic-tac-toe) to put them into practice and build your first mini-app with React.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
