@@ -199,8 +199,13 @@ Dodanie wsparcia dla składni JSX w projekcie nie wymaga użycia skomplikowanych
 
 Za pomocą terminala przejdź do folderu projektu i wklej poniższe dwie komendy (**Przedtem upewnij się, że masz zainstalowany [Node.js](https://nodejs.org/)!**):
 
+<<<<<<< HEAD
 1. `npm init -y` (jeśli wystąpi błąd, [tutaj znajdziesz rozwiązanie](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
 2. `npm install babel-cli@6 babel-preset-react-app@3`
+=======
+1. `npm init -y` (if it fails, [here's a fix](https://gist.github.com/gaearon/246f6380610e262f8a648e3e51cad40d))
+2. `npm install @babel/cli@7 babel-preset-react-app@10`
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 Do zainstalowania preprocesora JSX potrzebujesz jedynie npm. Nie będzie ci on jednak potrzebny do niczego więcej. Zarówno React, jak i kod aplikacji mogą zostać w znacznikach `<script>` bez żadnych zmian.
 
@@ -210,9 +215,15 @@ Gratulacje! Właśnie udało ci się **skonfigurować JSX pod produkcję**.
 
 Możesz uruchamiać preprocesor na kodzie JSX za każdym razem, gdy zapisujesz plik. Dzięki temu transformacja zostanie przeprowadzona ponownie, zamieniając plik JSX na nowy plik napisany w czystym JavaScripcie, który jest zrozumiały dla przeglądarki. Oto jak to zrobić:
 
+<<<<<<< HEAD
 1. Stwórz folder o nazwie **`src`**.
 2. W terminalu uruchom polecenie: `npx babel --watch src --out-dir . --presets react-app/prod ` (Nie czekaj, aż polecenie się skończy! Ta komenda uruchamia automatyczny skrypt nasłuchujący zmian w plikach JSX-owych w katalogu `src`.)
 3. Przenieś swój świeżo przerobiony plik **`like-button.js`** ([powinien wyglądać tak!](https://gist.githubusercontent.com/gaearon/be5ae0fbf563d6c5fe5c1563907b13d2/raw/4c0d0b8c7f4fcb341720424c28c72059f8174c62/like-button.js)) do nowego folderu **`src`**.
+=======
+1. Create a folder called **`src`.**
+2. In your terminal, run this command: `npx babel --watch src --out-dir . --presets babel-preset-react-app/prod ` (Don't wait for it to finish! This command starts an automated watcher for edits to JSX inside `src`.)
+3. Move your JSX-ified **`like-button.js`** ([it should look like this!](https://gist.githubusercontent.com/gaearon/be5ae0fbf563d6c5fe5c1563907b13d2/raw/4c0d0b8c7f4fcb341720424c28c72059f8174c62/like-button.js)) to the new **`src`** folder.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 Skrypt nasłuchujący automatycznie stworzy przekonwertowany plik **`like-button.js`**, zawierający czysty kod javascriptowy zrozumiały dla przeglądarki.
 
@@ -226,12 +237,23 @@ Narzędzie, którego dopiero co użyliśmy, to Babel. Możesz poczytać o nim wi
 
 Jeśli czujesz się już pewnie z narzędziami do budowania i chcesz, żeby robiły za ciebie więcej rzeczy, [zajrzyj do rozdziału, w którym opisujemy najpopularniejsze, przystępne zestawy narzędzi](/learn/start-a-new-react-project).
 
+<<<<<<< HEAD
 <DeepDive title="React bez składni JSX">
+=======
+<DeepDive>
+
+#### React without JSX {/*react-without-jsx*/}
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 Pierwotnie JSX został stworzony po to, aby pisanie komponentów w Reakcie było podobne do pisania kodu HTML. Od tamtej pory używa się go dość powszechnie. Mimo to, czasem możesz nie chcieć lub nie móc użyć JSX-a. Wtedy masz dwie opcje:
 
+<<<<<<< HEAD
 - Użyć alternatywy dla JSX, np. [htm](https://github.com/developit/htm), która zamiast kompilatora korzysta z [literałów szablonowych (ang. *template literals*)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 - Użyć funkcji [`React.createElement()`](/apis/react/createElement), która ma specyficzną strukturę, opisaną poniżej.
+=======
+- Use a JSX alternative like [htm](https://github.com/developit/htm) which uses JavaScript [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of a compiler.
+- Use [`React.createElement()`](/reference/react/createElement) which has a special structure explained below.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 W składni JSX, komponent wyglądałby tak:
 

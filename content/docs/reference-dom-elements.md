@@ -14,7 +14,24 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<<<<<<< HEAD
 Dla poprawy wydajności oraz kompatybilności między przeglądarkami, React wprowadza niezależny od przeglądarki system DOM. Dało to nam możliwość naprawienia pewnych usterek występujących w przeglądarkowych implementacjach DOM.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 W Reakcie wszystkie właściwości i atrybuty DOM (włącznie z obsługą zdarzeń) powinny być zapisywane w notacji camelCase. Dla przykładu, atrybut HTML `tabindex` w Reakcie zapisujemy jako `tabIndex`. Wyjątkiem są atrybuty `aria-*` oraz `data-*`, które powinny być zapisywane małą literą, na przykład, `aria-label` pozostaje `aria-label`.
 

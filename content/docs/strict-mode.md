@@ -4,7 +4,20 @@ title: Tryb rygorystyczny
 permalink: docs/strict-mode.html
 ---
 
+<<<<<<< HEAD
 `StrictMode` jest narzędziem podkreślającym potencjalne problemy w aplikacji. Tak samo jak `Fragment`, `StrictMode` nie renderuje żadnego widocznego UI. Służy natomiast do aktywacji dodatkowych sprawdzeń i ostrzeżeń dla swoich potomków.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`StrictMode`](https://beta.reactjs.org/reference/react/StrictMode)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
+`StrictMode` is a tool for highlighting potential problems in an application. Like `Fragment`, `StrictMode` does not render any visible UI. It activates additional checks and warnings for its descendants.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 
 > Uwaga:
 >
@@ -151,6 +164,7 @@ Aby zademonstrować zachowanie aplikacji w takiej sytuacji, zastanówmy się, co
 W trybie rygorystycznym w Reakcie 18 podczas montowania komponentu React natychmiast zasymuluje jego odmontowanie i ponowne zamontowanie:
 
 ```
+<<<<<<< HEAD
 * React montuje komponent.
     * Tworzone są efekty układu interfejsu.
     * Tworzone są zwykłe efekty.
@@ -160,6 +174,17 @@ W trybie rygorystycznym w Reakcie 18 podczas montowania komponentu React natychm
 * React symuluje ponownie utworzenie efektów zamontowanego komponentu.
     * Tworzone są efekty układu interfejsu.
     * Tworzone są zwykłe efekty.
+=======
+* React mounts the component.
+    * Layout effects are created.
+    * Effects are created.
+* React simulates effects being destroyed on a mounted component.
+    * Layout effects are destroyed.
+    * Effects are destroyed.
+* React simulates effects being re-created on a mounted component.
+    * Layout effects are created
+    * Effect setup code runs
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 Przy drugim montowaniu React przywróci stan z pierwszego montowania. Symuluje to zachowanie użytkownika, np. w przypadku przejścia na inną zakładkę i z powrotem na aktualną, upewniając się, że kod poprawnie obsłuży przywrócenie stanu komponentu.
@@ -167,9 +192,15 @@ Przy drugim montowaniu React przywróci stan z pierwszego montowania. Symuluje t
 Kiedy komponent zostaje odmontowany, efekty są usuwane standardowo:
 
 ```
+<<<<<<< HEAD
 * React odmontowuje komponent.
   * Niszczone są efekty układu interfejsu.
   * Niszczone są zwykłe efekty.
+=======
+* React unmounts the component.
+  * Layout effects are destroyed.
+  * Effects are destroyed.
+>>>>>>> 63c77695a95902595b6c2cc084a5c3650b15210a
 ```
 
 Do cyklu odmontowywania i ponowne montowania zalicza się:
