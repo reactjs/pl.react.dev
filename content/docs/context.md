@@ -4,7 +4,20 @@ title: Kontekst
 permalink: docs/context.html
 ---
 
+<<<<<<< HEAD
 Kontekst umożliwia przekazywanie danych wewnątrz drzewa komponentów bez konieczności przekazywania ich przez właściwości każdego komponentu pośredniego.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Passing Data Deeply with Context](https://beta.reactjs.org/learn/passing-data-deeply-with-context)
+> - [`useContext`](https://beta.reactjs.org/reference/react/useContext)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+>>>>>>> b0ccb47f33e52315b0ec65edb9a49dc4910dd99c
 
 W typowej aplikacji reactowej dane przekazywane są z góry w dół (od rodzica do dziecka) poprzez właściwości. Może się to jednak okazać zbyt uciążliwe w przypadku niektórych danych (np. preferencje językowe, schemat UI czy paleta kolorów), z których korzystają komponenty na wielu poziomach struktury. Konteksty umożliwiają współdzielenie pewnych wartości przez takie komponenty bez konieczności przekazywania ich jako właściwości na każdym poziomie drzewa.
 
