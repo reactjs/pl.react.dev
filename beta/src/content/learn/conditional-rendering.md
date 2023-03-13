@@ -206,13 +206,23 @@ return (
 
 Możesz to wyrażenie przeczytać jako: *"jeśli `isPacked` ma wartość `true`, wtedy (`?`) wyrenderuj `name + ' ✔'`, w przeciwnym razie (`:`) wyrenderuj `name`."*)
 
+<<<<<<< HEAD
 <DeepDive title="Czy te dwa przykłady są w pełni równoważne?">
+=======
+<DeepDive>
+
+#### Are these two examples fully equivalent? {/*are-these-two-examples-fully-equivalent*/}
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 Jeśli wywodzisz się z programowania obiektowego, możesz założyć, że dwa powyższe przykłady są nieco inne, ponieważ jeden z nich może tworzyć dwie różne "instancje" `<li>`. Jednak elementy JSX nie są "instancjami", ponieważ nie przechowują żadnego stanu wewnętrznego oraz nie są prawdziwymi węzłami DOM. Tak więc te dwa przykłady *są* w pełni równoważne. Rozdział pt. [Zachowywanie i resetowanie stanu](/learn/preserving-and-resetting-state) zawiera szczegółowe informacje o tym, jak to działa.
 
 </DeepDive>
 
+<<<<<<< HEAD
 Załóżmy, że mamy zadanie umieścić tekst ukończonego elementu w innym znaczniku HTML, na przykład `<del>`, aby uzyskać efekt przekreślenia. Możesz dodać więcej nowych linii i nawiasów, aby było łatwiej zagnieżdżać więcej JSX w każdym z przypadków:
+=======
+Now let's say you want to wrap the completed item's text into another HTML tag, like `<del>` to strike it out. You can add even more newlines and parentheses so that it's easier to nest more JSX in each of the cases:
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 <Sandpack>
 

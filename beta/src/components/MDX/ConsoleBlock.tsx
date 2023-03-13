@@ -44,8 +44,13 @@ function ConsoleBlock({level = 'error', children}: ConsoleBlockProps) {
           <Box className="bg-gray-300 dark:bg-gray-90" width="15px" />
         </div>
         <div className="flex text-sm px-4">
+<<<<<<< HEAD
           <div className="border-b-2 border-gray-300 dark:border-gray-90">
             Konsola
+=======
+          <div className="border-b-2 border-gray-300 dark:border-gray-90 dark:text-gray-30 text-gray-50">
+            Console
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
           </div>
           <div className="px-4 py-2 flex">
             <Box className="mr-2 bg-gray-300 dark:bg-gray-90" />
@@ -58,7 +63,8 @@ function ConsoleBlock({level = 'error', children}: ConsoleBlockProps) {
         className={cn(
           'flex px-4 pt-4 pb-6 items-center content-center font-mono text-code rounded-b-md',
           {
-            'bg-red-30 text-red-40 bg-opacity-10': level === 'error',
+            'bg-red-30 text-red-50 dark:text-red-30 bg-opacity-5':
+              level === 'error',
             'bg-yellow-5 text-yellow-50': level === 'warning',
             'bg-gray-5 text-secondary dark:text-secondary-dark':
               level === 'info',

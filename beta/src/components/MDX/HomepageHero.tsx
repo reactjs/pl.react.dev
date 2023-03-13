@@ -21,7 +21,11 @@ function HomepageHero() {
       </div>
       <section className="my-8 sm:my-10 grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
         <div className="flex flex-col justify-center">
+<<<<<<< HEAD
           <YouWillLearnCard title="Nauka Reacta" path="/learn">
+=======
+          <YouWillLearnCard title="Quick Start" path="/learn">
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
             <p>
               Naucz się, jak myśleć reactowo przy pomocy instrukcji krok po
               kroku i interaktywnych przykładów.
@@ -29,7 +33,11 @@ function HomepageHero() {
           </YouWillLearnCard>
         </div>
         <div className="flex flex-col justify-center">
+<<<<<<< HEAD
           <YouWillLearnCard title="Dokumentacja API" path="/apis/react">
+=======
+          <YouWillLearnCard title="API Reference" path="/reference/react">
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
             <p>
               Przejrzyj API dla reactowych hooków i zapoznaj się z jego
               kształtem dzięki kolorowym oznaczeniom.
