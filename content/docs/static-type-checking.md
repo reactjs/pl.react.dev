@@ -4,6 +4,14 @@ title: Statyczne sprawdzanie typów
 permalink: docs/static-type-checking.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> Check out [React TypeScript cheatsheet](https://react-typescript-cheatsheet.netlify.app/) for how to use React with TypeScript.
+
+</div>
+
 Narzędzia statycznie sprawdzające typy, jak [Flow](https://flow.org/) i [TypeScript](https://www.typescriptlang.org/), identyfikują określone rodzaje problemów jeszcze zanim uruchomisz kod. Usprawniają one również pracę programisty poprzez dodanie przydatnych funkcjonalności, jak np. autouzupełniania. Z tego powodu w większych aplikacjach sugerujemy zastąpienie `PropTypes` narzędziami Flow lub TypeScript.
 
 ## Flow {#flow}

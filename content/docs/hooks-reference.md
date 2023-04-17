@@ -6,6 +6,16 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`react`: Hooks](https://react.dev/reference/react)
+
+</div>
+
 *Hooki* są nowym dodatkiem w Reakcie 16.8. Pozwalają one używać stanu i innych funkcjonalności Reacta, bez użycia klas.
 
 Ten rozdział opisuje interfejs API hooków wbudowanych w Reacta.
@@ -34,6 +44,14 @@ Jeżeli pierwszy raz stykasz się z hookami, możesz najpierw sprawdzić rozdzia
 ## Podstawowe hooki {#basic-hooks}
 
 ### `useState` {#usestate}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useState`](https://react.dev/reference/react/useState).
+
+</div>
 
 ```js
 const [state, setState] = useState(initialState);
@@ -118,6 +136,14 @@ W rzadkich sytuacjach, kiedy zajdzie potrzeba wymuszenia synchronicznej aktualiz
 
 ### `useEffect` {#useeffect}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useEffect`](https://react.dev/reference/react/useEffect).
+
+</div>
+
 ```js
 useEffect(didUpdate);
 ```
@@ -194,6 +220,15 @@ Tablica zależności nie jest przekazywana jako argumenty do funkcji efektu. Kon
 
 ### `useContext` {#usecontext}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useContext`](https://react.dev/reference/react/useContext).
+
+</div>
+
+
 ```js
 const value = useContext(MyContext);
 ```
@@ -266,6 +301,15 @@ Ten przykład został przygotowany pod hooki w oparciu o kod z rozdziału pt. [Z
 Poniższe hooki są albo są wariantami   tych podstawowych, z poprzedniego podrozdziału, albo są stosowane tylko w określonych skrajnych wypadkach. Nie stresuj się na myśl o nauce o nich.
 
 ### `useReducer` {#usereducer}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useReducer`](https://react.dev/reference/react/useReducer).
+
+</div>
+
 
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init);
@@ -370,6 +414,14 @@ Pamiętaj, że React może nadal wymagać wyrenderowania tego konkretnego kompon
 
 ### `useCallback` {#usecallback}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useCallback`](https://react.dev/reference/react/useCallback).
+
+</div>
+
 ```js
 const memoizedCallback = useCallback(
   () => {
@@ -393,6 +445,15 @@ Przekaż funkcję zwrotną i tablicę zależności. `useCallback` zwróci zapami
 
 ### `useMemo` {#usememo}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useMemo`](https://react.dev/reference/react/useMemo).
+
+</div>
+
+
 ```js
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
@@ -414,6 +475,15 @@ Jeśli nie zostanie przekazana żadna tablica, nowa wartość będzie obliczana 
 > Polecamy użycie reguły [`exhaustive-deps`](https://github.com/facebook/react/issues/14920), będącej częścią naszego pakietu [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ostrzega ona, gdy zależności są niepoprawnie zdefiniowane i sugeruje poprawki.
 
 ### `useRef` {#useref}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useRef`](https://react.dev/reference/react/useRef).
+
+</div>
+
 
 ```js
 const refContainer = useRef(initialValue);
@@ -452,6 +522,15 @@ Miej na uwadze fakt, że `useRef` *nie* informuje o tym, że jego wartość się
 
 ### `useImperativeHandle` {#useimperativehandle}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useImperativeHandle`](https://react.dev/reference/react/useImperativeHandle).
+
+</div>
+
+
 ```js
 useImperativeHandle(ref, createHandle, [deps])
 ```
@@ -475,6 +554,14 @@ W tym przykładzie komponent rodzica, który renderuje `<FancyInput ref={inputRe
 
 ### `useLayoutEffect` {#uselayouteffect}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect).
+
+</div>
+
 Sygnatura funkcji jest taka sama jak `useEffect`, ale jest ona wywoływana synchronicznie po nałożeniu zmian na drzewo DOM. Użyj tego hooka, aby odczytać układ (ang. *layout*) z drzewa DOM i synchronicznie wyrenderować komponent ponownie. Bufor `useLayoutEffect` zostanie opróżniony synchronicznie, zanim przeglądarka będzie miała szansę na malowanie.
 
 Kiedy to tylko możliwe używaj `useEffect` aby uniknąć blokujących aktualizacji wizualnych.
@@ -488,6 +575,15 @@ Kiedy to tylko możliwe używaj `useEffect` aby uniknąć blokujących aktualiza
 >Aby wyłączyć komponent, który korzysta z tego rodzaju efektów z wyrenderowanego po stronie serwera kodu HTML, wyrenderuj go warunkowo, korzystając z zapisu `showChild && <Child />` i opóźnij jego wyświetlanie przy użyciu `useEffect(() => { setShowChild(true); }, [])`. W ten sposób interfejs użytkownika nie będzie wyglądał na zepsuty przed hydratacją (ang. *hydration*).
 
 ### `useDebugValue` {#usedebugvalue}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useDebugValue`](https://react.dev/reference/react/useDebugValue).
+
+</div>
+
 
 ```js
 useDebugValue(value)
@@ -529,6 +625,15 @@ useDebugValue(date, date => date.toDateString());
 
 ### `useDeferredValue` {#usedeferredvalue}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useDeferredValue`](https://react.dev/reference/react/useDeferredValue).
+
+</div>
+
+
 ```js
 const deferredValue = useDeferredValue(value);
 ```
@@ -567,6 +672,15 @@ Memoizowanie potomków informuje Reacta, że ma je zaktualizować tylko wtedy, g
 
 ### `useTransition` {#usetransition}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useTransition`](https://react.dev/reference/react/useTransition).
+
+</div>
+
+
 ```js
 const [isPending, startTransition] = useTransition();
 ```
@@ -578,7 +692,7 @@ Zwraca stan informujący o tym, czy tranzycja (ang. *transition*) jest jeszcze w
 ```js
 startTransition(() => {
   setCount(count + 1);
-})
+});
 ```
 
 Zmienna `isPending` informuje, czy tranzycja jest w toku, aby można było na jej podstawie wyświetlić stan ładowania:
@@ -591,7 +705,7 @@ function App() {
   function handleClick() {
     startTransition(() => {
       setCount(c => c + 1);
-    })
+    });
   }
 
   return (
@@ -610,6 +724,15 @@ function App() {
 > Aktualizacje zawarte w tranzycji nie aktywują elementu zastępczego (ang. *fallback*) dla ponownie zawieszonych (ang. *suspended*) komponentów. Dzięki temu użytkownik może nadal wchodzić w interakcję z aktualną zawartością aplikacji, podczas gdy w tle przygotowywana jest nowa wersja.
 
 ### `useId` {#useid}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useId`](https://react.dev/reference/react/useId).
+
+</div>
+
 
 ```js
 const id = useId();
@@ -667,6 +790,15 @@ Poniższe hooki przewidziane są dla twórców bibliotek, aby umożliwić im bar
 
 ### `useSyncExternalStore` {#usesyncexternalstore}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useSyncExternalStore`](https://react.dev/reference/react/useSyncExternalStore).
+
+</div>
+
+
 ```js
 const state = useSyncExternalStore(subscribe, getSnapshot[, getServerSnapshot]);
 ```
@@ -712,6 +844,14 @@ const selectedField = useSyncExternalStore(
 > Dla ułatwienia stworzyliśmy wersję tego API z automatycznym wsparciem dla memoizacji wyników z `getSnapshot`, dostępną pod nazwą `use-sync-external-store/with-selector`.
 
 ### `useInsertionEffect` {#useinsertioneffect}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`useInsertionEffect`](https://react.dev/reference/react/useInsertionEffect).
+
+</div>
 
 ```js
 useInsertionEffect(didUpdate);

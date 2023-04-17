@@ -13,6 +13,19 @@ redirect_from:
   - "docs/top-level-api-zh-CN.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`react`: Components](https://react.dev/reference/react/components)
+> - [`react`: Hooks](https://react.dev/reference/react/)
+> - [`react`: APIs](https://react.dev/reference/react/apis)
+> - [`react`: Legacy APIs](https://react.dev/reference/react/legacy)
+
+</div>
+
 Obiekt `React` jest punktem wejściowym do biblioteki React. Jeśli załadujesz ją używając tagu `<script>`, główny interfejs API będzie dostępny w zmiennej globalnej `React`. Jeśli używasz standardu ES6, możesz skorzystać ze składni `import React from 'react'`. Jeśli używasz starszego standardu ES5, użyj składni `var React = require('react')`.
 
 ## Ogólne informacje {#overview}
@@ -101,6 +114,14 @@ Aby dowiedzieć się więcej na ten temat, zajrzyj do rozdziału pt. ["React bez
 
 ### `React.Component` {#reactcomponent}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Component`](https://react.dev/reference/react/Component).
+
+</div>
+
 `React.Component` to klasa bazowa dla komponentów reaktowych, definiowanych przez użycie [klasy ze standardu ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
 
 ```javascript
@@ -117,6 +138,14 @@ Lista metod i właściwości związanych z klasą `React.Component` znajduje si�
 
 ### `React.PureComponent` {#reactpurecomponent}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`PureComponent`](https://react.dev/reference/react/PureComponent).
+
+</div>
+
 Klasa `React.PureComponent` jest podobna do [`React.Component`](#reactcomponent). Różnica między nimi jest taka, że [`React.Component`](#reactcomponent) nie posiada implementacji metody [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), natomiast `React.PureComponent` implementuje ją z użyciem płytkiego porównania właściwości (*ang. props*) i stanu.
 
 Jeśli metoda `render()` danego komponentu wyświetla ten sam rezultat przy tych samych właściwościach i stanie, możesz przekształcić go na `React.PureComponent`, by poprawić wydajność.
@@ -130,6 +159,14 @@ Jeśli metoda `render()` danego komponentu wyświetla ten sam rezultat przy tych
 * * *
 
 ### `React.memo` {#reactmemo}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`memo`](https://react.dev/reference/react/memo).
+
+</div>
 
 ```javascript
 const MyComponent = React.memo(function MyComponent(props) {
@@ -169,6 +206,14 @@ Ta metoda wykorzystywana jest jedynie do **[optymalizacji wydajności](/docs/opt
 
 ### `createElement()` {#createelement}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createElement`](https://react.dev/reference/react/createElement).
+
+</div>
+
 ```javascript
 React.createElement(
   type,
@@ -184,6 +229,14 @@ Kod pisany w [JSX](/docs/introducing-jsx.html) jest konwertowany do wywołań fu
 * * *
 
 ### `cloneElement()` {#cloneelement}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`cloneElement`](https://react.dev/reference/react/cloneElement).
+
+</div>
 
 ```
 React.cloneElement(
@@ -209,6 +262,14 @@ Powyższy interfejs API zastąpił przestarzałą funkcję `React.addons.cloneWi
 
 ### `createFactory()` {#createfactory}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createFactory`](https://react.dev/reference/react/createFactory).
+
+</div>
+
 ```javascript
 React.createFactory(type)
 ```
@@ -223,6 +284,14 @@ Jeśli korzystasz z JSX, nie ma potrzeby korzystania z `React.createFactory()`. 
 
 ### `isValidElement()` {#isvalidelement}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`isValidElement`](https://react.dev/reference/react/isValidElement).
+
+</div>
+
 ```javascript
 React.isValidElement(object)
 ```
@@ -232,6 +301,14 @@ Weryfikuje, czy obiekt jest elementem reactowym. Zwraca `true` lub `false`.
 * * *
 
 ### `React.Children` {#reactchildren}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Children`](https://react.dev/reference/react/Children).
+
+</div>
 
 `React.Children` udostępnia narzędzia do obsługi struktury danych przekazanej w `this.props.children`.
 
@@ -291,6 +368,14 @@ Zwraca strukturę z `children` jako płaską tablicę, z kluczem przypisanym do 
 
 ### `React.Fragment` {#reactfragment}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Fragment`](https://react.dev/reference/react/Fragment).
+
+</div>
+
 Komponent `React.Fragment` pozwala zwrócić wiele elementów w metodzie `render()` bez opakowywania ich w dodatkowy element DOM:
 
 ```javascript
@@ -309,10 +394,26 @@ Możesz także skorzystać ze skróconego zapisu `<></>`. Po więcej informacji 
 
 ### `React.createRef` {#reactcreateref}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`createRef`](https://react.dev/reference/react/createRef).
+
+</div>
+
 `React.createRef` tworzy [referencję](/docs/refs-and-the-dom.html), którą możesz przypiąć do dowolnego elementu reactowego poprzez właściwość `ref`.
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 ### `React.forwardRef` {#reactforwardref}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`forwardRef`](https://react.dev/reference/react/forwardRef).
+
+</div>
 
 `React.forwardRef` tworzy komponent reactowy, który przekazuje właściwość [`ref`](/docs/refs-and-the-dom.html) do kolejnego komponentu w dół drzewa. Ta technika nie jest zbyt popularna, ale przydatna w dwóch konkretnych przypadkach:
 
@@ -331,6 +432,14 @@ Aby dowiedzieć się więcej, przeczytaj rozdział poświęcony [przekazywaniu r
 
 ### `React.lazy` {#reactlazy}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`lazy`](https://react.dev/reference/react/lazy).
+
+</div>
+
 `React.lazy()` pozwala definiować komponenty, które są ładowane dynamicznie. Zmniejsza się w ten sposób rozmiar paczki, ponieważ wyodrębnione zostają komponenty, które nie są używane podczas wstępnego renderowania.
 
 W naszej [dokumentacji poświęconej rozdzielaniu kodu](/docs/code-splitting.html#reactlazy) zamieściliśmy więcej informacji na ten temat. [Ten artykuł](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) również może okazać się pomocny w wyjaśnieniu zasad działania tej metody.
@@ -343,6 +452,14 @@ const SomeComponent = React.lazy(() => import('./SomeComponent'));
 Pamiętaj, że renderowanie "leniwych komponentów" (ang. *lazy components*) wymaga użycia komponentu `<React.Suspense>` na wyższym poziomie drzewa. W ten sposób definiuje się wskaźnik ładowania.
 
 ### `React.Suspense` {#reactsuspense}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`Suspense`](https://react.dev/reference/react/Suspense).
+
+</div>
 
 `React.Suspense` pozwala zdefiniować wskaźnik ładowania, w razie gdyby któryś z komponentów poniżej nie był jeszcze gotowy do wyrenderowania. W przyszłości planujemy dodanie do `Suspense` obsługi większej liczby scenariuszy, jak np. pobieranie danych. Możesz poczytać o tym więcej w [naszym planie działania](/blog/2018/11/27/react-16-roadmap.html).
 
@@ -378,6 +495,14 @@ Kiedy komponent jest zawieszony, React każe najbliższej granicy Suspense wyren
 Granice zawieszenia (ang. *Suspense boundaries*) są zależne od tego, czy ich granice nadrzędne ulegną hydratacji przed nimi, lecz nie muszą czekać na swoje "rodzeństwo", czyli granice na tym samym poziomie. W przypadku wystąpienia jakiegoś zdarzenia na którejś z granic przed jej całkowitą hydratacją, otrzyma ona wyższy priorytet niż pozostałe. [Czytaj więcej.](https://github.com/reactwg/react-18/discussions/130)
 
 ### `React.startTransition` {#starttransition}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`startTransition`](https://react.dev/reference/react/startTransition).
+
+</div>
 
 ```js
 React.startTransition(callback)

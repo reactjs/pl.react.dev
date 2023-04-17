@@ -4,6 +4,19 @@ title: Integracja z innymi bibliotekami
 permalink: docs/integrating-with-other-libraries.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`useSyncExternalStore`: Subscribing to an external store 
+](https://react.dev/reference/react/useSyncExternalStore#subscribing-to-an-external-store)
+> - [`createPortal`: Rendering React components into non-React DOM nodes 
+](https://react.dev/reference/react-dom/createPortal#rendering-react-components-into-non-react-dom-nodes)
+
+</div>
+
 Reacta można używać w dowolnej aplikacji webowej. Można go osadzić w innej aplikacji, a także, przy odrobinie wysiłku, inną aplikację można osadzić w kodzie reactowym. W tym poradniku przeanalizujemy kilka powszechnych sytuacji dotyczących integracji z [jQuery](https://jquery.com/) i [Backbonem](https://backbonejs.org/). Mimo wszystko te same metody mogą zadziałać przy integracji komponentów z dowolnym kodem.
 
 ## Integracja z wtyczkami manipulującymi DOM-em {#integrating-with-dom-manipulation-plugins}

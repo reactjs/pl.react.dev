@@ -8,6 +8,12 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 React posiada potężny model kompozycyjny, z którego zalecamy korzystać zamiast dziedziczenia, aby komponentów można było używać wielokrotnie.
 
 W tej sekcji rozważymy kilka problemów, przy okazji których początkujący użytkownicy Reacta sięgają po dziedziczenie, a następnie pokażemy, jak rozwiązać je za pomocą kompozycji.

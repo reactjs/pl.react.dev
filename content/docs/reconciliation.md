@@ -4,6 +4,16 @@ title: Rekoncyliacja
 permalink: docs/reconciliation.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
+
+</div>
+
 Deklaratywność API Reacta sprawia, że nie musisz się martwić, co dokładnie zmienia się przy każdej aktualizacji, dzięki czemu pisanie aplikacji staje się dużo prostsze. Dokładna implementacja nie jest jednak tak oczywista. W tym artykule wyjaśniamy decyzje, które podjęliśmy przy projektowaniu algorytmu różnicującego w Reakcie, mając na celu zapewnienie przewidywalności aktualizacji komponentów przy zachowaniu wysokiej wydajności.
 
 ## Motywacja {#motivation}

@@ -4,6 +4,17 @@ title: Tryb rygorystyczny
 permalink: docs/strict-mode.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`StrictMode`](https://react.dev/reference/react/StrictMode)
+
+</div>
+
+
 `StrictMode` jest narzędziem podkreślającym potencjalne problemy w aplikacji. Tak samo jak `Fragment`, `StrictMode` nie renderuje żadnego widocznego UI. Służy natomiast do aktywacji dodatkowych sprawdzeń i ostrzeżeń dla swoich potomków.
 
 > Uwaga:

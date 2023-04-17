@@ -6,6 +6,16 @@ category: Reference
 permalink: docs/react-dom-server.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`react-dom`: Server APIs](https://react.dev/reference/react-dom/server)
+
+</div>
+
 Obiekt `ReactDOMServer` pozwala na renderowanie komponentów do statycznych znaczników. Zazwyczaj jest używany na serwerze Node'owym:
 
 ```js
@@ -35,6 +45,14 @@ Następujące metody mogą być użyte w środowiskach, które nie obsługują s
 ## Dokumentacja {#reference}
 
 ### `renderToPipeableStream()` {#rendertopipeablestream}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`renderToPipeableStream`](https://react.dev/reference/react-dom/server/renderToPipeableStream).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToPipeableStream(element, options)
@@ -90,6 +108,14 @@ Zobacz [pełną listę opcji](https://github.com/facebook/react/blob/14c2be8dac2
 * * *
 
 ### `renderToReadableStream()` {#rendertoreadablestream}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`renderToReadableStream`](https://react.dev/reference/react-dom/server/renderToReadableStream).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToReadableStream(element, options);
@@ -148,6 +174,14 @@ Zobacz [pełną listę opcji](https://github.com/facebook/react/blob/14c2be8dac2
 
 ### `renderToNodeStream()` (przestarzałe) {#rendertonodestream}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`renderToNodeStream`](https://react.dev/reference/react-dom/server/renderToNodeStream).
+
+</div>
+
 ```javascript
 ReactDOMServer.renderToNodeStream(element)
 ```
@@ -165,6 +199,14 @@ Jeśli wywołasz metodę [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#
 * * *
 
 ### `renderToStaticNodeStream()` {#rendertostaticnodestream}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`renderToStaticNodeStream`](https://react.dev/reference/react-dom/server/renderToStaticNodeStream).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToStaticNodeStream(element)
@@ -186,6 +228,14 @@ Jeżeli planujesz używać Reacta po stronie klienta w celu dodania znacznikom i
 
 ### `renderToString()` {#rendertostring}
 
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`renderToString`](https://react.dev/reference/react-dom/server/renderToString).
+
+</div>
+
 ```javascript
 ReactDOMServer.renderToString(element)
 ```
@@ -203,6 +253,14 @@ Jeśli wywołasz [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydrater
 * * *
 
 ### `renderToStaticMarkup()` {#rendertostaticmarkup}
+
+<div class="scary">
+
+> This content is out of date.
+>
+> Read the new React documentation for [`renderToStaticMarkup`](https://react.dev/reference/react-dom/server/renderToStaticMarkup).
+
+</div>
 
 ```javascript
 ReactDOMServer.renderToStaticMarkup(element)

@@ -4,6 +4,14 @@ title: Komponenty wyższego rzędu
 permalink: docs/higher-order-components.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> Higher-order components are not commonly used in modern React code.
+
+</div>
+
 Komponent wyższego rzędu (ang. *Higher-Order Component*), w skrócie KWR (ang. *HOC*), to zaawansowana technika reactowa stosowana w celu wielokrotnego używania logiki komponentu. KWR-y nie są częścią API Reacta *per se*. Są wzorcem, który wyłonił się z kompozycyjnej natury Reacta.
 
 Konkretnie rzecz ujmując, **komponent wyższego rzędu jest funkcją, która przyjmuje jako argument inny komponent i zwraca nowy komponent.**
@@ -14,7 +22,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Tak jak zwykły komponent przekształca właściwości (ang. *props*) na fragment UI, tak komponent wyższego rzędu przekształca komponent w inny komponent.
 
-KWR-y pojawiają się często w zewnętrznych bibliotekach reactowych, np. [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) w Reduksie czy [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) w Relayu.
+HOCs are common in third-party React libraries, such as Redux's [`connect`](https://react-redux.js.org/api/connect) and Relay's [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer).
 
 W tym artykule wyjaśnimy, dlaczego komponenty wyższego rzędu są użyteczne oraz jak napisać własny.
 

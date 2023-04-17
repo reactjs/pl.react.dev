@@ -8,6 +8,18 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React and include live examples:
+>
+> - [State: A Component's Memory](https://react.dev/learn/state-a-components-memory)
+> - [Synchronizing with Effects](https://react.dev/learn/synchronizing-with-effects)
+
+</div>
+
 W tym poradniku wprowadzimy pojęcie stanu (ang. *state*) i cyklu życia (ang. *lifecycle*) komponentu reactowego. Więcej informacji na ten temat znajdziesz w [szczegółowej dokumentacji API komponentów](/docs/react-component.html).
 
 Wróćmy do przykładu tykającego zegara z [jednej z poprzednich lekcji](/docs/rendering-elements.html#updating-the-rendered-element). W sekcji ["Renderowanie elementów"](/docs/rendering-elements.html#rendering-an-element-into-the-dom) nauczyliśmy się tylko jednego sposobu aktualizowania interfejsu aplikacji. Aby zmienić wynik renderowania, wywołujemy funkcję `root.render()`:

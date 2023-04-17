@@ -4,6 +4,16 @@ title: Granice błędów
 permalink: docs/error-boundaries.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`React.Component`: Catching rendering errors with an error boundary](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+
+</div>
+
 W przeszłości błędy javascriptowe wewnątrz komponentów uszkadzały wewnętrzny stan Reacta i [wywoływały](https://github.com/facebook/react/issues/4026) [tajemnicze](https://github.com/facebook/react/issues/6895) [błędy](https://github.com/facebook/react/issues/8579) w kolejnych renderowaniach. Były one następstwem wcześniejszego błędu w kodzie aplikacji, jednakże React nie dostarczał żadnego rozwiązania pozwalającego na właściwe ich obsłużenie wewnątrz komponentów oraz nie potrafił odtworzyć aplikacji po ich wystąpieniu.
 
 ## Przedstawiamy granice błędów {#introducing-error-boundaries}

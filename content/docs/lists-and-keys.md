@@ -5,7 +5,17 @@ permalink: docs/lists-and-keys.html
 prev: conditional-rendering.html
 next: forms.html
 ---
- 
+
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Rendering Lists](https://react.dev/learn/rendering-lists)
+
+</div>
+
 Na początku przyjrzymy się, jak przekształca się listy w JavaScripcie.
  
 W kodzie poniżej, użyliśmy funkcji [`map()`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/map), aby podwoić wartość liczb w tablicy `numbers`. Następnie przypisaliśmy nową tablicę zwróconą z funkcji `map()` do zmiennej `doubled` i wyświetliliśmy ją w konsoli:

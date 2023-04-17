@@ -9,6 +9,16 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)
+
+</div>
+
 Bardzo często kilka komponentów jednocześnie musi odzwierciedlać te same zmiany w danych. W takim przypadku proponujemy przeniesienie wspólnego stanu do najbliższego wspólnego przodka. Zobaczmy, jak wygląda to w praktyce.
 
 W tej części poradnika stworzymy kalkulator, który obliczy nam czy woda będzie się gotować w podanej temperaturze.

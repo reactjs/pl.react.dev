@@ -4,6 +4,17 @@ title: Dzielenie kodu
 permalink: docs/code-splitting.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`lazy`](https://react.dev/reference/react/lazy)
+> - [`<Suspense>`](https://react.dev/reference/react/Suspense)
+
+</div>
+
 ## Pakowanie {#bundling}
 
 Większość reactowych aplikacji będzie "dołączała" swoje pliki poprzez narzędzia takie jak [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) czy [Browserify](http://browserify.org/). Pakowanie to proces śledzenia zaimportowanych plików i łączenia ich w pojedynczy plik tzw. "bundle" (pol. *paczka*). Taka paczka może zostać umieszczona na stronie w celu załadowania całej aplikacji naraz.

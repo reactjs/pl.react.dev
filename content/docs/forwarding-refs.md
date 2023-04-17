@@ -4,6 +4,17 @@ title: Przekazywanie referencji
 permalink: docs/forwarding-refs.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Manipulating the DOM with Refs](https://react.dev/learn/manipulating-the-dom-with-refs)
+> - [`forwardRef`](https://react.dev/reference/react/forwardRef)
+
+</div>
+
 Przekazywanie referencji (ang. *ref forwarding*) to technika, w której [referencję](/docs/refs-and-the-dom.html)
 do komponentu "podajemy dalej" do jego dziecka. Dla większości komponentów w aplikacji nie jest to potrzebne,
 jednak może okazać się przydatne w niektórych przypadkach, zwłaszcza w bibliotekach udostępniających uniwersalne komponenty. 

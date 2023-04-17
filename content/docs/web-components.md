@@ -6,6 +6,14 @@ redirect_from:
   - "docs/webcomponents.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> See [Custom HTML elements](https://react.dev/reference/react-dom/components#custom-html-elements) in the new docs.
+>
+</div>
+
 React i [komponenty sieciowe](https://developer.mozilla.org/pl/docs/Web/Web_Components) (ang. *Web Components*) zostały stworzone do rozwiązywania różnych problemów. Komponenty sieciowe zapewniają silną enkapsulację w celu wielokrotnego użytku, a React jest deklaratywną biblioteką stworzoną do synchronizacji danych z modelem DOM. Te dwa cele się dopełniają. Jako deweloper możesz wykorzystywać Reacta w swoich komponentach sieciowych lub wykorzystywać komponenty sieciowe w Reakcie.
 
 Większość osób korzystających z Reacta nie używa komponentów sieciowych, ale ty możesz chcieć to zrobić, zwłaszcza jeśli używasz zewnętrznych komponentów UI napisanych z wykorzystaniem komponentów sieciowych.

@@ -13,6 +13,12 @@ redirect_from:
   - "docs/jsx-in-depth-ko-KR.html"
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 Zasadniczo, JSX dostarcza lukier składniowy dla funkcji `React.createElement(component, props, ...children)`. Kod JSX:
 
 ```js

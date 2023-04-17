@@ -4,6 +4,16 @@ title: Fragmenty
 permalink: docs/fragments.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`<Fragment>`](https://react.dev/reference/react/Fragment)
+
+</div>
+
 Często spotykanym wzorcem w Reakcie jest tworzenie komponentów, które zwracają wiele elementów. Fragmenty pozwalają zgrupować listę potomków bez konieczności dodawania zbędnych węzłów do drzewa DOM.
 
 ```js

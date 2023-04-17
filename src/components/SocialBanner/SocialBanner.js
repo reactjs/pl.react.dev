@@ -10,13 +10,13 @@ import React from 'react';
 import {colors, media} from 'theme';
 
 const linkProps = {
-  href: 'https://beta.pl.reactjs.org',
+  href: 'https://pl.react.dev/blog/2023/03/16/introducing-react-dev',
   target: '_blank',
   rel: 'noopener',
 };
 
-const bannerText = 'Try out a preview of the new React Docs!';
-const bannerLink = '👉 beta.pl.reactjs.org';
+const bannerText = 'Ta witryna nie jest już aktualizowana.';
+const bannerLink = 'Przejdź do react.dev';
 
 export default function SocialBanner() {
   return (
