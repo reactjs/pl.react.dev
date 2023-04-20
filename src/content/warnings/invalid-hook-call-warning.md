@@ -18,10 +18,6 @@ Zwykle pojawia się on z trzech powodów:
 
 Przyjrzyjmy się bliżej każdemu z tych przypadków.
 
-## Niepasujące wersje Reacta i React DOM {/*mismatching-versions-of-react-and-react-dom*/}
-
-Być może używasz paczki `react-dom` (< 16.8.0) lub `react-native` (< 0.59), która jeszcze nie obsługuje hooków. Uruchom polecenie `npm ls react-dom` lub `npm ls react-native` w katalogu z aplikacją, aby sprawdzić numer używanej wersji. Jeśli ponadto na liście zobaczysz co najmniej dwa takie same wpisy, może to być przyczyną kolejnych problemów (o czym piszemy poniżej).
-
 ## Łamanie zasad korzystania z hooków {/*breaking-the-rules-of-hooks*/}
 
 Hooki można wywoływać **tylko w komponentach funkcyjnych**:
@@ -113,9 +109,9 @@ Z pomocą [wtyczki `eslint-plugin-react-hooks`](https://www.npmjs.com/package/es
 
 </Note>
 
-## Mismatching Versions of React and React DOM {/*mismatching-versions-of-react-and-react-dom*/}
+## Niepasujące wersje Reacta i React DOM {/*mismatching-versions-of-react-and-react-dom*/}
 
-You might be using a version of `react-dom` (< 16.8.0) or `react-native` (< 0.59) that doesn't yet support Hooks. You can run `npm ls react-dom` or `npm ls react-native` in your application folder to check which version you're using. If you find more than one of them, this might also create problems (more on that below).
+Być może używasz paczki `react-dom` (< 16.8.0) lub `react-native` (< 0.59), która jeszcze nie obsługuje hooków. Uruchom polecenie `npm ls react-dom` lub `npm ls react-native` w katalogu z aplikacją, aby sprawdzić numer używanej wersji. Jeśli ponadto na liście zobaczysz co najmniej dwa takie same wpisy, może to być przyczyną kolejnych problemów (o czym piszemy poniżej).
 
 ## Duplikaty biblioteki React {/*duplicate-react*/}
 

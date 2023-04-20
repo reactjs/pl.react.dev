@@ -7,19 +7,19 @@
       "sectionHeader": "GET STARTED"
     },
     {
-      "title": "Quick Start",
+      "title": "Szybki start",
       "path": "/learn"
     },
     {
-      "title": "Installation",
+      "title": "Instalacja",
       "path": "/learn/installation"
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "LEARN REACT"
+      "sectionHeader": "NAUKA REACTA"
     },
     {
-      "title": "Describing the UI",
+      "title": "Opisywanie UI",
       "path": "/learn/describing-the-ui"
     },
     {

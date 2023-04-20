@@ -1,5 +1,5 @@
 {
-  "title": "Learn React",
+  "title": "Nauka Reacta",
   "path": "/learn",
   "routes": [
     {
@@ -7,7 +7,7 @@
       "sectionHeader": "GET STARTED"
     },
     {
-      "title": "Quick Start",
+      "title": "Szybki start",
       "path": "/learn",
       "routes": [
         {
@@ -15,13 +15,13 @@
           "path": "/learn/tutorial-tic-tac-toe"
         },
         {
-          "title": "Thinking in React",
+          "title": "Myślenie reactowe",
           "path": "/learn/thinking-in-react"
         }
       ]
     },
     {
-      "title": "Installation",
+      "title": "Instalacja",
       "path": "/learn/installation",
       "routes": [
         {
@@ -33,46 +33,46 @@
           "path": "/learn/add-react-to-an-existing-project"
         },
         {
-          "title": "Editor Setup",
+          "title": "Konfiguracja edytora",
           "path": "/learn/editor-setup"
         },
         {
-          "title": "React Developer Tools",
+          "title": "Narzędzia deweloperskie dla Reacta",
           "path": "/learn/react-developer-tools"
         }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "LEARN REACT"
+      "sectionHeader": "NAUKA REACTA"
     },
     {
-      "title": "Describing the UI",
+      "title": "Opisywanie UI",
       "tags": [],
       "path": "/learn/describing-the-ui",
       "routes": [
         {
-          "title": "Your First Component",
+          "title": "Twój pierwszy komponent",
           "path": "/learn/your-first-component"
         },
         {
-          "title": "Importing and Exporting Components",
+          "title": "Importowanie i eksportowanie komponentów",
           "path": "/learn/importing-and-exporting-components"
         },
         {
-          "title": "Writing Markup with JSX",
+          "title": "Pisanie kodu w JSX",
           "path": "/learn/writing-markup-with-jsx"
         },
         {
-          "title": "JavaScript in JSX with Curly Braces",
+          "title": "JavaScript w JSX a nawiasy klamrowe",
           "path": "/learn/javascript-in-jsx-with-curly-braces"
         },
         {
-          "title": "Passing Props to a Component",
+          "title": "Przekazywanie wartości do komponentu",
           "path": "/learn/passing-props-to-a-component"
         },
         {
-          "title": "Conditional Rendering",
+          "title": "Renderowanie warunkowe",
           "path": "/learn/conditional-rendering"
         },
         {
@@ -80,7 +80,7 @@
           "path": "/learn/rendering-lists"
         },
         {
-          "title": "Keeping Components Pure",
+          "title": "Czyste komponenty",
           "path": "/learn/keeping-components-pure"
         }
       ]
@@ -95,7 +95,7 @@
           "path": "/learn/responding-to-events"
         },
         {
-          "title": "State: A Component's Memory",
+          "title": "Stan - Pamięć komponentu",
           "path": "/learn/state-a-components-memory"
         },
         {
