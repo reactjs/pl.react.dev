@@ -1,5 +1,5 @@
 ---
-title: Reacting to Input with State
+title: Reagowanie na akcje za pomocą stanu
 ---
 
 <Intro>

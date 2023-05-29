@@ -27,11 +27,11 @@
       "path": "/learn/adding-interactivity"
     },
     {
-      "title": "Managing State",
+      "title": "Zarządzanie stanem",
       "path": "/learn/managing-state"
     },
     {
-      "title": "Escape Hatches",
+      "title": "Ukryte furtki",
       "path": "/learn/escape-hatches"
     },
     {
@@ -39,7 +39,7 @@
       "sectionHeader": "REACT API"
     },
     {
-      "title": "Hooks",
+      "title": "Hooki",
       "path": "/reference/react"
     },
     {

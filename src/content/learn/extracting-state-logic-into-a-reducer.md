@@ -1,5 +1,5 @@
 ---
-title: Extracting State Logic into a Reducer
+title: Wyodrębnianie logiki stanu do reduktora
 ---
 
 <Intro>

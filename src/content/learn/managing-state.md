@@ -1,30 +1,30 @@
 ---
-title: Managing State
+title: Zarządzanie stanem
 ---
 
 <Intro>
 
-As your application grows, it helps to be more intentional about how your state is organized and how the data flows between your components. Redundant or duplicate state is a common source of bugs. In this chapter, you'll learn how to structure your state well, how to keep your state update logic maintainable, and how to share state between distant components.
+W miarę rozwoju aplikacji często konieczne jest ponowne spojrzenie na strukturę stanu i na to, w jaki sposób dane przepływają pomiędzy komponentami. Zbędny lub zduplikowany stan jest najczęstszym źródłem problemów. W tym rozdziale nauczysz się, jak dobrze ustrukturyzować stan, jak utrzymać logikę zmiany stanu w ryzach i jak współdzielić stan pomiędzy odległymi od siebie komponentami.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to think about UI changes as state changes](/learn/reacting-to-input-with-state)
-* [How to structure state well](/learn/choosing-the-state-structure)
-* [How to "lift state up" to share it between components](/learn/sharing-state-between-components)
-* [How to control whether the state gets preserved or reset](/learn/preserving-and-resetting-state)
-* [How to consolidate complex state logic in a function](/learn/extracting-state-logic-into-a-reducer)
-* [How to pass information without "prop drilling"](/learn/passing-data-deeply-with-context)
-* [How to scale state management as your app grows](/learn/scaling-up-with-reducer-and-context)
+* [W jaki sposób myśleć o zmianach UI podczas aktualizowania stanu](/learn/reacting-to-input-with-state)
+* [Jak dobrze ustrukturyzować stan](/learn/choosing-the-state-structure)
+* [Jak "wynieść stan do góry", aby współdzielić go między komponentami](/learn/sharing-state-between-components)
+* [Jak kontrolować zachowywanie lub resetowanie stanu](/learn/preserving-and-resetting-state)
+* [Jak scalić skomplikowaną logikę stanu w jednej funkcji](/learn/extracting-state-logic-into-a-reducer)
+* [Jak przekazać informacje bez "przenoszenia właściwości" (*ang.* prop drilling)](/learn/passing-data-deeply-with-context)
+* [Jak skalować zarządzanie stanem wraz z rozrostem aplikacji](/learn/scaling-up-with-reducer-and-context)
 
 </YouWillLearn>
 
-## Reacting to input with state {/*reacting-to-input-with-state*/}
+## Reagowanie na dane wejściowe za pomocą stanu {/*reacting-to-input-with-state*/}
 
-With React, you won't modify the UI from code directly. For example, you won't write commands like "disable the button", "enable the button", "show the success message", etc. Instead, you will describe the UI you want to see for the different visual states of your component ("initial state", "typing state", "success state"), and then trigger the state changes in response to user input. This is similar to how designers think about UI.
+W Reakcie nie modyfikuje się UI bezpośrednio za pomocą kodu. Nie używa się komend z stylu "zablokuj przycisk", "odblokuj przycisk", "pokaż komunikat o sukcesie" itp. Zamiast tego opisujemy UI tak, jak ma wyglądać w różnych stanach wizualnych komponentu ("stan początkowy", "stan wpisywania tekstu", "stan powodzenia"), a następnie wywołujemy aktualizacje stanu w odpowiedzi na akcje wykonane przez użytkownika. W podobny sposób o interfejsie myślą designerzy.
 
-Here is a quiz form built using React. Note how it uses the `status` state variable to determine whether to enable or disable the submit button, and whether to show the success message instead.
+Poniżej znajdziesz kod formularza quizowego stworzonego w Reakcie. Zwróć uwagę, jak używa on zmiennej stanu `status` do określenia, czy należy zablokować czy odblokować przycisk wysłania formularza lub czy zamiast tego wyświetlić komunikat.
 
 <Sandpack>
 
@@ -37,7 +37,7 @@ export default function Form() {
   const [status, setStatus] = useState('typing');
 
   if (status === 'success') {
-    return <h1>That's right!</h1>
+    return <h1>Zgadza się!</h1>
   }
 
   async function handleSubmit(e) {
@@ -58,9 +58,9 @@ export default function Form() {
 
   return (
     <>
-      <h2>City quiz</h2>
+      <h2>Quiz o miastach</h2>
       <p>
-        In which city is there a billboard that turns air into drinkable water?
+        W którym mieście znajduje się bilbord, który przekształca powietrze w wodę pitną?
       </p>
       <form onSubmit={handleSubmit}>
         <textarea
@@ -73,7 +73,7 @@ export default function Form() {
           answer.length === 0 ||
           status === 'submitting'
         }>
-          Submit
+          Wyślij
         </button>
         {error !== null &&
           <p className="Error">
@@ -91,7 +91,7 @@ function submitForm(answer) {
     setTimeout(() => {
       let shouldError = answer.toLowerCase() !== 'lima'
       if (shouldError) {
-        reject(new Error('Good guess but a wrong answer. Try again!'));
+        reject(new Error('Dobra próba, ale zła odpowiedź. Spróbuj ponownie!'));
       } else {
         resolve();
       }
@@ -108,15 +108,15 @@ function submitForm(answer) {
 
 <LearnMore path="/learn/reacting-to-input-with-state">
 
-Read **[Reacting to Input with State](/learn/reacting-to-input-with-state)** to learn how to approach interactions with a state-driven mindset.
+Przeczytaj rozdział pt. **[Reagowanie na akcje za pomocą stanu](/learn/reacting-to-input-with-state)**, aby dowiedzieć się, jak tworzyć interakcje w sposób sterowany stanem.
 
 </LearnMore>
 
-## Choosing the state structure {/*choosing-the-state-structure*/}
+## Dobieranie struktury stanu {/*choosing-the-state-structure*/}
 
-Structuring state well can make a difference between a component that is pleasant to modify and debug, and one that is a constant source of bugs. The most important principle is that state shouldn't contain redundant or duplicated information. If there's unnecessary state, it's easy to forget to update it, and introduce bugs!
+Dobrze ustrukturyzowany stan pozwala odróżnić komponenty, które są czytelne, łatwe do zmiany i debugowania, od takich, które są źródłem ciągłych problemów. Najważniejsza zasada mówi, że nie należy trzymać w stanie danych nadmiarowych lub zduplikowanych. Jeśli komponent zawiera niepotrzebny stan, łatwo jest zapomnieć go zaktualizować i doprowadzić tym samym do błędów.
 
-For example, this form has a **redundant** `fullName` state variable:
+Na przykład, ten formularz zawiera **nadmiarową** zmienną stanu `fullName`:
 
 <Sandpack>
 
@@ -140,23 +140,23 @@ export default function Form() {
 
   return (
     <>
-      <h2>Let’s check you in</h2>
+      <h2>Rejestracja</h2>
       <label>
-        First name:{' '}
+        Imię:{' '}
         <input
           value={firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:{' '}
+        Nazwisko:{' '}
         <input
           value={lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <p>
-        Your ticket will be issued to: <b>{fullName}</b>
+        Bilet zostanie wydany na nazwisko: <b>{fullName}</b>
       </p>
     </>
   );
@@ -169,7 +169,7 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-You can remove it and simplify the code by calculating `fullName` while the component is rendering:
+Możesz pozbyć się tej zmiennej, jednocześnie upraszczając kod, jeśli będziesz generować `fullName` podczas renderowania komponentu:
 
 <Sandpack>
 
@@ -192,23 +192,23 @@ export default function Form() {
 
   return (
     <>
-      <h2>Let’s check you in</h2>
+      <h2>Rejestracja</h2>
       <label>
-        First name:{' '}
+        Imię:{' '}
         <input
           value={firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:{' '}
+        Nazwisko:{' '}
         <input
           value={lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <p>
-        Your ticket will be issued to: <b>{fullName}</b>
+        Bilet zostanie wydany na nazwisko: <b>{fullName}</b>
       </p>
     </>
   );
@@ -221,19 +221,19 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-This might seem like a small change, but many bugs in React apps are fixed this way.
+Ta zmiana może wydawać się niewielka, jednak w ten sposób można naprawić wiele błędów w aplikacjach reactowych.
 
 <LearnMore path="/learn/choosing-the-state-structure">
 
-Read **[Choosing the State Structure](/learn/choosing-the-state-structure)** to learn how to design the state shape to avoid bugs.
+Przeczytaj rozdział pt. **[Dobieranie struktury stanu](/learn/choosing-the-state-structure)**, aby dowiedzieć się, jak projektować kształt stanu, aby uniknąć problemów.
 
 </LearnMore>
 
-## Sharing state between components {/*sharing-state-between-components*/}
+## Współdzielenie stanu między komponentami {/*sharing-state-between-components*/}
 
-Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as "lifting state up", and it's one of the most common things you will do writing React code.
+Zdarzają się sytuacje, kiedy stan dwóch komponentów musi zawsze zmieniać się w tym samym czasie. W tym celu należy usunąć wspólny stan z obydwu komponentów, następnie dodać go do ich wspólnego rodzica, a na koniec przekazać go do komponentów poprzez właściwości. Taki zabieg określa się mianem "wynoszenia stanu w górę" i jest jedną z najczęstszych czynności wykonywanych podczas tworzenia aplikacji reactowych.
 
-In this example, only one panel should be active at a time. To achieve this, instead of keeping the active state inside each individual panel, the parent component holds the state and specifies the props for its children.
+W poniższym kodzie w danym momencie tylko jeden z paneli powinien być aktywny. Nie uda się tego osiągnąć trzymając stan w każdym z nich z osobna. To komponent-rodzic powinien przechowywać stan i przekazywać go do potomków poprzez właściwości.
 
 <Sandpack>
 
@@ -246,18 +246,18 @@ export default function Accordion() {
     <>
       <h2>Almaty, Kazakhstan</h2>
       <Panel
-        title="About"
+        title="O mieście"
         isActive={activeIndex === 0}
         onShow={() => setActiveIndex(0)}
       >
-        With a population of about 2 million, Almaty is Kazakhstan's largest city. From 1929 to 1997, it was its capital city.
+        Jego populacja wynosi ponad 2 miliony, co sprawia, że Almaty jest największym miastem w Kazachstanie. W latach 1929-1997 był stolicą kraju.
       </Panel>
       <Panel
-        title="Etymology"
+        title="Etymologia"
         isActive={activeIndex === 1}
         onShow={() => setActiveIndex(1)}
       >
-        The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for "apple" and is often translated as "full of apples". In fact, the region surrounding Almaty is thought to be the ancestral home of the apple, and the wild <i lang="la">Malus sieversii</i> is considered a likely candidate for the ancestor of the modern domestic apple.
+        Nazwa pochodzi od <span lang="kk-KZ">алма</span>, kazachskiego słowa oznaczającego "jabłko", i najczęściej tłumaczona jest jako "pełne jabłek". Region otaczający Almaty podobno jest domem pradawnych odmian jabłek, a dziko tu rosnąca <i lang="la">Malus sieversii</i> uważana jest za przodka współczesnej jabłoni domowej.
       </Panel>
     </>
   );
@@ -276,7 +276,7 @@ function Panel({
         <p>{children}</p>
       ) : (
         <button onClick={onShow}>
-          Show
+          Pokaż
         </button>
       )}
     </section>
@@ -296,15 +296,15 @@ h3, p { margin: 5px 0px; }
 
 <LearnMore path="/learn/sharing-state-between-components">
 
-Read **[Sharing State Between Components](/learn/sharing-state-between-components)** to learn how to lift state up and keep components in sync.
+Przeczytaj rozdział pt. **[Współdzielenie stanu między komponentami](/learn/sharing-state-between-components)**, aby dowiedzieć się, jak wynosić stan w górę i synchronizować komponenty.
 
 </LearnMore>
 
 ## Utrzymywanie i resetowanie stanu {/*preserving-and-resetting-state*/}
 
-When you re-render a component, React needs to decide which parts of the tree to keep (and update), and which parts to discard or re-create from scratch. In most cases, React's automatic behavior works well enough. By default, React preserves the parts of the tree that "match up" with the previously rendered component tree.
+Kiedy ponownie renderujesz komponent, React musi zdecydować, które części drzewa należy zostawić (i zaktualizować), a które odrzucić lub stworzyć na nowo. W większości przypadków React sam zdecyduje, co należy zrobić. Domyślnie React zachowuje części drzewa, które pokrywają się z poprzednim drzewem komponentów.
 
-However, sometimes this is not what you want. In this chat app, typing a message and then switching the recipient does not reset the input. This can make the user accidentally send a message to the wrong person:
+Czasami jednak chodzi nam o coś innego. W poniższej aplikacji czatu wpisanie wiadomości, a następnie zmiana adresata, nie powoduje wyczyszczenia pola. Przez to użytkownik mógłby omyłkowo wysłać wiadomość do kogoś innego:
 
 <Sandpack>
 
@@ -367,11 +367,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Napisz do ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Wyślij do {contact.email}</button>
     </section>
   );
 }
@@ -399,7 +399,7 @@ textarea {
 
 </Sandpack>
 
-React lets you override the default behavior, and *force* a component to reset its state by passing it a different `key`, like `<Chat key={email} />`. This tells React that if the recipient is different, it should be considered a *different* `Chat` component that needs to be re-created from scratch with the new data (and UI like inputs). Now switching between the recipients resets the input field--even though you render the same component.
+React pozwala na zmianę domyślnego zachowania i *wymuszenie* zresetowania stanu komponentu poprzez podanie innej wartości dla `key`, jak w `<Chat key={email} />`. Dzięki temu React rozumie, że jeśli zmienił się adresat wiadomości, to należy wyświetlić *inny* komponent `Chat`, który musi zostać stworzony od nowa z nowymi danymi (i innym UI). Teraz zmiana adresata, zgodnie z oczekiwaniami, powoduje zresetowanie pola z wiadomością - nawet pomimo tego, że renderujemy tu taki sam komponent.
 
 <Sandpack>
 
@@ -462,11 +462,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Napisz do ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Wyślij do {contact.email}</button>
     </section>
   );
 }
@@ -496,13 +496,13 @@ textarea {
 
 <LearnMore path="/learn/preserving-and-resetting-state">
 
-Read **[Utrzymywanie i resetowanie stanu](/learn/preserving-and-resetting-state)** to learn the lifetime of state and how to control it.
+Przeczytaj rozdział pt. **[Utrzymywanie i resetowanie stanu](/learn/preserving-and-resetting-state)**, aby nauczyć się cyklu życia stanu i jak nim zarządzać.
 
 </LearnMore>
 
-## Extracting state logic into a reducer {/*extracting-state-logic-into-a-reducer*/}
+## Wyodrębnianie logiki stanu do reduktora {/*extracting-state-logic-into-a-reducer*/}
 
-Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called "reducer". Your event handlers become concise because they only specify the user "actions". At the bottom of the file, the reducer function specifies how the state should update in response to each action!
+Komponenty o wielu zmianach stanu rozsianych po wielu procedurach obsługi zdarzeń potrafią być przytłaczające. W takich przypadkach można przenieść logikę aktualizowania poza komponent, do pojedynczej funkcji zwanej "reduktorem" (*ang.* reducer). Dzięki temu procedury obsługi zdarzeń stają się zwięzłe, bo jedynie określają "akcje" użytkownika. Na dole pliku funkcja redukująca decyduje, jak aktualizować stan w odpowiedzi na każdą z akcji!
 
 <Sandpack>
 
@@ -541,7 +541,7 @@ export default function TaskApp() {
 
   return (
     <>
-      <h1>Prague itinerary</h1>
+      <h1>Plan wycieczki po Pradze</h1>
       <AddTask
         onAddTask={handleAddTask}
       />
@@ -576,16 +576,16 @@ function tasksReducer(tasks, action) {
       return tasks.filter(t => t.id !== action.id);
     }
     default: {
-      throw Error('Unknown action: ' + action.type);
+      throw Error('Nieprawidłowy typ akcji: ' + action.type);
     }
   }
 }
 
 let nextId = 3;
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false }
+  { id: 0, text: 'Odwiedzić Muzeum Kafki', done: true },
+  { id: 1, text: 'Iść na przedstawienie kukiełkowe', done: false },
+  { id: 2, text: 'Zdjęcie Ściany Lennona', done: false }
 ];
 ```
 
@@ -597,14 +597,14 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Dodaj zadanie"
         value={text}
         onChange={e => setText(e.target.value)}
       />
       <button onClick={() => {
         setText('');
         onAddTask(text);
-      }}>Add</button>
+      }}>Dodaj</button>
     </>
   )
 }
@@ -648,7 +648,7 @@ function Task({ task, onChange, onDelete }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Zapisz
         </button>
       </>
     );
@@ -657,7 +657,7 @@ function Task({ task, onChange, onDelete }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Edytuj
         </button>
       </>
     );
@@ -676,7 +676,7 @@ function Task({ task, onChange, onDelete }) {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>
-        Delete
+        Usuń
       </button>
     </label>
   );
@@ -693,15 +693,15 @@ ul, li { margin: 0; padding: 0; }
 
 <LearnMore path="/learn/extracting-state-logic-into-a-reducer">
 
-Read **[Extracting State Logic into a Reducer](/learn/extracting-state-logic-into-a-reducer)** to learn how to consolidate logic in the reducer function.
+Przeczytaj rozdział pt. **[Wyodrębnianie logiki stanu do reduktora](/learn/extracting-state-logic-into-a-reducer)**, aby dowiedzieć się, jak scalić logikę w funkcji redukującej.
 
 </LearnMore>
 
-## Passing data deeply with context {/*passing-data-deeply-with-context*/}
+## Przekazywanie danych wgłąb przez kontekst {/*passing-data-deeply-with-context*/}
 
-Usually, you will pass information from a parent component to a child component via props. But passing props can become inconvenient if you need to pass some prop through many components, or if many components need the same information. Context lets the parent component make some information available to any component in the tree below it—no matter how deep it is—without passing it explicitly through props.
+Przekazywanie informacji z rodzica do potomka zwykle odbywa się poprzez właściwości (*ang.* props). Jednak takie bezpośrednie przekazywanie danych może okazać się uciążliwe, jeśli musisz przebić się przez kilka poziomów w drzewie lub jeśli kilka komponentów potrzebuje tych samych danych. Kontekst pozwala komponentowi nadrzędnemu udostępnić informacje do dowolnego komponentu w drzewie poniżej (bez względu na to, jak głęboko się on znajduje) bez konieczności przekazywania ich przez właściwości.
 
-Here, the `Heading` component determines its heading level by "asking" the closest `Section` for its level. Each `Section` tracks its own level by asking the parent `Section` and adding one to it. Every `Section` provides information to all components below it without passing props--it does that through context.
+W kodzie poniżej komponent `Heading` określa swój poziom zagnieżdżenia nagłówka, "pytając" najbliższego komponentu `Section` o jego poziom zagnieżdżenia. Każdy `Section` okresla swój poziom, pytając najbliższego `Section` i dodając do wartości 1. Każdy komponent `Section` udostępnia informację wszystkim komponentom poniżej, bez konieczności przekazywania ich bezpośrednio. Robi to dzięki kontekstowi.
 
 <Sandpack>
 
@@ -712,19 +712,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading>Title</Heading>
+      <Heading>Tytuł</Heading>
       <Section>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Nagłówek</Heading>
+        <Heading>Nagłówek</Heading>
+        <Heading>Nagłówek</Heading>
         <Section>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Nagłówek podrzędny</Heading>
+          <Heading>Nagłówek podrzędny</Heading>
+          <Heading>Nagłówek podrzędny</Heading>
           <Section>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Nagłówek bardzo podrzędny</Heading>
+            <Heading>Nagłówek bardzo podrzędny</Heading>
+            <Heading>Nagłówek bardzo podrzędny</Heading>
           </Section>
         </Section>
       </Section>
@@ -757,7 +757,7 @@ export default function Heading({ children }) {
   const level = useContext(LevelContext);
   switch (level) {
     case 0:
-      throw Error('Heading must be inside a Section!');
+      throw Error('Heading musi być wyrenderowany wewnątrz Section!');
     case 1:
       return <h1>{children}</h1>;
     case 2:
@@ -771,7 +771,7 @@ export default function Heading({ children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nieprawidłowy poziom zagnieżdżenia: ' + level);
   }
 }
 ```
@@ -795,15 +795,15 @@ export const LevelContext = createContext(0);
 
 <LearnMore path="/learn/passing-data-deeply-with-context">
 
-Read **[Passing Data Deeply with Context](/learn/passing-data-deeply-with-context)** to learn about using context as an alternative to passing props.
+Przeczytaj rozdział pt. **[Przekazywanie danych wgłąb przez kontekst](/learn/passing-data-deeply-with-context)**, aby dowiedzieć się o użyciu kontekstu jako alternatywy do przekazywania przez właściwości.
 
 </LearnMore>
 
-## Scaling up with reducer and context {/*scaling-up-with-reducer-and-context*/}
+## Skalowanie za pomocą reduktora i kontekstu {/*scaling-up-with-reducer-and-context*/}
 
-Reducers let you consolidate a component’s state update logic. Context lets you pass information deep down to other components. You can combine reducers and context together to manage state of a complex screen.
+Reduktory pozwalają zgrupować logikę zmiany stanu komponentu w jednym miejscu. Kontekst pozwala przekazywać informacje głęboko wgłąb drzewa komponentów. Możesz połączyć obydwa podejścia, aby skutecznie zarządzać stanem skomplikowanego ekranu.
 
-With this approach, a parent component with complex state manages it with a reducer. Other components anywhere deep in the tree can read its state via context. They can also dispatch actions to update that state.
+W ten sposób komponent nadrzędny o skomplikowanym stanie zarządza nim za pomocą reduktora. Inne komponenty, nie ważne jak głęboko, mogą odczytywać wartości stanu poprzez kontekst. Mogą również wywoływać akcje, które aktualizują stan.
 
 <Sandpack>
 
@@ -815,7 +815,7 @@ import { TasksProvider } from './TasksContext.js';
 export default function TaskApp() {
   return (
     <TasksProvider>
-      <h1>Day off in Kyoto</h1>
+      <h1>Dzień wolny w Kyoto</h1>
       <AddTask />
       <TaskList />
     </TasksProvider>
@@ -876,15 +876,15 @@ function tasksReducer(tasks, action) {
       return tasks.filter(t => t.id !== action.id);
     }
     default: {
-      throw Error('Unknown action: ' + action.type);
+      throw Error('Nieprawidłowa akcja: ' + action.type);
     }
   }
 }
 
 const initialTasks = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'Ścieżka Filozofa', done: true },
+  { id: 1, text: 'Zwiedzić świątynię', done: false },
+  { id: 2, text: 'Napić się matchy', done: false }
 ];
 ```
 
@@ -898,7 +898,7 @@ export default function AddTask({ onAddTask }) {
   return (
     <>
       <input
-        placeholder="Add task"
+        placeholder="Dodaj zadanie"
         value={text}
         onChange={e => setText(e.target.value)}
       />
@@ -909,7 +909,7 @@ export default function AddTask({ onAddTask }) {
           id: nextId++,
           text: text,
         });
-      }}>Add</button>
+      }}>Dodaj</button>
     </>
   );
 }
@@ -953,7 +953,7 @@ function Task({ task }) {
             });
           }} />
         <button onClick={() => setIsEditing(false)}>
-          Save
+          Zapisz
         </button>
       </>
     );
@@ -962,7 +962,7 @@ function Task({ task }) {
       <>
         {task.text}
         <button onClick={() => setIsEditing(true)}>
-          Edit
+          Edytuj
         </button>
       </>
     );
@@ -989,7 +989,7 @@ function Task({ task }) {
           id: task.id
         });
       }}>
-        Delete
+        Usuń
       </button>
     </label>
   );
@@ -1006,12 +1006,12 @@ ul, li { margin: 0; padding: 0; }
 
 <LearnMore path="/learn/scaling-up-with-reducer-and-context">
 
-Read **[Scaling Up with Reducer and Context](/learn/scaling-up-with-reducer-and-context)** to learn how state management scales in a growing app.
+Przeczytaj rozdział pt. **[Skalowanie za pomocą reduktora i kontekstu](/learn/scaling-up-with-reducer-and-context)**, aby dowiedzieć się, jak skaluje się zarządzanie stanem w większych aplikacjach.
 
 </LearnMore>
 
-## What's next? {/*whats-next*/}
+## Co dalej? {/*whats-next*/}
 
-Head over to [Reacting to Input with State](/learn/reacting-to-input-with-state) to start reading this chapter page by page!
+Przejdź do sekcji pt. [Reagowanie na akcje za pomocą stanu](/learn/reacting-to-input-with-state) i zacznij czytać rozdział strona po stronie!
 
-Or, if you're already familiar with these topics, why not read about [Escape Hatches](/learn/escape-hatches)?
+Ewentualnie, jeśli już znasz te zagadnienia, możesz poczytać o [Ukrytych furtkach](/learn/escape-hatches)?

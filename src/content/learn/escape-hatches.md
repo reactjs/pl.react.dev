@@ -1,5 +1,5 @@
 ---
-title: Escape Hatches
+title: Ukryte furtki
 ---
 
 <Intro>

@@ -121,20 +121,20 @@
       ]
     },
     {
-      "title": "Managing State",
+      "title": "Zarządzanie stanem",
       "path": "/learn/managing-state",
       "tags": ["intermediate"],
       "routes": [
         {
-          "title": "Reacting to Input with State",
+          "title": "Reagowanie na akcje za pomocą stanu",
           "path": "/learn/reacting-to-input-with-state"
         },
         {
-          "title": "Choosing the State Structure",
+          "title": "Dobieranie struktury stanu",
           "path": "/learn/choosing-the-state-structure"
         },
         {
-          "title": "Sharing State Between Components",
+          "title": "Współdzielenie stanu między komponentami",
           "path": "/learn/sharing-state-between-components"
         },
         {
@@ -142,11 +142,11 @@
           "path": "/learn/preserving-and-resetting-state"
         },
         {
-          "title": "Extracting State Logic into a Reducer",
+          "title": "Wyodrębnianie logiki stanu do reduktora",
           "path": "/learn/extracting-state-logic-into-a-reducer"
         },
         {
-          "title": "Passing Data Deeply with Context",
+          "title": "Przekazywanie danych wgłąb przez kontekst",
           "path": "/learn/passing-data-deeply-with-context"
         },
         {
@@ -156,7 +156,7 @@
       ]
     },
     {
-      "title": "Escape Hatches",
+      "title": "Ukryte furtki",
       "path": "/learn/escape-hatches",
       "tags": ["advanced"],
       "routes": [

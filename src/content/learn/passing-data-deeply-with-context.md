@@ -1,5 +1,5 @@
 ---
-title: Passing Data Deeply with Context
+title: Przekazywanie danych wgłąb przez kontekst
 ---
 
 <Intro>

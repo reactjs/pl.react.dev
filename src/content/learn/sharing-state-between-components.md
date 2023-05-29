@@ -1,5 +1,5 @@
 ---
-title: Sharing State Between Components
+title: Współdzielenie stanu między komponentami
 ---
 
 <Intro>

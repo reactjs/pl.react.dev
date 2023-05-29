@@ -288,16 +288,16 @@ export function Footer() {
           <FooterLink href="/learn" isHeader={true}>
             Learn React
           </FooterLink>
-          <FooterLink href="/learn/">Quick Start</FooterLink>
-          <FooterLink href="/learn/installation">Installation</FooterLink>
-          <FooterLink href="/learn/describing-the-ui">
-            Describing the UI
-          </FooterLink>
+          <FooterLink href="/learn/">Szybki start</FooterLink>
+          <FooterLink href="/learn/installation">Instalacja</FooterLink>
+          <FooterLink href="/learn/describing-the-ui">Opisywanie UI</FooterLink>
           <FooterLink href="/learn/adding-interactivity">
             Adding Interactivity
           </FooterLink>
-          <FooterLink href="/learn/managing-state">Managing State</FooterLink>
-          <FooterLink href="/learn/escape-hatches">Escape Hatches</FooterLink>
+          <FooterLink href="/learn/managing-state">
+            Zarządzanie stanem
+          </FooterLink>
+          <FooterLink href="/learn/escape-hatches">Ukryte furtki</FooterLink>
         </div>
         <div className="flex flex-col">
           <FooterLink href="/reference/react" isHeader={true}>
