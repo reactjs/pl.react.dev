@@ -663,11 +663,11 @@ Pamiętaj, że musisz uruchomić React w trybie produkcyjnym, wyłączyć [Narz�
 
 ---
 
-### Updating state from a memoized callback {/*updating-state-from-a-memoized-callback*/}
+### Aktualizacja stanu z zapamiętanej funkcji zwrotnej (ang. *callback*) {/*updating-state-from-a-memoized-callback*/}
 
-Sometimes, you might need to update state based on previous state from a memoized callback.
+Czasami może być konieczne zaktualizowanie stanu na podstawie poprzedniego stanu z zapamiętanej funkcji zwrotnej.
 
-This `handleAddTodo` function specifies `todos` as a dependency because it computes the next todos from it:
+Funkcja `handleAddTodo` określa `todos` jako zależność, ponieważ oblicza następne zadania na jej podstawie:
 
 ```js {6,7}
 function TodoList() {
@@ -680,7 +680,7 @@ function TodoList() {
   // ...
 ```
 
-You'll usually want memoized functions to have as few dependencies as possible. When you read some state only to calculate the next state, you can remove that dependency by passing an [updater function](/reference/react/useState#updating-state-based-on-the-previous-state) instead:
+Zazwyczaj powinieneś dążyć do tego, aby zapamiętane funkcje miały jak najmniej zależności. Gdy odczytujesz pewien stan tylko po to, aby obliczyć następny stan, możesz usunąć tę zależność, przekazując zamiast tego [funkcję aktualizującą](/reference/react/useState#updating-state-based-on-the-previous-state):
 
 ```js {6,7}
 function TodoList() {
@@ -689,17 +689,17 @@ function TodoList() {
   const handleAddTodo = useCallback((text) => {
     const newTodo = { id: nextId++, text };
     setTodos(todos => [...todos, newTodo]);
-  }, []); // ✅ No need for the todos dependency
+  }, []); // ✅ Nie ma potrzeby, aby todos było zależnością
   // ...
 ```
 
-Here, instead of making `todos` a dependency and reading it inside, you pass an instruction about *how* to update the state (`todos => [...todos, newTodo]`) to React. [Read more about updater functions.](/reference/react/useState#updating-state-based-on-the-previous-state)
+W tym przypadku zamiast robienia z `todos` zależność i odczytywania go wewnątrz funkcji, przekazujesz do Reacta instrukcję, jak *aktualizować* stan (`todos => [...todos, newTodo]`). [Dowiedz się więcej o funkcjach aktualizujących.](/reference/react/useState#updating-state-based-on-the-previous-state)
 
 ---
 
-### Preventing an Effect from firing too often {/*preventing-an-effect-from-firing-too-often*/}
+### Zapobieganie zbyt częstemu wyzwalaniu Efektu {/*preventing-an-effect-from-firing-too-often*/}
 
-Sometimes, you might want to call a function from inside an [Effect:](/learn/synchronizing-with-effects)
+Czasami może zdarzyć się, że chcesz wywołać funkcję wewnątrz [Efektu:](/learn/synchronizing-with-effects)
 
 ```js {4-9,12}
 function ChatRoom({ roomId }) {
@@ -719,7 +719,7 @@ function ChatRoom({ roomId }) {
     // ...
 ```
 
-This creates a problem. [Every reactive value must be declared as a dependency of your Effect.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) However, if you declare `createOptions` as a dependency, it will cause your Effect to constantly reconnect to the chat room:
+To tworzy problem. [Każda reaktywna wartość musi być zadeklarowana jako zależność twojego Efektu.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Jednak jeśli zadeklarujesz `createOptions` jako zależność, spowoduje to, że twój Efekt będzie ciągle ponownie łączył się z pokojem czatowym:
 
 
 ```js {6}
@@ -728,11 +728,11 @@ This creates a problem. [Every reactive value must be declared as a dependency o
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // 🔴 Problem: This dependency changes on every render
+  }, [createOptions]); // 🔴 Problem: Ta zależność zmienia się z każdym renderowaniem
   // ...
 ```
 
-To solve this, you can wrap the function you need to call from an Effect into `useCallback`:
+Aby to rozwiązać, możesz owrapować funkcję, którą musisz wywołać z Efektu, za pomocą `useCallback`:
 
 ```js {4-9,16}
 function ChatRoom({ roomId }) {
@@ -743,25 +743,25 @@ function ChatRoom({ roomId }) {
       serverUrl: 'https://localhost:1234',
       roomId: roomId
     };
-  }, [roomId]); // ✅ Only changes when roomId changes
+  }, [roomId]); // ✅ Zmienia się tylko wtedy, gdy zmienia się roomId
 
   useEffect(() => {
     const options = createOptions();
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // ✅ Only changes when createOptions changes
+  }, [createOptions]); // ✅ Zmienia się tylko wtedy, gdy zmienia się createOptions
   // ...
 ```
 
-This ensures that the `createOptions` function is the same between re-renders if the `roomId` is the same. **However, it's even better to remove the need for a function dependency.** Move your function *inside* the Effect:
+To zapewnia, że funkcja `createOptions` pozostaje taka sama między przerenderowaniami, jeśli `roomId` jest taki sam. **Jednakże jeszcze lepiej jest usunąć potrzebę zależności funkcji.** Przenieś swoją funkcję do *wewnętrza* Efektu:
 
 ```js {5-10,16}
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    function createOptions() { // ✅ No need for useCallback or function dependencies!
+    function createOptions() { // ✅ Nie ma potrzeby użycia useCallback ani zależności od funkcji!
       return {
         serverUrl: 'https://localhost:1234',
         roomId: roomId
@@ -772,17 +772,17 @@ function ChatRoom({ roomId }) {
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId]); // ✅ Only changes when roomId changes
+  }, [roomId]); // ✅ Zmienia się tylko wtedy, gdy zmienia się roomId
   // ...
 ```
 
-Now your code is simpler and doesn't need `useCallback`. [Learn more about removing Effect dependencies.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+Teraz twój kod jest prostszy i nie wymaga użycia `useCallback`. [Dowiedz się więcej o usuwaniu zależności Efektu.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 
 ---
 
-### Optimizing a custom Hook {/*optimizing-a-custom-hook*/}
+### Optymalizacja własnego hooka {/*optimizing-a-custom-hook*/}
 
-If you're writing a [custom Hook,](/learn/reusing-logic-with-custom-hooks) it's recommended to wrap any functions that it returns into `useCallback`:
+Jeśli piszesz [własny hook,](/learn/reusing-logic-with-custom-hooks) zaleca się, aby owijać dowolne funkcje, które zwraca, za pomocą `useCallback`:
 
 ```js {4-6,8-10}
 function useRouter() {
@@ -803,30 +803,17 @@ function useRouter() {
 }
 ```
 
-This ensures that the consumers of your Hook can optimize their own code when needed.
+To zapewnia, że konsumenci (?) twojego hooka mogą zoptymalizować swój własny kod, gdy jest to potrzebne.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Znane problemy (?) {/*troubleshooting*/}
 
-### Every time my component renders, `useCallback` returns a different function {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
+### Za każdym razem, gdy mój komponent renderuje, `useCallback` zwraca inną funkcję {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
 
-Make sure you've specified the dependency array as a second argument!
+Upewnij się, że podałeś tablicę zależności jako drugi argument!
 
-If you forget the dependency array, `useCallback` will return a new function every time:
-
-```js {7}
-function ProductPage({ productId, referrer }) {
-  const handleSubmit = useCallback((orderDetails) => {
-    post('/product/' + productId + '/buy', {
-      referrer,
-      orderDetails,
-    });
-  }); // 🔴 Returns a new function every time: no dependency array
-  // ...
-```
-
-This is the corrected version passing the dependency array as a second argument:
+Jeśli zapomnisz o tablicy zależności, `useCallback` będzie zwracać nową funkcję za każdym razem:
 
 ```js {7}
 function ProductPage({ productId, referrer }) {
@@ -835,11 +822,24 @@ function ProductPage({ productId, referrer }) {
       referrer,
       orderDetails,
     });
-  }, [productId, referrer]); // ✅ Does not return a new function unnecessarily
+  }); // 🔴 Zwraca nową funkcję za każdym razem: brak tablicy zależności
   // ...
 ```
 
-If this doesn't help, then the problem is that at least one of your dependencies is different from the previous render. You can debug this problem by manually logging your dependencies to the console:
+To jest poprawiona wersja, w której przekazujesz tablicę zależności jako drugi argument:
+
+```js {7}
+function ProductPage({ productId, referrer }) {
+  const handleSubmit = useCallback((orderDetails) => {
+    post('/product/' + productId + '/buy', {
+      referrer,
+      orderDetails,
+    });
+  }, [productId, referrer]); // ✅ Nie zwraca niepotrzebnie nowej funkcji
+  // ...
+```
+
+Jeśli to nie pomaga, problem może wynikać z tego, że przynajmniej jedna z twoich zależności różni się od poprzedniego renderowania. Możesz rozwiązać ten problem, dodając ręcznie logowanie twoich zależności do konsoli:
 
 ```js {5}
   const handleSubmit = useCallback((orderDetails) => {
@@ -849,28 +849,28 @@ If this doesn't help, then the problem is that at least one of your dependencies
   console.log([productId, referrer]);
 ```
 
-You can then right-click on the arrays from different re-renders in the console and select "Store as a global variable" for both of them. Assuming the first one got saved as `temp1` and the second one got saved as `temp2`, you can then use the browser console to check whether each dependency in both arrays is the same:
+Następnie kliknij prawym przyciskiem myszy na tablicach z różnych przerenderowań w konsoli i wybierz "Zachowaj jako zmienną globalną" (ang. *Save as global variable*) dla obu z nich. Zakładając, że pierwsza została zapisana jako `temp1`, a druga jako `temp2`, możesz następnie użyć konsoli przeglądarki, aby sprawdzić, czy każda zależność w obu tablicach jest taka sama:
 
 ```js
-Object.is(temp1[0], temp2[0]); // Is the first dependency the same between the arrays?
-Object.is(temp1[1], temp2[1]); // Is the second dependency the same between the arrays?
-Object.is(temp1[2], temp2[2]); // ... and so on for every dependency ...
+Object.is(temp1[0], temp2[0]); // Czy pierwsza zależność jest taka sama między tablicami?
+Object.is(temp1[1], temp2[1]); // Czy druga zależność jest taka sama między tablicami?
+Object.is(temp1[2], temp2[2]); // ... i tak dalej dla każdej zależności ...
 ```
 
-When you find which dependency is breaking memoization, either find a way to remove it, or [memoize it as well.](/reference/react/useMemo#memoizing-a-dependency-of-another-hook)
+Kiedy znajdziesz, która zależność psuje zapamiętywanie, albo znajdź sposób, aby ją usunąć, albo [również ją zapamiętaj.](/reference/react/useMemo#memoizing-a-dependency-of-another-hook)
 
 ---
 
-### I need to call `useCallback` for each list item in a loop, but it's not allowed {/*i-need-to-call-usememo-for-each-list-item-in-a-loop-but-its-not-allowed*/}
+### Muszę użyć `useCallback` dla każdego elementu listy w pętli, ale to nie jest dozwolone {/*i-need-to-call-usememo-for-each-list-item-in-a-loop-but-its-not-allowed*/}
 
-Suppose the `Chart` component is wrapped in [`memo`](/reference/react/memo). You want to skip re-rendering every `Chart` in the list when the `ReportList` component re-renders. However, you can't call `useCallback` in a loop:
+Załóżmy, że komponent `Chart` jest owinęty w [`memo`](/reference/react/memo). Chcesz uniknąć przerenderowania każdego komponentu `Chart` na liście, gdy komponent `ReportList` zostanie ponownie przerysowany. Jednak nie możesz wywołać `useCallback` w pętli:
 
 ```js {5-14}
 function ReportList({ items }) {
   return (
     <article>
       {items.map(item => {
-        // 🔴 You can't call useCallback in a loop like this:
+        // 🔴 Nie możesz wywołać useCallback w pętli w ten sposób:
         const handleClick = useCallback(() => {
           sendReport(item)
         }, [item]);
@@ -886,7 +886,7 @@ function ReportList({ items }) {
 }
 ```
 
-Instead, extract a component for an individual item, and put `useCallback` there:
+Zamiast tego wyodrębnij komponent dla pojedynczego elementu i umieść w nim `useCallback`:
 
 ```js {5,12-21}
 function ReportList({ items }) {
@@ -900,7 +900,7 @@ function ReportList({ items }) {
 }
 
 function Report({ item }) {
-  // ✅ Call useCallback at the top level:
+  // ✅ Wywołaj useCallback na najwyższym poziomie:
   const handleClick = useCallback(() => {
     sendReport(item)
   }, [item]);
@@ -913,7 +913,7 @@ function Report({ item }) {
 }
 ```
 
-Alternatively, you could remove `useCallback` in the last snippet and instead wrap `Report` itself in [`memo`.](/reference/react/memo) If the `item` prop does not change, `Report` will skip re-rendering, so `Chart` will skip re-rendering too:
+Ewentualnie, możesz usunąć `useCallback` z ostatniego fragmentu kodu i zamiast tego owinąć sam komponent `Report` w [`memo`.](/reference/react/memo) Jeśli wlaściwość `item` się nie zmienia, komponent `Report` pominie przerenderowanie, a zatem komponent `Chart` również pominie przerenderowanie:
 
 ```js {5,6-8,15}
 function ReportList({ items }) {
