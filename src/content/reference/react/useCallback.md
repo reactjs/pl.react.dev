@@ -217,40 +217,40 @@ function useCallback(fn, dependencies) {
 
 <DeepDive>
 
-#### Should you add useCallback everywhere? {/*should-you-add-usecallback-everywhere*/}
+#### Czy powinieneś używać useCallback wszędzie? {/*should-you-add-usecallback-everywhere*/}
 
-If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful. 
+Jeśli twoja aplikacja jest podobna do tej strony i większość interakcji jest prostych (takich jak zastępowanie strony lub całej sekcji), to zazwyczaj memoizacja nie jest konieczna. Z drugiej strony, jeśli twoja aplikacja przypomina edytor rysunków i większość interakcji jest dość szczegółowa (takie jak przesuwanie kształtów), to możliwe, że memoizacja będzie bardzo pomocna.
 
-Caching a function with `useCallback`  is only valuable in a few cases:
+Buforowanie funkcji za pomocą `useCallback` ma wartość tylko w kilku przypadkach:
 
-- You pass it as a prop to a component wrapped in [`memo`.](/reference/react/memo) You want to skip re-rendering if the value hasn't changed. Memoization lets your component re-render only if dependencies changed.
-- The function you're passing is later used as a dependency of some Hook. For example, another function wrapped in `useCallback` depends on it, or you depend on this function from [`useEffect.`](/reference/react/useEffect)
+- Przekazujesz ją jako element potomny do komponentu owiniętego w [`memo`.](/reference/react/memo) Chcesz pominąć przerysowywanie, jeśli wartość się nie zmieniła. Memoizacja pozwala komponentowi przerysować się tylko wtedy, gdy zmienią się zależności.
+- Funkcja, którą przekazujesz, jest później używana jako zależność pewnego Hooka. Na przykład inna funkcja owinięta w `useCallback` zależy od niej, lub ty zależysz od tej funkcji w [`useEffect.`](/reference/react/useEffect)
 
-There is no benefit to wrapping a function in `useCallback` in other cases. There is no significant harm to doing that either, so some teams choose to not think about individual cases, and memoize as much as possible. The downside is that code becomes less readable. Also, not all memoization is effective: a single value that's "always new" is enough to break memoization for an entire component.
+W innych przypadkach nie ma korzyści z owijania funkcji w `useCallback`. Nie ma to również znaczącego wpływu na działanie, więc niektóre zespoły wybierają, by nie zastanawiać się nad indywidualnymi przypadkami i stosować buforowanie tak często, jak to możliwe. Wadą tego podejścia jest jednak to, że kod staje się mniej czytelny. Dodatkowo, nie zawsze memoizacja jest skuteczna: pojedyncza wartość, która "zawsze jest nowa", może wystarczyć, aby zepsuć memoizację dla całego komponentu.
 
-Note that `useCallback` does not prevent *creating* the function. You're always creating a function (and that's fine!), but React ignores it and gives you back a cached function if nothing changed.
+Należy zaznaczyć, że `useCallback` nie zapobiega *tworzeniu* funkcji. Zawsze tworzysz funkcję (i to jest w porządku!), ale React ją ignoruje i zwraca buforowaną funkcję, jeśli nic się nie zmieniło.
 
-**In practice, you can make a lot of memoization unnecessary by following a few principles:**
+**W praktyce możesz uniknąć wielu przypadków memoizacji, stosując kilka zasad:**
 
-1. When a component visually wraps other components, let it [accept JSX as children.](/learn/passing-props-to-a-component#passing-jsx-as-children) Then, if the wrapper component updates its own state, React knows that its children don't need to re-render.
-1. Prefer local state and don't [lift state up](/learn/sharing-state-between-components) any further than necessary. Don't keep transient state like forms and whether an item is hovered at the top of your tree or in a global state library.
-1. Keep your [rendering logic pure.](/learn/keeping-components-pure) If re-rendering a component causes a problem or produces some noticeable visual artifact, it's a bug in your component! Fix the bug instead of adding memoization.
-1. Avoid [unnecessary Effects that update state.](/learn/you-might-not-need-an-effect) Most performance problems in React apps are caused by chains of updates originating from Effects that cause your components to render over and over.
-1. Try to [remove unnecessary dependencies from your Effects.](/learn/removing-effect-dependencies) For example, instead of memoization, it's often simpler to move some object or a function inside an Effect or outside the component.
+1. Gdy komponent wizualnie zawiera inne komponenty, pozwól mu [przyjmować JSX jako komponenty potomne.](/learn/passing-props-to-a-component#passing-jsx-as-children) Wtedy, jeśli komponent warpujący  aktualizuje swój własny stan, React wie, że jego komponenty potomne nie muszą być przerenderowane.
+1. Preferuj stan lokalny i nie [wynoś stanu wyżej](/learn/sharing-state-between-components) niż to jest konieczne. Nie przechowuj nietrwałego (?) stanu, takiego jak formularze czy informacji o tym, czy element został najechany kursorem, na samej górze drzewa komponentów lub w globalnej bibliotece stanu.
+1. Utrzymuj swoją [logikę renderowania czystą. (?)](/learn/keeping-components-pure) Jeśli przerenderowanie komponentu powoduje problem lub widoczne wizualne artefakty, to jest błąd w twoim komponencie! Napraw błąd zamiast dodawać memoizację.
+1. Unikaj [niepotrzebnych Efektów (?), które aktualizują stan.](/learn/you-might-not-need-an-effect) Większość problemów wydajnościowych w aplikacjach reactowych wynika z serii aktualizacji, które mają swoje źródło w Efektach i prowadzą do wielokrotnego przerenderowania komponentów.
+1. Staraj się [usunąć niepotrzebne zależności z Efektów.](/learn/removing-effect-dependencies) Na przykład zamiast memoizacji, często prostsze jest przeniesienie jakiegoś obiektu lub funkcji do Efektu lub na zewnątrz komponentu.
 
-If a specific interaction still feels laggy, [use the React Developer Tools profiler](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) to see which components benefit the most from memoization, and add memoization where needed. These principles make your components easier to debug and understand, so it's good to follow them in any case. In long term, we're researching [doing memoization automatically](https://www.youtube.com/watch?v=lGEMwh32soc) to solve this once and for all.
+Jeśli jakieś działanie wciąż działa opornie, [użyj narzędzi do profilowania w narzędziach deweloperskich Reacta](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html), aby zobaczyć, które komponenty najbardziej korzystają z memoizacji, i dodaj memoizację tam, gdzie jest to potrzebne. Te zasady sprawiają, że twoje komponenty są łatwiejsze do debugowania i zrozumienia, więc warto się nimi kierować w każdym przypadku. Długoterminowo pracujemy nad [automatyczną memoizacją](https://www.youtube.com/watch?v=lGEMwh32soc), aby rozwiązać ten problem raz na zawsze.
 
 </DeepDive>
 
-<Recipes titleText="The difference between useCallback and declaring a function directly" titleId="examples-rerendering">
+<Recipes titleText="Różnica między `useCallback` a bezpośrednim deklarowaniem funkcji" titleId="examples-rerendering">
 
-#### Skipping re-rendering with `useCallback` and `memo` {/*skipping-re-rendering-with-usecallback-and-memo*/}
+#### Pomijanie przerenderowania za pomocą `useCallback` i `memo` {/*skipping-re-rendering-with-usecallback-and-memo*/}
 
-In this example, the `ShippingForm` component is **artificially slowed down** so that you can see what happens when a React component you're rendering is genuinely slow. Try incrementing the counter and toggling the theme.
+W tym przykładzie komponent `ShippingForm` jest **sztucznie spowolniony**, abyś mógł zobaczyć, co się dzieje, gdy komponent, który renderujesz, jest naprawdę wolny. Spróbuj zwiększyć licznik i przełączyć motyw.
 
-Incrementing the counter feels slow because it forces the slowed down `ShippingForm` to re-render. That's expected because the counter has changed, and so you need to reflect the user's new choice on the screen.
+Zwiększanie licznika wydaje się wolne, ponieważ wymusza przerenderowanie spowolnionego komponentu `ShippingForm`. Jest to oczekiwane, ponieważ licznik się zmienił, więc musisz odzwierciedlić nowy wybór użytkownika na ekranie.
 
-Next, try toggling the theme. **Thanks to `useCallback` together with [`memo`](/reference/react/memo), it’s fast despite the artificial slowdown!** `ShippingForm` skipped re-rendering because the `handleSubmit` function has not changed. The `handleSubmit` function has not changed because both `productId` and `referrer` (your `useCallback` dependencies) haven't changed since last render.
+Następnie spróbuj przełączyć motyw. **Dzięki `useCallback` razem z [`memo`](/reference/react/memo), jest to szybkie pomimo sztucznego spowolnienia!** `ShippingForm` pominął przerenderowanie, ponieważ funkcja `handleSubmit` nie zmieniła się. Funkcja `handleSubmit` nie zmieniła się, ponieważ ani `productId`, ani `referrer` (twoje zależności w `useCallback`) nie zmieniły się od ostatniego przerenderowania.
 
 <Sandpack>
 
@@ -268,7 +268,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Dark mode
+        Ciemny motyw
       </label>
       <hr />
       <ProductPage
@@ -301,7 +301,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 }
 
 function post(url, data) {
-  // Imagine this sends a request...
+  // Załóżmy, że to wysyła zapytanie...
   console.log('POST /' + url);
   console.log(data);
 }
@@ -313,10 +313,10 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('[ARTIFICIALLY SLOW] Rendering <ShippingForm />');
+  console.log('[SZTUCZNIE SPOWOLNIENIE] Renderowanie <ShippingForm />');
   let startTime = performance.now();
   while (performance.now() - startTime < 500) {
-    // Do nothing for 500 ms to emulate extremely slow code
+    // Nic nie rób przez 500 ms, aby symulować bardzo wolny kod
   }
 
   function handleSubmit(e) {
@@ -331,23 +331,23 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p><b>Note: <code>ShippingForm</code> is artificially slowed down!</b></p>
+      <p><b>Uwaga: komponent <code>ShippingForm</code> jest sztucznie spowolniony!</b></p>
       <label>
-        Number of items:
+        Liczba elementów:
         <button type="button" onClick={() => setCount(count - 1)}>–</button>
         {count}
         <button type="button" onClick={() => setCount(count + 1)}>+</button>
       </label>
       <label>
-        Street:
+        Ulica:
         <input name="street" />
       </label>
       <label>
-        City:
+        Miasto:
         <input name="city" />
       </label>
       <label>
-        Postal code:
+        Kod pocztowy:
         <input name="zipCode" />
       </label>
       <button type="submit">Submit</button>
@@ -386,11 +386,11 @@ button[type="button"] {
 
 <Solution />
 
-#### Always re-rendering a component {/*always-re-rendering-a-component*/}
+#### Ciągłe przerenderowywanie komponentu {/*always-re-rendering-a-component*/}
 
-In this example, the `ShippingForm` implementation is also **artificially slowed down** so that you can see what happens when some React component you're rendering is genuinely slow. Try incrementing the counter and toggling the theme.
+W tym przykładzie implementacja komponentu `ShippingForm` jest również **sztucznie spowolniona**, abyś mógł zobaczyć, co się dzieje, gdy jakiś komponent reaktowy, który renderujesz, jest naprawdę wolny. Spróbuj zwiększyć licznik i przełączyć motyw.
 
-Unlike in the previous example, toggling the theme is also slow now! This is because **there is no `useCallback` call in this version,** so `handleSubmit` is always a new function, and the slowed down `ShippingForm` component can't skip re-rendering.
+W przeciwieństwie do poprzedniego przykładu, przełączanie motywu jest teraz również wolne! To dlatego, że **w tej wersji nie ma wywołania `useCallback`,** więc `handleSubmit` to zawsze nowa funkcja, przez co spowolniony komponent `ShippingForm` nie może pominąć przerenderowania.
 
 <Sandpack>
 
@@ -408,7 +408,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Dark mode
+        Ciemny motyw
       </label>
       <hr />
       <ProductPage
@@ -440,7 +440,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 }
 
 function post(url, data) {
-  // Imagine this sends a request...
+  // Załóżmy, że to wysyła zapytanie...
   console.log('POST /' + url);
   console.log(data);
 }
@@ -455,7 +455,7 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   console.log('[ARTIFICIALLY SLOW] Rendering <ShippingForm />');
   let startTime = performance.now();
   while (performance.now() - startTime < 500) {
-    // Do nothing for 500 ms to emulate extremely slow code
+    // Nic nie rób przez 500 ms, aby symulować bardzo wolny kod
   }
 
   function handleSubmit(e) {
@@ -470,23 +470,23 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p><b>Note: <code>ShippingForm</code> is artificially slowed down!</b></p>
+      <p><b>Uwaga: komponent <code>ShippingForm</code> jest sztucznie spowolniony!</b></p>
       <label>
-        Number of items:
+        Liczba elementów:
         <button type="button" onClick={() => setCount(count - 1)}>–</button>
         {count}
         <button type="button" onClick={() => setCount(count + 1)}>+</button>
       </label>
       <label>
-        Street:
+        Ulica:
         <input name="street" />
       </label>
       <label>
-        City:
+        Miasto:
         <input name="city" />
       </label>
       <label>
-        Postal code:
+        Kod pocztowy:
         <input name="zipCode" />
       </label>
       <button type="submit">Submit</button>
@@ -524,7 +524,7 @@ button[type="button"] {
 </Sandpack>
 
 
-However, here is the same code **with the artificial slowdown removed.** Does the lack of `useCallback` feel noticeable or not?
+Jednak tutaj jest ten sam kod **bez sztucznego spowolnienia.** Czy brak `useCallback` jest zauważalny czy nie?
 
 <Sandpack>
 
@@ -542,7 +542,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Dark mode
+        Ciemny motyw
       </label>
       <hr />
       <ProductPage
@@ -574,7 +574,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 }
 
 function post(url, data) {
-  // Imagine this sends a request...
+  // Załóżmy, że to wysyła zapytanie...
   console.log('POST /' + url);
   console.log(data);
 }
@@ -586,7 +586,7 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('Rendering <ShippingForm />');
+  console.log('Renderowanie komponentu <ShippingForm />');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -601,21 +601,21 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Number of items:
+        Liczba elementów:
         <button type="button" onClick={() => setCount(count - 1)}>–</button>
         {count}
         <button type="button" onClick={() => setCount(count + 1)}>+</button>
       </label>
       <label>
-        Street:
+        Ulica:
         <input name="street" />
       </label>
       <label>
-        City:
+        Miasto:
         <input name="city" />
       </label>
       <label>
-        Postal code:
+        Kod pocztowy:
         <input name="zipCode" />
       </label>
       <button type="submit">Submit</button>
@@ -653,9 +653,9 @@ button[type="button"] {
 </Sandpack>
 
 
-Quite often, code without memoization works fine. If your interactions are fast enough, you don't need memoization.
+Dość często kod bez memoizacji działa dobrze. Jeśli twoje interakcje są wystarczająco szybkie, nie potrzebujesz memoizacji.
 
-Keep in mind that you need to run React in production mode, disable [React Developer Tools](/learn/react-developer-tools), and use devices similar to the ones your app's users have in order to get a realistic sense of what's actually slowing down your app.
+Pamiętaj, że musisz uruchomić React w trybie produkcyjnym, wyłączyć [Narzędzia Deweloperskie Reacta](/learn/react-developer-tools) oraz używać urządzeń podobnych do tych, które mają użytkownicy twojej aplikacji, aby uzyskać realistyczne odczucie, co tak naprawdę spowalnia twoją aplikację.
 
 <Solution />
 
