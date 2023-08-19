@@ -751,7 +751,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-To zapewnia, że funkcja `createOptions` pozostaje taka sama między przerenderowaniami, jeśli `roomId` jest taki sam. **Jednakże jeszcze lepiej jest usunąć potrzebę zależności funkcji.** Przenieś swoją funkcję do *wewnętrza* Efektu:
+To zapewnia, że funkcja `createOptions` pozostaje taka sama między przerenderowaniami, jeśli `roomId` jest taki sam. **Jednakże jeszcze lepiej jest usunąć potrzebę zależności funkcji.** Przenieś swoją funkcję do *wnętrza* Efektu:
 
 ```js {5-10,16}
 function ChatRoom({ roomId }) {
@@ -860,7 +860,7 @@ Kiedy znajdziesz, która zależność psuje zapamiętywanie, albo znajdź sposó
 
 ### Muszę użyć `useCallback` dla każdego elementu listy w pętli, ale nie jest to dozwolone {/*i-need-to-call-usememo-for-each-list-item-in-a-loop-but-its-not-allowed*/}
 
-Załóżmy, że komponent `Chart` jest owinęty w [`memo`](/reference/react/memo). Chcesz uniknąć przerenderowania każdego komponentu `Chart` na liście, gdy komponent `ReportList` zostanie ponownie przerenderowany. Jednak nie możesz wywołać `useCallback` w pętli:
+Załóżmy, że komponent `Chart` jest owinięty w [`memo`](/reference/react/memo). Chcesz uniknąć przerenderowania każdego komponentu `Chart` na liście, gdy komponent `ReportList` zostanie ponownie przerenderowany. Jednak nie możesz wywołać `useCallback` w pętli:
 
 ```js {5-14}
 function ReportList({ items }) {
@@ -910,7 +910,7 @@ function Report({ item }) {
 }
 ```
 
-Ewentualnie, możesz usunąć `useCallback` z ostatniego fragmentu kodu i zamiast tego owinąć sam komponent `Report` w [`memo`.](/reference/react/memo) Jeśli wlaściwość `item` się nie zmienia, komponent `Report` pominie przerenderowanie, a zatem komponent `Chart` również pominie przerenderowanie:
+Ewentualnie, możesz usunąć `useCallback` z ostatniego fragmentu kodu i zamiast tego owinąć sam komponent `Report` w [`memo`.](/reference/react/memo) Jeśli właściwość `item` się nie zmienia, komponent `Report` pominie przerenderowanie, a zatem komponent `Chart` również pominie przerenderowanie:
 
 ```js {5,6-8,15}
 function ReportList({ items }) {
