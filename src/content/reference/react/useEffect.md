@@ -4,7 +4,7 @@ title: useEffect
 
 <Intro>
 
-`useEffect` is a React Hook that lets you [synchronize a component with an external system.](/learn/synchronizing-with-effects)
+`useEffect` to hook reactowy, który pozwala [synchronizować komponent z zewnętrznym systemem.](/learn/synchronizing-with-effects)
 
 ```js
 useEffect(setup, dependencies?)
@@ -16,11 +16,11 @@ useEffect(setup, dependencies?)
 
 ---
 
-## Reference {/*reference*/}
+## Dokumentacja {/*reference*/}
 
 ### `useEffect(setup, dependencies?)` {/*useeffect*/}
 
-Call `useEffect` at the top level of your component to declare an Effect:
+Aby zadeklarować Efekt, wywołaj `useEffect` na głównym poziomie swojego komponentu:
 
 ```js
 import { useEffect } from 'react';
@@ -40,33 +40,33 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[See more examples below.](#usage)
+[Zobacz więcej przykładów poniżej](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parametry {/*parameters*/}
 
-* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. When your component is added to the DOM, React will run your setup function. After every re-render with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. After your component is removed from the DOM, React will run your cleanup function.
- 
-* **optional** `dependencies`: The list of all reactive values referenced inside of the `setup` code. Reactive values include props, state, and all the variables and functions declared directly inside your component body. If your linter is [configured for React](/learn/editor-setup#linting), it will verify that every reactive value is correctly specified as a dependency. The list of dependencies must have a constant number of items and be written inline like `[dep1, dep2, dep3]`. React will compare each dependency with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. If you omit this argument, your Effect will re-run after every re-render of the component. [See the difference between passing an array of dependencies, an empty array, and no dependencies at all.](#examples-dependencies)
+* `setup`: funkcja z logiką Efektu. Funkcja `setup` może również opcjonalnie zwracać *funkcję czyszczącą* (ang. *cleanup function*). Gdy komponent zostaje dodany do DOM-u, React uruchamia funkcję `setup`. Po każdym ponownym renderowaniu z zmienionymi zależnościami, React najpierw uruchamia funkcję czyszczącą (jeśli została zdefiniowana) z poprzednimi wartościami, a następnie uruchamia funkcję `setup` z nowymi wartościami. Gdy komponent zostanie usunięty z DOM-u, react uruchamia funkcję czyszczącą.
 
-#### Returns {/*returns*/}
+* **opcjonalnie** `dependencies`: lista wszystkich reaktywnych wartości użytych w kodzie funkcji `setup`. Wartościami reaktywnymi są między innymi właściwości, stany oraz wszystkie zmienne i funkcje zadeklarowane bezpośrednio w ciele twojego komponentu. Jeśli twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting), będzie on sprawdzał, czy każda wartość reaktywna jest poprawnie dodana do zależności. Lista zależności musi mieć stałą liczbę elementów i być zapisana w wprost, np. `[dep1, dep2, dep3]`. React porównuje każdą zależność ze swoją poprzednią wartością, używając porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Jeśli pominiesz ten parametr, Efekt zostanie uruchomiony ponownie po każdym przerenderowaniu komponentu. [Zobacz różnicę między przekazywaniem tablicy zależności, pustej tablicy a brakiem zależności w ogóle.](#examples-dependencies)
 
-`useEffect` returns `undefined`.
+#### Zwracana wartość {/*returns*/}
 
-#### Caveats {/*caveats*/}
+`useEffect` zwraca `undefined`.
 
-* `useEffect` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
+#### Zastrzeżenia {/*caveats*/}
 
-* If you're **not trying to synchronize with some external system,** [you probably don't need an Effect.](/learn/you-might-not-need-an-effect)
+* `useEffect` jest hookiem, więc można go wywoływać tylko **na głównym poziomie komponentu** lub w innych hookach. Nie można go wywoływać wewnątrz pętli czy instrukcji warunkowej. Jeśli tego potrzebujesz, wyodrębnij nowy komponent i przenieś stan do niego.
 
-* When Strict Mode is on, React will **run one extra development-only setup+cleanup cycle** before the first real setup. This is a stress-test that ensures that your cleanup logic "mirrors" your setup logic and that it stops or undoes whatever the setup is doing. If this causes a problem, [implement the cleanup function.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+* Jeśli **nie próbujesz synchronizować się z jakimś zewnętrznym systemem,** [prawdopodobnie nie potrzebujesz Efektu.](/learn/you-might-not-need-an-effect)
 
-* If some of your dependencies are objects or functions defined inside the component, there is a risk that they will **cause the Effect to re-run more often than needed.** To fix this, remove unnecessary [object](#removing-unnecessary-object-dependencies) and [function](#removing-unnecessary-function-dependencies) dependencies. You can also [extract state updates](#updating-state-based-on-previous-state-from-an-effect) and [non-reactive logic](#reading-the-latest-props-and-state-from-an-effect) outside of your Effect.
+* W Trybie Restrykcyjnym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-* If your Effect wasn't caused by an interaction (like a click), React will let the browser **paint the updated screen first before running your Effect.** If your Effect is doing something visual (for example, positioning a tooltip), and the delay is noticeable (for example, it flickers), replace `useEffect` with [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+* Jeśli niektóre z twoich zależności to obiekty lub funkcje zdefiniowane wewnątrz komponentu, istnieje ryzyko, że **sprawią one, że Efekt będzie wykonywał się częściej niż jest to potrzebne.** Aby to naprawić, usuń zbędne zależności od [obiektów](#removing-unnecessary-object-dependencies) i [funkcji](#removing-unnecessary-function-dependencies). Możesz również [wydzielić aktualizacje stanu](#updating-state-based-on-previous-state-from-an-effect) oraz [logikę niereaktywną](#reading-the-latest-props-and-state-from-an-effect) poza Efekt.
 
-* Even if your Effect was caused by an interaction (like a click), **the browser may repaint the screen before processing the state updates inside your Effect.** Usually, that's what you want. However, if you must block the browser from repainting the screen, you need to replace `useEffect` with [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+* Jeśli twój Efekt nie został wywołany przez interakcję (np. kliknięcie), React pozwoli przeglądarce **najpierw odświeżyć ekran przed uruchomieniem twojego Efektu.** Jeśli twój Efekt wykonuje jakieś operacje związane z wyświetlaniem (np. ustawianie pozycji podpowiedzi (ang. *tooltip*)) i opóźnienie jest zauważalne (np. występuje migotanie), zastąp `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
-* Effects **only run on the client.** They don't run during server rendering.
+* Nawet jeśli twój Efekt został wywołany przez interakcję (np. kliknięcie), **przeglądarka może odświeżyć ekran przed przetworzeniem aktualizacji stanu wewnątrz twojego Efektu.** Zazwyczaj jest to pożądane zachowanie. Niemniej jednak, jeśli cheesz zablokować przeglądarkę przed odświeżaniem ekranu, musisz zastąpić `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+
+* Efekty uruchamiane są **tylko po stronie klienta.** Nie są uruchamiane podczas renderowania po stronie serwera.
 
 ---
 
