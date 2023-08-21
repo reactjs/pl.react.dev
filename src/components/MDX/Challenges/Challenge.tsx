@@ -61,26 +61,42 @@ export function Challenge({
       <div className="flex justify-between items-center mt-4">
         {currentChallenge.hint ? (
           <div>
+<<<<<<< HEAD
             <Button className="mr-2" onClick={toggleHint} active={showHint}>
               <IconHint className="mr-1.5" />{' '}
               {showHint ? 'Ukryj wskazówkę' : 'Pokaż wskazówkę'}
+=======
+            <Button className="me-2" onClick={toggleHint} active={showHint}>
+              <IconHint className="me-1.5" />{' '}
+              {showHint ? 'Hide hint' : 'Show hint'}
+>>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
             </Button>
             <Button
-              className="mr-2"
+              className="me-2"
               onClick={toggleSolution}
               active={showSolution}>
+<<<<<<< HEAD
               <IconSolution className="mr-1.5" />{' '}
               {showSolution ? 'Ukryj rozwiązanie' : 'Pokaż rozwiązanie'}
+=======
+              <IconSolution className="me-1.5" />{' '}
+              {showSolution ? 'Hide solution' : 'Show solution'}
+>>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
             </Button>
           </div>
         ) : (
           !isRecipes && (
             <Button
-              className="mr-2"
+              className="me-2"
               onClick={toggleSolution}
               active={showSolution}>
+<<<<<<< HEAD
               <IconSolution className="mr-1.5" />{' '}
               {showSolution ? 'Ukryj rozwiązanie' : 'Pokaż rozwiązanie'}
+=======
+              <IconSolution className="me-1.5" />{' '}
+              {showSolution ? 'Hide solution' : 'Show solution'}
+>>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
             </Button>
           )
         )}
@@ -94,8 +110,13 @@ export function Challenge({
             )}
             onClick={handleClickNextChallenge}
             active>
+<<<<<<< HEAD
             {isRecipes ? 'Następny przykład' : 'Następne wyzwanie'}
             <IconArrowSmall displayDirection="right" className="block ml-1.5" />
+=======
+            Next {isRecipes ? 'Example' : 'Challenge'}
+            <IconArrowSmall displayDirection="end" className="block ms-1.5" />
+>>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
           </Button>
         )}
       </div>
@@ -120,8 +141,8 @@ export function Challenge({
                 active>
                 Następne wyzwanie
                 <IconArrowSmall
-                  displayDirection="right"
-                  className="block ml-1.5"
+                  displayDirection="end"
+                  className="block ms-1.5"
                 />
               </Button>
             )}
