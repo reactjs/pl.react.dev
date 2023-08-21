@@ -70,24 +70,14 @@ function ExpandableExample({children, excerpt, type}: ExpandableExampleProps) {
           })}>
           {isDeepDive && (
             <>
-<<<<<<< HEAD
-              <IconDeepDive className="inline mr-2 dark:text-purple-30 text-purple-40" />
-              Dla dociekliwych
-=======
               <IconDeepDive className="inline me-2 dark:text-purple-30 text-purple-40" />
-              Deep Dive
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+              Dla dociekliwych
             </>
           )}
           {isExample && (
             <>
-<<<<<<< HEAD
-              <IconCodeBlock className="inline mr-2 dark:text-yellow-30 text-yellow-50" />
-              Przykład
-=======
               <IconCodeBlock className="inline me-2 dark:text-yellow-30 text-yellow-50" />
-              Example
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+              Przykład
             </>
           )}
         </h5>

@@ -17,15 +17,9 @@ interface TerminalBlockProps {
 function LevelText({type}: {type: LogLevel}) {
   switch (type) {
     case 'warning':
-<<<<<<< HEAD
-      return <span className="text-yellow-50 bg-none mr-1">Ostrzeżenie: </span>;
+      return <span className="text-yellow-50 bg-none me-1">Ostrzeżenie: </span>;
     case 'error':
-      return <span className="text-red-40 mr-1">Błąd: </span>;
-=======
-      return <span className="text-yellow-50 bg-none me-1">Warning: </span>;
-    case 'error':
-      return <span className="text-red-40 me-1">Error: </span>;
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+      return <span className="text-red-40 me-1">Błąd: </span>;
     default:
       return null;
   }
@@ -70,13 +64,8 @@ function TerminalBlock({level = 'info', children}: TerminalBlockProps) {
                 window.navigator.clipboard.writeText(message ?? '');
                 setCopied(true);
               }}>
-<<<<<<< HEAD
-              <IconCopy className="inline-flex mr-2 self-center" />{' '}
-              {copied ? 'Skopiowano' : 'Kopiuj'}
-=======
               <IconCopy className="inline-flex me-2 self-center" />{' '}
-              {copied ? 'Copied' : 'Copy'}
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+              {copied ? 'Skopiowano' : 'Kopiuj'}
             </button>
           </div>
         </div>

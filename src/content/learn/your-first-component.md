@@ -211,11 +211,7 @@ Jeśli komponent potomny potrzebuje jakichś danych od rodzica, [przekaż je za 
 
 #### Komponenty od góry do dołu {/*components-all-the-way-down*/}
 
-<<<<<<< HEAD
-Twoja aplikacja reactowa zaczyna się w komponencie głównym (_ang._ root - "korzeń"). Zwykle jest on tworzony automatycznie przy starcie nowego projektu. Na przykład, jeśli używasz [CodeSandbox](https://codesandbox.io/) lub [Create React App](https://create-react-app.dev/), komponent główny jest zdefiniowany w pliku `src/App.js`. Jeśli używasz frameworka [Next.js](https://nextjs.org/), komponent główny jest zdefiniowany w pliku `pages/index.js`. W poprzednich przykładach eksportowaliśmy własne komponenty główne.
-=======
-Your React application begins at a "root" component. Usually, it is created automatically when you start a new project. For example, if you use [CodeSandbox](https://codesandbox.io/) or if you use the framework [Next.js](https://nextjs.org/), the root component is defined in `pages/index.js`. In these examples, you've been exporting root components.
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+Twoja aplikacja reactowa zaczyna się w komponencie głównym (_ang._ root - "korzeń"). Zwykle jest on tworzony automatycznie przy starcie nowego projektu. Na przykład, jeśli używasz [CodeSandbox](https://codesandbox.io/) lub frameworka [Next.js](https://nextjs.org/), komponent główny jest zdefiniowany w pliku `pages/index.js`. W poprzednich przykładach eksportowaliśmy własne komponenty główne.
 
 Większość aplikacji reactowych używa komponentów "od góry do dołu". Oznacza to, że nie tylko fragmenty wielokrotnego użytku, jak przyciski, stają się komponentami, lecz także większe kawałki interfejsu, jak paski boczne, listy czy nawet całe strony! Komponenty doskonale sprawdzają się w porządkowaniu kodu UI, nawet jeśli niektórych z nich używamy tylko jeden raz.
 

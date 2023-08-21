@@ -52,11 +52,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-<<<<<<< HEAD
-W powyższym przykładzie wszystkie te komponenty istnieją w **pliku komponentu głównego** o nazwie `App.js`. W [Create React App](https://create-react-app.dev/) aplikacja jest zdefiniowana w pliku `src/App.js`. Jednak przy odpowiedniej konfiguracji komponent główny mógłby znaleźć się w innym pliku. Jeśli używasz frameworka z routingiem opartym na plikach, np. Next.js, dla każdej strony będziesz mieć inny komponent główny.
-=======
-These currently live in a **root component file,** named `App.js` in this example. Depending on your setup, your root component could be in another file, though. If you use a framework with file-based routing, such as Next.js, your root component will be different for every page.
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+W powyższym przykładzie wszystkie te komponenty istnieją w **pliku komponentu głównego** o nazwie `App.js`. W zależności od konfiguracji komponent główny może znajdować się w innym pliku. Jeśli używasz frameworka z routingiem opartym na plikach, np. Next.js, dla każdej strony będziesz mieć inny komponent główny.
 
 ## Eksportowanie i importowanie komponentu {/*exporting-and-importing-a-component*/}
 
