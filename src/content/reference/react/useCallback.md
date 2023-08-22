@@ -103,7 +103,7 @@ function ProductPage({ productId, referrer, theme }) {
 
 Zauważyłeś, że przełączanie właściwości `theme` blokuje na chwilę aplikację, ale gdy usuniesz `<ShippingForm />` z twojego JSX, zauważysz, że znów działa gładko. To pokazuje, że warto jest spróbować zoptymalizować komponent `ShippingForm`.
 
-**Domyślnie, gdy komponent jest ponownie przerenderowywany, React także przerenderowuje rekursywnie wszystkich jego potomków.** Dlatego też, gdy `ProductPage` zostaje przerenderowany z innym `theme`, komponent `ShippingForm` *również* zostaje przerenderowany. Jest to akceptowalne dla komponentów, które nie wymagają dużo obliczeń do przerenderowania. Ale jeśli upewniłeś się, że przerenderowanie trwa długo, można wskazać komponentowi `ShippingForm`, aby pominął przerenderowanie, gdy jego właściwości są takie same jak podczas ostatniego przerenderowania, owijając (?) go w [`memo`:](/reference/react/memo)
+**Domyślnie, gdy komponent jest ponownie przerenderowywany, React także przerenderowuje rekursywnie wszystkich jego potomków.** Dlatego też, gdy `ProductPage` zostaje przerenderowany z innym `theme`, komponent `ShippingForm` *również* zostaje przerenderowany. Jest to akceptowalne dla komponentów, które nie wymagają dużo obliczeń do przerenderowania. Ale jeśli upewniłeś się, że przerenderowanie trwa długo, można wskazać komponentowi `ShippingForm`, aby pominął przerenderowanie, gdy jego właściwości są takie same jak podczas ostatniego przerenderowania, poprzez opakowanie go w [`memo`:](/reference/react/memo)
 
 ```js {3,5}
 import { memo } from 'react';
@@ -155,7 +155,7 @@ function ProductPage({ productId, referrer, theme }) {
 }
 ```
 
-**Owrapowanie (?) `handleSubmit` w `useCallback` zapewnia, że to jest ta *sama* funkcja między przerenderowaniami** (aż do zmiany zależności). Nie *musisz* opakowywać funkcji w `useCallback`, chyba że robisz to z jakiegoś konkretnego powodu. W tym przykładzie powodem jest to, że przekazujesz ją do komponentu owrapowanego (?) w [`memo`,](/reference/react/memo) co pozwala na pominięcie przerenderowania. Istnieją inne powody, dla których możesz potrzebować `useCallback`, opisane dalej na tej stronie.
+**Opakowanie `handleSubmit` w `useCallback` zapewnia, że to jest ta *sama* funkcja między przerenderowaniami** (aż do zmiany zależności). Nie *musisz* opakowywać funkcji w `useCallback`, chyba że robisz to z jakiegoś konkretnego powodu. W tym przykładzie powodem jest to, że przekazujesz ją do komponentu opakowanego w [`memo`,](/reference/react/memo) co pozwala na pominięcie przerenderowania. Istnieją inne powody, dla których możesz potrzebować `useCallback`, opisane dalej na tej stronie.
 
 <Note>
 
@@ -232,8 +232,8 @@ Należy zaznaczyć, że `useCallback` nie zapobiega *tworzeniu* funkcji. Zawsze 
 1. Gdy komponent wizualnie zawiera inne komponenty, pozwól mu [przyjmować JSX jako komponenty potomne.](/learn/passing-props-to-a-component#passing-jsx-as-children) Wtedy, jeśli komponent wrapujący  aktualizuje swój własny stan, React wie, że jego komponenty potomne nie muszą być przerenderowane.
 1. Preferuj stan lokalny i nie [wynoś stanu wyżej](/learn/sharing-state-between-components) niż to jest konieczne. Nie przechowuj nietrwałego (?) stanu, takiego jak formularze czy informacji o tym, czy element został najechany kursorem, na samej górze drzewa komponentów lub w bibliotece globalnego stanu.
 1. Utrzymuj swoją [logikę renderowania czystą. (?)](/learn/keeping-components-pure) Jeśli przerenderowanie komponentu powoduje problem lub widoczne wizualne artefakty, to jest błąd w twoim komponencie! Napraw go zamiast dodawać zapamiętywanie.
-1. Unikaj [niepotrzebnych Efektów, które aktualizują stan.](/learn/you-might-not-need-an-effect) Większość problemów wydajnościowych w aplikacjach reactowych wynika z serii aktualizacji, które mają swoje źródło w Efektach i prowadzą do wielokrotnego przerenderowania komponentów.
-1. Staraj się [usunąć niepotrzebne zależności z Efektów.](/learn/removing-effect-dependencies) Na przykład zamiast zapamiętywania, często prostsze jest przeniesienie jakiegoś obiektu lub funkcji do Efektu lub na zewnątrz komponentu.
+1. Unikaj [niepotrzebnych efektów, które aktualizują stan.](/learn/you-might-not-need-an-effect) Większość problemów wydajnościowych w aplikacjach reactowych wynika z serii aktualizacji, które mają swoje źródło w efektach i prowadzą do wielokrotnego przerenderowania komponentów.
+1. Postaraj się [usunąć niepotrzebne zależności z efektów.](/learn/removing-effect-dependencies) Na przykład zamiast zapamiętywania, często prostsze jest przeniesienie jakiegoś obiektu lub funkcji do efektu lub na zewnątrz komponentu.
 
 Jeśli jakaś interakcja wciąż działa opornie, [użyj narzędzi do profilowania w narzędziach deweloperskich Reacta](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html), aby zobaczyć, które komponenty najwięcej zyskują na zapamiętywaniu i dodaj zapamiętywanie tam, gdzie jest to potrzebne. Te zasady sprawiają, że twoje komponenty są łatwiejsze do debugowania i zrozumienia, więc warto się nimi kierować w każdym przypadku. Długoterminowo pracujemy nad [automatycznym zapamiętywaniem](https://www.youtube.com/watch?v=lGEMwh32soc), aby rozwiązać ten problem raz na zawsze.
 
@@ -694,9 +694,9 @@ W tym przypadku zamiast robienia z `todos` zależność i odczytywania go wewną
 
 ---
 
-### Zapobieganie zbyt częstemu wyzwalaniu Efektu {/*preventing-an-effect-from-firing-too-often*/}
+### Zapobieganie zbyt częstemu wyzwalaniu efektu {/*preventing-an-effect-from-firing-too-often*/}
 
-Czasami może zdarzyć się, że chcesz wywołać funkcję wewnątrz [Efektu:](/learn/synchronizing-with-effects)
+Czasami może zdarzyć się, że chcesz wywołać funkcję wewnątrz [efektu:](/learn/synchronizing-with-effects)
 
 ```js {4-9,12}
 function ChatRoom({ roomId }) {
@@ -716,7 +716,7 @@ function ChatRoom({ roomId }) {
     // ...
 ```
 
-To powoduje pewien problem. [Każda reaktywna wartość musi być zadeklarowana jako zależność twojego Efektu.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Jednak jeśli zadeklarujesz `createOptions` jako zależność, spowoduje to, że twój Efekt będzie ciągle ponawiał łączenie się z pokojem czatowym:
+To powoduje pewien problem. [Każda reaktywna wartość musi być zadeklarowana jako zależność twojego efektu.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Jednak jeśli zadeklarujesz `createOptions` jako zależność, spowoduje to, że twój efekt będzie ciągle ponawiał łączenie się z pokojem czatowym:
 
 
 ```js {6}
@@ -729,7 +729,7 @@ To powoduje pewien problem. [Każda reaktywna wartość musi być zadeklarowana 
   // ...
 ```
 
-Aby to rozwiązać, możesz owrapować funkcję, którą musisz wywołać z Efektu, za pomocą `useCallback`:
+Aby to rozwiązać, możesz opakować funkcję, którą musisz wywołać z efektu, za pomocą `useCallback`:
 
 ```js {4-9,16}
 function ChatRoom({ roomId }) {
@@ -751,7 +751,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-To zapewnia, że funkcja `createOptions` pozostaje taka sama między przerenderowaniami, jeśli `roomId` jest taki sam. **Jednakże jeszcze lepiej jest usunąć potrzebę zależności funkcji.** Przenieś swoją funkcję do *wnętrza* Efektu:
+To zapewnia, że funkcja `createOptions` pozostaje taka sama między przerenderowaniami, jeśli `roomId` jest taki sam. **Jednakże jeszcze lepiej jest usunąć potrzebę zależności funkcji.** Przenieś swoją funkcję do *wnętrza* efektu:
 
 ```js {5-10,16}
 function ChatRoom({ roomId }) {
@@ -773,7 +773,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-Teraz twój kod jest prostszy i nie wymaga użycia `useCallback`. [Dowiedz się więcej o usuwaniu zależności Efektu.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+Teraz twój kod jest prostszy i nie wymaga użycia `useCallback`. [Dowiedz się więcej o usuwaniu zależności efektu.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 
 ---
 
