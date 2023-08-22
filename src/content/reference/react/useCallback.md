@@ -230,8 +230,8 @@ Należy zaznaczyć, że `useCallback` nie zapobiega *tworzeniu* funkcji. Zawsze 
 **W praktyce możesz uniknąć wielu przypadków zapamiętywania, stosując kilka zasad:**
 
 1. Gdy komponent wizualnie zawiera inne komponenty, pozwól mu [przyjmować JSX jako komponenty potomne.](/learn/passing-props-to-a-component#passing-jsx-as-children) Wtedy, jeśli komponent wrapujący  aktualizuje swój własny stan, React wie, że jego komponenty potomne nie muszą być przerenderowane.
-1. Preferuj stan lokalny i nie [wynoś stanu wyżej](/learn/sharing-state-between-components) niż to jest konieczne. Nie przechowuj nietrwałego (?) stanu, takiego jak formularze czy informacji o tym, czy element został najechany kursorem, na samej górze drzewa komponentów lub w bibliotece globalnego stanu.
-1. Utrzymuj swoją [logikę renderowania czystą. (?)](/learn/keeping-components-pure) Jeśli przerenderowanie komponentu powoduje problem lub widoczne wizualne artefakty, to jest błąd w twoim komponencie! Napraw go zamiast dodawać zapamiętywanie.
+1. Preferuj stan lokalny i nie [wynoś stanu wyżej](/learn/sharing-state-between-components) niż to jest konieczne. Nie przechowuj chwilowego stanu, takiego jak formularze czy informacji o tym, czy element został najechany kursorem, na samej górze drzewa komponentów lub w bibliotece globalnego stanu.
+1. Utrzymuj swoją [logikę renderowania czystą.](/learn/keeping-components-pure) Jeśli przerenderowanie komponentu powoduje problem lub widoczne wizualne artefakty, to jest błąd w twoim komponencie! Napraw go zamiast dodawać zapamiętywanie.
 1. Unikaj [niepotrzebnych efektów, które aktualizują stan.](/learn/you-might-not-need-an-effect) Większość problemów wydajnościowych w aplikacjach reactowych wynika z serii aktualizacji, które mają swoje źródło w efektach i prowadzą do wielokrotnego przerenderowania komponentów.
 1. Postaraj się [usunąć niepotrzebne zależności z efektów.](/learn/removing-effect-dependencies) Na przykład zamiast zapamiętywania, często prostsze jest przeniesienie jakiegoś obiektu lub funkcji do efektu lub na zewnątrz komponentu.
 
@@ -800,7 +800,7 @@ function useRouter() {
 }
 ```
 
-To zapewnia, że konsumenci (?) twojego hooka mogą zoptymalizować swój własny kod, gdy jest to potrzebne.
+To zapewnia, że konsumenci twojego hooka mogą zoptymalizować swój własny kod, gdy jest to potrzebne.
 
 ---
 
