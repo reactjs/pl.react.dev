@@ -15,7 +15,7 @@ export function ResetButton({onReset}: ResetButtonProps) {
       onClick={onReset}
       title="Resetuj sandbox"
       type="button">
-      <IconRestart className="inline ml-1 mr-1 relative" /> Resetuj
+      <IconRestart className="inline mx-1 relative" /> Resetuj
     </button>
   );
 }
