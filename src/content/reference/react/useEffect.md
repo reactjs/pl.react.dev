@@ -130,11 +130,11 @@ Efekt pozwala [utrzymać synchronizację twojego komponentu](/learn/synchronizin
 
 </Note>
 
-<Recipes titleText="Examples of connecting to an external system" titleId="examples-connecting">
+<Recipes titleText="Przykłady łączenia się z systemem zewnętrznym" titleId="examples-connecting">
 
-#### Connecting to a chat server {/*connecting-to-a-chat-server*/}
+#### Łączenie się z serwerem czatu {/*connecting-to-a-chat-server*/}
 
-In this example, the `ChatRoom` component uses an Effect to stay connected to an external system defined in `chat.js`. Press "Open chat" to make the `ChatRoom` component appear. This sandbox runs in development mode, so there is an extra connect-and-disconnect cycle, as [explained here.](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) Try changing the `roomId` and `serverUrl` using the dropdown and the input, and see how the Effect re-connects to the chat. Press "Close chat" to see the Effect disconnect one last time.
+W tym przykładzie komponent `ChatRoom` wykorzystuje efekt do utrzymania połączenia z systemem zewnętrznym zdefiniowanym w pliku `chat.js`. Naciśnij "Otwórz czat", aby pojawił się komponent `ChatRoom`. Ten sandbox działa w trybie developerskim, więc ma miejsce dodatkowy cykl łączenia i rozłączania, tak jak jest [wyjaśnione tutaj](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed). Spróbuj zmieniać `roomId` i `serverUrl` za pomocą rozwijanej listy i pola tekstowego, a zobaczysz, jak efekt ponownie łączy się z czatem. Naciśnij "Zamknij czat", aby zobaczyć jak efekt kończy połączenie ostatni raz.
 
 <Sandpack>
 
@@ -156,13 +156,13 @@ function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        Server URL:{' '}
+        URL serwera:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Witaj w pokoju {roomId}!</h1>
     </>
   );
 }
@@ -173,7 +173,7 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Wybierz pokój czatu:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
@@ -184,7 +184,7 @@ export default function App() {
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Zamknij czat' : 'Otwórz czat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -195,13 +195,13 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Łączenie z pokojem "' + roomId + '" na ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Rozłączono z pokojem "' + roomId + '" na ' + serverUrl);
     }
   };
 }
@@ -216,9 +216,9 @@ button { margin-left: 10px; }
 
 <Solution />
 
-#### Listening to a global browser event {/*listening-to-a-global-browser-event*/}
+#### Nasłuchiwanie na globalne zdarzenia przeglądarki {/*listening-to-a-global-browser-event*/}
 
-In this example, the external system is the browser DOM itself. Normally, you'd specify event listeners with JSX, but you can't listen to the global [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) object this way. An Effect lets you connect to the `window` object and listen to its events. Listening to the `pointermove` event lets you track the cursor (or finger) position and update the red dot to move with it.
+W tym przykładzie, systemem zewnętrznym jest samo drzewo DOM w przeglądarce. Zazwyczaj nasłuchiwacze zdarzeń tworzy się za pomocą JSX, ale w ten sposób nie da się nasłuchiwać globalnego obiektu [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window). Efekt pozwala połączyć się z obiektem `window` i nasłuchiwać jego zdarzeń. Aby śledzić pozycję kursora (lub palca) i aktualizować czerwony punkt, aby ten poruszał się razem z nim, należy nasłuchiwać zdarzenia `pointermove`.
 
 <Sandpack>
 
@@ -265,9 +265,9 @@ body {
 
 <Solution />
 
-#### Triggering an animation {/*triggering-an-animation*/}
+#### Wywoływanie animacji {/*triggering-an-animation*/}
 
-In this example, the external system is the animation library in `animation.js`. It provides a JavaScript class called `FadeInAnimation` that takes a DOM node as an argument and exposes `start()` and `stop()` methods to control the animation. This component [uses a ref](/learn/manipulating-the-dom-with-refs) to access the underlying DOM node. The Effect reads the DOM node from the ref and automatically starts the animation for that node when the component appears.
+W tym przykładzie, systemem zewnętrznym jest biblioteka animacji w pliku `animation.js`. Udostępnia ona klasę javascriptową o nazwie `FadeInAnimation`, która przyjmuje jako argument węzeł DOM i udostępnia metody `start()` oraz `stop()` do sterowania animacją. Ten komponent [używa referencji (ang. *ref*)](/learn/manipulating-the-dom-with-refs), aby mieć dostęp do zasadniczego węzła DOM. Gdy komponent staje się widoczny, efekt odczytuje ten węzeł z referencji i automatycznie uruchamia dla niego animację.
 
 <Sandpack>
 
@@ -298,7 +298,7 @@ function Welcome() {
         backgroundImage: 'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)'
       }}
     >
-      Welcome
+      Witaj
     </h1>
   );
 }
@@ -308,7 +308,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Usuń' : 'Pokaż'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -325,11 +325,11 @@ export class FadeInAnimation {
   start(duration) {
     this.duration = duration;
     if (this.duration === 0) {
-      // Jump to end immediately
+      // Skocz od razu do końca
       this.onProgress(1);
     } else {
       this.onProgress(0);
-      // Start animating
+      // Rozpocznij animację
       this.startTime = performance.now();
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
@@ -339,7 +339,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // We still have more frames to paint
+      // Nadal są inne ramki do narysowania
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -364,9 +364,9 @@ html, body { min-height: 300px; }
 
 <Solution />
 
-#### Controlling a modal dialog {/*controlling-a-modal-dialog*/}
+#### Sterowanie modalem {/*controlling-a-modal-dialog*/}
 
-In this example, the external system is the browser DOM. The `ModalDialog` component renders a [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element. It uses an Effect to synchronize the `isOpen` prop to the [`showModal()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal) and [`close()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close) method calls.
+W tym przykładzie, systemem zewnętrznym jest drzewo DOM w przeglądarce. Komponent `ModalDialog` renderuje element [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog). Komponent ten wykorzystuje efekt, aby zsynchronizować właściwość `isOpen` z wywołaniem metod [`showModal()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal) oraz [`close()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close).
 
 <Sandpack>
 
@@ -379,14 +379,14 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(true)}>
-        Open dialog
+        Otwórz modal
       </button>
       <ModalDialog isOpen={show}>
-        Hello there!
+        Hej!
         <br />
         <button onClick={() => {
           setShow(false);
-        }}>Close</button>
+        }}>Zamknij</button>
       </ModalDialog>
     </>
   );
@@ -424,9 +424,9 @@ body {
 
 <Solution />
 
-#### Tracking element visibility {/*tracking-element-visibility*/}
+#### Śledzenie widoczności elementu {/*tracking-element-visibility*/}
 
-In this example, the external system is again the browser DOM. The `App` component displays a long list, then a `Box` component, and then another long list. Scroll the list down. Notice that when the `Box` component appears in the viewport, the background color changes to black. To implement this, the `Box` component uses an Effect to manage an [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). This browser API notifies you when the DOM element is visible in the viewport.
+W tym przykładzie, systemem zewnętrznym ponownie jest drzewo DOM w przeglądarce. Komponent `App` wyświetla długą listę, następnie komponent `Box`, a potem kolejną długą listę. Przewiń w dół tej listy. Zauważ, że gdy komponent `Box` pojawia się w widocznym obszarze przeglądarki, kolor tła zmienia się na czarny. Aby to zaimplementować, komponent `Box` używa efektu do sterowania [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). To API przeglądarki powiadamia, kiedy element DOM jest widoczny.
 
 <Sandpack>
 
@@ -448,7 +448,7 @@ export default function App() {
 function LongSection() {
   const items = [];
   for (let i = 0; i < 50; i++) {
-    items.push(<li key={i}>Item #{i} (keep scrolling)</li>);
+    items.push(<li key={i}>Element #{i} (przewijaj dalej)</li>);
   }
   return <ul>{items}</ul>
 }
