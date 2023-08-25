@@ -52,7 +52,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-W powyższym przykładzie wszystkie te komponenty istnieją w **pliku komponentu głównego** o nazwie `App.js`. W [Create React App](https://create-react-app.dev/) aplikacja jest zdefiniowana w pliku `src/App.js`. Jednak przy odpowiedniej konfiguracji komponent główny mógłby znaleźć się w innym pliku. Jeśli używasz frameworka z routingiem opartym na plikach, np. Next.js, dla każdej strony będziesz mieć inny komponent główny.
+W powyższym przykładzie wszystkie te komponenty istnieją w **pliku komponentu głównego** o nazwie `App.js`. W zależności od konfiguracji komponent główny może znajdować się w innym pliku. Jeśli używasz frameworka z routingiem opartym na plikach, np. Next.js, dla każdej strony będziesz mieć inny komponent główny.
 
 ## Eksportowanie i importowanie komponentu {/*exporting-and-importing-a-component*/}
 
