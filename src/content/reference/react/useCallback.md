@@ -910,7 +910,7 @@ function Report({ item }) {
 }
 ```
 
-Ewentualnie, możesz usunąć `useCallback` z ostatniego fragmentu kodu i zamiast tego owinąć sam komponent `Report` w [`memo`.](/reference/react/memo) Jeśli właściwość `item` się nie zmienia, komponent `Report` pominie przerenderowanie, a zatem komponent `Chart` również pominie przerenderowanie:
+Ewentualnie możesz usunąć `useCallback` z ostatniego fragmentu kodu i zamiast tego owinąć sam komponent `Report` w [`memo`.](/reference/react/memo) Jeśli właściwość `item` się nie zmienia, komponent `Report` pominie przerenderowanie, a zatem komponent `Chart` również pominie przerenderowanie:
 
 ```js {5,6-8,15}
 function ReportList({ items }) {
