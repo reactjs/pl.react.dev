@@ -4,7 +4,7 @@ title: useCallback
 
 <Intro>
 
-`useCallback` jest hookiem reactowym, który pozwala na zapamiętywanie (ang. cache, memoize) definicji funkcji pomiędzy przerenderowaniami.
+`useCallback` jest hookiem reactowym, który pozwala na zapamiętywanie (*ang.* cache, memoize) definicji funkcji pomiędzy renderowaniami.
 
 ```js
 const cachedFn = useCallback(fn, dependencies)
