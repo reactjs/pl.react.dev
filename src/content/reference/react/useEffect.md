@@ -20,7 +20,7 @@ useEffect(setup, dependencies?)
 
 ### `useEffect(setup, dependencies?)` {/*useeffect*/}
 
-Aby zadeklarować Efekt, wywołaj `useEffect` na głównym poziomie swojego komponentu:
+Aby zadeklarować efekt, wywołaj `useEffect` na głównym poziomie swojego komponentu:
 
 ```js
 import { useEffect } from 'react';
@@ -44,9 +44,9 @@ function ChatRoom({ roomId }) {
 
 #### Parametry {/*parameters*/}
 
-* `setup`: funkcja z logiką Efektu. Funkcja `setup` może również opcjonalnie zwracać *funkcję czyszczącą* (ang. *cleanup function*). Gdy komponent zostaje dodany do DOM-u, React uruchamia funkcję `setup`. Po każdym ponownym renderowaniu z zmienionymi zależnościami, React najpierw uruchamia funkcję czyszczącą (jeśli została zdefiniowana) z poprzednimi wartościami, a następnie uruchamia funkcję `setup` z nowymi wartościami. Gdy komponent zostanie usunięty z DOM-u, react uruchamia funkcję czyszczącą.
+* `setup`: funkcja z logiką efektu. Funkcja `setup` może również opcjonalnie zwracać *funkcję czyszczącą* (ang. *cleanup function*). Gdy komponent zostaje dodany do DOM-u, React uruchamia funkcję `setup`. Po każdym ponownym renderowaniu, gdy zmienią się zależności, React najpierw uruchamia funkcję czyszczącą (jeśli została zdefiniowana) z poprzednimi wartościami, a następnie uruchamia funkcję `setup` z nowymi wartościami. Gdy komponent zostanie usunięty z DOM-u, React uruchamia funkcję czyszczącą.
 
-* **opcjonalnie** `dependencies`: lista wszystkich reaktywnych wartości użytych w kodzie funkcji `setup`. Wartościami reaktywnymi są między innymi właściwości, stany oraz wszystkie zmienne i funkcje zadeklarowane bezpośrednio w ciele twojego komponentu. Jeśli twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting), będzie on sprawdzał, czy każda wartość reaktywna jest poprawnie dodana do zależności. Lista zależności musi mieć stałą liczbę elementów i być zapisana w wprost, np. `[dep1, dep2, dep3]`. React porównuje każdą zależność ze swoją poprzednią wartością, używając porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Jeśli pominiesz ten parametr, Efekt zostanie uruchomiony ponownie po każdym przerenderowaniu komponentu. [Zobacz różnicę między przekazywaniem tablicy zależności, pustej tablicy a brakiem zależności w ogóle.](#examples-dependencies)
+* **opcjonalnie** `dependencies`: lista wszystkich reaktywnych wartości użytych w kodzie funkcji `setup`. Wartościami reaktywnymi są między innymi właściwości, stany oraz wszystkie zmienne i funkcje zadeklarowane bezpośrednio w ciele twojego komponentu. Jeśli twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting), będzie on sprawdzał, czy każda wartość reaktywna jest poprawnie dodana do zależności. Lista zależności musi mieć stałą liczbę elementów i być zapisana w miejscu wywołania, jak np. `[dep1, dep2, dep3]`. React porównuje każdą zależność ze swoją poprzednią wartością, używając porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Jeśli pominiesz ten parametr, efekt zostanie uruchomiony ponownie po każdym renderowaniu komponentu. [Zobacz różnicę między przekazywaniem tablicy zależności, pustej tablicy a brakiem zależności w ogóle.](#examples-dependencies)
 
 #### Zwracana wartość {/*returns*/}
 
@@ -54,17 +54,17 @@ function ChatRoom({ roomId }) {
 
 #### Zastrzeżenia {/*caveats*/}
 
-* `useEffect` jest hookiem, więc można go wywoływać tylko **na głównym poziomie komponentu** lub w innych hookach. Nie można go wywoływać wewnątrz pętli czy instrukcji warunkowej. Jeśli tego potrzebujesz, wyodrębnij nowy komponent i przenieś stan do niego.
+* `useEffect` jest hookiem, więc można go wywoływać tylko **na głównym poziomie komponentu** lub w innych hookach. Nie można go wywoływać wewnątrz pętli czy instrukcji warunkowej. Jeśli tego potrzebujesz, wyodrębnij nowy komponent i przenieś do niego stan.
 
-* Jeśli **nie próbujesz synchronizować się z jakimś zewnętrznym systemem,** [prawdopodobnie nie potrzebujesz Efektu.](/learn/you-might-not-need-an-effect)
+* Jeśli **nie próbujesz synchronizować się z jakimś zewnętrznym systemem,** [prawdopodobnie nie potrzebujesz efektu.](/learn/you-might-not-need-an-effect)
 
 * W Trybie Restrykcyjnym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-* Jeśli niektóre z twoich zależności to obiekty lub funkcje zdefiniowane wewnątrz komponentu, istnieje ryzyko, że **sprawią one, że Efekt będzie wykonywał się częściej niż jest to potrzebne.** Aby to naprawić, usuń zbędne zależności od [obiektów](#removing-unnecessary-object-dependencies) i [funkcji](#removing-unnecessary-function-dependencies). Możesz również [wydzielić aktualizacje stanu](#updating-state-based-on-previous-state-from-an-effect) oraz [logikę niereaktywną](#reading-the-latest-props-and-state-from-an-effect) poza Efekt.
+* Jeśli niektóre z twoich zależności to obiekty lub funkcje zdefiniowane wewnątrz komponentu, istnieje ryzyko, że **spowodują, że efekt będzie wykonywał się częściej niż jest to potrzebne.** Aby to naprawić, usuń zbędne zależności od [obiektów](#removing-unnecessary-object-dependencies) i [funkcji](#removing-unnecessary-function-dependencies). Możesz również [wydzielić aktualizacje stanu](#updating-state-based-on-previous-state-from-an-effect) oraz [logikę niereaktywną](#reading-the-latest-props-and-state-from-an-effect) poza efekt.
 
-* Jeśli twój Efekt nie został wywołany przez interakcję (np. kliknięcie), React pozwoli przeglądarce **najpierw odświeżyć ekran przed uruchomieniem twojego Efektu.** Jeśli twój Efekt wykonuje jakieś operacje związane z wyświetlaniem (np. ustawianie pozycji podpowiedzi (ang. *tooltip*)) i opóźnienie jest zauważalne (np. występuje migotanie), zastąp `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+* Jeśli twój efekt nie został wywołany przez interakcję (np. kliknięcie), React pozwoli przeglądarce **najpierw odświeżyć ekran przed uruchomieniem twojego efektu.** Jeśli efekt ten wykonuje jakieś operacje związane z wyświetlaniem (np. ustawianie pozycji podpowiedzi (ang. *tooltip*)) i opóźnienie jest zauważalne (np. występuje migotanie), zastąp `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
-* Nawet jeśli twój Efekt został wywołany przez interakcję (np. kliknięcie), **przeglądarka może odświeżyć ekran przed przetworzeniem aktualizacji stanu wewnątrz twojego Efektu.** Zazwyczaj jest to pożądane zachowanie. Niemniej jednak, jeśli cheesz zablokować przeglądarkę przed odświeżaniem ekranu, musisz zastąpić `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+* Nawet jeśli twój efekt został wywołany przez interakcję (np. kliknięcie), **przeglądarka może odświeżyć ekran przed przetworzeniem aktualizacji stanu wewnątrz twojego efektu.** Zazwyczaj jest to pożądane zachowanie. Niemniej jednak, jeśli chcesz zablokować przeglądarkę przed odświeżaniem ekranu, musisz zastąpić `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
 * Efekty uruchamiane są **tylko po stronie klienta.** Nie są uruchamiane podczas renderowania po stronie serwera.
 
