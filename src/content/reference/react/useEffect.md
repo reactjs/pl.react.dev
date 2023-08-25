@@ -70,13 +70,13 @@ function ChatRoom({ roomId }) {
 
 ---
 
-## Usage {/*usage*/}
+## Sposób użycia {/*usage*/}
 
-### Connecting to an external system {/*connecting-to-an-external-system*/}
+### Łączenie z zewnętrznym systemem {/*connecting-to-an-external-system*/}
 
-Some components need to stay connected to the network, some browser API, or a third-party library, while they are displayed on the page. These systems aren't controlled by React, so they are called *external.*
+Niektóre komponenty, gdy są wyświetlane na stronie, muszą pozostać połączone z siecią, pewnym interfejsem przeglądarki lub zewnętrzną biblioteką. Systemy te nie są kontrolowane przez Reacta, dlatego nazywane są *zewnętrznymi.*
 
-To [connect your component to some external system,](/learn/synchronizing-with-effects) call `useEffect` at the top level of your component:
+Aby [połączyć swój komponent z zewnętrznym systemem,](/learn/synchronizing-with-effects) wywołaj funkcję `useEffect` na głównym poziomie swojego komponentu:
 
 ```js [[1, 8, "const connection = createConnection(serverUrl, roomId);"], [1, 9, "connection.connect();"], [2, 11, "connection.disconnect();"], [3, 13, "[serverUrl, roomId]"]]
 import { useEffect } from 'react';
@@ -96,37 +96,37 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-You need to pass two arguments to `useEffect`:
+Aby użyć `useEffect`, musisz przekazać dwie argumenty:
 
-1. A *setup function* with <CodeStep step={1}>setup code</CodeStep> that connects to that system.
-   - It should return a *cleanup function* with <CodeStep step={2}>cleanup code</CodeStep> that disconnects from that system.
-2. A <CodeStep step={3}>list of dependencies</CodeStep> including every value from your component used inside of those functions.
+1. *Funkcję konfiguracyjną* z <CodeStep step={1}>kodem konfiguracyjnym</CodeStep>, który łączy się z tym systemem.
+   - Funkcja ta powinna zwracać *funkcję czyszczącą* z <CodeStep step={2}>kodem czyszczącym</CodeStep>, który rozłącza się z tym systemem.
+2. <CodeStep step={3}>Tablicę zależności</CodeStep>, zawierającą każdą wartość używaną wewnątrz tych funkcji w twoim komponencie.
 
-**React calls your setup and cleanup functions whenever it's necessary, which may happen multiple times:**
+**React wywołuje twoje funkcje konfiguracyjną i czyszczącą wtedy, gdy jest to konieczne, co może się zdarzyć wielokrotnie:**
 
-1. Your <CodeStep step={1}>setup code</CodeStep> runs when your component is added to the page *(mounts)*.
-2. After every re-render of your component where the <CodeStep step={3}>dependencies</CodeStep> have changed:
-   - First, your <CodeStep step={2}>cleanup code</CodeStep> runs with the old props and state.
-   - Then, your <CodeStep step={1}>setup code</CodeStep> runs with the new props and state.
-3. Your <CodeStep step={2}>cleanup code</CodeStep> runs one final time after your component is removed from the page *(unmounts).*
+1. Twój <CodeStep step={1}>kod konfiguracyjny</CodeStep> jest wykonywany, gdy twój komponent jest dodawany do strony *(montowany)*.
+2. Po każdym renderowaniu twojego komponentu, w którym <CodeStep step={3}>zależności</CodeStep> uległy zmianie:
+   - Najpierw jest wykonywany twój <CodeStep step={2}>kod czyszczący</CodeStep> z poprzednimi właściwościami i stanem.
+   - Następnie jest wykonywany twój <CodeStep step={1}>kod konfiguracyjny</CodeStep> z nowymi właściwościami i stanem.
+3. Twój <CodeStep step={2}>kod czyszczący</CodeStep> jest wykonywany jeszcze raz po usunięciu *(odmontowaniu)* twojego komponentu ze strony.
 
-**Let's illustrate this sequence for the example above.**  
+**Przyjrzyjmy się tej sekwencji z przykładu powyżej.**
 
-When the `ChatRoom` component above gets added to the page, it will connect to the chat room with the initial `serverUrl` and `roomId`. If either `serverUrl` or `roomId` change as a result of a re-render (say, if the user picks a different chat room in a dropdown), your Effect will *disconnect from the previous room, and connect to the next one.* When the `ChatRoom` component is removed from the page, your Effect will disconnect one last time.
+Kiedy komponent `ChatRoom` zostanie dodany do strony, połączy się z pokojem czatu przy użyciu początkowych `serverUrl` i `roomId`. Jeśli którakolwiek z zależności `serverUrl` lub `roomId` zmieni się w wyniku przerenderowania (np. jeśli użytkownik wybierze inny pokój czatu z rozwijanej listy), twój efekt *rozłączy się z poprzednim pokojem i połączy się z następnym.* Kiedy komponent `ChatRoom` zostanie usunięty ze strony, twój efekt rozłączy się ostatni raz.
 
-**To [help you find bugs,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) in development React runs <CodeStep step={1}>setup</CodeStep> and <CodeStep step={2}>cleanup</CodeStep> one extra time before the <CodeStep step={1}>setup</CodeStep>.** This is a stress-test that verifies your Effect's logic is implemented correctly. If this causes visible issues, your cleanup function is missing some logic. The cleanup function should stop or undo whatever the setup function was doing. The rule of thumb is that the user shouldn't be able to distinguish between the setup being called once (as in production) and a *setup* → *cleanup* → *setup* sequence (as in development). [See common solutions.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+**Aby [pomóc w wykrywaniu błędów,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) w trybie developerskim React wykonuje dodatkowo funkcję <CodeStep step={1}>setup</CodeStep> oraz <CodeStep step={2}>cleanup</CodeStep> przed właściwym wywołaniem <CodeStep step={1}>setup</CodeStep>.** Jest to test, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to spowoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofnąć wszystko, co zrobiła funkcja konfiguracyjna. Ogólnie rzecz biorąc, użytkownik nie powinien być w stanie rozróżnić między jednorazowym wywołaniem konfiguracji (jak na produkcji), a sekwencją *konfiguracja* → *czyszczenie* → *konfiguracja* (jak w trybie developerskim). [Zobacz najczęstsze rozwiązania.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-**Try to [write every Effect as an independent process](/learn/lifecycle-of-reactive-effects#each-effect-represents-a-separate-synchronization-process) and [think about a single setup/cleanup cycle at a time.](/learn/lifecycle-of-reactive-effects#thinking-from-the-effects-perspective)** It shouldn't matter whether your component is mounting, updating, or unmounting. When your cleanup logic correctly "mirrors" the setup logic, your Effect is resilient to running setup and cleanup as often as needed.
+**Postaraj się pisać każdy efekt jako niezależny proces** i **skup się na pojedynczym cyklu konfiguracji i czyszczenia w danym momencie.** Nie ma znaczenia, czy komponent jest montowany, aktualizowany czy odmontowywany. Jeśli logika czyszczenia poprawnie odwzorowuje logikę konfiguracji, twój efekt jest odporny na uruchamianie konfiguracji i czyszczenia tak często, jak to konieczne.
 
 <Note>
 
-An Effect lets you [keep your component synchronized](/learn/synchronizing-with-effects) with some external system (like a chat service). Here, *external system* means any piece of code that's not controlled by React, such as:
+Efekt pozwala [utrzymać synchronizację twojego komponentu](/learn/synchronizing-with-effects) z zewnętrznym systemem (np. usługą czatu). *Zewnętrzny system* oznacza tutaj dowolny fragment kodu, który nie jest kontrolowany przez Reacta, taki jak:
 
-* A timer managed with <CodeStep step={1}>[`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)</CodeStep> and <CodeStep step={2}>[`clearInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval)</CodeStep>.
-* An event subscription using <CodeStep step={1}>[`window.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)</CodeStep> and <CodeStep step={2}>[`window.removeEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)</CodeStep>.
-* A third-party animation library with an API like <CodeStep step={1}>`animation.start()`</CodeStep> and <CodeStep step={2}>`animation.reset()`</CodeStep>.
+* Timer zarządzany za pomocą <CodeStep step={1}>[`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)</CodeStep> i <CodeStep step={2}>[`clearInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval)</CodeStep>.
+* Subskrypcja zdarzeń za pomocą <CodeStep step={1}>[`window.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)</CodeStep> i <CodeStep step={2}>[`window.removeEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)</CodeStep>.
+* Zewnętrzna biblioteka animacji z API w stylu <CodeStep step={1}>`animation.start()`</CodeStep> i <CodeStep step={2}>`animation.reset()`</CodeStep>.
 
-**If you're not connecting to any external system, [you probably don't need an Effect.](/learn/you-might-not-need-an-effect)**
+**Jeśli nie łączysz się z żadnym zewnętrznym systemem, [prawdopodobnie nie potrzebujesz efektu.](/learn/you-might-not-need-an-effect)**
 
 </Note>
 
