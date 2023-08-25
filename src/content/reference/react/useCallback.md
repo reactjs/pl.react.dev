@@ -40,18 +40,18 @@ export default function ProductPage({ productId, referrer, theme }) {
 
 * `fn`: Funkcja, którą chcesz zapamiętać. Może przyjąć dowolne argumenty i zwrócić dowolne wartości. React zwróci (nie wywoła!) twoją funkcję z powrotem w pierwszym renderowaniu. Przy kolejnych renderowaniach, React zwróci ci tę samą funkcję ponownie, jeśli lista zależności `dependencies` nie zmieni się od ostatniego renderowania. W przeciwnym razie zwróci ci funkcję, którą przekazano podczas obecnego renderowania i zachowa ją do ponownego użycia. React nie wywoła twojej funkcji. Funkcja ta zostanie ci zwrócona, aby można było samodzielnie wybrać, gdzie i kiedy ma zostać wywołana.
 
-* `dependencies`: Lista wszystkich reaktywnych wartości użytych w kodzie funkcji `fn`. Reaktywne wartości to właściwości, stan i wszystkie inne zmienne i funkcje zadeklarowane bezpośrednio wewnątrz ciała komponentu. Jeżeli twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting), sprawdzi on czy każda reaktywna wartość jest poprawnie wskazana jako zależność. Lista zależności musi mieć stałą liczbę elementów i byś zapisana wprost jak np. `[dep1, dep2, dep3]`. React porówna każdą zależność z jej poprzednią wartością używając algorytmu porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is).
+* `dependencies`: Lista wszystkich reaktywnych wartości użytych w kodzie funkcji `fn`. Reaktywne wartości to właściwości, stan i wszystkie inne zmienne i funkcje zadeklarowane bezpośrednio wewnątrz ciała komponentu. Jeżeli twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting), sprawdzi on, czy każda reaktywna wartość jest poprawnie wskazana jako zależność. Lista zależności musi mieć stałą liczbę elementów i być zapisana w miejscu wywołania, jak np. `[dep1, dep2, dep3]`. React porówna każdą zależność z jej poprzednią wartością używając algorytmu porównania [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is).
 
 #### Zwracana wartość {/*returns*/}
 
-Podczas pierwszego renderowania, `useCallback` zwróci funkcję `fn`, która została mu przekazana.
+Podczas pierwszego renderowania `useCallback` zwróci funkcję `fn`, która została mu przekazana.
 
-Podczas kolejnych renderowań, zwróci on już zapamiętaną funkcję `fn` z poprzedniego renderowania (jeśli zależności nie uległy zmianie) albo zwróci funkcję `fn`, którą przekazałeś podczas tego renderowania.
+Podczas kolejnych renderowań zwróci on już zapamiętaną funkcję `fn` z poprzedniego renderowania (jeśli zależności nie uległy zmianie) albo zwróci funkcję `fn`, którą przekazano podczas tego renderowania.
 
 #### Zastrzeżenia {/*caveats*/}
 
 * `useCallback` jest hookiem, więc można go wywoływać tylko **na głównym poziomie komponentu** lub innego hooka. Nie można go wywołać w pętli lub instrukcji warunkowej. Jeśli masz sytuację, która wymaga pętli lub warunku, stwórz nowy komponent i przenieś do niego stan.
-* React **nie odrzuci zapamiętanej funkcji, chyba że istnieje konkretny powód ku temu.** Na przykład, w środowisku developerskim React odrzuca zapamiętaną funkcję, gdy komponent jest edytowany. Zarówno w środowisku developerskim jak i w produkcji React odrzuci zapamiętaną funkcję jeśli twój komponent zostaje zawieszony podczas pierwszego montowania. W przyszłości, React może dodać więcej funkcjonalności, które skorzystają z odrzucania zapamiętanej funkcji - na przykład, jeśli React doda w przyszłości wsparcie dla zwirtualizowanych list, będzie to  miało sens, aby odrzucić zapamiętane funkcje dla elementów, które wyszły poza widoczny obszar zwirtualizowanej tablicy. To powinno sprostać twoim oczekiwaniom jeżeli polegasz na `useCallback` jako optymalizacji wydajności. W innym przypadku, [zmienna stanu](/reference/react/useState#im-trying-to-set-state-to-a-function-but-it-gets-called-instead) lub [referencja](/reference/react/useRef#avoiding-recreating-the-ref-contents) może być lepsza.
+* React **nie odrzuci zapamiętanej funkcji, chyba że istnieje konkretny powód ku temu.** Na przykład, w środowisku deweloperskim React odrzuca zapamiętaną funkcję, gdy komponent jest edytowany. Zarówno w środowisku deweloperskim jak i w produkcji React odrzuci zapamiętaną funkcję, jeśli twój komponent zostaje zawieszony (*ang.* suspended) podczas pierwszego montowania. W przyszłości React może dodać więcej funkcjonalności, które skorzystają z odrzucania zapamiętanej funkcji - na przykład, jeśli React doda w przyszłości wsparcie dla zwirtualizowanych list, uzasadnione będzie odrzucanie zapamiętanych funkcji dla elementów, które wyszły poza widoczny obszar zwirtualizowanej tabeli. Jeśli korzystasz z `useCallback` w celu zoptymalizowania wydajności, powyższe cechy powinny sprostać twoim oczekiwaniom. W innym przypadku lepsza może okazać się [zmienna stanu](/reference/react/useState#im-trying-to-set-state-to-a-function-but-it-gets-called-instead) lub [referencja](/reference/react/useRef#avoiding-recreating-the-ref-contents).
 
 ---
 
@@ -59,7 +59,7 @@ Podczas kolejnych renderowań, zwróci on już zapamiętaną funkcję `fn` z pop
 
 ### Pomijanie przerenderowywania komponentów {/*skipping-re-rendering-of-components*/}
 
-Gdy optymalizujesz wydajność renderowania, czasem zachodzi potrzeba zapamiętania funkcji, którą przekazujesz do potomków. Spójrzmy najpierw na składnię jak to zrobić, a potem w jakich przypadkach jest to przydatne.
+Gdy optymalizujesz wydajność renderowania, czasem zachodzi potrzeba zapamiętania funkcji, którą przekazujesz do komponentów podrzędnych. Spójrzmy najpierw na składnię, a następnie na listę przypadków, w których może się to przydać.
 
 Aby zapamiętać funkcję pomiędzy renderowaniami twojego komponentu, zawrzyj jej definicję w hooku `useCallback`:
 
@@ -76,18 +76,18 @@ function ProductPage({ productId, referrer, theme }) {
   // ...
 ```
 
-Musisz przekazać dwie rzeczy do `useCallback`:
+Do `useCallback` musisz przekazać dwie rzeczy:
 
-1. Definicję funkcji, którą chcesz zapamiętać pomiędzy przerenderowaniami.
+1. Definicję funkcji, którą chcesz zapamiętać pomiędzy renderowaniami.
 2. <CodeStep step={2}>Listę zależności</CodeStep> zawierającą wszystkie wartości wewnątrz komponentu, które są użyte w twojej funkcji.
 
-Przy pierwszym renderowaniu, <CodeStep step={3}>zwrócona funkcja</CodeStep> otrzymana z `useCallback` będzie tą samą, którą przekazałeś.
+Przy pierwszym renderowaniu <CodeStep step={3}>zwrócona funkcja</CodeStep> otrzymana z `useCallback` będzie tą samą, którą przekazano do hooka.
 
-Przy następnych renderowaniach, React porówna <CodeStep step={2}>zależności</CodeStep> z zależnościami, które przekazałeś w poprzednim renderowaniu. Jeśli żadna z zależności nie uległa zmianie (porównując z użyciem [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), `useCallback` zwróci tę samą funkcję co poprzednio. W innym wypadku, `useCallback` zwróci funkcję, którą przekazałeś w *tym* renderowaniu.
+Przy następnych renderowaniach React porówna <CodeStep step={2}>zależności</CodeStep> z tymi, które przekazano w poprzednim renderowaniu. Jeśli żadna z zależności nie uległa zmianie (porównując z użyciem [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), `useCallback` zwróci tę samą funkcję co poprzednio. W innym wypadku, `useCallback` zwróci funkcję, którą przekazano w *tym* renderowaniu.
 
-Innymi słowy, `useCallback` zapamięta funkcję pomiędzy przerenderowaniami dopóki zależności się nie zmienią.
+Innymi słowy, `useCallback` będzie pamiętać funkcję pomiędzy renderowaniami, dopóki nie zmienią się zależności.
 
-**Posłużmy się przykładem, aby zobaczyć kiedy to może być przydatne.**
+**Posłużmy się przykładem, aby zobaczyć, kiedy może się to okazać przydatne.**
 
 Załóżmy, że przekazujesz funkcję `handleSubmit` w dół z `ProductPage` do komponentu `ShippingForm`:
 
@@ -101,9 +101,9 @@ function ProductPage({ productId, referrer, theme }) {
   );
 ```
 
-Zauważyłeś, że przełączanie właściwości `theme` blokuje na chwilę aplikację, ale gdy usuniesz `<ShippingForm />` z twojego JSX, zauważysz, że znów działa gładko. To pokazuje, że warto jest spróbować zoptymalizować komponent `ShippingForm`.
+Twoją uwagę przykuł fakt, iż przełączanie właściwości `theme` blokuje na chwilę aplikację, ale gdy usuniesz `<ShippingForm />` z kodu JSX, zauważasz, że znów działa płynnie. To pokazuje, że warto jest spróbować zoptymalizować komponent `ShippingForm`.
 
-**Domyślnie, gdy komponent jest ponownie przerenderowywany, React także przerenderowuje rekursywnie wszystkich jego potomków.** Dlatego też, gdy `ProductPage` zostaje przerenderowany z innym `theme`, komponent `ShippingForm` *również* zostaje przerenderowany. Jest to akceptowalne dla komponentów, które nie wymagają dużo obliczeń do przerenderowania. Ale jeśli upewniłeś się, że przerenderowanie trwa długo, można wskazać komponentowi `ShippingForm`, aby pominął przerenderowanie, gdy jego właściwości są takie same jak podczas ostatniego przerenderowania, poprzez opakowanie go w [`memo`:](/reference/react/memo)
+**Domyślnie, gdy komponent jest ponownie renderowywany, React także renderuje rekursywnie wszystkich jego potomków.** Dlatego też, gdy `ProductPage` zostaje wyrenderowany z inną wartością `theme`, komponent `ShippingForm` *również* zostaje przerenderowany. Jest to akceptowalne dla komponentów, które nie wymagają dużo obliczeń do wyrenderowania. Ale jeśli z obserwacji wynika, że ponowne wyrenderowanie trwa długo, można wskazać komponentowi `ShippingForm`, aby pominął renderowanie, gdy jego właściwości są takie same jak podczas ostatniego renderowania, poprzez opakowanie go w [`memo`:](/reference/react/memo)
 
 ```js {3,5}
 import { memo } from 'react';
@@ -113,11 +113,11 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
 });
 ```
 
-**Po dokonaniu tej zmiany, komponent `ShippingForm` pominie przerenderowanie, jeśli wszystkie jego właściwości są *takie same* jak podczas ostatniego renderowania.** To jest moment, w którym istotne staje się zapamiętywanie funkcji! Załóżmy, że zdefiniowałeś funkcję `handleSubmit` bez użycia hooka `useCallback`:
+**Po dokonaniu tej zmiany komponent `ShippingForm` pominie ponowne renderowanie, jeśli wszystkie jego właściwości są *takie same* jak podczas ostatniego renderowania.** To jest moment, w którym istotne staje się zapamiętywanie funkcji! Załóżmy, że zdefiniowaliśmy funkcję `handleSubmit` bez użycia hooka `useCallback`:
 
 ```js {2,3,8,12-13}
 function ProductPage({ productId, referrer, theme }) {
-  // Za każdym razem, gdy zmienia się theme, to będzie inna funkcja...
+  // Za każdym razem, gdy zmienia się theme, będzie to inna funkcja...
   function handleSubmit(orderDetails) {
     post('/product/' + productId + '/buy', {
       referrer,
@@ -134,11 +134,11 @@ function ProductPage({ productId, referrer, theme }) {
 }
 ```
 
-**W języku JavaScript, `function () {}` lub `() => {}` zawsze tworzy _inną_ funkcję,** podobnie jak literał obiektu `{}` zawsze tworzy nowy obiekt. Zazwyczaj nie byłoby to problemem, ale oznacza to, że właściwości komponentu `ShippingForm` nigdy nie będą takie same i optymalizacja [`memo`](/reference/react/memo) nie zadziała. Tutaj `useCallback` staje się pomocny:
+**W języku JavaScript `function () {}` lub `() => {}` zawsze tworzy _inną_ funkcję,** podobnie jak literał obiektu `{}` zawsze tworzy nowy obiekt. Zazwyczaj nie byłoby to problemem, ale oznacza to, że właściwości komponentu `ShippingForm` nigdy nie będą takie same i optymalizacja [`memo`](/reference/react/memo) nie zadziała. Tu z pomocą przychodzi `useCallback`:
 
 ```js {2,3,8,12-13}
 function ProductPage({ productId, referrer, theme }) {
-  // Powiedz Reactowi, aby zapamiętał twoją funkcję między przerenderowaniami...
+  // Powiedz Reactowi, aby zapamiętał twoją funkcję między renderowaniami...
   const handleSubmit = useCallback((orderDetails) => {
     post('/product/' + productId + '/buy', {
       referrer,
@@ -155,11 +155,11 @@ function ProductPage({ productId, referrer, theme }) {
 }
 ```
 
-**Opakowanie `handleSubmit` w `useCallback` zapewnia, że to jest ta *sama* funkcja między przerenderowaniami** (aż do zmiany zależności). Nie *musisz* opakowywać funkcji w `useCallback`, chyba że robisz to z jakiegoś konkretnego powodu. W tym przykładzie powodem jest to, że przekazujesz ją do komponentu opakowanego w [`memo`,](/reference/react/memo) co pozwala na pominięcie przerenderowania. Istnieją inne powody, dla których możesz potrzebować `useCallback`, opisane dalej na tej stronie.
+**Opakowanie `handleSubmit` w `useCallback` zapewnia, że między kolejnymi renderowaniami będzie to ta *sama* funkcja** (aż do zmiany zależności). Nie *musisz* opakowywać funkcji w `useCallback`, chyba że robisz to z jakiegoś konkretnego powodu. W tym przykładzie powodem jest przekazywanie jej do komponentu opakowanego w [`memo`](/reference/react/memo), co pozwala na pominięcie zbędnego renderowania. Inne powody, dla których możesz potrzebować `useCallback`, opisane dalej na tej stronie.
 
 <Note>
 
-**Powinieneś polegać na `useCallback` tylko jako optymalizacji wydajnościowej.** Jeśli twój kod nie działa bez niego, najpierw znajdź prawdziwą przyczynę problemu i napraw ją. Następnie możesz ponownie dodać `useCallback`.
+**Korzystaj z `useCallback` tylko do optymalizacji wydajnościowej.** Jeśli twój kod nie działa bez niego, najpierw znajdź prawdziwą przyczynę problemu i napraw ją. Następnie możesz ponownie dodać `useCallback`.
 
 </Note>
 
@@ -194,12 +194,12 @@ function ProductPage({ productId, referrer }) {
 }
 ```
 
-Różnica polega na tym *co* pozwalają ci zapamiętać:
+Różnica polega na tym, *co* pozwalają ci zapamiętać:
 
-* **[`useMemo`](/reference/react/useMemo) zapamiętuje *wynik* wywołania twojej funkcji.** W tym przykładzie jest to wynik wywołania `computeRequirements(product)`, aby nie zmieniał się, chyba że zmieni się `product`. Pozwala to przekazywać obiekt `requirements` w dół bez niepotrzebnego ponownego przerenderowania `ShippingForm`. Gdy będzie to konieczne, React wywoła funkcję, którą przekazałeś podczas renderowania, aby obliczyć wynik.
-* **`useCallback` zapamiętuje *samą funkcję*.** W przeciwieństwie do `useMemo`, nie wywołuje dostarczonej funkcji. Zamiast tego zapamiętuje funkcję, którą podałeś, tak aby `handleSubmit` *sam* nie zmieniał się, chyba że zmieni się `productId` lub `referrer`. Pozwala to przekazywać funkcję `handleSubmit` w dół bez niepotrzebnego ponownego przerenderowania `ShippingForm`. Twój kod nie zostanie uruchomiony, dopóki użytkownik nie prześle formularza.
+* **[`useMemo`](/reference/react/useMemo) zapamiętuje *wynik* wywołania twojej funkcji.** W tym przykładzie jest to wynik wywołania `computeRequirements(product)`, aby nie zmieniał się, chyba że zmieni się `product`. Pozwala to przekazywać obiekt `requirements` w dół bez niepotrzebnego ponownego renderowania komponentu `ShippingForm`. Gdy będzie to konieczne, React wywoła funkcję, którą przekazano podczas renderowania, aby obliczyć wynik.
+* **`useCallback` zapamiętuje *samą funkcję*.** W przeciwieństwie do `useMemo`, nie wywołuje dostarczonej funkcji. Zamiast tego zapamiętuje funkcję, którą mu podamy, tak aby `handleSubmit` *sam* nie zmieniał się, chyba że zmieni się `productId` lub `referrer`. Pozwala to przekazywać funkcję `handleSubmit` w dół bez niepotrzebnego ponownego renderowania komponentu `ShippingForm`. Twój kod nie zostanie uruchomiony, dopóki użytkownik nie prześle formularza.
 
-Jeśli już jesteś zaznajomiony z [`useMemo`,](/reference/react/useMemo) pomocne może być myślenie o `useCallback` w ten sposób:
+Jeśli już rozumiesz zasadę działania [`useMemo`,](/reference/react/useMemo), pomocne może być myślenie o `useCallback` w ten sposób:
 
 ```js
 // Uproszczona implementacja (wewnątrz Reacta)
@@ -214,7 +214,7 @@ function useCallback(fn, dependencies) {
 
 <DeepDive>
 
-#### Czy powinieneś używać useCallback wszędzie? {/*should-you-add-usecallback-everywhere*/}
+#### Czy należy używać useCallback wszędzie? {/*should-you-add-usecallback-everywhere*/}
 
 Jeśli twoja aplikacja jest podobna do tej strony i większość interakcji jest prostych (takich jak zastępowanie strony lub całej sekcji), to zazwyczaj zapamiętywanie nie jest konieczne. Z drugiej strony, jeśli twoja aplikacja przypomina edytor rysunków i większość interakcji jest dość szczegółowa (takie jak przesuwanie kształtów), to możliwe, że zapamiętywanie będzie bardzo pomocne.
 
@@ -229,25 +229,25 @@ Należy zaznaczyć, że `useCallback` nie zapobiega *tworzeniu* funkcji. Zawsze 
 
 **W praktyce możesz uniknąć wielu przypadków zapamiętywania, stosując kilka zasad:**
 
-1. Gdy komponent wizualnie zawiera inne komponenty, pozwól mu [przyjmować JSX jako komponenty potomne.](/learn/passing-props-to-a-component#passing-jsx-as-children) Wtedy, jeśli komponent wrapujący  aktualizuje swój własny stan, React wie, że jego komponenty potomne nie muszą być przerenderowane.
+1. Gdy komponent wizualnie zawiera inne komponenty, pozwól mu [przyjmować JSX jako komponenty potomne.](/learn/passing-props-to-a-component#passing-jsx-as-children) Wtedy, jeśli komponent opakowujący zaktualizuje swój własny stan, React będzie wiedzieć, że jego komponenty potomne nie muszą być ponownie wyrenderowane.
 1. Preferuj stan lokalny i nie [wynoś stanu wyżej](/learn/sharing-state-between-components) niż to jest konieczne. Nie przechowuj chwilowego stanu, takiego jak formularze czy informacji o tym, czy element został najechany kursorem, na samej górze drzewa komponentów lub w bibliotece globalnego stanu.
-1. Utrzymuj swoją [logikę renderowania czystą.](/learn/keeping-components-pure) Jeśli przerenderowanie komponentu powoduje problem lub widoczne wizualne artefakty, to jest błąd w twoim komponencie! Napraw go zamiast dodawać zapamiętywanie.
+1. Utrzymuj swoją [logikę renderowania w czystości.](/learn/keeping-components-pure) Jeśli przerenderowanie komponentu powoduje problem lub widoczne wizualne artefakty, błąd tkwi w twoim komponencie! Napraw go, zamiast dodawać memoizację.
 1. Unikaj [niepotrzebnych efektów, które aktualizują stan.](/learn/you-might-not-need-an-effect) Większość problemów wydajnościowych w aplikacjach reactowych wynika z serii aktualizacji, które mają swoje źródło w efektach i prowadzą do wielokrotnego przerenderowania komponentów.
-1. Postaraj się [usunąć niepotrzebne zależności z efektów.](/learn/removing-effect-dependencies) Na przykład zamiast zapamiętywania, często prostsze jest przeniesienie jakiegoś obiektu lub funkcji do efektu lub na zewnątrz komponentu.
+1. Postaraj się [usunąć niepotrzebne zależności z efektów.](/learn/removing-effect-dependencies) Na przykład, zamiast zapamiętywania, często prostsze jest przeniesienie jakiegoś obiektu lub funkcji do efektu lub na zewnątrz komponentu.
 
-Jeśli jakaś interakcja wciąż działa opornie, [użyj narzędzi do profilowania w narzędziach deweloperskich Reacta](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html), aby zobaczyć, które komponenty najwięcej zyskują na zapamiętywaniu i dodaj zapamiętywanie tam, gdzie jest to potrzebne. Te zasady sprawiają, że twoje komponenty są łatwiejsze do debugowania i zrozumienia, więc warto się nimi kierować w każdym przypadku. Długoterminowo pracujemy nad [automatycznym zapamiętywaniem](https://www.youtube.com/watch?v=lGEMwh32soc), aby rozwiązać ten problem raz na zawsze.
+Jeśli jakaś interakcja wciąż działa opornie, [użyj narzędzi do profilowania w narzędziach deweloperskich Reacta](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html), aby zobaczyć, które komponenty najwięcej zyskują na zapamiętywaniu i dodaj zapamiętywanie tam, gdzie jest to potrzebne. Te zasady sprawiają, że twoje komponenty będą łatwiejsze do debugowania i zrozumienia, więc warto się nimi kierować w każdym przypadku. Długoterminowo pracujemy nad [automatycznym zapamiętywaniem](https://www.youtube.com/watch?v=lGEMwh32soc), aby rozwiązać ten problem raz na zawsze.
 
 </DeepDive>
 
 <Recipes titleText="Różnica między `useCallback` a bezpośrednim deklarowaniem funkcji" titleId="examples-rerendering">
 
-#### Pomijanie przerenderowania za pomocą `useCallback` i `memo` {/*skipping-re-rendering-with-usecallback-and-memo*/}
+#### Zapobieganie ponownego renderowania za pomocą `useCallback` i `memo` {/*skipping-re-rendering-with-usecallback-and-memo*/}
 
-W tym przykładzie komponent `ShippingForm` jest **sztucznie spowolniony**, abyś mógł zobaczyć, co się dzieje, gdy komponent, który renderujesz, jest naprawdę wolny. Spróbuj zwiększyć licznik i przełączyć motyw.
+W tym przykładzie komponent `ShippingForm` jest **sztucznie spowolniony**, abyśmy mogli zobaczyć, co się dzieje, gdy renderowany komponent jest naprawdę wolny. Spróbuj zwiększyć licznik i przełączyć motyw.
 
 Zwiększanie licznika wydaje się wolne, ponieważ wymusza przerenderowanie spowolnionego komponentu `ShippingForm`. Jest to oczekiwane, ponieważ licznik się zmienił, więc musisz odzwierciedlić nowy wybór użytkownika na ekranie.
 
-Następnie spróbuj przełączyć motyw. **Dzięki `useCallback` razem z [`memo`](/reference/react/memo), jest to szybkie pomimo sztucznego spowolnienia!** `ShippingForm` pominął przerenderowanie, ponieważ funkcja `handleSubmit` nie zmieniła się. Funkcja `handleSubmit` nie zmieniła się, ponieważ ani `productId`, ani `referrer` (twoje zależności w `useCallback`) nie zmieniły się od ostatniego przerenderowania.
+Następnie spróbuj przełączyć motyw. **Dzięki `useCallback` razem z [`memo`](/reference/react/memo), jest to szybkie pomimo sztucznego spowolnienia!** `ShippingForm` pominął przerenderowanie, ponieważ funkcja `handleSubmit` nie zmieniła się. Funkcja `handleSubmit` nie zmieniła się, ponieważ ani `productId`, ani `referrer` (twoje zależności w `useCallback`) nie zmieniły się od ostatniego renderowania.
 
 <Sandpack>
 
@@ -385,7 +385,7 @@ button[type="button"] {
 
 #### Ciągłe przerenderowywanie komponentu {/*always-re-rendering-a-component*/}
 
-W tym przykładzie implementacja komponentu `ShippingForm` jest również **sztucznie spowolniona**, abyś mógł zobaczyć, co się dzieje, gdy komponent reactowy, który renderujesz, jest naprawdę wolny. Spróbuj zwiększyć licznik i przełączyć motyw.
+W tym przykładzie implementacja komponentu `ShippingForm` jest również **sztucznie spowolniona**, abyśmy mogli zobaczyć, co się dzieje, gdy renderowany komponent reactowy jest naprawdę wolny. Spróbuj zwiększyć licznik i przełączyć motyw.
 
 W przeciwieństwie do poprzedniego przykładu, przełączanie motywu jest teraz również wolne! To dlatego, że **w tej wersji nie ma wywołania `useCallback`,** więc `handleSubmit` jest zawsze nową funkcją, przez co spowolniony komponent `ShippingForm` nie może pominąć przerenderowania.
 
@@ -521,7 +521,7 @@ button[type="button"] {
 </Sandpack>
 
 
-Natomiast tutaj jest ten sam kod **bez sztucznego spowolnienia.** Czy brak `useCallback` jest tu zauważalny?
+Natomiast tutaj mamy ten sam kod **bez sztucznego spowolnienia.** Czy brak `useCallback` jest tu zauważalny?
 
 <Sandpack>
 
@@ -677,7 +677,7 @@ function TodoList() {
   // ...
 ```
 
-Zazwyczaj powinieneś dążyć do tego, aby zapamiętane funkcje miały jak najmniej zależności. Gdy odczytujesz pewien stan tylko po to, aby obliczyć jego następną wartość, możesz usunąć tę zależność, przekazując zamiast tego [funkcję aktualizującą](/reference/react/useState#updating-state-based-on-the-previous-state):
+Zazwyczaj powinniśmy dążyć do tego, aby zapamiętane funkcje miały jak najmniej zależności. Gdy odczytujesz pewien stan tylko po to, aby obliczyć jego następną wartość, możesz usunąć tę zależność, przekazując zamiast tego [funkcję aktualizującą](/reference/react/useState#updating-state-based-on-the-previous-state):
 
 ```js {6,7}
 function TodoList() {
@@ -696,7 +696,7 @@ W tym przypadku zamiast robienia z `todos` zależność i odczytywania go wewną
 
 ### Zapobieganie zbyt częstemu wyzwalaniu efektu {/*preventing-an-effect-from-firing-too-often*/}
 
-Czasami może zdarzyć się, że chcesz wywołać funkcję wewnątrz [efektu:](/learn/synchronizing-with-effects)
+Czasami możesz zechcieć wywołać funkcję wewnątrz [efektu:](/learn/synchronizing-with-effects)
 
 ```js {4-9,12}
 function ChatRoom({ roomId }) {
@@ -729,7 +729,7 @@ To powoduje pewien problem. [Każda reaktywna wartość musi być zadeklarowana 
   // ...
 ```
 
-Aby to rozwiązać, możesz opakować funkcję, którą musisz wywołać z efektu, za pomocą `useCallback`:
+Aby to rozwiązać, możesz opakować funkcję wywoływaną z efektu za pomocą `useCallback`:
 
 ```js {4-9,16}
 function ChatRoom({ roomId }) {
@@ -751,7 +751,7 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-To zapewnia, że funkcja `createOptions` pozostaje taka sama między przerenderowaniami, jeśli `roomId` jest taki sam. **Jednakże jeszcze lepiej jest usunąć potrzebę zależności funkcji.** Przenieś swoją funkcję do *wnętrza* efektu:
+Taka zmiana zapewnia, że funkcja `createOptions` pozostaje taka sama między renderowaniami, jeśli `roomId` jest taki sam. **Jednakże jeszcze lepiej jest usunąć potrzebę używania funkcji jako zależności.** Przenieś swoją funkcję do *wnętrza* efektu:
 
 ```js {5-10,16}
 function ChatRoom({ roomId }) {
@@ -808,7 +808,7 @@ To zapewnia, że konsumenci twojego hooka mogą zoptymalizować swój własny ko
 
 ### Za każdym razem, gdy mój komponent renderuje się, `useCallback` zwraca inną funkcję {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
 
-Upewnij się, że podałeś tablicę zależności jako drugi argument!
+Upewnij się, że podajesz tablicę zależności jako drugi argument!
 
 Jeśli zapomnisz o tablicy zależności, `useCallback` będzie zwracać nową funkcję za każdym razem:
 
@@ -836,7 +836,7 @@ function ProductPage({ productId, referrer }) {
   // ...
 ```
 
-Jeśli to nie pomaga, problem może wynikać z tego, że przynajmniej jedna z twoich zależności zmieniła się od poprzedniego renderowania. Możesz rozwiązać ten problem, dodając ręcznie logowanie twoich zależności do konsoli:
+Jeśli to nie pomaga, problem może wynikać z tego, że przynajmniej jedna z twoich zależności zmieniła się od poprzedniego renderowania. Możesz rozwiązać ten problem dodając ręcznie logowanie twoich zależności do konsoli:
 
 ```js {5}
   const handleSubmit = useCallback((orderDetails) => {
@@ -854,7 +854,7 @@ Object.is(temp1[1], temp2[1]); // Czy druga zależność jest taka sama między 
 Object.is(temp1[2], temp2[2]); // ... i tak dalej dla każdej zależności ...
 ```
 
-Kiedy znajdziesz, która zależność psuje zapamiętywanie, albo znajdź sposób, aby ją usunąć, albo [również ją zapamiętaj.](/reference/react/useMemo#memoizing-a-dependency-of-another-hook)
+Kiedy znajdziesz zależność psującą memoizację, znajdź sposób, aby ją usunąć albo [również ją zapamiętaj.](/reference/react/useMemo#memoizing-a-dependency-of-another-hook)
 
 ---
 
