@@ -20,7 +20,7 @@ const cachedFn = useCallback(fn, dependencies)
 
 ### `useCallback(fn, dependencies)` {/*usecallback*/}
 
-Wywołaj `useCallback` na głównym poziomie komponentu, aby zapamiętać definicje funkcji pomiędzy przerenderowaniami:
+Wywołaj `useCallback` na głównym poziomie komponentu, aby zapamiętać definicje funkcji pomiędzy renderowaniami:
 
 ```js {4,9}
 import { useCallback } from 'react';
