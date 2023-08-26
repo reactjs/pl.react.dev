@@ -500,11 +500,11 @@ export default function Box() {
 
 ---
 
-### Wrapping Effects in custom Hooks {/*wrapping-effects-in-custom-hooks*/}
+### Opakowywanie efektów we własne hooki {/*wrapping-effects-in-custom-hooks*/}
 
-Effects are an ["escape hatch":](/learn/escape-hatches) you use them when you need to "step outside React" and when there is no better built-in solution for your use case. If you find yourself often needing to manually write Effects, it's usually a sign that you need to extract some [custom Hooks](/learn/reusing-logic-with-custom-hooks) for common behaviors your components rely on.
+Efekty są rodzajem "ukrytej furtki": używamy ich, gdy potrzebujemy "wyjść poza Reacta" i nie ma innego lepszego sposobu w danym przypadku. Jeśli często zdarza ci się ręcznie tworzyć efekty, zwykle oznacza to, że należy wyodrębnić [własne hooki](/learn/reusing-logic-with-custom-hooks), które implementują wspólne zachowania, na których polegają twoje komponenty.
 
-For example, this `useChatRoom` custom Hook "hides" the logic of your Effect behind a more declarative API:
+Przykładowo, własny hook `useChatRoom` "ukrywa" logikę efektu za bardziej deklaratywnym interfejsem:
 
 ```js {1,11}
 function useChatRoom({ serverUrl, roomId }) {
@@ -520,7 +520,7 @@ function useChatRoom({ serverUrl, roomId }) {
 }
 ```
 
-Then you can use it from any component like this:
+Następnie, możesz go użyć w dowolnym komponencie w taki sposób:
 
 ```js {4-7}
 function ChatRoom({ roomId }) {
@@ -533,16 +533,15 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-There are also many excellent custom Hooks for every purpose available in the React ecosystem.
+W ekosystemie Reacta jest wiele świetnych własnych hooków, które można użyć w różnych przypadkach.
 
-[Learn more about wrapping Effects in custom Hooks.](/learn/reusing-logic-with-custom-hooks)
+[Dowiedz się więcej o opakowywaniu efektów w własne hooki.](/learn/reusing-logic-with-custom-hooks)
 
-<Recipes titleText="Examples of wrapping Effects in custom Hooks" titleId="examples-custom-hooks">
+<Recipes titleText="Przykłady opakowywania efektów w własne hooki" titleId="examples-custom-hooks">
 
-#### Custom `useChatRoom` Hook {/*custom-usechatroom-hook*/}
+#### Własny hook `useChatRoom` {/*custom-usechatroom-hook*/}
 
-This example is identical to one of the [earlier examples,](#examples-connecting) but the logic is extracted to a custom Hook.
-
+Ten przykład jest identyczny jak [jeden z wcześniejszych przykładów,](#examples-connecting) ale logika została wyodrębniona do własnego hooka.
 <Sandpack>
 
 ```js
@@ -560,13 +559,13 @@ function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        Server URL:{' '}
+        URL serwera:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Witaj w pokoju {roomId}!</h1>
     </>
   );
 }
@@ -577,7 +576,7 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Wybierz pokój czatu:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
@@ -588,7 +587,7 @@ export default function App() {
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Zamknij czat' : 'Otwórz czat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -614,13 +613,13 @@ export function useChatRoom({ serverUrl, roomId }) {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Łączenie z pokojem "' + roomId + '" na ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Rozłączono z pokojem "' + roomId + '" na ' + serverUrl);
     }
   };
 }
@@ -635,9 +634,9 @@ button { margin-left: 10px; }
 
 <Solution />
 
-#### Custom `useWindowListener` Hook {/*custom-usewindowlistener-hook*/}
+#### Własny hook `useWindowListener` {/*custom-usewindowlistener-hook*/}
 
-This example is identical to one of the [earlier examples,](#examples-connecting) but the logic is extracted to a custom Hook.
+Ten przykład jest identyczny jak [jeden z wcześniejszych przykładów,](#examples-connecting) ale logika została wyodrębniona do własnego hooka.
 
 <Sandpack>
 
@@ -692,9 +691,9 @@ body {
 
 <Solution />
 
-#### Custom `useIntersectionObserver` Hook {/*custom-useintersectionobserver-hook*/}
+#### Własny hook `useIntersectionObserver` {/*custom-useintersectionobserver-hook*/}
 
-This example is identical to one of the [earlier examples,](#examples-connecting) but the logic is partially extracted to a custom Hook.
+Ten przykład jest identyczny jak [jeden z wcześniejszych przykładów,](#examples-connecting) ale logika została częściowo wyodrębniona do własnego hooka.
 
 <Sandpack>
 
@@ -716,7 +715,7 @@ export default function App() {
 function LongSection() {
   const items = [];
   for (let i = 0; i < 50; i++) {
-    items.push(<li key={i}>Item #{i} (keep scrolling)</li>);
+    items.push(<li key={i}>Element #{i} (przewijaj dalej)</li>);
   }
   return <ul>{items}</ul>
 }
