@@ -58,11 +58,11 @@ function ChatRoom({ roomId }) {
 
 * Jeśli **nie próbujesz synchronizować się z jakimś zewnętrznym systemem,** [prawdopodobnie nie potrzebujesz efektu.](/learn/you-might-not-need-an-effect)
 
-* W Trybie Restrykcyjnym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+* W Trybie Rygorystycznym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu obciążeniowego, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 * Jeśli niektóre z twoich zależności to obiekty lub funkcje zdefiniowane wewnątrz komponentu, istnieje ryzyko, że **spowodują, że efekt będzie wykonywał się częściej niż jest to potrzebne.** Aby to naprawić, usuń zbędne zależności od [obiektów](#removing-unnecessary-object-dependencies) i [funkcji](#removing-unnecessary-function-dependencies). Możesz również [wydzielić aktualizacje stanu](#updating-state-based-on-previous-state-from-an-effect) oraz [logikę niereaktywną](#reading-the-latest-props-and-state-from-an-effect) poza efekt.
 
-* Jeśli twój efekt nie został wywołany przez interakcję (np. kliknięcie), React pozwoli przeglądarce **najpierw odświeżyć ekran przed uruchomieniem twojego efektu.** Jeśli efekt ten wykonuje jakieś operacje związane z wyświetlaniem (np. ustawianie pozycji podpowiedzi (ang. *tooltip*)) i opóźnienie jest zauważalne (np. występuje migotanie), zastąp `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+* Jeśli twój efekt nie został wywołany przez interakcję (np. kliknięcie), React pozwoli przeglądarce **najpierw odświeżyć ekran przed uruchomieniem twojego efektu.** Jeśli efekt ten wykonuje jakieś operacje związane z wyświetlaniem (np. ustawianie pozycji dymka (ang. *tooltip*)) i opóźnienie jest zauważalne (np. występuje migotanie), zastąp `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
 * Nawet jeśli twój efekt został wywołany przez interakcję (np. kliknięcie), **przeglądarka może odświeżyć ekran przed przetworzeniem aktualizacji stanu wewnątrz twojego efektu.** Zazwyczaj jest to pożądane zachowanie. Niemniej jednak, jeśli chcesz zablokować przeglądarkę przed odświeżaniem ekranu, musisz zastąpić `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
@@ -114,7 +114,7 @@ Aby użyć `useEffect`, musisz przekazać dwie argumenty:
 
 Kiedy komponent `ChatRoom` zostanie dodany do strony, połączy się z pokojem czatu przy użyciu początkowych `serverUrl` i `roomId`. Jeśli którakolwiek z zależności `serverUrl` lub `roomId` zmieni się w wyniku przerenderowania (np. jeśli użytkownik wybierze inny pokój czatu z rozwijanej listy), twój efekt *rozłączy się z poprzednim pokojem i połączy się z następnym.* Kiedy komponent `ChatRoom` zostanie usunięty ze strony, twój efekt rozłączy się ostatni raz.
 
-**Aby [pomóc w wykrywaniu błędów,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) w trybie developerskim React wykonuje dodatkowo funkcję <CodeStep step={1}>setup</CodeStep> oraz <CodeStep step={2}>cleanup</CodeStep> przed właściwym wywołaniem <CodeStep step={1}>setup</CodeStep>.** Jest to test, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to spowoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofnąć wszystko, co zrobiła funkcja konfiguracyjna. Ogólnie rzecz biorąc, użytkownik nie powinien być w stanie rozróżnić między jednorazowym wywołaniem konfiguracji (jak na produkcji), a sekwencją *konfiguracja* → *czyszczenie* → *konfiguracja* (jak w trybie developerskim). [Zobacz najczęstsze rozwiązania.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+**Aby [pomóc w wykrywaniu błędów,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) w trybie developerskim React wykonuje dodatkowo funkcję <CodeStep step={1}>setup</CodeStep> oraz <CodeStep step={2}>cleanup</CodeStep> przed właściwym wywołaniem <CodeStep step={1}>setup</CodeStep>.** Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to spowoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofnąć wszystko, co zrobiła funkcja konfiguracyjna. Ogólnie rzecz biorąc, użytkownik nie powinien być w stanie rozróżnić między jednorazowym wywołaniem konfiguracji (jak na produkcji), a sekwencją *konfiguracja* → *czyszczenie* → *konfiguracja* (jak w trybie developerskim). [Zobacz najczęstsze rozwiązania.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 **Postaraj się pisać każdy efekt jako niezależny proces** i **skup się na pojedynczym cyklu konfiguracji i czyszczenia w danym momencie.** Nie ma znaczenia, czy komponent jest montowany, aktualizowany czy odmontowywany. Jeśli logika czyszczenia poprawnie odwzorowuje logikę konfiguracji, twój efekt jest odporny na uruchamianie konfiguracji i czyszczenia tak często, jak to konieczne.
 
@@ -134,7 +134,7 @@ Efekt pozwala [utrzymać synchronizację twojego komponentu](/learn/synchronizin
 
 #### Łączenie się z serwerem czatu {/*connecting-to-a-chat-server*/}
 
-W tym przykładzie komponent `ChatRoom` wykorzystuje efekt do utrzymania połączenia z systemem zewnętrznym zdefiniowanym w pliku `chat.js`. Naciśnij "Otwórz czat", aby pojawił się komponent `ChatRoom`. Ten sandbox działa w trybie developerskim, więc ma miejsce dodatkowy cykl łączenia i rozłączania, tak jak jest [wyjaśnione tutaj](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed). Spróbuj zmieniać `roomId` i `serverUrl` za pomocą rozwijanej listy i pola tekstowego, a zobaczysz, jak efekt ponownie łączy się z czatem. Naciśnij "Zamknij czat", aby zobaczyć jak efekt kończy połączenie ostatni raz.
+W tym przykładzie komponent `ChatRoom` wykorzystuje efekt do utrzymania połączenia z systemem zewnętrznym zdefiniowanym w pliku `chat.js`. Naciśnij "Otwórz czat", aby pojawił się komponent `ChatRoom`. Ta piaskownica działa w trybie developerskim, więc ma miejsce dodatkowy cykl łączenia i rozłączania, tak jak jest to [wyjaśnione tutaj](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed). Spróbuj zmieniać `roomId` i `serverUrl` za pomocą rozwijanej listy i pola tekstowego, a zobaczysz, jak efekt ponownie łączy się z czatem. Naciśnij "Zamknij czat", aby zobaczyć jak efekt kończy połączenie ostatni raz.
 
 <Sandpack>
 
@@ -162,13 +162,13 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Witaj w pokoju {roomId}!</h1>
+      <h1>Witaj w pokoju: {roomId}!</h1>
     </>
   );
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('ogólny');
   const [show, setShow] = useState(false);
   return (
     <>
@@ -178,9 +178,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="ogólny">ogólny</option>
+          <option value="podróże">podróże</option>
+          <option value="muzyka">muzyka</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -364,7 +364,7 @@ html, body { min-height: 300px; }
 
 <Solution />
 
-#### Sterowanie modalem {/*controlling-a-modal-dialog*/}
+#### Sterowanie oknem dialogowym (ang. *modal dialog*) {/*controlling-a-modal-dialog*/}
 
 W tym przykładzie, systemem zewnętrznym jest drzewo DOM w przeglądarce. Komponent `ModalDialog` renderuje element [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog). Komponent ten wykorzystuje efekt, aby zsynchronizować właściwość `isOpen` z wywołaniem metod [`showModal()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal) oraz [`close()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close).
 
@@ -379,7 +379,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(true)}>
-        Otwórz modal
+        Otwórz okno dialogowe
       </button>
       <ModalDialog isOpen={show}>
         Hej!
@@ -565,13 +565,13 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Witaj w pokoju {roomId}!</h1>
+      <h1>Witaj w pokoju: {roomId}!</h1>
     </>
   );
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('ogólny');
   const [show, setShow] = useState(false);
   return (
     <>
@@ -581,9 +581,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="ogólny">ogólny</option>
+          <option value="podróże">podróże</option>
+          <option value="muzyka">muzyka</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -887,7 +887,7 @@ button { margin: 5px; }
 
 </Sandpack>
 
-W tym przykładzie nie jest potrzebna funkcja czyszcząca, ponieważ klasa `MapWidget` steruje tylko węzłem DOM, który został do niej przekazany. Po usunięciu reactowego komponentu `Map` z drzewa, zarówno węzeł DOM, jak i instancja klasy `MapWidget` zostaną automatycznie posprzątane przez mechanizm JavaScripta znany jako *garbage collector*.
+W tym przykładzie nie jest potrzebna funkcja czyszcząca, ponieważ klasa `MapWidget` steruje tylko węzłem DOM, który został do niej przekazany. Po usunięciu reactowego komponentu `Map` z drzewa, zarówno węzeł DOM, jak i instancja klasy `MapWidget` zostaną automatycznie posprzątane przez javascriptowy mechanizm czyszczenia pamięci (ang. *garbage collector*).
 
 ---
 
