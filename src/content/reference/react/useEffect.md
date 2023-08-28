@@ -1054,26 +1054,26 @@ Możesz nadal pobierać dane bezpośrednio w efektach, jeśli żadne z wymienion
 
 ---
 
-### Specifying reactive dependencies {/*specifying-reactive-dependencies*/}
+### Określanie reaktywnych zależności {/*specifying-reactive-dependencies*/}
 
-**Notice that you can't "choose" the dependencies of your Effect.** Every <CodeStep step={2}>reactive value</CodeStep> used by your Effect's code must be declared as a dependency. Your Effect's dependency list is determined by the surrounding code:
+**Zauważ, że nie możesz dowolnie "wybrać" zależności twojego efektu.** Każda <CodeStep step={2}>reaktywna wartość</CodeStep> użyta w kodzie twojego efektu musi być zadeklarowana jako zależność. Tablica zależności twojego efektu jest określana przez otaczający kod:
 
 ```js [[2, 1, "roomId"], [2, 2, "serverUrl"], [2, 5, "serverUrl"], [2, 5, "roomId"], [2, 8, "serverUrl"], [2, 8, "roomId"]]
-function ChatRoom({ roomId }) { // This is a reactive value
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234'); // This is a reactive value too
+function ChatRoom({ roomId }) { // To jest wartość reaktywna
+  const [serverUrl, setServerUrl] = useState('https://localhost:1234'); // To też jest wartość reaktywna
 
   useEffect(() => {
-    const connection = createConnection(serverUrl, roomId); // This Effect reads these reactive values
+    const connection = createConnection(serverUrl, roomId); // Ten efekt odczytuje te wartości reaktywne
     connection.connect();
     return () => connection.disconnect();
-  }, [serverUrl, roomId]); // ✅ So you must specify them as dependencies of your Effect
+  }, [serverUrl, roomId]); // ✅ Musisz zatem określić je jako zależności twojego efektu
   // ...
 }
 ```
 
-If either `serverUrl` or `roomId` change, your Effect will reconnect to the chat using the new values.
+Jeśli zmieni się `serverUrl` lub `roomId`, twój efekt ponownie połączy się z czatem, używając nowych wartości.
 
-**[Reactive values](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) include props and all variables and functions declared directly inside of your component.** Since `roomId` and `serverUrl` are reactive values, you can't remove them from the dependencies. If you try to omit them and [your linter is correctly configured for React,](/learn/editor-setup#linting) the linter will flag this as a mistake you need to fix:
+**[Wartościami reaktywnymi](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) są właściwości oraz wszystkie zmienne i funkcje zadeklarowane bezpośrednio wewnątrz twojego komponentu.** Ponieważ `roomId` i `serverUrl` są wartościami reaktywnymi, nie możesz ich pomijać w zależnościach. Jeśli spróbujesz je pominąć i [twój linter jest poprawnie skonfigurowany pod Reacta,](/learn/editor-setup#linting) wskaże on to jako błąd, który musisz poprawić:
 
 ```js {8}
 function ChatRoom({ roomId }) {
@@ -1083,57 +1083,57 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, []); // 🔴 React Hook useEffect has missing dependencies: 'roomId' and 'serverUrl'
+  }, []); // 🔴 Reactowy hook useEffect ma brakujące zależności: 'roomId' i 'serverUrl'
   // ...
 }
 ```
 
-**To remove a dependency, you need to ["prove" to the linter that it *doesn't need* to be a dependency.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)** For example, you can move `serverUrl` out of your component to prove that it's not reactive and won't change on re-renders:
+**Aby usunąć zależność, musisz "udowodnić" linterowi, że to *nie musi być* zależność.** Na przykład, możesz przenieść `serverUrl` poza swój komponent i tym samym udowodnić, że nie jest wartość reaktywna i nie zmieni się podczas ponownego renderowania:
 
 ```js {1,8}
-const serverUrl = 'https://localhost:1234'; // Not a reactive value anymore
+const serverUrl = 'https://localhost:1234'; // To nie jest już wartość reaktywna
 
 function ChatRoom({ roomId }) {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
+  }, [roomId]); // ✅ Wszystkie zależności zadeklarowane
   // ...
 }
 ```
 
-Now that `serverUrl` is not a reactive value (and can't change on a re-render), it doesn't need to be a dependency. **If your Effect's code doesn't use any reactive values, its dependency list should be empty (`[]`):**
+Teraz, kiedy `serverUrl` nie jest już wartością reaktywną (i nie może zmienić się podczas ponownego renderowania), nie musi być zależnością. **Jeśli kod twojego efektu nie używa żadnych wartości reaktywnych, jego tablica zależności powinna być pusta (`[]`):**
 
 ```js {1,2,9}
-const serverUrl = 'https://localhost:1234'; // Not a reactive value anymore
-const roomId = 'music'; // Not a reactive value anymore
+const serverUrl = 'https://localhost:1234'; // To nie jest już wartość reaktywna
+const roomId = 'music'; // To nie jest już wartość reaktywna
 
 function ChatRoom() {
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, []); // ✅ All dependencies declared
+  }, []); // ✅ Wszystkie zależności zadeklarowane
   // ...
 }
 ```
 
-[An Effect with empty dependencies](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means) doesn't re-run when any of your component's props or state change.
+[Efekt z pustymi zależnościami](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means) nie zostanie ponownie uruchomiony, gdy zmieni się którakolwiek właściwość lub stan twojego komponentu.
 
 <Pitfall>
 
-If you have an existing codebase, you might have some Effects that suppress the linter like this:
+W już istniejącym kodzie, możesz mieć pewne efekty, które uciszają lintera w taki sposób:
 
 ```js {3-4}
 useEffect(() => {
   // ...
-  // 🔴 Avoid suppressing the linter like this:
+  // 🔴 Unikaj uciszania lintera w taki sposób:
   // eslint-ignore-next-line react-hooks/exhaustive-deps
 }, []);
 ```
 
-**When dependencies don't match the code, there is a high risk of introducing bugs.** By suppressing the linter, you "lie" to React about the values your Effect depends on. [Instead, prove they're unnecessary.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)
+**Kiedy zależności nie pasują do kodu, istnieje duże ryzyko wprowadzenia błędów.** Uciszająć lintera, "oszukujesz" Reacta co do wartości, od których zależy twój efekt. [Zamiast tego, udowodnij, że są one zbędne.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)
 
 </Pitfall>
 
