@@ -1137,19 +1137,19 @@ useEffect(() => {
 
 </Pitfall>
 
-<Recipes titleText="Examples of passing reactive dependencies" titleId="examples-dependencies">
+<Recipes titleText="Przykłady przekazywania reaktywnych zaleźności" titleId="examples-dependencies">
 
-#### Passing a dependency array {/*passing-a-dependency-array*/}
+#### Przekazywanie tablicy zależności {/*passing-a-dependency-array*/}
 
-If you specify the dependencies, your Effect runs **after the initial render _and_ after re-renders with changed dependencies.**
+Jeśli określisz zależności, twój efekt zostanie uruchomiony **po początkowym wyrenderowaniu _oraz_ po ponownym renderowaniu z zmienionymi zależnościami.**
 
 ```js {3}
 useEffect(() => {
   // ...
-}, [a, b]); // Runs again if a or b are different
+}, [a, b]); // Zostanie uruchomiony ponownie, jeśli a lub b są różne
 ```
 
-In the below example, `serverUrl` and `roomId` are [reactive values,](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) so they both must be specified as dependencies. As a result, selecting a different room in the dropdown or editing the server URL input causes the chat to re-connect. However, since `message` isn't used in the Effect (and so it isn't a dependency), editing the message doesn't re-connect to the chat.
+W poniższym przykładzie `serverUrl` i `roomId` to [wartości reaktywne,](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) więc obie muszą być określone jako zależności. W rezultacie wybór innego pokoju z rozwijanej listy lub edycja adresu URL serwera powoduje ponowne połączenie się czatu. Z kolei `message` nie jest używany wewnątrz efektu (przez co nie jest zależnością), więc edycja wiadomości nie spowoduje ponownego połączenia się z czatem.
 
 <Sandpack>
 
@@ -1172,15 +1172,15 @@ function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        Server URL:{' '}
+        URL servera:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Witaj w pokoju: {roomId}!</h1>
       <label>
-        Your message:{' '}
+        Twoja wiadomość:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
       </label>
     </>
@@ -1189,21 +1189,21 @@ function ChatRoom({ roomId }) {
 
 export default function App() {
   const [show, setShow] = useState(false);
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('ogólny');
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Wybierz pokój czatu:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="ogólny">ogólny</option>
+          <option value="podróże">podróże</option>
+          <option value="muzyka">muzyka</option>
         </select>
         <button onClick={() => setShow(!show)}>
-          {show ? 'Close chat' : 'Open chat'}
+          {show ? 'Zamknij czat' : 'Otwórz czat'}
         </button>
       </label>
       {show && <hr />}
@@ -1215,13 +1215,13 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Łączenie z pokojem "' + roomId + '" na ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Rozłączono z pokojem "' + roomId + '" na ' + serverUrl);
     }
   };
 }
@@ -1236,20 +1236,20 @@ button { margin-left: 5px; }
 
 <Solution />
 
-#### Passing an empty dependency array {/*passing-an-empty-dependency-array*/}
+#### Przekazywanie pustej tablicy zależności {/*passing-an-empty-dependency-array*/}
 
-If your Effect truly doesn't use any reactive values, it will only run **after the initial render.**
+Jeśli twój efekt naprawdę nie używa żadnych wartości reaktywnych, zostanie on uruchomiony **tylko po początkowym renderowaniu.**
 
 ```js {3}
 useEffect(() => {
   // ...
-}, []); // Does not run again (except once in development)
+}, []); // Nie uruchomi się ponownie (za wyjątkiem pojedynczego razu w trybie deweloperskim)
 ```
 
-**Even with empty dependencies, setup and cleanup will [run one extra time in development](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) to help you find bugs.**
+**Nawet w przypadku pustych zależności, efekt i jego funkcja czyszcząca będą [uruchomione dodatkowo jeszcze raz w trybie deweloperskim](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development), aby pomóc w znajdowaniu błędów.**
 
 
-In this example, both `serverUrl` and `roomId` are hardcoded. Since they're declared outside the component, they are not reactive values, and so they aren't dependencies. The dependency list is empty, so the Effect doesn't re-run on re-renders.
+W tym przykładzie, zarówno `serverUrl`, jak i `roomId` są niezmienne. Ponieważ są zadeklarowane poza komponentem, nie są wartościami reaktywnymi i dlatego nie są zależnościami. Lista zależności jest pusta, więc efekt nie zostanie uruchomiony po ponownym renderowaniu.
 
 <Sandpack>
 
@@ -1258,7 +1258,7 @@ import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
-const roomId = 'music';
+const roomId = 'muzyka';
 
 function ChatRoom() {
   const [message, setMessage] = useState('');
@@ -1271,9 +1271,9 @@ function ChatRoom() {
 
   return (
     <>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Witaj w pokoju: {roomId}</h1>
       <label>
-        Your message:{' '}
+        Twoja wiadomość:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
       </label>
     </>
@@ -1285,7 +1285,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Zamknij czat' : 'Otwórz czat'}
       </button>
       {show && <hr />}
       {show && <ChatRoom />}
@@ -1296,13 +1296,13 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Łączenie z pokojem "' + roomId + '" na ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Rozłączono z pokojem "' + roomId + '" na ' + serverUrl);
     }
   };
 }
@@ -1313,17 +1313,17 @@ export function createConnection(serverUrl, roomId) {
 <Solution />
 
 
-#### Passing no dependency array at all {/*passing-no-dependency-array-at-all*/}
+#### Nieprzekazywanie żadnej tablicy zależności {/*passing-no-dependency-array-at-all*/}
 
-If you pass no dependency array at all, your Effect runs **after every single render (and re-render)** of your component.
+Jeśli w ogóle nie przekażesz tablicy zależności, twój efekt uruchomi się **po każdym pojedynczym (i ponownym) renderowaniu** twojego komponentu.
 
 ```js {3}
 useEffect(() => {
   // ...
-}); // Always runs again
+}); // Zawsze uruchamia się ponownie
 ```
 
-In this example, the Effect re-runs when you change `serverUrl` and `roomId`, which is sensible. However, it *also* re-runs when you change the `message`, which is probably undesirable. This is why usually you'll specify the dependency array.
+W tym przykładzie, efekt uruchomi się ponownie, gdy zmienisz `serverUrl` i `roomId`, co jest oczekiwane. Jednakże uruchomi się *również* po zmianie `message`, co prawdopodobnie nie jest pożądane. Dlatego właśnie zazwyczaj określa się tablicę zależności.
 
 <Sandpack>
 
@@ -1341,20 +1341,20 @@ function ChatRoom({ roomId }) {
     return () => {
       connection.disconnect();
     };
-  }); // No dependency array at all
+  }); // Brak jakiekolwiek tablicy zależności
 
   return (
     <>
       <label>
-        Server URL:{' '}
+        URL servera:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Witaj w pokoju: {roomId}</h1>
       <label>
-        Your message:{' '}
+        Twoja wiadomość:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
       </label>
     </>
@@ -1363,21 +1363,21 @@ function ChatRoom({ roomId }) {
 
 export default function App() {
   const [show, setShow] = useState(false);
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('ogólny');
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Wybierz pokój czatu:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="ogólny">ogólny</option>
+          <option value="podróże">podróże</option>
+          <option value="muzyka">muzyka</option>
         </select>
         <button onClick={() => setShow(!show)}>
-          {show ? 'Close chat' : 'Open chat'}
+          {show ? 'Zamknij czat' : 'Otwórz czat'}
         </button>
       </label>
       {show && <hr />}
@@ -1389,13 +1389,13 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Łączenie z pokojem "' + roomId + '" na ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Rozłączono z pokojem "' + roomId + '" na ' + serverUrl);
     }
   };
 }
