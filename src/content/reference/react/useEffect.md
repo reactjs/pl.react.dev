@@ -1571,21 +1571,21 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Teraz, kiedy tworzysz obiekt `options` wewnątrz efektu, sam efekt zależy tylko od ciągu znaków `roomId`.
+Teraz, kiedy tworzysz obiekt `options` wewnątrz efektu, sam efekt zależy już tylko od ciągu znaków `roomId`.
 
-Dzięki tej poprawce, wpisywanie do pola tekstowego nie powoduje ponownego łączenia się z czatem. W przeciwieństwie do obiektu, który jest tworzony na nowo, ciąg znaków taki jak `roomId` nie zmienia się, chyba że zostanie ustawiony na inną wartość. [Dowiedz się więcej o usuwaniu zależności.](/learn/removing-effect-dependencies)
+Dzięki tej poprawce, pisanie w polu tekstowym nie powoduje ponownego łączenia się z czatem. W przeciwieństwie do obiektu, który jest tworzony na nowo, ciąg znaków taki jak `roomId` nie zmienia się, chyba że zostanie ustawiony na inną wartość. [Dowiedz się więcej o usuwaniu zależności.](/learn/removing-effect-dependencies)
 
 ---
 
-### Removing unnecessary function dependencies {/*removing-unnecessary-function-dependencies*/}
+### Usuwanie niepotrzebnych zależności od funkcji {/*removing-unnecessary-function-dependencies*/}
 
-If your Effect depends on an object or a function created during rendering, it might run too often. For example, this Effect re-connects after every render because the `createOptions` function is [different for every render:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
+Jeśli twój efekt zależy od obiektu lub funkcji utworzonej podczas renderowania, może być uruchamiany zbyt często. Na przykład, ten efekt łączy się ponownie po każdym renderowaniu, ponieważ funkcja `createOptions` jest [inna w każdym renderowaniu:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ```js {4-9,12,16}
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
-  function createOptions() { // 🚩 This function is created from scratch on every re-render
+  function createOptions() { // 🚩 Ta funkcja jest tworzona od początku przy każdym renderowaniu
     return {
       serverUrl: serverUrl,
       roomId: roomId
@@ -1593,17 +1593,17 @@ function ChatRoom({ roomId }) {
   }
 
   useEffect(() => {
-    const options = createOptions(); // It's used inside the Effect
+    const options = createOptions(); // Jest ona użyta w efekcie
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // 🚩 As a result, these dependencies are always different on a re-render
+  }, [createOptions]); // 🚩 W rezultacie, ta zależność bedzie inna w każdym renderowaniu
   // ...
 ```
 
-By itself, creating a function from scratch on every re-render is not a problem. You don't need to optimize that. However, if you use it as a dependency of your Effect, it will cause your Effect to re-run after every re-render.
+Samo w sobie, tworzenie funkcji od nowa przy każdym renderowaniu nie stanowi problemu. Nie musisz tego optymalizować. Jednakże, jeśli używasz jej jako zależności w swoim efekcie, spowoduje to ponowne uruchomienie efektu po każdym renderowaniu.
 
-Avoid using a function created during rendering as a dependency. Instead, declare it inside the Effect:
+Unikaj używania funkcji utworzonej podczas renderowania jako zależności. Zamiast tego, zadeklaruj ją wewnątrz efektu:
 
 <Sandpack>
 
@@ -1632,25 +1632,25 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Witaj w pokoju: {roomId}</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
     </>
   );
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('ogólny');
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Wybierz pokój czatu:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="ogólny">ogólny</option>
+          <option value="podróże">podróże</option>
+          <option value="muzyka">muzyka</option>
         </select>
       </label>
       <hr />
@@ -1662,13 +1662,13 @@ export default function App() {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Łączenie z pokojem "' + roomId + '" na ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Rozłączono z pokojem "' + roomId + '" na ' + serverUrl);
     }
   };
 }
@@ -1681,7 +1681,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Now that you define the `createOptions` function inside the Effect, the Effect itself only depends on the `roomId` string. With this fix, typing into the input doesn't reconnect the chat. Unlike a function which gets re-created, a string like `roomId` doesn't change unless you set it to another value. [Read more about removing dependencies.](/learn/removing-effect-dependencies)
+Teraz, kiedy definiujesz funkcję `createOptions` wewnątrz efektu, sam efekt zależy już tylko od ciągu znaków `roomId`. Dzięki tej poprawce, pisanie w polu tekstowym nie powoduje ponownego łączenia się z czatem. W przeciwieństwie do funkcji, która jest tworzona na nowo, ciąg znaków taki jak `roomId` nie zmienia się, chyba że zostanie ustawiony na inną wartość. [Dowiedz się więcej o usuwaniu zależności.](/learn/removing-effect-dependencies)
 
 ---
 
