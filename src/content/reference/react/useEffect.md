@@ -1474,9 +1474,9 @@ Teraz, kiedy przekazujesz funkcję `c => c + 1` zamiast `count + 1`, [twój efek
 ---
 
 
-### Removing unnecessary object dependencies {/*removing-unnecessary-object-dependencies*/}
+### Usuwanie niepotrzebnych zależności od obiektów {/*removing-unnecessary-object-dependencies*/}
 
-If your Effect depends on an object or a function created during rendering, it might run too often. For example, this Effect re-connects after every render because the `options` object is [different for every render:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
+Jeśli twój efekt zależy od obiektu lub funkcji utworzonej podczas renderowania, może być uruchamiany zbyt często. Na przykład, ten efekt łączy się ponownie po każdym renderowaniu, ponieważ obiekt `options` jest [inny w każdym renderowaniu:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ```js {6-9,12,15}
 const serverUrl = 'https://localhost:1234';
@@ -1484,20 +1484,20 @@ const serverUrl = 'https://localhost:1234';
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
-  const options = { // 🚩 This object is created from scratch on every re-render
+  const options = { // 🚩 Ten obiekt jest tworzony od początku przy każdym renderowaniu
     serverUrl: serverUrl,
     roomId: roomId
   };
 
   useEffect(() => {
-    const connection = createConnection(options); // It's used inside the Effect
+    const connection = createConnection(options); // Jest on użyty w efekcie
     connection.connect();
     return () => connection.disconnect();
-  }, [options]); // 🚩 As a result, these dependencies are always different on a re-render
+  }, [options]); // 🚩 W rezultacie, ta zależność bedzie inna w każdym renderowaniu
   // ...
 ```
 
-Avoid using an object created during rendering as a dependency. Instead, create the object inside the Effect:
+Unikaj używania obiektu utworzonego podczas renderowania jako zależności. Zamiast tego, stwórz obiekt wewnątrz efektu:
 
 <Sandpack>
 
@@ -1522,25 +1522,25 @@ function ChatRoom({ roomId }) {
 
   return (
     <>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Witaj w pokoju: {roomId}</h1>
       <input value={message} onChange={e => setMessage(e.target.value)} />
     </>
   );
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('ogólny');
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Wybierz pokój czatu:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="ogólny">ogólny</option>
+          <option value="podróże">podróże</option>
+          <option value="muzyka">muzyka</option>
         </select>
       </label>
       <hr />
@@ -1552,13 +1552,13 @@ export default function App() {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Łączenie z pokojem "' + roomId + '" na ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Rozłączono z pokojem "' + roomId + '" na ' + serverUrl);
     }
   };
 }
@@ -1571,9 +1571,9 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Now that you create the `options` object inside the Effect, the Effect itself only depends on the `roomId` string.
+Teraz, kiedy tworzysz obiekt `options` wewnątrz efektu, sam efekt zależy tylko od ciągu znaków `roomId`.
 
-With this fix, typing into the input doesn't reconnect the chat. Unlike an object which gets re-created, a string like `roomId` doesn't change unless you set it to another value. [Read more about removing dependencies.](/learn/removing-effect-dependencies)
+Dzięki tej poprawce, wpisywanie do pola tekstowego nie powoduje ponownego łączenia się z czatem. W przeciwieństwie do obiektu, który jest tworzony na nowo, ciąg znaków taki jak `roomId` nie zmienia się, chyba że zostanie ustawiony na inną wartość. [Dowiedz się więcej o usuwaniu zależności.](/learn/removing-effect-dependencies)
 
 ---
 
