@@ -1414,9 +1414,9 @@ button { margin-left: 5px; }
 
 ---
 
-### Updating state based on previous state from an Effect {/*updating-state-based-on-previous-state-from-an-effect*/}
+### Aktualizacja stanu w efekcie na podstawie poprzedniego stanu {/*updating-state-based-on-previous-state-from-an-effect*/}
 
-When you want to update state based on previous state from an Effect, you might run into a problem:
+Gdy w efekcie chcesz zaktualizować stan na podstawie poprzedniego stanu, możesz napotkać na pewien problem:
 
 ```js {6,9}
 function Counter() {
@@ -1424,17 +1424,17 @@ function Counter() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCount(count + 1); // You want to increment the counter every second...
+      setCount(count + 1); // Chcesz zwiększać licznik co sekundę...
     }, 1000)
     return () => clearInterval(intervalId);
-  }, [count]); // 🚩 ... but specifying `count` as a dependency always resets the interval.
+  }, [count]); // 🚩 ...ale podanie `count` jako zależności zawsze resetuje interwał.
   // ...
 }
 ```
 
-Since `count` is a reactive value, it must be specified in the list of dependencies. However, that causes the Effect to cleanup and setup again every time the `count` changes. This is not ideal. 
+Ponieważ `count` jest wartością reaktywną, musi być określona na liście zależności. Jednakże to powoduje uruchamianie się czyszczenia i efektu ponownie za każdym razem, gdy zmieni się `count`. Nie jest to idealne rozwiązanie.
 
-To fix this, [pass the `c => c + 1` state updater](/reference/react/useState#updating-state-based-on-the-previous-state) to `setCount`:
+Aby to naprawić, [przekaż funkcje aktualizującą `c => c + 1`](/reference/react/useState#updating-state-based-on-the-previous-state) do `setCount`:
 
 <Sandpack>
 
@@ -1446,10 +1446,10 @@ export default function Counter() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCount(c => c + 1); // ✅ Pass a state updater
+      setCount(c => c + 1); // ✅ Przekaź funkcję aktualizującą
     }, 1000);
     return () => clearInterval(intervalId);
-  }, []); // ✅ Now count is not a dependency
+  }, []); // ✅ Teraz count nie jest juź zależnością
 
   return <h1>{count}</h1>;
 }
@@ -1469,7 +1469,7 @@ body {
 
 </Sandpack>
 
-Now that you're passing `c => c + 1` instead of `count + 1`, [your Effect no longer needs to depend on `count`.](/learn/removing-effect-dependencies#are-you-reading-some-state-to-calculate-the-next-state) As a result of this fix, it won't need to cleanup and setup the interval again every time the `count` changes.
+Teraz, kiedy przekazujesz funkcję `c => c + 1` zamiast `count + 1`, [twój efekt mie musi już zależeć od `count`.](/learn/removing-effect-dependencies#are-you-reading-some-state-to-calculate-the-next-state) W rezultacie tej poprawki, nie ma już potrzeby zatrzymywania i ponownego uruchamiania interwału za każdym razem, gdy zmienia się `count`.
 
 ---
 
