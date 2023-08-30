@@ -1756,15 +1756,15 @@ Use this pattern sparingly. Keep in mind that users with a slow connection will 
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Znane problemy {/*troubleshooting*/}
 
-### My Effect runs twice when the component mounts {/*my-effect-runs-twice-when-the-component-mounts*/}
+### Mój efekt jest uruchamiany podwójnie, gdy komponent jest montowany {/*my-effect-runs-twice-when-the-component-mounts*/}
 
-When Strict Mode is on, in development, React runs setup and cleanup one extra time before the actual setup.
+Kiedy tryb rygorystyczny jest włączony, w trybie deweloperskim React uruchamia dodatkowo funkcje konfiguracyjną i czyszczącą przed właściwym uruchomieniem funkcji konfiguracyjnej.
 
-This is a stress-test that verifies your Effect’s logic is implemented correctly. If this causes visible issues, your cleanup function is missing some logic. The cleanup function should stop or undo whatever the setup function was doing. The rule of thumb is that the user shouldn’t be able to distinguish between the setup being called once (as in production) and a setup → cleanup → setup sequence (as in development).
+Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to powoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofać to, co robi funkcja konfiguracyjna. Ogólna zasada jest taka, że użytkownik nie powinien być w stanie rozróżnić między tym, czy konfiguracja został wywołana tylko raz (jak na produkcji), czy też w sekwencji konfiguracja → sprzątanie → konfiguracja (jak w trybie deweloperskim).
 
-Read more about [how this helps find bugs](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) and [how to fix your logic.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+Dowiedz się więcej o tym, [jak to pomaga znajdować błędy](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) oraz [jak naprawić logikę swojego efektu.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 ---
 
