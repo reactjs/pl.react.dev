@@ -1685,28 +1685,28 @@ Teraz, kiedy definiujesz funkcję `createOptions` wewnątrz efektu, sam efekt za
 
 ---
 
-### Reading the latest props and state from an Effect {/*reading-the-latest-props-and-state-from-an-effect*/}
+### Odczytywanie najnowszych właściwości i stanu z efektu {/*reading-the-latest-props-and-state-from-an-effect*/}
 
 <Wip>
 
-This section describes an **experimental API that has not yet been released** in a stable version of React.
+Ta sekcja opisuje **eksperymentalne API, które nie zostało jeszcze wydane** w stabilnej wersji Reacta.
 
 </Wip>
 
-By default, when you read a reactive value from an Effect, you have to add it as a dependency. This ensures that your Effect "reacts" to every change of that value. For most dependencies, that's the behavior you want.
+Standardowo, gdy w efekcie czytasz wartość reaktywną, musisz ją dodać jako zależność. To zapewnia, że twój efekt "reaguje" na każdą zmianę tej wartości. Jest to oczekiwane zachowanie dla większości zależności.
 
-**However, sometimes you'll want to read the *latest* props and state from an Effect without "reacting" to them.** For example, imagine you want to log the number of the items in the shopping cart for every page visit:
+**Jednakże czasami będziesz chcieć odczytać w efekcie *najnowsze* właściwości i stan bez "reagowania" na nie.** Na przykład, wyobraź sobie, że chcesz zapisać do logów liczbę produktów w koszyku zakupowym dla każdej wizyty na stronie:
 
 ```js {3}
 function Page({ url, shoppingCart }) {
   useEffect(() => {
     logVisit(url, shoppingCart.length);
-  }, [url, shoppingCart]); // ✅ All dependencies declared
+  }, [url, shoppingCart]); // ✅ Wszystkie zależności zadeklarowane
   // ...
 }
 ```
 
-**What if you want to log a new page visit after every `url` change, but *not* if only the `shoppingCart` changes?** You can't exclude `shoppingCart` from dependencies without breaking the [reactivity rules.](#specifying-reactive-dependencies) However, you can express that you *don't want* a piece of code to "react" to changes even though it is called from inside an Effect. [Declare an *Effect Event*](/learn/separating-events-from-effects#declaring-an-effect-event) with the [`useEffectEvent`](/reference/react/experimental_useEffectEvent) Hook, and move the code reading `shoppingCart` inside of it:
+**A co jeśli chcesz zalogować nową wizytę na stronie po każdej zmianie `url`, ale *nie chcesz* tego robić, jeśli zmienia się tylko `shoppingCart`?** Nie możesz wykluczyć `shoppingCart` z zależności bez naruszania [zasad reaktywności.](#specifying-reactive-dependencies) Jednakże możesz określić, że *nie chcesz*, aby pewien fragment kodu "reagował" na zmiany, chociaż jest wywoływany wewnątrz efektu. [Zadeklaruj *efekt wydarzenia*](/learn/separating-events-from-effects#declaring-an-effect-event) za pomocą hooka [`useEffectEvent`](/reference/react/experimental_useEffectEvent) i przenieś kod odczytujący `shoppingCart` do jego wnętrza:
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
@@ -1716,14 +1716,14 @@ function Page({ url, shoppingCart }) {
 
   useEffect(() => {
     onVisit(url);
-  }, [url]); // ✅ All dependencies declared
+  }, [url]); // ✅ Wszystkie zależności zadeklarowane
   // ...
 }
 ```
 
-**Effect Events are not reactive and must always be omitted from dependencies of your Effect.** This is what lets you put non-reactive code (where you can read the latest value of some props and state) inside of them. By reading `shoppingCart` inside of `onVisit`, you ensure that `shoppingCart` won't re-run your Effect.
+**Efekty wydarzenia nie są reaktywne i muszą być zawsze pomimięte w zależnościach efektu.** Dzięki temu możesz umieścić kod niereaktywny (gdzie możesz odczytać najnowszą wartość niektórych właściwości i stanu) w ich wnętrzu. Czytając `shoppingCart` wewnątrz `onVisit`, zapewnisz, że `shoppingCart` nie uruchomi ponownie twojego efektu.
 
-[Read more about how Effect Events let you separate reactive and non-reactive code.](/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events)
+[Dowiedz się więcej o tym, jak efekty wydarzenia pozwalają oddzielić kod reaktywny od niereaktywnego.](/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events)
 
 
 ---
