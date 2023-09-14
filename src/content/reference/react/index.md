@@ -106,6 +106,24 @@ Aby spriorytetyzować renderowanie, użyj jednego z tych hooków.
 
 ---
 
+## Hooki zasobów {/*resource-hooks*/}
+
+Do *zasobów* można dostać się z poziomu komponentu bez konieczności tworzenia dla nich stanu lokalnego. Na przykład, komponent może odczytywać wiadomość z Obietnicy (*ang.* Promise) albo informacje o stylu z kontekstu. 
+
+Aby odczytać wartość z zasobu, użyj tego Hooka:
+
+- [`use`](/reference/react/use) pozwala na odczytanie wartości zasobu, takiego jak [Obietnica (*ang.* Promise)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) lub [kontekst](/learn/passing-data-deeply-with-context).
+
+```js
+function MessageComponent({ messagePromise }) {
+  const message = use(messagePromise);
+  const theme = use(ThemeContext);
+  // ...
+}
+```
+
+---
+
 ## Inne hooki {/*other-hooks*/}
 
 Te hooki przydają się zwykle tylko autorom bibliotek i nieczęsto spotyka się je w kodzie aplikacyjnym.
