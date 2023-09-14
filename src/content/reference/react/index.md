@@ -106,16 +106,13 @@ Aby spriorytetyzować renderowanie, użyj jednego z tych hooków.
 
 ---
 
-<<<<<<< HEAD
-## Inne hooki {/*other-hooks*/}
-=======
-## Resource Hooks {/*resource-hooks*/}
+## Hooki zasobów {/*resource-hooks*/}
 
-*Resources* can be accessed by a component without having them as part of their state. For example, a component can read a message from a Promise or read styling information from a context.
+Do *zasobów* można dostać się z poziomu komponentu bez konieczności tworzenia dla nich stanu lokalnego. Na przykład, komponent może odczytywać wiadomość z Obietnicy (*ang.* Promise) albo informacje o stylu z kontekstu. 
 
-To read a value from a resource, use this Hook:
+Aby odczytać wartość z zasobu, użyj tego Hooka:
 
-- [`use`](/reference/react/use) lets you read the value of a resource like a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+- [`use`](/reference/react/use) pozwala na odczytanie wartości zasobu, takiego jak [Obietnica (*ang.* Promise)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) lub [kontekst](/learn/passing-data-deeply-with-context).
 
 ```js
 function MessageComponent({ messagePromise }) {
@@ -127,8 +124,7 @@ function MessageComponent({ messagePromise }) {
 
 ---
 
-## Other Hooks {/*other-hooks*/}
->>>>>>> 5219d736a7c181a830f7646e616eb97774b43272
+## Inne hooki {/*other-hooks*/}
 
 Te hooki przydają się zwykle tylko autorom bibliotek i nieczęsto spotyka się je w kodzie aplikacyjnym.
 
