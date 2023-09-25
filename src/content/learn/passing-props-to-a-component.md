@@ -448,13 +448,8 @@ export default function Gallery() {
             Medal Davy'ego, Medal Matteucciego)
           </li>
           <li>
-<<<<<<< HEAD
             <b>Odkrycia: </b>
             polon (pierwiastek)
-=======
-            <b>Discovered: </b>
-            polonium (chemical element)
->>>>>>> 2390627c9cb305216e6bd56e67c6603a89e76e7f
           </li>
         </ul>
       </section>
