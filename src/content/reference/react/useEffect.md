@@ -1045,7 +1045,7 @@ Pisanie wywołań `fetch` wewnątrz efektów to [popularny sposób na pobieranie
 
 Te wady nie dotyczą tylko Reacta. Występują one przy pobieraniu danych podczas montowania komponentu przy użyciu dowolnej biblioteki. Podobnie jak w przypadku routingu, poprawne wykonywanie pobierania danych nie jest proste, dlatego polecamy następujące podejścia:
 
-- **Jeśli używasz [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks), wykorzystaj wbudowany mechanizm pobierania danych.** Współczesne frameworki reactowe mają zintegrowane mechanizmy pobierania danych, które są wydajne i rozwiązują powyższe problemy.
+- **Jeśli używasz [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks), wykorzystaj jego wbudowany mechanizm pobierania danych.** Współczesne frameworki reactowe mają zintegrowane mechanizmy pobierania danych, które są wydajne i rozwiązują powyższe problemy.
 - **W przeciwnym razie, rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym użytoby efektów, ale także dodano logikę do deduplikacji zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
 
 Możesz nadal pobierać dane bezpośrednio w efektach, jeśli żadne z wymienionych podejść nie spełnia twoich potrzeb.
