@@ -1762,7 +1762,7 @@ Stosuj ten wzorzec z rowzwagą. Pamiętaj, że użytkownicy z wolnym połączeni
 
 Kiedy tryb rygorystyczny jest włączony, w trybie deweloperskim React uruchamia dodatkowo funkcje konfiguracyjną i czyszczącą przed właściwym uruchomieniem funkcji konfiguracyjnej.
 
-Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to powoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofać to, co robi funkcja konfiguracyjna. Ogólna zasada jest taka, że użytkownik nie powinien być w stanie rozróżnić między tym, czy konfiguracja został wywołana tylko raz (jak na produkcji), czy też w sekwencji konfiguracja → sprzątanie → konfiguracja (jak w trybie deweloperskim).
+Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to powoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofać to, co robi funkcja konfiguracyjna. Ogólna zasada jest taka, że użytkownik nie powinien być w stanie rozróżnić między tym, czy konfiguracja został wywołana tylko raz (jak na produkcji), czy też w sekwencji konfiguracja → czyszczenie → konfiguracja (jak w trybie deweloperskim).
 
 Dowiedz się więcej o tym, [jak to pomaga znajdować błędy](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) oraz [jak naprawić logikę swojego efektu.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
