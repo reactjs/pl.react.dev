@@ -1768,19 +1768,19 @@ Dowiedz się więcej o tym, [jak to pomaga znajdować błędy](/learn/synchroniz
 
 ---
 
-### My Effect runs after every re-render {/*my-effect-runs-after-every-re-render*/}
+### Mój efekt uruchamia się po każdym przerenderowaniu {/*my-effect-runs-after-every-re-render*/}
 
-First, check that you haven't forgotten to specify the dependency array:
+Sprawdź najpierw, czy przypadkiem nie zapomniano o podaniu tablicy zależności:
 
 ```js {3}
 useEffect(() => {
   // ...
-}); // 🚩 No dependency array: re-runs after every render!
+}); // 🚩 Brak tablicy zależności: efekt uruchamia się po każdym renderowaniu!
 ```
 
-If you've specified the dependency array but your Effect still re-runs in a loop, it's because one of your dependencies is different on every re-render.
+Jeśli tablica zależności jest podana, ale twój efekt nadal wywołuje się w pętli, może to być spowodowane tym, że jedna z twoich zależności zmienia się przy każdym przerenderowaniu.
 
-You can debug this problem by manually logging your dependencies to the console:
+Możesz sprawdzić czy to jest ten problem, dodając wypisywanie zależności do konsoli:
 
 ```js {5}
   useEffect(() => {
@@ -1790,22 +1790,22 @@ You can debug this problem by manually logging your dependencies to the console:
   console.log([serverUrl, roomId]);
 ```
 
-You can then right-click on the arrays from different re-renders in the console and select "Store as a global variable" for both of them. Assuming the first one got saved as `temp1` and the second one got saved as `temp2`, you can then use the browser console to check whether each dependency in both arrays is the same:
+Następnie możesz kliknąć prawym przyciskiem myszy na tablicach z różnych przerenderowań w konsoli i wybrać "Zapisz jako zmienną globalną" (ang. *Store as Global Variable*) dla obu z nich. Zakładając, że pierwsza została zapisana jako `temp1`, a druga jako `temp2`, możesz użyć konsoli przeglądarki, aby sprawdzić, czy każda zależność w obu tablicach jest taka sama:
 
 ```js
-Object.is(temp1[0], temp2[0]); // Is the first dependency the same between the arrays?
-Object.is(temp1[1], temp2[1]); // Is the second dependency the same between the arrays?
-Object.is(temp1[2], temp2[2]); // ... and so on for every dependency ...
+Object.is(temp1[0], temp2[0]); // Czy pierwsza zależność jest taka sama w obu tablicach?
+Object.is(temp1[1], temp2[1]); // Czy druga zależność jest taka sama w obu tablicach?
+Object.is(temp1[2], temp2[2]); // ... i tak dalej dla każdej zależności ...
 ```
 
-When you find the dependency that is different on every re-render, you can usually fix it in one of these ways:
+Kiedy znajdziesz zależność, która zmienia się przy każdym przerenderowaniu, zazwyczaj da się to naprawić jednym z poniższych sposobów:
 
-- [Updating state based on previous state from an Effect](#updating-state-based-on-previous-state-from-an-effect)
-- [Removing unnecessary object dependencies](#removing-unnecessary-object-dependencies)
-- [Removing unnecessary function dependencies](#removing-unnecessary-function-dependencies)
-- [Reading the latest props and state from an Effect](#reading-the-latest-props-and-state-from-an-effect)
+- [Aktualizacja stanu na podstawie poprzedniego stanu z efektu](#updating-state-based-on-previous-state-from-an-effect)
+- [Usunięcie zbędnych zależności od obiektów](#removing-unnecessary-object-dependencies)
+- [Usunięcie zbędnych zależności od funkcji](#removing-unnecessary-function-dependencies)
+- [Odczytywanie najnowszych właściwości i stanu z efektu](#reading-the-latest-props-and-state-from-an-effect)
 
-As a last resort (if these methods didn't help), wrap its creation with [`useMemo`](/reference/react/useMemo#memoizing-a-dependency-of-another-hook) or [`useCallback`](/reference/react/useCallback#preventing-an-effect-from-firing-too-often) (for functions).
+Ostatecznym rozwiązaniem (jeśli powyższe metody nie pomogły) jest opakowanie tworzenia obiektu w [`useMemo`](/reference/react/useMemo#memoizing-a-dependency-of-another-hook) lub [`useCallback`](/reference/react/useCallback#preventing-an-effect-from-firing-too-often) (dla funkcji).
 
 ---
 
