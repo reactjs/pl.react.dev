@@ -115,7 +115,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | callback | funkcja zwrotna | Za pierwszym razem z dopiskiem (ang. *callback*) |
 | camelCase	| notacja "camelCase" | Odmiana: camelCasem, ale: camelCase'owi camelCase'a |
 | child component | komponent potomny | |
-| cleanup function | funkcja sprzątająca | W kontekście `useEffect` |
+| cleanup function | funkcja czyszcząca | W kontekście `useEffect` |
 | client | klient | |
 | clients | klienty | Nie: klienci |
 | component state | stan komponentu | |
@@ -130,7 +130,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | dispatcher | dyspozytor | Za pierwszym razem z dopiskiem (ang. *dispatcher*) |
 | dispatching an event | przesyłanie zdarzenia | |
 | dummy component | sztuczny komponent | |
-| effect event | efekt wydarzenia? wydarzenie efektu? | W kontekście `useEffectEvent` |
+| effect event | zdarzenie efektu | W kontekście `useEffectEvent` |
 | event handler | procedura obsługi zdarzenia | |
 | framework	| framework | |
 | function component | komponent funkcyjny | |
@@ -141,7 +141,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | higher-order components | komponenty wyższego rzędu | Za pierwszym razem z dopiskiem (ang. *higher-order components*) |
 | hook | hook | |
 | HTML entities | encje HTML | |
-| hydrate | hydratować? hydrować? | |
+| hydrate | hydratować | Używać sporadycznie, najlepiej tłumaczyć niedosłownie |
 | hydration | hydratacja | |
 | idea | zagadnienie | |
 | immutable | niezmienny | Za pierwszym razem z dopiskiem (ang. *immutable*) |
