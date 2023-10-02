@@ -1706,7 +1706,7 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
-**A co jeśli chcesz zalogować nową wizytę na stronie po każdej zmianie `url`, ale *nie chcesz* tego robić, jeśli zmienia się tylko `shoppingCart`?** Nie możesz wykluczyć `shoppingCart` z zależności bez naruszania [zasad reaktywności.](#specifying-reactive-dependencies) Jednakże możesz określić, że *nie chcesz*, aby pewien fragment kodu "reagował" na zmiany, chociaż jest wywoływany wewnątrz efektu. [Zadeklaruj *efekt wydarzenia*](/learn/separating-events-from-effects#declaring-an-effect-event) za pomocą hooka [`useEffectEvent`](/reference/react/experimental_useEffectEvent) i przenieś kod odczytujący `shoppingCart` do jego wnętrza:
+**A co jeśli chcesz zalogować nową wizytę na stronie po każdej zmianie `url`, ale *nie chcesz* tego robić, jeśli zmienia się tylko `shoppingCart`?** Nie możesz wykluczyć `shoppingCart` z zależności bez naruszania [zasad reaktywności.](#specifying-reactive-dependencies) Jednakże możesz określić, że *nie chcesz*, aby pewien fragment kodu "reagował" na zmiany, chociaż jest wywoływany wewnątrz efektu. [Zadeklaruj *zdarzenie efektu*](/learn/separating-events-from-effects#declaring-an-effect-event) za pomocą hooka [`useEffectEvent`](/reference/react/experimental_useEffectEvent) i przenieś kod odczytujący `shoppingCart` do jego wnętrza:
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
@@ -1721,9 +1721,9 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
-**Efekty wydarzenia nie są reaktywne i muszą być zawsze pomimięte w zależnościach efektu.** Dzięki temu możesz umieścić kod niereaktywny (gdzie możesz odczytać najnowszą wartość niektórych właściwości i stanu) w ich wnętrzu. Czytając `shoppingCart` wewnątrz `onVisit`, zapewnisz, że `shoppingCart` nie uruchomi ponownie twojego efektu.
+**Zdarzenia efektu nie są reaktywne i muszą być zawsze pomimięte w zależnościach efektu.** Dzięki temu możesz umieścić kod niereaktywny (gdzie możesz odczytać najnowszą wartość niektórych właściwości i stanu) w ich wnętrzu. Czytając `shoppingCart` wewnątrz `onVisit`, zapewnisz, że `shoppingCart` nie uruchomi ponownie twojego efektu.
 
-[Dowiedz się więcej o tym, jak efekty wydarzenia pozwalają oddzielić kod reaktywny od niereaktywnego.](/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events)
+[Dowiedz się więcej o tym, jak zdarzenia efektu pozwalają oddzielić kod reaktywny od niereaktywnego.](/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events)
 
 
 ---
