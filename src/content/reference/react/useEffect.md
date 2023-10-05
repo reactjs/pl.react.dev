@@ -1857,6 +1857,6 @@ Twoja logika czyszcząca powinna być "symetryczna" względem logiki konfiguracy
 
 ---
 
-### My Effect does something visual, and I see a flicker before it runs {/*my-effect-does-something-visual-and-i-see-a-flicker-before-it-runs*/}
+### Mój efekt robi coś wizualnego i widzę migotanie przed jego uruchomieniem {/*my-effect-does-something-visual-and-i-see-a-flicker-before-it-runs*/}
 
-If your Effect must block the browser from [painting the screen,](/learn/render-and-commit#epilogue-browser-paint) replace `useEffect` with [`useLayoutEffect`](/reference/react/useLayoutEffect). Note that **this shouldn't be needed for the vast majority of Effects.** You'll only need this if it's crucial to run your Effect before the browser paint: for example, to measure and position a tooltip before the user sees it.
+Jeśli Twój efekt musi wstrzymać przeglądarkę przed [pokazaniem zawartości na ekranie,](/learn/render-and-commit#epilogue-browser-paint) zastąp `useEffect` z pomocą [`useLayoutEffect`](/reference/react/useLayoutEffect). Pamiętaj, że **to nie będzie konieczne w przypadku zdecydowanej większości efektów.** Będziesz tego potrzebować tylko wtedy, gdy konieczne jest uruchomienie efektu przed tym jak przeglądarka zacznie wyświetlać zawartość, na przykład do pomiaru i pozycjonowania dymka podpowiedzi zanim użytkownik go zobaczy.
