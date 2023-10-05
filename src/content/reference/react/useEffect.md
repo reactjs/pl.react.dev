@@ -1826,22 +1826,22 @@ Kończąc, jeśli twój efekt aktualizuje stan w odpowiednim momencie, ale wcią
 
 ---
 
-### My cleanup logic runs even though my component didn't unmount {/*my-cleanup-logic-runs-even-though-my-component-didnt-unmount*/}
+### Moja funkcja czyszcząca jest uruchamiana nawet, gdy mój komponent nie jest odmontowywany {/*my-cleanup-logic-runs-even-though-my-component-didnt-unmount*/}
 
-The cleanup function runs not only during unmount, but before every re-render with changed dependencies. Additionally, in development, React [runs setup+cleanup one extra time immediately after component mounts.](#my-effect-runs-twice-when-the-component-mounts)
+Funkcja czyszcząca uruchamia się nie tylko podczas odmontowywania, ale również przed każdym przerenderowaniem ze zmienionymi zależnościami. Dodatkowo, w trybie deweloperskim, React [uruchamia funkcję konfiguracyjną oraz czyszczącą dodatkowy raz, tuż po zamontowaniu komponentu.](#my-effect-runs-twice-when-the-component-mounts)
 
-If you have cleanup code without corresponding setup code, it's usually a code smell:
+Jeśli masz kod czyszczący bez odpowiadającego mu kodu konfigurującego, zazwyczaj oznacza to, że kod ten może powodować problemy:
 
 ```js {2-5}
 useEffect(() => {
-  // 🔴 Avoid: Cleanup logic without corresponding setup logic
+  // 🔴 Unikaj: Logika czyszczenia bez odpowiadającej jej logiki konfiguracyjnej.
   return () => {
     doSomething();
   };
 }, []);
 ```
 
-Your cleanup logic should be "symmetrical" to the setup logic, and should stop or undo whatever setup did:
+Twoja logika czyszcząca powinna być "symetryczna" względem logiki konfiguracyjnej i powinna zatrzymać lub cofać to, co zrobiła funkcja konfiguracyjna:
 
 ```js {2-3,5}
   useEffect(() => {
@@ -1853,7 +1853,7 @@ Your cleanup logic should be "symmetrical" to the setup logic, and should stop o
   }, [serverUrl, roomId]);
 ```
 
-[Learn how the Effect lifecycle is different from the component's lifecycle.](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect)
+[Dowiedz się, jak cykl życia efektu różni się od cyklu życia komponentu.](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect)
 
 ---
 
