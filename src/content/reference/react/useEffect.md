@@ -1046,7 +1046,7 @@ Pisanie wywołań `fetch` wewnątrz efektów to [popularny sposób na pobieranie
 Te wady nie dotyczą tylko Reacta. Występują one przy pobieraniu danych podczas montowania komponentu przy użyciu dowolnej biblioteki. Podobnie jak w przypadku routingu, poprawne wykonywanie pobierania danych nie jest proste, dlatego polecamy następujące podejścia:
 
 - **Jeśli używasz [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks), wykorzystaj jego wbudowany mechanizm pobierania danych.** Współczesne frameworki reactowe mają zintegrowane mechanizmy pobierania danych, które są wydajne i rozwiązują powyższe problemy.
-- **W przeciwnym razie, rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym użytoby efektów, ale także dodano logikę do deduplikacji zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
+- **W przeciwnym razie, rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym byłyby użyte efekty, ale także byłaby logika do unikania zduplikowanych zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
 
 Możesz nadal pobierać dane bezpośrednio w efektach, jeśli żadne z wymienionych podejść nie spełnia twoich potrzeb.
 
@@ -1133,15 +1133,15 @@ useEffect(() => {
 }, []);
 ```
 
-**Kiedy zależności nie pasują do kodu, istnieje duże ryzyko wprowadzenia błędów.** Uciszająć lintera, "oszukujesz" Reacta co do wartości, od których zależy twój efekt. [Zamiast tego, udowodnij, że są one zbędne.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)
+**Kiedy zależności nie pasują do kodu, istnieje duże ryzyko wprowadzenia błędów.** Uciszając lintera, "oszukujesz" Reacta co do wartości, od których zależy twój efekt. [Zamiast tego, udowodnij, że są one zbędne.](/learn/removing-effect-dependencies#removing-unnecessary-dependencies)
 
 </Pitfall>
 
-<Recipes titleText="Przykłady przekazywania reaktywnych zaleźności" titleId="examples-dependencies">
+<Recipes titleText="Przykłady przekazywania reaktywnych zależności" titleId="examples-dependencies">
 
 #### Przekazywanie tablicy zależności {/*passing-a-dependency-array*/}
 
-Jeśli określisz zależności, twój efekt zostanie uruchomiony **po początkowym wyrenderowaniu _oraz_ po ponownym renderowaniu z zmienionymi zależnościami.**
+Jeśli określisz zależności, twój efekt zostanie uruchomiony **po początkowym renderowaniu _oraz_ po ponownym renderowaniu z zmienionymi zależnościami.**
 
 ```js {3}
 useEffect(() => {
@@ -1172,7 +1172,7 @@ function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        URL servera:{' '}
+        URL serwera:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
@@ -1346,7 +1346,7 @@ function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        URL servera:{' '}
+        URL serwera:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
@@ -1446,7 +1446,7 @@ export default function Counter() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCount(c => c + 1); // ✅ Przekaź funkcję aktualizującą
+      setCount(c => c + 1); // ✅ Przekaż funkcję aktualizującą
     }, 1000);
     return () => clearInterval(intervalId);
   }, []); // ✅ Teraz count nie jest juź zależnością
@@ -1721,7 +1721,7 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
-**Zdarzenia efektu nie są reaktywne i muszą być zawsze pomimięte w zależnościach efektu.** Dzięki temu możesz umieścić kod niereaktywny (gdzie możesz odczytać najnowszą wartość niektórych właściwości i stanu) w ich wnętrzu. Czytając `shoppingCart` wewnątrz `onVisit`, zapewnisz, że `shoppingCart` nie uruchomi ponownie twojego efektu.
+**Zdarzenia efektu nie są reaktywne i muszą być zawsze pominięte w zależnościach efektu.** Dzięki temu możesz umieścić kod niereaktywny (gdzie możesz odczytać najnowszą wartość niektórych właściwości i stanu) w ich wnętrzu. Czytając `shoppingCart` wewnątrz `onVisit`, zapewnisz, że `shoppingCart` nie uruchomi ponownie twojego efektu.
 
 [Dowiedz się więcej o tym, jak zdarzenia efektu pozwalają oddzielić kod reaktywny od niereaktywnego.](/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events)
 
@@ -1752,7 +1752,7 @@ function MyComponent() {
 
 Podczas ładowania aplikacji użytkownik zobaczy początkowy wynik renderowania. Następnie, gdy aplikacja zostanie załadowana i nawodniona, twój efekt zostanie uruchomiony i ustawi `didMount` na `true`, co spowoduje przerenderowanie. Następnie zostanie wyświetlony wynik renderowania tylko dla klienta. Efekty nie są uruchamiane na serwerze, dlatego też `didMount` było ustawione na `false` podczas początkowego renderowania na serwerze.
 
-Stosuj ten wzorzec z rowzwagą. Pamiętaj, że użytkownicy z wolnym połączeniem będą widzieć początkową zawartość przez pewien czas - potencjalnie przez wiele sekund - dlatego nie chcemy nagłych zmian w wyglądzie twojego komponentu. W wielu przypadkach można uniknąć konieczności korzystania z tego rozwiązania, wyświetlając warunkowo inne elementy za pomocą CSS.
+Stosuj ten wzorzec z rozwagą. Pamiętaj, że użytkownicy z wolnym połączeniem będą widzieć początkową zawartość przez pewien czas - potencjalnie przez wiele sekund - dlatego nie chcemy nagłych zmian w wyglądzie twojego komponentu. W wielu przypadkach można uniknąć konieczności korzystania z tego rozwiązania, wyświetlając warunkowo inne elementy za pomocą CSS.
 
 ---
 
@@ -1816,7 +1816,7 @@ Jeżeli twój efekt wpada w nieskończoną pętlę, te dwa warunki muszą być s
 - Twój efekt aktualizuje jakiś stan.
 - Ten stan prowadzi do przerenderowania, co powoduje zmiany w zależnościach efektu.
 
-Zanim ruszusz do naprawiania problemu, zastanów się, czy twój efekt nie łączy się z jakimś zewnętrznym systemem (takim jak drzewo DOM, sieć, widżet itp.). Dlaczego twój efekt musi ustawiać stan? Czy synchronizuje się on z tym zewnętrznym systemem? Czy próbujesz za jego pomocą zarządzać przepływem danych w twojej aplikacji?
+Zanim ruszysz do naprawiania problemu, zastanów się, czy twój efekt nie łączy się z jakimś zewnętrznym systemem (takim jak drzewo DOM, sieć, widżet itp.). Dlaczego twój efekt musi ustawiać stan? Czy synchronizuje się on z tym zewnętrznym systemem? Czy próbujesz za jego pomocą zarządzać przepływem danych w twojej aplikacji?
 
 Jeśli nie ma żadnego zewnętrznego systemu, zastanów się, czy [całkowite usunięcie efektu](/learn/you-might-not-need-an-effect) nie uprościłoby twojej logiki.
 
