@@ -1730,7 +1730,7 @@ function Page({ url, shoppingCart }) {
 
 ### Wyświetlanie różnych treści na serwerze i kliencie {/*displaying-different-content-on-the-server-and-the-client*/}
 
-Jeśli twoja aplikacja korzysta z renderowania na serwerze (zarówno [bezpośrednio](/reference/react-dom/server) lub za pomocą [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks)), twój komponent będzie renderowany w dwóch różnych środowiskach. Na serwerze zostanie on wyrenderowany, aby wygenerować początkowy kod HTML. Na kliencie React uruchomi kod renderowania ponownie, aby mógł podpiąć do tego kodu HTML funkcje obsługujące zdarzenia. Dlatego, aby [nawodnienie](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) działało, wynik początkowego renderowania musi być identyczny na kliencie i na serwerze.
+Jeśli twoja aplikacja korzysta z renderowania na serwerze (zarówno [bezpośrednio](/reference/react-dom/server) lub za pomocą [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks)), twój komponent będzie renderowany w dwóch różnych środowiskach. Na serwerze zostanie on wyrenderowany, aby wygenerować początkowy kod HTML. Na kliencie React uruchomi kod renderowania ponownie, aby mógł podpiąć do tego kodu HTML funkcje obsługujące zdarzenia. Dlatego, aby [hydratacja](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) działała, wynik początkowego renderowania musi być identyczny na kliencie i na serwerze.
 
 W rzadkich przypadkach może zajść potrzeba, aby wyświetlić inną treść na kliencie. Na przykład, jeśli twoja aplikacja odczytuje pewne dane z [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), to nie jest to możliwe do wykonania na serwerze. Oto jak można to zrealizować:
 
@@ -1750,7 +1750,7 @@ function MyComponent() {
 }
 ```
 
-Podczas ładowania aplikacji użytkownik zobaczy początkowy wynik renderowania. Następnie, gdy aplikacja zostanie załadowana i nawodniona, twój efekt zostanie uruchomiony i ustawi `didMount` na `true`, co spowoduje przerenderowanie. Następnie zostanie wyświetlony wynik renderowania tylko dla klienta. Efekty nie są uruchamiane na serwerze, dlatego też `didMount` było ustawione na `false` podczas początkowego renderowania na serwerze.
+Podczas ładowania aplikacji użytkownik zobaczy początkowy wynik renderowania. Następnie, gdy aplikacja zostanie załadowana i ulegnie hydratacji, twój efekt zostanie uruchomiony i ustawi `didMount` na `true`, co spowoduje przerenderowanie. Następnie zostanie wyświetlony wynik renderowania tylko dla klienta. Efekty nie są uruchamiane na serwerze, dlatego też `didMount` było ustawione na `false` podczas początkowego renderowania na serwerze.
 
 Stosuj ten wzorzec z rozwagą. Pamiętaj, że użytkownicy z wolnym połączeniem będą widzieć początkową zawartość przez pewien czas - potencjalnie przez wiele sekund - dlatego nie chcemy nagłych zmian w wyglądzie twojego komponentu. W wielu przypadkach można uniknąć konieczności korzystania z tego rozwiązania, wyświetlając warunkowo inne elementy za pomocą CSS.
 
