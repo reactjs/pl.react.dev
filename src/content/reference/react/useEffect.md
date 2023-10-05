@@ -1809,20 +1809,20 @@ Ostatecznym rozwiązaniem (jeśli powyższe metody nie pomogły) jest opakowanie
 
 ---
 
-### My Effect keeps re-running in an infinite cycle {/*my-effect-keeps-re-running-in-an-infinite-cycle*/}
+### Mój efekt wpada w nieskończoną pętlę {/*my-effect-keeps-re-running-in-an-infinite-cycle*/}
 
-If your Effect runs in an infinite cycle, these two things must be true:
+Jeżeli twój efekt wpada w nieskończoną pętlę, te dwa warunki muszą być spełnione:
 
-- Your Effect is updating some state.
-- That state leads to a re-render, which causes the Effect's dependencies to change.
+- Twój efekt aktualizuje jakiś stan.
+- Ten stan prowadzi do przerenderowania, co powoduje zmiany w zależnościach efektu.
 
-Before you start fixing the problem, ask yourself whether your Effect is connecting to some external system (like DOM, network, a third-party widget, and so on). Why does your Effect need to set state? Does it synchronize with that external system? Or are you trying to manage your application's data flow with it?
+Zanim ruszusz do naprawiania problemu, zastanów się, czy twój efekt nie łączy się z jakimś zewnętrznym systemem (takim jak drzewo DOM, sieć, widżet itp.). Dlaczego twój efekt musi ustawiać stan? Czy synchronizuje się on z tym zewnętrznym systemem? Czy próbujesz za jego pomocą zarządzać przepływem danych w twojej aplikacji?
 
-If there is no external system, consider whether [removing the Effect altogether](/learn/you-might-not-need-an-effect) would simplify your logic.
+Jeśli nie ma żadnego zewnętrznego systemu, zastanów się, czy [całkowite usunięcie efektu](/learn/you-might-not-need-an-effect) nie uprościłoby twojej logiki.
 
-If you're genuinely synchronizing with some external system, think about why and under what conditions your Effect should update the state. Has something changed that affects your component's visual output? If you need to keep track of some data that isn't used by rendering, a [ref](/reference/react/useRef#referencing-a-value-with-a-ref) (which doesn't trigger re-renders) might be more appropriate. Verify your Effect doesn't update the state (and trigger re-renders) more than needed.
+Jeśli rzeczywiście synchronizujesz się z jakimś zewnętrznym systemem, zastanów się, dlaczego i pod jakim warunkiem twój efekt powinien aktualizować stan. Czy zmieniło się coś, co wpływa na to jak powinien wyglądać twój komponent? Jeśli musisz śledzić jakieś dane, które nie są używane do renderowania, może bardziej odpowiednie będzie użycie [referencji](/reference/react/useRef#referencing-a-value-with-a-ref) (która nie powoduje przerenderowania). Upewnij się, że twój efekt nie aktualizuje stanu (i nie powoduje ponownych renderowań) częściej niż to konieczne.
 
-Finally, if your Effect is updating the state at the right time, but there is still a loop, it's because that state update leads to one of the Effect's dependencies changing. [Read how to debug dependency changes.](/reference/react/useEffect#my-effect-runs-after-every-re-render)
+Kończąc, jeśli twój efekt aktualizuje stan w odpowiednim momencie, ale wciąż występuje zapętlenie, oznacza to, że ta aktualizacja stanu prowadzi do zmiany jednej z zależności efektu. [Przeczytaj, jak debugować zmiany w zależnościach.](/reference/react/useEffect#my-effect-runs-after-every-re-render)
 
 ---
 
