@@ -58,7 +58,7 @@ function ChatRoom({ roomId }) {
 
 * Jeśli **nie próbujesz synchronizować się z jakimś zewnętrznym systemem,** [prawdopodobnie nie potrzebujesz efektu.](/learn/you-might-not-need-an-effect)
 
-* W Trybie Rygorystycznym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu obciążeniowego, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+* W trybie rygorystycznym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu obciążeniowego, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 * Jeśli niektóre z twoich zależności to obiekty lub funkcje zdefiniowane wewnątrz komponentu, istnieje ryzyko, że **spowodują, że efekt będzie wykonywał się częściej niż jest to potrzebne.** Aby to naprawić, usuń zbędne zależności od [obiektów](#removing-unnecessary-object-dependencies) i [funkcji](#removing-unnecessary-function-dependencies). Możesz również [wydzielić aktualizacje stanu](#updating-state-based-on-previous-state-from-an-effect) oraz [logikę niereaktywną](#reading-the-latest-props-and-state-from-an-effect) poza efekt.
 
