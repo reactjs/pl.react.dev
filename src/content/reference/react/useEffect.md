@@ -58,7 +58,7 @@ function ChatRoom({ roomId }) {
 
 * Jeśli **nie próbujesz synchronizować się z jakimś zewnętrznym systemem,** [prawdopodobnie nie potrzebujesz efektu.](/learn/you-might-not-need-an-effect)
 
-* W Trybie Rygorystycznym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu obciążeniowego, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+* W trybie rygorystycznym (ang. *Strict Mode*), React **w środowisku developerskim wywoła dodatkowo funkcje `setup` i funkcję czyszczącą** jeszcze przed pierwszym właściwym wywołaniem `setup`. Jest to rodzaj testu obciążeniowego, który pozwala upewnić się, że logika funkcji czyszczącej "odzwierciedla" logikę funkcji `setup` i że zatrzymuje lub cofa to, co ona robi. Jeśli to powoduje problemy, [zaimplementuj funkcję czyszczącą.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 * Jeśli niektóre z twoich zależności to obiekty lub funkcje zdefiniowane wewnątrz komponentu, istnieje ryzyko, że **spowodują, że efekt będzie wykonywał się częściej niż jest to potrzebne.** Aby to naprawić, usuń zbędne zależności od [obiektów](#removing-unnecessary-object-dependencies) i [funkcji](#removing-unnecessary-function-dependencies). Możesz również [wydzielić aktualizacje stanu](#updating-state-based-on-previous-state-from-an-effect) oraz [logikę niereaktywną](#reading-the-latest-props-and-state-from-an-effect) poza efekt.
 
@@ -1760,7 +1760,7 @@ Stosuj ten wzorzec z rozwagą. Pamiętaj, że użytkownicy z wolnym połączenie
 
 ### Mój efekt jest uruchamiany podwójnie, gdy komponent jest montowany {/*my-effect-runs-twice-when-the-component-mounts*/}
 
-Kiedy Tryb Rygorystyczny jest włączony, w trybie deweloperskim React uruchamia dodatkowo funkcje konfiguracyjną i czyszczącą przed właściwym uruchomieniem funkcji konfiguracyjnej.
+Kiedy tryb rygorystyczny jest włączony, w trybie deweloperskim React uruchamia dodatkowo funkcje konfiguracyjną i czyszczącą przed właściwym uruchomieniem funkcji konfiguracyjnej.
 
 Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to powoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofać to, co robi funkcja konfiguracyjna. Ogólna zasada jest taka, że użytkownik nie powinien być w stanie rozróżnić między tym, czy konfiguracja został wywołana tylko raz (jak na produkcji), czy też w sekwencji konfiguracja → czyszczenie → konfiguracja (jak w trybie deweloperskim).
 
