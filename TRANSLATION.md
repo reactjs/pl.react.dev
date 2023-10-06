@@ -141,7 +141,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | higher-order components | komponenty wyższego rzędu | Za pierwszym razem z dopiskiem (ang. *higher-order components*) |
 | hook | hook | |
 | HTML entities | encje HTML | |
-| hydrate | hydratować | Używać sporadycznie, najlepiej tłumaczyć niedosłownie |
+| hydrate | hydratować | Używać sporadycznie, najlepiej tłumaczyć niedosłownie, np. "odtwarzać drzewo komponentów, "ulegać hydratacji" |
 | hydration | hydratacja | |
 | idea | zagadnienie | |
 | immutable | niezmienny | Za pierwszym razem z dopiskiem (ang. *immutable*) |
