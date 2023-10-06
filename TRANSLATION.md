@@ -167,6 +167,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | roadmap | plan działania | |
 | section | podrozdział | Jeśli w ramach tego samego dokumentu, lub rozdział jeśli chodzi o inną stronę |
 | selective hydration | hydratacja selektywna | |
+| setup function | funkcja konfiguracyjna (?) | W kontekście `useEffect` |
 | shallow rendering | renderowanie płytkie | Za pierwszym razem z dopiskiem (ang. *shallow rendering*) |
 | SPA | aplikacja jednostronicowa | |
 | spread operator | operator rozszczepienia | Za pierwszym razem z dopiskiem (ang. *spread operator*) |
