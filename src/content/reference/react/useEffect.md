@@ -74,7 +74,7 @@ function ChatRoom({ roomId }) {
 
 ### Łączenie z zewnętrznym systemem {/*connecting-to-an-external-system*/}
 
-Niektóre komponenty, gdy są wyświetlane na stronie, muszą pozostać połączone z siecią, pewnym interfejsem przeglądarki lub zewnętrzną biblioteką. Systemy te nie są kontrolowane przez Reacta, dlatego nazywane są *zewnętrznymi.*
+Niektóre komponenty muszą pozostać połączone z siecią, pewnym interfejsem przeglądarki lub zewnętrzną biblioteką podczas wyświetlania ich na ekranie. Systemy te nie są kontrolowane przez Reacta, dlatego nazywane są *zewnętrznymi.*
 
 Aby [połączyć swój komponent z zewnętrznym systemem,](/learn/synchronizing-with-effects) wywołaj funkcję `useEffect` na głównym poziomie swojego komponentu:
 
@@ -96,27 +96,27 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-Aby użyć `useEffect`, musisz przekazać dwie argumenty:
+Aby użyć `useEffect`, musisz przekazać dwa argumenty:
 
-1. *Funkcję konfiguracyjną* z <CodeStep step={1}>kodem konfiguracyjnym</CodeStep>, który łączy się z tym systemem.
+1. *Funkcję konfiguracyjną* z <CodeStep step={1}>kodem konfigurującym</CodeStep>, który łączy się z tym systemem.
    - Funkcja ta powinna zwracać *funkcję czyszczącą* z <CodeStep step={2}>kodem czyszczącym</CodeStep>, który rozłącza się z tym systemem.
-2. <CodeStep step={3}>Tablicę zależności</CodeStep>, zawierającą każdą wartość używaną wewnątrz tych funkcji w twoim komponencie.
+2. <CodeStep step={3}>Tablicę zależności</CodeStep>, zawierającą każdą wartość z twojego komponentu używaną wewnątrz tych funkcji.
 
 **React wywołuje twoje funkcje konfiguracyjną i czyszczącą wtedy, gdy jest to konieczne, co może się zdarzyć wielokrotnie:**
 
-1. Twój <CodeStep step={1}>kod konfiguracyjny</CodeStep> jest wykonywany, gdy twój komponent jest dodawany do strony *(montowany)*.
+1. Twój <CodeStep step={1}>kod konfigurujący</CodeStep> jest wykonywany, gdy komponent jest dodawany do strony *(montowany)*.
 2. Po każdym renderowaniu twojego komponentu, w którym <CodeStep step={3}>zależności</CodeStep> uległy zmianie:
    - Najpierw jest wykonywany twój <CodeStep step={2}>kod czyszczący</CodeStep> z poprzednimi właściwościami i stanem.
-   - Następnie jest wykonywany twój <CodeStep step={1}>kod konfiguracyjny</CodeStep> z nowymi właściwościami i stanem.
-3. Twój <CodeStep step={2}>kod czyszczący</CodeStep> jest wykonywany jeszcze raz po usunięciu *(odmontowaniu)* twojego komponentu ze strony.
+   - Następnie jest wykonywany twój <CodeStep step={1}>kod konfigurujący</CodeStep> z nowymi właściwościami i stanem.
+3. Twój <CodeStep step={2}>kod czyszczący</CodeStep> jest wykonywany jeszcze raz po usunięciu *(odmontowaniu)* komponentu ze strony.
 
-**Przyjrzyjmy się tej sekwencji z przykładu powyżej.**
+**Przyjrzyjmy się tej sekwencji dla przykładu powyżej.**
 
-Kiedy komponent `ChatRoom` zostanie dodany do strony, połączy się z pokojem czatu przy użyciu początkowych `serverUrl` i `roomId`. Jeśli którakolwiek z zależności `serverUrl` lub `roomId` zmieni się w wyniku przerenderowania (np. jeśli użytkownik wybierze inny pokój czatu z rozwijanej listy), twój efekt *rozłączy się z poprzednim pokojem i połączy się z następnym.* Kiedy komponent `ChatRoom` zostanie usunięty ze strony, twój efekt rozłączy się ostatni raz.
+Kiedy komponent `ChatRoom` zostanie dodany do strony, połączy się z pokojem czatu przy użyciu początkowych `serverUrl` i `roomId`. Jeśli którakolwiek z zależności - `serverUrl` lub `roomId` - zmieni się w wyniku przerenderowania (np. jeśli użytkownik wybierze inny pokój czatu z rozwijanej listy), twój efekt *rozłączy się z poprzednim pokojem i połączy się z następnym.* Kiedy komponent `ChatRoom` zostanie usunięty ze strony, twój efekt rozłączy się ostatni raz.
 
-**Aby [pomóc w wykrywaniu błędów,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) w trybie developerskim React wykonuje dodatkowo funkcję <CodeStep step={1}>setup</CodeStep> oraz <CodeStep step={2}>cleanup</CodeStep> przed właściwym wywołaniem <CodeStep step={1}>setup</CodeStep>.** Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to spowoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofnąć wszystko, co zrobiła funkcja konfiguracyjna. Ogólnie rzecz biorąc, użytkownik nie powinien być w stanie rozróżnić między jednorazowym wywołaniem konfiguracji (jak na produkcji), a sekwencją *konfiguracja* → *czyszczenie* → *konfiguracja* (jak w trybie developerskim). [Zobacz najczęstsze rozwiązania.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+**Aby [pomóc w wykrywaniu błędów,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) w trybie developerskim React wykonuje dodatkowo funkcję <CodeStep step={1}>konfigurującą</CodeStep> oraz <CodeStep step={2}>czyszczącą</CodeStep> przed właściwym, docelowym wywołaniem <CodeStep step={1}>konfigurującej</CodeStep>.** Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to spowoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofnąć wszystko, co zrobiła funkcja konfiguracyjna. Ogólnie rzecz biorąc, użytkownik nie powinien być w stanie rozróżnić między jednorazowym wywołaniem konfiguracji (jak na produkcji), a sekwencją *konfiguracja* → *czyszczenie* → *konfiguracja* (jak w trybie developerskim). [Zobacz najczęstsze rozwiązania.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-**Postaraj się pisać każdy efekt jako niezależny proces** i **skup się na pojedynczym cyklu konfiguracji i czyszczenia w danym momencie.** Nie ma znaczenia, czy komponent jest montowany, aktualizowany czy odmontowywany. Jeśli logika czyszczenia poprawnie odwzorowuje logikę konfiguracji, twój efekt jest odporny na uruchamianie konfiguracji i czyszczenia tak często, jak to konieczne.
+**Postaraj się pisać każdy efekt jako niezależny proces** i **skup się na pojedynczym cyklu konfigurowania i czyszczenia w danym momencie.** Nie ma znaczenia, czy komponent jest montowany, aktualizowany czy odmontowywany. Jeśli logika czyszczenia poprawnie odwzorowuje logikę konfigurowania, twój efekt jest odporny na uruchamianie konfigurowania i czyszczenia tak często, jak to konieczne.
 
 <Note>
 
@@ -134,7 +134,7 @@ Efekt pozwala [utrzymać synchronizację twojego komponentu](/learn/synchronizin
 
 #### Łączenie się z serwerem czatu {/*connecting-to-a-chat-server*/}
 
-W tym przykładzie komponent `ChatRoom` wykorzystuje efekt do utrzymania połączenia z systemem zewnętrznym zdefiniowanym w pliku `chat.js`. Naciśnij "Otwórz czat", aby pojawił się komponent `ChatRoom`. Ta piaskownica działa w trybie developerskim, więc ma miejsce dodatkowy cykl łączenia i rozłączania, tak jak jest to [wyjaśnione tutaj](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed). Spróbuj zmieniać `roomId` i `serverUrl` za pomocą rozwijanej listy i pola tekstowego, a zobaczysz, jak efekt ponownie łączy się z czatem. Naciśnij "Zamknij czat", aby zobaczyć jak efekt kończy połączenie ostatni raz.
+W tym przykładzie komponent `ChatRoom` wykorzystuje efekt do utrzymania połączenia z systemem zewnętrznym zdefiniowanym w pliku `chat.js`. Naciśnij "Otwórz czat", aby pojawił się komponent `ChatRoom`. Ta piaskownica działa w trybie developerskim, więc ma miejsce dodatkowy cykl łączenia i rozłączania, tak jak jest to [wyjaśnione tutaj](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed). Spróbuj zmieniać `roomId` i `serverUrl` za pomocą rozwijanej listy i pola tekstowego, a zobaczysz, jak efekt ponownie łączy się z czatem. Naciśnij "Zamknij czat", aby zobaczyć, jak efekt kończy połączenie po raz ostatni.
 
 <Sandpack>
 
@@ -168,7 +168,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('ogólny');
+  const [roomId, setRoomId] = useState('general');
   const [show, setShow] = useState(false);
   return (
     <>
@@ -178,9 +178,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="ogólny">ogólny</option>
-          <option value="podróże">podróże</option>
-          <option value="muzyka">muzyka</option>
+          <option value="general">ogólny</option>
+          <option value="travel">podróże</option>
+          <option value="music">muzyka</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -267,7 +267,7 @@ body {
 
 #### Wywoływanie animacji {/*triggering-an-animation*/}
 
-W tym przykładzie, systemem zewnętrznym jest biblioteka animacji w pliku `animation.js`. Udostępnia ona klasę javascriptową o nazwie `FadeInAnimation`, która przyjmuje jako argument węzeł DOM i udostępnia metody `start()` oraz `stop()` do sterowania animacją. Ten komponent [używa referencji (ang. *ref*)](/learn/manipulating-the-dom-with-refs), aby mieć dostęp do zasadniczego węzła DOM. Gdy komponent staje się widoczny, efekt odczytuje ten węzeł z referencji i automatycznie uruchamia dla niego animację.
+W tym przykładzie, systemem zewnętrznym jest biblioteka animacji w pliku `animation.js`. Udostępnia ona klasę javascriptową o nazwie `FadeInAnimation`, która przyjmuje jako argument węzeł DOM i udostępnia metody `start()` oraz `stop()` do sterowania animacją. Ten komponent [używa referencji (ang. *ref*)](/learn/manipulating-the-dom-with-refs), aby mieć dostęp do bazowego węzła DOM. Gdy komponent staje się widoczny, efekt odczytuje ten węzeł z referencji i automatycznie uruchamia dla niego animację.
 
 <Sandpack>
 
@@ -426,7 +426,7 @@ body {
 
 #### Śledzenie widoczności elementu {/*tracking-element-visibility*/}
 
-W tym przykładzie, systemem zewnętrznym ponownie jest drzewo DOM w przeglądarce. Komponent `App` wyświetla długą listę, następnie komponent `Box`, a potem kolejną długą listę. Przewiń w dół tej listy. Zauważ, że gdy komponent `Box` pojawia się cały w widocznym obszarze przeglądarki, kolor tła zmienia się na czarny. Aby to zaimplementować, komponent `Box` używa efektu do sterowania [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). To API przeglądarki powiadamia, kiedy element DOM jest widoczny.
+W tym przykładzie, systemem zewnętrznym ponownie jest drzewo DOM w przeglądarce. Komponent `App` wyświetla długą listę, następnie komponent `Box`, a potem kolejną długą listę. Przewiń w dół tej listy. Zauważ, że gdy komponent `Box` pojawia się cały w widocznym obszarze przeglądarki, kolor tła zmienia się na czarny. Aby to zaimplementować, komponent `Box` używa efektu do sterowania [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). To API przeglądarki powiadamia naszą funkcję, kiedy element DOM jest widoczny.
 
 <Sandpack>
 
@@ -571,7 +571,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('ogólny');
+  const [roomId, setRoomId] = useState('general');
   const [show, setShow] = useState(false);
   return (
     <>
@@ -581,9 +581,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="ogólny">ogólny</option>
-          <option value="podróże">podróże</option>
-          <option value="muzyka">muzyka</option>
+          <option value="general">ogólny</option>
+          <option value="travel">podróże</option>
+          <option value="music">muzyka</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
@@ -636,7 +636,7 @@ button { margin-left: 10px; }
 
 #### Własny hook `useWindowListener` {/*custom-usewindowlistener-hook*/}
 
-Ten przykład jest identyczny jak [jeden z wcześniejszych przykładów,](#examples-connecting) ale logika została wyodrębniona do własnego hooka.
+Ten przykład jest identyczny z [jednym z wcześniejszych,](#examples-connecting) ale logika została wyodrębniona do własnego hooka.
 
 <Sandpack>
 
@@ -693,7 +693,7 @@ body {
 
 #### Własny hook `useIntersectionObserver` {/*custom-useintersectionobserver-hook*/}
 
-Ten przykład jest identyczny jak [jeden z wcześniejszych przykładów,](#examples-connecting) ale logika została częściowo wyodrębniona do własnego hooka.
+Ten przykład jest identyczny z [jednym z wcześniejszych,](#examples-connecting) ale logika została częściowo wyodrębniona do własnego hooka.
 
 <Sandpack>
 
@@ -921,7 +921,7 @@ export default function Page() {
   // ...
 ```
 
-Zwróć uwagę na zmienną `ignore`, która jest inicjowana jako `false` i ustawiana na `true` podczas czyszczenia. Zapewnia to, że [twój kod nie będzie podatny na tzw. "hazardy" (ang. *race conditions*):](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect) odpowiedzi z sieci mogą przychodzić w innej kolejności, niż zostały wysłane żądania.
+Zwróć uwagę na zmienną `ignore`, która jest inicjowana jako `false` i ustawiana na `true` podczas czyszczenia. Zapewnia to, że [twój kod nie będzie podatny na tzw. "wyścigi" (ang. *race conditions*):](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect) odpowiedzi z sieci mogą przychodzić w innej kolejności, niż zostały wysłane żądania.
 
 <Sandpack>
 
@@ -974,7 +974,7 @@ export async function fetchBio(person) {
 
 </Sandpack>
 
-Możesz to również przepisać, używając składni [`async` / `await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), ale nadal musisz napisać funkcję czyszczącą:
+Możesz również przepisać ten kod używając składni [`async` / `await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), ale nadal musisz napisać funkcję czyszczącą:
 
 <Sandpack>
 
@@ -1041,12 +1041,12 @@ Pisanie wywołań `fetch` wewnątrz efektów to [popularny sposób na pobieranie
 - **Efekty nie są uruchamiane na serwerze.** Oznacza to, że początkowy HTML renderowany po stronie serwera będzie zawierał jedynie stan ładowania bez danych. Komputer klienta musiałby pobrać cały kod JavaScript i wyrenderować aplikację, tylko po to, by odkryć, że teraz musi pobrać dane. To nie jest zbyt wydajne podejście.
 - **Bezpośrednie pobieranie danych w efektach sprzyja tworzeniu "kaskad żądań sieciowych" (ang. *network waterfall*).** Renderujesz komponent rodzica, on pobiera pewne dane, renderuje komponenty potomne, a następnie one zaczynają pobierać swoje dane. Jeśli sieć nie jest zbyt szybka, takie podejście jest to znacznie wolniejsze niż równoczesne pobieranie wszystkich danych.
 - **Pobieranie bezpośrednio w efektach zazwyczaj oznacza brak wstępnego wczytywania (ang. *preload*) i buforowania danych (ang. *cache*).** Na przykład, jeśli komponent jest odmontowywany, a następnie ponownie montowany, będzie trzeba ponownie pobrać dane.
-- **Nie jest to zbyt ergonomiczne.** Pisanie wywołania `fetch` w taki sposób, aby uniknąć błędów takich jak [hazardy](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect), wymaga dość dużej ilości kodu.
+- **Nie jest to zbyt ergonomiczne.** Pisanie wywołania `fetch` w taki sposób, aby uniknąć błędów takich jak [wyścigi](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect), wymaga dość dużej ilości kodu.
 
 Te wady nie dotyczą tylko Reacta. Występują one przy pobieraniu danych podczas montowania komponentu przy użyciu dowolnej biblioteki. Podobnie jak w przypadku routingu, poprawne wykonywanie pobierania danych nie jest proste, dlatego polecamy następujące podejścia:
 
 - **Jeśli używasz [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks), wykorzystaj jego wbudowany mechanizm pobierania danych.** Współczesne frameworki reactowe mają zintegrowane mechanizmy pobierania danych, które są wydajne i rozwiązują powyższe problemy.
-- **W przeciwnym razie, rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym byłyby użyte efekty, ale także byłaby logika do unikania zduplikowanych zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
+- **W przeciwnym razie, rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym byłyby użyte efekty, ale także zawarte byłyby: logika do unikania zduplikowanych zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
 
 Możesz nadal pobierać dane bezpośrednio w efektach, jeśli żadne z wymienionych podejść nie spełnia twoich potrzeb.
 
@@ -1088,7 +1088,7 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-**Aby usunąć zależność, musisz "udowodnić" linterowi, że to *nie musi być* zależność.** Na przykład, możesz przenieść `serverUrl` poza swój komponent i tym samym udowodnić, że nie jest wartość reaktywna i nie zmieni się podczas ponownego renderowania:
+**Aby usunąć zależność, musisz "udowodnić" linterowi, że to *nie musi być* zależność.** Na przykład, możesz przenieść `serverUrl` poza swój komponent i tym samym udowodnić, że nie jest wartością reaktywną i nie zmieni się podczas ponownego renderowania:
 
 ```js {1,8}
 const serverUrl = 'https://localhost:1234'; // To nie jest już wartość reaktywna
@@ -1141,12 +1141,12 @@ useEffect(() => {
 
 #### Przekazywanie tablicy zależności {/*passing-a-dependency-array*/}
 
-Jeśli określisz zależności, twój efekt zostanie uruchomiony **po początkowym renderowaniu _oraz_ po ponownym renderowaniu z zmienionymi zależnościami.**
+Jeśli określisz zależności, twój efekt zostanie uruchomiony **po początkowym renderowaniu _oraz_ po ponownym renderowaniu ze zmienionymi zależnościami.**
 
 ```js {3}
 useEffect(() => {
   // ...
-}, [a, b]); // Zostanie uruchomiony ponownie, jeśli a lub b są różne
+}, [a, b]); // Zostanie uruchomiony ponownie, jeśli a lub b ulegną zmianie
 ```
 
 W poniższym przykładzie `serverUrl` i `roomId` to [wartości reaktywne,](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) więc obie muszą być określone jako zależności. W rezultacie wybór innego pokoju z rozwijanej listy lub edycja adresu URL serwera powoduje ponowne połączenie się czatu. Z kolei `message` nie jest używany wewnątrz efektu (przez co nie jest zależnością), więc edycja wiadomości nie spowoduje ponownego połączenia się z czatem.
@@ -1189,7 +1189,7 @@ function ChatRoom({ roomId }) {
 
 export default function App() {
   const [show, setShow] = useState(false);
-  const [roomId, setRoomId] = useState('ogólny');
+  const [roomId, setRoomId] = useState('general');
   return (
     <>
       <label>
@@ -1198,9 +1198,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="ogólny">ogólny</option>
-          <option value="podróże">podróże</option>
-          <option value="muzyka">muzyka</option>
+          <option value="general">ogólny</option>
+          <option value="travel">podróże</option>
+          <option value="music">muzyka</option>
         </select>
         <button onClick={() => setShow(!show)}>
           {show ? 'Zamknij czat' : 'Otwórz czat'}
@@ -1258,7 +1258,7 @@ import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
-const roomId = 'muzyka';
+const roomId = 'music';
 
 function ChatRoom() {
   const [message, setMessage] = useState('');
@@ -1363,7 +1363,7 @@ function ChatRoom({ roomId }) {
 
 export default function App() {
   const [show, setShow] = useState(false);
-  const [roomId, setRoomId] = useState('ogólny');
+  const [roomId, setRoomId] = useState('general');
   return (
     <>
       <label>
@@ -1372,9 +1372,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="ogólny">ogólny</option>
-          <option value="podróże">podróże</option>
-          <option value="muzyka">muzyka</option>
+          <option value="general">ogólny</option>
+          <option value="travel">podróże</option>
+          <option value="music">muzyka</option>
         </select>
         <button onClick={() => setShow(!show)}>
           {show ? 'Zamknij czat' : 'Otwórz czat'}
@@ -1529,7 +1529,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('ogólny');
+  const [roomId, setRoomId] = useState('general');
   return (
     <>
       <label>
@@ -1538,9 +1538,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="ogólny">ogólny</option>
-          <option value="podróże">podróże</option>
-          <option value="muzyka">muzyka</option>
+          <option value="general">ogólny</option>
+          <option value="travel">podróże</option>
+          <option value="music">muzyka</option>
         </select>
       </label>
       <hr />
@@ -1601,9 +1601,9 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-Samo w sobie, tworzenie funkcji od nowa przy każdym renderowaniu nie stanowi problemu. Nie musisz tego optymalizować. Jednakże, jeśli używasz jej jako zależności w swoim efekcie, spowoduje to ponowne uruchomienie efektu po każdym renderowaniu.
+Tworzenie funkcji od nowa przy każdym renderowaniu nie stanowi problemu samo w sobie. Nie musisz tego optymalizować. Jednakże, jeśli używasz jej jako zależności w swoim efekcie, spowoduje to ponowne uruchomienie efektu po każdym renderowaniu.
 
-Unikaj używania funkcji utworzonej podczas renderowania jako zależności. Zamiast tego, zadeklaruj ją wewnątrz efektu:
+Unikaj używania jako zależności funkcji utworzonej podczas renderowania. Zamiast tego zadeklaruj ją wewnątrz efektu:
 
 <Sandpack>
 
@@ -1639,7 +1639,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('ogólny');
+  const [roomId, setRoomId] = useState('general');
   return (
     <>
       <label>
@@ -1648,9 +1648,9 @@ export default function App() {
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="ogólny">ogólny</option>
-          <option value="podróże">podróże</option>
-          <option value="muzyka">muzyka</option>
+          <option value="general">ogólny</option>
+          <option value="travel">podróże</option>
+          <option value="music">muzyka</option>
         </select>
       </label>
       <hr />
@@ -1760,9 +1760,9 @@ Stosuj ten wzorzec z rozwagą. Pamiętaj, że użytkownicy z wolnym połączenie
 
 ### Mój efekt jest uruchamiany podwójnie, gdy komponent jest montowany {/*my-effect-runs-twice-when-the-component-mounts*/}
 
-Kiedy tryb rygorystyczny jest włączony, w trybie deweloperskim React uruchamia dodatkowo funkcje konfiguracyjną i czyszczącą przed właściwym uruchomieniem funkcji konfiguracyjnej.
+Kiedy tryb rygorystyczny jest włączony, w trybie deweloperskim React uruchamia dodatkowo funkcje konfigurującą i czyszczącą przed właściwym uruchomieniem funkcji konfigurującej.
 
-Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to powoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Funkcja ta powinna zatrzymać lub cofać to, co robi funkcja konfiguracyjna. Ogólna zasada jest taka, że użytkownik nie powinien być w stanie rozróżnić między tym, czy konfiguracja został wywołana tylko raz (jak na produkcji), czy też w sekwencji konfiguracja → czyszczenie → konfiguracja (jak w trybie deweloperskim).
+Jest to test obciążeniowy, który sprawdza, czy logika twojego efektu jest poprawnie zaimplementowana. Jeśli to powoduje widoczne problemy, oznacza to, że brakuje pewnej logiki w funkcji czyszczącej. Powinna ona zatrzymać lub wycofać to, co robi funkcja konfigurująca. Ogólna zasada jest taka, że użytkownik nie powinien być w stanie rozróżnić między tym, czy konfigurowanie zostało wywołane tylko raz (jak na produkcji), czy też w sekwencji konfigurowanie → czyszczenie → konfigurowanie (jak w trybie deweloperskim).
 
 Dowiedz się więcej o tym, [jak to pomaga znajdować błędy](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) oraz [jak naprawić logikę swojego efektu.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
@@ -1770,7 +1770,7 @@ Dowiedz się więcej o tym, [jak to pomaga znajdować błędy](/learn/synchroniz
 
 ### Mój efekt uruchamia się po każdym przerenderowaniu {/*my-effect-runs-after-every-re-render*/}
 
-Sprawdź najpierw, czy przypadkiem nie zapomniano o podaniu tablicy zależności:
+Sprawdź najpierw, czy przypadkiem nie brakuje tablicy zależności:
 
 ```js {3}
 useEffect(() => {
@@ -1780,7 +1780,7 @@ useEffect(() => {
 
 Jeśli tablica zależności jest podana, ale twój efekt nadal wywołuje się w pętli, może to być spowodowane tym, że jedna z twoich zależności zmienia się przy każdym przerenderowaniu.
 
-Możesz sprawdzić czy to jest ten problem, dodając wypisywanie zależności do konsoli:
+Możesz sprawdzić, czy to jest przyczyną, wypisując zależności do konsoli:
 
 ```js {5}
   useEffect(() => {
@@ -1811,7 +1811,7 @@ Ostatecznym rozwiązaniem (jeśli powyższe metody nie pomogły) jest opakowanie
 
 ### Mój efekt wpada w nieskończoną pętlę {/*my-effect-keeps-re-running-in-an-infinite-cycle*/}
 
-Jeżeli twój efekt wpada w nieskończoną pętlę, te dwa warunki muszą być spełnione:
+Jeżeli twój efekt wpada w nieskończoną pętlę, musi chodzić o następującą sytuację:
 
 - Twój efekt aktualizuje jakiś stan.
 - Ten stan prowadzi do przerenderowania, co powoduje zmiany w zależnościach efektu.
@@ -1820,28 +1820,28 @@ Zanim ruszysz do naprawiania problemu, zastanów się, czy twój efekt nie łąc
 
 Jeśli nie ma żadnego zewnętrznego systemu, zastanów się, czy [całkowite usunięcie efektu](/learn/you-might-not-need-an-effect) nie uprościłoby twojej logiki.
 
-Jeśli rzeczywiście synchronizujesz się z jakimś zewnętrznym systemem, zastanów się, dlaczego i pod jakim warunkiem twój efekt powinien aktualizować stan. Czy zmieniło się coś, co wpływa na to jak powinien wyglądać twój komponent? Jeśli musisz śledzić jakieś dane, które nie są używane do renderowania, może bardziej odpowiednie będzie użycie [referencji](/reference/react/useRef#referencing-a-value-with-a-ref) (która nie powoduje przerenderowania). Upewnij się, że twój efekt nie aktualizuje stanu (i nie powoduje ponownych renderowań) częściej niż to konieczne.
+Jeśli rzeczywiście synchronizujesz się z jakimś zewnętrznym systemem, zastanów się, dlaczego i pod jakim warunkiem twój efekt powinien aktualizować stan. Czy zmieniło się coś, co wpływa na to, jak powinien wyglądać twój komponent? Jeśli musisz śledzić jakieś dane, które nie są używane do renderowania, może bardziej odpowiednie będzie użycie [referencji](/reference/react/useRef#referencing-a-value-with-a-ref) (która nie powoduje przerenderowania). Upewnij się, że twój efekt nie aktualizuje stanu (i nie powoduje ponownych renderowań) częściej niż to konieczne.
 
 Kończąc, jeśli twój efekt aktualizuje stan w odpowiednim momencie, ale wciąż występuje zapętlenie, oznacza to, że ta aktualizacja stanu prowadzi do zmiany jednej z zależności efektu. [Przeczytaj, jak debugować zmiany w zależnościach.](/reference/react/useEffect#my-effect-runs-after-every-re-render)
 
 ---
 
-### Moja funkcja czyszcząca jest uruchamiana nawet, gdy mój komponent nie jest odmontowywany {/*my-cleanup-logic-runs-even-though-my-component-didnt-unmount*/}
+### Moja funkcja czyszcząca jest uruchamiana nawet wtedy, gdy mój komponent nie jest odmontowywany {/*my-cleanup-logic-runs-even-though-my-component-didnt-unmount*/}
 
-Funkcja czyszcząca uruchamia się nie tylko podczas odmontowywania, ale również przed każdym przerenderowaniem ze zmienionymi zależnościami. Dodatkowo, w trybie deweloperskim, React [uruchamia funkcję konfiguracyjną oraz czyszczącą dodatkowy raz, tuż po zamontowaniu komponentu.](#my-effect-runs-twice-when-the-component-mounts)
+Funkcja czyszcząca uruchamia się nie tylko podczas odmontowywania, ale również przed każdym przerenderowaniem ze zmienionymi zależnościami. Dodatkowo, w trybie deweloperskim, React [uruchamia funkcję konfigurującą oraz czyszczącą dodatkowy raz, tuż po zamontowaniu komponentu.](#my-effect-runs-twice-when-the-component-mounts)
 
-Jeśli masz kod czyszczący bez odpowiadającego mu kodu konfigurującego, zazwyczaj oznacza to, że kod ten może powodować problemy:
+Jeśli masz kod czyszczący bez odpowiadającego mu kodu konfigurującego, zazwyczaj to on jest przyczyną problemów:
 
 ```js {2-5}
 useEffect(() => {
-  // 🔴 Unikaj: Logika czyszczenia bez odpowiadającej jej logiki konfiguracyjnej.
+  // 🔴 Unikaj: Logika czyszczenia bez odpowiadającej jej logiki konfigurującej.
   return () => {
     doSomething();
   };
 }, []);
 ```
 
-Twoja logika czyszcząca powinna być "symetryczna" względem logiki konfiguracyjnej i powinna zatrzymać lub cofać to, co zrobiła funkcja konfiguracyjna:
+Twoja logika czyszcząca powinna być "symetryczna" względem logiki konfigurującej i powinna zatrzymać lub wycofać to, co zrobiła funkcja konfigurująca:
 
 ```js {2-3,5}
   useEffect(() => {
@@ -1859,4 +1859,4 @@ Twoja logika czyszcząca powinna być "symetryczna" względem logiki konfiguracy
 
 ### Mój efekt robi coś wizualnego i widzę migotanie przed jego uruchomieniem {/*my-effect-does-something-visual-and-i-see-a-flicker-before-it-runs*/}
 
-Jeśli Twój efekt musi wstrzymać przeglądarkę przed [pokazaniem zawartości na ekranie,](/learn/render-and-commit#epilogue-browser-paint) zastąp `useEffect` z pomocą [`useLayoutEffect`](/reference/react/useLayoutEffect). Pamiętaj, że **to nie będzie konieczne w przypadku zdecydowanej większości efektów.** Będziesz tego potrzebować tylko wtedy, gdy konieczne jest uruchomienie efektu przed tym jak przeglądarka zacznie wyświetlać zawartość, na przykład do pomiaru i pozycjonowania dymka podpowiedzi zanim użytkownik go zobaczy.
+Jeśli twój efekt musi wstrzymać przeglądarkę przed [pokazaniem zawartości na ekranie,](/learn/render-and-commit#epilogue-browser-paint) zamień `useEffect` na [`useLayoutEffect`](/reference/react/useLayoutEffect). Pamiętaj, że **nie jest to konieczne w przypadku zdecydowanej większości efektów.** Będziesz tego potrzebować tylko wtedy, gdy konieczne jest uruchomienie efektu przed tym, jak przeglądarka zacznie wyświetlać zawartość, na przykład do pomiaru i pozycjonowania dymka podpowiedzi, zanim użytkownik go zobaczy.
