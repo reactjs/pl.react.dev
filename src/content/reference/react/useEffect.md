@@ -162,7 +162,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Witaj w pokoju: {roomId}!</h1>
+      <h1>Witaj w pokoju: {roomId}</h1>
     </>
   );
 }
@@ -565,7 +565,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Witaj w pokoju: {roomId}!</h1>
+      <h1>Witaj w pokoju: {roomId}</h1>
     </>
   );
 }
@@ -1178,7 +1178,7 @@ function ChatRoom({ roomId }) {
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
-      <h1>Witaj w pokoju: {roomId}!</h1>
+      <h1>Witaj w pokoju: {roomId}</h1>
       <label>
         Twoja wiadomość:{' '}
         <input value={message} onChange={e => setMessage(e.target.value)} />
