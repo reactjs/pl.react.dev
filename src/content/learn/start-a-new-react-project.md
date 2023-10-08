@@ -14,11 +14,11 @@ Jeśli chcesz zbudować nową aplikację lub stronę internetową wyłącznie za
 
 </Note>
 
-## Dojrzałe frameworki reaktowe {/*production-grade-react-frameworks*/}
+## Dojrzałe frameworki reactowe {/*production-grade-react-frameworks*/}
 
 ### Next.js {/*nextjs*/}
 
-**[Next.js](https://nextjs.org/) to kompleksowy (ang. *full-stack*) framework reaktowy.** Jest wszechstronny i pozwala na tworzenie aplikacji reaktowych o dowolnym rozmiarze - od prostej, głównie statycznej strony bloga po złożoną, dynamiczną aplikację. Aby utworzyć nowy projekt w Next.js, wywołaj poniższą komendę w terminalu:
+**[Next.js](https://nextjs.org/) to kompleksowy (ang. *full-stack*) framework reactowy.** Jest wszechstronny i pozwala na tworzenie aplikacji reactowych o dowolnym rozmiarze - od prostej, głównie statycznej strony bloga po złożoną, dynamiczną aplikację. Aby utworzyć nowy projekt w Next.js, wywołaj poniższą komendę w terminalu:
 
 <TerminalBlock>
 npx create-next-app@latest
@@ -30,7 +30,7 @@ Next.js jest rozwijany przez [Vercel](https://vercel.com/). Możesz [wdrożyć a
 
 ### Remix {/*remix*/}
 
-**[Remix](https://remix.run/) to kompleksowy framework reaktowy z wbudowanym routingiem.** Pozwala to na podzielenie aplikacji na zagnieżdżone części, które mogą ładować dane równolegle i odświeżać się w odpowiedzi na akcje użytkownika. Aby utworzyć nowy projekt w Remixie, uruchom komendę:
+**[Remix](https://remix.run/) to kompleksowy framework reactowy z wbudowanym routingiem.** Pozwala to na podzielenie aplikacji na zagnieżdżone części, które mogą ładować dane równolegle i odświeżać się w odpowiedzi na akcje użytkownika. Aby utworzyć nowy projekt w Remix, uruchom komendę:
 
 <TerminalBlock>
 npx create-remix
@@ -38,11 +38,11 @@ npx create-remix
 
 Jeśli Remix jest dla ciebie czymś nowym, sprawdź [tutorial na blogu](https://remix.run/docs/en/main/tutorials/blog) (krótki) oraz [tutorial z przykładową aplikacją](https://remix.run/docs/en/main/tutorials/jokes) (długi).
 
-Remix jest utrzymywany przez [Shopify](https://www.shopify.com/). Kiedy tworzysz projekt z użyciem Remixa, musisz [wybrać platformę docelową](https://remix.run/docs/en/main/guides/deployment). Możesz wdrożyć aplikację Remix na dowolnym hostingu obsługującym Node.js lub na usłudze bezserwerowej, korzystając z [istniejącego lub własnego adaptera](https://remix.run/docs/en/main/other-api/adapter).
+Remix jest utrzymywany przez [Shopify](https://www.shopify.com/). Kiedy tworzysz projekt z użyciem Remix, musisz [wybrać platformę docelową](https://remix.run/docs/en/main/guides/deployment). Możesz wdrożyć aplikację Remix na dowolnym hostingu obsługującym Node.js lub na usłudze bezserwerowej, korzystając z [istniejącego lub własnego adaptera](https://remix.run/docs/en/main/other-api/adapter).
 
 ### Gatsby {/*gatsby*/}
 
-[Gatsby](https://www.gatsbyjs.com/) to framework reaktowy stworzony dla szybkich stron internetowych opartych o CMS. Jego bogaty ekosystem wtyczek i warstwa danych GraphQL ułatwiają integrację treści, interfejsów API i usług. Aby utworzyć nowy projekt Gatsby, uruchom komendę:
+[Gatsby](https://www.gatsbyjs.com/) to framework reactowy stworzony dla szybkich stron internetowych opartych o CMS. Jego bogaty ekosystem wtyczek i warstwa danych GraphQL ułatwiają integrację treści, interfejsów API i usług. Aby utworzyć nowy projekt Gatsby, uruchom komendę:
 
 <TerminalBlock>
 npx create-gatsby
@@ -54,7 +54,7 @@ Gatsby jest utrzymywane przez [Netlify](https://www.netlify.com/). Możesz [wdro
 
 ### Expo (dla aplikacji natywnych) {/*expo*/}
 
-**[Expo](https://expo.dev/) to framework reaktowy, który pozwala tworzyć uniwersalne aplikacje na Androida, iOS oraz webowe z prawdziwie natywnym interfejsem użytkownika.** Dostarcza on SDK dla [React Native](https://reactnative.dev/), które ułatwia korzystanie z natywnych funkcjonalności. Aby utworzyć nowy projekt Expo, uruchom komendę:
+**[Expo](https://expo.dev/) to framework reactowy, który pozwala tworzyć uniwersalne aplikacje na Androida, iOS oraz webowe z prawdziwie natywnym interfejsem użytkownika.** Dostarcza on SDK dla [React Native](https://reactnative.dev/), które ułatwia korzystanie z natywnych funkcjonalności. Aby utworzyć nowy projekt Expo, uruchom komendę:
 
 <TerminalBlock>
 npx create-expo-app
