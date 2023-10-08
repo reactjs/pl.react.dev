@@ -18,7 +18,7 @@ Jeśli chcesz zbudować nową aplikację lub stronę internetową wyłącznie za
 
 ### Next.js {/*nextjs*/}
 
-**[Next.js](https://nextjs.org/) to kompleksowy framework reaktowy.** Jest wszechstronny i pozwala na tworzenie aplikacji reaktowych o dowolnym rozmiarze - od prostej, głównie statycznej strony bloga po złożoną, dynamiczną aplikację. Aby utworzyć nowy projekt w Next.js, wywołaj poniższą komendę w terminalu:
+**[Next.js](https://nextjs.org/) to kompleksowy (ang. *full-stack*) framework reaktowy.** Jest wszechstronny i pozwala na tworzenie aplikacji reaktowych o dowolnym rozmiarze - od prostej, głównie statycznej strony bloga po złożoną, dynamiczną aplikację. Aby utworzyć nowy projekt w Next.js, wywołaj poniższą komendę w terminalu:
 
 <TerminalBlock>
 npx create-next-app@latest
@@ -26,19 +26,19 @@ npx create-next-app@latest
 
 Jeśli Next.js jest dla ciebie nowością, sprawdź [samouczek Next.js](https://nextjs.org/learn/foundations/about-nextjs).
 
-Next.js jest rozwijany przez [Vercel](https://vercel.com/). Możesz [wdrożyć aplikację Next.js](https://nextjs.org/docs/app/building-your-application/deploying) na dowolnym hostingu Node.js lub usłudze bezserwerowej, lub nawet na własnym serwerze. Next.js obsługuje również [eksport statyczny](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports), który nie wymaga serwera.
+Next.js jest rozwijany przez [Vercel](https://vercel.com/). Możesz [wdrożyć aplikację Next.js](https://nextjs.org/docs/app/building-your-application/deploying) na dowolnym hostingu obsługującym Node.js lub usłudze bezserwerowej, lub nawet na własnym serwerze. Next.js obsługuje również [eksport statyczny](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports), który nie wymaga serwera.
 
 ### Remix {/*remix*/}
 
-**[Remix](https://remix.run/) is a full-stack React framework with nested routing.** It lets you break your app into nested parts that can load data in parallel and refresh in response to the user actions. To create a new Remix project, run:
+**[Remix](https://remix.run/) to kompleksowy framework reaktowy z wbudowanym routingiem.** Pozwala to na podzielenie aplikacji na zagnieżdżone części, które mogą ładować dane równolegle i odświeżać się w odpowiedzi na akcje użytkownika. Aby utworzyć nowy projekt w Remixie, uruchom komendę:
 
 <TerminalBlock>
 npx create-remix
 </TerminalBlock>
 
-If you're new to Remix, check out the Remix [blog tutorial](https://remix.run/docs/en/main/tutorials/blog) (short) and [app tutorial](https://remix.run/docs/en/main/tutorials/jokes) (long).
+Jeśli Remix jest dla ciebie czymś nowym, sprawdź [tutorial na blogu](https://remix.run/docs/en/main/tutorials/blog) (krótki) oraz [tutorial z przykładową aplikacją](https://remix.run/docs/en/main/tutorials/jokes) (długi).
 
-Remix is maintained by [Shopify](https://www.shopify.com/). When you create a Remix project, you need to [pick your deployment target](https://remix.run/docs/en/main/guides/deployment). You can deploy a Remix app to any Node.js or serverless hosting by using or writing an [adapter](https://remix.run/docs/en/main/other-api/adapter).
+Remix jest utrzymywany przez [Shopify](https://www.shopify.com/). Kiedy tworzysz projekt z użyciem Remixa, musisz [wybrać platformę docelową](https://remix.run/docs/en/main/guides/deployment). Możesz wdrożyć aplikację Remix na dowolnym hostingu obsługującym Node.js lub na usłudze bezserwerowej, korzystając z [istniejącego lub własnego adaptera](https://remix.run/docs/en/main/other-api/adapter).
 
 ### Gatsby {/*gatsby*/}
 
