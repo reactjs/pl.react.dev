@@ -52,17 +52,17 @@ Jeśli Gatsby to dla ciebie nowość, sprawdź [samouczek](https://www.gatsbyjs.
 
 Gatsby jest utrzymywane przez [Netlify](https://www.netlify.com/). Możesz [wdrożyć w pełni statyczną stronę Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting) na dowolnym hostingu statycznym. Jeśli zdecydujesz się na korzystanie z funkcji obsługiwanych tylko przez serwer, upewnij się, że twój dostawca hostingu wspiera je dla Gatsby.
 
-### Expo (for native apps) {/*expo*/}
+### Expo (dla aplikacji natywnych) {/*expo*/}
 
-**[Expo](https://expo.dev/) is a React framework that lets you create universal Android, iOS, and web apps with truly native UIs.** It provides an SDK for [React Native](https://reactnative.dev/) that makes the native parts easier to use. To create a new Expo project, run:
+**[Expo](https://expo.dev/) to framework reaktowy, który pozwala tworzyć uniwersalne aplikacje na Androida, iOS oraz webowe z prawdziwie natywnym interfejsem użytkownika.** Dostarcza on SDK dla [React Native](https://reactnative.dev/), które ułatwia korzystanie z natywnych funkcjonalności. Aby utworzyć nowy projekt Expo, uruchom komendę:
 
 <TerminalBlock>
 npx create-expo-app
 </TerminalBlock>
 
-If you're new to Expo, check out the [Expo tutorial](https://docs.expo.dev/tutorial/introduction/).
+Jeśli Expo jest dla siebie nowy, zajrzyj do jego [samouczka](https://docs.expo.dev/tutorial/introduction/).
 
-Expo is maintained by [Expo (the company)](https://expo.dev/about). Building apps with Expo is free, and you can submit them to the Google and Apple app stores without restrictions. Expo additionally provides opt-in paid cloud services.
+Expo jest utrzymywane przez [Expo (firmę)](https://expo.dev/about). Budowanie aplikacji z jego pomocą jest darmowe, a te możesz udostępniać w sklepach Google i Apple bez ograniczeń. Expo oferuje także dodatkowe płatne usługi w chmurze.
 
 <DeepDive>
 
