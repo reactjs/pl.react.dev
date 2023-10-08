@@ -42,15 +42,15 @@ Remix jest utrzymywany przez [Shopify](https://www.shopify.com/). Kiedy tworzysz
 
 ### Gatsby {/*gatsby*/}
 
-**[Gatsby](https://www.gatsbyjs.com/) is a React framework for fast CMS-backed websites.** Its rich plugin ecosystem and its GraphQL data layer simplify integrating content, APIs, and services into one website. To create a new Gatsby project, run:
+[Gatsby](https://www.gatsbyjs.com/) to framework reaktowy stworzony dla szybkich stron internetowych opartych o CMS. Jego bogaty ekosystem wtyczek i warstwa danych GraphQL ułatwiają integrację treści, interfejsów API i usług. Aby utworzyć nowy projekt Gatsby, uruchom komendę:
 
 <TerminalBlock>
 npx create-gatsby
 </TerminalBlock>
 
-If you're new to Gatsby, check out the [Gatsby tutorial.](https://www.gatsbyjs.com/docs/tutorial/)
+Jeśli Gatsby to dla ciebie nowość, sprawdź [samouczek](https://www.gatsbyjs.com/docs/tutorial/).
 
-Gatsby is maintained by [Netlify](https://www.netlify.com/). You can [deploy a fully static Gatsby site](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting) to any static hosting. If you opt into using server-only features, make sure your hosting provider supports them for Gatsby.
+Gatsby jest utrzymywane przez [Netlify](https://www.netlify.com/). Możesz [wdrożyć w pełni statyczną stronę Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting) na dowolnym hostingu statycznym. Jeśli zdecydujesz się na korzystanie z funkcji obsługiwanych tylko przez serwer, upewnij się, że twój dostawca hostingu wspiera je dla Gatsby.
 
 ### Expo (for native apps) {/*expo*/}
 
