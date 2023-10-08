@@ -1,32 +1,32 @@
 ---
-title: Start a New React Project
+title: Zacznij nowy projekt w Reakcie
 ---
 
 <Intro>
 
-If you want to build a new app or a new website fully with React, we recommend picking one of the React-powered frameworks popular in the community. Frameworks provide features that most apps and sites eventually need, including routing, data fetching, and generating HTML.
+Jeśli chcesz zbudować nową aplikację lub stronę internetową wyłącznie za pomocą Reacta, zalecamy wybrać jeden z frameworków opartych na Reakcie, który jest popularny w społeczności. Frameworki te zapewniają funkcjonalności, które większość aplikacji i stron internetowych koniec końców będzie potrzebować, takie jak nawigacja, pobieranie danych i generowanie kodu HTML.
 
 </Intro>
 
 <Note>
 
-**You need to install [Node.js](https://nodejs.org/en/) for local development.** You can *also* choose to use Node.js in production, but you don't have to. Many React frameworks support export to a static HTML/CSS/JS folder.
+**Musisz zainstalować [Node.js](https://nodejs.org/en/) do developmentu na twoim komputerze.** Możesz *również* zdecydować się na użycie Node.js na produkcji, ale nie jest to konieczne. Wiele reactowych frameworków wspiera eksport do statycznego folderu HTML/CSS/JS.
 
 </Note>
 
-## Production-grade React frameworks {/*production-grade-react-frameworks*/}
+## Dojrzałe frameworki reaktowe {/*production-grade-react-frameworks*/}
 
 ### Next.js {/*nextjs*/}
 
-**[Next.js](https://nextjs.org/) is a full-stack React framework.** It's versatile and lets you create React apps of any size--from a mostly static blog to a complex dynamic application. To create a new Next.js project, run in your terminal:
+**[Next.js](https://nextjs.org/) to kompleksowy framework reaktowy.** Jest wszechstronny i pozwala na tworzenie aplikacji reaktowych o dowolnym rozmiarze - od prostej, głównie statycznej strony bloga po złożoną, dynamiczną aplikację. Aby utworzyć nowy projekt w Next.js, wywołaj poniższą komendę w terminalu:
 
 <TerminalBlock>
 npx create-next-app@latest
 </TerminalBlock>
 
-If you're new to Next.js, check out the [Next.js tutorial.](https://nextjs.org/learn/foundations/about-nextjs)
+Jeśli Next.js jest dla ciebie nowością, sprawdź [samouczek Next.js](https://nextjs.org/learn/foundations/about-nextjs).
 
-Next.js is maintained by [Vercel](https://vercel.com/). You can [deploy a Next.js app](https://nextjs.org/docs/app/building-your-application/deploying) to any Node.js or serverless hosting, or to your own server. Next.js also supports a [static export](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) which doesn't require a server.
+Next.js jest rozwijany przez [Vercel](https://vercel.com/). Możesz [wdrożyć aplikację Next.js](https://nextjs.org/docs/app/building-your-application/deploying) na dowolnym hostingu Node.js lub usłudze bezserwerowej, lub nawet na własnym serwerze. Next.js obsługuje również [eksport statyczny](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports), który nie wymaga serwera.
 
 ### Remix {/*remix*/}
 
