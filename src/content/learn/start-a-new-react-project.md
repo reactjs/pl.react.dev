@@ -66,13 +66,13 @@ Expo jest utrzymywane przez [Expo (firmę)](https://expo.dev/about). Budowanie a
 
 <DeepDive>
 
-#### Can I use React without a framework? {/*can-i-use-react-without-a-framework*/}
+#### Czy mogę używać Reacta bez żadnego frameworka? {/*can-i-use-react-without-a-framework*/}
 
-You can definitely use React without a framework--that's how you'd [use React for a part of your page.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) **However, if you're building a new app or a site fully with React, we recommend using a framework.**
+Oczywiście, możesz używać Reacta bez żadnego frameworka - w taki sposób [używa się go tylko dla części strony.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) **Jednakże, jeśli budujesz nową aplikację lub stronę w pełni za pomocą Reacta, zalecamy korzystanie z frameworka.**
 
-Here's why.
+Oto dlaczego.
 
-Even if you don't need routing or data fetching at first, you'll likely want to add some libraries for them. As your JavaScript bundle grows with every new feature, you might have to figure out how to split code for every route individually. As your data fetching needs get more complex, you are likely to encounter server-client network waterfalls that make your app feel very slow. As your audience includes more users with poor network conditions and low-end devices, you might need to generate HTML from your components to display content early--either on the server, or during the build time. Changing your setup to run some of your code on the server or during the build can be very tricky.
+Nawet jeśli początkowo nie potrzebujesz nawigacji ani pobierania danych, prawdopodobnie później będziesz chcieć dodać pewne biblioteki do ich obsługi. W miarę jak twój bundle rośnie z każdą nową funkcją, możesz musieć zastanowić się, jak podzielić kod dla każdego widoku z osobna. Gdy potrzeby dotyczące pobierania danych stają się bardziej złożone, prawdopodobnie napotkasz problemy związane z kaskadami żądań sieciowych między serwerem a klientem, które sprawiają, że twoja strona działa bardzo wolno. Gdy aplikacja zaczyna obsługiwać więcej użytkowników z kiepskim połączeniem sieciowym i urządzeniami niskiej jakości, możesz potrzebować generować HTML z twoich komponentów, aby wyświetlać zawartość wcześniej - albo na serwerze, albo podczas budowania. Zmiana w celu uruchamiania części kodu na serwerze lub podczas budowania może być bardzo trudna.
 
 **These problems are not React-specific. This is why Svelte has SvelteKit, Vue has Nuxt, and so on.** To solve these problems on your own, you'll need to integrate your bundler with your router and with your data fetching library. It's not hard to get an initial setup working, but there are a lot of subtleties involved in making an app that loads quickly even as it grows over time. You'll want to send down the minimal amount of app code but do so in a single client–server roundtrip, in parallel with any data required for the page. You'll likely want the page to be interactive before your JavaScript code even runs, to support progressive enhancement. You may want to generate a folder of fully static HTML files for your marketing pages that can be hosted anywhere and still work with JavaScript disabled. Building these capabilities yourself takes real work.
 
