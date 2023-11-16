@@ -30,7 +30,7 @@ Next.js jest rozwijany przez [Vercel](https://vercel.com/). Możesz [wdrożyć a
 
 ### Remix {/*remix*/}
 
-**[Remix](https://remix.run/) to kompleksowy framework reactowy z wbudowanym routingiem.** Pozwala to na podzielenie aplikacji na zagnieżdżone części, które mogą ładować dane równolegle i odświeżać się w odpowiedzi na akcje użytkownika. Aby utworzyć nowy projekt w Remix, uruchom komendę:
+**[Remix](https://remix.run/) to kompleksowy framework reactowy z wbudowanym nawigacją.** Pozwala to na podzielenie aplikacji na zagnieżdżone części, które mogą ładować dane równolegle i odświeżać się w odpowiedzi na akcje użytkownika. Aby utworzyć nowy projekt w Remix, uruchom komendę:
 
 <TerminalBlock>
 npx create-remix
@@ -81,11 +81,11 @@ Nawet jeśli początkowo nie potrzebujesz nawigacji ani pobierania danych, prawd
 Jeżeli to wciąż cię nie przekonuje albo twoja aplikacja posiada nietypowe ograniczenia, które nie są dobrze obsługiwane przez te frameworki i chcesz stworzyć własne niestandardowe rozwiązanie, nie będziemy cię powstrzymywać — śmiało, działaj! Pobierz `react` i `react-dom` z npm, skonfiguruj swój własny proces kompilacji za pomocą bundlera, takiego jak [Vite](https://vitejs.dev/) lub [Parcel](https://parceljs.org/), a następnie dodawaj inne narzędzia, gdy będą ci potrzebne, np. do nawigacji, statycznego generowania lub renderowania po stronie serwera i inne.
 </DeepDive>
 
-## Bleeding-edge React frameworks {/*bleeding-edge-react-frameworks*/}
+## Nowoczesne frameworki reactowe {/*bleeding-edge-react-frameworks*/}
 
-As we've explored how to continue improving React, we realized that integrating React more closely with frameworks (specifically, with routing, bundling, and server technologies) is our biggest opportunity to help React users build better apps. The Next.js team has agreed to collaborate with us in researching, developing, integrating, and testing framework-agnostic bleeding-edge React features like [React Server Components.](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components)
+W trakcie eksplorowania możliwości dalszego udoskonalania Reacta zauważyliśmy, że największą szansą, aby pomóc użytkownikom Reacta w budowaniu lepszych aplikacji jest jego ścisła integracja z frameworkami, zwłaszcza pod względem nawigacji, bundlowania i technologii serwerowych. Zespół Next.js zgodził się na współpracę z nami w zakresie badania, rozwoju, integracji i testowania funkcjonalności Reacta z pogranicza frameworków, takich jak [React Server Components.](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components)
 
-These features are getting closer to being production-ready every day, and we've been in talks with other bundler and framework developers about integrating them. Our hope is that in a year or two, all frameworks listed on this page will have full support for these features. (If you're a framework author interested in partnering with us to experiment with these features, please let us know!)
+Z każdym dniem, funkcjonalności te stają się coraz bliższe użycia w wersji produkcyjnej, a my prowadzimy rozmowy z deweloperami innych bundlerów i frameworków w sprawie ich integracji. Mamy nadzieję, że za rok lub dwa, wszystkie wymienione tu frameworki będą w pełni obsługiwać te funkcjonalności. Jeśli tworzysz framework i interesuje cię współpraca z nami w celu przetestowania tych funkcji, daj nam znać!
 
 ### Next.js (App Router) {/*nextjs-app-router*/}
 
