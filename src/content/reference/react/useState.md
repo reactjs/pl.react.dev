@@ -632,7 +632,7 @@ W tym przykładzie zmienna stanu `todos` przechowuje tablicę. Każda procedura 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -689,7 +689,7 @@ export default function TaskApp() {
 }
 ```
 
-```js AddTodo.js
+```js src/AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -710,7 +710,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js TaskList.js
+```js src/TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({
@@ -1030,7 +1030,7 @@ Aby dowiedzieć się więcej, przeczytaj rozdział pt. [Utrzymywanie i resetowan
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 export default function App() {
@@ -1085,7 +1085,7 @@ Są jednak sytuację, w których żadna z powyższych reguł nie ma zastosowania
 
 Oto przykład. Komponent `CountLabel` wyświetla wartość przekazanej do niego właściwości `count`:
 
-```js CountLabel.js
+```js src/CountLabel.js
 export default function CountLabel({ count }) {
   return <h1>{count}</h1>
 }
@@ -1095,7 +1095,7 @@ Załóżmy, że chcesz wyświetlić informację, czy licznik został *zwiększon
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import CountLabel from './CountLabel.js';
 
@@ -1115,7 +1115,7 @@ export default function App() {
 }
 ```
 
-```js CountLabel.js active
+```js src/CountLabel.js active
 import { useState } from 'react';
 
 export default function CountLabel({ count }) {
