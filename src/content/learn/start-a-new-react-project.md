@@ -95,27 +95,27 @@ Next.js jest rozwijane przez [Vercel](https://vercel.com/). Możesz [wdrożyć a
 
 <DeepDive>
 
-#### Which features make up the React team’s full-stack architecture vision? {/*which-features-make-up-the-react-teams-full-stack-architecture-vision*/}
+#### Jakie funkcje składają się na wizję zespołu Reacta dotyczącej architektury full-stack? {/*which-features-make-up-the-react-teams-full-stack-architecture-vision*/}
 
-Next.js's App Router bundler fully implements the official [React Server Components specification](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). This lets you mix build-time, server-only, and interactive components in a single React tree.
+Bundler App Router z Next.js w pełni implementuje oficjalną [specyfikację React Server Components](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). Pozwala to na łączenie komponentów budowanych podczas kompilacji, budowanych na serwerze oraz interaktywnych w pojedynczym drzewie Reacta.
 
-For example, you can write a server-only React component as an `async` function that reads from a database or from a file. Then you can pass data down from it to your interactive components:
+Na przykład, możesz napisać komponent serwerowy jako funkcję `async`, która czyta z bazy danych lub pliku. Następnie możesz przekazywać dane z niego do komponentów interaktywnych:
 
 ```js
-// This component runs *only* on the server (or during the build).
+// Ten komponent jest wywoływany *tylko* po stronie serwera (lub podczas kompilacji).
 async function Talks({ confId }) {
-  // 1. You're on the server, so you can talk to your data layer. API endpoint not required.
+  // 1. Jesteś na serwerze, więc możesz komunikować się z warstwą danych. Użycie API nie jest konieczne.
   const talks = await db.Talks.findAll({ confId });
 
-  // 2. Add any amount of rendering logic. It won't make your JavaScript bundle larger.
+  // 2. Dodaj dowolną ilość logiki renderowania. Nie zwiększy to rozmiaru bundla.
   const videos = talks.map(talk => talk.video);
 
-  // 3. Pass the data down to the components that will run in the browser.
+  // 3. Przekaż dane do komponentów, które będą działały w przeglądarce.
   return <SearchableVideoList videos={videos} />;
 }
 ```
 
-Next.js's App Router also integrates [data fetching with Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). This lets you specify a loading state (like a skeleton placeholder) for different parts of your user interface directly in your React tree:
+App Router z Next.js zawiera również [pobieranie danych z użyciem Suspense](/blog/2022/03/29/react-v18#suspense-in-data-frameworks). Pozwala to na zdefiniowanie stanu ładowania (na przykład jako skeletonu) dla różnych części interfejsu użytkownika bezpośrednio w drzewie React:
 
 ```js
 <Suspense fallback={<TalksLoading />}>
@@ -123,6 +123,6 @@ Next.js's App Router also integrates [data fetching with Suspense](/blog/2022/03
 </Suspense>
 ```
 
-Server Components and Suspense are React features rather than Next.js features. However, adopting them at the framework level requires buy-in and non-trivial implementation work. At the moment, the Next.js App Router is the most complete implementation. The React team is working with bundler developers to make these features easier to implement in the next generation of frameworks.
+Komponenty serwerowe i Suspense są funkcjonalnościami Reacta, a nie samego Next.js. Jednakże, ich zaadaptowanie w frameworku wymaga akceptacji i znacznej pracy. W chwili obecnej, App Router z Next.js jest ich najpełniejszą implementacją. Zespół Reacta współpracuje z deweloperami bundlerów, aby ułatwić implementację tych funkcjonalności w frameworkach następnej generacji.
 
 </DeepDive>
