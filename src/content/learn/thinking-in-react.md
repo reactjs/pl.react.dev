@@ -81,7 +81,7 @@ Możesz zacząć budować "od góry do dołu", zaczynając od komponentów znajd
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -299,7 +299,7 @@ Teraz możesz przetestować zachowanie aplikacji. Zmień w poniższym kodzie poc
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
@@ -497,7 +497,7 @@ Teraz nasza aplikacja jest w pełni funkcjonalna!
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
