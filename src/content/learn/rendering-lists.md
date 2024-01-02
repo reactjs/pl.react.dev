@@ -4,7 +4,7 @@ title: Renderowanie list
 
 <Intro>
 
-Często będziesz potrzebować wyświetlać wiele podobnych komponentów z kolekcji danych. Możesz użyć [javascriptowych metod tablic](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#), aby manipulować tablicą danych. Będziesz tu korzystać z [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) i [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) w połączeniu z Reactem, aby przefiltrować i przekształcić tablicę danych w tablicę komponentów.
+Często będziesz potrzebować wyświetlać wiele podobnych komponentów na podstawie kolekcji danych. Możesz użyć [javascriptowych metod tablic](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#), aby manipulować tablicą danych. Będziesz tu korzystać z [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) i [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) w połączeniu z Reactem, aby przefiltrować i przekształcić tablicę danych w tablicę komponentów.
 
 </Intro>
 
@@ -22,11 +22,11 @@ Załóżmy, że posiadasz pewną listę treści.
 
 ```js
 <ul>
-  <li>Creola Katherine Johnson: mathematician</li>
-  <li>Mario José Molina-Pasquel Henríquez: chemist</li>
-  <li>Mohammad Abdus Salam: physicist</li>
-  <li>Percy Lavon Julian: chemist</li>
-  <li>Subrahmanyan Chandrasekhar: astrophysicist</li>
+  <li>Creola Katherine Johnson: matematyczka</li>
+  <li>Mario José Molina-Pasquel Henríquez: chemik</li>
+  <li>Mohammad Abdus Salam: fizyk</li>
+  <li>Percy Lavon Julian: chemik</li>
+  <li>Subrahmanyan Chandrasekhar: astrofizyk</li>
 </ul>
 ```
 
@@ -38,15 +38,15 @@ Oto krótki przykład, jak generować listę elementów z tablicy:
 
 ```js
 const people = [
-  'Creola Katherine Johnson: mathematician',
-  'Mario José Molina-Pasquel Henríquez: chemist',
-  'Mohammad Abdus Salam: physicist',
-  'Percy Lavon Julian: chemist',
-  'Subrahmanyan Chandrasekhar: astrophysicist'
+  'Creola Katherine Johnson: matematyczka',
+  'Mario José Molina-Pasquel Henríquez: chemik',
+  'Mohammad Abdus Salam: fizyk',
+  'Percy Lavon Julian: chemik',
+  'Subrahmanyan Chandrasekhar: astrofizyk'
 ];
 ```
 
-2. **Zmapuj** członków tablicy `people` na nową tablicę węzłów JSX, `listItems`:
+2. **Zmapuj** elementy tablicy `people` na nową tablicę węzłów JSX, `listItems`:
 
 ```js
 const listItems = people.map(person => <li>{person}</li>);
@@ -64,11 +64,11 @@ Oto rezultat:
 
 ```js
 const people = [
-  'Creola Katherine Johnson: mathematician',
-  'Mario José Molina-Pasquel Henríquez: chemist',
-  'Mohammad Abdus Salam: physicist',
-  'Percy Lavon Julian: chemist',
-  'Subrahmanyan Chandrasekhar: astrophysicist'
+  'Creola Katherine Johnson: matematyczka',
+  'Mario José Molina-Pasquel Henríquez: chemik',
+  'Mohammad Abdus Salam: fizyk',
+  'Percy Lavon Julian: chemik',
+  'Subrahmanyan Chandrasekhar: astrofizyk'
 ];
 
 export default function List() {
