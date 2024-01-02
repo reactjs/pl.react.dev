@@ -1,24 +1,24 @@
 ---
-title: Rendering Lists
+title: Renderowanie list
 ---
 
 <Intro>
 
-You will often want to display multiple similar components from a collection of data. You can use the [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) to manipulate an array of data. On this page, you'll use [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) and [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) with React to filter and transform your array of data into an array of components.
+Często będziesz potrzebować wyświetlać wiele podobnych komponentów z kolekcji danych. Możesz użyć [javascriptowych metod tablic](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#), aby manipulować tablicą danych. Będziesz tu korzystać z [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) i [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) w połączeniu z Reactem, aby przefiltrować i przekształcić tablicę danych w tablicę komponentów.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to render components from an array using JavaScript's `map()`
-* How to render only specific components using JavaScript's `filter()`
-* When and why to use React keys
+* Jak renderować komponenty z tablicy za pomocą javascriptowej funkcji `map()`.
+* Jak renderować tylko konkretne komponenty za pomocą javascriptowej funkcji `filter()`.
+* Kiedy i dlaczego stosować klucze (ang. _keys_) w Reakcie.
 
 </YouWillLearn>
 
-## Rendering data from arrays {/*rendering-data-from-arrays*/}
+## Renderowanie list z tablic {/*rendering-data-from-arrays*/}
 
-Say that you have a list of content.
+Załóżmy, że posiadasz pewną listę treści.
 
 ```js
 <ul>
@@ -30,11 +30,11 @@ Say that you have a list of content.
 </ul>
 ```
 
-The only difference among those list items is their contents, their data. You will often need to show several instances of the same component using different data when building interfaces: from lists of comments to galleries of profile images. In these situations, you can store that data in JavaScript objects and arrays and use methods like [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to render lists of components from them.
+Jedyna różnica między elementami tej listy to ich treść, ich dane. Często będziesz chcieć pokazać kilka instancji tego samego komponentu, używając różnych danych podczas tworzenia interfejsów: od list komentarzy do galerii obrazków profilowych. W takich sytuacjach możesz przechowywać te dane w obiektach i tablicach JavaScript oraz używać metod takich jak [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) i [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), aby renderować na ich podstawie listy komponentów.
 
-Here’s a short example of how to generate a list of items from an array:
+Oto krótki przykład, jak generować listę elementów z tablicy:
 
-1. **Move** the data into an array:
+1. **Przenieś** dane do tablicy:
 
 ```js
 const people = [
@@ -46,19 +46,19 @@ const people = [
 ];
 ```
 
-2. **Map** the `people` members into a new array of JSX nodes, `listItems`:
+2. **Zmapuj** członków tablicy `people` na nową tablicę węzłów JSX, `listItems`:
 
 ```js
 const listItems = people.map(person => <li>{person}</li>);
 ```
 
-3. **Return** `listItems` from your component wrapped in a `<ul>`:
+3. **Zwróć** tablicę `listItems` z twojego komponentu, opakowaną w element `<ul>`:
 
 ```js
 return <ul>{listItems}</ul>;
 ```
 
-Here is the result:
+Oto rezultat:
 
 <Sandpack>
 
@@ -85,7 +85,7 @@ li { margin-bottom: 10px; }
 
 </Sandpack>
 
-Notice the sandbox above displays a console error:
+Zauważ, że powyższy sandbox wyświetla błąd w konsoli:
 
 <ConsoleBlock level="error">
 
@@ -93,7 +93,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-You'll learn how to fix this error later on this page. Before we get to that, let's add some structure to your data.
+Później na tej stronie, dowiesz się jak naprawić ten błąd. Zanim do tego przejdziemy, nadajmy trochę struktury twoim danym.
 
 ## Filtering arrays of items {/*filtering-arrays-of-items*/}
 
