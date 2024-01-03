@@ -95,45 +95,45 @@ Warning: Each child in a list should have a unique "key" prop.
 
 Później na tej stronie, dowiesz się jak naprawić ten błąd. Zanim do tego przejdziemy, nadajmy trochę struktury twoim danym.
 
-## Filtering arrays of items {/*filtering-arrays-of-items*/}
+## Filtrowanie tablicy elementów {/*filtering-arrays-of-items*/}
 
-This data can be structured even more.
+Dane te można jeszcze bardziej ustrukturyzować.
 
 ```js
 const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
+  profession: 'matematyczka',
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
+  profession: 'chemik',
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
+  profession: 'fizyk',
 }, {
   name: 'Percy Lavon Julian',
-  profession: 'chemist',  
+  profession: 'chemik',
 }, {
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
+  profession: 'astrofizyk',
 }];
 ```
 
-Let's say you want a way to only show people whose profession is `'chemist'`. You can use JavaScript's `filter()` method to return just those people. This method takes an array of items, passes them through a “test” (a function that returns `true` or `false`), and returns a new array of only those items that passed the test (returned `true`).
+Załóżmy, że chcesz mieć możliwość pokazywania tylko tych osób, których zawód to `'chemik'`. Możesz skorzystać z javascriptowej metody `filter()`, aby zwrócić tylko takie osoby. Metoda ta przyjmuje tablicę, poddaje jej elementy "testowi" (funkcji, która zwraca `true` lub `false`) i zwraca nową tablicę tylko tych elementów, które zdały test (zwróciły `true`).
 
-You only want the items where `profession` is `'chemist'`. The "test" function for this looks like `(person) => person.profession === 'chemist'`. Here's how to put it together:
+Chcąc uzyskać tylko te elementy, gdzie `profession` jest ustawione na `'chemik'`, odpowiednia funkcja "testu" powinna wyglądać tak: `(person) => person.profession === 'chemik'`. Oto sposób jak to wszystko połączyć w całość:
 
-1. **Create** a new array of just “chemist” people, `chemists`, by calling `filter()` on the `people` filtering by `person.profession === 'chemist'`:
+1. **Utwórz** nową tablicę zawierającą tylko osoby o zawodzie `'chemik'` i nazwij ją `chemists`. Wywołaj metodę `filter()` na tablicy `people`, filtrując według warunku `person.profession === 'chemik'` i przypisz jej rezultat do nowo utworzonej tablicy:
 
 ```js
 const chemists = people.filter(person =>
-  person.profession === 'chemist'
+  person.profession === 'chemik'
 );
 ```
 
-2. Now **map** over `chemists`:
+2. Teraz **zmapuj** tablicę `chemists`:
 
 ```js {1,13}
 const listItems = chemists.map(person =>
@@ -145,13 +145,13 @@ const listItems = chemists.map(person =>
      <p>
        <b>{person.name}:</b>
        {' ' + person.profession + ' '}
-       known for {person.accomplishment}
+       {person.accomplishment}.
      </p>
   </li>
 );
 ```
 
-3. Lastly, **return** the `listItems` from your component:
+3. Wreszcie **zwróć** `listItems` z twojego komponentu:
 
 ```js
 return <ul>{listItems}</ul>;
@@ -165,7 +165,7 @@ import { getImageUrl } from './utils.js';
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'chemik'
   );
   const listItems = chemists.map(person =>
     <li>
@@ -176,7 +176,7 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        {person.accomplishment}.
       </p>
     </li>
   );
@@ -188,32 +188,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matematyczka',
+  accomplishment: 'znana z obliczeń związanych z lotami kosmicznymi',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'chemik',
+  accomplishment: 'znany z odkrycia dziury ozonowej nad Arktyką',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'fizyk',
+  accomplishment: 'znany z prac nad teorią elektromagnetyzmu',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'chemik',
+  accomplishment: 'znany z pionierskich prac nad lekami na bazie kortyzonu, steroidami i pigułkami antykoncepcyjnymi',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofizyk',
+  accomplishment: 'znany z obliczeń masy białych karłów',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -244,23 +244,23 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Pitfall>
 
-Arrow functions implicitly return the expression right after `=>`, so you didn't need a `return` statement:
+Funkcje strzałkowe (ang. _arrow function_) niejawnie zwracają wyrażenie znajdujące się zaraz po `=>`, więc nie musisz użyć instrukcji `return`:
 
 ```js
 const listItems = chemists.map(person =>
-  <li>...</li> // Implicit return!
+  <li>...</li> // Niejawne zwrócenie!
 );
 ```
 
-However, **you must write `return` explicitly if your `=>` is followed by a `{` curly brace!**
+Natomiast **musisz wprost napisać `return`, jeśli po twoim `=>` znajduje się nawias klamrowy!**
 
 ```js
-const listItems = chemists.map(person => { // Curly brace
+const listItems = chemists.map(person => { // Nawias klamrowy
   return <li>...</li>;
 });
 ```
 
-Arrow functions containing `=> {` are said to have a ["block body".](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) They let you write more than a single line of code, but you *have to* write a `return` statement yourself. If you forget it, nothing gets returned!
+Funkcje strzałkowe zawierające `=> {` są określane jako posiadające ["ciało blokowe"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body). Pozwalają one na napisanie więcej niż jednej linii kodu, ale *zawsze musisz* samodzielnie napisać instrukcję `return`. Jeśli to przeoczysz, nic nie zostanie zwrócone!
 
 </Pitfall>
 
