@@ -264,9 +264,9 @@ Funkcje strzałkowe zawierające `=> {` są określane jako posiadające ["ciał
 
 </Pitfall>
 
-## Keeping list items in order with `key` {/*keeping-list-items-in-order-with-key*/}
+## Zachowanie kolejności elementów listy za pomocą `key` (ang. _klucz_) {/*keeping-list-items-in-order-with-key*/}
 
-Notice that all the sandboxes above show an error in the console:
+Zauważ, że wszystkie powyższe piaskownice wyświetlają błąd w konsoli:
 
 <ConsoleBlock level="error">
 
@@ -274,7 +274,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-You need to give each array item a `key` -- a string or a number that uniquely identifies it among other items in that array:
+Każdemu elementowi tablicy musisz przypisać klucz `key`, czyli łańcuch znaków lub liczbę, która jednoznacznie identyfikuje go wśród innych elementów w tej tablicy:
 
 ```js
 <li key={person.id}>...</li>
@@ -282,13 +282,13 @@ You need to give each array item a `key` -- a string or a number that uniquely i
 
 <Note>
 
-JSX elements directly inside a `map()` call always need keys!
+Elementy JSX bezpośrednio wewnątrz wywołania `map()` muszą zawsze mieć przypisane klucze!
 
 </Note>
 
-Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+Klucze `key` pozwalają Reactowi zrozumieć, który komponent odpowiada któremu elementowi tablicy, dzięki czemu może je później dopasować. Jest to istotne, jeśli elementy tablicy mogą być przemieszczane (np. w wyniku sortowania), dodawane lub usuwane. Dobrze dobrany klucz `key` pomaga Reactowi wywnioskować, co dokładnie się stało, i dokonać odpowiednich aktualizacji drzewa DOM.
 
-Rather than generating keys on the fly, you should include them in your data:
+Zamiast generować klucze dynamicznie, powinno się dołączać je do danych:
 
 <Sandpack>
 
@@ -306,7 +306,7 @@ export default function List() {
       <p>
         <b>{person.name}</b>
           {' ' + person.profession + ' '}
-          known for {person.accomplishment}
+          {person.accomplishment}.
       </p>
     </li>
   );
@@ -316,34 +316,34 @@ export default function List() {
 
 ```js data.js active
 export const people = [{
-  id: 0, // Used in JSX as a key
+  id: 0, // Użyte w JSX jako klucz
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matematyczka',
+  accomplishment: 'znana z obliczeń związanych z lotami kosmicznymi',
   imageId: 'MK3eW3A'
 }, {
-  id: 1, // Used in JSX as a key
+  id: 1, // Użyte w JSX jako klucz
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'chemik',
+  accomplishment: 'znany z odkrycia dziury ozonowej nad Arktyką',
   imageId: 'mynHUSa'
 }, {
-  id: 2, // Used in JSX as a key
+  id: 2, // Użyte w JSX jako klucz
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'fizyk',
+  accomplishment: 'znany z prac nad teorią elektromagnetyzmu',
   imageId: 'bE7W1ji'
 }, {
-  id: 3, // Used in JSX as a key
+  id: 3, // Użyte w JSX jako klucz
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'chemik',
+  accomplishment: 'znany z pionierskich prac nad lekami na bazie kortyzonu, steroidami i pigułkami antykoncepcyjnymi',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Użyte w JSX jako klucz
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofizyk',
+  accomplishment: 'znany z obliczeń masy białych karłów',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -374,11 +374,11 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <DeepDive>
 
-#### Displaying several DOM nodes for each list item {/*displaying-several-dom-nodes-for-each-list-item*/}
+#### Wyświetlanie kilku węzłów drzewa DOM dla każdego elementu listy {/*displaying-several-dom-nodes-for-each-list-item*/}
 
-What do you do when each item needs to render not one, but several DOM nodes?
+Co zrobić, gdy każdy element musi renderować nie jeden, ale kilka węzłów drzewa DOM?
 
-The short [`<>...</>` Fragment](/reference/react/Fragment) syntax won't let you pass a key, so you need to either group them into a single `<div>`, or use the slightly longer and [more explicit `<Fragment>` syntax:](/reference/react/Fragment#rendering-a-list-of-fragments)
+Krótka składnia [`<>...</>` Fragment](/reference/react/Fragment) nie pozwala na przekazanie klucza, więc musisz albo zgrupować je w pojedynczy `<div>`, albo użyć nieco dłuższej i [bardziej jawnej składni `<Fragment>`:](/reference/react/Fragment#rendering-a-list-of-fragments)
 
 ```js
 import { Fragment } from 'react';
@@ -393,7 +393,7 @@ const listItems = people.map(person =>
 );
 ```
 
-Fragments disappear from the DOM, so this will produce a flat list of `<h1>`, `<p>`, `<h1>`, `<p>`, and so on.
+Fragmenty nie pojawiają się w drzewie DOM, więc użycie ich spowoduje uzyskanie płaskiej listy elementów `<h1>`, `<p>`, `<h1>`, `<p>` i tak dalej.
 
 </DeepDive>
 
