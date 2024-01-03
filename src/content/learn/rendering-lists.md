@@ -408,19 +408,19 @@ Różne źródła danych dostarczają różnych kluczy:
 * **Klucze muszą być unikalne między rodzeństwem.** Jednakże, używanie tych samych kluczy dla węzłów JSX w _różnych_ tablicach jest jak najbardziej w porządku.
 * **Klucze nie mogą się zmieniać,** bo to przeczy ich celowi! Nie generuj ich podczas renderowania.
 
-### Why does React need keys? {/*why-does-react-need-keys*/}
+### Dlaczego React potrzebuje kluczy? {/*why-does-react-need-keys*/}
 
-Imagine that files on your desktop didn't have names. Instead, you'd refer to them by their order -- the first file, the second file, and so on. You could get used to it, but once you delete a file, it would get confusing. The second file would become the first file, the third file would be the second file, and so on.
+Wyobraź sobie, że pliki na twoim pulpicie nie mają nazw. Zamiast tego trzeba odwoływać się do nich przez ich kolejność - pierwszy plik, drugi plik i tak dalej. Można się do tego przyzwyczaić, ale gdyby usunąć plik, zaczęłoby być to kłopotliwe. Drugi plik stałby się pierwszym plikiem, trzeci plik byłby drugim plikiem i tak dalej.
 
-File names in a folder and JSX keys in an array serve a similar purpose. They let us uniquely identify an item between its siblings. A well-chosen key provides more information than the position within the array. Even if the _position_ changes due to reordering, the `key` lets React identify the item throughout its lifetime.
+Nazwy plików w folderze i klucze JSX w tablicy pełnią podobną rolę. Pozwalają nam jednoznacznie identyfikować element pośród swojego rodzeństwa. Dobrze dobrany klucz dostarcza więcej informacji niż pozycja w tablicy. Nawet jeśli _pozycja_ zmieni się ze względu na ponowne sortowanie, klucz pozwala Reactowi identyfikować element przez cały cykl jego życia.
 
 <Pitfall>
 
-You might be tempted to use an item's index in the array as its key. In fact, that's what React will use if you don't specify a `key` at all. But the order in which you render items will change over time if an item is inserted, deleted, or if the array gets reordered. Index as a key often leads to subtle and confusing bugs.
+Możesz skusić się, aby użyć indeksu elementu w tablicy jako jego klucza. W rzeczywistości to właśnie jego użyje React, jeśli w ogóle nie określisz klucza. Jednak kolejność renderowania elementów będzie się zmieniać w miarę czasu, gdy jakiś element zostanie dodany, usunięty lub jeśli tablica zostanie posortowana. Indeks jako klucz często prowadzi do mało oczywistych i mylących błędów.
 
-Similarly, do not generate keys on the fly, e.g. with `key={Math.random()}`. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time. Not only is this slow, but it will also lose any user input inside the list items. Instead, use a stable ID based on the data.
+Podobnie nie generuj kluczy dynamicznie, na przykład za pomocą `key={Math.random()}`. Spowoduje to, że klucze nigdy nie będą się zgadzać między renderowaniami, co poskutkuje za każdym razem tworzeniem od nowa wszystkich komponentów i drzewa DOM. Nie tylko będzie to wolne, ale również sprawi, że utracisz wszystkie dane wprowadzone przez użytkownika wewnątrz elementów listy. Zamiast tego użyj stałego identyfikatora opartego na danych.
 
-Note that your components won't receive `key` as a prop. It's only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: `<Profile key={id} userId={id} />`.
+Zauważ, że twoje komponenty nie otrzymają `key` przez właściwości. Jest on używany jedynie jako wskazówka dla samego Reacta. Jeśli twój komponent potrzebuje identyfikatora, musisz przekazać go jako oddzielną właściwość: `<Profile key={id} userId={id} />`.
 
 </Pitfall>
 
