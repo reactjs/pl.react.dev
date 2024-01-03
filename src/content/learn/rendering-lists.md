@@ -397,12 +397,12 @@ Fragmenty nie pojawiają się w drzewie DOM, więc użycie ich spowoduje uzyskan
 
 </DeepDive>
 
-### Where to get your `key` {/*where-to-get-your-key*/}
+### Skąd wziąć klucze `key` {/*where-to-get-your-key*/}
 
-Different sources of data provide different sources of keys:
+Różne źródła danych dostarczają różnych kluczy:
 
-* **Data from a database:** If your data is coming from a database, you can use the database keys/IDs, which are unique by nature.
-* **Locally generated data:** If your data is generated and persisted locally (e.g. notes in a note-taking app), use an incrementing counter, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) or a package like [`uuid`](https://www.npmjs.com/package/uuid) when creating items.
+* **Dane z bazy danych:** Jeśli twoje dane pochodzą z bazy danych, możesz używać kluczy lub ID z tej bazy danych, które z natury są unikalne.
+* **Lokalnie generowane dane:** Jeśli twoje dane są generowane i przechowywane lokalnie (np. notatki w aplikacji do robienia notatek), użyj licznika przyrostowego [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) lub paczki takiej jak [`uuid`](https://www.npmjs.com/package/uuid) podczas tworzenia elementów.
 
 ### Rules of keys {/*rules-of-keys*/}
 
