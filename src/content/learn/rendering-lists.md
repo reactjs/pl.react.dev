@@ -403,11 +403,10 @@ Różne źródła danych dostarczają różnych kluczy:
 
 * **Dane z bazy danych:** Jeśli twoje dane pochodzą z bazy danych, możesz używać kluczy lub ID z tej bazy danych, które z natury są unikalne.
 * **Lokalnie generowane dane:** Jeśli twoje dane są generowane i przechowywane lokalnie (np. notatki w aplikacji do robienia notatek), użyj licznika przyrostowego [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) lub paczki takiej jak [`uuid`](https://www.npmjs.com/package/uuid) podczas tworzenia elementów.
+### Zasady kluczy {/*rules-of-keys*/}
 
-### Rules of keys {/*rules-of-keys*/}
-
-* **Keys must be unique among siblings.** However, it’s okay to use the same keys for JSX nodes in _different_ arrays.
-* **Keys must not change** or that defeats their purpose! Don't generate them while rendering.
+* **Klucze muszą być unikalne między rodzeństwem.** Jednakże, używanie tych samych kluczy dla węzłów JSX w _różnych_ tablicach jest jak najbardziej w porządku.
+* **Klucze nie mogą się zmieniać,** bo to przeczy ich celowi! Nie generuj ich podczas renderowania.
 
 ### Why does React need keys? {/*why-does-react-need-keys*/}
 
