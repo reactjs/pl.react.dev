@@ -881,13 +881,13 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Solution>
 
-#### Nested lists in one component {/*nested-lists-in-one-component*/}
+#### Listy zagnieżdżone w jednym komponencie {/*nested-lists-in-one-component*/}
 
-Make a list of recipes from this array! For each recipe in the array, display its name as an `<h2>` and list its ingredients in a `<ul>`.
+Stwórz listę przepisów z tej tablicy! Dla każdego przepisu z tablicy wyświetl jego nazwę jako `<h2>` i wypisz składniki w `<ul>`.
 
 <Hint>
 
-This will require nesting two different `map` calls.
+Będzie to wymagało zagnieżdżenia dwóch różnych wywołań `map`.
 
 </Hint>
 
@@ -899,7 +899,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Przepisy</h1>
     </div>
   );
 }
@@ -908,16 +908,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Sałatka grecka',
+  ingredients: ['pomidory', 'ogórek', 'cebula', 'oliwki', 'feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawajska',
+  ingredients: ['ciasto na pizze', 'sos do pizzy', 'mozzarella', 'szynka', 'ananas']
 }, {
   id: 'hummus',
-  name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  name: 'Humus',
+  ingredients: ['ciecierzyca', 'oliwa z oliwek', 'ząbki czosnku', 'cytryna', 'tahini']
 }];
 ```
 
@@ -925,7 +925,7 @@ export const recipes = [{
 
 <Solution>
 
-Here is one way you could go about it:
+Oto jedna z możliwości, jak można to zrealizować:
 
 <Sandpack>
 
@@ -935,7 +935,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Przepisy</h1>
       {recipes.map(recipe =>
         <div key={recipe.id}>
           <h2>{recipe.name}</h2>
@@ -956,22 +956,22 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Sałatka grecka',
+  ingredients: ['pomidory', 'ogórek', 'cebula', 'oliwki', 'feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawajska',
+  ingredients: ['ciasto na pizze', 'sos do pizzy', 'mozzarella', 'szynka', 'ananas']
 }, {
   id: 'hummus',
-  name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  name: 'Humus',
+  ingredients: ['ciecierzyca', 'oliwa z oliwek', 'ząbki czosnku', 'cytryna', 'tahini']
 }];
 ```
 
 </Sandpack>
 
-Each of the `recipes` already includes an `id` field, so that's what the outer loop uses for its `key`. There is no ID you could use to loop over ingredients. However, it's reasonable to assume that the same ingredient won't be listed twice within the same recipe, so its name can serve as a `key`. Alternatively, you could change the data structure to add IDs, or use index as a `key` (with the caveat that you can't safely reorder ingredients).
+Każdy z przepisów zawiera już pole `id`, więc właśnie to pole jest używane jako `key` w zewnętrznej pętli. Brak jest jednak identyfikatora, którego można by użyć do iteracji po składnikach. Niemniej jednak, można założyć, że ten sam składnik nie będzie wymieniony dwukrotnie w ramach tego samego przepisu, więc jego nazwa może posłużyć jako `key`. Ewentualnie, można by zmienić strukturę danych, dodając identyfikatory lub użyć indeksu jako `key` (z zastrzeżeniem, że nie można bezpiecznie zmieniać kolejności składników).
 
 </Solution>
 
