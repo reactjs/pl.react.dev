@@ -426,12 +426,12 @@ Zauważ, że twoje komponenty nie otrzymają `key` przez właściwości. Jest on
 
 <Recap>
 
-On this page you learned:
+Na tej stronie nauczyliśmy cię:
 
-* How to move data out of components and into data structures like arrays and objects.
-* How to generate sets of similar components with JavaScript's `map()`.
-* How to create arrays of filtered items with JavaScript's `filter()`.
-* Why and how to set `key` on each component in a collection so React can keep track of each of them even if their position or data changes.
+* Jak przenieść dane z komponentów do struktur danych, takich jak tablice i obiekty.
+* Jak generować zbiory podobnych komponentów za pomocą javascriptowej funkcji `map()`.
+* Jak tworzyć tablice przefiltrowanych elementów za pomocą javascriptowej funkcji `filter()`.
+* Jak i dlaczego ustawiać klucz `key` dla każdego komponentu w kolekcji, aby React mógł śledzić każdy z nich, nawet jeśli zmienią się ich pozycja lub dane.
 
 </Recap>
 
