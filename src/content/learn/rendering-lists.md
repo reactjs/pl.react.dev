@@ -439,11 +439,11 @@ Na tej stronie nauczyliśmy cię:
 
 <Challenges>
 
-#### Splitting a list in two {/*splitting-a-list-in-two*/}
+#### Dzielenie listy na dwie {/*splitting-a-list-in-two*/}
 
-This example shows a list of all people.
+Ten przykład wyświetla listę wszystkich osób.
 
-Change it to show two separate lists one after another: **Chemists** and **Everyone Else.** Like previously, you can determine whether a person is a chemist by checking if `person.profession === 'chemist'`.
+Zmień go tak, aby pokazywał dwie oddzielne listy jedna po drugiej: **Chemia** i **Wszyscy Inni.** Tak jak wcześniej, możesz określić, czy osoba jest związana z chemią, sprawdzając warunek `person.profession === 'chemist'`.
 
 <Sandpack>
 
@@ -461,13 +461,13 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        {person.accomplishment}.
       </p>
     </li>
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Naukowcy</h1>
       <ul>{listItems}</ul>
     </article>
   );
@@ -478,32 +478,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matematyczka',
+  accomplishment: 'znana z obliczeń związanych z lotami kosmicznymi',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'chemik',
+  accomplishment: 'znany z odkrycia dziury ozonowej nad Arktyką',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'fizyk',
+  accomplishment: 'znany z prac nad teorią elektromagnetyzmu',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'chemik',
+  accomplishment: 'znany z pionierskich prac nad lekami na bazie kortyzonu, steroidami i pigułkami antykoncepcyjnymi',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofizyk',
+  accomplishment: 'znany z obliczeń masy białych karłów',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -534,7 +534,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Solution>
 
-You could use `filter()` twice, creating two separate arrays, and then `map` over both of them:
+Możesz użyć funkcji `filter()` dwukrotnie, tworząc dwie osobne tablice, a następnie użyć funkcji `map()` dla obu z nich:
 
 <Sandpack>
 
@@ -544,15 +544,15 @@ import { getImageUrl } from './utils.js';
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'chemik'
   );
   const everyoneElse = people.filter(person =>
-    person.profession !== 'chemist'
+    person.profession !== 'chemik'
   );
   return (
     <article>
-      <h1>Scientists</h1>
-      <h2>Chemists</h2>
+      <h1>Naukowcy</h1>
+      <h2>Chemicy</h2>
       <ul>
         {chemists.map(person =>
           <li key={person.id}>
@@ -563,12 +563,12 @@ export default function List() {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              {person.accomplishment}.
             </p>
           </li>
         )}
       </ul>
-      <h2>Everyone Else</h2>
+      <h2>Wszyscy inni</h2>
       <ul>
         {everyoneElse.map(person =>
           <li key={person.id}>
@@ -579,7 +579,7 @@ export default function List() {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              {person.accomplishment}.
             </p>
           </li>
         )}
@@ -593,32 +593,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matematyczka',
+  accomplishment: 'znana z obliczeń związanych z lotami kosmicznymi',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'chemik',
+  accomplishment: 'znany z odkrycia dziury ozonowej nad Arktyką',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'fizyk',
+  accomplishment: 'znany z prac nad teorią elektromagnetyzmu',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'chemik',
+  accomplishment: 'znany z pionierskich prac nad lekami na bazie kortyzonu, steroidami i pigułkami antykoncepcyjnymi',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofizyk',
+  accomplishment: 'znany z obliczeń masy białych karłów',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -647,9 +647,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-In this solution, the `map` calls are placed directly inline into the parent `<ul>` elements, but you could introduce variables for them if you find that more readable.
+W rozwiązaniu tym, wywołania funkcji `map()` są umieszczone bezpośrednio wewnątrz elementów nadrzędnych `<ul>`, ale możesz przenieść je do zmiennych, aby zwiększyć czytelność.
 
-There is still a bit duplication between the rendered lists. You can go further and extract the repetitive parts into a `<ListSection>` component:
+Nadal zachodzi tu duplikacja kodu między listami. Możesz pójść dalej i wyodrębnić jego powtarzające się części do komponentu `<ListSection>`:
 
 <Sandpack>
 
@@ -671,7 +671,7 @@ function ListSection({ title, people }) {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              {person.accomplishment}.
             </p>
           </li>
         )}
@@ -682,20 +682,20 @@ function ListSection({ title, people }) {
 
 export default function List() {
   const chemists = people.filter(person =>
-    person.profession === 'chemist'
+    person.profession === 'chemik'
   );
   const everyoneElse = people.filter(person =>
-    person.profession !== 'chemist'
+    person.profession !== 'chemik'
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Naukowcy</h1>
       <ListSection
-        title="Chemists"
+        title="Chemicy"
         people={chemists}
       />
       <ListSection
-        title="Everyone Else"
+        title="Wszyscy inni"
         people={everyoneElse}
       />
     </article>
@@ -707,32 +707,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matematyczka',
+  accomplishment: 'znana z obliczeń związanych z lotami kosmicznymi',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'chemik',
+  accomplishment: 'znany z odkrycia dziury ozonowej nad Arktyką',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'fizyk',
+  accomplishment: 'znany z prac nad teorią elektromagnetyzmu',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'chemik',
+  accomplishment: 'znany z pionierskich prac nad lekami na bazie kortyzonu, steroidami i pigułkami antykoncepcyjnymi',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofizyk',
+  accomplishment: 'znany z obliczeń masy białych karłów',
   imageId: 'lrWQx8l'
 }];
 ```
@@ -761,9 +761,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-A very attentive reader might notice that with two `filter` calls, we check each person's profession twice. Checking a property is very fast, so in this example it's fine. If your logic was more expensive than that, you could replace the `filter` calls with a loop that manually constructs the arrays and checks each person once.
+Bardzo uważny czytelnik może zauważyć, że przy dwóch wywołaniach funkcji `filter()`, zawód każdej osoby jest sprawdzany dwukrotnie. W tym przykładzie, sprawdzanie właściwości jest bardzo szybkie, więc jest to akceptowalne rozwiązanie. Jeśli jednak twoja logika byłaby bardziej kosztowna, można by zastąpić wywołania funkcji `filter()` pętlą, która ręcznie konstruuje tablice i sprawdza każdą osobę tylko raz.
 
-In fact, if `people` never change, you could move this code out of your component. From React's perspective, all that matters is that you give it an array of JSX nodes in the end. It doesn't care how you produce that array:
+W zasadzie, jeśli tablica `people` nigdy się nie zmienia, możesz przenieść ten kod poza komponent. Z punktu widzenia Reacta, ważne jest tylko to, aby ostatecznie dostarczyć mu tablicę węzłów JSX. Nie ma to znaczenia, w jaki sposób generujesz tę tablicę:
 
 <Sandpack>
 
@@ -774,7 +774,7 @@ import { getImageUrl } from './utils.js';
 let chemists = [];
 let everyoneElse = [];
 people.forEach(person => {
-  if (person.profession === 'chemist') {
+  if (person.profession === 'chemik') {
     chemists.push(person);
   } else {
     everyoneElse.push(person);
@@ -795,7 +795,7 @@ function ListSection({ title, people }) {
             <p>
               <b>{person.name}:</b>
               {' ' + person.profession + ' '}
-              known for {person.accomplishment}
+              {person.accomplishment}.
             </p>
           </li>
         )}
@@ -807,13 +807,13 @@ function ListSection({ title, people }) {
 export default function List() {
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Naukowcy</h1>
       <ListSection
-        title="Chemists"
+        title="Chemicy"
         people={chemists}
       />
       <ListSection
-        title="Everyone Else"
+        title="Wszyscy inni"
         people={everyoneElse}
       />
     </article>
@@ -825,32 +825,32 @@ export default function List() {
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
-  profession: 'mathematician',
-  accomplishment: 'spaceflight calculations',
+  profession: 'matematyczka',
+  accomplishment: 'znana z obliczeń związanych z lotami kosmicznymi',
   imageId: 'MK3eW3A'
 }, {
   id: 1,
   name: 'Mario José Molina-Pasquel Henríquez',
-  profession: 'chemist',
-  accomplishment: 'discovery of Arctic ozone hole',
+  profession: 'chemik',
+  accomplishment: 'znany z odkrycia dziury ozonowej nad Arktyką',
   imageId: 'mynHUSa'
 }, {
   id: 2,
   name: 'Mohammad Abdus Salam',
-  profession: 'physicist',
-  accomplishment: 'electromagnetism theory',
+  profession: 'fizyk',
+  accomplishment: 'znany z prac nad teorią elektromagnetyzmu',
   imageId: 'bE7W1ji'
 }, {
   id: 3,
   name: 'Percy Lavon Julian',
-  profession: 'chemist',
-  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  profession: 'chemik',
+  accomplishment: 'znany z pionierskich prac nad lekami na bazie kortyzonu, steroidami i pigułkami antykoncepcyjnymi',
   imageId: 'IOjWm71'
 }, {
   id: 4,
   name: 'Subrahmanyan Chandrasekhar',
-  profession: 'astrophysicist',
-  accomplishment: 'white dwarf star mass calculations',
+  profession: 'astrofizyk',
+  accomplishment: 'znany z obliczeń masy białych karłów',
   imageId: 'lrWQx8l'
 }];
 ```
