@@ -282,7 +282,7 @@ Każdemu elementowi tablicy musisz przypisać klucz `key`, czyli łańcuch znak�
 
 <Note>
 
-Elementy JSX bezpośrednio wewnątrz wywołania `map()` muszą zawsze mieć przypisane klucze!
+Elementy JSX bezpośrednio wewnątrz wywołania funkcji `map()` muszą zawsze mieć przypisane klucze!
 
 </Note>
 
@@ -887,7 +887,7 @@ Stwórz listę przepisów z tej tablicy! Dla każdego przepisu z tablicy wyświe
 
 <Hint>
 
-Będzie to wymagało zagnieżdżenia dwóch różnych wywołań `map`.
+Będzie to wymagało zagnieżdżenia dwóch różnych wywołań funkcji `map()`.
 
 </Hint>
 
@@ -977,7 +977,7 @@ Każdy z przepisów zawiera już pole `id`, więc właśnie to pole jest używan
 
 #### Wyodrębnianie komponentu elementu listy {/*extracting-a-list-item-component*/}
 
-Komponent `RecipeList` zawiera dwa zagnieżdżone wywołania funkcji `map`. Aby to uprościć, wyodrębnij komponent `Recipe`, który będzie przyjmować właściwości `id`, `name` oraz `ingredients`. Gdzie umieścisz zewnętrzny klucz `key` i dlaczego?
+Komponent `RecipeList` zawiera dwa zagnieżdżone wywołania funkcji `map()`. Aby to uprościć, wyodrębnij komponent `Recipe`, który będzie przyjmować właściwości `id`, `name` oraz `ingredients`. Gdzie umieścisz zewnętrzny klucz `key` i dlaczego?
 
 <Sandpack>
 
@@ -1025,7 +1025,7 @@ export const recipes = [{
 
 <Solution>
 
-Możesz przenieść JSX z zewnętrznego wywołania funkcji `map` do nowego komponentu `Recipe` i zwrócić ten JSX. Następnie możesz zmienić `recipe.name` na `name`, `recipe.id` na `id` itd., a następnie przekazać je jako właściwości do komponentu `Recipe`:
+Możesz przenieść JSX z zewnętrznego wywołania funkcji `map()` do nowego komponentu `Recipe` i zwrócić ten JSX. Następnie możesz zmienić `recipe.name` na `name`, `recipe.id` na `id` itd., a następnie przekazać je jako właściwości do komponentu `Recipe`:
 
 <Sandpack>
 
@@ -1144,7 +1144,7 @@ To rzadki przypadek, w którym indeks użyty jako klucz jest akceptowalny, ponie
 
 <Hint>
 
-Będziesz musieć albo przekształcić `map` w pętlę manualną, albo użyć fragmentu.
+Będziesz musieć albo przekształcić wywołanie funkcji `map()` w pętlę manualną, albo użyć fragmentu.
 
 </Hint>
 
