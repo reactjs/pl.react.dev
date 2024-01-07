@@ -975,9 +975,9 @@ Każdy z przepisów zawiera już pole `id`, więc właśnie to pole jest używan
 
 </Solution>
 
-#### Extracting a list item component {/*extracting-a-list-item-component*/}
+#### Wyodrębnianie komponentu elementu listy {/*extracting-a-list-item-component*/}
 
-This `RecipeList` component contains two nested `map` calls. To simplify it, extract a `Recipe` component from it which will accept `id`, `name`, and `ingredients` props. Where do you place the outer `key` and why?
+Komponent `RecipeList` zawiera dwa zagnieżdżone wywołania funkcji `map`. Aby to uprościć, wyodrębnij komponent `Recipe`, który będzie przyjmować właściwości `id`, `name` oraz `ingredients`. Gdzie umieścisz zewnętrzny klucz `key` i dlaczego?
 
 <Sandpack>
 
@@ -987,7 +987,7 @@ import { recipes } from './data.js';
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Przepisy</h1>
       {recipes.map(recipe =>
         <div key={recipe.id}>
           <h2>{recipe.name}</h2>
@@ -1008,16 +1008,16 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Sałatka grecka',
+  ingredients: ['pomidory', 'ogórek', 'cebula', 'oliwki', 'feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawajska',
+  ingredients: ['ciasto na pizze', 'sos do pizzy', 'mozzarella', 'szynka', 'ananas']
 }, {
   id: 'hummus',
-  name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  name: 'Humus',
+  ingredients: ['ciecierzyca', 'oliwa z oliwek', 'ząbki czosnku', 'cytryna', 'tahini']
 }];
 ```
 
@@ -1025,7 +1025,7 @@ export const recipes = [{
 
 <Solution>
 
-You can copy-paste the JSX from the outer `map` into a new `Recipe` component and return that JSX. Then you can change `recipe.name` to `name`, `recipe.id` to `id`, and so on, and pass them as props to the `Recipe`:
+Możesz przenieść JSX z zewnętrznego wywołania funkcji `map` do nowego komponentu `Recipe` i zwrócić ten JSX. Następnie możesz zmienić `recipe.name` na `name`, `recipe.id` na `id` itd., a następnie przekazać je jako właściwości do komponentu `Recipe`:
 
 <Sandpack>
 
@@ -1050,7 +1050,7 @@ function Recipe({ id, name, ingredients }) {
 export default function RecipeList() {
   return (
     <div>
-      <h1>Recipes</h1>
+      <h1>Przepisy</h1>
       {recipes.map(recipe =>
         <Recipe {...recipe} key={recipe.id} />
       )}
@@ -1062,24 +1062,24 @@ export default function RecipeList() {
 ```js data.js
 export const recipes = [{
   id: 'greek-salad',
-  name: 'Greek Salad',
-  ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  name: 'Sałatka grecka',
+  ingredients: ['pomidory', 'ogórek', 'cebula', 'oliwki', 'feta']
 }, {
   id: 'hawaiian-pizza',
-  name: 'Hawaiian Pizza',
-  ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  name: 'Pizza hawajska',
+  ingredients: ['ciasto na pizze', 'sos do pizzy', 'mozzarella', 'szynka', 'ananas']
 }, {
   id: 'hummus',
-  name: 'Hummus',
-  ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  name: 'Humus',
+  ingredients: ['ciecierzyca', 'oliwa z oliwek', 'ząbki czosnku', 'cytryna', 'tahini']
 }];
 ```
 
 </Sandpack>
 
-Here, `<Recipe {...recipe} key={recipe.id} />` is a syntax shortcut saying "pass all properties of the `recipe` object as props to the `Recipe` component". You could also write each prop explicitly: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
+Użyta tutaj składnia `<Recipe {...recipe} key={recipe.id} />` to skrócony zapis mówiący "przekaż wszystkie właściwości obiektu `recipe` jako właściwości do komponentu `Recipe`". Możesz także przekazać każdą właściwość jawnie: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
-**Note that the `key` is specified on the `<Recipe>` itself rather than on the root `<div>` returned from `Recipe`.** This is because this `key` is needed directly within the context of the surrounding array. Previously, you had an array of `<div>`s so each of them needed a `key`, but now you have an array of `<Recipe>`s. In other words, when you extract a component, don't forget to leave the `key` outside the JSX you copy and paste.
+**Zauważ, że klucz `key` jest określony bezpośrednio dla  `<Recipe>`, a nie dla najwyższego elementu `<div>`, który jest zwracany przez `Recipe`.** To dlatego, że `key` jest potrzebny bezpośrednio w kontekście otaczającej tablicy. Wcześniej mieliśmy tablicę elementów `<div>`, więc każdy z nich potrzebował `key`, ale teraz mamy tablicę komponentów `<Recipe>`. Innymi słowy, podczas wyodrębniania komponentu, nie zapomnij umieścić `key` poza kodem JSX, który przenosisz.
 
 </Solution>
 
