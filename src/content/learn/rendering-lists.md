@@ -1083,30 +1083,30 @@ Użyta tutaj składnia `<Recipe {...recipe} key={recipe.id} />` to skrócony zap
 
 </Solution>
 
-#### List with a separator {/*list-with-a-separator*/}
+#### Lista z separatorem {/*list-with-a-separator*/}
 
-This example renders a famous haiku by Tachibana Hokushi, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
+W tym przykładzie renderowany jest znany haiku autorstwa Tachibana Hokushi, z każdą linią umieszczoną w tagu `<p>`. Twoim zadaniem jest wstawienie separatorem `<hr />` między każdym akapitem. Ostateczna struktura powinna wyglądać tak:
 
 ```js
 <article>
-  <p>I write, erase, rewrite</p>
+  <p>Piszę, wymazuję, przepisuję</p>
   <hr />
-  <p>Erase again, and then</p>
+  <p>Znowu wymazuję, a wtedy</p>
   <hr />
-  <p>A poppy blooms.</p>
+  <p>Mak zakwita.</p>
 </article>
 ```
 
-A haiku only contains three lines, but your solution should work with any number of lines. Note that `<hr />` elements only appear *between* the `<p>` elements, not in the beginning or the end!
+Haiku zawiera tylko trzy linie, ale twoje rozwiązanie powinno działać dla dowolnej liczby linii. Zauważ, że elementy `<hr />` pojawiają się tylko *pomiędzy* elementami `<p>` , nie na początku czy na końcu!
 
 <Sandpack>
 
 ```js
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Piszę, wymazuję, przepisuję',
+    'Znowu wymazuję, a wtedy',
+    'Mak zakwita.'
   ]
 };
 
@@ -1140,33 +1140,33 @@ hr {
 
 </Sandpack>
 
-(This is a rare case where index as a key is acceptable because a poem's lines will never reorder.)
+To rzadki przypadek, w którym indeks użyty jako klucz jest akceptowalny, ponieważ linie wiersza nigdy nie zmienią kolejności.
 
 <Hint>
 
-You'll either need to convert `map` to a manual loop, or use a fragment.
+Będziesz musieć albo przekształcić `map` w pętlę manualną, albo użyć fragmentu.
 
 </Hint>
 
 <Solution>
 
-You can write a manual loop, inserting `<hr />` and `<p>...</p>` into the output array as you go:
+Możesz napisać pętlę manualną, dodając `<hr />` i `<p>...</p>` do tablicy wynikowej w miarę postępu:
 
 <Sandpack>
 
 ```js
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Piszę, wymazuję, przepisuję',
+    'Znowu wymazuję, a wtedy',
+    'Mak zakwita.'
   ]
 };
 
 export default function Poem() {
   let output = [];
 
-  // Fill the output array
+  // Uzupełnij tablicę wynikową
   poem.lines.forEach((line, i) => {
     output.push(
       <hr key={i + '-separator'} />
@@ -1177,7 +1177,7 @@ export default function Poem() {
       </p>
     );
   });
-  // Remove the first <hr />
+  // Usuń pierwszy element <hr />
   output.shift();
 
   return (
@@ -1205,9 +1205,9 @@ hr {
 
 </Sandpack>
 
-Using the original line index as a `key` doesn't work anymore because each separator and paragraph are now in the same array. However, you can give each of them a distinct key using a suffix, e.g. `key={i + '-text'}`.
+Wykorzystanie oryginalnego indeksu linii jako `key` już nie zadziała, ponieważ każdy separator i akapit znajdują się teraz w tej samej tablicy. Niemniej jednak możesz nadać każdemu z nich odrębny klucz, dodając sufiks, np. `key={i + '-text'}`.
 
-Alternatively, you could render a collection of fragments which contain `<hr />` and `<p>...</p>`. However, the `<>...</>` shorthand syntax doesn't support passing keys, so you'd have to write `<Fragment>` explicitly:
+Ewentualnie, możesz wyrenderować kolekcję fragmentów, które zawierają `<hr />` i `<p>...</p>`. Jednakże, skrócona składnia `<>...</>` nie wspiera przekazywania kluczy, więc musisz użyć składni `<Fragment>`:
 
 <Sandpack>
 
@@ -1216,9 +1216,9 @@ import { Fragment } from 'react';
 
 const poem = {
   lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
+    'Piszę, wymazuję, przepisuję',
+    'Znowu wymazuję, a wtedy',
+    'Mak zakwita.'
   ]
 };
 
@@ -1253,7 +1253,7 @@ hr {
 
 </Sandpack>
 
-Remember, fragments (often written as `<> </>`) let you group JSX nodes without adding extra `<div>`s!
+Pamiętaj, że fragmenty (często zapisywane jako `<> </>`) pozwalają grupować węzły JSX bez dodawania elementów `<div>`!
 
 </Solution>
 
