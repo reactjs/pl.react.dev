@@ -1,15 +1,24 @@
 ---
+<<<<<<< HEAD
 title: "Wbudowane hooki reactowe"
+=======
+title: React Reference Overview
+>>>>>>> 3563d95efe8719bdae8bbd258e6ab4134753348b
 ---
 
 <Intro>
 
+<<<<<<< HEAD
 *Hooki* pozwalają na używanie różnych funkcjonalności reactowych wewnątrz komponentów. Możesz skorzystać z tych wbudowanych lub stworzyć własne poprzez ich połączenie. Poniżej znajdziesz listę wszystkich hooków dostępnych w Reakcie.
+=======
+This section provides detailed reference documentation for working with React. For an introduction to React, please visit the [Learn](/learn) section.
+>>>>>>> 3563d95efe8719bdae8bbd258e6ab4134753348b
 
 </Intro>
 
----
+Our The React reference documentation is broken down into functional subsections:
 
+<<<<<<< HEAD
 ## Hooki stanu {/*state-hooks*/}
 
 *Stan* pozwala komponentowi ["pamiętać" informacje, np. dane wprowadzone przez użytkownika](/learn/state-a-components-memory). Przykładowo, komponent formularza może przechowywać w stanie wartości pól formularza, a komponent galerii zdjęć może pamiętać pozycję aktualnie zaznaczonego elementu.
@@ -18,15 +27,28 @@ Aby dodać stan do komponentu, użyj jednego z tych hooków:
 
 * [`useState`](/reference/react/useState) deklaruje zmienną stanu, którą można zmieniać bezpośrednio.
 * [`useReducer`](/reference/react/useReducer) deklaruje zmienną stanu wraz z logiką jej aktualizacji zawartą w [funkcji redukującej (*ang.* reducer function)](/learn/extracting-state-logic-into-a-reducer).
+=======
+## React {/*react*/}
 
-```js
-function ImageGallery() {
-  const [index, setIndex] = useState(0);
-  // ...
-```
+Programmatic React features:
 
----
+* [Hooks](/reference/react/hooks) - Use different React features from your components.
+* [Components](/reference/react/components) - Documents built-in components that you can use in your JSX.
+* [APIs](/reference/react/apis) - APIs that are useful for defining components.
+* [Directives](/reference/react/directives) - Provide instructions to bundlers compatible with React Server Components.
 
+## React DOM {/*react-dom*/}
+>>>>>>> 3563d95efe8719bdae8bbd258e6ab4134753348b
+
+React-dom contains features that are only supported for web applications (which run in the browser DOM environment). This section is broken into the following:
+
+* [Hooks](/reference/react-dom/hooks) - Hooks for web applications which run in the browser DOM environment.
+* [Components](/reference/react-dom/components) - React supports all of the browser built-in HTML and SVG components.
+* [APIs](/reference/react-dom) - The `react-dom` package contains methods supported only in web applications.
+* [Client APIs](/reference/react-dom/client) - The `react-dom/client` APIs let you render React components on the client (in the browser).
+* [Server APIs](/reference/react-dom/server) - The `react-dom/server` APIs let you render React components to HTML on the server.
+
+<<<<<<< HEAD
 ## Hooki kontekstu {/*context-hooks*/}
 
 *Kontekst* pozwala komponentowi [odbierać informacje od odległych rodziców bez przekazywania ich bezpośrednio za pomocą właściwości](/learn/passing-props-to-a-component). Przykładowo, komponent główny aplikacji może przekazać aktualny motyw kolorystyczny wszystkim komponentom w drzewie poniżej, bez względu na to, jak głęboko są zagnieżdżone.
@@ -137,3 +159,8 @@ Te hooki przydają się zwykle tylko autorom bibliotek i nieczęsto spotyka się
 ## Twoje własne hooki {/*your-own-hooks*/}
 
 Możesz także [zdefiniować swoje własne hooki](/learn/reusing-logic-with-custom-hooks#extracting-your-own-custom-hook-from-a-component) jako funkcje javascriptowe.
+=======
+## Legacy APIs {/*legacy-apis*/}
+
+* [Legacy APIs](/reference/react/legacy) - Exported from the `react` package, but not recommended for use in newly written code.
+>>>>>>> 3563d95efe8719bdae8bbd258e6ab4134753348b
