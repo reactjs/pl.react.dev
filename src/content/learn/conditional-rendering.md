@@ -629,6 +629,10 @@ Zwróć uwagę, że należy tu napisać `importance > 0 && ...`, zamiast `import
 
 W tym rozwiązaniu dwa oddzielne warunki zostały użyte w celu wstawienia spacji między nazwą przedmiotu a wartością priorytetu. Alternatywnie, można użyć fragmentu, na początku którego wstawiłoby się spację: `importance > 0 && <> <i>...</i></>` lub można również wstawić spację wewnątrz `<i>`:  `importance > 0 && <i> ...</i>`.
 
+<<<<<<< HEAD
+=======
+In this solution, two separate conditions are used to insert a space between the name and the importance label. Alternatively, you could use a Fragment with a leading space: `importance > 0 && <> <i>...</i></>` or add a space immediately inside the `<i>`:  `importance > 0 && <i> ...</i>`.
+>>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
 
 </Solution>
 
