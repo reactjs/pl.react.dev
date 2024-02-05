@@ -104,8 +104,13 @@ To, co wyrenderuje `Avatar`, możemy kontrolować na wiele różnych sposobów, 
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js App.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/App.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 function Avatar({person, size}) {
   return (
@@ -148,7 +153,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -273,7 +278,7 @@ Kiedy zagnieżdżasz jakiś kod wewnątrz znacznika JSX, komponent nadrzędny do
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Avatar from './Avatar.js';
 
 function Card({children}) {
@@ -295,8 +300,13 @@ export default function Profile() {
 }
 ```
 
+<<<<<<< HEAD
 ```js Avatar.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/Avatar.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 export default function Avatar({person, size}) {
   return (
@@ -311,7 +321,7 @@ export default function Avatar({person, size}) {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -353,6 +363,7 @@ Spróbuj zmienić kolor, wybierając opcję z poniższej listy rozwijanej:
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js Clock.js active
 export default function Clock({color, time}) {
   return <h1 style={{color: color}}>{time}</h1>;
@@ -361,6 +372,20 @@ export default function Clock({color, time}) {
 
 ```js App.js hidden
 import {useState, useEffect} from 'react';
+=======
+```js src/Clock.js active
+export default function Clock({ color, time }) {
+  return (
+    <h1 style={{ color: color }}>
+      {time}
+    </h1>
+  );
+}
+```
+
+```js src/App.js hidden
+import { useState, useEffect } from 'react';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 import Clock from './Clock.js';
 
 function useTime() {
@@ -421,8 +446,13 @@ Ten komponent `Gallery` zawiera bardzo podobny kod dla dwóch profili. Wyodrębn
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js App.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/App.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 export default function Gallery() {
   return (
@@ -482,7 +512,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(imageId, size = 's') {
   return 'https://i.imgur.com/' + imageId + size + '.jpg';
 }
@@ -531,8 +561,13 @@ Zwróć uwagę, że właściwość `imageSize` ma wartość domyślną. To dlate
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js App.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/App.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 function Profile({
   imageId,
@@ -596,7 +631,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(imageId, size = 's') {
   return 'https://i.imgur.com/' + imageId + size + '.jpg';
 }
@@ -637,8 +672,13 @@ Inne rozwiązanie, nieco bardziej podobne do poprzednich przykładów na tej str
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js App.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/App.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 function Profile({person, imageSize = 70}) {
   const imageSrc = getImageUrl(person);
@@ -701,7 +741,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -748,8 +788,13 @@ Zmień komponent `Avatar` tak, aby ustawiał rozmiar obrazka na podstawie właś
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js App.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/App.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 function Avatar({person, size}) {
   return (
@@ -776,7 +821,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -797,8 +842,13 @@ Oto możliwe rozwiązanie:
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js App.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/App.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 function Avatar({person, size}) {
   let thumbnailSize = 's';
@@ -838,7 +888,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -857,8 +907,13 @@ Możesz także pokazać nieco ostrzejszą wersję obrazka dla ekranów z wysokim
 
 <Sandpack>
 
+<<<<<<< HEAD
 ```js App.js
 import {getImageUrl} from './utils.js';
+=======
+```js src/App.js
+import { getImageUrl } from './utils.js';
+>>>>>>> 2372ecf920ac4cda7c900f9ac7f9c0cd4284f281
 
 const ratio = window.devicePixelRatio;
 
@@ -907,7 +962,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
