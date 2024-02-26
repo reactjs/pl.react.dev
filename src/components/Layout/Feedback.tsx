@@ -61,29 +61,18 @@ function sendGAEvent(isPositive: boolean) {
 function SendFeedback({onSubmit}: {onSubmit: () => void}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   return (
-<<<<<<< HEAD
-    <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
-      <p className="w-full font-bold text-primary dark:text-primary-dark text-lg me-4">
-        {isSubmitted ? 'Dziękujemy za opinię!' : 'Czy ta strona była pomocna?'}
-      </p>
-      {!isSubmitted && (
-        <button
-          aria-label="Tak"
-          className="bg-secondary-button dark:bg-secondary-button-dark rounded-lg text-primary dark:text-primary-dark px-3 me-2"
-=======
     <div
       className={cn(
         'max-w-custom-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex',
         {exit: isSubmitted}
       )}>
       <p className="w-full text-lg font-bold text-primary dark:text-primary-dark me-4">
-        {isSubmitted ? 'Thank you for your feedback!' : 'Is this page useful?'}
+        {isSubmitted ? 'Dziękujemy za opinię!' : 'Czy ta strona była pomocna?'}
       </p>
       {!isSubmitted && (
         <button
-          aria-label="Yes"
+          aria-label="Tak"
           className="px-3 rounded-lg bg-secondary-button dark:bg-secondary-button-dark text-primary dark:text-primary-dark me-2"
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
           onClick={() => {
             setIsSubmitted(true);
             onSubmit();
@@ -94,13 +83,8 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
       )}
       {!isSubmitted && (
         <button
-<<<<<<< HEAD
           aria-label="Nie"
-          className="bg-secondary-button dark:bg-secondary-button-dark rounded-lg text-primary dark:text-primary-dark px-3"
-=======
-          aria-label="No"
           className="px-3 rounded-lg bg-secondary-button dark:bg-secondary-button-dark text-primary dark:text-primary-dark"
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
           onClick={() => {
             setIsSubmitted(true);
             onSubmit();

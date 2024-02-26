@@ -104,13 +104,8 @@ To, co wyrenderuje `Avatar`, możemy kontrolować na wiele różnych sposobów, 
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js App.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/App.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 function Avatar({person, size}) {
   return (
@@ -300,13 +295,8 @@ export default function Profile() {
 }
 ```
 
-<<<<<<< HEAD
-```js Avatar.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/Avatar.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 export default function Avatar({person, size}) {
   return (
@@ -363,16 +353,6 @@ Spróbuj zmienić kolor, wybierając opcję z poniższej listy rozwijanej:
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js Clock.js active
-export default function Clock({color, time}) {
-  return <h1 style={{color: color}}>{time}</h1>;
-}
-```
-
-```js App.js hidden
-import {useState, useEffect} from 'react';
-=======
 ```js src/Clock.js active
 export default function Clock({ color, time }) {
   return (
@@ -385,7 +365,6 @@ export default function Clock({ color, time }) {
 
 ```js src/App.js hidden
 import { useState, useEffect } from 'react';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 import Clock from './Clock.js';
 
 function useTime() {
@@ -446,13 +425,8 @@ Ten komponent `Gallery` zawiera bardzo podobny kod dla dwóch profili. Wyodrębn
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js App.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/App.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 export default function Gallery() {
   return (
@@ -561,13 +535,8 @@ Zwróć uwagę, że właściwość `imageSize` ma wartość domyślną. To dlate
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js App.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/App.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 function Profile({
   imageId,
@@ -672,13 +641,8 @@ Inne rozwiązanie, nieco bardziej podobne do poprzednich przykładów na tej str
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js App.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/App.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 function Profile({person, imageSize = 70}) {
   const imageSrc = getImageUrl(person);
@@ -788,13 +752,8 @@ Zmień komponent `Avatar` tak, aby ustawiał rozmiar obrazka na podstawie właś
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js App.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/App.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 function Avatar({person, size}) {
   return (
@@ -842,13 +801,8 @@ Oto możliwe rozwiązanie:
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js App.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/App.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 function Avatar({person, size}) {
   let thumbnailSize = 's';
@@ -907,13 +861,8 @@ Możesz także pokazać nieco ostrzejszą wersję obrazka dla ekranów z wysokim
 
 <Sandpack>
 
-<<<<<<< HEAD
-```js App.js
-import {getImageUrl} from './utils.js';
-=======
 ```js src/App.js
 import { getImageUrl } from './utils.js';
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
 
 const ratio = window.devicePixelRatio;
 
