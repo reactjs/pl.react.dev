@@ -7,17 +7,12 @@
       "sectionHeader": "react@18.2.0"
     },
     {
-<<<<<<< HEAD
-      "title": "Hooki",
-      "path": "/reference/react",
-=======
-      "title": "Overview",
+      "title": "Ogólne informacje",
       "path": "/reference/react"
     },
     {
-      "title": "Hooks",
+      "title": "Hooki",
       "path": "/reference/react/hooks",
->>>>>>> 35530eea4bb8ba2567c1f57f1ccf730cc89b76de
       "routes": [
         {
           "title": "use",
