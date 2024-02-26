@@ -29,7 +29,7 @@
           "path": "/learn/start-a-new-react-project"
         },
         {
-          "title": "Add React to an Existing Project",
+          "title": "Dodaj Reacta do istniejącego projektu",
           "path": "/learn/add-react-to-an-existing-project"
         },
         {
@@ -194,7 +194,7 @@
         },
         {
           "title": "Removing Effect Dependencies",
-          "path": "/learn/removing-effect-dependencies"              
+          "path": "/learn/removing-effect-dependencies"
         },
         {
           "title": "Reusing Logic with Custom Hooks",
