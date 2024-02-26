@@ -10,7 +10,7 @@ Jeśli chcesz dodać trochę interaktywności do istniejącego projektu, nie mus
 
 <Note>
 
-**Musisz zainstalować [Node.js](https://nodejs.org/en/) do programowania w środowisku lokalnym.** Chociaż możesz [wypróbować Reacta](/learn/installation#try-react) online lub z pomocą prostej strony HTML, realistycznie większość javascriptowych narzędzi, których będziesz chciał użyć do programowania, wymaga Node.js.
+**Musisz zainstalować [Node.js](https://nodejs.org/en/) do programowania w środowisku lokalnym.** Chociaż możesz [wypróbować Reacta](/learn/installation#try-react) online lub z pomocą prostej strony HTML, realistycznie większość javascriptowych narzędzi, których będziesz chcieć użyć do programowania, wymaga Node.js.
 
 </Note>
 
@@ -25,9 +25,9 @@ Oto jak polecamy to skonfigurować:
 3. **Skonfiguruj serwer lub proxy**, aby wszystkie żądania pod adresem `/some-app/` były obsługiwane przez twoją aplikację w Reakcie.
 
 
-To zapewnia, że część aplikacji napisana w Reakcie może [korzystać z najlepszych praktyk](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) wbudowanych w te frameworki.
+Dzięki temu część aplikacji napisana w Reakcie będzie mogła [korzystać z najlepszych praktyk](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) wbudowanych w te frameworki.
 
-Wiele frameworków opartych na Reakcie jest full-stackowych i pozwala twojej reactowej aplikacji wykorzystać serwer. Jednakże, można zastosować takie samo podejście nawet jeśli nie możesz lub nie chcesz uruchamiać JavaScriptu na serwerze. W takim przypadku, zamiast tego, dostarcz eksport HTML/CSS/JS ([wyjście z `next export`](https://nextjs.org/docs/advanced-features/static-html-export) dla Next.js, domyślne dla Gatsby) pod adresem `/some-app/`.
+Wiele frameworków opartych na Reakcie jest full-stackowych i pozwala twojej reactowej aplikacji wykorzystać serwer. Można jednak zastosować takie samo podejście, nawet jeśli nie możesz lub nie chcesz uruchamiać JavaScriptu na serwerze. W takim przypadku, zamiast tego dostarcz wyeksportowane pliki HTML/CSS/JS ([pliki wyjściowe z `next export`](https://nextjs.org/docs/advanced-features/static-html-export) dla Next.js, domyślne dla Gatsby) pod adresem `/some-app/`.
 
 ## Korzystanie z Reacta dla części istniejącej strony {/*using-react-for-a-part-of-your-existing-page*/}
 
@@ -35,19 +35,18 @@ Załóżmy, że masz istniejącą stronę zbudowaną przy użyciu innej technolo
 
 Możesz to zrobić w dwóch krokach:
 
-1. **Skonfiguruj środowisko javascriptowe**, które pozwoli Ci używać [składni JSX](/learn/writing-markup-with-jsx), podziel kod na moduły za pomocą składni [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) / [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) oraz używaj pakietów (na przykład React) z rejestru pakietów [npm](https://www.npmjs.com/).
+1. **Skonfiguruj środowisko javascriptowe**, które pozwoli ci używać [składni JSX](/learn/writing-markup-with-jsx), podziel kod na moduły za pomocą składni [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) / [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) oraz używaj pakietów (na przykład React) z rejestru pakietów [npm](https://www.npmjs.com/).
 2. **Renderuj swoje reactowe komponenty** tam, gdzie chcesz je zobaczyć na stronie.
 
-The exact approach depends on your existing page setup, so let's walk through some details.
 Dokładny sposób postępowania zależy od konfiguracji istniejącej strony, więc przejdźmy przez kilka szczegółów.
 
 ### Krok 1: Skonfiguruj modularne środowisko javascriptowe {/*step-1-set-up-a-modular-javascript-environment*/}
 
 Modularne środowisko javascriptowe umożliwia pisanie reactowych komponentów w osobnych plikach, zamiast umieszczania całego kodu w jednym pliku. Pozwala również na korzystanie ze wspaniałych pakietów opublikowanych przez innych deweloperów w rejestrze [npm](https://www.npmjs.com/) - w tym także z Reacta! Sposób postępowania zależy od istniejącej konfiguracji:
 
-* **Jeśli twoja aplikacja jest już podzielona na pliki, które używają instrukcji `import`**, spróbuj użyć istniejącej konfiguracji. Sprawdź, czy napisanie `<div />` w kodzie JavaScript powoduje błąd składniowy. Jeśli powoduje błąd składniowy, możesz potrzebować [przetworzyć swój kod JavaScript za pomocą Babel](https://babeljs.io/setup) i włączyć [Babel React preset](https://babeljs.io/docs/babel-preset-react), aby używać JSX.
+* **Jeśli twoja aplikacja jest już podzielona na pliki, które używają instrukcji `import`**, spróbuj użyć istniejącej konfiguracji. Sprawdź, czy napisanie `<div />` w kodzie JavaScript powoduje błąd składniowy. Jeśli powoduje błąd składniowy, możesz potrzebować [przetworzyć swój kod JavaScript za pomocą narzędzia Babel](https://babeljs.io/setup) i włączyć [Babel React preset](https://babeljs.io/docs/babel-preset-react), aby używać JSX.
 
-* **Jeśli twoja aplikacja nie ma istniejącej konfiguracji do kompilowania modułów JavaScript**, skonfiguruj ją przy użyciu [Vite](https://vitejs.dev/). Społeczność Vite utrzymuje [wiele integracji z frameworkami backendowymi](https://github.com/vitejs/awesome-vite#integrations-with-backends), w tym z Rails, Django i Laravel. Jeśli Twój framework backendowy nie jest wymieniony, [postępuj zgodnie z tym przewodnikiem](https://github.com/vitejs/awesome-vite#integrations-with-backends), aby ręcznie zintegrować proces budowy Vite z Twoim backendem.
+* **Jeśli twoja aplikacja nie ma istniejącej konfiguracji do kompilowania modułów JavaScript**, skonfiguruj ją przy użyciu [Vite](https://vitejs.dev/). Społeczność Vite utrzymuje [wiele integracji z frameworkami backendowymi](https://github.com/vitejs/awesome-vite#integrations-with-backends), w tym z Rails, Django i Laravel. Jeśli nie widzisz na liście twojego frameworka backendowego, [postępuj zgodnie z tym przewodnikiem](https://github.com/vitejs/awesome-vite#integrations-with-backends), aby ręcznie zintegrować proces budowy Vite z twoim backendem.
 
 Aby sprawdzić, czy twoja konfiguracja działa, uruchom następującą komendę w folderze projektu:
 
@@ -75,7 +74,7 @@ import { createRoot } from 'react-dom/client';
 // Wyczyść istniejącą zawartość HTML
 document.body.innerHTML = '<div id="app"></div>';
 
-// Renderuj swój reactowy komponent zamiast tego
+// Zamiast niej wyrenderuj swój komponent reactowy
 const root = createRoot(document.getElementById('app'));
 root.render(<h1>Witaj, świecie!</h1>);
 ```
@@ -92,7 +91,7 @@ Integracja modularnego środowiska javascriptowego po raz pierwszy do istniejąc
 
 ### Krok 2: Renderuj reactowe komponenty gdziekolwiek na stronie {/*step-2-render-react-components-anywhere-on-the-page*/}
 
-W poprzednim kroku umieściłeś ten kod na początku swojego głównego pliku:
+W poprzednim kroku umieściliśmy poniższy kod na początku pliku głównego:
 
 ```js
 import { createRoot } from 'react-dom/client';
@@ -105,11 +104,11 @@ const root = createRoot(document.getElementById('app'));
 root.render(<h1>Witaj, świecie!</h1>);
 ```
 
-Oczywiście, nie chcesz faktycznie wyczyścić istniejącej zawartości HTML!
+Oczywiście nie chcesz faktycznie wyczyścić istniejącej zawartości HTML!
 
 Usuń ten kod.
 
-Zamiast tego, prawdopodobnie chcesz renderować swoje reactowe komponenty w określonych miejscach w HTML-u. Otwórz swoją stronę HTML (lub szablony serwera, które ją generują) i dodaj unikalny atrybut [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) do dowolnego tagu, na przykład:
+Zamiast tego prawdopodobnie chcesz renderować swoje reactowe komponenty w określonych miejscach w HTML-u. Otwórz swoją stronę HTML (lub szablony serwera, które ją generują) i dodaj unikalny atrybut [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) do dowolnego tagu, na przykład:
 
 ```html
 <!-- ... gdzieś w twoim kodzie html ... -->
@@ -117,7 +116,7 @@ Zamiast tego, prawdopodobnie chcesz renderować swoje reactowe komponenty w okre
 <!-- ... więcej html-a ... -->
 ```
 
-To pozwala Ci znaleźć ten element HTML za pomocą [`document.getElementById`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) i przekazać go do [`createRoot`](/reference/react-dom/client/createRoot), abyś mógł renderować swój własny komponent Reacta wewnątrz:
+Pozwoli ci to znaleźć ten element HTML za pomocą [`document.getElementById`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) i przekazać go do [`createRoot`](/reference/react-dom/client/createRoot), abyś mógł renderować twój własny komponent reactowy wewnątrz niego:
 
 <Sandpack>
 
@@ -137,7 +136,7 @@ To pozwala Ci znaleźć ten element HTML za pomocą [`document.getElementById`](
 import { createRoot } from 'react-dom/client';
 
 function NavigationBar() {
-  // TODO: Faktycznie zaimplemenotwać pasek nawigacyjny
+  // TODO: Dodać implementację paska nawigacji
   return <h1>Witaj z Reacta!</h1>;
 }
 
@@ -148,9 +147,9 @@ root.render(<NavigationBar />);
 
 </Sandpack>
 
-Zauważ, że oryginalna zawartość HTML z pliku `index.html` jest zachowana, ale twój własny komponent `NavigationBar` teraz pojawia się wewnątrz `<nav id="navigation">` w twoim HTML-u. Przeczytaj dokumentację dotyczącą użycia [`createRoot`](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react), aby dowiedzieć się więcej na temat renderowania komponentów Reacta wewnątrz istniejącej strony HTML.
+Zauważ, że oryginalna zawartość HTML z pliku `index.html` została zachowana, ale twój własny komponent `NavigationBar` od teraz pojawia się wewnątrz `<nav id="navigation">` w kodzie HTML. Przeczytaj dokumentację dotyczącą użycia [`createRoot`](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react), aby dowiedzieć się więcej na temat renderowania komponentów reactowych na istniejącej stronie HTML.
 
-Kiedy wdrażasz Reacta w istniejącym projekcie, często zaczyna się od małych interaktywnych komponentów (takich jak przyciski), a następnie stopniowo "przesuwać się w górę", aż w końcu cała strona jest zbudowana z użyciem Reacta. Jeśli kiedykolwiek osiągniesz ten punkt, zalecamy migrację do [frameworka opartego na Reakcie](/learn/start-a-new-react-project), aby w pełni wykorzystać jego możliwości.
+Kiedy wdrażasz Reacta w istniejącym projekcie, proces ten często zaczyna się od małych interaktywnych komponentów (takich jak przyciski), a następnie stopniowo "przesuwa się w górę", aż w końcu cała strona jest zbudowana z użyciem Reacta. Jeśli kiedykolwiek osiągniesz ten punkt, zalecamy migrację do [frameworka opartego na Reakcie](/learn/start-a-new-react-project), aby w pełni wykorzystać jego możliwości.
 
 ## Korzystanie z React Native w istniejącej aplikacji mobilnej napisanej w natywnym języku {/*using-react-native-in-an-existing-native-mobile-app*/}
 
