@@ -68,7 +68,7 @@ Następnie dodaj te linie kodu na początku głównego pliku JavaScript (może t
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 
 // Wyczyść istniejącą zawartość HTML
@@ -132,7 +132,7 @@ Pozwoli ci to znaleźć ten element HTML za pomocą [`document.getElementById`](
 </html>
 ```
 
-```js index.js active
+```js src/index.js active
 import { createRoot } from 'react-dom/client';
 
 function NavigationBar() {
