@@ -104,8 +104,8 @@ To, co wyrenderuje `Avatar`, możemy kontrolować na wiele różnych sposobów, 
 
 <Sandpack>
 
-```js App.js
-import {getImageUrl} from './utils.js';
+```js src/App.js
+import { getImageUrl } from './utils.js';
 
 function Avatar({person, size}) {
   return (
@@ -148,7 +148,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -273,7 +273,7 @@ Kiedy zagnieżdżasz jakiś kod wewnątrz znacznika JSX, komponent nadrzędny do
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Avatar from './Avatar.js';
 
 function Card({children}) {
@@ -295,8 +295,8 @@ export default function Profile() {
 }
 ```
 
-```js Avatar.js
-import {getImageUrl} from './utils.js';
+```js src/Avatar.js
+import { getImageUrl } from './utils.js';
 
 export default function Avatar({person, size}) {
   return (
@@ -311,7 +311,7 @@ export default function Avatar({person, size}) {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -353,14 +353,18 @@ Spróbuj zmienić kolor, wybierając opcję z poniższej listy rozwijanej:
 
 <Sandpack>
 
-```js Clock.js active
-export default function Clock({color, time}) {
-  return <h1 style={{color: color}}>{time}</h1>;
+```js src/Clock.js active
+export default function Clock({ color, time }) {
+  return (
+    <h1 style={{ color: color }}>
+      {time}
+    </h1>
+  );
 }
 ```
 
-```js App.js hidden
-import {useState, useEffect} from 'react';
+```js src/App.js hidden
+import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
 function useTime() {
@@ -421,8 +425,8 @@ Ten komponent `Gallery` zawiera bardzo podobny kod dla dwóch profili. Wyodrębn
 
 <Sandpack>
 
-```js App.js
-import {getImageUrl} from './utils.js';
+```js src/App.js
+import { getImageUrl } from './utils.js';
 
 export default function Gallery() {
   return (
@@ -482,7 +486,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(imageId, size = 's') {
   return 'https://i.imgur.com/' + imageId + size + '.jpg';
 }
@@ -531,8 +535,8 @@ Zwróć uwagę, że właściwość `imageSize` ma wartość domyślną. To dlate
 
 <Sandpack>
 
-```js App.js
-import {getImageUrl} from './utils.js';
+```js src/App.js
+import { getImageUrl } from './utils.js';
 
 function Profile({
   imageId,
@@ -596,7 +600,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(imageId, size = 's') {
   return 'https://i.imgur.com/' + imageId + size + '.jpg';
 }
@@ -637,8 +641,8 @@ Inne rozwiązanie, nieco bardziej podobne do poprzednich przykładów na tej str
 
 <Sandpack>
 
-```js App.js
-import {getImageUrl} from './utils.js';
+```js src/App.js
+import { getImageUrl } from './utils.js';
 
 function Profile({person, imageSize = 70}) {
   const imageSrc = getImageUrl(person);
@@ -701,7 +705,7 @@ export default function Gallery() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -748,8 +752,8 @@ Zmień komponent `Avatar` tak, aby ustawiał rozmiar obrazka na podstawie właś
 
 <Sandpack>
 
-```js App.js
-import {getImageUrl} from './utils.js';
+```js src/App.js
+import { getImageUrl } from './utils.js';
 
 function Avatar({person, size}) {
   return (
@@ -776,7 +780,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -797,8 +801,8 @@ Oto możliwe rozwiązanie:
 
 <Sandpack>
 
-```js App.js
-import {getImageUrl} from './utils.js';
+```js src/App.js
+import { getImageUrl } from './utils.js';
 
 function Avatar({person, size}) {
   let thumbnailSize = 's';
@@ -838,7 +842,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }
@@ -857,8 +861,8 @@ Możesz także pokazać nieco ostrzejszą wersję obrazka dla ekranów z wysokim
 
 <Sandpack>
 
-```js App.js
-import {getImageUrl} from './utils.js';
+```js src/App.js
+import { getImageUrl } from './utils.js';
 
 const ratio = window.devicePixelRatio;
 
@@ -907,7 +911,7 @@ export default function Profile() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size) {
   return 'https://i.imgur.com/' + person.imageId + size + '.jpg';
 }

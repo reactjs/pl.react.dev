@@ -193,7 +193,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
@@ -317,7 +317,7 @@ export default function App() {
 }
 ```
 
-```js animation.js
+```js src/animation.js
 export class FadeInAnimation {
   constructor(node) {
     this.node = node;
@@ -393,7 +393,7 @@ export default function App() {
 }
 ```
 
-```js ModalDialog.js active
+```js src/ModalDialog.js active
 import { useEffect, useRef } from 'react';
 
 export default function ModalDialog({ isOpen, children }) {
@@ -454,7 +454,7 @@ function LongSection() {
 }
 ```
 
-```js Box.js active
+```js src/Box.js active
 import { useRef, useEffect } from 'react';
 
 export default function Box() {
@@ -596,7 +596,7 @@ export default function App() {
 }
 ```
 
-```js useChatRoom.js
+```js src/useChatRoom.js
 import { useEffect } from 'react';
 import { createConnection } from './chat.js';
 
@@ -611,7 +611,7 @@ export function useChatRoom({ serverUrl, roomId }) {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
@@ -668,7 +668,7 @@ export default function App() {
 }
 ```
 
-```js useWindowListener.js
+```js src/useWindowListener.js
 import { useState, useEffect } from 'react';
 
 export function useWindowListener(eventType, listener) {
@@ -721,7 +721,7 @@ function LongSection() {
 }
 ```
 
-```js Box.js active
+```js src/Box.js active
 import { useRef, useEffect } from 'react';
 import { useIntersectionObserver } from './useIntersectionObserver.js';
 
@@ -751,7 +751,7 @@ export default function Box() {
 }
 ```
 
-```js useIntersectionObserver.js
+```js src/useIntersectionObserver.js
 import { useState, useEffect } from 'react';
 
 export function useIntersectionObserver(ref) {
@@ -809,7 +809,7 @@ Na przykład, jeśli masz widżet mapy z zewnętrznej biblioteki lub komponent o
 }
 ```
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import Map from './Map.js';
 
@@ -827,7 +827,7 @@ export default function App() {
 }
 ```
 
-```js Map.js active
+```js src/Map.js active
 import { useRef, useEffect } from 'react';
 import { MapWidget } from './map-widget.js';
 
@@ -853,7 +853,7 @@ export default function Map({ zoomLevel }) {
 }
 ```
 
-```js map-widget.js
+```js src/map-widget.js
 import 'leaflet/dist/leaflet.css';
 import * as L from 'leaflet';
 
@@ -925,7 +925,7 @@ Zwróć uwagę na zmienną `ignore`, która jest inicjowana jako `false` i ustaw
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -961,7 +961,7 @@ export default function Page() {
 }
 ```
 
-```js api.js hidden
+```js src/api.js hidden
 export async function fetchBio(person) {
   const delay = person === 'Barbara' ? 2000 : 200;
   return new Promise(resolve => {
@@ -978,7 +978,7 @@ Możesz również przepisać ten kod używając składni [`async` / `await`](htt
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -1017,7 +1017,7 @@ export default function Page() {
 }
 ```
 
-```js api.js hidden
+```js src/api.js hidden
 export async function fetchBio(person) {
   const delay = person === 'Barbara' ? 2000 : 200;
   return new Promise(resolve => {
@@ -1046,7 +1046,7 @@ Pisanie wywołań `fetch` wewnątrz efektów to [popularny sposób na pobieranie
 Te wady nie dotyczą tylko Reacta. Występują one przy pobieraniu danych podczas montowania komponentu przy użyciu dowolnej biblioteki. Podobnie jak w przypadku routingu, poprawne wykonywanie pobierania danych nie jest proste, dlatego polecamy następujące podejścia:
 
 - **Jeśli używasz [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks), wykorzystaj jego wbudowany mechanizm pobierania danych.** Współczesne frameworki reactowe mają zintegrowane mechanizmy pobierania danych, które są wydajne i rozwiązują powyższe problemy.
-- **W przeciwnym razie, rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym byłyby użyte efekty, ale także zawarte byłyby: logika do unikania zduplikowanych zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
+- **W przeciwnym razie rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym byłyby użyte efekty, ale także zawarte byłyby: logika do unikania zduplikowanych zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
 
 Możesz nadal pobierać dane bezpośrednio w efektach, jeśli żadne z wymienionych podejść nie spełnia twoich potrzeb.
 
@@ -1213,7 +1213,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
@@ -1294,7 +1294,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
@@ -1387,7 +1387,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection(serverUrl, roomId) {
   // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
@@ -1550,7 +1550,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection({ serverUrl, roomId }) {
   // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
@@ -1660,7 +1660,7 @@ export default function App() {
 }
 ```
 
-```js chat.js
+```js src/chat.js
 export function createConnection({ serverUrl, roomId }) {
   // Rzeczywista implementacja naprawdę połączyłaby się z serwerem
   return {
