@@ -4,7 +4,7 @@ title: Renderowanie list
 
 <Intro>
 
-Często będziesz potrzebować wyświetlać wiele podobnych komponentów na podstawie kolekcji danych. Możesz użyć [javascriptowych metod tablic](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#), aby manipulować tablicą danych. Będziesz tu korzystać z [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) i [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) w połączeniu z Reactem, aby przefiltrować i przekształcić tablicę danych w tablicę komponentów.
+Często zdarzy ci się wyświetlać wiele podobnych komponentów na podstawie kolekcji danych. Możesz użyć [javascriptowych metod tablicowych](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#), aby manipulować tablicą danych. Będziesz tu korzystać z [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) i [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) w połączeniu z Reactem, aby przefiltrować i przekształcić tablicę danych w tablicę komponentów.
 
 </Intro>
 
@@ -30,7 +30,7 @@ Załóżmy, że posiadasz pewną listę treści.
 </ul>
 ```
 
-Jedyna różnica między elementami tej listy to ich treść, ich dane. Często będziesz chcieć pokazać kilka instancji tego samego komponentu, używając różnych danych podczas tworzenia interfejsów: od list komentarzy do galerii obrazków profilowych. W takich sytuacjach możesz przechowywać te dane w obiektach i tablicach JavaScript oraz używać metod takich jak [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) i [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), aby renderować na ich podstawie listy komponentów.
+Jedyna różnica między elementami tej listy to ich treść, ich dane. Często będziesz chcieć pokazać kilka instancji tego samego komponentu, używając różnych danych podczas tworzenia interfejsów: od list komentarzy do galerii obrazków profilowych. W takich sytuacjach możesz przechowywać te dane w obiektach i tablicach javascriptowych oraz używać metod, takich jak [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) i [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), aby renderować na ich podstawie listy komponentów.
 
 Oto krótki przykład, jak generować listę elementów z tablicy:
 
@@ -93,7 +93,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-Później na tej stronie, dowiesz się jak naprawić ten błąd. Zanim do tego przejdziemy, nadajmy trochę struktury twoim danym.
+Poniżej na tej stronie dowiesz się, jak naprawić ten błąd. Zanim do tego przejdziemy, nadajmy trochę struktury twoim danym.
 
 ## Filtrowanie tablicy elementów {/*filtering-arrays-of-items*/}
 
@@ -123,7 +123,7 @@ const people = [{
 
 Załóżmy, że chcesz mieć możliwość pokazywania tylko tych osób, których zawód to `'chemik'`. Możesz skorzystać z javascriptowej metody `filter()`, aby zwrócić tylko takie osoby. Metoda ta przyjmuje tablicę, poddaje jej elementy "testowi" (funkcji, która zwraca `true` lub `false`) i zwraca nową tablicę tylko tych elementów, które zdały test (zwróciły `true`).
 
-Chcąc uzyskać tylko te elementy, gdzie `profession` jest ustawione na `'chemik'`, odpowiednia funkcja "testu" powinna wyglądać tak: `(person) => person.profession === 'chemik'`. Oto sposób jak to wszystko połączyć w całość:
+Chcąc uzyskać tylko te elementy, gdzie `profession` jest ustawione na `'chemik'`, odpowiednia funkcja "testu" powinna wyglądać tak: `(person) => person.profession === 'chemik'`. Oto sposób na to, jak to wszystko połączyć w całość:
 
 1. **Utwórz** nową tablicę zawierającą tylko osoby o zawodzie `'chemik'` i nazwij ją `chemists`. Wywołaj metodę `filter()` na tablicy `people`, filtrując według warunku `person.profession === 'chemik'` i przypisz jej rezultat do nowo utworzonej tablicy:
 
@@ -244,7 +244,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Pitfall>
 
-Funkcje strzałkowe (ang. _arrow function_) niejawnie zwracają wyrażenie znajdujące się zaraz po `=>`, więc nie musisz użyć instrukcji `return`:
+Funkcje strzałkowe (ang. _arrow function_) niejawnie zwracają wyrażenie znajdujące się zaraz po `=>`, więc nie musisz używać instrukcji `return`:
 
 ```js
 const listItems = chemists.map(person =>
@@ -405,7 +405,7 @@ Różne źródła danych dostarczają różnych kluczy:
 * **Lokalnie generowane dane:** Jeśli twoje dane są generowane i przechowywane lokalnie (np. notatki w aplikacji do robienia notatek), użyj licznika przyrostowego [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) lub paczki takiej jak [`uuid`](https://www.npmjs.com/package/uuid) podczas tworzenia elementów.
 ### Zasady kluczy {/*rules-of-keys*/}
 
-* **Klucze muszą być unikalne między rodzeństwem.** Jednakże, używanie tych samych kluczy dla węzłów JSX w _różnych_ tablicach jest jak najbardziej w porządku.
+* **Klucze muszą być unikalne między rodzeństwem.** Jednakże używanie tych samych kluczy dla węzłów JSX w _różnych_ tablicach jest jak najbardziej w porządku.
 * **Klucze nie mogą się zmieniać,** bo to przeczy ich celowi! Nie generuj ich podczas renderowania.
 
 ### Dlaczego React potrzebuje kluczy? {/*why-does-react-need-keys*/}
@@ -1077,7 +1077,7 @@ export const recipes = [{
 
 </Sandpack>
 
-Użyta tutaj składnia `<Recipe {...recipe} key={recipe.id} />` to skrócony zapis mówiący "przekaż wszystkie właściwości obiektu `recipe` jako właściwości do komponentu `Recipe`". Możesz także przekazać każdą właściwość jawnie: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
+Użyta tutaj składnia `<Recipe {...recipe} key={recipe.id} />` to skrócony zapis, mówiący "przekaż wszystkie właściwości obiektu `recipe` jako właściwości do komponentu `Recipe`". Możesz także przekazać każdą właściwość jawnie: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
 **Zauważ, że klucz `key` jest określony bezpośrednio dla  `<Recipe>`, a nie dla najwyższego elementu `<div>`, który jest zwracany przez `Recipe`.** To dlatego, że `key` jest potrzebny bezpośrednio w kontekście otaczającej tablicy. Wcześniej mieliśmy tablicę elementów `<div>`, więc każdy z nich potrzebował `key`, ale teraz mamy tablicę komponentów `<Recipe>`. Innymi słowy, podczas wyodrębniania komponentu, nie zapomnij umieścić `key` poza kodem JSX, który przenosisz.
 
@@ -1085,7 +1085,7 @@ Użyta tutaj składnia `<Recipe {...recipe} key={recipe.id} />` to skrócony zap
 
 #### Lista z separatorem {/*list-with-a-separator*/}
 
-W tym przykładzie renderowany jest znany haiku autorstwa Tachibana Hokushi, z każdą linią umieszczoną w tagu `<p>`. Twoim zadaniem jest wstawienie separatorem `<hr />` między każdym akapitem. Ostateczna struktura powinna wyglądać tak:
+W tym przykładzie renderowany jest znany haiku autorstwa Tachibana Hokushi, z każdą linią umieszczoną w tagu `<p>`. Twoim zadaniem jest wstawienie separatora `<hr />` między każdym akapitem. Ostateczna struktura powinna wyglądać tak:
 
 ```js
 <article>
@@ -1207,7 +1207,7 @@ hr {
 
 Wykorzystanie oryginalnego indeksu linii jako `key` już nie zadziała, ponieważ każdy separator i akapit znajdują się teraz w tej samej tablicy. Niemniej jednak możesz nadać każdemu z nich odrębny klucz, dodając sufiks, np. `key={i + '-text'}`.
 
-Ewentualnie, możesz wyrenderować kolekcję fragmentów, które zawierają `<hr />` i `<p>...</p>`. Jednakże, skrócona składnia `<>...</>` nie wspiera przekazywania kluczy, więc musisz użyć składni `<Fragment>`:
+Ewentualnie, możesz wyrenderować kolekcję fragmentów, które zawierają `<hr />` i `<p>...</p>`. Jednak skrócona składnia `<>...</>` nie wspiera przekazywania kluczy, więc musisz użyć składni `<Fragment>`:
 
 <Sandpack>
 
