@@ -404,7 +404,7 @@ Fill out the missing lines!
 
 <Sandpack>
 
-```js src/processQueue.js active
+```js processQueue.js active
 export function getFinalState(baseState, queue) {
   let finalState = baseState;
 
@@ -414,7 +414,7 @@ export function getFinalState(baseState, queue) {
 }
 ```
 
-```js src/App.js
+```js App.js
 import { getFinalState } from './processQueue.js';
 
 function increment(n) {
@@ -499,7 +499,7 @@ This is the exact algorithm described on this page that React uses to calculate 
 
 <Sandpack>
 
-```js src/processQueue.js active
+```js processQueue.js active
 export function getFinalState(baseState, queue) {
   let finalState = baseState;
 
@@ -517,7 +517,7 @@ export function getFinalState(baseState, queue) {
 }
 ```
 
-```js src/App.js
+```js App.js
 import { getFinalState } from './processQueue.js';
 
 function increment(n) {

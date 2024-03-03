@@ -42,7 +42,7 @@ When your app starts, you need to trigger the initial render. Frameworks and san
 
 <Sandpack>
 
-```js src/index.js active
+```js index.js active
 import Image from './Image.js';
 import { createRoot } from 'react-dom/client';
 
@@ -50,7 +50,7 @@ const root = createRoot(document.getElementById('root'))
 root.render(<Image />);
 ```
 
-```js src/Image.js
+```js Image.js
 export default function Image() {
   return (
     <img
@@ -88,7 +88,7 @@ In the following example, React will call `Gallery()` and  `Image()` several tim
 
 <Sandpack>
 
-```js src/Gallery.js active
+```js Gallery.js active
 export default function Gallery() {
   return (
     <section>
@@ -110,7 +110,7 @@ function Image() {
 }
 ```
 
-```js src/index.js
+```js index.js
 import Gallery from './Gallery.js';
 import { createRoot } from 'react-dom/client';
 
@@ -157,7 +157,7 @@ After rendering (calling) your components, React will modify the DOM.
 
 <Sandpack>
 
-```js src/Clock.js active
+```js Clock.js active
 export default function Clock({ time }) {
   return (
     <>
@@ -168,7 +168,7 @@ export default function Clock({ time }) {
 }
 ```
 
-```js src/App.js hidden
+```js App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 

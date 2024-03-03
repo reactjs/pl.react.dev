@@ -632,7 +632,7 @@ class Form extends Component {
     return (
       <>
         <input value={this.state.name} onChange={this.handleNameChange} />
-        <p>Hello, {this.state.name}.</p>
+        <p>Hello, {this.state.name}.
       </>
     );
   }
@@ -1221,7 +1221,7 @@ For example, this `ChatRoom` component keeps a chat connection synchronized with
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
@@ -1251,7 +1251,7 @@ export default function App() {
 }
 ```
 
-```js src/ChatRoom.js active
+```js ChatRoom.js active
 import { Component } from 'react';
 import { createConnection } from './chat.js';
 
@@ -1312,7 +1312,7 @@ export default class ChatRoom extends Component {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection(serverUrl, roomId) {
   // A real implementation would actually connect to the server
   return {
@@ -1601,7 +1601,7 @@ Suppose you're converting this `ChatRoom` class component with lifecycle methods
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
@@ -1631,7 +1631,7 @@ export default function App() {
 }
 ```
 
-```js src/ChatRoom.js active
+```js ChatRoom.js active
 import { Component } from 'react';
 import { createConnection } from './chat.js';
 
@@ -1692,7 +1692,7 @@ export default class ChatRoom extends Component {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection(serverUrl, roomId) {
   // A real implementation would actually connect to the server
   return {
@@ -1741,7 +1741,7 @@ This [`useEffect`](/reference/react/useEffect) call is equivalent to the logic i
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
@@ -1771,7 +1771,7 @@ export default function App() {
 }
 ```
 
-```js src/ChatRoom.js active
+```js ChatRoom.js active
 import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
@@ -1801,7 +1801,7 @@ export default function ChatRoom({ roomId }) {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection(serverUrl, roomId) {
   // A real implementation would actually connect to the server
   return {

@@ -9,7 +9,6 @@ import {siteConfig} from '../siteConfig';
 
 export interface SeoProps {
   title: string;
-  titleForTitleTag: undefined | string;
   description?: string;
   image?: string;
   // jsonld?: JsonLDType | Array<JsonLDType>;
@@ -24,7 +23,6 @@ const deployedTranslations = [
   'es',
   'fr',
   'ja',
-  'tr',
   // We'll add more languages when they have enough content.
   // Please DO NOT edit this list without a discussion in the reactjs/react.dev repo.
   // It must be the same between all translations.
@@ -38,7 +36,7 @@ function getDomain(languageCode: string): string {
 export const Seo = withRouter(
   ({
     title,
-    titleForTitleTag,
+    description = 'The library for web and native user interfaces',
     image = '/images/og-default.png',
     router,
     children,
@@ -49,20 +47,14 @@ export const Seo = withRouter(
     const canonicalUrl = `https://${siteDomain}${
       router.asPath.split(/[\?\#]/)[0]
     }`;
-    // Allow setting a different title for Google results
-    const pageTitle =
-      (titleForTitleTag ?? title) + (isHomePage ? '' : ' – React');
+    const pageTitle = isHomePage ? title : title + ' – React';
     // Twitter's meta parser is not very good.
     const twitterTitle = pageTitle.replace(/[<>]/g, '');
-    let description = isHomePage
-      ? 'React is the library for web and native user interfaces. Build user interfaces out of individual pieces called components written in JavaScript. React is designed to let you seamlessly combine components written by independent people, teams, and organizations.'
-      : 'The library for web and native user interfaces';
     return (
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {title != null && <title key="title">{pageTitle}</title>}
-        {isHomePage && (
-          // Let Google figure out a good description for each page.
+        {description != null && (
           <meta name="description" key="description" content={description} />
         )}
         <link rel="canonical" href={canonicalUrl} />

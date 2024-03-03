@@ -58,7 +58,7 @@ export default function Gallery() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
@@ -238,7 +238,7 @@ export default function Gallery() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
@@ -427,7 +427,7 @@ export default function Gallery() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
@@ -536,7 +536,7 @@ This example **doesn't use React** but it gives you an idea of how `useState` wo
 
 <Sandpack>
 
-```js src/index.js active
+```js index.js active
 let componentHooks = [];
 let currentHookIndex = 0;
 
@@ -750,7 +750,7 @@ export default function Page() {
 
 ```
 
-```js src/Gallery.js
+```js Gallery.js
 import { useState } from 'react';
 import { sculptureList } from './data.js';
 
@@ -792,7 +792,7 @@ export default function Gallery() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
@@ -963,7 +963,7 @@ export default function Gallery() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
@@ -1125,7 +1125,7 @@ export default function Gallery() {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',

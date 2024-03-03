@@ -85,7 +85,7 @@ In apps fully built with React, **you will usually only do this once at startup*
 
 <Sandpack>
 
-```js src/index.js active
+```js index.js active
 import './styles.css';
 import { render } from 'react-dom';
 import App from './App.js';
@@ -93,7 +93,7 @@ import App from './App.js';
 render(<App />, document.getElementById('root'));
 ```
 
-```js src/App.js
+```js App.js
 export default function App() {
   return <h1>Hello, world!</h1>;
 }
@@ -119,7 +119,7 @@ If your page [isn't fully built with React](/learn/add-react-to-an-existing-proj
 </main>
 ```
 
-```js src/index.js active
+```js index.js active
 import './styles.css';
 import { render } from 'react-dom';
 import { Comments, Navigation } from './Components.js';
@@ -135,7 +135,7 @@ render(
 );
 ```
 
-```js src/Components.js
+```js Components.js
 export function Navigation() {
   return (
     <ul>
@@ -187,7 +187,7 @@ You can call `render` more than once on the same DOM node. As long as the compon
 
 <Sandpack>
 
-```js src/index.js active
+```js index.js active
 import { render } from 'react-dom';
 import './styles.css';
 import App from './App.js';
@@ -202,7 +202,7 @@ setInterval(() => {
 }, 1000);
 ```
 
-```js src/App.js
+```js App.js
 export default function App({counter}) {
   return (
     <>

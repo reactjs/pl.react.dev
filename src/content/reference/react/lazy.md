@@ -85,7 +85,7 @@ In this example, the code for `MarkdownPreview` won't be loaded until you attemp
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState, Suspense, lazy } from 'react';
 import Loading from './Loading.js';
 
@@ -120,13 +120,13 @@ function delayForDemo(promise) {
 }
 ```
 
-```js src/Loading.js
+```js Loading.js
 export default function Loading() {
   return <p><i>Loading...</i></p>;
 }
 ```
 
-```js src/MarkdownPreview.js
+```js MarkdownPreview.js
 import { Remarkable } from 'remarkable';
 
 const md = new Remarkable();

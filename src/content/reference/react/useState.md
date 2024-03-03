@@ -7,7 +7,7 @@ title: useState
 `useState` jest hookiem reactowym, który pozwala na dodanie do komponentu [zmiennej stanu](/learn/state-a-components-memory).
 
 ```js
-const [state, setState] = useState(initialState)
+const [state, setState] = useState(initialState);
 ```
 
 </Intro>
@@ -632,7 +632,7 @@ W tym przykładzie zmienna stanu `todos` przechowuje tablicę. Każda procedura 
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -689,7 +689,7 @@ export default function TaskApp() {
 }
 ```
 
-```js src/AddTodo.js
+```js AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -710,7 +710,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js src/TaskList.js
+```js TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({
@@ -1030,7 +1030,7 @@ Aby dowiedzieć się więcej, przeczytaj rozdział pt. [Utrzymywanie i resetowan
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 
 export default function App() {
@@ -1085,7 +1085,7 @@ Są jednak sytuację, w których żadna z powyższych reguł nie ma zastosowania
 
 Oto przykład. Komponent `CountLabel` wyświetla wartość przekazanej do niego właściwości `count`:
 
-```js src/CountLabel.js
+```js CountLabel.js
 export default function CountLabel({ count }) {
   return <h1>{count}</h1>
 }
@@ -1095,7 +1095,7 @@ Załóżmy, że chcesz wyświetlić informację, czy licznik został *zwiększon
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import CountLabel from './CountLabel.js';
 
@@ -1115,7 +1115,7 @@ export default function App() {
 }
 ```
 
-```js src/CountLabel.js active
+```js CountLabel.js active
 import { useState } from 'react';
 
 export default function CountLabel({ count }) {

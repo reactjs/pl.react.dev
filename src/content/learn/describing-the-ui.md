@@ -18,7 +18,6 @@ React jest biblioteką javascriptową służącą do renderowania interfejsu uż
 * [Jak wyrenderować komponenty warunkowo](/learn/conditional-rendering)
 * [Jak wyrenderować wiele komponentów jednocześnie](/learn/rendering-lists)
 * [Jak unikać trudnych w zwalczaniu błędów poprzez tworzenie czystych komponentów](/learn/keeping-components-pure)
-* [Dlaczego warto patrzeć na UI jak na drzewo](/learn/understanding-your-ui-as-a-tree)
 
 </YouWillLearn>
 
@@ -69,7 +68,7 @@ W jednym pliku możesz zadeklarować wiele komponentów naraz, lecz duże pliki 
 
 <Sandpack>
 
-```js src/App.js hidden
+```js App.js hidden
 import Gallery from './Gallery.js';
 
 export default function App() {
@@ -79,7 +78,7 @@ export default function App() {
 }
 ```
 
-```js src/Gallery.js active
+```js Gallery.js active
 import Profile from './Profile.js';
 
 export default function Gallery() {
@@ -94,7 +93,7 @@ export default function Gallery() {
 }
 ```
 
-```js src/Profile.js
+```js Profile.js
 export default function Profile() {
   return (
     <img
@@ -279,7 +278,7 @@ function Card({ children }) {
 
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person, size = 's') {
   return (
     'https://i.imgur.com/' +
@@ -371,7 +370,7 @@ Dla każdego elementu tablicy musisz określić `key` (pol. *klucz*). Zwykle uż
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -398,7 +397,7 @@ export default function List() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -432,7 +431,7 @@ export const people = [{
 }];
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -523,29 +522,6 @@ export default function TeaSet() {
 Aby dowiedzieć się jak pisać czyste funkcje o łatwym do przewidzenia wyniku działania, przeczytaj rozdział pt. **[Czyste komponenty](/learn/keeping-components-pure)**.
 
 </LearnMore>
-
-## Twój UI jako drzewo {/*your-ui-as-a-tree*/}
-
-React używa drzew do modelowania relacji pomiędzy komponentami i modułami.
-
-Drzewo renderowania w Reakcie to reprezentacja relacji rodzic-dziecko między komponentami.
-
-<Diagram name="generic_render_tree" height={250} width={500} alt="Graf drzewa z pięcioma węzłami, każdy z nich reprezentuje komponent. Węzeł korzenia znajduje się u góry grafu drzewa i jest oznaczony jako 'Root Component'. Ma on dwie strzałki rozciągające się w dół do dwóch węzłów oznaczonych jako 'Component A' i 'Component C'. Każda z strzałek jest oznaczona jako 'renders'. 'Component A' ma pojedynczą strzałkę 'renders' do węzła oznaczonego jako 'Component B'. 'Component C' ma pojedynczą strzałkę 'renders' do węzła oznaczonego jako 'Component D'.">Przykład drzewa renderowania w Reakcie.</Diagram>
-
-Komponenty blisko góry drzewa, w okolicach głównego komponentu (ang. _root component_), uważane są za komponenty najwyższego poziomu (ang. _top-level components_). Komponenty, które nie posiadają komponentów potomnych, są liśćmi (ang. _leaf components_). Takie kategoryzowanie komponentów jest przydatne do zrozumienia przepływu danych i wydajności renderowania.
-
-Modelowanie relacji między modułami javascriptowymi to kolejny przydatny sposób na zrozumienia jak działa aplikacja. Nazywamy to drzewem zależności modułów.
-
-<Diagram name="generic_dependency_tree" height={250} width={500} alt="Graf drzewa z pięcioma węzłami. Każdy węzeł reprezentuje moduł JavaScript. Najwyższy węzeł jest oznaczony jako 'RootModule.js'. Ma trzy strzałki rozciągające się do węzłów: 'ModuleA.js', 'ModuleB.js' i 'ModuleC.js'. Każda strzałka jest oznaczona jako 'imports'. Węzeł 'ModuleC.js' ma pojedynczą strzałkę 'imports', która wskazuje na węzeł oznaczony jako 'ModuleD.js'. ">Przykład drzewa zależności modułów.</Diagram>
-
-Drzewo zależności jest często wykorzystywane przez narzędzia do budowania w celu bundlowania całego kodu JavaScript, niezbędnego dla klienta do pobrania i renderowania. Duży rozmiar bundla wpływa negatywnie na doświadczenie użytkownika w aplikacjach reactowych. Zrozumienie drzewa zależności modułów jest pomocne przy debugowania tego typu problemów.
-
-<LearnMore path="/learn/understanding-your-ui-as-a-tree">
-
-Przeczytaj rozdział **[Twój UI jako drzewo](/learn/understanding-your-ui-as-a-tree)**, aby dowiedzieć się, jak tworzyć drzewa renderowania i zależności modułów dla aplikacji reactowych oraz jak mogą być one przydatne jako modele mentalne używane do poprawy doświadczenia użytkownika i wydajności aplikacji.
-
-</LearnMore>
-
 
 ## Co dalej? {/*whats-next*/}
 

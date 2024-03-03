@@ -4,7 +4,7 @@
 
 import {useState} from 'react';
 import {useRouter} from 'next/router';
-import cn from 'classnames';
+import {ga} from '../../utils/analytics';
 
 export function Feedback({onSubmit = () => {}}: {onSubmit?: () => void}) {
   const {asPath} = useRouter();
@@ -46,33 +46,29 @@ const thumbsDownIcon = (
 );
 
 function sendGAEvent(isPositive: boolean) {
-  const category = isPositive ? 'like_button' : 'dislike_button';
-  const value = isPositive ? 1 : 0;
   // Fragile. Don't change unless you've tested the network payload
   // and verified that the right events actually show up in GA.
-  // @ts-ignore
-  gtag('event', 'feedback', {
-    event_category: category,
-    event_label: window.location.pathname,
-    event_value: value,
-  });
+  ga(
+    'send',
+    'event',
+    'button',
+    'feedback',
+    window.location.pathname,
+    isPositive ? '1' : '0'
+  );
 }
 
 function SendFeedback({onSubmit}: {onSubmit: () => void}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   return (
-    <div
-      className={cn(
-        'max-w-custom-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex',
-        {exit: isSubmitted}
-      )}>
-      <p className="w-full text-lg font-bold text-primary dark:text-primary-dark me-4">
+    <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
+      <p className="w-full font-bold text-primary dark:text-primary-dark text-lg me-4">
         {isSubmitted ? 'Dziękujemy za opinię!' : 'Czy ta strona była pomocna?'}
       </p>
       {!isSubmitted && (
         <button
           aria-label="Tak"
-          className="px-3 rounded-lg bg-secondary-button dark:bg-secondary-button-dark text-primary dark:text-primary-dark me-2"
+          className="bg-secondary-button dark:bg-secondary-button-dark rounded-lg text-primary dark:text-primary-dark px-3 me-2"
           onClick={() => {
             setIsSubmitted(true);
             onSubmit();
@@ -84,7 +80,7 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
       {!isSubmitted && (
         <button
           aria-label="Nie"
-          className="px-3 rounded-lg bg-secondary-button dark:bg-secondary-button-dark text-primary dark:text-primary-dark"
+          className="bg-secondary-button dark:bg-secondary-button-dark rounded-lg text-primary dark:text-primary-dark px-3"
           onClick={() => {
             setIsSubmitted(true);
             onSubmit();

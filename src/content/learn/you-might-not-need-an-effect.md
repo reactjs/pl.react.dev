@@ -882,7 +882,7 @@ function NewTodo({ onAdd }) {
 }
 ```
 
-```js src/todos.js
+```js todos.js
 let nextId = 0;
 
 export function createTodo(text, completed = false) {
@@ -975,7 +975,7 @@ function NewTodo({ onAdd }) {
 }
 ```
 
-```js src/todos.js
+```js todos.js
 let nextId = 0;
 
 export function createTodo(text, completed = false) {
@@ -1061,7 +1061,7 @@ export default function TodoList() {
 }
 ```
 
-```js src/todos.js
+```js todos.js
 let nextId = 0;
 let calls = 0;
 
@@ -1144,7 +1144,7 @@ export default function TodoList() {
 }
 ```
 
-```js src/todos.js
+```js todos.js
 let nextId = 0;
 let calls = 0;
 
@@ -1233,7 +1233,7 @@ function NewTodo({ onAdd }) {
 }
 ```
 
-```js src/todos.js
+```js todos.js
 let nextId = 0;
 let calls = 0;
 
@@ -1278,7 +1278,7 @@ When you select a contact with the buttons at the top, the form resets to reflec
 
 <Sandpack>
 
-```js src/App.js hidden
+```js App.js hidden
 import { useState } from 'react';
 import ContactList from './ContactList.js';
 import EditContact from './EditContact.js';
@@ -1330,7 +1330,7 @@ const initialContacts = [
 ];
 ```
 
-```js src/ContactList.js hidden
+```js ContactList.js hidden
 export default function ContactList({
   contacts,
   selectedId,
@@ -1357,7 +1357,7 @@ export default function ContactList({
 }
 ```
 
-```js src/EditContact.js active
+```js EditContact.js active
 import { useState, useEffect } from 'react';
 
 export default function EditContact({ savedContact, onSave }) {
@@ -1442,7 +1442,7 @@ Split the `EditContact` component in two. Move all the form state into the inner
 
 <Sandpack>
 
-```js src/App.js hidden
+```js App.js hidden
 import { useState } from 'react';
 import ContactList from './ContactList.js';
 import EditContact from './EditContact.js';
@@ -1494,7 +1494,7 @@ const initialContacts = [
 ];
 ```
 
-```js src/ContactList.js hidden
+```js ContactList.js hidden
 export default function ContactList({
   contacts,
   selectedId,
@@ -1521,7 +1521,7 @@ export default function ContactList({
 }
 ```
 
-```js src/EditContact.js active
+```js EditContact.js active
 import { useState } from 'react';
 
 export default function EditContact(props) {

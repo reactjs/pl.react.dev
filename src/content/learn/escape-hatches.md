@@ -163,7 +163,7 @@ export default function ChatRoom() {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection() {
   // A real implementation would actually connect to the server
   return {
@@ -281,7 +281,7 @@ export default function App() {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection(serverUrl, roomId) {
   // A real implementation would actually connect to the server
   return {
@@ -395,7 +395,7 @@ export default function App() {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection(serverUrl, roomId) {
   // A real implementation would actually connect to the server
   let connectedCallback;
@@ -424,7 +424,7 @@ export function createConnection(serverUrl, roomId) {
 }
 ```
 
-```js src/notifications.js
+```js notifications.js
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
@@ -528,7 +528,7 @@ export default function App() {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection(serverUrl, roomId) {
   // A real implementation would actually connect to the server
   let connectedCallback;
@@ -557,7 +557,7 @@ export function createConnection(serverUrl, roomId) {
 }
 ```
 
-```js src/notifications.js hidden
+```js notifications.js hidden
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
@@ -647,7 +647,7 @@ export default function App() {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection({ serverUrl, roomId }) {
   // A real implementation would actually connect to the server
   return {
@@ -721,7 +721,7 @@ export default function App() {
 }
 ```
 
-```js src/chat.js
+```js chat.js
 export function createConnection({ serverUrl, roomId }) {
   // A real implementation would actually connect to the server
   return {
@@ -797,7 +797,7 @@ function Dot({ position, opacity }) {
 }
 ```
 
-```js src/usePointerPosition.js
+```js usePointerPosition.js
 import { useState, useEffect } from 'react';
 
 export function usePointerPosition() {
@@ -813,7 +813,7 @@ export function usePointerPosition() {
 }
 ```
 
-```js src/useDelayedValue.js
+```js useDelayedValue.js
 import { useState, useEffect } from 'react';
 
 export function useDelayedValue(value, delay) {

@@ -81,7 +81,7 @@ Możesz zacząć budować "od góry do dołu", zaczynając od komponentów znajd
 
 <Sandpack>
 
-```jsx src/App.js
+```jsx App.js
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -299,7 +299,7 @@ Teraz możesz przetestować zachowanie aplikacji. Zmień w poniższym kodzie poc
 
 <Sandpack>
 
-```jsx src/App.js
+```jsx App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
@@ -485,33 +485,19 @@ function FilterableProductTable({ products }) {
 
 Wewnątrz komponentu `SearchBar` nalezy dodać procedurę obsługi zdarzenia `onChange` i ustawiać w niej wartość stanu rodzica:
 
-```js {4,5,13,19}
-function SearchBar({
-  filterText,
-  inStockOnly,
-  onFilterTextChange,
-  onInStockOnlyChange
-}) {
-  return (
-    <form>
-      <input
-        type="text"
-        value={filterText}
-        placeholder="Search..."
-        onChange={(e) => onFilterTextChange(e.target.value)}
-      />
-      <label>
-        <input
-          type="checkbox"
-          checked={inStockOnly}
-          onChange={(e) => onInStockOnlyChange(e.target.checked)}
+```js {5}
+<input 
+  type="text" 
+  value={filterText} 
+  placeholder="Search..." 
+  onChange={(e) => onFilterTextChange(e.target.value)} />
 ```
 
 Teraz nasza aplikacja jest w pełni funkcjonalna!
 
 <Sandpack>
 
-```jsx src/App.js
+```jsx App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {

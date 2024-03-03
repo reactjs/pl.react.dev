@@ -159,7 +159,7 @@ return <ul>{listItems}</ul>;
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -184,7 +184,7 @@ export default function List() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -218,7 +218,7 @@ export const people = [{
 }];
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -292,7 +292,7 @@ Zamiast generować klucze dynamicznie, powinno się dołączać je do danych:
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -314,7 +314,7 @@ export default function List() {
 }
 ```
 
-```js src/data.js active
+```js data.js active
 export const people = [{
   id: 0, // Użyte w JSX jako klucz
   name: 'Creola Katherine Johnson',
@@ -348,7 +348,7 @@ export const people = [{
 }];
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -447,7 +447,7 @@ Zmień go tak, aby pokazywał dwie oddzielne listy jedna po drugiej: **Chemia** 
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -474,7 +474,7 @@ export default function List() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -508,7 +508,7 @@ export const people = [{
 }];
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -538,7 +538,7 @@ Możesz użyć funkcji `filter()` dwukrotnie, tworząc dwie osobne tablice, a na
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -589,7 +589,7 @@ export default function List() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -623,7 +623,7 @@ export const people = [{
 }];
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -653,7 +653,7 @@ Nadal zachodzi tu duplikacja kodu między listami. Możesz pójść dalej i wyod
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -703,7 +703,7 @@ export default function List() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -737,7 +737,7 @@ export const people = [{
 }];
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -767,7 +767,7 @@ W zasadzie, jeśli tablica `people` nigdy się nie zmienia, możesz przenieść 
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -821,7 +821,7 @@ export default function List() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -855,7 +855,7 @@ export const people = [{
 }];
 ```
 
-```js src/utils.js
+```js utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -893,7 +893,7 @@ Będzie to wymagało zagnieżdżenia dwóch różnych wywołań funkcji `map()`.
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { recipes } from './data.js';
 
 export default function RecipeList() {
@@ -905,7 +905,7 @@ export default function RecipeList() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Sałatka grecka',
@@ -929,7 +929,7 @@ Oto jedna z możliwości, jak można to zrealizować:
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { recipes } from './data.js';
 
 export default function RecipeList() {
@@ -953,7 +953,7 @@ export default function RecipeList() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Sałatka grecka',
@@ -981,7 +981,7 @@ Komponent `RecipeList` zawiera dwa zagnieżdżone wywołania funkcji `map()`. Ab
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { recipes } from './data.js';
 
 export default function RecipeList() {
@@ -1005,7 +1005,7 @@ export default function RecipeList() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Sałatka grecka',
@@ -1059,7 +1059,7 @@ export default function RecipeList() {
 }
 ```
 
-```js src/data.js
+```js data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Sałatka grecka',

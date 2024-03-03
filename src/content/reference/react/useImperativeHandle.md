@@ -133,7 +133,7 @@ export default function Form() {
 }
 ```
 
-```js src/MyInput.js
+```js MyInput.js
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 
 const MyInput = forwardRef(function MyInput(props, ref) {
@@ -194,7 +194,7 @@ export default function Page() {
 }
 ```
 
-```js src/Post.js
+```js Post.js
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 import CommentList from './CommentList.js';
 import AddComment from './AddComment.js';
@@ -227,7 +227,7 @@ export default Post;
 ```
 
 
-```js src/CommentList.js
+```js CommentList.js
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 
 const CommentList = forwardRef(function CommentList(props, ref) {
@@ -257,7 +257,7 @@ const CommentList = forwardRef(function CommentList(props, ref) {
 export default CommentList;
 ```
 
-```js src/AddComment.js
+```js AddComment.js
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 
 const AddComment = forwardRef(function AddComment(props, ref) {

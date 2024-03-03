@@ -88,7 +88,7 @@ In this example, clicking "Render React App" will render a React app. Click "Unm
 </html>
 ```
 
-```js src/index.js active
+```js index.js active
 import './styles.css';
 import { render, unmountComponentAtNode } from 'react-dom';
 import App from './App.js';
@@ -104,7 +104,7 @@ document.getElementById('unmount').addEventListener('click', () => {
 });
 ```
 
-```js src/App.js
+```js App.js
 export default function App() {
   return <h1>Hello, world!</h1>;
 }

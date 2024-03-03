@@ -69,7 +69,7 @@ In the example below, the `Albums` component *suspends* while fetching the list 
 }
 ```
 
-```js src/App.js hidden
+```js App.js hidden
 import { useState } from 'react';
 import ArtistPage from './ArtistPage.js';
 
@@ -94,7 +94,7 @@ export default function App() {
 }
 ```
 
-```js src/ArtistPage.js active
+```js ArtistPage.js active
 import { Suspense } from 'react';
 import Albums from './Albums.js';
 
@@ -114,7 +114,7 @@ function Loading() {
 }
 ```
 
-```js src/Albums.js hidden
+```js Albums.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -162,7 +162,7 @@ function use(promise) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.
@@ -300,7 +300,7 @@ In the example below, both `Biography` and `Albums` fetch some data. However, be
 }
 ```
 
-```js src/App.js hidden
+```js App.js hidden
 import { useState } from 'react';
 import ArtistPage from './ArtistPage.js';
 
@@ -325,7 +325,7 @@ export default function App() {
 }
 ```
 
-```js src/ArtistPage.js active
+```js ArtistPage.js active
 import { Suspense } from 'react';
 import Albums from './Albums.js';
 import Biography from './Biography.js';
@@ -350,7 +350,7 @@ function Loading() {
 }
 ```
 
-```js src/Panel.js
+```js Panel.js
 export default function Panel({ children }) {
   return (
     <section className="panel">
@@ -360,7 +360,7 @@ export default function Panel({ children }) {
 }
 ```
 
-```js src/Biography.js hidden
+```js Biography.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -404,7 +404,7 @@ function use(promise) {
 }
 ```
 
-```js src/Albums.js hidden
+```js Albums.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -452,7 +452,7 @@ function use(promise) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.
@@ -625,7 +625,7 @@ The sequence will be:
 }
 ```
 
-```js src/App.js hidden
+```js App.js hidden
 import { useState } from 'react';
 import ArtistPage from './ArtistPage.js';
 
@@ -650,7 +650,7 @@ export default function App() {
 }
 ```
 
-```js src/ArtistPage.js active
+```js ArtistPage.js active
 import { Suspense } from 'react';
 import Albums from './Albums.js';
 import Biography from './Biography.js';
@@ -687,7 +687,7 @@ function AlbumsGlimmer() {
 }
 ```
 
-```js src/Panel.js
+```js Panel.js
 export default function Panel({ children }) {
   return (
     <section className="panel">
@@ -697,7 +697,7 @@ export default function Panel({ children }) {
 }
 ```
 
-```js src/Biography.js hidden
+```js Biography.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -741,7 +741,7 @@ function use(promise) {
 }
 ```
 
-```js src/Albums.js hidden
+```js Albums.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -789,7 +789,7 @@ function use(promise) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.
@@ -944,7 +944,7 @@ In this example, the `SearchResults` component suspends while fetching the searc
 }
 ```
 
-```js src/App.js
+```js App.js
 import { Suspense, useState } from 'react';
 import SearchResults from './SearchResults.js';
 
@@ -964,7 +964,7 @@ export default function App() {
 }
 ```
 
-```js src/SearchResults.js hidden
+```js SearchResults.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -1018,7 +1018,7 @@ function use(promise) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.
@@ -1169,7 +1169,7 @@ Enter `"a"` in the example below, wait for the results to load, and then edit th
 }
 ```
 
-```js src/App.js
+```js App.js
 import { Suspense, useState, useDeferredValue } from 'react';
 import SearchResults from './SearchResults.js';
 
@@ -1193,7 +1193,7 @@ export default function App() {
 }
 ```
 
-```js src/SearchResults.js hidden
+```js SearchResults.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -1247,7 +1247,7 @@ function use(promise) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.
@@ -1375,7 +1375,7 @@ When a component suspends, the closest parent Suspense boundary switches to show
 }
 ```
 
-```js src/App.js
+```js App.js
 import { Suspense, useState } from 'react';
 import IndexPage from './IndexPage.js';
 import ArtistPage from './ArtistPage.js';
@@ -1423,7 +1423,7 @@ function BigSpinner() {
 }
 ```
 
-```js src/Layout.js
+```js Layout.js
 export default function Layout({ children }) {
   return (
     <div className="layout">
@@ -1438,7 +1438,7 @@ export default function Layout({ children }) {
 }
 ```
 
-```js src/IndexPage.js
+```js IndexPage.js
 export default function IndexPage({ navigate }) {
   return (
     <button onClick={() => navigate('/the-beatles')}>
@@ -1448,7 +1448,7 @@ export default function IndexPage({ navigate }) {
 }
 ```
 
-```js src/ArtistPage.js
+```js ArtistPage.js
 import { Suspense } from 'react';
 import Albums from './Albums.js';
 import Biography from './Biography.js';
@@ -1479,7 +1479,7 @@ function AlbumsGlimmer() {
 }
 ```
 
-```js src/Albums.js hidden
+```js Albums.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -1527,7 +1527,7 @@ function use(promise) {
 }
 ```
 
-```js src/Biography.js hidden
+```js Biography.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -1571,7 +1571,7 @@ function use(promise) {
 }
 ```
 
-```js src/Panel.js hidden
+```js Panel.js hidden
 export default function Panel({ children }) {
   return (
     <section className="panel">
@@ -1581,7 +1581,7 @@ export default function Panel({ children }) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.
@@ -1760,7 +1760,7 @@ This tells React that the state transition is not urgent, and it's better to kee
 }
 ```
 
-```js src/App.js
+```js App.js
 import { Suspense, startTransition, useState } from 'react';
 import IndexPage from './IndexPage.js';
 import ArtistPage from './ArtistPage.js';
@@ -1810,7 +1810,7 @@ function BigSpinner() {
 }
 ```
 
-```js src/Layout.js
+```js Layout.js
 export default function Layout({ children }) {
   return (
     <div className="layout">
@@ -1825,7 +1825,7 @@ export default function Layout({ children }) {
 }
 ```
 
-```js src/IndexPage.js
+```js IndexPage.js
 export default function IndexPage({ navigate }) {
   return (
     <button onClick={() => navigate('/the-beatles')}>
@@ -1835,7 +1835,7 @@ export default function IndexPage({ navigate }) {
 }
 ```
 
-```js src/ArtistPage.js
+```js ArtistPage.js
 import { Suspense } from 'react';
 import Albums from './Albums.js';
 import Biography from './Biography.js';
@@ -1866,7 +1866,7 @@ function AlbumsGlimmer() {
 }
 ```
 
-```js src/Albums.js hidden
+```js Albums.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -1914,7 +1914,7 @@ function use(promise) {
 }
 ```
 
-```js src/Biography.js hidden
+```js Biography.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -1958,7 +1958,7 @@ function use(promise) {
 }
 ```
 
-```js src/Panel.js hidden
+```js Panel.js hidden
 export default function Panel({ children }) {
   return (
     <section className="panel">
@@ -1968,7 +1968,7 @@ export default function Panel({ children }) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.
@@ -2143,7 +2143,7 @@ In the above example, once you click the button, there is no visual indication t
 }
 ```
 
-```js src/App.js
+```js App.js
 import { Suspense, useState, useTransition } from 'react';
 import IndexPage from './IndexPage.js';
 import ArtistPage from './ArtistPage.js';
@@ -2194,7 +2194,7 @@ function BigSpinner() {
 }
 ```
 
-```js src/Layout.js
+```js Layout.js
 export default function Layout({ children, isPending }) {
   return (
     <div className="layout">
@@ -2211,7 +2211,7 @@ export default function Layout({ children, isPending }) {
 }
 ```
 
-```js src/IndexPage.js
+```js IndexPage.js
 export default function IndexPage({ navigate }) {
   return (
     <button onClick={() => navigate('/the-beatles')}>
@@ -2221,7 +2221,7 @@ export default function IndexPage({ navigate }) {
 }
 ```
 
-```js src/ArtistPage.js
+```js ArtistPage.js
 import { Suspense } from 'react';
 import Albums from './Albums.js';
 import Biography from './Biography.js';
@@ -2252,7 +2252,7 @@ function AlbumsGlimmer() {
 }
 ```
 
-```js src/Albums.js hidden
+```js Albums.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -2300,7 +2300,7 @@ function use(promise) {
 }
 ```
 
-```js src/Biography.js hidden
+```js Biography.js hidden
 import { fetchData } from './data.js';
 
 // Note: this component is written using an experimental API
@@ -2344,7 +2344,7 @@ function use(promise) {
 }
 ```
 
-```js src/Panel.js hidden
+```js Panel.js hidden
 export default function Panel({ children }) {
   return (
     <section className="panel">
@@ -2354,7 +2354,7 @@ export default function Panel({ children }) {
 }
 ```
 
-```js src/data.js hidden
+```js data.js hidden
 // Note: the way you would do data fetching depends on
 // the framework that you use together with Suspense.
 // Normally, the caching logic would be inside a framework.

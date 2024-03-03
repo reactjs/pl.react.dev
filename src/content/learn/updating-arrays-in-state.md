@@ -409,6 +409,7 @@ For example:
 ```js
 import { useState } from 'react';
 
+let nextId = 3;
 const initialList = [
   { id: 0, title: 'Big Bellies' },
   { id: 1, title: 'Lunar Landscape' },
@@ -1083,7 +1084,7 @@ In this example, all of the event handlers in `App.js` use mutation. As a result
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -1138,7 +1139,7 @@ export default function TaskApp() {
 }
 ```
 
-```js src/AddTodo.js
+```js AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -1159,7 +1160,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js src/TaskList.js
+```js TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({
@@ -1246,7 +1247,7 @@ In `handleAddTodo`, you can use the array spread syntax. In `handleChangeTodo`, 
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -1305,7 +1306,7 @@ export default function TaskApp() {
 }
 ```
 
-```js src/AddTodo.js
+```js AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -1326,7 +1327,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js src/TaskList.js
+```js TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({
@@ -1416,7 +1417,7 @@ This is the same example as in the previous challenge. This time, fix the mutati
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 import AddTodo from './AddTodo.js';
@@ -1472,7 +1473,7 @@ export default function TaskApp() {
 }
 ```
 
-```js src/AddTodo.js
+```js AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -1493,7 +1494,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js src/TaskList.js
+```js TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({
@@ -1598,7 +1599,7 @@ With Immer, you can write code in the mutative fashion, as long as you're only m
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 import AddTodo from './AddTodo.js';
@@ -1660,7 +1661,7 @@ export default function TaskApp() {
 }
 ```
 
-```js src/AddTodo.js
+```js AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -1681,7 +1682,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js src/TaskList.js
+```js TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({
@@ -1786,7 +1787,7 @@ For example, in this version `handleAddTodo` is implemented by mutating the Imme
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 import AddTodo from './AddTodo.js';
@@ -1845,7 +1846,7 @@ export default function TaskApp() {
 }
 ```
 
-```js src/AddTodo.js
+```js AddTodo.js
 import { useState } from 'react';
 
 export default function AddTodo({ onAddTodo }) {
@@ -1866,7 +1867,7 @@ export default function AddTodo({ onAddTodo }) {
 }
 ```
 
-```js src/TaskList.js
+```js TaskList.js
 import { useState } from 'react';
 
 export default function TaskList({

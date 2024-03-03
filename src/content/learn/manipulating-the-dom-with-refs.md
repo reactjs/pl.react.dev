@@ -1098,7 +1098,7 @@ You'll need `forwardRef` to opt into exposing a DOM node from your own component
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import SearchButton from './SearchButton.js';
 import SearchInput from './SearchInput.js';
 
@@ -1114,7 +1114,7 @@ export default function Page() {
 }
 ```
 
-```js src/SearchButton.js
+```js SearchButton.js
 export default function SearchButton() {
   return (
     <button>
@@ -1124,7 +1124,7 @@ export default function SearchButton() {
 }
 ```
 
-```js src/SearchInput.js
+```js SearchInput.js
 export default function SearchInput() {
   return (
     <input
@@ -1146,7 +1146,7 @@ You'll need to add an `onClick` prop to the `SearchButton`, and make the `Search
 
 <Sandpack>
 
-```js src/App.js
+```js App.js
 import { useRef } from 'react';
 import SearchButton from './SearchButton.js';
 import SearchInput from './SearchInput.js';
@@ -1166,7 +1166,7 @@ export default function Page() {
 }
 ```
 
-```js src/SearchButton.js
+```js SearchButton.js
 export default function SearchButton({ onClick }) {
   return (
     <button onClick={onClick}>
@@ -1176,7 +1176,7 @@ export default function SearchButton({ onClick }) {
 }
 ```
 
-```js src/SearchInput.js
+```js SearchInput.js
 import { forwardRef } from 'react';
 
 export default forwardRef(

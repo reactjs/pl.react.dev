@@ -5,8 +5,7 @@
 import cn from 'classnames';
 
 interface InlineCodeProps {
-  isLink?: boolean;
-  meta?: string;
+  isLink: boolean;
 }
 function InlineCode({
   isLink,
