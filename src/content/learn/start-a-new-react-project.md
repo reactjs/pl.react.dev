@@ -4,12 +4,12 @@ title: Zacznij nowy projekt w Reakcie
 
 <Intro>
 
-Jeśli chcesz zbudować nową aplikację lub stronę internetową wyłącznie za pomocą Reacta, zalecamy wybrać jeden z z popularnych wśród społeczności frameworków opartych na Reakcie.
+Jeśli chcesz zbudować nową aplikację lub stronę internetową wyłącznie za pomocą Reacta, zalecamy wybrać jeden z popularnych wśród społeczności frameworków opartych na Reakcie.
 
 </Intro>
 
 
-Możesz użyć Reacta bez żadnego frameworka, jednakże zauważyliśmy, że dla większość aplikacji i stron internetowych prędzej czy później tworzy się rozwiązania dla takich wspólnych problemów jak dzielenie kodu, nawigacja, pobieranie danych i generowanie kodu HTML. Problemy te są typowe dla wszystkich bibliotek do tworzenia UI, nie tylko dla Reacta.
+Możesz użyć Reacta bez żadnego frameworka, jednakże zauważyliśmy, że dla większość aplikacji i stron internetowych prędzej czy później tworzy się rozwiązania dla takich częstych problemów jak dzielenie kodu, nawigacja, pobieranie danych i generowanie kodu HTML. Są to typowe problemy dla wszystkich bibliotek do tworzenia UI, nie tylko dla Reacta.
 
 Zaczynając projekt z użyciem frameworka, możesz szybko zacząć używać Reacta i uniknąć potem tworzenia w zasadzie własnego frameworka.
 
