@@ -56,7 +56,7 @@ npx create-remix
 
 Jeśli Remix jest dla ciebie czymś nowym, sprawdź [samouczek na blogu](https://remix.run/docs/en/main/tutorials/blog) (krótki) oraz [samouczek z przykładową aplikacją](https://remix.run/docs/en/main/tutorials/jokes) (długi).
 
-Remix jest utrzymywany przez [Shopify](https://www.shopify.com/). Kiedy tworzysz projekt z użyciem Remiksa, musisz [wybrać platformę docelową](https://remix.run/docs/en/main/guides/deployment). Możesz wdrożyć aplikację remiksową na dowolnym hostingu obsługującym Node.js lub na usłudze bezserwerowej, korzystając z [istniejącego lub własnego adaptera](https://remix.run/docs/en/main/other-api/adapter).
+Remix jest utrzymywany przez [Shopify](https://www.shopify.com/). Kiedy tworzysz projekt z użyciem Remiksa, musisz [wybrać platformę docelową](https://remix.run/docs/en/main/guides/deployment). Możesz wdrożyć aplikację opartą na Remiksie na dowolnym hostingu obsługującym Node.js lub na usłudze bezserwerowej, korzystając z [istniejącego lub własnego adaptera](https://remix.run/docs/en/main/other-api/adapter).
 
 ### Gatsby {/*gatsby*/}
 
