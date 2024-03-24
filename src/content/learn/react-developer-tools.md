@@ -60,7 +60,7 @@ Na koniec odśwież stronę w przeglądarce, aby podejrzeć ją w narzędziach d
 
 ## Aplikacje mobilne (React Native) {/*mobile-react-native*/}
 
-Narzędzi deweloperskicj dla Reacta można z powodzeniem używać do podglądania aplikacji napisanych w [React Native](https://reactnative.dev/) as well.
+Narzędzi deweloperskich dla Reacta można z powodzeniem używać również do podglądania aplikacji napisanych w [React Native](https://reactnative.dev/).
 
 Najprościej jest zainstalować je globalnie:
 

@@ -629,7 +629,6 @@ Zwróć uwagę, że należy tu napisać `importance > 0 && ...`, zamiast `import
 
 W tym rozwiązaniu dwa oddzielne warunki zostały użyte w celu wstawienia spacji między nazwą przedmiotu a wartością priorytetu. Alternatywnie, można użyć fragmentu, na początku którego wstawiłoby się spację: `importance > 0 && <> <i>...</i></>` lub można również wstawić spację wewnątrz `<i>`:  `importance > 0 && <i> ...</i>`.
 
-
 </Solution>
 
 #### Zamień szereg warunków `? :` na `if` ze zmiennymi {/*refactor-a-series-of---to-if-and-variables*/}
