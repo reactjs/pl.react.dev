@@ -32,7 +32,7 @@ Jeżeli twoja aplikacja posiada nietypowe ograniczenia, które nie są dobrze ob
 
 ## Dojrzałe frameworki reactowe {/*production-grade-react-frameworks*/}
 
-These frameworks support all the features you need to deploy and scale your app in production and are working towards supporting our [full-stack architecture vision](#which-features-make-up-the-react-teams-full-stack-architecture-vision). All of the frameworks we recommend are open source with active communities for support, and can be deployed to your own server or a hosting provider. If you’re a framework author interested in being included on this list, [please let us know](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+).
+Frameworki te obsługują wszystkie funkcje, których potrzeba do wdrożenia i skalowania aplikacji na produkcji oraz działają nad wsparciem naszej [wizji architektury full-stack](#which-features-make-up-the-react-teams-full-stack-architecture-vision). Wszystkie polecane przez nas frameworki są otwarte i mają aktywne społeczności z ich wsparciem oraz mogą być wdrożone na własnym serwerze lub u dostawcy hostingu. Jeśli jesteś autorem lub autorką frameworka i chcesz być uwzględniony na tej liście, [daj nam znać](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+).
 
 ### Next.js {/*nextjs-pages-router*/}
 
