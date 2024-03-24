@@ -266,7 +266,7 @@ Funkcje strzałkowe zawierające `=> {` są określane jako posiadające ["ciał
 
 ## Zachowanie kolejności elementów listy za pomocą `key` (ang. _klucz_) {/*keeping-list-items-in-order-with-key*/}
 
-Zauważ, że wszystkie powyższe piaskownice wyświetlają błąd w konsoli:
+Zauważ, że wszystkie powyższe sandboxy wyświetlają błąd w konsoli:
 
 <ConsoleBlock level="error">
 
