@@ -85,21 +85,20 @@ Możesz myśleć o swoich komponentach jak o przepisach kuchennych: jeśli będz
 
 <Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="Przepis na herbatę dla x osób: weź x filiżanek wody, dodaj x łyżek herbaty i 0.5x łyżek przypraw oraz 0.5x filiżanek mleka" />
 
-## Side Effects: (un)intended consequences {/*side-effects-unintended-consequences*/}
+## Skutki uboczne: (nie)zamierzone konsekwencje {/*side-effects-unintended-consequences*/}
 
-React's rendering process must always be pure. Components should only *return* their JSX, and not *change* any objects or variables that existed before rendering—that would make them impure!
+Proces renderowania w Reakcie zawsze musi być czysty. Komponenty powinny jedynie *zwracać* swój JSX i nie *zmieniać* żadnych obiektów ani zmiennych, które istniały przed renderowaniem – to sprawiałoby, że komponenty nie są czyste!
 
-Here is a component that breaks this rule:
-
+Oto komponent, który łamie tę zasadę:
 <Sandpack>
 
 ```js
 let guest = 0;
 
 function Cup() {
-  // Bad: changing a preexisting variable!
+  // Źle: zmiana istniejącej zmiennej!
   guest = guest + 1;
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Filiżanka herbaty dla gościa #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -115,17 +114,17 @@ export default function TeaSet() {
 
 </Sandpack>
 
-This component is reading and writing a `guest` variable declared outside of it. This means that **calling this component multiple times will produce different JSX!** And what's more, if _other_ components read `guest`, they will produce different JSX, too, depending on when they were rendered! That's not predictable.
+Ten komponent odczytuje i nadpisuje zmienną `guest` zadeklarowaną poza nim. Oznacza to, że **wywołanie tego komponentu wielokrotnie spowoduje wygenerowanie różnego JSX!** Co więcej, jeśli _inne_ komponenty odczytują `guest`, również wygenerują różny JSX, w zależności od momentu renderowania! To nie jest przewidywalne.
 
-Going back to our formula <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>, now even if <Math><MathI>x</MathI> = 2</Math>, we cannot trust that <Math><MathI>y</MathI> = 4</Math>. Our tests could fail, our users would be baffled, planes would fall out of the sky—you can see how this would lead to confusing bugs!
+Wróćmy do naszej formuły <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>. Teraz nawet jeśli <Math><MathI>x</MathI> = 2</Math>, nie możemy być pewni, że <Math><MathI>y</MathI> = 4</Math>. Nasze testy mogłyby zakończyć się niepowodzeniem, nasi użytkownicy byliby zdumieni, a samoloty mogłyby spaść z nieba – widzisz, jak mogłoby to prowadzić do niezrozumiałych błędów!
 
-You can fix this component by [passing `guest` as a prop instead](/learn/passing-props-to-a-component):
+Możesz naprawić ten komponent, [przekazując `guest` jako właściwość](/learn/passing-props-to-a-component):
 
 <Sandpack>
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Filiżanka herbaty dla gościa #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -141,9 +140,9 @@ export default function TeaSet() {
 
 </Sandpack>
 
-Now your component is pure, as the JSX it returns only depends on the `guest` prop.
+Teraz twój komponent jest czysty, ponieważ JSX, który zwraca, zależy tylko od właściwości `guest`.
 
-In general, you should not expect your components to be rendered in any particular order. It doesn't matter if you call <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> before or after <Math><MathI>y</MathI> = 5<MathI>x</MathI></Math>: both formulas will resolve independently of each other. In the same way, each component should only "think for itself", and not attempt to coordinate with or depend upon others during rendering. Rendering is like a school exam: each component should calculate JSX on their own!
+Ogólnie, nie powinno się oczekiwać, że komponenty zostaną wyrenderowane w określonej kolejności. Nie ma znaczenia, czy zostanie wywołane <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> przed czy po <Math><MathI>y</MathI> = 5<MathI>x</MathI></Math>: obie formuły będą rozwiązywane niezależnie od siebie. W ten sam sposób każdy komponent powinien "myśleć samodzielnie" i nie próbować koordynować się ani zależeć od innych podczas renderowania. Renderowanie przypomina egzamin szkolny: każdy komponent powinien obliczać JSX samodzielnie!
 
 <DeepDive>
 
