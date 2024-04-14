@@ -146,17 +146,17 @@ Ogólnie, nie powinno się oczekiwać, że komponenty zostaną wyrenderowane w o
 
 <DeepDive>
 
-#### Detecting impure calculations with StrictMode {/*detecting-impure-calculations-with-strict-mode*/}
+#### Wykrywanie nieczystych obliczeń za pomocą trybu rygorystycznego {/*detecting-impure-calculations-with-strict-mode*/}
 
-Although you might not have used them all yet, in React there are three kinds of inputs that you can read while rendering: [props](/learn/passing-props-to-a-component), [state](/learn/state-a-components-memory), and [context.](/learn/passing-data-deeply-with-context) You should always treat these inputs as read-only.
+Choć być może jeszcze nie wszystkie zostały przez ciebie użyte, w Reakcie istnieją trzy rodzaje danych wejściowych, które można odczytywać podczas renderowania: [właściwości](/learn/passing-props-to-a-component), [stan](/learn/state-a-components-memory) i [kontekst.](/learn/passing-data-deeply-with-context) Zawsze powinno się traktować te dane wejściowe tylko jako do odczytu.
 
-When you want to *change* something in response to user input, you should [set state](/learn/state-a-components-memory) instead of writing to a variable. You should never change preexisting variables or objects while your component is rendering.
+Kiedy chce się *zmienić* coś w odpowiedzi na interakcję użytkownika, powinno się [ustawić stan](/learn/state-a-components-memory) zamiast zapisywać do zmiennej. Nigdy nie powinno się zmieniać istniejących zmiennych lub obiektów podczas renderowania komponentu.
 
-React offers a "Strict Mode" in which it calls each component's function twice during development. **By calling the component functions twice, Strict Mode helps find components that break these rules.**
+React oferuje "tryb rygorystyczny" (ang. _Strict Mode_), w którym, w trybie deweloperskim, wywołuje on funkcję każdego komponentu dwukrotnie. **Poprzez dwukrotne wywołanie, tryb rygorystyczny pomaga znaleźć komponenty, które łamią te zasady.**
 
-Notice how the original example displayed "Guest #2", "Guest #4", and "Guest #6" instead of "Guest #1", "Guest #2", and "Guest #3". The original function was impure, so calling it twice broke it. But the fixed pure version works even if the function is called twice every time. **Pure functions only calculate, so calling them twice won't change anything**--just like calling `double(2)` twice doesn't change what's returned, and solving <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> twice doesn't change what <MathI>y</MathI> is. Same inputs, same outputs. Always.
+Zauważ, że oryginalny przykład wyświetlał "Gość #2", "Gość #4" i "Gość #6" zamiast "Gość #1", "Gość #2" i "Gość #3". Oryginalna funkcja była nieczysta, więc jej dwukrotne wywołanie zepsuło ją. Ale naprawiona, czysta wersja działa nawet wtedy, gdy funkcja jest wywoływana dwukrotnie za każdym razem. **Czyste funkcje tylko obliczają, więc ich dwukrotne wywołanie nic nie zmienia** — tak samo jak dwukrotne wywołanie `double(2)` nie zmienia tego, co jest zwracane, a rozwiązanie równania <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> dwukrotnie nie zmienia wartości <MathI>y</MathI>. Te same dane wejściowe, te same dane wyjściowe. Zawsze.
 
-Strict Mode has no effect in production, so it won't slow down the app for your users. To opt into Strict Mode, you can wrap your root component into `<React.StrictMode>`. Some frameworks do this by default.
+Tryb rygorystyczny nie ma wpływu na wersję produkcyjną, więc nie spowolni aplikacji dla użytkowników. Aby wybrać tryb rygorystyczny, musisz owinąć swój główny komponent w `<React.StrictMode>`. Niektóre frameworki robią to domyślnie.
 
 </DeepDive>
 
