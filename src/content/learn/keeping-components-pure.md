@@ -160,17 +160,17 @@ Tryb rygorystyczny nie ma wpływu na wersję produkcyjną, więc nie spowolni ap
 
 </DeepDive>
 
-### Local mutation: Your component's little secret {/*local-mutation-your-components-little-secret*/}
+### Lokalna mutacja: mały sekret twojego komponentu {/*local-mutation-your-components-little-secret*/}
 
-In the above example, the problem was that the component changed a *preexisting* variable while rendering. This is often called a **"mutation"** to make it sound a bit scarier. Pure functions don't mutate variables outside of the function's scope or objects that were created before the call—that makes them impure!
+W powyższym przykładzie problemem było to, że komponent zmieniał *istniejącą wcześniej* zmienną podczas renderowania. Często nazywa się to **"mutacją"**, aby brzmiało trochę bardziej przerażająco. Funkcje czyste nie mutują zmiennych i obiektów spoza ich zakresu, które zostały utworzone przed wywołaniem funkcji - co czyniłoby je nieczystymi!
 
-However, **it's completely fine to change variables and objects that you've *just* created while rendering.** In this example, you create an `[]` array, assign it to a `cups` variable, and then `push` a dozen cups into it:
+Jednak **jest całkowicie dopuszczalne zmienianie zmiennych i obiektów, które właśnie utworzono podczas renderowania.** W tym przykładzie stworzoną tablicę `[]`, przypisuje się do zmiennej `cups`, a następnie używa funkcji `push`, aby dodać do niej tuzin filiżanek:
 
 <Sandpack>
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Filiżanka herbaty dla gościa #{guest}</h2>;
 }
 
 export default function TeaGathering() {
@@ -184,9 +184,9 @@ export default function TeaGathering() {
 
 </Sandpack>
 
-If the `cups` variable or the `[]` array were created outside the `TeaGathering` function, this would be a huge problem! You would be changing a *preexisting* object by pushing items into that array.
+Jeśli zmienna `cups` lub tablica `[]` zostałyby utworzone poza funkcją `TeaGathering`, byłby to ogromny problem! Zmieniałoby się *istniejący wcześniej* obiekt, dodając do niego elementy.
 
-However, it's fine because you've created them *during the same render*, inside `TeaGathering`. No code outside of `TeaGathering` will ever know that this happened. This is called **"local mutation"**—it's like your component's little secret.
+Jednakże tu jest to całkowicie w porządku, ponieważ zostały one utworzone *w trakcie tego samego renderowania*, wewnątrz funkcji `TeaGathering`. Żaden kod spoza `TeaGathering` nigdy nie będzie wiedział, że to się wydarzyło. Nazywa się to **"lokalną mutacją"** — to jak taki mały sekret twojego komponentu.
 
 ## Where you _can_ cause side effects {/*where-you-_can_-cause-side-effects*/}
 
