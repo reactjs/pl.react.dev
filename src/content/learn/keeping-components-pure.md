@@ -4,38 +4,38 @@ title: Czyste komponenty
 
 <Intro>
 
-Some JavaScript functions are *pure.* Pure functions only perform a calculation and nothing more. By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. To get these benefits, though, there are a few rules you must follow.
+Niektóre funkcje javascriptowe są *czyste.* Funkcje czyste wykonują tylko obliczenia i nic więcej. Stosując się ściśle do pisania komponentów jako funkcji czystych, można uniknąć całej grupy dezorientujących błędów i nieprzewidywalnego zachowania w miarę jak kod rozwija się. Aby uzyskać te korzyści, musisz jednak przestrzegać kilku zasad.
 
 </Intro>
 
 <YouWillLearn>
 
-* What purity is and how it helps you avoid bugs
-* How to keep components pure by keeping changes out of the render phase
-* How to use Strict Mode to find mistakes in your components
+* Czym jest czystość i w jaki sposób pomaga uniknąć błędów
+* Jak tworzyć czyste komponenty przez trzymanie zmian poza fazą renderowania
+* Jak używać trybu rygorystycznego (ang. _Strict Mode_) do znajdowania błędów w komponentach
 
 </YouWillLearn>
 
-## Purity: Components as formulas {/*purity-components-as-formulas*/}
+## Czystość: Komponenty jako formuły {/*purity-components-as-formulas*/}
 
-In computer science (and especially the world of functional programming), [a pure function](https://wikipedia.org/wiki/Pure_function) is a function with the following characteristics:
+W informatyce (zwłaszcza w świecie programowania funkcyjnego), [funkcja czysta](https://wikipedia.org/wiki/Pure_function) ma następujące cechy:
 
-* **It minds its own business.** It does not change any objects or variables that existed before it was called.
-* **Same inputs, same output.** Given the same inputs, a pure function should always return the same result.
+* **Dba o swoje własne sprawy.** Nie zmienia żadnych obiektów ani zmiennych, które istniały przed jej wywołaniem.
+* **Takie same dane wejściowe, taki sam wynik.** Dla takich samych danych wejściowych funkcja czysta powinna zawsze zwracać ten sam wynik.
 
-You might already be familiar with one example of pure functions: formulas in math.
+Być może znasz już jeden przykład funkcji czystych: formuły matematyczne.
 
-Consider this math formula: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
+Rozważ taki wzór: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
-If <Math><MathI>x</MathI> = 2</Math> then <Math><MathI>y</MathI> = 4</Math>. Always. 
+Jeśli <Math><MathI>x</MathI> = 2</Math>, to wtedy <Math><MathI>y</MathI> = 4</Math>. Zawsze. 
 
-If <Math><MathI>x</MathI> = 3</Math> then <Math><MathI>y</MathI> = 6</Math>. Always. 
+Jeśli <Math><MathI>x</MathI> = 3</Math>, to wtedy <Math><MathI>y</MathI> = 6</Math>. Zawsze. 
 
-If <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> won't sometimes be <Math>9</Math> or <Math>–1</Math> or <Math>2.5</Math> depending on the time of day or the state of the stock market. 
+Jeśli <Math><MathI>x</MathI> = 3</Math>, to <MathI>y</MathI> nie będzie czasami wynosić <Math>9</Math> albo <Math>–1</Math>, albo <Math>2.5</Math> zależnie od pory dnia czy notowań na giełdzie. 
 
-If <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> and <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> will _always_ be <Math>6</Math>. 
+Jeśli <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> oraz <Math><MathI>x</MathI> = 3</Math>, to <MathI>y</MathI> _zawsze_ będzie wynosić <Math>6</Math>. 
 
-If we made this into a JavaScript function, it would look like this:
+Jeśli zamienilibyśmy to na funkcję javascriptową, wyglądałaby ona tak:
 
 ```js
 function double(number) {
@@ -43,9 +43,9 @@ function double(number) {
 }
 ```
 
-In the above example, `double` is a **pure function.** If you pass it `3`, it will return `6`. Always.
+W powyższym przykładzie `double` jest **funkcją czystą.** Jeśli przekażesz jej `3`, zawsze zwróci `6`.
 
-React is designed around this concept. **React assumes that every component you write is a pure function.** This means that React components you write must always return the same JSX given the same inputs:
+React jest zaprojektowany wokół tego konceptu. **React zakłada, że każdy komponent, który piszesz, jest funkcją czystą.** Oznacza to, że komponenty reactowe, które piszesz, zawsze muszą zwracać ten sam JSX dla tych samych danych wejściowych:
 
 <Sandpack>
 
@@ -53,9 +53,9 @@ React is designed around this concept. **React assumes that every component you 
 function Recipe({ drinkers }) {
   return (
     <ol>    
-      <li>Boil {drinkers} cups of water.</li>
-      <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
-      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+      <li>Zagotuj {drinkers} filiżanki wody.</li>
+      <li>Dodaj {drinkers} łyżki herbaty i {0.5 * drinkers} łyżkę/łyżki przypraw.</li>
+      <li>Dodaj {0.5 * drinkers} filiżankę/filiżanki mleka i cukier dla smaku.</li>
     </ol>
   );
 }
@@ -63,10 +63,10 @@ function Recipe({ drinkers }) {
 export default function App() {
   return (
     <section>
-      <h1>Spiced Chai Recipe</h1>
-      <h2>For two</h2>
+      <h1>Przepis na Herbatę Chai</h1>
+      <h2>Dla dwóch osób</h2>
       <Recipe drinkers={2} />
-      <h2>For a gathering</h2>
+      <h2>Dla większej grupy</h2>
       <Recipe drinkers={4} />
     </section>
   );
@@ -75,15 +75,15 @@ export default function App() {
 
 </Sandpack>
 
-When you pass `drinkers={2}` to `Recipe`, it will return JSX containing `2 cups of water`. Always. 
+Kiedy przekażesz `drinkers={2}` do `Recipe`, zawsze zwróci on JSX zawierający `2 filiżanki wody`.
 
-If you pass `drinkers={4}`, it will return JSX containing `4 cups of water`. Always.
+Jeśli przekażesz `drinkers={4}`, zawsze zwróci on JSX zawierający `4 filiżanki wody`.
 
-Just like a math formula. 
+Dokładnie tak jak formuła matematyczna.
 
-You could think of your components as recipes: if you follow them and don't introduce new ingredients during the cooking process, you will get the same dish every time. That "dish" is the JSX that the component serves to React to [render.](/learn/render-and-commit)
+Możesz myśleć o swoich komponentach jak o przepisach kuchennych: jeśli będziesz stosować się do nich i nie wprowadzisz nowych składników podczas procesu gotowania, otrzymasz ten sam posiłek za każdym razem. To "danie" to JSX, który komponent dostarcza do Reacta na potrzeby [renderowania.](/learn/render-and-commit)
 
-<Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="A tea recipe for x people: take x cups of water, add x spoons of tea and 0.5x spoons of spices, and 0.5x cups of milk" />
+<Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="Przepis na herbatę dla x osób: weź x filiżanek wody, dodaj x łyżek herbaty i 0.5x łyżek przypraw oraz 0.5x filiżanek mleka" />
 
 ## Side Effects: (un)intended consequences {/*side-effects-unintended-consequences*/}
 
