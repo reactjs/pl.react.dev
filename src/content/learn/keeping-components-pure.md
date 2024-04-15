@@ -188,15 +188,15 @@ Jeśli zmienna `cups` lub tablica `[]` zostałyby utworzone poza funkcją `TeaGa
 
 Jednakże tu jest to całkowicie w porządku, ponieważ zostały one utworzone *w trakcie tego samego renderowania*, wewnątrz funkcji `TeaGathering`. Żaden kod spoza `TeaGathering` nigdy nie będzie wiedział, że to się wydarzyło. Nazywa się to **"lokalną mutacją"** — to jak taki mały sekret twojego komponentu.
 
-## Where you _can_ cause side effects {/*where-you-_can_-cause-side-effects*/}
+## Gdzie _można_ uruchamiać efekty uboczne {/*where-you-_can_-cause-side-effects*/}
 
-While functional programming relies heavily on purity, at some point, somewhere, _something_ has to change. That's kind of the point of programming! These changes—updating the screen, starting an animation, changing the data—are called **side effects.** They're things that happen _"on the side"_, not during rendering.
+Podczas gdy programowanie funkcyjne opiera się głównie na czystości, w pewnym momencie, gdzieś, _coś_ musi się zmienić. To jest właśnie cel programowania! Zmiany te — aktualizacja ekranu, uruchomienie animacji, zmiana danych — nazywane są **efektami ubocznymi**. To rzeczy, które dzieją się _"na boku"_, a nie podczas renderowania.
 
-In React, **side effects usually belong inside [event handlers.](/learn/responding-to-events)** Event handlers are functions that React runs when you perform some action—for example, when you click a button. Even though event handlers are defined *inside* your component, they don't run *during* rendering! **So event handlers don't need to be pure.**
+W Reakcie **efekty uboczne zazwyczaj należą do [procedur obsługi zdarzeń.](/learn/responding-to-events)** Są to funkcje, które React uruchamia, gdy wykonasz jakąś akcję - na przykład gdy klikasz przycisk. Chociaż procedury obsługi zdarzeń są zdefiniowane *wewnątrz* twojego komponentu, nie uruchamiają się one *podczas* renderowania! **Dlatego nie muszą być one czyste.**
 
-If you've exhausted all other options and can't find the right event handler for your side effect, you can still attach it to your returned JSX with a [`useEffect`](/reference/react/useEffect) call in your component. This tells React to execute it later, after rendering, when side effects are allowed. **However, this approach should be your last resort.**
+Jeśli wyczerpano wszystkie inne opcje i nie można znaleźć odpowiedniej procedury obsługi zdarzeń dla twojego efektu ubocznego, nadal można dołączyć go do zwróconego JSXa za pomocą wywołania [`useEffect`](/reference/react/useEffect) w twoim komponencie. Powiadamia to Reacta, aby wykonał go później, po renderowaniu, gdy efekty uboczne są dozwolone. **Jednakże ten sposób powinien być rozwiązaniem ostatecznym.**
 
-When possible, try to express your logic with rendering alone. You'll be surprised how far this can take you!
+Kiedy to możliwe, staraj się wyrazić swoją logikę tylko za pomocą renderowania. Zdziwisz się, jak daleko możesz zajść używając tego sposobu!
 
 <DeepDive>
 
