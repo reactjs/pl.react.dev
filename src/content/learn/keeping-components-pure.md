@@ -214,13 +214,13 @@ Każda nowa funkcjonalność Reacta, którą budujemy, korzysta z czystości. Od
 
 <Recap>
 
-* A component must be pure, meaning:
-  * **It minds its own business.** It should not change any objects or variables that existed before rendering.
-  * **Same inputs, same output.** Given the same inputs, a component should always return the same JSX. 
-* Rendering can happen at any time, so components should not depend on each others' rendering sequence.
-* You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, ["set" state](/learn/state-a-components-memory) instead of mutating preexisting objects.
-* Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can `useEffect`.
-* Writing pure functions takes a bit of practice, but it unlocks the power of React's paradigm.
+* Komponent musi być czysty, co oznacza:
+  * **Dba o swoje sprawy.** Nie powinien zmieniać żadnych obiektów ani zmiennych, które istniały przed renderowaniem.
+  * **Takie same dane wejściowe, taki sam wynik.** Dla tych samych danych wejściowych komponent powinien zawsze zwracać ten sam JSX.
+* Renderowanie może wystąpić w dowolnym momencie, dlatego komponenty nie powinny zależeć od kolejności renderowania się nawzajem.
+* Nie powinno się zmieniać żadnych danych wejściowych, których używają twoje komponenty do renderowania. Obejmuje to właściwości, stan i kontekst. Aby zaktualizować widok, [ustaw stan](/learn/state-a-components-memory) zamiast modyfikować istniejące obiekty.
+* Staraj się wyrażać logikę swojego komponentu przez zwracany JSX. Gdy potrzeba "coś zmienić", zazwyczaj powinno się zrobić to w obsłudze zdarzeń. W ostateczności można użyć `useEffect`.
+* Pisanie czystych funkcji wymaga trochę praktyki, ale uwalnia moc paradygmatu Reacta.
 
 </Recap>
 
