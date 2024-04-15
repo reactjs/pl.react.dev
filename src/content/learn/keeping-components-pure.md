@@ -365,15 +365,15 @@ W tym przykładzie, skutek uboczny (modyfikacja drzewa DOM) w ogóle nie był ko
 
 </Solution>
 
-#### Fix a broken profile {/*fix-a-broken-profile*/}
+#### Napraw uszkodzony profil {/*fix-a-broken-profile*/}
 
-Two `Profile` components are rendered side by side with different data. Press "Collapse" on the first profile, and then "Expand" it. You'll notice that both profiles now show the same person. This is a bug.
+Dwa komponenty `Profile` są renderowane obok siebie z różnymi danymi. Kliknij "Zwiń" na pierwszym profilu, a następnie "Rozwiń" go ponownie. Zauważysz, że oba profile teraz pokazują tę samą osobę. To jest błąd.
 
-Find the cause of the bug and fix it.
+Znajdź przyczynę błędu i napraw ją.
 
 <Hint>
 
-The buggy code is in `Profile.js`. Make sure you read it all from top to bottom!
+Błąd znajduje się w pliku `Profile.js`. Upewnij się, że przeczytałeś/przeczytałaś go od góry do dołu!
 
 </Hint>
 
@@ -420,7 +420,7 @@ export default function Panel({ children }) {
   return (
     <section className="panel">
       <button onClick={() => setOpen(!open)}>
-        {open ? 'Collapse' : 'Expand'}
+        {open ? 'Zwiń' : 'Rozwiń'}
       </button>
       {open && children}
     </section>
@@ -474,9 +474,9 @@ h1 { margin: 5px; font-size: 18px; }
 
 <Solution>
 
-The problem is that the `Profile` component writes to a preexisting variable called `currentPerson`, and the `Header` and `Avatar` components read from it. This makes *all three of them* impure and difficult to predict.
+Problemem jest to, że komponent `Profile` zapisuje do już istniejącej zmiennej o nazwie `currentPerson`, a komponenty `Header` i `Avatar` odczytują z niej. Powoduje to, że *wszystkie trzy* komponenty stają się nieczyste i trudne do przewidzenia.
 
-To fix the bug, remove the `currentPerson` variable. Instead, pass all information from `Profile` to `Header` and `Avatar` via props. You'll need to add a `person` prop to both components and pass it all the way down.
+Aby naprawić ten błąd, usuń zmienną `currentPerson`. Zamiast jej, przekaż wszystkie informacje z `Profile` do `Header` i `Avatar` za pomocą właściwości. Będziesz musieć dodać właściwość `person` do obu komponentów i przekazać je w dół.
 
 <Sandpack>
 
@@ -570,7 +570,7 @@ h1 { margin: 5px; font-size: 18px; }
 
 </Sandpack>
 
-Remember that React does not guarantee that component functions will execute in any particular order, so you can't communicate between them by setting variables. All communication must happen through props.
+Pamiętaj, że React nie gwarantuje, że funkcje komponentów zostaną wykonane w określonej kolejności, dlatego nie możesz komunikować się między nimi poprzez ustawianie zmiennych. Wszelka komunikacja musi odbywać się za pomocą właściwości.
 
 </Solution>
 
