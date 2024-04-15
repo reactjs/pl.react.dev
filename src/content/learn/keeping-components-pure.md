@@ -200,15 +200,15 @@ Kiedy to możliwe, staraj się wyrazić swoją logikę tylko za pomocą renderow
 
 <DeepDive>
 
-#### Why does React care about purity? {/*why-does-react-care-about-purity*/}
+#### Dlaczego React dba o czystość? {/*why-does-react-care-about-purity*/}
 
-Writing pure functions takes some habit and discipline. But it also unlocks marvelous opportunities:
+Pisanie czystych funkcji wymaga pewnych nawyków i dyscypliny. Ale otwiera także fantastyczne możliwości:
 
-* Your components could run in a different environment—for example, on the server! Since they return the same result for the same inputs, one component can serve many user requests.
-* You can improve performance by [skipping rendering](/reference/react/memo) components whose inputs have not changed. This is safe because pure functions always return the same results, so they are safe to cache.
-* If some data changes in the middle of rendering a deep component tree, React can restart rendering without wasting time to finish the outdated render. Purity makes it safe to stop calculating at any time.
+* Twoje komponenty mogą działać w różnym środowisku — na przykład na serwerze! Ponieważ zwracają one ten sam wynik dla tych samych danych wejściowych, jeden komponent może obsłużyć wiele żądań użytkowników.
+* Możesz poprawić wydajność, [pomijając renderowanie](/reference/react/memo) komponentów, których dane wejściowe się nie zmieniły. Jest to bezpieczne, ponieważ czyste funkcje zawsze zwracają te same wyniki, więc mogą być bezpiecznie przechowywane w pamięci podręcznej.
+* Jeśli niektóre dane zmieniają się w trakcie renderowania głębokiego drzewa komponentów, React może zrestartować renderowanie bez marnowania czasu na zakończenie poprzedniego, przestarzałego renderowania. Czystość sprawia, że ​​można bezpiecznie zatrzymać obliczenia w dowolnym momencie.
 
-Every new React feature we're building takes advantage of purity. From data fetching to animations to performance, keeping components pure unlocks the power of the React paradigm.
+Każda nowa funkcjonalność Reacta, którą budujemy, korzysta z czystości. Od pobierania danych, przez animacje, aż po wydajność, zachowanie komponentów w czystości uwalnia moc paradygmatu Reacta.
 
 </DeepDive>
 
