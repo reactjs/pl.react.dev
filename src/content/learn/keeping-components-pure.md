@@ -156,7 +156,7 @@ React oferuje "tryb rygorystyczny" (ang. _Strict Mode_), w którym, w trybie dew
 
 Zauważ, że oryginalny przykład wyświetlał "Gość #2", "Gość #4" i "Gość #6" zamiast "Gość #1", "Gość #2" i "Gość #3". Oryginalna funkcja była nieczysta, więc jej dwukrotne wywołanie zepsuło ją. Ale naprawiona, czysta wersja działa nawet wtedy, gdy funkcja jest wywoływana dwukrotnie za każdym razem. **Czyste funkcje tylko obliczają, więc ich dwukrotne wywołanie nic nie zmienia** — tak samo jak dwukrotne wywołanie `double(2)` nie zmienia tego, co jest zwracane, a rozwiązanie równania <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> dwukrotnie nie zmienia wartości <MathI>y</MathI>. Te same dane wejściowe, te same dane wyjściowe. Zawsze.
 
-Tryb rygorystyczny nie ma wpływu na wersję produkcyjną, więc nie spowolni aplikacji dla użytkowników. Aby wybrać tryb rygorystyczny, musisz owinąć swój główny komponent w `<React.StrictMode>`. Niektóre frameworki robią to domyślnie.
+Tryb rygorystyczny nie ma wpływu na wersję produkcyjną, więc nie spowolni aplikacji dla użytkowników. Aby wybrać tryb rygorystyczny, musisz opakować swój główny komponent w `<React.StrictMode>`. Niektóre frameworki robią to domyślnie.
 
 </DeepDive>
 
@@ -228,15 +228,15 @@ Każda nowa funkcjonalność Reacta, którą budujemy, korzysta z czystości. Od
   
 <Challenges>
 
-#### Fix a broken clock {/*fix-a-broken-clock*/}
+#### Napraw zepsuty zegar {/*fix-a-broken-clock*/}
 
-This component tries to set the `<h1>`'s CSS class to `"night"` during the time from midnight to six hours in the morning, and `"day"` at all other times. However, it doesn't work. Can you fix this component?
+Ten komponent próbuje ustawić klasę CSS znacznika `<h1>` na `"night"` w godzinach od północy do szóstej rano oraz na `"day"` w pozostałych godzinach. Jednakże nie działa on poprawnie. Czy możesz to naprawić?
 
-You can verify whether your solution works by temporarily changing the computer's timezone. When the current time is between midnight and six in the morning, the clock should have inverted colors!
+Możesz zweryfikować, czy twoje rozwiązanie działa, tymczasowo zmieniając strefę czasową na komputerze. Gdy obecny czas to pomiędzy północą a szóstą rano, zegar powinien mieć odwrócone kolory!
 
 <Hint>
 
-Rendering is a *calculation*, it shouldn't try to "do" things. Can you express the same idea differently?
+Renderowanie to *obliczanie*, nie powinno ono próbować "wykonywać" żadnych działań. Czy potrafisz wyrazić tę samą ideę w inny sposób?
 
 </Hint>
 
@@ -300,7 +300,7 @@ body > * {
 
 <Solution>
 
-You can fix this component by calculating the `className` and including it in the render output:
+Ten komponent można naprawić poprzez obliczenie wartości `className` i uwzględnienie jej w wyjściu renderowania.
 
 <Sandpack>
 
@@ -361,7 +361,7 @@ body > * {
 
 </Sandpack>
 
-In this example, the side effect (modifying the DOM) was not necessary at all. You only needed to return JSX.
+W tym przykładzie, skutek uboczny (modyfikacja drzewa DOM) w ogóle nie był konieczny. Wystarczyło zwrócić JSX.
 
 </Solution>
 
