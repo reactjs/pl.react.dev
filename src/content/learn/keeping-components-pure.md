@@ -574,11 +574,11 @@ Pamiętaj, że React nie gwarantuje, że funkcje komponentów zostaną wykonane 
 
 </Solution>
 
-#### Fix a broken story tray {/*fix-a-broken-story-tray*/}
+#### Naprawa uszkodzonej palety z historiami {/*fix-a-broken-story-tray*/}
 
-The CEO of your company is asking you to add "stories" to your online clock app, and you can't say no. You've written a `StoryTray` component that accepts a list of `stories`, followed by a "Create Story" placeholder.
+Prezes twojej firmy prosi cię o dodanie "historii" do twojej aplikacji z zegarem online i nie możesz odmówić. Napisałeś/aś komponent `StoryTray`, który przyjmuje listę `stories`, a na końcu dodaje element zastępczy "Utwórz historię".
 
-You implemented the "Create Story" placeholder by pushing one more fake story at the end of the `stories` array that you receive as a prop. But for some reason, "Create Story" appears more than once. Fix the issue.
+Zaimplementowałeś/aś element zastępczy "Utwórz historię" przez dodanie "udawanej" historii na koniec tablicy `stories`, którą otrzymujesz jako właściwość. Jednakże z jakiegoś powodu "Utwórz historię" pojawia się więcej niż raz. Napraw ten problem.
 
 <Sandpack>
 
@@ -586,7 +586,7 @@ You implemented the "Create Story" placeholder by pushing one more fake story at
 export default function StoryTray({ stories }) {
   stories.push({
     id: 'create',
-    label: 'Create Story'
+    label: 'Utwórz historię'
   });
 
   return (
@@ -606,8 +606,8 @@ import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia Ankity" },
+  {id: 1, label: "Historia Taylora" },
 ];
 
 export default function App() {
@@ -674,11 +674,11 @@ li {
 
 <Solution>
 
-Notice how whenever the clock updates, "Create Story" is added *twice*. This serves as a hint that we have a mutation during rendering--Strict Mode calls components twice to make these issues more noticeable.
+Zauważ, że za każdym razem, gdy zegar się aktualizuje, "Utwórz historię" jest dodawane *dwukrotnie*. Jest to znak, że mamy mutację podczas renderowania -- tryb rygorystyczny wywołuje komponenty dwukrotnie, aby uwydatnić te problemy.
 
-`StoryTray` function is not pure. By calling `push` on the received `stories` array (a prop!), it is mutating an object that was created *before* `StoryTray` started rendering. This makes it buggy and very difficult to predict.
+Funkcja `StoryTray` nie jest czysta. Wywołanie `push` na otrzymanej tablicy `stories` (właściwość!), mutuje obiekt, który został utworzony *przed* rozpoczęciem renderowania `StoryTray`. To sprawia, że funkcja ta jest podatna na błędy i bardzo trudna do przewidzenia.
 
-The simplest fix is to not touch the array at all, and render "Create Story" separately:
+Najprostszym rozwiązaniem jest w ogóle nie modyfikować tablicy, a renderować "Utwórz historię" osobno:
 
 <Sandpack>
 
@@ -691,7 +691,7 @@ export default function StoryTray({ stories }) {
           {story.label}
         </li>
       ))}
-      <li>Create Story</li>
+      <li>Utwórz historię</li>
     </ul>
   );
 }
@@ -702,8 +702,8 @@ import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia Ankity" },
+  {id: 1, label: "Historia Taylora" },
 ];
 
 export default function App() {
@@ -762,19 +762,19 @@ li {
 
 </Sandpack>
 
-Alternatively, you could create a _new_ array (by copying the existing one) before you push an item into it:
+Ewentualnie, możesz utworzyć _nową_ tablicę (poprzez skopiowanie istniejącej) przed dodaniem do niej elementu:
 
 <Sandpack>
 
 ```js src/StoryTray.js active
 export default function StoryTray({ stories }) {
-  // Copy the array!
+  // Skopiuj tablicę!
   let storiesToDisplay = stories.slice();
 
-  // Does not affect the original array:
+  // Nie wpływa na oryginalną tablicę:
   storiesToDisplay.push({
     id: 'create',
-    label: 'Create Story'
+    label: 'Utwórz historię'
   });
 
   return (
@@ -794,8 +794,8 @@ import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
-  {id: 0, label: "Ankit's Story" },
-  {id: 1, label: "Taylor's Story" },
+  {id: 0, label: "Historia Ankity" },
+  {id: 1, label: "Historia Taylora" },
 ];
 
 export default function App() {
@@ -854,9 +854,9 @@ li {
 
 </Sandpack>
 
-This keeps your mutation local and your rendering function pure. However, you still need to be careful: for example, if you tried to change any of the array's existing items, you'd have to clone those items too.
+To sprawia, że twoja mutacja jest lokalna a funkcja renderowania czysta. Jednak nadal trzeba zachować ostrożność: na przykład, jeśli spróbujesz zmienić jakiekolwiek z istniejących elementów tablicy, będziesz musieć skopiować również te elementy.
 
-It is useful to remember which operations on arrays mutate them, and which don't. For example, `push`, `pop`, `reverse`, and `sort` will mutate the original array, but `slice`, `filter`, and `map` will create a new one.
+Należy pamiętać, które operacje na tablicach mutują je, a które nie. Na przykład, użycie metod `push`, `pop`, `reverse` i `sort` zmienia oryginalną tablicę, ale metody `slice`, `filter` i `map` tworzą nową tablicę.
 
 </Solution>
 
