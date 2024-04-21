@@ -140,9 +140,9 @@ W przeciwnym razie możesz napotkać trudne do zrozumienia błędy i nieprzewidy
 
 <DeepDive>
 
-#### Optimizing performance {/*optimizing-performance*/}
+#### Optymalizacja wydajności {/*optimizing-performance*/}
 
-The default behavior of rendering all components nested within the updated component is not optimal for performance if the updated component is very high in the tree. If you run into a performance issue, there are several opt-in ways to solve it described in the [Performance](https://reactjs.org/docs/optimizing-performance.html) section. **Don't optimize prematurely!**
+Domyślne zachowanie polegające na renderowaniu wszystkich komponentów zagnieżdżonych w zaktualizowanym komponencie nie jest optymalne pod względem wydajności, jeśli zaktualizowany komponent znajduje się bardzo wysoko w drzewie komponentów. Jeśli napotkasz problemy z wydajnością, istnieje kilka możliwych rozwiązań opisanych w sekcji [Wydajność](https://reactjs.org/docs/optimizing-performance.html). **Nie optymalizuj przedwcześnie!**
 
 </DeepDive>
 
