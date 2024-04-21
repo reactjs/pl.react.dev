@@ -1,44 +1,44 @@
 ---
-title: Render and Commit
+title: Renderowanie i aktualizowanie
 ---
 
 <Intro>
 
-Before your components are displayed on screen, they must be rendered by React. Understanding the steps in this process will help you think about how your code executes and explain its behavior.
+Zanim twoje komponenty zostaną wyświetlone na ekranie, muszą zostać wyrenderowane przez Reacta. Zrozumienie tego procesu pomoże ci zrozumieć, jak wykonuje się twój kod i wyjaśni jego zachowanie.
 
 </Intro>
 
 <YouWillLearn>
 
-* What rendering means in React
-* When and why React renders a component
-* The steps involved in displaying a component on screen
-* Why rendering does not always produce a DOM update
+* Czym jest renderowanie w Reakcie
+* Kiedy i dlaczego React renderuje komponenty
+* Kroki związane z wyświetlaniem komponentów na ekranie
+* Dlaczego renderowanie nie zawsze powoduje aktualizację drzewa DOM
 
 </YouWillLearn>
 
-Imagine that your components are cooks in the kitchen, assembling tasty dishes from ingredients. In this scenario, React is the waiter who puts in requests from customers and brings them their orders. This process of requesting and serving UI has three steps:
+Wyobraź sobie, że twoje komponenty to kucharze w kuchni, którzy przygotowują smaczne dania z dostępnych składników. W tej sytuacji React jest kelnerem, który przyjmuje zamówienia od klientów i przynosi im zamówione potrawy. Ten proces zgłaszania i obsługi interfejsu użytkownika składa się z trzech kroków:
 
-1. **Triggering** a render (delivering the guest's order to the kitchen)
-2. **Rendering** the component (preparing the order in the kitchen)
-3. **Committing** to the DOM (placing the order on the table)
+1. **Wywołanie (ang. _triggering_)** renderowania (przekazanie zamówienia od gościa do kuchni)
+2. **Renderowanie (ang. _rendering_)** komponentu (przygotowanie zamówienia w kuchni)
+3. **Aktualizowanie (ang. _committing_)** drzewa DOM (umieszczenie zamówienia na stole)
 
 <IllustrationBlock sequential>
-  <Illustration caption="Trigger" alt="React as a server in a restaurant, fetching orders from the users and delivering them to the Component Kitchen." src="/images/docs/illustrations/i_render-and-commit1.png" />
-  <Illustration caption="Render" alt="The Card Chef gives React a fresh Card component." src="/images/docs/illustrations/i_render-and-commit2.png" />
-  <Illustration caption="Commit" alt="React delivers the Card to the user at their table." src="/images/docs/illustrations/i_render-and-commit3.png" />
+  <Illustration caption="Wywołanie" alt="React jako kelner w restauracji, pobierający zamówienia od użytkowników i dostarczający je do Kuchni Komponentów." src="/images/docs/illustrations/i_render-and-commit1.png" />
+  <Illustration caption="Renderowanie" alt="Kucharz komponentu Card przekazuje Reactowi świeży komponent Card." src="/images/docs/illustrations/i_render-and-commit2.png" />
+  <Illustration caption="Aktualizowanie" alt="React dostarcza komponent Card użytkownikowi do jego stołu." src="/images/docs/illustrations/i_render-and-commit3.png" />
 </IllustrationBlock>
 
-## Step 1: Trigger a render {/*step-1-trigger-a-render*/}
+## Krok 1: Wywołanie renderowania {/*step-1-trigger-a-render*/}
 
-There are two reasons for a component to render:
+Istnieją dwa powody, dla których komponent może zostać wyrenderowany:
 
-1. It's the component's **initial render.**
-2. The component's (or one of its ancestors') **state has been updated.**
+1. To jest **początkowe renderowanie** komponentu.
+2. Stan komponentu (lub jednego z jego rodziców) **został zaktualizowany**.
 
-### Initial render {/*initial-render*/}
+### Początkowe renderowanie {/*initial-render*/}
 
-When your app starts, you need to trigger the initial render. Frameworks and sandboxes sometimes hide this code, but it's done by calling [`createRoot`](/reference/react-dom/client/createRoot) with the target DOM node, and then calling its `render` method with your component:
+Przy uruchamianiu swojej aplikacji, musisz wywołać początkowe renderowanie. Frameworki i piaskownice czasem ukrywają ten kod, ale jest on wywoływany poprzez wywołanie funkcji [`createRoot`](/reference/react-dom/client/createRoot) z docelowym węzłem drzewa DOM, a następnie wywołanie na nim metody `render` z twoim komponentem:
 
 <Sandpack>
 
@@ -55,7 +55,7 @@ export default function Image() {
   return (
     <img
       src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
+      alt="Rzeźba 'Floralis Genérica' wykonana przez Eduardo Catalano: ogromny metalowy kwiat z zwierciadlanymi płatkami"
     />
   );
 }
@@ -63,28 +63,28 @@ export default function Image() {
 
 </Sandpack>
 
-Try commenting out the `root.render()` call and see the component disappear!
+Spróbuj zakomentować wywołanie `root.render()` i zauważ, że komponent znika!
 
-### Re-renders when state updates {/*re-renders-when-state-updates*/}
+### Przerenderowania po aktualizacji stanu {/*re-renders-when-state-updates*/}
 
-Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function.](/reference/react/useState#setstate) Updating your component's state automatically queues a render. (You can imagine these as a restaurant guest ordering tea, dessert, and all sorts of things after putting in their first order, depending on the state of their thirst or hunger.)
+Po początkowym renderowaniu komponentu, możesz wywołać kolejne przerenderowania poprzez aktualizację jego stanu za pomocą [funkcji `set`](/reference/react/useState#setstate). Aktualizacja stanu komponentu automatycznie dodaje renderowanie do kolejki. (Możesz to sobie wyobrazić jako gościa restauracji zamawiającego herbatę, deser i wszelkiego rodzaju rzeczy już po złożeniu pierwszego zamówienia, w zależności od stanu jego pragnienia lub głodu.)
 
 <IllustrationBlock sequential>
-  <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. They patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
-  <Illustration caption="...triggers..." alt="React returns to the Component Kitchen and tells the Card Chef they need a pink Card." src="/images/docs/illustrations/i_rerender2.png" />
-  <Illustration caption="...render!" alt="The Card Chef gives React the pink Card." src="/images/docs/illustrations/i_rerender3.png" />
+  <Illustration caption="Aktualizacja stanu..." alt="React jako kelner w restauracji, serwujący interfejs użytkownika Card użytkownikowi, przedstawionym jako klient z kursorem jako głową. Klient mówi, że chce komponent Card w kolorze różowym, a nie czarnym!" src="/images/docs/illustrations/i_rerender1.png" />
+  <Illustration caption="...wywołuje..." alt="React wraca do Kuchni Komponentów i mówi Kucharzowi Komponentu Card, że potrzebuje komponent Card w kolorze różowym." src="/images/docs/illustrations/i_rerender2.png" />
+  <Illustration caption="...renderowanie!" alt="Kucharz Komponentu Card dostarcza Reactowi komponent Card w kolorze różowym." src="/images/docs/illustrations/i_rerender3.png" />
 </IllustrationBlock>
 
-## Step 2: React renders your components {/*step-2-react-renders-your-components*/}
+## Krok 2: React renderuje twoje komponenty {/*step-2-react-renders-your-components*/}
 
-After you trigger a render, React calls your components to figure out what to display on screen. **"Rendering" is React calling your components.**
+Po wywołaniu renderowania, React wywołuje twoje komponenty, aby ustalić, co wyświetlić na ekranie. **"Renderowanie" oznacza wywołanie twoich komponentów przez Reacta.**
 
-* **On initial render,** React will call the root component.
-* **For subsequent renders,** React will call the function component whose state update triggered the render.
+* **Podczas początkowego renderowania,** React wywoła główny komponent.
+* **Podczas kolejnych renderowań,** React wywoła funkcję komponentu, którego aktualizacja stanu wywołała renderowanie.
 
-This process is recursive: if the updated component returns some other component, React will render _that_ component next, and if that component also returns something, it will render _that_ component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.
+Proces ten jest rekurencyjny: jeśli zaktualizowany komponent zwraca inny komponent, React następnie wyrenderuje _ten_ komponent, a jeśli ten komponent również coś zwraca, wyrenderuje _ten_ komponent, i tak dalej. Proces będzie kontynuowany, aż nie będzie więcej zagnieżdżonych komponentów i React będzie dokładnie wiedział, co powinno być wyświetlane na ekranie.
 
-In the following example, React will call `Gallery()` and  `Image()` several times:
+W poniższym przykładzie React wywoła `Gallery()` i  `Image()` kilkukrotnie:
 
 <Sandpack>
 
@@ -92,7 +92,7 @@ In the following example, React will call `Gallery()` and  `Image()` several tim
 export default function Gallery() {
   return (
     <section>
-      <h1>Inspiring Sculptures</h1>
+      <h1>Inspirujące rzeźby</h1>
       <Image />
       <Image />
       <Image />
@@ -104,7 +104,7 @@ function Image() {
   return (
     <img
       src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
+      alt="Rzeźba 'Floralis Genérica' wykonana przez Eduardo Catalano: ogromny metalowy kwiat z zwierciadlanymi płatkami"
     />
   );
 }
@@ -124,36 +124,36 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-* **During the initial render,** React will [create the DOM nodes](https://developer.mozilla.org/docs/Web/API/Document/createElement) for `<section>`, `<h1>`, and three `<img>` tags. 
-* **During a re-render,** React will calculate which of their properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.
+* **Podczas początkowego renderowania,** React [utworzy węzły DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) dla znaczników `<section>`, `<h1>` i trzech znaczników `<img>`.
+* **Podczas ponownego renderowania,** React obliczy, które z ich właściwości, jeśli jakiekolwiek, zostały zmienione od poprzedniego renderowania. Nic nie zrobi z tą informacją aż do następnego kroku, czyli fazy aktualizacji.
 
 <Pitfall>
 
-Rendering must always be a [pure calculation](/learn/keeping-components-pure):
+Renderowanie zawsze musi być [czystym obliczaniem](/learn/keeping-components-pure):
 
-* **Same inputs, same output.** Given the same inputs, a component should always return the same JSX. (When someone orders a salad with tomatoes, they should not receive a salad with onions!)
-* **It minds its own business.** It should not change any objects or variables that existed before rendering. (One order should not change anyone else's order.)
+* **Takie same wejścia, taki sam wynik.** Dla tych samych danych wejściowych, komponent powinien zawsze zwracać ten sam JSX - kiedy ktoś zamawia sałatkę z pomidorami, nie powinien otrzymać sałatki z cebulą!
+* **Dbanie o swoje własne sprawy.** Komponent nie powinien zmieniać żadnych obiektów ani zmiennych, które już istniały przed renderowaniem - jedno zamówienie nie powinno móc zmieniać zamówienia kogoś innego.
 
-Otherwise, you can encounter confusing bugs and unpredictable behavior as your codebase grows in complexity. When developing in "Strict Mode", React calls each component's function twice, which can help surface mistakes caused by impure functions.
+W przeciwnym razie możesz napotkać trudne do zrozumienia błędy i nieprzewidywalne zachowanie w miarę wzrostu złożoności kodu. Podczas pracy w "trybie rygorystycznym" (ang. _Strict Mode_) React wywołuje funkcję każdego komponentu dwa razy, co może pomóc w wykryciu błędów spowodowanych przez nieczyste funkcje.
 
 </Pitfall>
 
 <DeepDive>
 
-#### Optimizing performance {/*optimizing-performance*/}
+#### Optymalizacja wydajności {/*optimizing-performance*/}
 
-The default behavior of rendering all components nested within the updated component is not optimal for performance if the updated component is very high in the tree. If you run into a performance issue, there are several opt-in ways to solve it described in the [Performance](https://reactjs.org/docs/optimizing-performance.html) section. **Don't optimize prematurely!**
+Domyślne zachowanie polegające na renderowaniu wszystkich komponentów zagnieżdżonych w zaktualizowanym komponencie nie jest optymalne pod względem wydajności, jeśli zaktualizowany komponent znajduje się bardzo wysoko w drzewie komponentów. Jeśli napotkasz problemy z wydajnością, istnieje kilka możliwych rozwiązań opisanych w sekcji [Wydajność](https://reactjs.org/docs/optimizing-performance.html). **Nie optymalizuj przedwcześnie!**
 
 </DeepDive>
 
-## Step 3: React commits changes to the DOM {/*step-3-react-commits-changes-to-the-dom*/}
+## Krok 3: React aktualizuje zmiany w drzewie DOM {/*step-3-react-commits-changes-to-the-dom*/}
 
-After rendering (calling) your components, React will modify the DOM. 
+Po wyrenderowaniu (wywołaniu) twoich komponentów, React zmodyfikuje drzewo DOM.
 
-* **For the initial render,** React will use the [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API to put all the DOM nodes it has created on screen. 
-* **For re-renders,** React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
+* **Podczas początkowego renderowania,** React użyje API drzewa DOM o nazwie [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild), aby umieścić na ekranie wszystkie węzły drzewa DOM, które utworzył.
+* **Podczas przerenderowań,** React zastosuje minimum niezbędnych operacji (obliczonych podczas renderowania!), aby dopasować drzewo DOM do wyniku najnowszego renderowania.
 
-**React only changes the DOM nodes if there's a difference between renders.** For example, here is a component that re-renders with different props passed from its parent every second. Notice how you can add some text into the `<input>`, updating its `value`, but the text doesn't disappear when the component re-renders:
+**React zmienia węzły drzewa DOM tylko wtedy, gdy występuje różnica pomiędzy renderowaniami.** Na przykład, oto komponent, który przerenderowuje się co sekundę z różnymi właściwościami przekazywanymi z jego rodzica. Zauważ, że możesz dodać tekst do elementu `<input>`, aktualizując jego atrybut `value`, ale tekst nie znika, gdy komponent renderuje się ponownie:
 
 <Sandpack>
 
@@ -193,21 +193,21 @@ export default function App() {
 
 </Sandpack>
 
-This works because during this last step, React only updates the content of `<h1>` with the new `time`. It sees that the `<input>` appears in the JSX in the same place as last time, so React doesn't touch the `<input>`—or its `value`!
-## Epilogue: Browser paint {/*epilogue-browser-paint*/}
+To działa, ponieważ podczas ostatniego kroku React aktualizuje tylko zawartość znacznika `<h1>` nową wartością `time`. Widzi on, że znacznik `<input>` pojawia się w JSXie w tym samym miejscu co ostatnim razem, więc React nie zmienia tego znacznika ani jego atrybutu `value`!
+## Epilog: Malowanie przez przeglądarkę {/*epilogue-browser-paint*/}
 
-After rendering is done and React updated the DOM, the browser will repaint the screen. Although this process is known as "browser rendering", we'll refer to it as "painting" to avoid confusion throughout the docs.
+Po zakończeniu renderowania i zaktualizowaniu drzewa DOM przez Reacta, przeglądarka przemaluje ekran. Chociaż proces ten jest znany jako "renderowanie przez przeglądarkę", będziemy się odnosić do niego jako "malowanie", aby uniknąć nieporozumień w dokumentacji.
 
-<Illustration alt="A browser painting 'still life with card element'." src="/images/docs/illustrations/i_browser-paint.png" />
+<Illustration alt="Przeglądarka malująca 'martwą naturę z elementem komponentu Card'." src="/images/docs/illustrations/i_browser-paint.png" />
 
 <Recap>
 
-* Any screen update in a React app happens in three steps:
-  1. Trigger
-  2. Render
-  3. Commit
-* You can use Strict Mode to find mistakes in your components
-* React does not touch the DOM if the rendering result is the same as last time
+* Każda aktualizacja ekranu w aplikacji reactowej odbywa się w trzech krokach:
+  1. Wywołanie
+  2. Renderowanie
+  3. Aktualizacja
+* Możesz użyć trybu rygorystycznego, aby znaleźć błędy w swoich komponentach
+* React nie modyfikuje drzewa DOM, jeśli wynik renderowania jest taki sam jak poprzednio
 
 </Recap>
 
