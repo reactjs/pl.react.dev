@@ -75,16 +75,16 @@ Po początkowym renderowaniu komponentu, możesz wywołać kolejne przerenderowa
   <Illustration caption="...renderowanie!" alt="Kucharz Komponentu Card dostarcza Reactowi komponent Card w kolorze różowym." src="/images/docs/illustrations/i_rerender3.png" />
 </IllustrationBlock>
 
-## Step 2: React renders your components {/*step-2-react-renders-your-components*/}
+## Krok 2: React renderuje twoje komponenty {/*step-2-react-renders-your-components*/}
 
-After you trigger a render, React calls your components to figure out what to display on screen. **"Rendering" is React calling your components.**
+Po wywołaniu renderowania, React wywołuje twoje komponenty, aby ustalić, co wyświetlić na ekranie. **"Renderowanie" oznacza wywołanie twoich komponentów przez Reacta.**
 
-* **On initial render,** React will call the root component.
-* **For subsequent renders,** React will call the function component whose state update triggered the render.
+* **Podczas początkowego renderowania,** React wywoła główny komponent.
+* **Podczas kolejnych renderowań,** React wywoła funkcję komponentu, którego aktualizacja stanu wywołała renderowanie.
 
-This process is recursive: if the updated component returns some other component, React will render _that_ component next, and if that component also returns something, it will render _that_ component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.
+Proces ten jest rekurencyjny: jeśli zaktualizowany komponent zwraca inny komponent, React następnie wyrenderuje _ten_ komponent, a jeśli ten komponent również coś zwraca, wyrenderuje _ten_ komponent, i tak dalej. Proces będzie kontynuowany, aż nie będzie więcej zagnieżdżonych komponentów i React będzie dokładnie wiedział, co powinno być wyświetlane na ekranie.
 
-In the following example, React will call `Gallery()` and  `Image()` several times:
+W poniższym przykładzie React wywoła `Gallery()` i  `Image()` kilkukrotnie:
 
 <Sandpack>
 
@@ -92,7 +92,7 @@ In the following example, React will call `Gallery()` and  `Image()` several tim
 export default function Gallery() {
   return (
     <section>
-      <h1>Inspiring Sculptures</h1>
+      <h1>Inspirujące rzeźby</h1>
       <Image />
       <Image />
       <Image />
@@ -104,7 +104,7 @@ function Image() {
   return (
     <img
       src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
+      alt="Rzeźba 'Floralis Genérica' wykonana przez Eduardo Catalano: ogromny metalowy kwiat z zwierciadlanymi płatkami"
     />
   );
 }
@@ -124,17 +124,17 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-* **During the initial render,** React will [create the DOM nodes](https://developer.mozilla.org/docs/Web/API/Document/createElement) for `<section>`, `<h1>`, and three `<img>` tags. 
-* **During a re-render,** React will calculate which of their properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.
+* **Podczas początkowego renderowania,** React [utworzy węzły DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) dla znaczników `<section>`, `<h1>` i trzech znaczników `<img>`.
+* **Podczas ponownego renderowania,** React obliczy, które z ich właściwości, jeśli jakiekolwiek, zostały zmienione od poprzedniego renderowania. Nic nie zrobi z tą informacją aż do następnego kroku, czyli fazy aktualizacji.
 
 <Pitfall>
 
-Rendering must always be a [pure calculation](/learn/keeping-components-pure):
+Renderowanie zawsze musi być [czystym obliczaniem](/learn/keeping-components-pure):
 
-* **Same inputs, same output.** Given the same inputs, a component should always return the same JSX. (When someone orders a salad with tomatoes, they should not receive a salad with onions!)
-* **It minds its own business.** It should not change any objects or variables that existed before rendering. (One order should not change anyone else's order.)
+* **Takie same wejścia, taki sam wynik.** Dla tych samych danych wejściowych, komponent powinien zawsze zwracać ten sam JSX - kiedy ktoś zamawia sałatkę z pomidorami, nie powinien otrzymać sałatki z cebulą!
+* **Dbanie o swoje własne sprawy.** Komponent nie powinien zmieniać żadnych obiektów ani zmiennych, które już istniały przed renderowaniem - jedno zamówienie nie powinno móc zmieniać zamówienia kogoś innego.
 
-Otherwise, you can encounter confusing bugs and unpredictable behavior as your codebase grows in complexity. When developing in "Strict Mode", React calls each component's function twice, which can help surface mistakes caused by impure functions.
+W przeciwnym razie możesz napotkać trudne do zrozumienia błędy i nieprzewidywalne zachowanie w miarę wzrostu złożoności kodu. Podczas pracy w "trybie rygorystycznym" (ang. _Strict Mode_) React wywołuje funkcję każdego komponentu dwa razy, co może pomóc w wykryciu błędów spowodowanych przez nieczyste funkcje.
 
 </Pitfall>
 
