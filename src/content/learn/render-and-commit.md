@@ -194,20 +194,20 @@ export default function App() {
 </Sandpack>
 
 To działa, ponieważ podczas ostatniego kroku React aktualizuje tylko zawartość znacznika `<h1>` nową wartością `time`. Widzi on, że znacznik `<input>` pojawia się w JSXie w tym samym miejscu co ostatnim razem, więc React nie zmienia tego znacznika ani jego atrybutu `value`!
-## Epilogue: Browser paint {/*epilogue-browser-paint*/}
+## Epilog: Malowanie przez przeglądarkę {/*epilogue-browser-paint*/}
 
-After rendering is done and React updated the DOM, the browser will repaint the screen. Although this process is known as "browser rendering", we'll refer to it as "painting" to avoid confusion throughout the docs.
+Po zakończeniu renderowania i zaktualizowaniu drzewa DOM przez Reacta, przeglądarka przemaluje ekran. Chociaż proces ten jest znany jako "renderowanie przez przeglądarkę", będziemy się odnosić do niego jako "malowanie", aby uniknąć nieporozumień w dokumentacji.
 
-<Illustration alt="A browser painting 'still life with card element'." src="/images/docs/illustrations/i_browser-paint.png" />
+<Illustration alt="Przeglądarka malująca 'martwą naturę z elementem komponentu Card'." src="/images/docs/illustrations/i_browser-paint.png" />
 
 <Recap>
 
-* Any screen update in a React app happens in three steps:
-  1. Trigger
-  2. Render
-  3. Commit
-* You can use Strict Mode to find mistakes in your components
-* React does not touch the DOM if the rendering result is the same as last time
+* Każda aktualizacja ekranu w aplikacji reactowej odbywa się w trzech krokach:
+  1. Wywołanie
+  2. Renderowanie
+  3. Aktualizacja
+* Możesz użyć trybu rygorystycznego, aby znaleźć błędy w swoich komponentach
+* React nie modyfikuje drzewa DOM, jeśli wynik renderowania jest taki sam jak poprzednio
 
 </Recap>
 
