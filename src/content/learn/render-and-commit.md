@@ -65,14 +65,14 @@ export default function Image() {
 
 Spróbuj zakomentować wywołanie `root.render()` i zauważ, że komponent znika!
 
-### Re-renders when state updates {/*re-renders-when-state-updates*/}
+### Przerenderowania po aktualizacji stanu {/*re-renders-when-state-updates*/}
 
-Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function.](/reference/react/useState#setstate) Updating your component's state automatically queues a render. (You can imagine these as a restaurant guest ordering tea, dessert, and all sorts of things after putting in their first order, depending on the state of their thirst or hunger.)
+Po początkowym renderowaniu komponentu, możesz wywołać kolejne przerenderowania poprzez aktualizację jego stanu za pomocą [funkcji `set`](/reference/react/useState#setstate). Aktualizacja stanu komponentu automatycznie dodaje renderowanie do kolejki. (Możesz to sobie wyobrazić jako gościa restauracji zamawiającego herbatę, deser i wszelkiego rodzaju rzeczy już po złożeniu pierwszego zamówienia, w zależności od stanu jego pragnienia lub głodu.)
 
 <IllustrationBlock sequential>
-  <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. They patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
-  <Illustration caption="...triggers..." alt="React returns to the Component Kitchen and tells the Card Chef they need a pink Card." src="/images/docs/illustrations/i_rerender2.png" />
-  <Illustration caption="...render!" alt="The Card Chef gives React the pink Card." src="/images/docs/illustrations/i_rerender3.png" />
+  <Illustration caption="Aktualizacja stanu..." alt="React jako kelner w restauracji, serwujący interfejs użytkownika Card użytkownikowi, przedstawionym jako klient z kursorem jako głową. Klient mówi, że chce komponent Card w kolorze różowym, a nie czarnym!" src="/images/docs/illustrations/i_rerender1.png" />
+  <Illustration caption="...wywołuje..." alt="React wraca do Kuchni Komponentów i mówi Kucharzowi Komponentu Card, że potrzebuje komponent Card w kolorze różowym." src="/images/docs/illustrations/i_rerender2.png" />
+  <Illustration caption="...renderowanie!" alt="Kucharz Komponentu Card dostarcza Reactowi komponent Card w kolorze różowym." src="/images/docs/illustrations/i_rerender3.png" />
 </IllustrationBlock>
 
 ## Step 2: React renders your components {/*step-2-react-renders-your-components*/}
