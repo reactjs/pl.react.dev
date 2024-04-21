@@ -118,6 +118,7 @@ Terminy z (?) przy sugestii są do przegadania. Jeśli wiesz, jakie powinno ich 
 | cleanup function | funkcja czyszcząca | W kontekście `useEffect` |
 | client | klient | |
 | clients | klienty | Nie: klienci |
+| commit | aktualizacja | W kontekście renderowania |
 | component state | stan komponentu | |
 | component wrapping | opakowywanie komponentu | |
 | concept | zagadnienie | |

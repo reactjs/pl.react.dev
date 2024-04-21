@@ -146,14 +146,14 @@ Domyślne zachowanie polegające na renderowaniu wszystkich komponentów zagnie�
 
 </DeepDive>
 
-## Step 3: React commits changes to the DOM {/*step-3-react-commits-changes-to-the-dom*/}
+## Krok 3: React aktualizuje zmiany w drzewie DOM {/*step-3-react-commits-changes-to-the-dom*/}
 
-After rendering (calling) your components, React will modify the DOM. 
+Po wyrenderowaniu (wywołaniu) twoich komponentów, React zmodyfikuje drzewo DOM.
 
-* **For the initial render,** React will use the [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API to put all the DOM nodes it has created on screen. 
-* **For re-renders,** React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
+* **Podczas początkowego renderowania,** React użyje API drzewa DOM o nazwie [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild), aby umieścić na ekranie wszystkie węzły drzewa DOM, które utworzył.
+* **Podczas przerenderowań,** React zastosuje minimum niezbędnych operacji (obliczonych podczas renderowania!), aby dopasować drzewo DOM do wyniku najnowszego renderowania.
 
-**React only changes the DOM nodes if there's a difference between renders.** For example, here is a component that re-renders with different props passed from its parent every second. Notice how you can add some text into the `<input>`, updating its `value`, but the text doesn't disappear when the component re-renders:
+**React zmienia węzły drzewa DOM tylko wtedy, gdy występuje różnica pomiędzy renderowaniami.** Na przykład, oto komponent, który przerenderowuje się co sekundę z różnymi właściwościami przekazywanymi z jego rodzica. Zauważ, że możesz dodać tekst do elementu `<input>`, aktualizując jego atrybut `value`, ale tekst nie znika, gdy komponent renderuje się ponownie:
 
 <Sandpack>
 
@@ -193,7 +193,7 @@ export default function App() {
 
 </Sandpack>
 
-This works because during this last step, React only updates the content of `<h1>` with the new `time`. It sees that the `<input>` appears in the JSX in the same place as last time, so React doesn't touch the `<input>`—or its `value`!
+To działa, ponieważ podczas ostatniego kroku React aktualizuje tylko zawartość znacznika `<h1>` nową wartością `time`. Widzi on, że znacznik `<input>` pojawia się w JSXie w tym samym miejscu co ostatnim razem, więc React nie zmienia tego znacznika ani jego atrybutu `value`!
 ## Epilogue: Browser paint {/*epilogue-browser-paint*/}
 
 After rendering is done and React updated the DOM, the browser will repaint the screen. Although this process is known as "browser rendering", we'll refer to it as "painting" to avoid confusion throughout the docs.
