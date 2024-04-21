@@ -19,9 +19,9 @@ Zanim twoje komponenty zostaną wyświetlone na ekranie, muszą zostać wyrender
 
 Wyobraź sobie, że twoje komponenty to kucharze w kuchni, którzy przygotowują smaczne dania z dostępnych składników. W tej sytuacji React jest kelnerem, który przyjmuje zamówienia od klientów i przynosi im zamówione potrawy. Ten proces zgłaszania i obsługi interfejsu użytkownika składa się z trzech kroków:
 
-1. **Wywołanie** renderowania (przekazanie zamówienia od gościa do kuchni)
-2. **Renderowanie** komponentu (przygotowanie zamówienia w kuchni)
-3. **Aktualizowanie** drzewa DOM (umieszczenie zamówienia na stole)
+1. **Wywołanie (ang. _triggering_)** renderowania (przekazanie zamówienia od gościa do kuchni)
+2. **Renderowanie (ang. _rendering_)** komponentu (przygotowanie zamówienia w kuchni)
+3. **Aktualizowanie (ang. _committing_)** drzewa DOM (umieszczenie zamówienia na stole)
 
 <IllustrationBlock sequential>
   <Illustration caption="Wywołanie" alt="React jako kelner w restauracji, pobierający zamówienia od użytkowników i dostarczający je do Kuchni Komponentów." src="/images/docs/illustrations/i_render-and-commit1.png" />
@@ -29,16 +29,16 @@ Wyobraź sobie, że twoje komponenty to kucharze w kuchni, którzy przygotowują
   <Illustration caption="Aktualizowanie" alt="React dostarcza komponent Card użytkownikowi do jego stołu." src="/images/docs/illustrations/i_render-and-commit3.png" />
 </IllustrationBlock>
 
-## Step 1: Trigger a render {/*step-1-trigger-a-render*/}
+## Krok 1: Wywołanie renderowania {/*step-1-trigger-a-render*/}
 
-There are two reasons for a component to render:
+Istnieją dwa powody, dla których komponent może zostać wyrenderowany:
 
-1. It's the component's **initial render.**
-2. The component's (or one of its ancestors') **state has been updated.**
+1. To jest **początkowe renderowanie** komponentu.
+2. Stan komponentu (lub jednego z jego rodziców) **został zaktualizowany**.
 
-### Initial render {/*initial-render*/}
+### Początkowe renderowanie {/*initial-render*/}
 
-When your app starts, you need to trigger the initial render. Frameworks and sandboxes sometimes hide this code, but it's done by calling [`createRoot`](/reference/react-dom/client/createRoot) with the target DOM node, and then calling its `render` method with your component:
+Przy uruchamianiu swojej aplikacji, musisz wywołać początkowe renderowanie. Frameworki i piaskownice czasem ukrywają ten kod, ale jest on wywoływany poprzez wywołanie funkcji [`createRoot`](/reference/react-dom/client/createRoot) z docelowym węzłem drzewa DOM, a następnie wywołanie na nim metody `render` z twoim komponentem:
 
 <Sandpack>
 
@@ -55,7 +55,7 @@ export default function Image() {
   return (
     <img
       src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
+      alt="Rzeźba 'Floralis Genérica' wykonana przez Eduardo Catalano: ogromny metalowy kwiat z zwierciadlanymi płatkami"
     />
   );
 }
@@ -63,7 +63,7 @@ export default function Image() {
 
 </Sandpack>
 
-Try commenting out the `root.render()` call and see the component disappear!
+Spróbuj zakomentować wywołanie `root.render()` i zauważ, że komponent znika!
 
 ### Re-renders when state updates {/*re-renders-when-state-updates*/}
 
