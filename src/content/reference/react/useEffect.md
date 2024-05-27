@@ -62,7 +62,13 @@ function ChatRoom({ roomId }) {
 
 * Jeśli niektóre z twoich zależności to obiekty lub funkcje zdefiniowane wewnątrz komponentu, istnieje ryzyko, że **spowodują, że efekt będzie wykonywał się częściej niż jest to potrzebne.** Aby to naprawić, usuń zbędne zależności od [obiektów](#removing-unnecessary-object-dependencies) i [funkcji](#removing-unnecessary-function-dependencies). Możesz również [wydzielić aktualizacje stanu](#updating-state-based-on-previous-state-from-an-effect) oraz [logikę niereaktywną](#reading-the-latest-props-and-state-from-an-effect) poza efekt.
 
+<<<<<<< HEAD
 * Jeśli twój efekt nie został wywołany przez interakcję (np. kliknięcie), React zazwyczaj pozwoli przeglądarce **najpierw odświeżyć ekran przed uruchomieniem twojego efektu.** Jeśli efekt ten wykonuje jakieś operacje związane z wyświetlaniem (np. ustawianie pozycji dymka (ang. *tooltip*)) i opóźnienie jest zauważalne (np. występuje migotanie), zastąp `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+=======
+* If your Effect is caused by an interaction (like a click), **React may run your Effect before the browser paints the updated screen**. This ensures that the result of the Effect can be observed by the event system. Usually, this works as expected. However, if you must defer the work until after paint, such as an `alert()`, you can use `setTimeout`. See [reactwg/react-18/128](https://github.com/reactwg/react-18/discussions/128) for more information.
+
+* Even if your Effect was caused by an interaction (like a click), **React may allow the browser to repaint the screen before processing the state updates inside your Effect.** Usually, this works as expected. However, if you must block the browser from repainting the screen, you need to replace `useEffect` with [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+>>>>>>> c3bc5affa0e7452e306c785af11798d16b4f6dd4
 
 * Nawet jeśli twój efekt został wywołany przez interakcję (np. kliknięcie), **przeglądarka może odświeżyć ekran przed przetworzeniem aktualizacji stanu wewnątrz twojego efektu.** Zazwyczaj jest to pożądane zachowanie. Niemniej jednak, jeśli chcesz zablokować przeglądarkę przed odświeżaniem ekranu, musisz zastąpić `useEffect` przez [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
