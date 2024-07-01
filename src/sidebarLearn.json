@@ -43,6 +43,11 @@
         {
           "title": "Narzędzia deweloperskie dla Reacta",
           "path": "/learn/react-developer-tools"
+        },
+        {
+          "title": "React Compiler",
+          "path": "/learn/react-compiler",
+          "canary": true
         }
       ]
     },
