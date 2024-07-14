@@ -106,42 +106,14 @@ Aby spriorytetyzować renderowanie, użyj jednego z tych hooków.
 
 ---
 
-<<<<<<< HEAD
-## Hooki zasobów {/*resource-hooks*/}
-
-Do *zasobów* można dostać się z poziomu komponentu bez konieczności tworzenia dla nich stanu lokalnego. Na przykład, komponent może odczytywać wiadomość z Obietnicy (*ang.* Promise) albo informacje o stylu z kontekstu. 
-
-Aby odczytać wartość z zasobu, użyj tego Hooka:
-
-- [`use`](/reference/react/use) pozwala na odczytanie wartości zasobu, takiego jak [Obietnica (*ang.* Promise)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) lub [kontekst](/learn/passing-data-deeply-with-context).
-
-```js
-function MessageComponent({ messagePromise }) {
-  const message = use(messagePromise);
-  const theme = use(ThemeContext);
-  // ...
-}
-```
-
----
-
 ## Inne hooki {/*other-hooks*/}
-=======
-## Other Hooks {/*other-hooks*/}
->>>>>>> 2a2e02f1d88f4d2828728ce352626e84ed8abda0
 
 Te hooki przydają się zwykle tylko autorom bibliotek i nieczęsto spotyka się je w kodzie aplikacyjnym.
 
-<<<<<<< HEAD
 - [`useDebugValue`](/reference/react/useDebugValue) pozwala zmienić etykietę twojego własnego hooka, którą wyświetlają React DevTools.
 - [`useId`](/reference/react/useId) pozwala komponentowi przypisać do siebie unikalny identyfikator. Zwykle używane w połączeniu z API dostępności (*ang.* accessibility).
 - [`useSyncExternalStore`](/reference/react/useSyncExternalStore) pozwala komponentowi na zasubskrybowanie się do magazynu zewnętrznego.
-=======
-- [`useDebugValue`](/reference/react/useDebugValue) lets you customize the label React DevTools displays for your custom Hook.
-- [`useId`](/reference/react/useId) lets a component associate a unique ID with itself. Typically used with accessibility APIs.
-- [`useSyncExternalStore`](/reference/react/useSyncExternalStore) lets a component subscribe to an external store.
-* [`useActionState`](/reference/react/useActionState) allows you to manage state of actions.
->>>>>>> 2a2e02f1d88f4d2828728ce352626e84ed8abda0
+* [`useActionState`](/reference/react/useActionState) pozwala zarządzać stanem akcji.
 
 ---
 

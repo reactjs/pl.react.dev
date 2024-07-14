@@ -10,29 +10,23 @@ Poza [hookami](/reference/react) i [komponentami](/reference/react/components), 
 
 ---
 
-<<<<<<< HEAD
 * [`createContext`](/reference/react/createContext) pozwala zdefiniować i przekazać kontekst do komponentów potomnych. Używane w parze z [`useContext`.](/reference/react/useContext)
 * [`forwardRef`](/reference/react/forwardRef) umożliwia komponentowi na wystawienie do rodzica jakiegoś węzła DOM, służącego za referencję. Używane w parze z [`useRef`.](/reference/react/useRef)
 * [`lazy`](/reference/react/lazy) pozwala opóźnić załadowanie kodu komponentu do czasu jego pierwszego wyrenderowania.
 * [`memo`](/reference/react/memo) pozwala pominąć renderowanie komponentu, jeśli jego właściwości się nie zmieniły. Używane w parze z [`useMemo`](/reference/react/useMemo) i [`useCallback`.](/reference/react/useCallback)
 * [`startTransition`](/reference/react/startTransition) pozwala oznaczyć zmianę stanu jako mało pilną. Podobne do [`useTransition`.](/reference/react/useTransition)
-=======
-* [`createContext`](/reference/react/createContext) lets you define and provide context to the child components. Used with [`useContext`.](/reference/react/useContext)
-* [`forwardRef`](/reference/react/forwardRef) lets your component expose a DOM node as a ref to the parent. Used with [`useRef`.](/reference/react/useRef)
-* [`lazy`](/reference/react/lazy) lets you defer loading a component's code until it's rendered for the first time.
-* [`memo`](/reference/react/memo) lets your component skip re-renders with same props. Used with [`useMemo`](/reference/react/useMemo) and [`useCallback`.](/reference/react/useCallback)
-* [`startTransition`](/reference/react/startTransition) lets you mark a state update as non-urgent. Similar to [`useTransition`.](/reference/react/useTransition)
-* [`act`](/reference/react/act) lets you wrap renders and interactions in tests to ensure updates have processed before making assertions.
+* [`act`](/reference/react/act) pozwala upewnić się, że wszystkie aktualizacje podczas renderowania i interakcji w testach zostały przetworzone, zanim uruchomione zostaną asercje.
 
 ---
 
-## Resource APIs {/*resource-apis*/}
+## API zasobów {/*resource-apis*/}
 
-*Resources* can be accessed by a component without having them as part of their state. For example, a component can read a message from a Promise or read styling information from a context.
+Do *zasobów* można dostać się z poziomu komponentu bez konieczności tworzenia dla nich stanu lokalnego. Na przykład, komponent może odczytywać wiadomość z Obietnicy (*ang.* Promise) albo informacje o stylu z kontekstu. 
 
-To read a value from a resource, use this API:
+Aby odczytać wartość z zasobu, użyj tego Hooka:
 
-* [`use`](/reference/react/use) lets you read the value of a resource like a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+- [`use`](/reference/react/use) pozwala na odczytanie wartości zasobu, takiego jak [Obietnica (*ang.* Promise)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) lub [kontekst](/learn/passing-data-deeply-with-context).
+
 ```js
 function MessageComponent({ messagePromise }) {
   const message = use(messagePromise);
@@ -40,4 +34,3 @@ function MessageComponent({ messagePromise }) {
   // ...
 }
 ```
->>>>>>> 2a2e02f1d88f4d2828728ce352626e84ed8abda0
