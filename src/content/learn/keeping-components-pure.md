@@ -208,7 +208,7 @@ Pisanie czystych funkcji wymaga pewnych nawyków i dyscypliny. Ale otwiera takż
 * Możesz poprawić wydajność, [pomijając renderowanie](/reference/react/memo) komponentów, których dane wejściowe się nie zmieniły. Jest to bezpieczne, ponieważ czyste funkcje zawsze zwracają te same wyniki, więc mogą być bezpiecznie przechowywane w pamięci podręcznej.
 * Jeśli niektóre dane zmieniają się w trakcie renderowania głębokiego drzewa komponentów, React może zrestartować renderowanie bez marnowania czasu na zakończenie poprzedniego, przestarzałego renderowania. Czystość sprawia, że ​​można bezpiecznie zatrzymać obliczenia w dowolnym momencie.
 
-Każda nowa funkcjonalność Reacta, którą budujemy, korzysta z czystości. Od pobierania danych, przez animacje, aż po wydajność, zachowanie komponentów w czystości uwalnia moc paradygmatu Reacta.
+Każda nowa funkcjonalność Reacta, którą budujemy, opiera się na tej z czystości. Od pobierania danych, przez animacje, aż po wydajność, zachowanie komponentów w czystości uwalnia moc paradygmatu Reacta.
 
 </DeepDive>
 
