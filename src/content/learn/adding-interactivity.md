@@ -1,22 +1,22 @@
 ---
-title: Adding Interactivity
+title: Dodawanie interaktywności
 ---
 
 <Intro>
 
-Some things on the screen update in response to user input. For example, clicking an image gallery switches the active image. In React, data that changes over time is called *state.* You can add state to any component, and update it as needed. In this chapter, you'll learn how to write components that handle interactions, update their state, and display different output over time.
+Niektóre elementy na ekranie aktualizują się w odpowiedzi na interakcje użytkownika. Na przykład kliknięcie w galerię obrazów zmienia aktywny obraz. W Reakcie dane, które zmieniają się w czasie, nazywane są *stanem* (ang. _state_).  Możesz dodać stan do każdego komponentu i aktualizować go w razie potrzeby. W tym rozdziale nauczysz się, jak pisać komponenty obsługujące interakcje, aktualizujące swój stan i wyświetlające różne wyniki w czasie.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to handle user-initiated events](/learn/responding-to-events)
-* [How to make components "remember" information with state](/learn/state-a-components-memory)
-* [How React updates the UI in two phases](/learn/render-and-commit)
-* [Why state doesn't update right after you change it](/learn/state-as-a-snapshot)
-* [How to queue multiple state updates](/learn/queueing-a-series-of-state-updates)
-* [How to update an object in state](/learn/updating-objects-in-state)
-* [How to update an array in state](/learn/updating-arrays-in-state)
+* [Jak obsługiwać zdarzenia inicjowane przez użytkownika](/learn/responding-to-events)
+* [Jak sprawić, aby komponenty "pamiętały" informacje za pomocą stanu](/learn/state-a-components-memory)
+* [Jak React aktualizuje interfejs użytkownika w dwóch fazach](/learn/render-and-commit)
+* [Dlaczego stan nie aktualizuje się od razu po jego zmianie](/learn/state-as-a-snapshot)
+* [Jak kolejkować wiele aktualizacji stanu](/learn/queueing-a-series-of-state-updates)
+* [Jak zaktualizować obiekt w stanie](/learn/updating-objects-in-state)
+* [Jak zaktualizować tablicę w stanie](/learn/updating-arrays-in-state)
 
 </YouWillLearn>
 
