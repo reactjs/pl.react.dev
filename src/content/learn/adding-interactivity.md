@@ -20,11 +20,11 @@ Niektóre elementy na ekranie aktualizują się w odpowiedzi na interakcje użyt
 
 </YouWillLearn>
 
-## Responding to events {/*responding-to-events*/}
+## Reagowanie na zdarzenia {/*responding-to-events*/}
 
-React lets you add *event handlers* to your JSX. Event handlers are your own functions that will be triggered in response to user interactions like clicking, hovering, focusing on form inputs, and so on.
+React pozwala na dodawanie *procedur obsługi zdarzeń* (ang. _event handlers_) do twojej składni JSX. Procedury obsługi zdarzeń to twoje własne funkcje, które zostaną wywołane w odpowiedzi na interakcje użytkownika, takie jak kliknięcia, najechanie kursorem, skupienie na elementach formularza i inne.
 
-Built-in components like `<button>` only support built-in browser events like `onClick`. However, you can also create your own components, and give their event handler props any application-specific names that you like.
+Wbudowane komponenty, takie jak `<button>`, obsługują jedynie wbudowane zdarzenia przeglądarki, takie jak `onClick`. Jednakże możesz też tworzyć własne komponenty i nadawać ich właściwościom obsługującym zdarzenia dowolne nazwy specyficzne dla twojej aplikacji.
 
 <Sandpack>
 
@@ -32,8 +32,8 @@ Built-in components like `<button>` only support built-in browser events like `o
 export default function App() {
   return (
     <Toolbar
-      onPlayMovie={() => alert('Playing!')}
-      onUploadImage={() => alert('Uploading!')}
+      onPlayMovie={() => alert('Odtwarzanie!')}
+      onUploadImage={() => alert('Wgrywanie!')}
     />
   );
 }
@@ -42,10 +42,10 @@ function Toolbar({ onPlayMovie, onUploadImage }) {
   return (
     <div>
       <Button onClick={onPlayMovie}>
-        Play Movie
+        Odtwórz film
       </Button>
       <Button onClick={onUploadImage}>
-        Upload Image
+        Wgraj obraz
       </Button>
     </div>
   );
@@ -68,7 +68,7 @@ button { margin-right: 10px; }
 
 <LearnMore path="/learn/responding-to-events">
 
-Read **[Responding to Events](/learn/responding-to-events)** to learn how to add event handlers.
+Przeczytaj **[Reagowanie na zdarzenia](/learn/responding-to-events)**, aby dowiedzieć się, jak dodawać procedury obsługi zdarzeń.
 
 </LearnMore>
 
