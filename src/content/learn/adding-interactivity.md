@@ -318,9 +318,9 @@ Przeczytaj **[Stan jako migawka](/learn/state-as-a-snapshot)**, aby dowiedzieć 
 
 </LearnMore>
 
-## Queueing a series of state updates {/*queueing-a-series-of-state-updates*/}
+## Kolejkowanie serii aktualizacji stanu {/*queueing-a-series-of-state-updates*/}
 
-This component is buggy: clicking "+3" increments the score only once.
+Ten komponent zawiera błąd: kliknięcie "+3" zwiększa wynik tylko raz.
 
 <Sandpack>
 
@@ -342,7 +342,7 @@ export default function Counter() {
         increment();
         increment();
       }}>+3</button>
-      <h1>Score: {score}</h1>
+      <h1>Wynik: {score}</h1>
     </>
   )
 }
@@ -354,7 +354,7 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 </Sandpack>
 
-[State as a Snapshot](/learn/state-as-a-snapshot) explains why this is happening. Setting state requests a new re-render, but does not change it in the already running code. So `score` continues to be `0` right after you call `setScore(score + 1)`.
+**[Stan jako migawka](/learn/state-as-a-snapshot)** wyjaśnia, dlaczego tak się dzieje. Ustawienie stanu tworzy żądanie nowego przerenderowania, ale nie zmienia tego stanu w już działającym kodzie. Dlatego `score` nadal wynosi `0` tuż po wywołaniu `setScore(score + 1)`.
 
 ```js
 console.log(score);  // 0
@@ -366,7 +366,7 @@ setScore(score + 1); // setScore(0 + 1);
 console.log(score);  // 0
 ```
 
-You can fix this by passing an *updater function* when setting state. Notice how replacing `setScore(score + 1)` with `setScore(s => s + 1)` fixes the "+3" button. This lets you queue multiple state updates.
+Możesz naprawić to, przekazując *funkcję aktualizującą* (ang. _updater function_) podczas ustawiania stanu. Zauważ, jak zastąpienie `setScore(score + 1)` przez `setScore(s => s + 1)` naprawia przycisk "+3". Dzięki temu możesz kolejkować wiele aktualizacji stanu.
 
 <Sandpack>
 
@@ -388,7 +388,7 @@ export default function Counter() {
         increment();
         increment();
       }}>+3</button>
-      <h1>Score: {score}</h1>
+      <h1>Wynik: {score}</h1>
     </>
   )
 }
@@ -402,7 +402,7 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 <LearnMore path="/learn/queueing-a-series-of-state-updates">
 
-Read **[Queueing a Series of State Updates](/learn/queueing-a-series-of-state-updates)** to learn how to queue a sequence of state updates.
+Przeczytaj **[Kolejkowanie serii aktualizacji stanu](/learn/queueing-a-series-of-state-updates)**, aby dowiedzieć się, jak kolejkować sekwencję aktualizacji stanu.
 
 </LearnMore>
 
