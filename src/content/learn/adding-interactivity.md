@@ -72,7 +72,7 @@ Przeczytaj **[Reagowanie na zdarzenia](/learn/responding-to-events)**, aby dowie
 
 </LearnMore>
 
-## Stan - pamięć komponentu {/*s*/}
+## Stan - pamięć komponentu {/*state-a-components-memory*/}
 
 Komponenty często muszą zmieniać to, co jest wyświetlane na ekranie w wyniku interakcji. Wpisywanie w formularzu powinno aktualizować jego pole, kliknięcie "następny" w kolejce obrazów powinno zmieniać wyświetlany obraz, kliknięcie "kup" powinno umieścić produkt w koszyku. Komponenty muszą "pamiętać" różne rzeczy: bieżącą wartość pola, bieżący obraz, zawartość koszyka. W Reakcie tego rodzaju pamięć specyficzna dla komponentu nazywana jest *stanem*.
 
