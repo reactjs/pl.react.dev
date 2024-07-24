@@ -255,17 +255,17 @@ Przeczytaj **[Renderowanie i aktualizowanie](/learn/render-and-commit)**, aby do
 
 </LearnMore>
 
-## State as a snapshot {/*state-as-a-snapshot*/}
+## Stan jako migawka {/*state-as-a-snapshot*/}
 
-Unlike regular JavaScript variables, React state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render. This can be surprising at first!
+W przeciwieństwie do zwykłych zmiennych javascriptowych, stan w Reakcie zachowuje się bardziej jak migawka. Ustawienie stanu nie zmienia już istniejącej zmiennej stanu, lecz wywołuje przerenderowanie. Może to być na początki zaskakujące!
 
 ```js
 console.log(count);  // 0
-setCount(count + 1); // Request a re-render with 1
-console.log(count);  // Still 0!
+setCount(count + 1); // Żądanie ponownego renderowania z wartością 1
+console.log(count);  // Nadal 0!
 ```
 
-This behavior help you avoid subtle bugs. Here is a little chat app. Try to guess what happens if you press "Send" first and *then* change the recipient to Bob. Whose name will appear in the `alert` five seconds later?
+To zachowanie pomaga unikać subtelnych błędów. Oto mała aplikacja do czatu. Spróbuj zgadnąć, co się stanie, jeśli najpierw naciśniesz "Wyślij", a *potem* zmienisz odbiorcę na Boba. Czyje imię pojawi się w `alert` pięć sekund później?
 
 <Sandpack>
 
@@ -274,12 +274,12 @@ import { useState } from 'react';
 
 export default function Form() {
   const [to, setTo] = useState('Alice');
-  const [message, setMessage] = useState('Hello');
+  const [message, setMessage] = useState('Cześć');
 
   function handleSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
-      alert(`You said ${message} to ${to}`);
+      alert(`Wysłano wiadomość "${message}" do użytkownika ${to}`);
     }, 5000);
   }
 
@@ -299,7 +299,7 @@ export default function Form() {
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit">Wyślij</button>
     </form>
   );
 }
@@ -314,7 +314,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <LearnMore path="/learn/state-as-a-snapshot">
 
-Read **[State as a Snapshot](/learn/state-as-a-snapshot)** to learn why state appears "fixed" and unchanging inside the event handlers.
+Przeczytaj **[Stan jako migawka](/learn/state-as-a-snapshot)**, aby dowiedzieć się, dlaczego stan wydaje się być "ustalony" i niezmienny wewnątrz funkcji obsługujących zdarzenia.
 
 </LearnMore>
 
