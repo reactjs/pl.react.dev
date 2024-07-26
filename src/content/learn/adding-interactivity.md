@@ -408,9 +408,9 @@ Przeczytaj **[Kolejkowanie serii aktualizacji stanu](/learn/queueing-a-series-of
 
 ## Aktualizowanie obiektów w stanie {/*updating-objects-in-state*/}
 
-State can hold any kind of JavaScript value, including objects. But you shouldn't change objects and arrays that you hold in the React state directly. Instead, when you want to update an object and array, you need to create a new one (or make a copy of an existing one), and then update the state to use that copy.
+Stan może przechowywać dowolne wartości javascriptowe, w tym obiekty. Nie powinno się jednak bezpośrednio zmieniać obiektów i tablic, które przechowuje się w stanie Reacta. Zamiast tego, gdy chcesz zaktualizować obiekt lub tablicę, musisz stworzyć nowy obiekt (lub skopiować istniejący), a następnie zaktualizować stan, aby używał tej kopii.
 
-Usually, you will use the `...` spread syntax to copy objects and arrays that you want to change. For example, updating a nested object could look like this:
+Zazwyczaj używa się składni rozproszenia (ang. _spread syntax_) `...`, aby skopiować obiekty i tablice, które chcesz zmienić. Na przykład, aktualizacja zagnieżdżonego obiektu może wyglądać tak:
 
 <Sandpack>
 
@@ -467,28 +467,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Imię:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Tytuł:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Miasto:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Obraz:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -496,10 +496,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' autorstawa '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+położone w mieście {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -518,7 +518,7 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-If copying objects in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code:
+Jeśli kopiowanie obiektów w kodzie staje się uciążliwe, możesz użyć biblioteki takiej jak [Immer](https://github.com/immerjs/use-immer), aby zmniejszyć ilość powtarzającego się kodu:
 
 <Sandpack>
 
@@ -562,28 +562,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Imię:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Tytuł:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Miasto:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Obraz:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -591,10 +591,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' autorstwa '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (położone w mieście {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -633,7 +633,7 @@ img { width: 200px; height: 200px; }
 
 <LearnMore path="/learn/updating-objects-in-state">
 
-Read **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state)** to learn how to update objects correctly.
+Przeczytaj **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state)**, aby dowiedzieć się, jak poprawnie aktualizować obiekty.
 
 </LearnMore>
 
