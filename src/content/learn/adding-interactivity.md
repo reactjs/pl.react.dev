@@ -68,7 +68,7 @@ button { margin-right: 10px; }
 
 <LearnMore path="/learn/responding-to-events">
 
-Przeczytaj **[Reagowanie na zdarzenia](/learn/responding-to-events)**, aby dowiedzieć się, jak dodawać procedury obsługi zdarzeń.
+Przeczytaj rozdział **[Reagowanie na zdarzenia](/learn/responding-to-events)**, aby dowiedzieć się, jak dodawać procedury obsługi zdarzeń.
 
 </LearnMore>
 
@@ -229,7 +229,7 @@ button {
 
 <LearnMore path="/learn/state-a-components-memory">
 
-Przeczytaj **[Stan - Pamięć komponentu](/learn/state-a-components-memory)**, aby dowiedzieć się, jak zapamiętywać wartość i aktualizować ją podczas interakcji.
+Przeczytaj rozdział **[Stan - Pamięć komponentu](/learn/state-a-components-memory)**, aby dowiedzieć się, jak zapamiętywać wartość i aktualizować ją podczas interakcji.
 
 </LearnMore>
 
@@ -251,7 +251,7 @@ Wyobraź sobie, że twoje komponenty to kucharze w kuchni, którzy przygotowują
 
 <LearnMore path="/learn/render-and-commit">
 
-Przeczytaj **[Renderowanie i aktualizowanie](/learn/render-and-commit)**, aby dowiedzieć się o cyklu życia aktualizacji interfejsu użytkownika.
+Przeczytaj rozdział **[Renderowanie i aktualizowanie](/learn/render-and-commit)**, aby dowiedzieć się o cyklu życia aktualizacji interfejsu użytkownika.
 
 </LearnMore>
 
@@ -314,7 +314,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <LearnMore path="/learn/state-as-a-snapshot">
 
-Przeczytaj **[Stan jako migawka](/learn/state-as-a-snapshot)**, aby dowiedzieć się, dlaczego stan wydaje się być "ustalony" i niezmienny wewnątrz funkcji obsługujących zdarzenia.
+Przeczytaj rozdział **[Stan jako migawka](/learn/state-as-a-snapshot)**, aby dowiedzieć się, dlaczego stan wydaje się być "ustalony" i niezmienny wewnątrz funkcji obsługujących zdarzenia.
 
 </LearnMore>
 
@@ -402,7 +402,7 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 <LearnMore path="/learn/queueing-a-series-of-state-updates">
 
-Przeczytaj **[Kolejkowanie serii aktualizacji stanu](/learn/queueing-a-series-of-state-updates)**, aby dowiedzieć się, jak kolejkować sekwencję aktualizacji stanu.
+Przeczytaj rozdział **[Kolejkowanie serii aktualizacji stanu](/learn/queueing-a-series-of-state-updates)**, aby dowiedzieć się, jak kolejkować sekwencję aktualizacji stanu.
 
 </LearnMore>
 
@@ -633,7 +633,7 @@ img { width: 200px; height: 200px; }
 
 <LearnMore path="/learn/updating-objects-in-state">
 
-Przeczytaj **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state)**, aby dowiedzieć się, jak poprawnie aktualizować obiekty.
+Przeczytaj rozdział **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state)**, aby dowiedzieć się, jak poprawnie aktualizować obiekty.
 
 </LearnMore>
 
