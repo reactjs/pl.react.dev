@@ -499,7 +499,7 @@ export default function Form() {
         {' autorstawa '}
         {person.name}
         <br />
-położone w mieście {person.artwork.city})
+        (położone w mieście {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
