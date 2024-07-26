@@ -639,7 +639,7 @@ Przeczytaj **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-stat
 
 ## Aktualizowanie tablic w stanie {/*updating-arrays-in-state*/}
 
-Arrays are another type of mutable JavaScript objects you can store in state and should treat as read-only. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array:
+Tablice są kolejnym rodzajem zmiennych obiektów javascriptowych, które można przechowywać w stanie i należy je traktować jako tylko do odczytu. Podobnie jak w przypadku obiektów, gdy chcesz zaktualizować tablicę przechowywaną w stanie, musisz stworzyć nową tablicę (lub skopiować istniejącą), a następnie ustawić stan, aby używał nowej tablicy:
 
 <Sandpack>
 
@@ -647,9 +647,9 @@ Arrays are another type of mutable JavaScript objects you can store in state and
 import { useState } from 'react';
 
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Wielkie brzuchy', seen: false },
+  { id: 1, title: 'Księżycowy krajobraz', seen: false },
+  { id: 2, title: 'Terakotowa armia', seen: true },
 ];
 
 export default function BucketList() {
@@ -669,8 +669,8 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista dzieł sztuki</h1>
+      <h2>Moja lista dzieł sztuki do zobaczenia:</h2>
       <ItemList
         artworks={list}
         onToggle={handleToggle} />
@@ -705,7 +705,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-If copying arrays in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code:
+Jeśli kopiowanie tablic w kodzie staje się uciążliwe, możesz użyć biblioteki takiej jak [Immer](https://github.com/immerjs/use-immer), aby zmniejszyć ilość powtarzającego się kodu:
 
 <Sandpack>
 
@@ -714,9 +714,9 @@ import { useState } from 'react';
 import { useImmer } from 'use-immer';
 
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Wielkie brzuchy', seen: false },
+  { id: 1, title: 'Księżycowy krajobraz', seen: false },
+  { id: 2, title: 'Terakotowa armia', seen: true },
 ];
 
 export default function BucketList() {
@@ -733,8 +733,8 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista dzieł sztuki</h1>
+      <h2>Moja lista dzieł sztuki do zobaczenia:</h2>
       <ItemList
         artworks={list}
         onToggle={handleToggle} />
@@ -789,12 +789,12 @@ function ItemList({ artworks, onToggle }) {
 
 <LearnMore path="/learn/updating-arrays-in-state">
 
-Read **[Aktualizowanie tablic w stanie](/learn/updating-arrays-in-state)** to learn how to update arrays correctly.
+Przeczytaj rozdział **[Aktualizowanie tablic w stanie](/learn/updating-arrays-in-state)**, aby dowiedzieć się, jak poprawnie aktualizować tablice.
 
 </LearnMore>
 
-## What's next? {/*whats-next*/}
+## Co dalej? {/*whats-next*/}
 
-Head over to [Responding to Events](/learn/responding-to-events) to start reading this chapter page by page!
+Przejdź do rozdziału [Reagowanie na zdarzenia](/learn/responding-to-events), aby zacząć zgłębiać ten temat strona po stronie!
 
-Or, if you're already familiar with these topics, why not read about [Managing State](/learn/managing-state)?
+Ewentualnie, jeśli już znasz te tematy, dlaczego nie przeczytać rozdziału [Zarządzanie stanem](/learn/managing-state)?
