@@ -300,7 +300,7 @@ Przeczytaj rozdział pt. **[Współdzielenie stanu między komponentami](/learn/
 
 </LearnMore>
 
-## Utrzymywanie i resetowanie stanu {/*preserving-and-resetting-state*/}
+## Zachowywanie i resetowanie stanu {/*preserving-and-resetting-state*/}
 
 Kiedy ponownie renderujesz komponent, React musi zdecydować, które części drzewa należy zostawić (i zaktualizować), a które odrzucić lub stworzyć na nowo. W większości przypadków React sam zdecyduje, co należy zrobić. Domyślnie React zachowuje części drzewa, które pokrywają się z poprzednim drzewem komponentów.
 
@@ -496,7 +496,7 @@ textarea {
 
 <LearnMore path="/learn/preserving-and-resetting-state">
 
-Przeczytaj rozdział pt. **[Utrzymywanie i resetowanie stanu](/learn/preserving-and-resetting-state)**, aby nauczyć się cyklu życia stanu i jak nim zarządzać.
+Przeczytaj rozdział pt. **[Zachowywanie i resetowanie stanu](/learn/preserving-and-resetting-state)**, aby nauczyć się cyklu życia stanu i jak nim zarządzać.
 
 </LearnMore>
 

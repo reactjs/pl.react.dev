@@ -1,18 +1,18 @@
 ---
-title: Utrzymywanie i resetowanie stanu
+title: Zachowywanie i resetowanie stanu
 ---
 
 <Intro>
 
-State is isolated between components. React keeps track of which state belongs to which component based on their place in the UI tree. You can control when to preserve state and when to reset it between re-renders.
+Stan jest izolowany między komponentami. React śledzi, który stan należy do którego komponentu na podstawie ich miejsca w drzewie interfejsu użytkownika. Możesz kontrolować, kiedy zachować stan, a kiedy go zresetować między przerenderowaniami.
 
 </Intro>
 
 <YouWillLearn>
 
-* When React chooses to preserve or reset the state
-* How to force React to reset component's state
-* How keys and types affect whether the state is preserved
+* Kiedy React decyduje się, aby zachować lub zresetować stan
+* Jak zmusić React do zresetowania stanu komponentu
+* Jak klucze i typy wpływają na to, czy stan jest zachowany
 
 </YouWillLearn>
 

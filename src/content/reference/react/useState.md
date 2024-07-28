@@ -1026,7 +1026,7 @@ W większości przypadków z właściwością `key` spotkasz się tylko przy oka
 
 **Przekazując inną wartość `key` do komponentu możesz zresetować jego stan.** W poniższym przykładzie przycisk resetujący ustawia zmienną stanu `version`, którą możemy przekazać jako właściwość `key` do `Form`. Kiedy zmieni się `key`, React stworzy komponent `Form` od nowa (razem ze wszystkimi potomkami), dzięki czemu ich stan zostanie zresetowany.
 
-Aby dowiedzieć się więcej, przeczytaj rozdział pt. [Utrzymywanie i resetowanie stanu](/learn/preserving-and-resetting-state).
+Aby dowiedzieć się więcej, przeczytaj rozdział pt. [Zachowywanie i resetowanie stanu](/learn/preserving-and-resetting-state).
 
 <Sandpack>
 
