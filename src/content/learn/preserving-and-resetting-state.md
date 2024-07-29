@@ -274,9 +274,9 @@ Dodawanie komponentu
 
 **React zachowuje stan komponentu tak długo, jak jest on renderowany na swojej pozycji w drzewie UI.** Jeśli zostanie on usunięty lub na jego miejsce zostanie wyrenderowany inny komponent, React odrzuci jego stan.
 
-## Same component at the same position preserves state {/*same-component-at-the-same-position-preserves-state*/}
+## Ten sam komponent na tej samej pozycji zachowuje stan {/*same-component-at-the-same-position-preserves-state*/}
 
-In this example, there are two different `<Counter />` tags:
+W tym przykładzie znajdują się dwa różne tagi `<Counter />`:
 
 <Sandpack>
 
@@ -300,7 +300,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Użyj wyszukanego stylu
       </label>
     </div>
   );
@@ -326,7 +326,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -361,24 +361,24 @@ label {
 
 </Sandpack>
 
-When you tick or clear the checkbox, the counter state does not get reset. Whether `isFancy` is `true` or `false`, you always have a `<Counter />` as the first child of the `div` returned from the root `App` component:
+Gdy zaznaczysz lub odznaczysz pole wyboru, stan licznika nie jest resetowany. Niezależnie od tego, czy `isFancy` jest ustawione na `true`, czy `false`, komponent `<Counter />` jest zawsze pierwszym potomkiem elementu `div` zwracanego z głównego komponentu `App`
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_same_component" height={461} width={600} alt="Diagram with two sections separated by an arrow transitioning between them. Each section contains a layout of components with a parent labeled 'App' containing a state bubble labeled isFancy. This component has one child labeled 'div', which leads to a prop bubble containing isFancy (highlighted in purple) passed down to the only child. The last child is labeled 'Counter' and contains a state bubble with label 'count' and value 3 in both diagrams. In the left section of the diagram, nothing is highlighted and the isFancy parent state value is false. In the right section of the diagram, the isFancy parent state value has changed to true and it is highlighted in yellow, and so is the props bubble below, which has also changed its isFancy value to true.">
+<Diagram name="preserving_state_same_component" height={461} width={600} alt="Diagram z dwoma sekcjami oddzielonymi strzałką przechodzącą między nimi. Każda sekcja zawiera układ komponentów z rodzicem oznaczonym jako 'App', zawierającym chmurkę ze stanem o etykiecie isFancy. Ten komponent ma jednego potomka oznaczonego jako 'div', który prowadzi do chmurki z właściwością isFancy (podświetloną na fioletowo) przekazywaną do jedynego potomka. Ostatni potomek jest oznaczony jako 'Counter' i zawiera chmurkę ze stanem o etykiecie 'count' i wartości 3 w obu diagramach. W lewej sekcji diagramu nic nie jest podświetlone, a wartość stanu isFancy rodzica wynosi false. W prawej sekcji diagramu wartość stanu isFancy rodzica zmieniła się na true i jest podświetlona na żółto, podobnie jak chmurka właściwości poniżej, której wartość isFancy również zmieniła się na true.">
 
-Updating the `App` state does not reset the `Counter` because `Counter` stays in the same position
+Aktualizacja stanu `App` nie resetuje `Counter`, ponieważ `Counter` pozostaje na tej samej pozycji
 
 </Diagram>
 
 </DiagramGroup>
 
 
-It's the same component at the same position, so from React's perspective, it's the same counter.
+To ten sam komponent na tej samej pozycji, więc z perspektywy Reacta to jest ten sam licznik.
 
 <Pitfall>
 
-Remember that **it's the position in the UI tree--not in the JSX markup--that matters to React!** This component has two `return` clauses with different `<Counter />` JSX tags inside and outside the `if`:
+Pamiętaj, że to pozycja w drzewie UI — a nie w kodzie JSX — ma znaczenie dla Reacta! Ten komponent ma dwa wyrażenia `return` z różnymi tagami `<Counter />` wewnątrz i na zewnątrz instrukcji if:
 
 <Sandpack>
 
@@ -399,7 +399,7 @@ export default function App() {
               setIsFancy(e.target.checked)
             }}
           />
-          Use fancy styling
+          Użyj wyszukanego stylu
         </label>
       </div>
     );
@@ -415,7 +415,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Użyj wyszukanego stylu
       </label>
     </div>
   );
@@ -441,7 +441,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -476,9 +476,9 @@ label {
 
 </Sandpack>
 
-You might expect the state to reset when you tick checkbox, but it doesn't! This is because **both of these `<Counter />` tags are rendered at the same position.** React doesn't know where you place the conditions in your function. All it "sees" is the tree you return.
+Możesz oczekiwać, że stan zostanie zresetowany, gdy zaznaczysz pole wyboru, ale tak się nie stanie! Dzieje się tak, ponieważ **oba tagi `<Counter />` są renderowane na tej samej pozycji.** React nie wie, gdzie umieszczasz warunki w swojej funkcji. Wszystko, co „widzi”, to drzewo, które zwracasz.
 
-In both cases, the `App` component returns a `<div>` with `<Counter />` as a first child. To React, these two counters have the same "address": the first child of the first child of the root. This is how React matches them up between the previous and next renders, regardless of how you structure your logic.
+W obu przypadkach komponent `App` zwraca element `<div>` z komponentem `<Counter />` jako pierwszym potomkiem. Dla Reacta te dwa liczniki mają ten sam „adres”: pierwszy potomek pierwszego potomka głownego komponentu. Oto w jaki sposób React łączy je między poprzednimi a kolejnymi renderowaniami, niezależnie od tego, jaką strukturę ma twoja logika.
 
 </Pitfall>
 
