@@ -318,7 +318,7 @@ export function Footer() {
           <FooterLink href="/learn/installation">Instalacja</FooterLink>
           <FooterLink href="/learn/describing-the-ui">Opisywanie UI</FooterLink>
           <FooterLink href="/learn/adding-interactivity">
-            Adding Interactivity
+            Dodawanie interaktywności
           </FooterLink>
           <FooterLink href="/learn/managing-state">
             Zarządzanie stanem
