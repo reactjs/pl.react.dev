@@ -90,7 +90,7 @@ Oto jak te komponenty wyglądają jako drzewo:
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_tree" height={248} width={395} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Każde z dzieci jest oznaczone jako 'Counter' i oba zawierają bańkę stanu oznaczoną 'count' z wartością 0.">
+<Diagram name="preserving_state_tree" height={248} width={395} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwóch potomków. Każdy z nich jest oznaczony jako 'Counter' i oba zawierają chmurkę stanu oznaczoną 'count' z wartością 0.">
 
 Drzewo Reacta
 
@@ -165,7 +165,7 @@ Jak widać, gdy jeden licznik jest aktualizowany, tylko stan dla tego komponentu
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_increment" height={248} width={441} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Lewa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 1. Bańka stanu prawej gałęzi jest podświetlona na żółto, aby wskazać, że jej wartość została zaktualizowana.">
+<Diagram name="preserving_state_increment" height={248} width={441} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwóch potomków. Lewa gałąź jest oznaczona jako 'Counter' i zawiera chmurkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest oznaczona jako 'Counter' i zawiera chmurkę stanu oznaczoną 'count' z wartością 1. Chmurka stanu prawej gałęzi jest podświetlona na żółto, aby wskazać, że jej wartość została zaktualizowana.">
 
 Aktualizacja stanu
 
@@ -252,7 +252,7 @@ Zauważ, że w momencie, gdy przestajesz renderować drugi licznik, jego stan zn
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_remove_component" height={253} width={422} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Lewa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest nieobecna, a na jej miejscu znajduje się żółty obrazek 'poof', podkreślający usunięcie komponentu z drzewa.">
+<Diagram name="preserving_state_remove_component" height={253} width={422} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwóch potomków. Lewa gałąź jest oznaczona jako 'Counter' i zawiera chmurkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest nieobecna, a na jej miejscu znajduje się żółty obrazek 'puf', podkreślający usunięcie komponentu z drzewa.">
 
 Usuwanie komponentu
 
@@ -264,7 +264,7 @@ Kiedy zaznaczasz pole wyboru "Renderuj drugi licznik", drugi komponent `Counter`
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_add_component" height={258} width={500} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Lewa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Cała prawa gałąź jest podświetlona na żółto, wskazując, że została właśnie dodana do drzewa.">
+<Diagram name="preserving_state_add_component" height={258} width={500} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwóch potomków. Lewa gałąź jest oznaczona jako 'Counter' i zawiera chmurkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest oznaczona jako 'Counter' i zawiera chmurkę stanu oznaczoną 'count' z wartością 0. Cała prawa gałąź jest podświetlona na żółto, wskazując, że została właśnie dodana do drzewa.">
 
 Dodawanie komponentu
 
