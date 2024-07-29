@@ -16,13 +16,13 @@ Stan jest izolowany między komponentami. React śledzi, który stan należy do 
 
 </YouWillLearn>
 
-## State is tied to a position in the render tree {/*state-is-tied-to-a-position-in-the-tree*/}
+## Stan jest powiązany z pozycją w drzewie renderowania {/*state-is-tied-to-a-position-in-the-tree*/}
 
-React builds [render trees](learn/understanding-your-ui-as-a-tree#the-render-tree) for the component structure in your UI.
+React buduje [drzewa renderowania](learn/understanding-your-ui-as-a-tree#the-render-tree) dla struktury komponentów w twoim interfejsie użytkownika.
 
-When you give a component state, you might think the state "lives" inside the component. But the state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the render tree.
+Kiedy dodajesz stan do komponentu, możesz myśleć, że stan "żyje" wewnątrz komponentu. Jednak w rzeczywistości jest on przechowywany wewnątrz Reacta. Kojarzy on każdą część stanu, którą przechowuje, z odpowiednim komponentem na podstawie jego miejsca w drzewie renderowania.
 
-Here, there is only one `<Counter />` JSX tag, but it's rendered at two different positions:
+W poniższym przykładzie, jest tylko jeden tag `<Counter />` w składni JSX, ale jest renderowany na dwóch różnych pozycjach:
 
 <Sandpack>
 
@@ -56,7 +56,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -86,23 +86,23 @@ label {
 
 </Sandpack>
 
-Here's how these look as a tree:    
+Oto jak te komponenty wyglądają jako drzewo:
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_tree" height={248} width={395} alt="Diagram of a tree of React components. The root node is labeled 'div' and has two children. Each of the children are labeled 'Counter' and both contain a state bubble labeled 'count' with value 0.">
+<Diagram name="preserving_state_tree" height={248} width={395} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Każde z dzieci jest oznaczone jako 'Counter' i oba zawierają bańkę stanu oznaczoną 'count' z wartością 0.">
 
-React tree
+Drzewo Reacta
 
 </Diagram>
 
 </DiagramGroup>
 
-**These are two separate counters because each is rendered at its own position in the tree.** You don't usually have to think about these positions to use React, but it can be useful to understand how it works.
+**To są dwa oddzielne liczniki, ponieważ każdy jest renderowany na swojej własnej pozycji w drzewie.** Zazwyczaj nie musisz myśleć o tych pozycjach, aby korzystać z Reacta, ale zrozumienie, jak to działa, może być przydatne.
 
-In React, each component on the screen has fully isolated state. For example, if you render two `Counter` components side by side, each of them will get its own, independent, `score` and `hover` states.
+W Reakcie, każdy komponent na ekranie ma całkowicie izolowany stan. Na przykład, jeśli renderujesz dwa komponenty `Counter` obok siebie, każdy z nich będzie miał swoje własne, niezależne stany `score` i `hover`.
 
-Try clicking both counters and notice they don't affect each other:
+Spróbuj klikać oba liczniki i zauważ, że nie wpływają one na siebie nawzajem:
 
 <Sandpack>
 
@@ -135,7 +135,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -160,21 +160,21 @@ function Counter() {
 
 </Sandpack>
 
-As you can see, when one counter is updated, only the state for that component is updated:
+Jak widać, gdy jeden licznik jest aktualizowany, tylko stan dla tego komponentu jest aktualizowany:
 
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_increment" height={248} width={441} alt="Diagram of a tree of React components. The root node is labeled 'div' and has two children. The left child is labeled 'Counter' and contains a state bubble labeled 'count' with value 0. The right child is labeled 'Counter' and contains a state bubble labeled 'count' with value 1. The state bubble of the right child is highlighted in yellow to indicate its value has updated.">
+<Diagram name="preserving_state_increment" height={248} width={441} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Lewa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 1. Bańka stanu prawej gałęzi jest podświetlona na żółto, aby wskazać, że jej wartość została zaktualizowana.">
 
-Updating state
+Aktualizacja stanu
 
 </Diagram>
 
 </DiagramGroup>
 
 
-React will keep the state around for as long as you render the same component at the same position in the tree. To see this, increment both counters, then remove the second component by unchecking "Render the second counter" checkbox, and then add it back by ticking it again:
+React będzie przechowywać stan tak długo, jak długo renderujesz ten sam komponent na tej samej pozycji w drzewie. Aby to zaobserwować, zwiększ oba liczniki, a następnie usuń drugi komponent, odznaczając pole wyboru "Renderuj drugi licznik", a potem dodaj go z powrotem, zaznaczając je ponownie:
 
 <Sandpack>
 
@@ -195,7 +195,7 @@ export default function App() {
             setShowB(e.target.checked)
           }}
         />
-        Render the second counter
+        Renderuj drugi licznik
       </label>
     </div>
   );
@@ -218,7 +218,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -248,31 +248,31 @@ label {
 
 </Sandpack>
 
-Notice how the moment you stop rendering the second counter, its state disappears completely. That's because when React removes a component, it destroys its state.
+Zauważ, że w momencie, gdy przestajesz renderować drugi licznik, jego stan znika całkowicie. Dzieje się tak, ponieważ kiedy React usuwa komponent, niszczy też jego stan.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_remove_component" height={253} width={422} alt="Diagram of a tree of React components. The root node is labeled 'div' and has two children. The left child is labeled 'Counter' and contains a state bubble labeled 'count' with value 0. The right child is missing, and in its place is a yellow 'poof' image, highlighting the component being deleted from the tree.">
+<Diagram name="preserving_state_remove_component" height={253} width={422} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Lewa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest nieobecna, a na jej miejscu znajduje się żółty obrazek 'poof', podkreślający usunięcie komponentu z drzewa.">
 
-Deleting a component
+Usuwanie komponentu
 
 </Diagram>
 
 </DiagramGroup>
 
-When you tick "Render the second counter", a second `Counter` and its state are initialized from scratch (`score = 0`) and added to the DOM.
+Kiedy zaznaczasz pole wyboru "Renderuj drugi licznik", drugi komponent `Counter` i jego stan są inicjalizowane od nowa (`score = 0`) i dodawane do drzewa DOM.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_add_component" height={258} width={500} alt="Diagram of a tree of React components. The root node is labeled 'div' and has two children. The left child is labeled 'Counter' and contains a state bubble labeled 'count' with value 0. The right child is labeled 'Counter' and contains a state bubble labeled 'count' with value 0. The entire right child node is highlighted in yellow, indicating that it was just added to the tree.">
+<Diagram name="preserving_state_add_component" height={258} width={500} alt="Diagram drzewa komponentów Reacta. Węzeł główny jest oznaczony jako 'div' i ma dwoje dzieci. Lewa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Prawa gałąź jest oznaczona jako 'Counter' i zawiera bańkę stanu oznaczoną 'count' z wartością 0. Cała prawa gałąź jest podświetlona na żółto, wskazując, że została właśnie dodana do drzewa.">
 
-Adding a component
+Dodawanie komponentu
 
 </Diagram>
 
 </DiagramGroup>
 
-**React preserves a component's state for as long as it's being rendered at its position in the UI tree.** If it gets removed, or a different component gets rendered at the same position, React discards its state.
+**React zachowuje stan komponentu tak długo, jak jest on renderowany na swojej pozycji w drzewie UI.** Jeśli zostanie on usunięty lub na jego miejsce zostanie wyrenderowany inny komponent, React odrzuci jego stan.
 
 ## Same component at the same position preserves state {/*same-component-at-the-same-position-preserves-state*/}
 
