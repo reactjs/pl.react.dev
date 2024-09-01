@@ -1,30 +1,30 @@
 ---
-title: Adding Interactivity
+title: Dodawanie interaktywności
 ---
 
 <Intro>
 
-Some things on the screen update in response to user input. For example, clicking an image gallery switches the active image. In React, data that changes over time is called *state.* You can add state to any component, and update it as needed. In this chapter, you'll learn how to write components that handle interactions, update their state, and display different output over time.
+Niektóre elementy na ekranie aktualizują się w odpowiedzi na interakcje użytkownika. Na przykład kliknięcie w galerię obrazów zmienia aktywny obraz. W Reakcie dane, które zmieniają się w czasie, nazywane są *stanem* (ang. _state_).  Możesz dodać stan do każdego komponentu i aktualizować go w razie potrzeby. W tym rozdziale nauczysz się, jak pisać komponenty obsługujące interakcje, aktualizujące swój stan i wyświetlające różne wyniki w czasie.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to handle user-initiated events](/learn/responding-to-events)
-* [How to make components "remember" information with state](/learn/state-a-components-memory)
-* [How React updates the UI in two phases](/learn/render-and-commit)
-* [Why state doesn't update right after you change it](/learn/state-as-a-snapshot)
-* [How to queue multiple state updates](/learn/queueing-a-series-of-state-updates)
-* [How to update an object in state](/learn/updating-objects-in-state)
-* [How to update an array in state](/learn/updating-arrays-in-state)
+* [Jak obsługiwać zdarzenia inicjowane przez użytkownika](/learn/responding-to-events)
+* [Jak sprawić, aby komponenty "pamiętały" informacje za pomocą stanu](/learn/state-a-components-memory)
+* [Jak React aktualizuje interfejs użytkownika w dwóch fazach](/learn/render-and-commit)
+* [Dlaczego stan nie aktualizuje się od razu po jego zmianie](/learn/state-as-a-snapshot)
+* [Jak kolejkować wiele aktualizacji stanu](/learn/queueing-a-series-of-state-updates)
+* [Jak zaktualizować obiekt w stanie](/learn/updating-objects-in-state)
+* [Jak zaktualizować tablicę w stanie](/learn/updating-arrays-in-state)
 
 </YouWillLearn>
 
-## Responding to events {/*responding-to-events*/}
+## Reagowanie na zdarzenia {/*responding-to-events*/}
 
-React lets you add *event handlers* to your JSX. Event handlers are your own functions that will be triggered in response to user interactions like clicking, hovering, focusing on form inputs, and so on.
+React pozwala na dodawanie *procedur obsługi zdarzeń* (ang. _event handlers_) do twojej składni JSX. Procedury obsługi zdarzeń to twoje własne funkcje, które zostaną wywołane w odpowiedzi na interakcje użytkownika, takie jak kliknięcia, najechanie kursorem, skupienie na elementach formularza i inne.
 
-Built-in components like `<button>` only support built-in browser events like `onClick`. However, you can also create your own components, and give their event handler props any application-specific names that you like.
+Wbudowane komponenty, takie jak `<button>`, obsługują jedynie wbudowane zdarzenia przeglądarki, takie jak `onClick`. Jednakże możesz też tworzyć własne komponenty i nadawać ich właściwościom obsługującym zdarzenia dowolne nazwy specyficzne dla twojej aplikacji.
 
 <Sandpack>
 
@@ -32,8 +32,8 @@ Built-in components like `<button>` only support built-in browser events like `o
 export default function App() {
   return (
     <Toolbar
-      onPlayMovie={() => alert('Playing!')}
-      onUploadImage={() => alert('Uploading!')}
+      onPlayMovie={() => alert('Odtwarzanie!')}
+      onUploadImage={() => alert('Wgrywanie!')}
     />
   );
 }
@@ -42,10 +42,10 @@ function Toolbar({ onPlayMovie, onUploadImage }) {
   return (
     <div>
       <Button onClick={onPlayMovie}>
-        Play Movie
+        Odtwórz film
       </Button>
       <Button onClick={onUploadImage}>
-        Upload Image
+        Wgraj obraz
       </Button>
     </div>
   );
@@ -68,22 +68,22 @@ button { margin-right: 10px; }
 
 <LearnMore path="/learn/responding-to-events">
 
-Read **[Responding to Events](/learn/responding-to-events)** to learn how to add event handlers.
+Przeczytaj rozdział **[Reagowanie na zdarzenia](/learn/responding-to-events)**, aby dowiedzieć się, jak dodawać procedury obsługi zdarzeń.
 
 </LearnMore>
 
-## Stan - Pamięć komponentu {/*state-a-components-memory*/}
+## Stan - pamięć komponentu {/*state-a-components-memory*/}
 
-Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" puts a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called *state.*
+Komponenty często muszą zmieniać to, co jest wyświetlane na ekranie w wyniku interakcji. Wpisywanie w formularzu powinno aktualizować jego pole, kliknięcie "następny" w kolejce obrazów powinno zmieniać wyświetlany obraz, kliknięcie "kup" powinno umieścić produkt w koszyku. Komponenty muszą "pamiętać" różne rzeczy: bieżącą wartość pola, bieżący obraz, zawartość koszyka. W Reakcie tego rodzaju pamięć specyficzna dla komponentu nazywana jest *stanem*.
 
-You can add state to a component with a [`useState`](/reference/react/useState) Hook. *Hooks* are special functions that let your components use React features (state is one of those features). The `useState` Hook lets you declare a state variable. It takes the initial state and returns a pair of values: the current state, and a state setter function that lets you update it.
+Możesz dodać stan do komponentu za pomocą hooka [`useState`](/reference/react/useState). *Hooki* to specjalne funkcje, które pozwalają twoim komponentom korzystać z funkcjonalności Reacta (stan jest jedną z tych funkcjonalności). Hook `useState` pozwala zadeklarować zmienną stanu. Przyjmuje on stan początkowy i zwraca parę wartości: bieżący stan oraz funkcję ustawiającą stan, która pozwala na jego aktualizację.
 
 ```js
 const [index, setIndex] = useState(0);
 const [showMore, setShowMore] = useState(false);
 ```
 
-Here is how an image gallery uses and updates state on click:
+Oto jak galeria obrazów wykorzystuje i aktualizuje stan po kliknięciu:
 
 <Sandpack>
 
@@ -112,17 +112,17 @@ export default function Gallery() {
   return (
     <>
       <button onClick={handleNextClick}>
-        Next
+        Następny
       </button>
       <h2>
         <i>{sculpture.name} </i>
-        by {sculpture.artist}
+        autorstwa {sculpture.artist}
       </h2>
       <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
       <button onClick={handleMoreClick}>
-        {showMore ? 'Hide' : 'Show'} details
+        {showMore ? 'Ukryj' : 'Pokaż'} detale
       </button>
       {showMore && <p>{sculpture.description}</p>}
       <img
@@ -138,75 +138,75 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Although Colvin is predominantly known for abstract themes that allude to pre-Hispanic symbols, this gigantic sculpture, an homage to neurosurgery, is one of her most recognizable public art pieces.',
+  description: 'Chociaż Colvin jest głównie znana z abstrakcyjnych tematów nawiązujących do symboli prekolumbijskich, ta gigantyczna rzeźba, hołd dla neurochirurgii, jest jednym z jej najbardziej rozpoznawalnych dzieł sztuki publicznej.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'A bronze statue of two crossed hands delicately holding a human brain in their fingertips.'
+  alt: 'Brązowy posąg dwóch skrzyżowanych rąk delikatnie trzymających ludzki mózg w opuszkach palców.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'This enormous (75 ft. or 23m) silver flower is located in Buenos Aires. It is designed to move, closing its petals in the evening or when strong winds blow and opening them in the morning.',
+  description: 'Ten ogromny (75 stóp lub 23 m) srebrny kwiat znajduje się w Buenos Aires. Jest zaprojektowany w taki sposób, aby się poruszać, zamykając swoje płatki wieczorem lub podczas silnych wiatrów, a otwierając je rano.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
-  alt: 'A gigantic metallic flower sculpture with reflective mirror-like petals and strong stamens.'
+  alt: 'Gigantyczna metalowa rzeźba kwiatu z refleksyjnymi płatkami przypominającymi lustro i mocnymi pręcikami.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson was known for his preoccupation with equality, social justice, as well as the essential and spiritual qualities of humankind. This massive (7ft. or 2,13m) bronze represents what he described as "a symbolic Black presence infused with a sense of universal humanity."',
+  description: 'Wilson był znany ze swojego zainteresowania równością, sprawiedliwością społeczną, a także istotnymi i duchownymi cechami ludzkości. Ta ogromna (7 stóp lub 2,13 m) rzeźba z brązu przedstawia to, co opisał jako "symboliczną czarną obecność nasyconą poczuciem uniwersalnej ludzkości".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
-  alt: 'The sculpture depicting a human head seems ever-present and solemn. It radiates calm and serenity.'
+  alt: 'Rzeźba przedstawiająca ludzką głowę wydaje się być zawsze obecna i poważna. Promieniuje spokojem i harmonią.'
 }, {
   name: 'Moai',
-  artist: 'Unknown Artist',
-  description: 'Located on the Easter Island, there are 1,000 moai, or extant monumental statues, created by the early Rapa Nui people, which some believe represented deified ancestors.',
+  artist: 'nieznanego',
+  description: 'Na Wyspie Wielkanocnej znajduje się 1000 moai, czyli monumentalnych posągów stworzonych przez wczesnych ludzi Rapa Nui, które niektórzy uważają za przedstawienia deifikowanych przodków.',
   url: 'https://i.imgur.com/RCwLEoQm.jpg',
-  alt: 'Three monumental stone busts with the heads that are disproportionately large with somber faces.'
+  alt: 'Trzy monumentalne kamienne popiersia z głowami, które są nieproporcjonalnie duże, o smutnych twarzach.'
 }, {
   name: 'Blue Nana',
   artist: 'Niki de Saint Phalle',
-  description: 'The Nanas are triumphant creatures, symbols of femininity and maternity. Initially, Saint Phalle used fabric and found objects for the Nanas, and later on introduced polyester to achieve a more vibrant effect.',
+  description: 'Nany to tryumfujące stworzenia, symbole kobiecości i macierzyństwa. Początkowo, Saint Phalle używała tkanin i znalezionych przedmiotów do tworzenia Nan, a później wprowadziła poliester, aby uzyskać bardziej żywy efekt.',
   url: 'https://i.imgur.com/Sd1AgUOm.jpg',
-  alt: 'A large mosaic sculpture of a whimsical dancing female figure in a colorful costume emanating joy.'
+  alt: 'Duża mozaikowa rzeźba cudacznej, tańczącej kobiecej figury w kolorowym kostiumie, emanująca radością.'
 }, {
   name: 'Ultimate Form',
   artist: 'Barbara Hepworth',
-  description: 'This abstract bronze sculpture is a part of The Family of Man series located at Yorkshire Sculpture Park. Hepworth chose not to create literal representations of the world but developed abstract forms inspired by people and landscapes.',
+  description: 'Ta abstrakcyjna rzeźba z brązu jest częścią serii "The Family of Man" znajdującej się w Yorkshire Sculpture Park. Hepworth zdecydowała się nie tworzyć dosłownych reprezentacji świata, lecz opracowała abstrakcyjne formy inspirowane ludźmi i krajobrazami.',
   url: 'https://i.imgur.com/2heNQDcm.jpg',
-  alt: 'A tall sculpture made of three elements stacked on each other reminding of a human figure.'
+  alt: 'Wysoka rzeźba składająca się z trzech elementów ułożonych jeden na drugim, przypominająca ludzką postać.'
 }, {
   name: 'Cavaliere',
   artist: 'Lamidi Olonade Fakeye',
-  description: "Descended from four generations of woodcarvers, Fakeye's work blended traditional and contemporary Yoruba themes.",
+  description: 'Pochodzący z rodziny czterech pokoleń rzeźbiarzy w drewnie, prace Fakeye’a łączyły tradycyjne i współczesne motywy yoruba.',
   url: 'https://i.imgur.com/wIdGuZwm.png',
-  alt: 'An intricate wood sculpture of a warrior with a focused face on a horse adorned with patterns.'
+  alt: 'Skrupulatna rzeźba w drewnie przedstawiająca wojownika z skoncentrowaną twarzą na koniu ozdobionym wzorami.'
 }, {
   name: 'Big Bellies',
   artist: 'Alina Szapocznikow',
-  description: "Szapocznikow is known for her sculptures of the fragmented body as a metaphor for the fragility and impermanence of youth and beauty. This sculpture depicts two very realistic large bellies stacked on top of each other, each around five feet (1,5m) tall.",
+  description: 'Szapocznikow jest znana ze swoich rzeźb przedstawiających fragmenty ciała jako metaforę kruchości i nietrwałości młodości oraz piękna. Ta rzeźba przedstawia dwa bardzo realistyczne, duże brzuchy ułożone jeden na drugim, każdy o wysokości około pięciu stóp (1,5 m).',
   url: 'https://i.imgur.com/AlHTAdDm.jpg',
-  alt: 'The sculpture reminds a cascade of folds, quite different from bellies in classical sculptures.'
+  alt: 'Rzeźba przypomina kaskadę fałd, znacznie różniącą się od brzuchów w klasycznych rzeźbach.'
 }, {
-  name: 'Terracotta Army',
-  artist: 'Unknown Artist',
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
+  name: 'Terakotowa Armia',
+  artist: 'nieznanego',
+  description: 'Terakotowa Armia to zbiór rzeźb z terakoty przedstawiających armię Qin Shi Huanga, pierwszego cesarza Chin. Armia składała się z ponad 8 000 żołnierzy, 130 wozów z 520 końmi oraz 150 koni kawaleryjskich.',
   url: 'https://i.imgur.com/HMFmH6m.jpg',
-  alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
+  alt: '12 rzeźb z terakoty przedstawiających poważnych wojowników, każdy z unikalnym wyrazem twarzy i zbroją.'
 }, {
   name: 'Lunar Landscape',
   artist: 'Louise Nevelson',
-  description: 'Nevelson was known for scavenging objects from New York City debris, which she would later assemble into monumental constructions. In this one, she used disparate parts like a bedpost, juggling pin, and seat fragment, nailing and gluing them into boxes that reflect the influence of Cubism’s geometric abstraction of space and form.',
+  description: 'Nevelson była znana z pozyskiwania przedmiotów z odpadów Nowego Jorku, które później łączyła w monumentalne konstrukcje. W tej pracy wykorzystała różne części, takie jak noga łóżka, kij do żonglowania i fragment siedzenia, przybijając i klejąc je do pudełek, które odzwierciedlają wpływ geometrycznej abstrakcji kubizmu.',
   url: 'https://i.imgur.com/rN7hY6om.jpg',
-  alt: 'A black matte sculpture where the individual elements are initially indistinguishable.'
+  alt: 'Czarna matowa rzeźba, gdzie poszczególne elementy są początkowo nie do rozróżnienia.'
 }, {
-  name: 'Aureole',
+  name: 'Aureola',
   artist: 'Ranjani Shettar',
-  description: 'Shettar merges the traditional and the modern, the natural and the industrial. Her art focuses on the relationship between man and nature. Her work was described as compelling both abstractly and figuratively, gravity defying, and a "fine synthesis of unlikely materials."',
+  description: 'Shettar łączy tradycję z nowoczesnością, naturę z przemysłem. Jej sztuka koncentruje się na relacji między człowiekiem a naturą. Jej prace opisywane są jako porywające zarówno w sensie abstrakcyjnym, jak i figuratywnym, nieważkie i jako „doskonała synteza nieoczywistych materiałów”.',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
-  alt: 'A pale wire-like sculpture mounted on concrete wall and descending on the floor. It appears light.'
+  alt: 'Jasna rzeźba przypominająca drut, zamocowana na betonowej ścianie i opadająca na podłogę. Wydaje się lekka.'
 }, {
   name: 'Hippos',
-  artist: 'Taipei Zoo',
-  description: 'The Taipei Zoo commissioned a Hippo Square featuring submerged hippos at play.',
+  artist: 'Ogród Zoologiczny w Taipei',
+  description: 'Ogród Zoologiczny w Taipei zlecił stworzenie Placu Hipopotamów z zanurzoną w wodzie grupą bawiących się hipopotamów.',
   url: 'https://i.imgur.com/6o5Vuyu.jpg',
-  alt: 'A group of bronze hippo sculptures emerging from the sett sidewalk as if they were swimming.'
+  alt: 'Grupa rzeźb z brązu przedstawiająca hipopotamy wychodzące z chodnika, jakby pływały.'
 }];
 ```
 
@@ -229,43 +229,43 @@ button {
 
 <LearnMore path="/learn/state-a-components-memory">
 
-Read **[Stan - Pamięć komponentu](/learn/state-a-components-memory)** to learn how to remember a value and update it on interaction.
+Przeczytaj rozdział **[Stan - Pamięć komponentu](/learn/state-a-components-memory)**, aby dowiedzieć się, jak zapamiętywać wartość i aktualizować ją podczas interakcji.
 
 </LearnMore>
 
-## Render and commit {/*render-and-commit*/}
+## Renderowanie i aktualizowanie {/*render-and-commit*/}
 
-Before your components are displayed on the screen, they must be rendered by React. Understanding the steps in this process will help you think about how your code executes and explain its behavior.
+Zanim twoje komponenty zostaną wyświetlone na ekranie, muszą zostać wyrenderowane przez Reacta. Zrozumienie kroków w tym procesie pomoże ci zrozumieć, jak wykonuje się twój kod i wyjaśnić jego działanie.
 
-Imagine that your components are cooks in the kitchen, assembling tasty dishes from ingredients. In this scenario, React is the waiter who puts in requests from customers and brings them their orders. This process of requesting and serving UI has three steps:
+Wyobraź sobie, że twoje komponenty to kucharze w kuchni, którzy przygotowują smaczne dania z dostępnych składników. W tej sytuacji React jest kelnerem, który przyjmuje zamówienia od klientów i przynosi im zamówione potrawy. Ten proces zgłaszania i obsługi interfejsu użytkownika składa się z trzech kroków:
 
-1. **Triggering** a render (delivering the diner's order to the kitchen)
-2. **Rendering** the component (preparing the order in the kitchen)
-3. **Committing** to the DOM (placing the order on the table)
+1. **Wywołanie (ang. _triggering_)** renderowania (przekazanie zamówienia od gościa do kuchni)
+2. **Renderowanie (ang. _rendering_)** komponentu (przygotowanie zamówienia w kuchni)
+3. **Aktualizowanie (ang. _committing_)** drzewa DOM (umieszczenie zamówienia na stole)
 
 <IllustrationBlock sequential>
-  <Illustration caption="Trigger" alt="React as a server in a restaurant, fetching orders from the users and delivering them to the Component Kitchen." src="/images/docs/illustrations/i_render-and-commit1.png" />
-  <Illustration caption="Render" alt="The Card Chef gives React a fresh Card component." src="/images/docs/illustrations/i_render-and-commit2.png" />
-  <Illustration caption="Commit" alt="React delivers the Card to the user at their table." src="/images/docs/illustrations/i_render-and-commit3.png" />
+  <Illustration caption="Wywołanie" alt="React jako kelner w restauracji, pobierający zamówienia od użytkowników i dostarczający je do Kuchni Komponentów." src="/images/docs/illustrations/i_render-and-commit1.png" />
+  <Illustration caption="Renderowanie" alt="Kucharz komponentu Card przekazuje Reactowi świeży komponent Card." src="/images/docs/illustrations/i_render-and-commit2.png" />
+  <Illustration caption="Aktualizowanie" alt="React dostarcza komponent Card użytkownikowi do jego stołu." src="/images/docs/illustrations/i_render-and-commit3.png" />
 </IllustrationBlock>
 
 <LearnMore path="/learn/render-and-commit">
 
-Read **[Render and Commit](/learn/render-and-commit)** to learn the lifecycle of a UI update.
+Przeczytaj rozdział **[Renderowanie i aktualizowanie](/learn/render-and-commit)**, aby dowiedzieć się o cyklu życia aktualizacji interfejsu użytkownika.
 
 </LearnMore>
 
-## State as a snapshot {/*state-as-a-snapshot*/}
+## Stan jako migawka {/*state-as-a-snapshot*/}
 
-Unlike regular JavaScript variables, React state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render. This can be surprising at first!
+W przeciwieństwie do zwykłych zmiennych javascriptowych, stan w Reakcie zachowuje się bardziej jak migawka. Ustawienie stanu nie zmienia już istniejącej zmiennej stanu, lecz wywołuje przerenderowanie. Może to być na początki zaskakujące!
 
 ```js
 console.log(count);  // 0
-setCount(count + 1); // Request a re-render with 1
-console.log(count);  // Still 0!
+setCount(count + 1); // Żądanie ponownego renderowania z wartością 1
+console.log(count);  // Nadal 0!
 ```
 
-This behavior help you avoid subtle bugs. Here is a little chat app. Try to guess what happens if you press "Send" first and *then* change the recipient to Bob. Whose name will appear in the `alert` five seconds later?
+To zachowanie pomaga unikać subtelnych błędów. Oto mała aplikacja do czatu. Spróbuj zgadnąć, co się stanie, jeśli najpierw naciśniesz "Wyślij", a *potem* zmienisz odbiorcę na Boba. Czyje imię pojawi się w `alert` pięć sekund później?
 
 <Sandpack>
 
@@ -274,12 +274,12 @@ import { useState } from 'react';
 
 export default function Form() {
   const [to, setTo] = useState('Alice');
-  const [message, setMessage] = useState('Hello');
+  const [message, setMessage] = useState('Cześć');
 
   function handleSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
-      alert(`You said ${message} to ${to}`);
+      alert(`Wysłano wiadomość "${message}" do użytkownika ${to}`);
     }, 5000);
   }
 
@@ -299,7 +299,7 @@ export default function Form() {
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit">Wyślij</button>
     </form>
   );
 }
@@ -314,13 +314,13 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 <LearnMore path="/learn/state-as-a-snapshot">
 
-Read **[State as a Snapshot](/learn/state-as-a-snapshot)** to learn why state appears "fixed" and unchanging inside the event handlers.
+Przeczytaj rozdział **[Stan jako migawka](/learn/state-as-a-snapshot)**, aby dowiedzieć się, dlaczego stan wydaje się być "ustalony" i niezmienny wewnątrz funkcji obsługujących zdarzenia.
 
 </LearnMore>
 
-## Queueing a series of state updates {/*queueing-a-series-of-state-updates*/}
+## Kolejkowanie serii aktualizacji stanu {/*queueing-a-series-of-state-updates*/}
 
-This component is buggy: clicking "+3" increments the score only once.
+Ten komponent zawiera błąd: kliknięcie "+3" zwiększa wynik tylko raz.
 
 <Sandpack>
 
@@ -342,7 +342,7 @@ export default function Counter() {
         increment();
         increment();
       }}>+3</button>
-      <h1>Score: {score}</h1>
+      <h1>Wynik: {score}</h1>
     </>
   )
 }
@@ -354,7 +354,7 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 </Sandpack>
 
-[State as a Snapshot](/learn/state-as-a-snapshot) explains why this is happening. Setting state requests a new re-render, but does not change it in the already running code. So `score` continues to be `0` right after you call `setScore(score + 1)`.
+**[Stan jako migawka](/learn/state-as-a-snapshot)** wyjaśnia, dlaczego tak się dzieje. Ustawienie stanu tworzy żądanie nowego przerenderowania, ale nie zmienia tego stanu w już działającym kodzie. Dlatego `score` nadal wynosi `0` tuż po wywołaniu `setScore(score + 1)`.
 
 ```js
 console.log(score);  // 0
@@ -366,7 +366,7 @@ setScore(score + 1); // setScore(0 + 1);
 console.log(score);  // 0
 ```
 
-You can fix this by passing an *updater function* when setting state. Notice how replacing `setScore(score + 1)` with `setScore(s => s + 1)` fixes the "+3" button. This lets you queue multiple state updates.
+Możesz naprawić to, przekazując *funkcję aktualizującą* (ang. _updater function_) podczas ustawiania stanu. Zauważ, jak zastąpienie `setScore(score + 1)` przez `setScore(s => s + 1)` naprawia przycisk "+3". Dzięki temu możesz kolejkować wiele aktualizacji stanu.
 
 <Sandpack>
 
@@ -388,7 +388,7 @@ export default function Counter() {
         increment();
         increment();
       }}>+3</button>
-      <h1>Score: {score}</h1>
+      <h1>Wynik: {score}</h1>
     </>
   )
 }
@@ -402,15 +402,15 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 <LearnMore path="/learn/queueing-a-series-of-state-updates">
 
-Read **[Queueing a Series of State Updates](/learn/queueing-a-series-of-state-updates)** to learn how to queue a sequence of state updates.
+Przeczytaj rozdział **[Kolejkowanie serii aktualizacji stanu](/learn/queueing-a-series-of-state-updates)**, aby dowiedzieć się, jak kolejkować sekwencję aktualizacji stanu.
 
 </LearnMore>
 
 ## Aktualizowanie obiektów w stanie {/*updating-objects-in-state*/}
 
-State can hold any kind of JavaScript value, including objects. But you shouldn't change objects and arrays that you hold in the React state directly. Instead, when you want to update an object and array, you need to create a new one (or make a copy of an existing one), and then update the state to use that copy.
+Stan może przechowywać dowolne wartości javascriptowe, w tym obiekty. Nie powinno się jednak bezpośrednio zmieniać obiektów i tablic, które przechowuje się w stanie Reacta. Zamiast tego, gdy chcesz zaktualizować obiekt lub tablicę, musisz stworzyć nowy obiekt (lub skopiować istniejący), a następnie zaktualizować stan, aby używał tej kopii.
 
-Usually, you will use the `...` spread syntax to copy objects and arrays that you want to change. For example, updating a nested object could look like this:
+Zazwyczaj używa się składni rozproszenia (ang. _spread syntax_) `...`, aby skopiować obiekty i tablice, które chcesz zmienić. Na przykład, aktualizacja zagnieżdżonego obiektu może wyglądać tak:
 
 <Sandpack>
 
@@ -467,28 +467,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Imię:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Tytuł:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Miasto:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Obraz:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -496,10 +496,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' autorstawa '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (położone w mieście {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -518,7 +518,7 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-If copying objects in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code:
+Jeśli kopiowanie obiektów w kodzie staje się uciążliwe, możesz użyć biblioteki takiej jak [Immer](https://github.com/immerjs/use-immer), aby zmniejszyć ilość powtarzającego się kodu:
 
 <Sandpack>
 
@@ -562,28 +562,28 @@ export default function Form() {
   return (
     <>
       <label>
-        Name:
+        Imię:
         <input
           value={person.name}
           onChange={handleNameChange}
         />
       </label>
       <label>
-        Title:
+        Tytuł:
         <input
           value={person.artwork.title}
           onChange={handleTitleChange}
         />
       </label>
       <label>
-        City:
+        Miasto:
         <input
           value={person.artwork.city}
           onChange={handleCityChange}
         />
       </label>
       <label>
-        Image:
+        Obraz:
         <input
           value={person.artwork.image}
           onChange={handleImageChange}
@@ -591,10 +591,10 @@ export default function Form() {
       </label>
       <p>
         <i>{person.artwork.title}</i>
-        {' by '}
+        {' autorstwa '}
         {person.name}
         <br />
-        (located in {person.artwork.city})
+        (położone w mieście {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -633,13 +633,13 @@ img { width: 200px; height: 200px; }
 
 <LearnMore path="/learn/updating-objects-in-state">
 
-Read **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state)** to learn how to update objects correctly.
+Przeczytaj rozdział **[Aktualizowanie obiektów w stanie](/learn/updating-objects-in-state)**, aby dowiedzieć się, jak poprawnie aktualizować obiekty.
 
 </LearnMore>
 
 ## Aktualizowanie tablic w stanie {/*updating-arrays-in-state*/}
 
-Arrays are another type of mutable JavaScript objects you can store in state and should treat as read-only. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array:
+Tablice są kolejnym rodzajem zmiennych obiektów javascriptowych, które można przechowywać w stanie i należy je traktować jako tylko do odczytu. Podobnie jak w przypadku obiektów, gdy chcesz zaktualizować tablicę przechowywaną w stanie, musisz stworzyć nową tablicę (lub skopiować istniejącą), a następnie ustawić stan, aby używał nowej tablicy:
 
 <Sandpack>
 
@@ -647,9 +647,9 @@ Arrays are another type of mutable JavaScript objects you can store in state and
 import { useState } from 'react';
 
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Wielkie brzuchy', seen: false },
+  { id: 1, title: 'Księżycowy krajobraz', seen: false },
+  { id: 2, title: 'Terakotowa armia', seen: true },
 ];
 
 export default function BucketList() {
@@ -669,8 +669,8 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista dzieł sztuki</h1>
+      <h2>Moja lista dzieł sztuki do zobaczenia:</h2>
       <ItemList
         artworks={list}
         onToggle={handleToggle} />
@@ -705,7 +705,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-If copying arrays in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code:
+Jeśli kopiowanie tablic w kodzie staje się uciążliwe, możesz użyć biblioteki takiej jak [Immer](https://github.com/immerjs/use-immer), aby zmniejszyć ilość powtarzającego się kodu:
 
 <Sandpack>
 
@@ -714,9 +714,9 @@ import { useState } from 'react';
 import { useImmer } from 'use-immer';
 
 const initialList = [
-  { id: 0, title: 'Big Bellies', seen: false },
-  { id: 1, title: 'Lunar Landscape', seen: false },
-  { id: 2, title: 'Terracotta Army', seen: true },
+  { id: 0, title: 'Wielkie brzuchy', seen: false },
+  { id: 1, title: 'Księżycowy krajobraz', seen: false },
+  { id: 2, title: 'Terakotowa armia', seen: true },
 ];
 
 export default function BucketList() {
@@ -733,8 +733,8 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Art Bucket List</h1>
-      <h2>My list of art to see:</h2>
+      <h1>Lista dzieł sztuki</h1>
+      <h2>Moja lista dzieł sztuki do zobaczenia:</h2>
       <ItemList
         artworks={list}
         onToggle={handleToggle} />
@@ -789,12 +789,12 @@ function ItemList({ artworks, onToggle }) {
 
 <LearnMore path="/learn/updating-arrays-in-state">
 
-Read **[Aktualizowanie tablic w stanie](/learn/updating-arrays-in-state)** to learn how to update arrays correctly.
+Przeczytaj rozdział **[Aktualizowanie tablic w stanie](/learn/updating-arrays-in-state)**, aby dowiedzieć się, jak poprawnie aktualizować tablice.
 
 </LearnMore>
 
-## What's next? {/*whats-next*/}
+## Co dalej? {/*whats-next*/}
 
-Head over to [Responding to Events](/learn/responding-to-events) to start reading this chapter page by page!
+Przejdź do rozdziału [Reagowanie na zdarzenia](/learn/responding-to-events), aby zacząć zgłębiać ten temat strona po stronie!
 
-Or, if you're already familiar with these topics, why not read about [Managing State](/learn/managing-state)?
+Ewentualnie, jeśli już znasz te tematy, dlaczego nie przeczytać rozdziału [Zarządzanie stanem](/learn/managing-state)?
