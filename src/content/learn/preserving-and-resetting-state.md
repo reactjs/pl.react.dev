@@ -478,13 +478,13 @@ label {
 
 Możesz oczekiwać, że stan zostanie zresetowany, gdy zaznaczysz pole wyboru, ale tak się nie stanie! Dzieje się tak, ponieważ **oba tagi `<Counter />` są renderowane na tej samej pozycji.** React nie wie, gdzie umieszczasz warunki w swojej funkcji. Wszystko, co „widzi”, to drzewo, które zwracasz.
 
-W obu przypadkach komponent `App` zwraca element `<div>` z komponentem `<Counter />` jako pierwszym potomkiem. Dla Reacta te dwa liczniki mają ten sam „adres”: pierwszy potomek pierwszego potomka głownego komponentu. Oto w jaki sposób React łączy je między poprzednimi a kolejnymi renderowaniami, niezależnie od tego, jaką strukturę ma twoja logika.
+W obu przypadkach komponent `App` zwraca element `<div>` z komponentem `<Counter />` jako pierwszym potomkiem. Dla Reacta te dwa liczniki mają ten sam „adres”: pierwszy potomek pierwszego potomka głównego węzła. W taki sposób React łączy je między poprzednimi a kolejnymi renderowaniami, niezależnie od tego, jaką strukturę ma twoja logika.
 
 </Pitfall>
 
-## Different components at the same position reset state {/*different-components-at-the-same-position-reset-state*/}
+## Różne komponenty na tej samej pozycji resetują stan {/*different-components-at-the-same-position-reset-state*/}
 
-In this example, ticking the checkbox will replace `<Counter>` with a `<p>`:
+W tym przykładzie zaznaczenie pola wyboru zastąpi komponent `<Counter>` elementem `<p>`:
 
 <Sandpack>
 
@@ -496,7 +496,7 @@ export default function App() {
   return (
     <div>
       {isPaused ? (
-        <p>See you later!</p> 
+        <p>Do zobaczenia później!</p> 
       ) : (
         <Counter /> 
       )}
@@ -508,7 +508,7 @@ export default function App() {
             setIsPaused(e.target.checked)
           }}
         />
-        Take a break
+        Zrób przerwę
       </label>
     </div>
   );
@@ -531,7 +531,7 @@ function Counter() {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -561,13 +561,13 @@ label {
 
 </Sandpack>
 
-Here, you switch between _different_ component types at the same position. Initially, the first child of the `<div>` contained a `Counter`. But when you swapped in a `p`, React removed the `Counter` from the UI tree and destroyed its state.
+Tutaj przełączasz się między _różnymi_ typami komponentów na tej samej pozycji. Początkowo, pierwszy potomek `<div>` zawierał komponent `Counter`. Jednak kiedy zamieniono go na `p`, React usunął komponent `Counter` z drzewa UI i zniszczył jego stan.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_pt1" height={290} width={753} alt="Diagram with three sections, with an arrow transitioning each section in between. The first section contains a React component labeled 'div' with a single child labeled 'Counter' containing a state bubble labeled 'count' with value 3. The middle section has the same 'div' parent, but the child component has now been deleted, indicated by a yellow 'proof' image. The third section has the same 'div' parent again, now with a new child labeled 'p', highlighted in yellow.">
+<Diagram name="preserving_state_diff_pt1" height={290} width={753} alt="Diagram z trzema sekcjami, z przejściami między sekcjami za pomocą strzałki. Pierwsza sekcja zawiera komponent Reacta o nazwie 'div' z jednym potomkiem oznaczonym jako 'Counter', który zawiera chmurkę stanu oznaczoną jako 'count' z wartością 3. Środkowa sekcja ma ten sam komponent nadrzędny 'div', ale komponent potomny został teraz usunięty, co zostało zaznaczone żółtym obrazkiem 'puf'. Trzecia sekcja ma znowu ten sam komponent nadrzędny 'div', teraz z nowym potomkiem oznaczonym jako 'p', wyróżnionym na żółto.">
 
-When `Counter` changes to `p`, the `Counter` is deleted and the `p` is added
+Gdy komponent `Counter` zmienia się na element `p`, `Counter` zostaje usunięty, a `p` zostaje dodany.
 
 </Diagram>
 
@@ -575,15 +575,15 @@ When `Counter` changes to `p`, the `Counter` is deleted and the `p` is added
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_pt2" height={290} width={753} alt="Diagram with three sections, with an arrow transitioning each section in between. The first section contains a React component labeled 'p'. The middle section has the same 'div' parent, but the child component has now been deleted, indicated by a yellow 'proof' image. The third section has the same 'div' parent again, now with a new child labeled 'Counter' containing a state bubble labeled 'count' with value 0, highlighted in yellow.">
+<Diagram name="preserving_state_diff_pt2" height={290} width={753} alt="Diagram z trzema sekcjami, z strzałkami przechodzącymi między sekcjami. Pierwsza sekcja zawiera komponent React o nazwie `p`. Środkowa sekcja ma ten sam komponent `div`, ale komponent dziecka został teraz usunięty, co jest wskazane przez żółty obrazek z napisem 'puf'. Trzecia sekcja znowu zawiera ten sam komponent `div`, ale teraz z nowym potomkiem oznaczonym jako `Counter`, które zawiera chmurkę stanu o nazwie `count` z wartością 0, wyróżniony na żółto.">
 
-When switching back, the `p` is deleted and the `Counter` is added
+Kiedy przełączasz z powrotem, `p` jest usuwany, a `Counter` jest dodawany
 
 </Diagram>
 
 </DiagramGroup>
 
-Also, **when you render a different component in the same position, it resets the state of its entire subtree.** To see how this works, increment the counter and then tick the checkbox:
+Również **renderowanie innego komponentu na tej samej pozycji, resetuje stan całego jego poddrzewa.** Aby zobaczyć, jak to działa, zwiększ licznik, a następnie zaznacz pole wyboru:
 
 <Sandpack>
 
@@ -611,7 +611,7 @@ export default function App() {
             setIsFancy(e.target.checked)
           }}
         />
-        Use fancy styling
+        Użyj wyszukanego stylu
       </label>
     </div>
   );
@@ -637,7 +637,7 @@ function Counter({ isFancy }) {
     >
       <h1>{score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -672,13 +672,13 @@ label {
 
 </Sandpack>
 
-The counter state gets reset when you click the checkbox. Although you render a `Counter`, the first child of the `div` changes from a `div` to a `section`. When the child `div` was removed from the DOM, the whole tree below it (including the `Counter` and its state) was destroyed as well.
+Stan licznika zostaje zresetowany, gdy klikniesz pole wyboru. Chociaż renderujesz komponent `Counter`, pierwszy potomek elementu `div` zmienia się z `div` na `section`. Kiedy potomek `div` został usunięty z drzewa DOM, całe drzewo poniżej niego (w tym komponent `Counter` i jego stan) zostało również zniszczone.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagram with three sections, with an arrow transitioning each section in between. The first section contains a React component labeled 'div' with a single child labeled 'section', which has a single child labeled 'Counter' containing a state bubble labeled 'count' with value 3. The middle section has the same 'div' parent, but the child components have now been deleted, indicated by a yellow 'proof' image. The third section has the same 'div' parent again, now with a new child labeled 'div', highlighted in yellow, also with a new child labeled 'Counter' containing a state bubble labeled 'count' with value 0, all highlighted in yellow.">
+<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagram z trzema sekcjami, pomiędzy którymi znajduje się strzałka wskazująca przejście. Pierwsza sekcja zawiera komponent reactowy o nazwie 'div' z jednym potomkiem o nazwie 'section', który ma jednego potomka o nazwie 'Counter' z chmurką stanu oznaczoną jako 'count' z wartością 3. Środkowa sekcja ma tego samego rodzica 'div', ale komponenty potomne zostały usunięte, co wskazuje żółty obrazek 'puf'. Trzecia sekcja ponownie ma tego samego rodzica 'div', teraz z nowym potomkiem o nazwie 'div', podświetlonym na żółto, również z nowym potomkiem o nazwie 'Counter' z chmurką stanu oznaczoną jako 'count' z wartością 0, wszystko podświetlone na żółto.">
 
-When `section` changes to `div`, the `section` is deleted and the new `div` is added
+Gdy element `section` zmienia się na `div`, `section` zostaje usunięty, a nowy `div` zostaje dodany.
 
 </Diagram>
 
@@ -686,21 +686,21 @@ When `section` changes to `div`, the `section` is deleted and the new `div` is a
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_same_pt2" height={350} width={794} alt="Diagram with three sections, with an arrow transitioning each section in between. The first section contains a React component labeled 'div' with a single child labeled 'div', which has a single child labeled 'Counter' containing a state bubble labeled 'count' with value 0. The middle section has the same 'div' parent, but the child components have now been deleted, indicated by a yellow 'proof' image. The third section has the same 'div' parent again, now with a new child labeled 'section', highlighted in yellow, also with a new child labeled 'Counter' containing a state bubble labeled 'count' with value 0, all highlighted in yellow.">
+<Diagram name="preserving_state_diff_same_pt2" height={350} width={794} alt="Diagram z trzema sekcjami, pomiędzy którymi znajduje się strzałka wskazująca przejście. Pierwsza sekcja zawiera komponent reactowy o nazwie 'div' z jednym potomkiem o nazwie 'div', który ma jednego potomka o nazwie 'Counter' z chmurką stanu oznaczoną jako 'count' z wartością 0. Środkowa sekcja ma tego samego rodzica 'div', ale komponenty potomne zostały usunięte, co wskazuje żółty obrazek 'puf'. Trzecia sekcja ponownie ma tego samego rodzica 'div', teraz z nowym potomkiem o nazwie 'section', podświetlonym na żółto, również z nowym potomkiem o nazwie 'Counter' z chmurką stanu oznaczoną jako 'count' z wartością 0, wszystko podświetlone na żółto.">
 
-When switching back, the `div` is deleted and the new `section` is added
+Gdy następuje odwrotna sytuacja, `div` zostaje usunięty, a nowy element `section` zostaje dodany.
 
 </Diagram>
 
 </DiagramGroup>
 
-As a rule of thumb, **if you want to preserve the state between re-renders, the structure of your tree needs to "match up"** from one render to another. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree.
+Ogólna zasada jest taka, że **jeśli chcesz zachować stan pomiędzy przerenderowaniami, struktura drzewa musi "pasować"** między jednym a drugim renderowaniem. Jeśli struktura jest inna, stan zostaje zniszczony, ponieważ React usuwa stan, gdy usuwa komponent z drzewa.
 
 <Pitfall>
 
-This is why you should not nest component function definitions.
+Oto dlaczego nie powinno się zagnieżdżać definicji funkcji komponentów.
 
-Here, the `MyTextField` component function is defined *inside* `MyComponent`:
+Tutaj funkcja komponentu `MyTextField` jest zdefiniowana *wewnątrz* komponentu `MyComponent`:
 
 <Sandpack>
 
@@ -726,7 +726,7 @@ export default function MyComponent() {
       <MyTextField />
       <button onClick={() => {
         setCounter(counter + 1)
-      }}>Clicked {counter} times</button>
+      }}>Naciśnięto {counter} razy</button>
     </>
   );
 }
@@ -735,7 +735,7 @@ export default function MyComponent() {
 </Sandpack>
 
 
-Every time you click the button, the input state disappears! This is because a *different* `MyTextField` function is created for every render of `MyComponent`. You're rendering a *different* component in the same position, so React resets all state below. This leads to bugs and performance problems. To avoid this problem, **always declare component functions at the top level, and don't nest their definitions.**
+Za każdym razem, gdy klikasz przycisk, stan pola wejściowego znika! Dzieje się tak, ponieważ za każdym razem, gdy renderowany jest komponent `MyComponent`, tworzona jest *inna* funkcja `MyTextField`. Renderujesz *inny* komponent na tej samej pozycji, więc React resetuje cały stan poniżej. Prowadzi to do błędów i problemów z wydajnością. Aby uniknąć tego problemu, **zawsze deklaruj funkcje komponentów na najwyższym poziomie i nie zagnieżdżaj ich definicji.**
 
 </Pitfall>
 
