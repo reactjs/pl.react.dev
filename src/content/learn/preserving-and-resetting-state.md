@@ -921,15 +921,15 @@ Kliknięcie "następny" ponownie
 
 Stan każdego komponentu `Counter` jest niszczony za każdym razem, gdy jest usuwany z drzewa DOM. To dlatego stany te resetują się za każdym razem, gdy klikniesz przycisk.
 
-To rozwiązanie jest wygodne, gdy masz tylko kilka niezależnych komponentów renderowanych w tym samym miejscu. W tym przykładzie są tylko dwa, więc nie ma problemu z renderowaniem obu osobno w JSX.
+To rozwiązanie jest wygodne, gdy masz tylko kilka niezależnych komponentów renderowanych w tym samym miejscu. W tym przykładzie są tylko dwa, więc nie ma problemu z renderowaniem obu osobno w składni JSX.
 
-### Option 2: Resetting state with a key {/*option-2-resetting-state-with-a-key*/}
+### Opcja 2: Resetowanie stanu za pomocą klucza (ang. _key_) {/*option-2-resetting-state-with-a-key*/}
 
-There is also another, more generic, way to reset a component's state.
+Istnieje także inny, bardziej ogólny sposób na zresetowanie stanu komponentu.
 
-You might have seen `key`s when [rendering lists.](/learn/rendering-lists#keeping-list-items-in-order-with-key) Keys aren't just for lists! You can use keys to make React distinguish between any components. By default, React uses order within the parent ("first counter", "second counter") to discern between components. But keys let you tell React that this is not just a *first* counter, or a *second* counter, but a specific counter--for example, *Taylor's* counter. This way, React will know *Taylor's* counter wherever it appears in the tree!
+Przy [renderowaniu list](/learn/rendering-lists#keeping-list-items-in-order-with-key) można zauważyć użycie kluczy. Klucze te nie są tylko dla list! Możesz użyć kluczy, aby pomóc Reactowi rozróżnić dowolne komponenty. Domyślnie React używa kolejności w obrębie rodzica ("pierwszy licznik", "drugi licznik"), aby odróżnić komponenty. Jednak klucze pozwalają powiedzieć Reactowi, że to nie jest tylko *pierwszy* licznik czy *drugi* licznik, ale jakiś konkretny licznik - na przykład *licznik Taylora*. W ten sposób React będzie wiedział., że to licznik *Taylora*, niezależnie od tego, gdzie pojawi się on w drzewie!
 
-In this example, the two `<Counter />`s don't share state even though they appear in the same place in JSX:
+W tym przykładzie dwa komponenty `<Counter />` nie dzielą stanu, mimo że pojawiają się w tym samym miejscu w składni JSX:
 
 <Sandpack>
 
@@ -948,7 +948,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        Następny gracz!
       </button>
     </div>
   );
@@ -969,9 +969,9 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Wynika gracza {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -999,7 +999,7 @@ h1 {
 
 </Sandpack>
 
-Switching between Taylor and Sarah does not preserve the state. This is because **you gave them different `key`s:**
+Przełączanie między graczami Taylor a Sarah nie zachowuje ich stanu. Dzieje się tak, ponieważ **przypisano im różne klucze `key`**:
 
 ```js
 {isPlayerA ? (
@@ -1009,11 +1009,11 @@ Switching between Taylor and Sarah does not preserve the state. This is because 
 )}
 ```
 
-Specifying a `key` tells React to use the `key` itself as part of the position, instead of their order within the parent. This is why, even though you render them in the same place in JSX, React sees them as two different counters, and so they will never share state. Every time a counter appears on the screen, its state is created. Every time it is removed, its state is destroyed. Toggling between them resets their state over and over.
+Określenie klucza `key` mówi Reactowi, aby użył jego samego jako części pozycji, zamiast polegać na kolejności w obrębie rodzica. Dlatego, chociaż renderujesz je w tym samym miejscu w składni JSX, React postrzega je jako dwa różne liczniki, więc nigdy nie będą one dzielić stanu. Za każdym razem, gdy licznik pojawia się na ekranie, jego stan jest tworzony. Za każdym razem, gdy jest usuwany, jego stan jest niszczony. Przełączanie między komponentami resetuje ich stan w kółko.
 
 <Note>
 
-Remember that keys are not globally unique. They only specify the position *within the parent*.
+Pamiętaj, że klucze nie są unikalne globalnie. Określają one pozycję tylko *w obrębie rodzica*.
 
 </Note>
 
