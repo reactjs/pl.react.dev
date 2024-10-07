@@ -821,9 +821,9 @@ Istnieją dwa sposoby na zresetowanie stanu podczas przełączania się między 
 2. Nadanie każdemu komponentowi konkretnej tożsamości za pomocą klucza `key`
 
 
-### Option 1: Rendering a component in different positions {/*option-1-rendering-a-component-in-different-positions*/}
+### Opcja 1: Renderowanie komponentu na różnych pozycjach {/*option-1-rendering-a-component-in-different-positions*/}
 
-If you want these two `Counter`s to be independent, you can render them in two different positions:
+Jeśli chcesz, aby te dwa komponenty `Counter` były niezależne, możesz wyrenderować je na dwóch różnych pozycjach:
 
 <Sandpack>
 
@@ -843,7 +843,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        Następny gracz!
       </button>
     </div>
   );
@@ -864,9 +864,9 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Wynik gracza {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -894,34 +894,34 @@ h1 {
 
 </Sandpack>
 
-* Initially, `isPlayerA` is `true`. So the first position contains `Counter` state, and the second one is empty.
-* When you click the "Next player" button the first position clears but the second one now contains a `Counter`.
+* Początkowo, `isPlayerA` ma wartość `true`. W związku z tym pierwsza pozycja zawiera komponent `Counter`, a druga jest pusta.
+* Kiedy klikniesz przycisk "Następny gracz", pierwsza pozycja się opróżnia, a w drugiej pojawia się komponent `Counter`.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_position_p1" height={375} width={504} alt="Diagram with a tree of React components. The parent is labeled 'Scoreboard' with a state bubble labeled isPlayerA with value 'true'. The only child, arranged to the left, is labeled Counter with a state bubble labeled 'count' and value 0. All of the left child is highlighted in yellow, indicating it was added.">
+<Diagram name="preserving_state_diff_position_p1" height={375} width={504} alt="Diagram przedstawiający drzewo komponentów React. Rodzic jest oznaczony jako 'Scoreboard' z chmurką stanu o nazwie isPlayerA i wartością 'true'. Jedyny potomek, umieszczony po lewej stronie, jest oznaczony jako Counter z chmurką stanu o nazwie 'count' i wartością 0. Cały lewy potomek jest podświetlony na żółto, co wskazuje, że został dodany.">
 
-Initial state
-
-</Diagram>
-
-<Diagram name="preserving_state_diff_position_p2" height={375} width={504} alt="Diagram with a tree of React components. The parent is labeled 'Scoreboard' with a state bubble labeled isPlayerA with value 'false'. The state bubble is highlighted in yellow, indicating that it has changed. The left child is replaced with a yellow 'poof' image indicating that it has been deleted and there is a new child on the right, highlighted in yellow indicating that it was added. The new child is labeled 'Counter' and contains a state bubble labeled 'count' with value 0.">
-
-Clicking "next"
+Stan początkowy
 
 </Diagram>
 
-<Diagram name="preserving_state_diff_position_p3" height={375} width={504} alt="Diagram with a tree of React components. The parent is labeled 'Scoreboard' with a state bubble labeled isPlayerA with value 'true'. The state bubble is highlighted in yellow, indicating that it has changed. There is a new child on the left, highlighted in yellow indicating that it was added. The new child is labeled 'Counter' and contains a state bubble labeled 'count' with value 0. The right child is replaced with a yellow 'poof' image indicating that it has been deleted.">
+<Diagram name="preserving_state_diff_position_p2" height={375} width={504} alt="Diagram przedstawiający drzewo komponentów React. Rodzic jest oznaczony jako 'Scoreboard' z chmurką stanu o nazwie isPlayerA i wartością 'false'. Chmurka stanu jest podświetlona na żółto, co wskazuje, że jej wartość się zmieniła. Lewy potomek został zastąpiony żółtym obrazkiem 'puf', co oznacza, że został usunięty, a po prawej stronie pojawił się nowy potomek, podświetlony na żółto, co oznacza, że został dodany. Nowy potomek jest oznaczony jako 'Counter' i zawiera chmurkę stanu o nazwie 'count' i wartości 0.">
 
-Clicking "next" again
+Kliknięcie "następny"
+
+</Diagram>
+
+<Diagram name="preserving_state_diff_position_p3" height={375} width={504} alt="Diagram przedstawiający drzewo komponentów React. Rodzic jest oznaczony jako 'Scoreboard' z chmurką stanu o nazwie isPlayerA i wartości 'true'. Chmurka stanu jest podświetlona na żółto, co wskazuje, że jej wartość się zmieniła. Po lewej stronie pojawił się nowy potomek, podświetlony na żółto, co oznacza, że został dodany. Nowy potomek jest oznaczony jako 'Counter' i zawiera chmurkę stanu o nazwie 'count' i wartości 0. Prawy potomek został zastąpiony żółtym obrazkiem 'puf', co oznacza, że został usunięty.">
+
+Kliknięcie "następny" ponownie
 
 </Diagram>
 
 </DiagramGroup>
 
-Each `Counter`'s state gets destroyed each time it's removed from the DOM. This is why they reset every time you click the button.
+Stan każdego komponentu `Counter` jest niszczony za każdym razem, gdy jest usuwany z drzewa DOM. To dlatego stany te resetują się za każdym razem, gdy klikniesz przycisk.
 
-This solution is convenient when you only have a few independent components rendered in the same place. In this example, you only have two, so it's not a hassle to render both separately in the JSX.
+To rozwiązanie jest wygodne, gdy masz tylko kilka niezależnych komponentów renderowanych w tym samym miejscu. W tym przykładzie są tylko dwa, więc nie ma problemu z renderowaniem obu osobno w JSX.
 
 ### Option 2: Resetting state with a key {/*option-2-resetting-state-with-a-key*/}
 
