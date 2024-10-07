@@ -739,9 +739,9 @@ Za każdym razem, gdy klikasz przycisk, stan pola wejściowego znika! Dzieje si�
 
 </Pitfall>
 
-## Resetting state at the same position {/*resetting-state-at-the-same-position*/}
+## Resetowanie stanu na tej samej pozycji {/*resetting-state-at-the-same-position*/}
 
-By default, React preserves state of a component while it stays at the same position. Usually, this is exactly what you want, so it makes sense as the default behavior. But sometimes, you may want to reset a component's state. Consider this app that lets two players keep track of their scores during each turn:
+Domyślnie React zachowuje stan komponentu, dopóki pozostaje on na tej samej pozycji. Zazwyczaj jest to dokładnie to, czego oczekujesz, więc to domyślne zachowanie ma sens. Czasami jednak możesz chcieć zresetować stan komponentu. Rozważ poniższą aplikację, która pozwala dwóm graczom śledzić swoje wyniki podczas każdej tury:
 
 <Sandpack>
 
@@ -760,7 +760,7 @@ export default function Scoreboard() {
       <button onClick={() => {
         setIsPlayerA(!isPlayerA);
       }}>
-        Next player!
+        Następny gracz!
       </button>
     </div>
   );
@@ -781,9 +781,9 @@ function Counter({ person }) {
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <h1>{person}'s score: {score}</h1>
+      <h1>Wynik gracza {person}: {score}</h1>
       <button onClick={() => setScore(score + 1)}>
-        Add one
+        Dodaj jeden
       </button>
     </div>
   );
@@ -811,14 +811,14 @@ h1 {
 
 </Sandpack>
 
-Currently, when you change the player, the score is preserved. The two `Counter`s appear in the same position, so React sees them as *the same* `Counter` whose `person` prop has changed.
+Obecnie, gdy zmieniasz gracza, wynik jest zachowany. Dwa komponenty licznika `Counter` pojawiają się na tej samej pozycji, więc React widzi je jako *ten sam* komponent `Counter`, w którym zmieniła się właściwość `person`.
 
-But conceptually, in this app they should be two separate counters. They might appear in the same place in the UI, but one is a counter for Taylor, and another is a counter for Sarah.
+Ale w tym przypadku, koncepcyjnie powinny to być dwa osobne liczniki. Mogą pojawiać się w tym samym miejscu w interfejsie użytkownika, ale jeden z nich to licznik dla Taylora, a drugi dla Sarah.
 
-There are two ways to reset state when switching between them:
+Istnieją dwa sposoby na zresetowanie stanu podczas przełączania się między licznikami:
 
-1. Render components in different positions
-2. Give each component an explicit identity with `key`
+1. Renderowanie komponentów na różnych pozycjach
+2. Nadanie każdemu komponentowi konkretnej tożsamości za pomocą klucza `key`
 
 
 ### Option 1: Rendering a component in different positions {/*option-1-rendering-a-component-in-different-positions*/}
