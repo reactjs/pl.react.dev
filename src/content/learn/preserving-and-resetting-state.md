@@ -1223,15 +1223,15 @@ textarea {
 
 <DeepDive>
 
-#### Preserving state for removed components {/*preserving-state-for-removed-components*/}
+#### Zachowywanie stanu dla usuniętych komponentów {/*preserving-state-for-removed-components*/}
 
-In a real chat app, you'd probably want to recover the input state when the user selects the previous recipient again. There are a few ways to keep the state "alive" for a component that's no longer visible:
+W prawdziwej aplikacji czatu, prawdopodobnie chcesz odzyskać stan wprowadzonego tekstu, gdy użytkownik ponownie wybierze poprzedniego odbiorcę. Istnieje kilka sposobów na to, aby stan komponentu, który nie jest już widoczny, pozostał zachowany:
 
-- You could render _all_ chats instead of just the current one, but hide all the others with CSS. The chats would not get removed from the tree, so their local state would be preserved. This solution works great for simple UIs. But it can get very slow if the hidden trees are large and contain a lot of DOM nodes.
-- You could [lift the state up](/learn/sharing-state-between-components) and hold the pending message for each recipient in the parent component. This way, when the child components get removed, it doesn't matter, because it's the parent that keeps the important information. This is the most common solution.
-- You might also use a different source in addition to React state. For example, you probably want a message draft to persist even if the user accidentally closes the page. To implement this, you could have the `Chat` component initialize its state by reading from the [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), and save the drafts there too.
+- Możesz renderować _wszystkie_ czaty zamiast tylko aktualnie wybranego i ukryć pozostałe za pomocą stylów CSS. Czat nie zostanie usunięty z drzewa, więc jego lokalny stan będzie zachowany. To rozwiązanie działa świetnie dla prostych interfejsów, ale może stać się powolne, jeśli ukryte drzewa będą duże i będą zawierały dużo węzłów drzewa DOM.
+- Możesz [przenieść stan wyżej](/learn/sharing-state-between-components) i przechowywać wiadomości oczekujące dla każdego odbiorcy w komponencie nadrzędnym. Dzięki temu, nawet gdy komponenty podrzędne zostaną usunięte, nie ma to znaczenia, ponieważ to rodzic przechowuje istotne informacje. Jest to najczęściej stosowane rozwiązanie.
+- Możesz również użyć innego sposobu zamiast stanu Reacta. Na przykład, być może chcesz, aby wersja robocza wiadomości przetrwała nawet w przypadku omyłkowego zamknięcia strony przez użytkownika. Aby to zaimplementować, komponent `Chat` mógłby inicjalizować swój stan, odczytując go z [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), a także zapisywać tam wersje robocze wiadomości.
 
-No matter which strategy you pick, a chat _with Alice_ is conceptually distinct from a chat _with Bob_, so it makes sense to give a `key` to the `<Chat>` tree based on the current recipient.
+Bez względu na to, którą strategię wybierzesz, czat _z Alicją_ jest koncepcyjnie inny niż czat _z Bobem_, więc sensowne jest przypisanie klucza `key` do drzewa `<Chat>` na podstawie aktualnego odbiorcy.
 
 </DeepDive>
 
