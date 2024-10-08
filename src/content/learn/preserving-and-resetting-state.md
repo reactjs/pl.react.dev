@@ -1017,11 +1017,11 @@ Pamiętaj, że klucze nie są unikalne globalnie. Określają one pozycję tylko
 
 </Note>
 
-### Resetting a form with a key {/*resetting-a-form-with-a-key*/}
+### Resetowanie formularza za pomocą klucza {/*resetting-a-form-with-a-key*/}
 
-Resetting state with a key is particularly useful when dealing with forms.
+Resetowanie stanu za pomocą klucza jest szczególnie przydatne podczas pracy z formularzami.
 
-In this chat app, the `<Chat>` component contains the text input state:
+W poniższej aplikacji czatu, komponent `<Chat>` zawiera stan dla pola tekstowego:
 
 <Sandpack>
 
@@ -1084,11 +1084,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Czat z ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Wyślij do {contact.email}</button>
     </section>
   );
 }
@@ -1116,17 +1116,17 @@ textarea {
 
 </Sandpack>
 
-Try entering something into the input, and then press "Alice" or "Bob" to choose a different recipient. You will notice that the input state is preserved because the `<Chat>` is rendered at the same position in the tree.
+Spróbuj wpisać coś w polu tekstowym, a następnie wybierz innego odbiorcę, klikając „Alice” lub „Bob”. Zauważ, że stan pola tekstowego jest zachowywany, ponieważ komponent `<Chat>` jest renderowany na tej samej pozycji w drzewie komponentów.
 
-**In many apps, this may be the desired behavior, but not in a chat app!** You don't want to let the user send a message they already typed to a wrong person due to an accidental click. To fix it, add a `key`:
+**W wielu aplikacjach może to być pożądane zachowanie, ale nie w aplikacji czatu!** Nie chcesz, aby użytkownik wysłał wiadomość do niewłaściwej osoby z powodu przypadkowego kliknięcia. Aby to naprawić, dodaj klucz `key`:
 
 ```js
 <Chat key={to.id} contact={to} />
 ```
 
-This ensures that when you select a different recipient, the `Chat` component will be recreated from scratch, including any state in the tree below it. React will also re-create the DOM elements instead of reusing them.
+To rozwiązanie zapewnia, że kiedy wybierzesz innego odbiorcę, komponent `Chat` zostanie stworzony od nowa, łącznie z całym stanem w drzewie poniżej niego. React również ponownie utworzy elementy drzewa DOM zamiast ponownie ich użyć.
 
-Now switching the recipient always clears the text field:
+Teraz zmiana odbiorcy zawsze wyczyści pole tekstowe:
 
 <Sandpack>
 
@@ -1189,11 +1189,11 @@ export default function Chat({ contact }) {
     <section className="chat">
       <textarea
         value={text}
-        placeholder={'Chat to ' + contact.name}
+        placeholder={'Czatuj z ' + contact.name}
         onChange={e => setText(e.target.value)}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button>Wyślij do {contact.email}</button>
     </section>
   );
 }
