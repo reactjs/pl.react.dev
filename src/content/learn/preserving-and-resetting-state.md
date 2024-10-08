@@ -1237,10 +1237,10 @@ Bez względu na to, którą strategię wybierzesz, czat _z Alicją_ jest koncepc
 
 <Recap>
 
-- React keeps state for as long as the same component is rendered at the same position.
-- State is not kept in JSX tags. It's associated with the tree position in which you put that JSX.
-- You can force a subtree to reset its state by giving it a different key.
-- Don't nest component definitions, or you'll reset state by accident.
+- React utrzymuje stan tak długo, jak ten sam komponent jest renderowany w tym samym miejscu.
+- Stan nie jest przechowywany w znacznikach JSX. Jest on powiązany z pozycją drzewa, w której umieszczasz ten kod JSX.
+- Możesz wymusić zresetowanie stanu poddrzewa, nadając mu inny klucz `key`.
+- Nie zagnieżdżaj definicji komponentów, ponieważ przypadkowo zresetujesz stan.
 
 </Recap>
 
