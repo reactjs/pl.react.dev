@@ -1248,9 +1248,9 @@ Bez względu na to, którą strategię wybierzesz, czat _z Alicją_ jest koncepc
 
 <Challenges>
 
-#### Fix disappearing input text {/*fix-disappearing-input-text*/}
+#### Napraw znikający tekst w polu input {/*fix-disappearing-input-text*/}
 
-This example shows a message when you press the button. However, pressing the button also accidentally resets the input. Why does this happen? Fix it so that pressing the button does not reset the input text.
+W poniższym przykładzie po naciśnięciu przycisku wyświetlana jest wiadomość. Jednak przypadkowe naciśnięcie przycisku resetuje również pole wprowadzania tekstu. Dlaczego tak się dzieje? Napraw to, aby naciśnięcie przycisku nie resetowało tekstu w polu wprowadzania.
 
 <Sandpack>
 
@@ -1262,11 +1262,11 @@ export default function App() {
   if (showHint) {
     return (
       <div>
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Podpowiedź: Twoje ulubione miasto?</i></p>
         <Form />
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ukryj podpowiedź</button>
       </div>
     );
   }
@@ -1275,7 +1275,7 @@ export default function App() {
       <Form />
       <button onClick={() => {
         setShowHint(true);
-      }}>Show hint</button>
+      }}>Pokaż podpowiedź</button>
     </div>
   );
 }
@@ -1299,9 +1299,9 @@ textarea { display: block; margin: 10px 0; }
 
 <Solution>
 
-The problem is that `Form` is rendered in different positions. In the `if` branch, it is the second child of the `<div>`, but in the `else` branch, it is the first child. Therefore, the component type in each position changes. The first position changes between holding a `p` and a `Form`, while the second position changes between holding a `Form` and a `button`. React resets the state every time the component type changes.
+Problem polega na tym, że komponent `Form` jest renderowany na różnych pozycjach. W gałęzi `if`, komponent ten jest drugim dzieckiem elementu `<div>`, natomiast w gałęzi `else`, jest pierwszym dzieckiem. W związku z tym typ komponentu zmienia się na każdej pozycji. Na pierwszej pozycji występuje naprzemiennie `p` i `Form`, podczas gdy na drugiej pozycji `Form` i `button`. React resetuje stan za każdym razem, gdy typ komponentu zmienia się.
 
-The easiest solution is to unify the branches so that `Form` always renders in the same position:
+Najprostszym rozwiązaniem jest ujednolicenie gałęzi tak, aby `Form` zawsze renderował się w tej samej pozycji:
 
 <Sandpack>
 
@@ -1313,17 +1313,17 @@ export default function App() {
   return (
     <div>
       {showHint &&
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Podpowiedź: Twoje ulubione miasto?</i></p>
       }
       <Form />
       {showHint ? (
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ukryj podpowiedź</button>
       ) : (
         <button onClick={() => {
           setShowHint(true);
-        }}>Show hint</button>
+        }}>Pokaż podpowiedź</button>
       )}
     </div>
   );
@@ -1347,7 +1347,7 @@ textarea { display: block; margin: 10px 0; }
 </Sandpack>
 
 
-Technically, you could also add `null` before `<Form />` in the `else` branch to match the `if` branch structure:
+W praktyce, możesz także dodać `null` przed `<Form />` w gałęzi `else`, aby dopasować strukturę w gałęzi `if`:
 
 <Sandpack>
 
@@ -1359,11 +1359,11 @@ export default function App() {
   if (showHint) {
     return (
       <div>
-        <p><i>Hint: Your favorite city?</i></p>
+        <p><i>Podpowiedź: Twoje ulubione miasto?</i></p>
         <Form />
         <button onClick={() => {
           setShowHint(false);
-        }}>Hide hint</button>
+        }}>Ukryj podpowiedź</button>
       </div>
     );
   }
@@ -1373,7 +1373,7 @@ export default function App() {
       <Form />
       <button onClick={() => {
         setShowHint(true);
-      }}>Show hint</button>
+      }}>Pokaż podpowiedź</button>
     </div>
   );
 }
@@ -1395,7 +1395,7 @@ textarea { display: block; margin: 10px 0; }
 
 </Sandpack>
 
-This way, `Form` is always the second child, so it stays in the same position and keeps its state. But this approach is much less obvious and introduces a risk that someone else will remove that `null`.
+W ten sposób komponent `Form` jest zawsze drugim dzieckiem, więc pozostaje w tej samej pozycji i zachowuje swój stan. Ale to podejście jest znacznie mniej oczywiste i wprowadza ryzyko, że ktoś inny usunie stąd `null`.
 
 </Solution>
 
