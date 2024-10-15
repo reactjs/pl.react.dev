@@ -1401,13 +1401,13 @@ W ten sposób komponent `Form` jest zawsze drugim dzieckiem, więc pozostaje w t
 
 #### Swap two form fields {/*swap-two-form-fields*/}
 
-This form lets you enter first and last name. It also has a checkbox controlling which field goes first. When you tick the checkbox, the "Last name" field will appear before the "First name" field.
+Ten formularz pozwala wpisać imię i nazwisko. Ma także pole wyboru kontrolujące, które pole pojawia się jako pierwsze. Kiedy zaznaczysz to pole wyboru, pole „Nazwisko” pojawi się przed polem „Imię”.
 
-It almost works, but there is a bug. If you fill in the "First name" input and tick the checkbox, the text will stay in the first input (which is now "Last name"). Fix it so that the input text *also* moves when you reverse the order.
+To rozwiązanie prawie działa, ale jest w nim błąd. Jeśli wypełnisz pole „Imię” i zaznaczysz pole wyboru, tekst pozostanie w pierwszym polu (które teraz jest występuje jako „Nazwisko”). Napraw to tak, aby tekst z pól również zmieniał się miejscami, gdy zmieniasz kolejność.
 
 <Hint>
 
-It seems like for these fields, their position within the parent is not enough. Is there some way to tell React how to match up the state between re-renders?
+Wydaje się, że dla tych pól sama ich pozycja względem rodzica nie wystarcza. Czy istnieje jakiś sposób, aby powiedzieć Reactowi, jak ma dopasować stan między przerenderowaniami?
 
 </Hint>
 
@@ -1425,22 +1425,22 @@ export default function App() {
         checked={reverse}
         onChange={e => setReverse(e.target.checked)}
       />
-      Reverse order
+      Odwróć kolejność
     </label>
   );
   if (reverse) {
     return (
       <>
-        <Field label="Last name" /> 
-        <Field label="First name" />
+        <Field label="Nazwisko" /> 
+        <Field label="Imię" />
         {checkbox}
       </>
     );
   } else {
     return (
       <>
-        <Field label="First name" /> 
-        <Field label="Last name" />
+        <Field label="Imię" /> 
+        <Field label="Nazwisko" />
         {checkbox}
       </>
     );    
@@ -1471,7 +1471,7 @@ label { display: block; margin: 10px 0; }
 
 <Solution>
 
-Give a `key` to both `<Field>` components in both `if` and `else` branches. This tells React how to "match up" the correct state for either `<Field>` even if their order within the parent changes:
+Nadaj klucz `key` obu komponentom `<Field>` w obu gałęziach `if` i `else`. Dzięki temu React będzie wiedział, jak "dopasować" odpowiedni stan dla każdego komponentu `<Field>`, nawet jeśli ich kolejność w rodzicu zmieni się:
 
 <Sandpack>
 
@@ -1487,22 +1487,22 @@ export default function App() {
         checked={reverse}
         onChange={e => setReverse(e.target.checked)}
       />
-      Reverse order
+      Odwróć kolejność
     </label>
   );
   if (reverse) {
     return (
       <>
-        <Field key="lastName" label="Last name" /> 
-        <Field key="firstName" label="First name" />
+        <Field key="lastName" label="Nazwisko" /> 
+        <Field key="firstName" label="Imię" />
         {checkbox}
       </>
     );
   } else {
     return (
       <>
-        <Field key="firstName" label="First name" /> 
-        <Field key="lastName" label="Last name" />
+        <Field key="firstName" label="Imię" /> 
+        <Field key="lastName" label="Nazwisko" />
         {checkbox}
       </>
     );    
