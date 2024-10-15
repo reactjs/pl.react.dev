@@ -1533,11 +1533,11 @@ label { display: block; margin: 10px 0; }
 
 </Solution>
 
-#### Reset a detail form {/*reset-a-detail-form*/}
+#### Zresetowanie formularza szczegółów {/*reset-a-detail-form*/}
 
-This is an editable contact list. You can edit the selected contact's details and then either press "Save" to update it, or "Reset" to undo your changes.
+Oto edytowalna lista kontaktów. Możesz edytować szczegóły wybranego kontaktu, a następnie nacisnąć "Zapisz", aby zaktualizować lub "Resetuj", aby cofnąć swoje zmiany.
 
-When you select a different contact (for example, Alice), the state updates but the form keeps showing the previous contact's details. Fix it so that the form gets reset when the selected contact changes.
+Gdy wybierzesz inny kontakt (na przykład Alice), stan się zaktualizuje, ale formularz nadal będzie pokazywał szczegóły poprzedniego kontaktu. Napraw to tak, aby formularz został zresetowany, gdy zmienia się wybrany kontakt.
 
 <Sandpack>
 
@@ -1629,7 +1629,7 @@ export default function EditContact({ initialData, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Imię:{' '}
         <input
           type="text"
           value={name}
@@ -1652,13 +1652,13 @@ export default function EditContact({ initialData, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Zapisz
       </button>
       <button onClick={() => {
         setName(initialData.name);
         setEmail(initialData.email);
       }}>
-        Reset
+        Resetuj
       </button>
     </section>
   );
@@ -1689,7 +1689,7 @@ button {
 
 <Solution>
 
-Give `key={selectedId}` to the `EditContact` component. This way, switching between different contacts will reset the form:
+Nadaj klucz `key={selectedId}` komponentowi `EditContact`. W ten sposób, przełączanie się między różnymi kontaktami spowoduje zresetowanie formularza.
 
 <Sandpack>
 
@@ -1782,7 +1782,7 @@ export default function EditContact({ initialData, onSave }) {
   return (
     <section>
       <label>
-        Name:{' '}
+        Imię:{' '}
         <input
           type="text"
           value={name}
@@ -1805,13 +1805,13 @@ export default function EditContact({ initialData, onSave }) {
         };
         onSave(updatedData);
       }}>
-        Save
+        Zapisz
       </button>
       <button onClick={() => {
         setName(initialData.name);
         setEmail(initialData.email);
       }}>
-        Reset
+        Resetuj
       </button>
     </section>
   );
