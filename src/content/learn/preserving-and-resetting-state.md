@@ -1842,13 +1842,13 @@ button {
 
 </Solution>
 
-#### Clear an image while it's loading {/*clear-an-image-while-its-loading*/}
+#### Wyczyść obraz podczas ładowania {/*clear-an-image-while-its-loading*/}
 
-When you press "Next", the browser starts loading the next image. However, because it's displayed in the same `<img>` tag, by default you would still see the previous image until the next one loads. This may be undesirable if it's important for the text to always match the image. Change it so that the moment you press "Next", the previous image immediately clears.
+Kiedy naciśniesz "Dalej", przeglądarka zaczyna ładować kolejny obraz. Jednak ponieważ jest on wyświetlany w tym samym tagu `<img>`, domyślnie widać poprzedni obraz do czasu załadowania nowego. Może to być niepożądane zachowanie, jeśli ważne jest, aby tekst zawsze pasował do obrazu. Zmień to tak, aby w momencie naciśnięcia "Dalej" poprzedni obraz natychmiast znikał.
 
 <Hint>
 
-Is there a way to tell React to re-create the DOM instead of reusing it?
+Czy istnieje sposób, aby dać znać Reactowi, żeby tworzył drzewo DOM od nowa zamiast wykorzystywać go ponownie?
 
 </Hint>
 
@@ -1873,10 +1873,10 @@ export default function Gallery() {
   return (
     <>
       <button onClick={handleClick}>
-        Next
+        Dalej
       </button>
       <h3>
-        Image {index + 1} of {images.length}
+        Obraz {index + 1} z {images.length}
       </h3>
       <img src={image.src} />
       <p>
@@ -1887,25 +1887,25 @@ export default function Gallery() {
 }
 
 let images = [{
-  place: 'Penang, Malaysia',
+  place: 'Penang, Malezja',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
-  place: 'Lisbon, Portugal',
+  place: 'Lizbona, Portugalia',
   src: 'https://i.imgur.com/dB2LRbj.jpg'
 }, {
-  place: 'Bilbao, Spain',
+  place: 'Bilbao, Hiszpania',
   src: 'https://i.imgur.com/z08o2TS.jpg'
 }, {
   place: 'Valparaíso, Chile',
   src: 'https://i.imgur.com/Y3utgTi.jpg'
 }, {
-  place: 'Schwyz, Switzerland',
+  place: 'Schwyz, Szwajcaria',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
-  place: 'Prague, Czechia',
+  place: 'Praga, Czechy',
   src: 'https://i.imgur.com/QwUKKmF.jpg'
 }, {
-  place: 'Ljubljana, Slovenia',
+  place: 'Lublana, Słowenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
 }];
 ```
@@ -1918,7 +1918,7 @@ img { width: 150px; height: 150px; }
 
 <Solution>
 
-You can provide a `key` to the `<img>` tag. When that `key` changes, React will re-create the `<img>` DOM node from scratch. This causes a brief flash when each image loads, so it's not something you'd want to do for every image in your app. But it makes sense if you want to ensure the image always matches the text.
+Możesz dodać klucz `key` do tagu `<img>`. Gdy ten klucz `key` się zmieni, React utworzy od nowa węzeł drzewa DOM dla `<img>`. Spowoduje to krótkie mignięcie podczas ładowania każdego obrazu, więc nie jest to coś, co warto robić dla każdego obrazku w aplikacji. Ma to jednak sens, jeśli chcesz mieć pewność, że obraz zawsze będzie zgodny z tekstem.
 
 <Sandpack>
 
@@ -1941,10 +1941,10 @@ export default function Gallery() {
   return (
     <>
       <button onClick={handleClick}>
-        Next
+        Dalej
       </button>
       <h3>
-        Image {index + 1} of {images.length}
+        Obraz {index + 1} z {images.length}
       </h3>
       <img key={image.src} src={image.src} />
       <p>
@@ -1955,25 +1955,25 @@ export default function Gallery() {
 }
 
 let images = [{
-  place: 'Penang, Malaysia',
+  place: 'Penang, Malezja',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
-  place: 'Lisbon, Portugal',
+  place: 'Lizbona, Portugalia',
   src: 'https://i.imgur.com/dB2LRbj.jpg'
 }, {
-  place: 'Bilbao, Spain',
+  place: 'Bilbao, Hiszpania',
   src: 'https://i.imgur.com/z08o2TS.jpg'
 }, {
   place: 'Valparaíso, Chile',
   src: 'https://i.imgur.com/Y3utgTi.jpg'
 }, {
-  place: 'Schwyz, Switzerland',
+  place: 'Schwyz, Szwajcaria',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
-  place: 'Prague, Czechia',
+  place: 'Praga, Czechy',
   src: 'https://i.imgur.com/QwUKKmF.jpg'
 }, {
-  place: 'Ljubljana, Slovenia',
+  place: 'Lublana, Słowenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
 }];
 ```
