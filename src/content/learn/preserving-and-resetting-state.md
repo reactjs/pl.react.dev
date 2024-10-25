@@ -1986,11 +1986,11 @@ img { width: 150px; height: 150px; }
 
 </Solution>
 
-#### Fix misplaced state in the list {/*fix-misplaced-state-in-the-list*/}
+#### Napraw błędne przypisanie stanu na liście {/*fix-misplaced-state-in-the-list*/}
 
-In this list, each `Contact` has state that determines whether "Show email" has been pressed for it. Press "Show email" for Alice, and then tick the "Show in reverse order" checkbox. You will notice that it's _Taylor's_ email that is expanded now, but Alice's--which has moved to the bottom--appears collapsed.
+W tej liście każdy komponent `Contact` ma stan, który określa, czy przycisk "Pokaż email" został dla niego naciśnięty. Naciśnij "Pokaż email" dla Alice, a następnie zaznacz pole wyboru "Wyświetl w odwrotnej kolejności". Zauważ, że to email _Taylora_ jest teraz rozwinięty, a nie email Alice, której kontakt został przeniesiony na dół i jest zwinięty.
 
-Fix it so that the expanded state is associated with each contact, regardless of the chosen ordering.
+Napraw to tak, aby stan rozwinięcia był powiązany z każdym kontaktem, niezależnie od wybranego porządku.
 
 <Sandpack>
 
@@ -2016,7 +2016,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Show in reverse order
+        Wyświetl w odwrotnej kolejności
       </label>
       <ul>
         {displayedContacts.map((contact, i) =>
@@ -2050,7 +2050,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Hide' : 'Show'} email
+        {expanded ? 'Ukryj' : 'Pokaż'} email
       </button>
     </>
   );
@@ -2080,16 +2080,16 @@ button {
 
 <Solution>
 
-The problem is that this example was using index as a `key`:
+Problem polega na tym, że w tym przykładzie użyto indeksu tablicy jako `key`:
 
 ```js
 {displayedContacts.map((contact, i) =>
   <li key={i}>
 ```
 
-However, you want the state to be associated with _each particular contact_.
+Jednak tu potrzebujesz, aby stan był powiązany z _każdym konkretnym kontaktem_.
 
-Using the contact ID as a `key` instead fixes the issue:
+Użycie identyfikatora kontaktu (`contact.id`) jako `key` rozwiązuje ten problem:
 
 <Sandpack>
 
@@ -2115,7 +2115,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Show in reverse order
+        Wyświetl w odwrotnej kolejności
       </label>
       <ul>
         {displayedContacts.map(contact =>
@@ -2149,7 +2149,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Hide' : 'Show'} email
+        {expanded ? 'Ukryj' : 'Pokaż'} email
       </button>
     </>
   );
@@ -2177,7 +2177,7 @@ button {
 
 </Sandpack>
 
-State is associated with the tree position. A `key` lets you specify a named position instead of relying on order.
+Teraz stan jest powiązany z pozycją w drzewie. Klucz `key` pozwala określić konkretną pozycje z nazwą zamiast polegać na kolejności.
 
 </Solution>
 
