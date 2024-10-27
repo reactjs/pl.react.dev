@@ -94,7 +94,7 @@ Funkcje przekazywane do procedury obsługi zdarzeń, nie wywołane. Na przykład
 | -------------------------------- | ---------------------------------- |
 | `<button onClick={handleClick}>` | `<button onClick={handleClick()}>` |
 
-Różnica jest subtelna. W pierwszym przykładzie, funkcja `handleClick` jest przekazywana do procedury `onClick`. To karze Reactowi ją zapamiętać i wywołać tylko wtedy, gdy użytkownik naciśnie przycisk.
+Różnica jest subtelna. W pierwszym przykładzie, funkcja `handleClick` jest przekazywana do procedury `onClick`. To mówi Reactowi aby ją zapamiętał i wywołał tylko wtedy, gdy użytkownik naciśnie przycisk.
 
 W drugim przykładzie,  `()` na końcu `handleClick()` *natychmiast* wykonuje funkcję podczas [renderowania](/learn/render-and-commit), bez żadnych kliknięć. Dzieje się tak, ponieważ JavaScript wewnątrz [JSXowych `{` i `}`](/learn/javascript-in-jsx-with-curly-braces) wykonuje się od razu.
 
