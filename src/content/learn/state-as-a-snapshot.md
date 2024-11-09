@@ -1,19 +1,19 @@
 ---
-title: State as a Snapshot
+title: Stan jako migawka
 ---
 
 <Intro>
 
-State variables might look like regular JavaScript variables that you can read and write to. However, state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render.
+Zmienne stanu mogą wyglądać jak zwykłe zmienne javascriptowe, które można odczytywać i zapisywać. Jednak stan zachowuje się bardziej jak migawka. Ustawienie go nie zmienia zmiennej stanu, którą już masz, ale zamiast tego wyzwala ponowne renderowanie.
 
 </Intro>
 
 <YouWillLearn>
 
-* How setting state triggers re-renders
-* When and how state updates
-* Why state does not update immediately after you set it
-* How event handlers access a "snapshot" of the state
+* Jak ustawienie stanu wyzwala ponowne renderowanie
+* Kiedy i jak stan się aktualizuje
+* Dlaczego stan nie aktualizuje się natychmiast po jego ustawieniu
+* Jak procedury obsługi zdarzeń uzyskują dostęp do "migawki" stanu
 
 </YouWillLearn>
 
