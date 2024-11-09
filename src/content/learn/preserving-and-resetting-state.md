@@ -98,7 +98,7 @@ Drzewo Reacta
 
 </DiagramGroup>
 
-**To są dwa oddzielne liczniki, ponieważ każdy jest renderowany na swojej własnej pozycji w drzewie.** Zazwyczaj nie musisz myśleć o tych pozycjach, aby korzystać z Reacta, ale zrozumienie, jak to działa, może być przydatne.
+**To są dwa oddzielne liczniki, ponieważ każdy jest renderowany na swojej własnej pozycji w drzewie.** Zazwyczaj nie musisz myśleć o tych pozycjach, aby korzystać z Reacta, ale zrozumienie zasady działania może okazać się przydatne.
 
 W Reakcie, każdy komponent na ekranie ma całkowicie izolowany stan. Na przykład, jeśli renderujesz dwa komponenty `Counter` obok siebie, każdy z nich będzie miał swoje własne, niezależne stany `score` i `hover`.
 
@@ -583,7 +583,7 @@ Kiedy przełączasz z powrotem, `p` jest usuwany, a `Counter` jest dodawany
 
 </DiagramGroup>
 
-Również **renderowanie innego komponentu na tej samej pozycji, resetuje stan całego jego poddrzewa.** Aby zobaczyć, jak to działa, zwiększ licznik, a następnie zaznacz pole wyboru:
+Również **renderowanie innego komponentu na tej samej pozycji resetuje stan całego jego poddrzewa.** Aby zobaczyć, jak to działa, zwiększ licznik, a następnie zaznacz pole wyboru:
 
 <Sandpack>
 
@@ -927,7 +927,7 @@ To rozwiązanie jest wygodne, gdy masz tylko kilka niezależnych komponentów re
 
 Istnieje także inny, bardziej ogólny sposób na zresetowanie stanu komponentu.
 
-Przy [renderowaniu list](/learn/rendering-lists#keeping-list-items-in-order-with-key) można zauważyć użycie kluczy. Klucze te nie są tylko dla list! Możesz użyć kluczy, aby pomóc Reactowi rozróżnić dowolne komponenty. Domyślnie React używa kolejności w obrębie rodzica ("pierwszy licznik", "drugi licznik"), aby odróżnić komponenty. Jednak klucze pozwalają powiedzieć Reactowi, że to nie jest tylko *pierwszy* licznik czy *drugi* licznik, ale jakiś konkretny licznik - na przykład *licznik Taylora*. W ten sposób React będzie wiedział., że to licznik *Taylora*, niezależnie od tego, gdzie pojawi się on w drzewie!
+Przy [renderowaniu list](/learn/rendering-lists#keeping-list-items-in-order-with-key) można zauważyć użycie kluczy. Klucze te nie są tylko dla list! Możesz użyć kluczy, aby pomóc Reactowi rozróżnić dowolne komponenty. Domyślnie React używa kolejności w obrębie rodzica ("pierwszy licznik", "drugi licznik"), aby odróżnić komponenty. Jednak klucze pozwalają powiedzieć Reactowi, że to nie jest tylko *pierwszy* licznik czy *drugi* licznik, ale jakiś konkretny licznik - na przykład *licznik Taylora*. W ten sposób React będzie wiedział, że to licznik *Taylora*, niezależnie od tego, gdzie pojawi się on w drzewie!
 
 W tym przykładzie dwa komponenty `<Counter />` nie dzielą stanu, mimo że pojawiają się w tym samym miejscu w składni JSX:
 
@@ -1299,7 +1299,7 @@ textarea { display: block; margin: 10px 0; }
 
 <Solution>
 
-Problem polega na tym, że komponent `Form` jest renderowany na różnych pozycjach. W gałęzi `if`, komponent ten jest drugim dzieckiem elementu `<div>`, natomiast w gałęzi `else`, jest pierwszym dzieckiem. W związku z tym typ komponentu zmienia się na każdej pozycji. Na pierwszej pozycji występuje naprzemiennie `p` i `Form`, podczas gdy na drugiej pozycji `Form` i `button`. React resetuje stan za każdym razem, gdy typ komponentu zmienia się.
+Problem polega na tym, że komponent `Form` jest renderowany na różnych pozycjach. W gałęzi `if`, komponent ten jest drugim dzieckiem elementu `<div>`, natomiast w gałęzi `else` jest pierwszym dzieckiem. W związku z tym typ komponentu zmienia się na każdej pozycji. Na pierwszej pozycji występuje naprzemiennie `p` i `Form`, podczas gdy na drugiej pozycji `Form` i `button`. React resetuje stan za każdym razem, gdy typ komponentu zmienia się.
 
 Najprostszym rozwiązaniem jest ujednolicenie gałęzi tak, aby `Form` zawsze renderował się w tej samej pozycji:
 
