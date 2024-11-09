@@ -17,11 +17,11 @@ Zmienne stanu mogą wyglądać jak zwykłe zmienne javascriptowe, które można 
 
 </YouWillLearn>
 
-## Setting state triggers renders {/*setting-state-triggers-renders*/}
+## Ustawianie stanu wyzwala ponowne renderowanie {/*setting-state-triggers-renders*/}
 
-You might think of your user interface as changing directly in response to the user event like a click. In React, it works a little differently from this mental model. On the previous page, you saw that [setting state requests a re-render](/learn/render-and-commit#step-1-trigger-a-render) from React. This means that for an interface to react to the event, you need to *update the state*.
+Możesz myśleć, że twój interfejs użytkownika zmienia się bezpośrednio w odpowiedzi na zdarzenie użytkownika, takie jak kliknięcie. W Reakcie działa to nieco inaczej. Na poprzedniej stronie zobaczyłeś, że [ustawienie stanu wysyła żądanie ponownego renderowania](/learn/render-and-commit#step-1-trigger-a-render) do Reacta. Oznacza to, że aby interfejs zareagował na zdarzenie, musisz *zaktualizować stan*.
 
-In this example, when you press "send", `setIsSent(true)` tells React to re-render the UI:
+W tym przykładzie, gdy naciśniesz "Wyślij", wywołanie `setIsSent(true)` informuje Reacta, aby ponownie wyrenderował interfejs użytkownika:
 
 <Sandpack>
 
@@ -30,9 +30,9 @@ import { useState } from 'react';
 
 export default function Form() {
   const [isSent, setIsSent] = useState(false);
-  const [message, setMessage] = useState('Hi!');
+  const [message, setMessage] = useState('Cześć!');
   if (isSent) {
-    return <h1>Your message is on its way!</h1>
+    return <h1>Twoja wiadomość jest w drodze!</h1>
   }
   return (
     <form onSubmit={(e) => {
@@ -41,11 +41,11 @@ export default function Form() {
       sendMessage(message);
     }}>
       <textarea
-        placeholder="Message"
+        placeholder="Wiadomość"
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit">Wyślij</button>
     </form>
   );
 }
@@ -61,13 +61,13 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-Here's what happens when you click the button:
+Oto co dzieje się, gdy klikniesz przycisk:
 
-1. The `onSubmit` event handler executes.
-2. `setIsSent(true)` sets `isSent` to `true` and queues a new render.
-3. React re-renders the component according to the new `isSent` value.
+1. Wykonuje się procedura obsługi zdarzenia `onSubmit`.
+2. Wywołanie `setIsSent(true)` ustawia `isSent` na `true` i dodaje do kolejki nowe renderowanie.
+3. React ponownie renderuje komponent zgodnie z nową wartością `isSent`.
 
-Let's take a closer look at the relationship between state and rendering.
+Przyjrzyjmy się bliżej związkowi między stanem a renderowaniem.
 
 ## Rendering takes a snapshot in time {/*rendering-takes-a-snapshot-in-time*/}
 
