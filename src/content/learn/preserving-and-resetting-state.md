@@ -4,13 +4,13 @@ title: Zachowywanie i resetowanie stanu
 
 <Intro>
 
-Stan jest izolowany między komponentami. React śledzi, który stan należy do którego komponentu na podstawie ich miejsca w drzewie interfejsu użytkownika. Możesz kontrolować, kiedy zachować stan, a kiedy go zresetować między przerenderowaniami.
+Stan jest izolowany między komponentami. React śledzi, który stan należy do którego komponentu na podstawie ich miejsca w drzewie interfejsu użytkownika. Możesz kontrolować, kiedy zachować stan, a kiedy go zresetować między renderowaniami.
 
 </Intro>
 
 <YouWillLearn>
 
-* Kiedy React decyduje się, aby zachować lub zresetować stan
+* Kiedy React decyduje, aby zachować lub zresetować stan
 * Jak zmusić React do zresetowania stanu komponentu
 * Jak klucze i typy wpływają na to, czy stan jest zachowany
 
@@ -694,7 +694,7 @@ Gdy następuje odwrotna sytuacja, `div` zostaje usunięty, a nowy element `secti
 
 </DiagramGroup>
 
-Ogólna zasada jest taka, że **jeśli chcesz zachować stan pomiędzy przerenderowaniami, struktura drzewa musi "pasować"** między jednym a drugim renderowaniem. Jeśli struktura jest inna, stan zostaje zniszczony, ponieważ React usuwa stan, gdy usuwa komponent z drzewa.
+Ogólna zasada jest taka, że **jeśli chcesz zachować stan pomiędzy renderowaniami, struktura drzewa musi "pasować"** między jednym a drugim renderowaniem. Jeśli struktura jest inna, stan zostaje zniszczony, ponieważ React usuwa stan, gdy usuwa komponent z drzewa.
 
 <Pitfall>
 
@@ -1399,7 +1399,7 @@ W ten sposób komponent `Form` jest zawsze drugim dzieckiem, więc pozostaje w t
 
 </Solution>
 
-#### Swap two form fields {/*swap-two-form-fields*/}
+#### Zamień dwa pola formularza {/*swap-two-form-fields*/}
 
 Ten formularz pozwala wpisać imię i nazwisko. Ma także pole wyboru kontrolujące, które pole pojawia się jako pierwsze. Kiedy zaznaczysz to pole wyboru, pole „Nazwisko” pojawi się przed polem „Imię”.
 
@@ -1407,7 +1407,7 @@ To rozwiązanie prawie działa, ale jest w nim błąd. Jeśli wypełnisz pole �
 
 <Hint>
 
-Wydaje się, że dla tych pól sama ich pozycja względem rodzica nie wystarcza. Czy istnieje jakiś sposób, aby powiedzieć Reactowi, jak ma dopasować stan między przerenderowaniami?
+Wydaje się, że dla tych pól sama ich pozycja względem rodzica nie wystarcza. Czy istnieje jakiś sposób, aby powiedzieć Reactowi, jak ma dopasować stan między renderowaniami?
 
 </Hint>
 
