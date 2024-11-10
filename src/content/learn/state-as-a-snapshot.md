@@ -69,35 +69,35 @@ Oto co dzieje się, gdy klikniesz przycisk:
 
 Przyjrzyjmy się bliżej związkowi między stanem a renderowaniem.
 
-## Rendering takes a snapshot in time {/*rendering-takes-a-snapshot-in-time*/}
+## Renderowanie tworzy migawkę danego momentu {/*rendering-takes-a-snapshot-in-time*/}
 
-["Rendering"](/learn/render-and-commit#step-2-react-renders-your-components) means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers, and local variables were all calculated **using its state at the time of the render.**
+["Renderowanie"](/learn/render-and-commit#step-2-react-renders-your-components) oznacza, że React wywołuje twój komponent, który jest funkcją. Zwracany przez tę funkcję JSX jest jak migawka interfejsu użytkownika w danym momencie. Jego właściwości, procedury obsługi zdarzeń i zmienne lokalne zostały obliczone **na podstawie stanu w momencie renderowania.**
 
-Unlike a photograph or a movie frame, the UI "snapshot" you return is interactive. It includes logic like event handlers that specify what happens in response to inputs. React updates the screen to match this snapshot and connects the event handlers. As a result, pressing a button will trigger the click handler from your JSX.
+W przeciwieństwie do fotografii czy klatki filmu, "migawka" interfejsu użytkownika, którą zwracasz jest interaktywna. Zawiera logikę, taką jak procedury obsługi zdarzeń, które określają co się stanie w odpowiedzi na dane wejściowe. React aktualizuje ekran, aby dopasować go do tej migawki i podłącza procedury obsługi zdarzeń. W rezultacie naciśnięcie przycisku uruchomi procedurę obsługi kliknięcia z twojego JSX.
 
-When React re-renders a component:
+Kiedy React ponownie renderuje komponent:
 
-1. React calls your function again.
-2. Your function returns a new JSX snapshot.
-3. React then updates the screen to match the snapshot your function returned.
-
-<IllustrationBlock sequential>
-    <Illustration caption="React executing the function" src="/images/docs/illustrations/i_render1.png" />
-    <Illustration caption="Calculating the snapshot" src="/images/docs/illustrations/i_render2.png" />
-    <Illustration caption="Updating the DOM tree" src="/images/docs/illustrations/i_render3.png" />
-</IllustrationBlock>
-
-As a component's memory, state is not like a regular variable that disappears after your function returns. State actually "lives" in React itself--as if on a shelf!--outside of your function. When React calls your component, it gives you a snapshot of the state for that particular render. Your component returns a snapshot of the UI with a fresh set of props and event handlers in its JSX, all calculated **using the state values from that render!**
+1. React ponownie wywołuje twoją funkcję.
+2. Twoja funkcja zwraca nową migawkę JSX.
+3. React następnie aktualizuje ekran, aby dopasować go do migawki zwróconej przez twoją funkcję.
 
 <IllustrationBlock sequential>
-  <Illustration caption="You tell React to update the state" src="/images/docs/illustrations/i_state-snapshot1.png" />
-  <Illustration caption="React updates the state value" src="/images/docs/illustrations/i_state-snapshot2.png" />
-  <Illustration caption="React passes a snapshot of the state value into the component" src="/images/docs/illustrations/i_state-snapshot3.png" />
+  <Illustration caption="React wykonuje funkcję" src="/images/docs/illustrations/i_render1.png" />
+  <Illustration caption="Oblicza migawkę" src="/images/docs/illustrations/i_render2.png" />
+  <Illustration caption="Aktualizuje drzewo DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Here's a little experiment to show you how this works. In this example, you might expect that clicking the "+3" button would increment the counter three times because it calls `setNumber(number + 1)` three times.
+Jako pamięć komponentu, stan nie jest jak zwykła zmienna, która znika po zakończeniu działania funkcji. Stan naprawdę "żyje" w samym Reakcie (jakby był na półce!) poza twoją funkcją. Kiedy React wywołuje twój komponent, przekazuje ci migawkę stanu dla tego konkretnego renderowania. Twój komponent zwraca migawkę interfejsu użytkownika ze świeżym zestawem właściwości i procedur obsługi zdarzeń w swoim JSX, gdzie wszystko jest obliczone **przy użyciu wartości stanu z tego renderowania!**
 
-See what happens when you click the "+3" button:
+<IllustrationBlock sequential>
+  <Illustration caption="Informujesz Reacta o konieczności aktualizacji stanu" src="/images/docs/illustrations/i_state-snapshot1.png" />
+  <Illustration caption="React aktualizuje wartość stanu" src="/images/docs/illustrations/i_state-snapshot2.png" />
+  <Illustration caption="React przekazuje migawkę wartości stanu do komponentu" src="/images/docs/illustrations/i_state-snapshot3.png" />
+</IllustrationBlock>
+
+Oto mały eksperyment pokazujący, jak to działa. W tym przykładzie można by się spodziewać, że kliknięcie przycisku "+3" zwiększy licznik trzykrotnie, ponieważ wywołuje on `setNumber(number + 1)` trzy razy.
+
+Zobacz, co się stanie po kliknięciu przycisku "+3":
 
 <Sandpack>
 
@@ -127,9 +127,9 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Notice that `number` only increments once per click!
+Zauważ, że `number` zwiększa się tylko o jeden za każdym kliknięciem!
 
-**Setting state only changes it for the *next* render.** During the first render, `number` was `0`. This is why, in *that render's* `onClick` handler, the value of `number` is still `0` even after `setNumber(number + 1)` was called:
+**Ustawienie stanu zmienia go dopiero w *następnym* renderowaniu.** Podczas pierwszego renderowania `number` miał wartość `0`. Dlatego w procedurze obsługi `onClick` dla *tego renderowania* wartość `number` nadal wynosi `0`, nawet po wywołaniu `setNumber(number + 1)`:
 
 ```js
 <button onClick={() => {
@@ -139,18 +139,18 @@ Notice that `number` only increments once per click!
 }}>+3</button>
 ```
 
-Here is what this button's click handler tells React to do:
+Oto co procedura obsługi kliknięcia tego przycisku każe zrobić Reactowi:
 
-1. `setNumber(number + 1)`: `number` is `0` so `setNumber(0 + 1)`.
-    - React prepares to change `number` to `1` on the next render.
-2. `setNumber(number + 1)`: `number` is `0` so `setNumber(0 + 1)`.
-    - React prepares to change `number` to `1` on the next render.
-3. `setNumber(number + 1)`: `number` is `0` so `setNumber(0 + 1)`.
-    - React prepares to change `number` to `1` on the next render.
+1. `setNumber(number + 1)`: `number` wynosi `0`, więc to inaczej `setNumber(0 + 1)`.
+    - React przygotowuje się do zmiany `number` na `1` przy następnym renderowaniu.
+2. `setNumber(number + 1)`: `number` wynosi `0`, więc to inaczej `setNumber(0 + 1)`.
+    - React przygotowuje się do zmiany `number` na `1` przy następnym renderowaniu.
+3. `setNumber(number + 1)`: `number` wynosi `0`, więc to inaczej `setNumber(0 + 1)`.
+    - React przygotowuje się do zmiany `number` na `1` przy następnym renderowaniu.
 
-Even though you called `setNumber(number + 1)` three times, in *this render's* event handler `number` is always `0`, so you set the state to `1` three times. This is why, after your event handler finishes, React re-renders the component with `number` equal to `1` rather than `3`.
+Mimo że wywołano `setNumber(number + 1)` trzy razy, w procedurze obsługi zdarzeń *tego renderowania* `number` zawsze wynosi `0`, więc trzy razy ustawiono stan na `1`. Dlatego po zakończeniu działania procedury obsługi zdarzeń, React ponownie renderuje komponent z `number` równym `1`, a nie `3`.
 
-You can also visualize this by mentally substituting state variables with their values in your code. Since the `number` state variable is `0` for *this render*, its event handler looks like this:
+Możesz to sobie również zwizualizować, podstawiając w myślach wartości zmiennych stanu w swoim kodzie. Ponieważ zmienna stanu `number` ma wartość `0` dla *tego renderowania*, jego procedura obsługi zdarzeń wygląda tak:
 
 ```js
 <button onClick={() => {
@@ -159,8 +159,7 @@ You can also visualize this by mentally substituting state variables with their 
   setNumber(0 + 1);
 }}>+3</button>
 ```
-
-For the next render, `number` is `1`, so *that render's* click handler looks like this:
+Dla następnego renderowania `number` wynosi `1`, więc procedura obsługi kliknięcia *tego renderowania* wygląda tak:
 
 ```js
 <button onClick={() => {
@@ -170,7 +169,7 @@ For the next render, `number` is `1`, so *that render's* click handler looks lik
 }}>+3</button>
 ```
 
-This is why clicking the button again will set the counter to `2`, then to `3` on the next click, and so on.
+Dlatego ponowne kliknięcie przycisku ustawi licznik na `2`, następnie na `3` przy kolejnym kliknięciu i tak dalej.
 
 ## State over time {/*state-over-time*/}
 
