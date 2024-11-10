@@ -171,9 +171,9 @@ Dla następnego renderowania `number` wynosi `1`, więc procedura obsługi klikn
 
 Dlatego ponowne kliknięcie przycisku ustawi licznik na `2`, następnie na `3` przy kolejnym kliknięciu i tak dalej.
 
-## State over time {/*state-over-time*/}
+## Stan w czasie {/*state-over-time*/}
 
-Well, that was fun. Try to guess what clicking this button will alert:
+To było ciekawe. Spróbuj teraz zgadnąć, co wyświetli alert po kliknięciu tego przycisku:
 
 <Sandpack>
 
@@ -202,14 +202,14 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-If you use the substitution method from before, you can guess that the alert shows "0":
+Jeśli zastosujesz metodę podstawiania wspomnianą wcześniej, możesz zgadnąć, że alert pokaże "0":
 
 ```js
 setNumber(0 + 5);
 alert(0);
 ```
 
-But what if you put a timer on the alert, so it only fires _after_ the component re-rendered? Would it say "0" or "5"? Have a guess!
+A co, jeśli dodasz timer do alertu, tak aby wyświetlił się dopiero _po_ ponownym wyrenderowaniu komponentu? Czy pokaże on "0" czy "5"? Zgadnij!
 
 <Sandpack>
 
@@ -240,7 +240,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Surprised? If you use the substitution method, you can see the "snapshot" of the state passed to the alert.
+Zaskoczenie? Jeśli zastosujesz metodę podstawiania, zobaczysz "migawkę" stanu przekazaną do alertu.
 
 ```js
 setNumber(0 + 5);
@@ -249,16 +249,16 @@ setTimeout(() => {
 }, 3000);
 ```
 
-The state stored in React may have changed by the time the alert runs, but it was scheduled using a snapshot of the state at the time the user interacted with it!
+Stan przechowywany w Reakcie może się zmienić do czasu wyświetlenia alertu, ale alert ten został zaplanowany przy użyciu migawki stanu z momentu interakcji użytkownika!
 
-**A state variable's value never changes within a render,** even if its event handler's code is asynchronous. Inside *that render's* `onClick`, the value of `number` continues to be `0` even after `setNumber(number + 5)` was called. Its value was "fixed" when React "took the snapshot" of the UI by calling your component.
+**Wartość zmiennej stanu nigdy nie zmienia się w obrębie pojedynczego renderowania,** nawet jeśli kod jej procedury obsługi zdarzeń jest asynchroniczny. Wewnątrz metody `onClick` *tego renderowania*, wartość zmiennej `number` nadal wynosi `0`, nawet po wywołaniu `setNumber(number + 5)`. Jej wartość została "utrwalona" w momencie, gdy React "zrobił migawkę" interfejsu użytkownika poprzez wywołanie twojego komponentu.
 
-Here is an example of how that makes your event handlers less prone to timing mistakes. Below is a form that sends a message with a five-second delay. Imagine this scenario:
+Oto przykład pokazujący, jak to sprawia, że procedury obsługi zdarzeń są mniej podatne na błędy związane z czasem wykonania. Poniżej znajduje się formularz, który wysyła wiadomość z pięciosekundowym opóźnieniem. Wyobraź sobie taki scenariusz:
 
-1. You press the "Send" button, sending "Hello" to Alice.
-2. Before the five-second delay ends, you change the value of the "To" field to "Bob".
+1. Naciskasz przycisk "Wyślij", aby wysłać wiadomość "Cześć" do Alice.
+2. Zanim upłynie pięciosekundowe opóźnienie, zmieniasz wartość pola "Do" na "Bob".
 
-What do you expect the `alert` to display? Would it display, "You said Hello to Alice"? Or would it display, "You said Hello to Bob"? Make a guess based on what you know, and then try it:
+Jak myślisz, co wyświetli `alert`? Czy pokaże "Powiedziałeś/aś Cześć do Alice"? A może "Powiedziałeś/aś Cześć do Boba"? Spróbuj zgadnąć na podstawie tego, czego udało się ci dowiedzieć, a następnie sprawdź:
 
 <Sandpack>
 
@@ -267,19 +267,19 @@ import { useState } from 'react';
 
 export default function Form() {
   const [to, setTo] = useState('Alice');
-  const [message, setMessage] = useState('Hello');
+  const [message, setMessage] = useState('Cześć');
 
   function handleSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
-      alert(`You said ${message} to ${to}`);
+      alert(`Powiedziałeś/aś ${message} do ${to}`);
     }, 5000);
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        To:{' '}
+        Do:{' '}
         <select
           value={to}
           onChange={e => setTo(e.target.value)}>
@@ -288,11 +288,11 @@ export default function Form() {
         </select>
       </label>
       <textarea
-        placeholder="Message"
+        placeholder="Wiadomość"
         value={message}
         onChange={e => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit">Wyślij</button>
     </form>
   );
 }
@@ -304,9 +304,9 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-**React keeps the state values "fixed" within one render's event handlers.** You don't need to worry whether the state has changed while the code is running.
+**React zachowuje wartości stanu jako "utrwalone" w procedurach obsługi zdarzeń dla danego renderowania.** Nie musisz się martwić, czy stan zmienił się podczas wykonywania kodu.
 
-But what if you wanted to read the latest state before a re-render? You'll want to use a [state updater function](/learn/queueing-a-series-of-state-updates), covered on the next page!
+A co, jeśli chcesz odczytać najnowszy stan przed ponownym renderowaniem? Będziesz potrzebować [funkcji aktualizującej stan](/learn/queueing-a-series-of-state-updates), którą omówimy na następnej stronie!
 
 <Recap>
 
@@ -432,3 +432,6 @@ So clicking "Change to Stop" queues a render with `walk` set to `false`, and ale
 </Solution>
 
 </Challenges>
+
+
+[def]: /learn/queueing-a-series-of-state-updates
