@@ -306,7 +306,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 **React zachowuje wartości stanu jako "utrwalone" w procedurach obsługi zdarzeń dla danego renderowania.** Nie musisz się martwić, czy stan zmienił się podczas wykonywania kodu.
 
-A co, jeśli chcesz odczytać najnowszy stan przed ponownym renderowaniem? Będziesz potrzebować [funkcji aktualizującej stan](/learn/queueing-a-series-of-state-updates), którą omówimy na następnej stronie!
+A co, jeśli chcesz odczytać najnowszy stan przed ponownym renderowaniem? Wtedy będziesz potrzebować [funkcji aktualizującej stan](/learn/queueing-a-series-of-state-updates), którą omówimy na następnej stronie!
 
 <Recap>
 
