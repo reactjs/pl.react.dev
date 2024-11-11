@@ -324,9 +324,9 @@ A co, jeśli chcesz odczytać najnowszy stan przed ponownym renderowaniem? Wtedy
 
 <Challenges>
 
-#### Implement a traffic light {/*implement-a-traffic-light*/}
+#### Zaimplementuj światła uliczne {/*implement-a-traffic-light*/}
 
-Here is a crosswalk light component that toggles when the button is pressed:
+Oto komponent świateł na przejściu dla pieszych, który przełącza się po naciśnięciu przycisku:
 
 <Sandpack>
 
@@ -343,12 +343,12 @@ export default function TrafficLight() {
   return (
     <>
       <button onClick={handleClick}>
-        Change to {walk ? 'Stop' : 'Walk'}
+        Zmień na {walk ? 'Stój' : 'Idź'}
       </button>
       <h1 style={{
         color: walk ? 'darkgreen' : 'darkred'
       }}>
-        {walk ? 'Walk' : 'Stop'}
+        {walk ? 'Idź' : 'Stój'}
       </h1>
     </>
   );
@@ -361,13 +361,13 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Add an `alert` to the click handler. When the light is green and says "Walk", clicking the button should say "Stop is next". When the light is red and says "Stop", clicking the button should say "Walk is next".
+Dodaj `alert` do procedury obsługi kliknięcia. Kiedy światło jest zielone i wyświetla "Idź", kliknięcie przycisku powinno pokazać "Następnie będzie Stój". Kiedy światło jest czerwone i wyświetla "Stój", kliknięcie przycisku powinno pokazać "Następnie będzie Idź".
 
-Does it make a difference whether you put the `alert` before or after the `setWalk` call?
+Czy ma znaczenie, czy umieścisz `alert` przed czy po wywołaniu `setWalk`?
 
 <Solution>
 
-Your `alert` should look like this:
+Twój `alert` powinien wyglądać tak:
 
 <Sandpack>
 
@@ -379,18 +379,18 @@ export default function TrafficLight() {
 
   function handleClick() {
     setWalk(!walk);
-    alert(walk ? 'Stop is next' : 'Walk is next');
+    alert(walk ? 'Następnie będzie Stój' : 'Następnie będzie Idź');
   }
 
   return (
     <>
       <button onClick={handleClick}>
-        Change to {walk ? 'Stop' : 'Walk'}
+        Zmień na {walk ? 'Stój' : 'Idź'}
       </button>
       <h1 style={{
         color: walk ? 'darkgreen' : 'darkred'
       }}>
-        {walk ? 'Walk' : 'Stop'}
+        {walk ? 'Idź' : 'Stój'}
       </h1>
     </>
   );
@@ -403,31 +403,31 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Whether you put it before or after the `setWalk` call makes no difference. That render's value of `walk` is fixed. Calling `setWalk` will only change it for the *next* render, but will not affect the event handler from the previous render.
+Nie ma znaczenia, czy umieścisz alert przed czy po wywołaniu `setWalk`. Wartość `walk` dla tego renderowania jest ustalona. Wywołanie `setWalk` zmieni ją tylko dla *następnego* renderowania, ale nie wpłynie na procedurę obsługi zdarzeń z poprzedniego renderowania.
 
-This line might seem counter-intuitive at first:
+Ta linia może początkowo wydawać się nieintuicyjna:
 
 ```js
-alert(walk ? 'Stop is next' : 'Walk is next');
+alert(walk ? 'Następnie będzie Stój' : 'Następnie będzie Idź');
 ```
 
-But it makes sense if you read it as: "If the traffic light shows 'Walk now', the message should say 'Stop is next.'" The `walk` variable inside your event handler matches that render's value of `walk` and does not change.
+Ale ma ona sens, jeśli przeczytasz ją tak: "Jeśli sygnalizator pokazuje 'Idź', komunikat powinien brzmieć 'Następnie będzie Stój'". Zmienna `walk` wewnątrz procedury obsługi zdarzeń odpowiada wartości `walk` z tego renderowania i nie zmienia się.
 
-You can verify that this is correct by applying the substitution method. When `walk` is `true`, you get:
+Możesz to zweryfikować, stosując metodę podstawiania. Kiedy `walk` ma wartość `true`, otrzymujesz:
 
 ```js
 <button onClick={() => {
   setWalk(false);
-  alert('Stop is next');
+  alert('Następnie będzie Stój');
 }}>
-  Change to Stop
+  Zmień na Stój
 </button>
 <h1 style={{color: 'darkgreen'}}>
-  Walk
+  Idź
 </h1>
 ```
 
-So clicking "Change to Stop" queues a render with `walk` set to `false`, and alerts "Stop is next".
+Więc kliknięcie "Zmień na Stój" dodaje do kolejki renderowanie z `walk` ustawionym na `false` i wyświetla alert "Następnie będzie Stój".
 
 </Solution>
 
