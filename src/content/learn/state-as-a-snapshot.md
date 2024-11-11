@@ -403,7 +403,7 @@ h1 { margin-top: 20px; }
 
 </Sandpack>
 
-Nie ma znaczenia, czy umieścisz alert przed czy po wywołaniu `setWalk`. Wartość `walk` dla tego renderowania jest ustalona. Wywołanie `setWalk` zmieni ją tylko dla *następnego* renderowania, ale nie wpłynie na procedurę obsługi zdarzeń z poprzedniego renderowania.
+Nie ma znaczenia, czy umieścisz alert przed czy po wywołaniu `setWalk`. Wartość `walk` dla tego renderowania jest utrwalona. Wywołanie `setWalk` zmieni ją tylko dla *następnego* renderowania, ale nie wpłynie na procedurę obsługi zdarzeń z poprzedniego renderowania.
 
 Ta linia może początkowo wydawać się nieintuicyjna:
 
