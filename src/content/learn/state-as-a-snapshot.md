@@ -310,13 +310,13 @@ A co, jeśli chcesz odczytać najnowszy stan przed ponownym renderowaniem? Wtedy
 
 <Recap>
 
-* Setting state requests a new render.
-* React stores state outside of your component, as if on a shelf.
-* When you call `useState`, React gives you a snapshot of the state *for that render*.
-* Variables and event handlers don't "survive" re-renders. Every render has its own event handlers.
-* Every render (and functions inside it) will always "see" the snapshot of the state that React gave to *that* render.
-* You can mentally substitute state in event handlers, similarly to how you think about the rendered JSX.
-* Event handlers created in the past have the state values from the render in which they were created.
+* Ustawienie stanu żąda nowego renderowania.
+* React przechowuje stan poza komponentem, jakby na półce.
+* Kiedy wywołujesz `useState`, React daje ci migawkę stanu *dla tego renderowania*.
+* Zmienne i procedury obsługi zdarzeń nie "przetrwają" ponownego renderowania. Każde renderowanie ma własne procedury obsługi.
+* Każde renderowanie (i funkcje wewnątrz niego) zawsze "widzą" migawkę stanu, którą React przekazał *temu* renderowaniu.
+* Możesz w myślach podstawiać stan w procedurach obsługi zdarzeń, podobnie jak myślisz o wyrenderowanym JSX.
+* Procedury obsługi zdarzeń utworzone w przeszłości mają wartości stanu z renderowania, w którym zostały utworzone.
 
 </Recap>
 
