@@ -112,11 +112,11 @@
           "path": "/learn/state-a-components-memory"
         },
         {
-          "title": "Render and Commit",
+          "title": "Renderowanie i aktualizacja",
           "path": "/learn/render-and-commit"
         },
         {
-          "title": "State as a Snapshot",
+          "title": "Stan jako migawka",
           "path": "/learn/state-as-a-snapshot"
         },
         {
