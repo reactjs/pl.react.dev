@@ -19,7 +19,7 @@ Zmienne stanu mogą wyglądać jak zwykłe zmienne javascriptowe, które można 
 
 ## Ustawianie stanu wyzwala ponowne renderowanie {/*setting-state-triggers-renders*/}
 
-Możesz myśleć, że twój interfejs użytkownika zmienia się bezpośrednio w odpowiedzi na zdarzenie użytkownika, takie jak kliknięcie. W Reakcie działa to nieco inaczej. Na poprzedniej stronie zobaczyłeś, że [ustawienie stanu wysyła żądanie ponownego renderowania](/learn/render-and-commit#step-1-trigger-a-render) do Reacta. Oznacza to, że aby interfejs zareagował na zdarzenie, musisz *zaktualizować stan*.
+Możesz myśleć, że twój interfejs użytkownika zmienia się bezpośrednio w odpowiedzi na zdarzenia użytkownika, takie jak kliknięcie. W Reakcie działa to nieco inaczej. Na poprzedniej stronie można zobaczyć, że [ustawienie stanu wysyła żądanie ponownego renderowania](/learn/render-and-commit#step-1-trigger-a-render) do Reacta. Oznacza to, że aby interfejs zareagował na zdarzenie, musisz *zaktualizować stan*.
 
 W tym przykładzie, gdy naciśniesz "Wyślij", wywołanie `setIsSent(true)` informuje Reacta, aby ponownie wyrenderował interfejs użytkownika:
 
@@ -95,7 +95,7 @@ Jako pamięć komponentu, stan nie jest jak zwykła zmienna, która znika po zak
   <Illustration caption="React przekazuje migawkę wartości stanu do komponentu" src="/images/docs/illustrations/i_state-snapshot3.png" />
 </IllustrationBlock>
 
-Oto mały eksperyment pokazujący, jak to działa. W tym przykładzie można by się spodziewać, że kliknięcie przycisku "+3" zwiększy licznik trzykrotnie, ponieważ wywołuje on `setNumber(number + 1)` trzy razy.
+Oto mały eksperyment pokazujący jak to działa. W tym przykładzie można by się spodziewać, że kliknięcie przycisku "+3" zwiększy licznik trzykrotnie, ponieważ wywołuje on `setNumber(number + 1)` trzy razy.
 
 Zobacz, co się stanie po kliknięciu przycisku "+3":
 
@@ -249,7 +249,7 @@ setTimeout(() => {
 }, 3000);
 ```
 
-Stan przechowywany w Reakcie może się zmienić do czasu wyświetlenia alertu, ale alert ten został zaplanowany przy użyciu migawki stanu z momentu interakcji użytkownika!
+Stan przechowywany w Reakcie może zmienić się do czasu wyświetlenia alertu, ale alert ten został zaplanowany przy użyciu migawki stanu z momentu interakcji użytkownika!
 
 **Wartość zmiennej stanu nigdy nie zmienia się w obrębie pojedynczego renderowania,** nawet jeśli kod jej procedury obsługi zdarzeń jest asynchroniczny. Wewnątrz metody `onClick` *tego renderowania*, wartość zmiennej `number` nadal wynosi `0`, nawet po wywołaniu `setNumber(number + 5)`. Jej wartość została "utrwalona" w momencie, gdy React "zrobił migawkę" interfejsu użytkownika poprzez wywołanie twojego komponentu.
 
@@ -313,7 +313,7 @@ A co, jeśli chcesz odczytać najnowszy stan przed ponownym renderowaniem? Wtedy
 * Ustawienie stanu żąda nowego renderowania.
 * React przechowuje stan poza komponentem, jakby na półce.
 * Kiedy wywołujesz `useState`, React daje ci migawkę stanu *dla tego renderowania*.
-* Zmienne i procedury obsługi zdarzeń nie "przetrwają" ponownego renderowania. Każde renderowanie ma własne procedury obsługi.
+* Zmienne i procedury obsługi zdarzeń nie są w stanie "przetrwać" ponownego renderowania. Każde renderowanie ma własne procedury obsługi.
 * Każde renderowanie (i funkcje wewnątrz niego) zawsze "widzą" migawkę stanu, którą React przekazał *temu* renderowaniu.
 * Możesz w myślach podstawiać stan w procedurach obsługi zdarzeń, podobnie jak myślisz o wyrenderowanym JSX.
 * Procedury obsługi zdarzeń utworzone w przeszłości mają wartości stanu z renderowania, w którym zostały utworzone.
