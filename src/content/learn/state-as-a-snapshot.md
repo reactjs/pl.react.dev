@@ -19,9 +19,9 @@ Zmienne stanu mogą wyglądać jak zwykłe zmienne javascriptowe, które można 
 
 ## Ustawianie stanu wyzwala ponowne renderowanie {/*setting-state-triggers-renders*/}
 
-Możesz myśleć, że twój interfejs użytkownika zmienia się bezpośrednio w odpowiedzi na zdarzenia użytkownika, takie jak kliknięcie. W Reakcie działa to nieco inaczej. Na poprzedniej stronie można zobaczyć, że [ustawienie stanu wysyła żądanie ponownego renderowania](/learn/render-and-commit#step-1-trigger-a-render) do Reacta. Oznacza to, że aby interfejs zareagował na zdarzenie, musisz *zaktualizować stan*.
+Możesz myśleć, że twój interfejs użytkownika zmienia się bezpośrednio w odpowiedzi na zdarzenia użytkownika, takie jak kliknięcie. W Reakcie działa to nieco inaczej. Na poprzedniej stronie mogliśmy zobaczyć, że [ustawienie stanu wysyła żądanie ponownego renderowania](/learn/render-and-commit#step-1-trigger-a-render) do Reacta. Oznacza to, że aby interfejs zareagował na zdarzenie, musisz *zaktualizować stan*.
 
-W tym przykładzie, gdy naciśniesz "Wyślij", wywołanie `setIsSent(true)` informuje Reacta, aby ponownie wyrenderował interfejs użytkownika:
+Gdy naciśniesz "Wyślij" w poniższym przykładzie, wywołanie `setIsSent(true)` informuje Reacta, aby ponownie wyrenderował interfejs użytkownika:
 
 <Sandpack>
 
@@ -73,7 +73,7 @@ Przyjrzyjmy się bliżej związkowi między stanem a renderowaniem.
 
 ["Renderowanie"](/learn/render-and-commit#step-2-react-renders-your-components) oznacza, że React wywołuje twój komponent, który jest funkcją. Zwracany przez tę funkcję JSX jest jak migawka interfejsu użytkownika w danym momencie. Jego właściwości, procedury obsługi zdarzeń i zmienne lokalne zostały obliczone **na podstawie stanu w momencie renderowania.**
 
-W przeciwieństwie do fotografii czy klatki filmu, "migawka" interfejsu użytkownika, którą zwracasz jest interaktywna. Zawiera logikę, taką jak procedury obsługi zdarzeń, które określają co się stanie w odpowiedzi na dane wejściowe. React aktualizuje ekran, aby dopasować go do tej migawki i podłącza procedury obsługi zdarzeń. W rezultacie naciśnięcie przycisku uruchomi procedurę obsługi kliknięcia z twojego JSX.
+W przeciwieństwie do fotografii czy klatki filmu, zwracana przez ciebie "migawka" interfejsu użytkownika jest interaktywna. Zawiera logikę, taką jak procedury obsługi zdarzeń, które określają, co się stanie w odpowiedzi na dane wejściowe. React aktualizuje ekran, aby dopasować go do tej migawki i podłącza procedury obsługi zdarzeń. W rezultacie naciśnięcie przycisku uruchomi procedurę obsługi kliknięcia z twojego JSX.
 
 Kiedy React ponownie renderuje komponent:
 
@@ -87,7 +87,7 @@ Kiedy React ponownie renderuje komponent:
   <Illustration caption="Aktualizuje drzewo DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Jako pamięć komponentu, stan nie jest jak zwykła zmienna, która znika po zakończeniu działania funkcji. Stan naprawdę "żyje" w samym Reakcie (jakby był na półce!) poza twoją funkcją. Kiedy React wywołuje twój komponent, przekazuje ci migawkę stanu dla tego konkretnego renderowania. Twój komponent zwraca migawkę interfejsu użytkownika ze świeżym zestawem właściwości i procedur obsługi zdarzeń w swoim JSX, gdzie wszystko jest obliczone **przy użyciu wartości stanu z tego renderowania!**
+Będąc pamięcią komponentu, stan nie jest jak zwykła zmienna, która znika po zakończeniu działania funkcji. Stan, tak naprawdę, "żyje" w samym Reakcie (jakby był na półce!) poza twoją funkcją. Kiedy React wywołuje twój komponent, przekazuje ci migawkę stanu dla tego konkretnego renderowania. Twój komponent zwraca migawkę interfejsu użytkownika ze świeżym zestawem właściwości i procedur obsługi zdarzeń w swoim JSX, gdzie wszystko jest obliczone **przy użyciu wartości stanu z tego renderowania!**
 
 <IllustrationBlock sequential>
   <Illustration caption="Informujesz Reacta o konieczności aktualizacji stanu" src="/images/docs/illustrations/i_state-snapshot1.png" />
@@ -95,7 +95,7 @@ Jako pamięć komponentu, stan nie jest jak zwykła zmienna, która znika po zak
   <Illustration caption="React przekazuje migawkę wartości stanu do komponentu" src="/images/docs/illustrations/i_state-snapshot3.png" />
 </IllustrationBlock>
 
-Oto mały eksperyment pokazujący jak to działa. W tym przykładzie można by się spodziewać, że kliknięcie przycisku "+3" zwiększy licznik trzykrotnie, ponieważ wywołuje on `setNumber(number + 1)` trzy razy.
+Oto mały eksperyment, pokazujący jak to działa. W tym przykładzie można by się spodziewać, że kliknięcie przycisku "+3" zwiększy licznik trzykrotnie, ponieważ wywołuje on `setNumber(number + 1)` trzy razy.
 
 Zobacz, co się stanie po kliknięciu przycisku "+3":
 
@@ -209,7 +209,7 @@ setNumber(0 + 5);
 alert(0);
 ```
 
-A co, jeśli dodasz timer do alertu, tak aby wyświetlił się dopiero _po_ ponownym wyrenderowaniu komponentu? Czy pokaże on "0" czy "5"? Zgadnij!
+A co, jeśli dodasz timer do alertu, tak aby wyświetlił się dopiero _po_ ponownym wyrenderowaniu komponentu? Pokaże on "0" czy "5"? Zgadnij!
 
 <Sandpack>
 
