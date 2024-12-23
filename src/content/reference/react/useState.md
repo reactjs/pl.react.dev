@@ -87,7 +87,13 @@ Funkcje `set` nie zwracają żadnej wartości.
 
 * React [grupuje aktualizacje stanu](/learn/queueing-a-series-of-state-updates). Aktualizuje on ekran **po zakończeniu działania wszystkich procedur obsługi zdarzeń** i po tym, jak te procedury wywoją odpowiednie funkcje `set`. Zapobiega to wielokrotnemu renderowaniu komponentu podczas pojedynczego zdarzenia. W rzadkich sytuacjach, kiedy chcesz wymusić wcześniejsze zaktualizowanie ekranu, np. aby odczytać coś z DOM, możesz użyć funkcji [`flushSync`](/apis/react-dom/flushsync).
 
+<<<<<<< HEAD
 * Wywołanie funkcji `set` *podczas renderowania* jest dozwolone tylko w ramach aktualnie renderowanego komponentu. React zignoruje wynik aktualnego renderowania i natychmiast spróbuje wyrenderować go ponownie z nowym stanem. Ten wzorzec jest rzadko stosowany, jednak możesz go użyć, aby **zapisać dane z poprzedniego renderowania**. [Zobacz przykład powyżej.](#storing-information-from-previous-renders)
+=======
+* The `set` function has a stable identity, so you will often see it omitted from Effect dependencies, but including it will not cause the Effect to fire. If the linter lets you omit a dependency without errors, it is safe to do. [Learn more about removing Effect dependencies.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+
+* Calling the `set` function *during rendering* is only allowed from within the currently rendering component. React will discard its output and immediately attempt to render it again with the new state. This pattern is rarely needed, but you can use it to **store information from the previous renders**. [See an example below.](#storing-information-from-previous-renders)
+>>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
 
 * W Trybie Restrykcyjnym (ang. *Strict Mode*) React **wywoła twoją funkcję aktualizującą dwukrotnie**, aby [pomóc ci w zlokalizowaniu niechcianych "nieczystości"](#my-initializer-or-updater-function-runs-twice). To zachowanie tyczy się tylko środowiska deweloperskiego i nie wpływa na produkcję. Jeśli twoja funkcja aktualizująca jest "czysta" (a powinna być), nie wpłynie to w żaden sposób na logikę twojego komponentu. Wynik z jednego z wywołań tej funkcji zostanie zwyczajnie zignorowany.
 
