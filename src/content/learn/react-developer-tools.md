@@ -58,36 +58,10 @@ Na koniec odśwież stronę w przeglądarce, aby podejrzeć ją w narzędziach d
 
 ![Narzędzia deweloperskie dla Reacta - wersja samodzielna](/images/docs/react-devtools-standalone.png)
 
-<<<<<<< HEAD
 ## Aplikacje mobilne (React Native) {/*mobile-react-native*/}
 
-Narzędzi deweloperskich dla Reacta można z powodzeniem używać również do podglądania aplikacji napisanych w [React Native](https://reactnative.dev/).
-
-Najprościej jest zainstalować je globalnie:
-
-```bash
-# Yarn
-yarn global add react-devtools
-=======
-## Mobile (React Native) {/*mobile-react-native*/}
-
-To inspect apps built with [React Native](https://reactnative.dev/), you can use [React Native DevTools](https://reactnative.dev/docs/debugging/react-native-devtools), the built-in debugger that deeply integrates React Developer Tools. All features work identically to the browser extension, including native element highlighting and selection.
->>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
-
-[Learn more about debugging in React Native.](https://reactnative.dev/docs/debugging)
-
-<<<<<<< HEAD
-Teraz uruchom narzędzia deweloperskie z terminala.
-
-```bash
-react-devtools
-```
-
-Powinno nastąpić połączenie do lokalnie działającej aplikacji.
-
-> Jeśli połączenie nie nastąpi w ciągu następnych kilku sekund, spróbuj załadować aplikację ponownie.
+Do inspekcji aplikacji zbudowanych w [React Native](https://reactnative.dev/) możesz wykorzystać [React Native DevTools](https://reactnative.dev/docs/debugging/react-native-devtools), czyli wbudowany debugger głęboko zintegrowany z React Developer Tools. Wszystkie funkcje w nim działają identycznie jak w przypadku rozszerzenia przeglądarkowego, wliczając w to podświetlanie i zaznaczanie natywnych elementów.
 
 [Dowiedz się więcej o debuggowaniu w React Native.](https://reactnative.dev/docs/debugging)
-=======
-> For versions of React Native earlier than 0.76, please use the standalone build of React DevTools by following the [Safari and other browsers](#safari-and-other-browsers) guide above.
->>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
+
+> W przypadku React Native w wersjach wcześniejszych niż 0.76 zalecamy korzystanie z samodzielnej wersji React DevTools. Więcej na ten temat dowiesz się z powyższej sekcji [Safari i inne przeglądarki](#safari-and-other-browsers).

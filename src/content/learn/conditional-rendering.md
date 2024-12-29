@@ -53,11 +53,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-Zauważ, że dla niektórych komponentów `Item` właściwość `isPacked` ustawiono na `true` zamiast `false`. Chcielibyśmy, żeby przy spakowanych przedmiotach, które mają ustawione `isPacked={true}`, wyświetlał się "ptaszek" (✔).
-=======
-Notice that some of the `Item` components have their `isPacked` prop set to `true` instead of `false`. You want to add a checkmark (✅) to packed items if `isPacked={true}`.
->>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
+Zauważ, że dla niektórych komponentów `Item` właściwość `isPacked` ustawiono na `true` zamiast `false`. Chcielibyśmy, żeby przy spakowanych przedmiotach, które mają ustawione `isPacked={true}`, wyświetlał się "ptaszek" (✅).
 
 Możesz to zapisać za pomocą [warunku `if`/`else`](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Statements/if...else) w ten sposób:
 
@@ -208,11 +204,7 @@ return (
 );
 ```
 
-<<<<<<< HEAD
-Możesz to wyrażenie przeczytać jako: *"jeśli `isPacked` ma wartość `true`, wtedy (`?`) wyrenderuj `name + ' ✔'`, w przeciwnym razie (`:`) wyrenderuj `name`."*)
-=======
-You can read it as *"if `isPacked` is true, then (`?`) render `name + ' ✅'`, otherwise (`:`) render `name`"*.
->>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
+Możesz to wyrażenie przeczytać jako: *"jeśli `isPacked` ma wartość `true`, wtedy (`?`) wyrenderuj `name + ' ✅'`, w przeciwnym razie (`:`) wyrenderuj `name`."*)
 
 <DeepDive>
 

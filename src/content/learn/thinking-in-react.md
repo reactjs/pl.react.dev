@@ -265,19 +265,11 @@ W poprzednim kroku znaleźliśmy dwa fragmenty stanu aplikacji: tekst wyszukiwar
 
 Zastosujmy na tym stanie poznaną przez nas strategię:
 
-<<<<<<< HEAD
 1. **Zidentyfikuj komponenty, które korzystają z tego stanu:**
     * `ProductTable` musi filtrować produkty na podstawie tego stanu (tekstu wyszukiwarki i wartości pola wyboru). 
     * `SearchBar` musi wyświetlać ten stan (tekst wyszukiwarki i wartość pola wyboru).
-1. **Znajdź ich wspólnego rodzica:** Pierwszym rodzicem wspólnym dla obydwu komponentów jest `FilterableProductTable`.
-2. **Zdecyduj, gdzie stan powinien być umieszczony**: Będziemy trzymać go w `FilterableProductTable`.
-=======
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
-    * `SearchBar` needs to display that state (search text and checkbox value).
-2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
->>>>>>> 6ae99dddc3b503233291da96e8fd4b118ed6d682
+2. **Znajdź ich wspólnego rodzica:** Pierwszym rodzicem wspólnym dla obydwu komponentów jest `FilterableProductTable`.
+3. **Zdecyduj, gdzie stan powinien być umieszczony**: Będziemy trzymać go w `FilterableProductTable`.
 
 Tak więc wartości stanu będą przechowywane w komponencie `FilterableProductTable`. 
 
