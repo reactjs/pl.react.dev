@@ -20,9 +20,15 @@ Załóżmy, że masz istniejącą aplikację internetową pod adresem `example.c
 
 Oto jak polecamy to skonfigurować:
 
+<<<<<<< HEAD
 1. **Zbuduj część aplikacji w Reakcie** przy użyciu jednego z [frameworków opartych na Reakcie](/learn/start-a-new-react-project).
 2. **Określ `/some-app` jako *bazową ścieżkę*** w konfiguracji twojego frameworka (oto jak: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Skonfiguruj serwer lub proxy**, aby wszystkie żądania pod adresem `/some-app/` były obsługiwane przez twoją aplikację w Reakcie.
+=======
+1. **Build the React part of your app** using one of the [React-based frameworks](/learn/start-a-new-react-project).
+2. **Specify `/some-app` as the *base path*** in your framework's configuration (here's how: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+3. **Configure your server or a proxy** so that all requests under `/some-app/` are handled by your React app.
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
 
 
 Dzięki temu część aplikacji napisana w Reakcie będzie mogła [korzystać z najlepszych praktyk](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) wbudowanych w te frameworki.
@@ -58,12 +64,17 @@ Następnie dodaj te linie kodu na początku głównego pliku JavaScript (może t
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>Moja aplikacja</title></head>
   <body>
+<<<<<<< HEAD
     <!-- Zawartość istniejącej strony (w tym przykładzie zostanie zastąpiona) -->
+=======
+    <!-- Your existing page content (in this example, it gets replaced) -->
+    <div id="root"></div>
+>>>>>>> b22cbc3fed310b39c99fdd0f01621ac1903d1e8e
   </body>
 </html>
 ```
@@ -120,7 +131,7 @@ Pozwoli ci to znaleźć ten element HTML za pomocą [`document.getElementById`](
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>Moja aplikacja</title></head>
