@@ -20,9 +20,15 @@ Załóżmy, że masz istniejącą aplikację internetową pod adresem `example.c
 
 Oto jak polecamy to skonfigurować:
 
+<<<<<<< HEAD
 1. **Zbuduj część aplikacji w Reakcie** przy użyciu jednego z [frameworków opartych na Reakcie](/learn/start-a-new-react-project).
 2. **Określ `/some-app` jako *bazową ścieżkę*** w konfiguracji twojego frameworka (oto jak: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Skonfiguruj serwer lub proxy**, aby wszystkie żądania pod adresem `/some-app/` były obsługiwane przez twoją aplikację w Reakcie.
+=======
+1. **Build the React part of your app** using one of the [React-based frameworks](/learn/start-a-new-react-project).
+2. **Specify `/some-app` as the *base path*** in your framework's configuration (here's how: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+3. **Configure your server or a proxy** so that all requests under `/some-app/` are handled by your React app.
+>>>>>>> 6326e7b1b9fa2a7e36a555792e2f1b97cfcf2669
 
 
 Dzięki temu część aplikacji napisana w Reakcie będzie mogła [korzystać z najlepszych praktyk](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) wbudowanych w te frameworki.
@@ -44,7 +50,11 @@ Dokładny sposób postępowania zależy od konfiguracji istniejącej strony, wi�
 
 Modularne środowisko javascriptowe umożliwia pisanie reactowych komponentów w osobnych plikach, zamiast umieszczania całego kodu w jednym pliku. Pozwala również na korzystanie ze wspaniałych pakietów opublikowanych przez innych deweloperów w rejestrze [npm](https://www.npmjs.com/) - w tym także z Reacta! Sposób postępowania zależy od istniejącej konfiguracji:
 
+<<<<<<< HEAD
 * **Jeśli twoja aplikacja jest już podzielona na pliki, które używają instrukcji `import`**, spróbuj użyć istniejącej konfiguracji. Sprawdź, czy napisanie `<div />` w kodzie JavaScript powoduje błąd składniowy. Jeśli powoduje błąd składniowy, możesz potrzebować [przetworzyć swój kod JavaScript za pomocą narzędzia Babel](https://babeljs.io/setup) i włączyć [Babel React preset](https://babeljs.io/docs/babel-preset-react), aby używać JSX.
+=======
+* **If your app doesn't have an existing setup for compiling JavaScript modules,** set it up with [Vite](https://vite.dev/). The Vite community maintains [many integrations with backend frameworks](https://github.com/vitejs/awesome-vite#integrations-with-backends), including Rails, Django, and Laravel. If your backend framework is not listed, [follow this guide](https://vite.dev/guide/backend-integration.html) to manually integrate Vite builds with your backend.
+>>>>>>> 6326e7b1b9fa2a7e36a555792e2f1b97cfcf2669
 
 * **Jeśli twoja aplikacja nie ma istniejącej konfiguracji do kompilowania modułów JavaScript**, skonfiguruj ją przy użyciu [Vite](https://vitejs.dev/). Społeczność Vite utrzymuje [wiele integracji z frameworkami backendowymi](https://github.com/vitejs/awesome-vite#integrations-with-backends), w tym z Rails, Django i Laravel. Jeśli nie widzisz na liście twojego frameworka backendowego, [postępuj zgodnie z tym przewodnikiem](https://github.com/vitejs/awesome-vite#integrations-with-backends), aby ręcznie zintegrować proces budowy Vite z twoim backendem.
 
@@ -58,12 +68,17 @@ Następnie dodaj te linie kodu na początku głównego pliku JavaScript (może t
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>Moja aplikacja</title></head>
   <body>
+<<<<<<< HEAD
     <!-- Zawartość istniejącej strony (w tym przykładzie zostanie zastąpiona) -->
+=======
+    <!-- Your existing page content (in this example, it gets replaced) -->
+    <div id="root"></div>
+>>>>>>> 6326e7b1b9fa2a7e36a555792e2f1b97cfcf2669
   </body>
 </html>
 ```
@@ -85,7 +100,11 @@ Jeśli cała zawartość twojej strony została zastąpiona przez "Witaj, świec
 
 <Note>
 
+<<<<<<< HEAD
 Integracja modularnego środowiska javascriptowego po raz pierwszy do istniejącego już projektu może wydawać się przytłaczająca, ale warto! Jeśli utkniesz, spróbuj skorzystać z [zasobów społeczności](/community) lub [czatu Vite]((https://chat.vitejs.dev/)).
+=======
+Integrating a modular JavaScript environment into an existing project for the first time can feel intimidating, but it's worth it! If you get stuck, try our [community resources](/community) or the [Vite Chat](https://chat.vite.dev/).
+>>>>>>> 6326e7b1b9fa2a7e36a555792e2f1b97cfcf2669
 
 </Note>
 
@@ -120,7 +139,7 @@ Pozwoli ci to znaleźć ten element HTML za pomocą [`document.getElementById`](
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>Moja aplikacja</title></head>

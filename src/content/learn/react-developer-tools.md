@@ -60,7 +60,11 @@ Na koniec odśwież stronę w przeglądarce, aby podejrzeć ją w narzędziach d
 
 ## Aplikacje mobilne (React Native) {/*mobile-react-native*/}
 
+<<<<<<< HEAD
 Do inspekcji aplikacji zbudowanych w [React Native](https://reactnative.dev/) możesz wykorzystać [React Native DevTools](https://reactnative.dev/docs/debugging/react-native-devtools), czyli wbudowany debugger głęboko zintegrowany z React Developer Tools. Wszystkie funkcje w nim działają identycznie jak w przypadku rozszerzenia przeglądarkowego, wliczając w to podświetlanie i zaznaczanie natywnych elementów.
+=======
+To inspect apps built with [React Native](https://reactnative.dev/), you can use [React Native DevTools](https://reactnative.dev/docs/react-native-devtools), the built-in debugger that deeply integrates React Developer Tools. All features work identically to the browser extension, including native element highlighting and selection.
+>>>>>>> 6326e7b1b9fa2a7e36a555792e2f1b97cfcf2669
 
 [Dowiedz się więcej o debuggowaniu w React Native.](https://reactnative.dev/docs/debugging)
 
