@@ -112,11 +112,11 @@
           "path": "/learn/state-a-components-memory"
         },
         {
-          "title": "Render and Commit",
+          "title": "Renderowanie i aktualizacja",
           "path": "/learn/render-and-commit"
         },
         {
-          "title": "State as a Snapshot",
+          "title": "Stan jako migawka",
           "path": "/learn/state-as-a-snapshot"
         },
         {
@@ -151,7 +151,7 @@
           "path": "/learn/sharing-state-between-components"
         },
         {
-          "title": "Preserving and Resetting State",
+          "title": "Zachowywanie i resetowanie stanu",
           "path": "/learn/preserving-and-resetting-state"
         },
         {

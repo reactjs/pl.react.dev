@@ -268,8 +268,8 @@ Zastosujmy na tym stanie poznaną przez nas strategię:
 1. **Zidentyfikuj komponenty, które korzystają z tego stanu:**
     * `ProductTable` musi filtrować produkty na podstawie tego stanu (tekstu wyszukiwarki i wartości pola wyboru). 
     * `SearchBar` musi wyświetlać ten stan (tekst wyszukiwarki i wartość pola wyboru).
-1. **Znajdź ich wspólnego rodzica:** Pierwszym rodzicem wspólnym dla obydwu komponentów jest `FilterableProductTable`.
-2. **Zdecyduj, gdzie stan powinien być umieszczony**: Będziemy trzymać go w `FilterableProductTable`.
+2. **Znajdź ich wspólnego rodzica:** Pierwszym rodzicem wspólnym dla obydwu komponentów jest `FilterableProductTable`.
+3. **Zdecyduj, gdzie stan powinien być umieszczony**: Będziemy trzymać go w `FilterableProductTable`.
 
 Tak więc wartości stanu będą przechowywane w komponencie `FilterableProductTable`. 
 
