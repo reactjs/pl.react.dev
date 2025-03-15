@@ -18,7 +18,7 @@ React pozwala nam dodać *procedury obsługi zdarzeń* (ang. _event handlers_) d
 
 ## Dodawanie procedur obsługi zdarzeń {/*adding-event-handlers*/}
 
-Aby dodać procedurę obsługi zdarzeń, najpierw zdefiniuj funkcję a następnie [przekaż ją jako właściwość (ang. prop)](/learn/passing-props-to-a-component) do odpowiedniejgo tagu JSX. Na przykład, oto przycisk, który jeszcze nic nie robi:
+Aby dodać procedurę obsługi zdarzeń, najpierw zdefiniuj funkcję, a następnie [przekaż ją jako właściwość (ang. prop)](/learn/passing-props-to-a-component) do odpowiedniejgo tagu JSX. Na przykład, oto przycisk, który jeszcze nic nie robi:
 
 <Sandpack>
 
@@ -69,7 +69,7 @@ Zdefiniowałeś funkcję `handleClick` a potem [przekazałeś ją jako właściw
 
 Często zauważysz `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}` itp.
 
-Zamiast tego, możesz zdefiniować procedurę obsługi zdarzeń w lini z JSX:
+Zamiast tego, możesz zdefiniować procedurę obsługi zdarzeń w jednej lini z JSX:
 
 ```jsx
 <button onClick={function handleClick() {
@@ -77,42 +77,42 @@ Zamiast tego, możesz zdefiniować procedurę obsługi zdarzeń w lini z JSX:
 }}>
 ```
 
-Lub, zwięźlej, używając funkcji strzałkowej:
+Lub zwięźlej, używając funkcji strzałkowej:
 
 ```jsx
 <button onClick={() => {
   alert('Nacisnąłeś mnie!');
 }}>
 ```
-Każdy z tych styli jest sobie równy. Wewnątrzliniowe procedury są wygodne dla krótkich funkcji
+Oba style dadzą ten sam rezultat. Ten sposób definiowania jest wygodny dla krótkich funkcji
 
 <Pitfall>
 
-Funkcje przekazywane do procedury obsługi zdarzeń, nie wywołane. Na przykład:
+Funkcje przekazywane do procedury obsługi zdarzeń, nie są wywoływane. Na przykład:
 
-| przekazanie funkcji (prawidłowo)     | wywołanie funkcji (nieprawidłowo)     |
+| przekazanie funkcji (prawidłowo) | wywołanie funkcji (nieprawidłowo)  |
 | -------------------------------- | ---------------------------------- |
 | `<button onClick={handleClick}>` | `<button onClick={handleClick()}>` |
 
-Różnica jest subtelna. W pierwszym przykładzie, funkcja `handleClick` jest przekazywana do procedury `onClick`. To mówi Reactowi aby ją zapamiętał i wywołał tylko wtedy, gdy użytkownik naciśnie przycisk.
+Różnica jest subtelna. W pierwszym przykładzie funkcja `handleClick` jest przekazywana do procedury `onClick`. To mówi Reactowi, aby ją zapamiętał i wywołał tylko wtedy, gdy użytkownik naciśnie przycisk.
 
-W drugim przykładzie,  `()` na końcu `handleClick()` *natychmiast* wykonuje funkcję podczas [renderowania](/learn/render-and-commit), bez żadnych kliknięć. Dzieje się tak, ponieważ JavaScript wewnątrz [JSXowych `{` i `}`](/learn/javascript-in-jsx-with-curly-braces) wykonuje się od razu.
+W drugim przykładzie `()` na końcu `handleClick()` *natychmiast* wykonuje funkcję podczas [renderowania](/learn/render-and-commit), bez żadnych kliknięć. Dzieje się tak, ponieważ JavaScript wewnątrz [JSXowych `{` i `}`](/learn/javascript-in-jsx-with-curly-braces) wykonuje się od razu.
 
-Gdy piszesz kod w jednej lini, ta sama pułapka czeka na ciebie w innej formie:
+Gdy piszesz kod w jednej linii, ta sama pułapka czeka na ciebie w innej formie:
 
-| przekazanie funkcji (correct)            | wywołanie funkcji (nieprawidłowo)    |
+| przekazanie funkcji (correct)           | wywołanie funkcji (nieprawidłowo) |
 | --------------------------------------- | --------------------------------- |
 | `<button onClick={() => alert('...')}>` | `<button onClick={alert('...')}>` |
 
 
-Przekazywanie kodu w lini, tak jak w poniższym przykładzie, nie uruchomi się na kliknięcie - wywoła się za każdym razem gdy komponent się wyrenderuje:
+Przekazywanie kodu w lini, tak jak w poniższym przykładzie, nie uruchomi się na kliknięcie - wywoła się za każdym razem, gdy komponent się wyrenderuje:
 
 ```jsx
 // Ten alert wyskoczy gdy komponent się generuje, a nie gdy został naciśnięty!
 <button onClick={alert('Nacisnąłeś mnie!')}>
 ```
 
-Jeśli chcesz stworzyć własną procedurę obsługi zdarzeń w lini, otocz ją anonimową funkcją w taki sposób:
+Jeśli chcesz stworzyć własną procedurę obsługi zdarzeń w linii, otocz ją anonimową funkcją w taki sposób:
 
 ```jsx
 <button onClick={() => alert('Nacisnąłeś mnie!')}>
@@ -120,7 +120,7 @@ Jeśli chcesz stworzyć własną procedurę obsługi zdarzeń w lini, otocz ją 
 
 Zamiast wywoływać kod wewnątrz z każdym renderowaniem, stworzy to funkcję do wywołania później.
 
-W obu przypadkach, to co chcesz przekazać jest funkcją:
+W obu przypadkach to co chcesz przekazać, jest funkcją:
 
 * `<button onClick={handleClick}>` prezkazuje funkcję `handleClick`.
 * `<button onClick={() => alert('...')}>` prezkazuje funkcję `() => alert('...')`.
@@ -131,7 +131,7 @@ W obu przypadkach, to co chcesz przekazać jest funkcją:
 
 ### Odczytywanie właściwości w procedurach obsługi zdarzeń {/*reading-props-in-event-handlers*/}
 
-Ponieważ procedury są deklarowane wewnątrz komponentu, mają dostęp do jego właściwości, Oto przycisk, który po kliknięciu pokaże alert z właściwością `message`:
+Ponieważ procedury są deklarowane wewnątrz komponentu, mają dostęp do jego właściwości. Oto przycisk, który po kliknięciu pokaże alert z właściwością `message`:
 <Sandpack>
 
 ```js
@@ -165,9 +165,9 @@ button { margin-right: 10px; }
 
 To pozwala tym dwóm przyciskom pokazywać różne wiadomości. Spróbuj je zmienić.
 
-### Przekazywabnie procedur obsługi zdarzeń jako właściwości {/*passing-event-handlers-as-props*/}
+### Przekazywanie procedur obsługi zdarzeń jako właściwości {/*passing-event-handlers-as-props*/}
 
-Często będziesz chciał, aby komponent-rodzic zdefiniował dziecku procedurę obsługi zdarzeń. Przyjrzyj się przyciskom: w zależności od tego, gdzie użyjesz komponentu `Button`, możesz chcieć wykonać inną funkcję - być może jeden odtwarza film, a drugi wrzuca obrazek.
+Często będziesz chciał, aby komponent-rodzic zdefiniował dziecku procedurę obsługi zdarzeń. Przyjrzyj się przyciskom: w zależności od tego, gdzie użyjesz komponentu `Button`, możesz chcieć wykonać inną funkcję - być może jeden odtwarza film, a drugi wrzuca obrazek?
 
 Aby to zrobić, przekaż właściwość, którą komponent otrzymał od rodzica, jako procedura obsługi w taki sposób:
 
@@ -223,9 +223,9 @@ Tutaj, komponent `Toolbar` renderuje `PlayBytton` i `UploadButton`:
 - `PlayButton` przekazuje `handlePlayClick` jako właściwość `onClick` do `Button` wewnątrz.
 - `UploadButton` przekazuje `() => alert('Dodawanie!')` jako właściwość `onClick` do `Button` wewnątrz.
 
-W końcu, twój komponent `Button` akceptuje właściwość zwaną `onClick`. Przekazuje ją bezpośrednio do wbudowanego w przeglądarkę `<button>` z `onClick={onClick}`. Ten wycinek mówi Reactowi, aby wywołał  ją na kliknięcie.
+W końcu twój komponent `Button` akceptuje właściwość zwaną `onClick`. Przekazuje ją bezpośrednio do wbudowanego w przeglądarkę `<button>` z `onClick={onClick}`. Ten wycinek mówi Reactowi, aby wywołał ją na kliknięcie.
 
-Jeśli używasz [systemów projektu](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969), często komponenty tj. przyciski posiadają style, ale nie definiują zachowania. Zamiast tego, komponenty tj. `PlayButton` czy `UploadButton` będą przekazywały w dół procedury obsługi zdarzeń.
+Jeśli używasz [systemów projektu](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969), często komponenty, takie jak przyciski, posiadają style, ale nie definiują zachowania. Zamiast tego, komponenty typu `PlayButton` czy `UploadButton` będą przekazywały w dół procedury obsługi zdarzeń.
 
 ### Nazywanie właściwości procedur obsługi zdarzeń {/*naming-event-handler-props*/}
 
@@ -266,7 +266,7 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-W tym przykładzie, `<button onClick={onSmash}>` pokazuje że przeglądarkowy `<button>` (lowercase) nadal potrzebuje właściwości `onClick`, ale jej nazwa otrzymana przez twój własny komponent `Button` może być jaka chcesz!
+W tym przykładzie `<button onClick={onSmash}>` pokazuje, że przeglądarkowy `<button>` (lowercase) nadal potrzebuje właściwości `onClick`, ale jej nazwa otrzymana przez twój własny komponent `Button` może być, jaka chcesz!
 
 Gdy twój komponent wspiera wiele interakcji, możesz nazwać właściwości procedur obsługi zdarzeń dla elementów typowych w twojej aplikacji. Na przykład, ten komponent `Toolbar` otrzymuje procedury `onPlayMovie` i `onUploadImage`:
 
@@ -310,11 +310,11 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-Zwróć uwagę na to, że komponent `App` nie musi wiedzień *co* `Toolbar` zrobi z `onPlayMovie` lub `onUploadImage`. To szczegół w implementacji `Toolbar`. Tutaj, `Toolbar` przekazuje je niżej jako procedury `onClick` do swoich `Button`ów, ale później mogą również zostać wywołane skrótem klawiszowym. Nazywanie właściwości po interakcjach specyficznych dla aplikacji tj. `onPlayMovie` pozwala ci wygodnie zmieniać w jaki sposób będą później użyte.
+Zwróć uwagę na to, że komponent `App` nie musi wiedzień *co* `Toolbar` zrobi z `onPlayMovie` lub `onUploadImage`. To szczegół w implementacji `Toolbar`. Tutaj, `Toolbar` przekazuje je niżej jako procedury `onClick` do swoich `Button`ów, ale później mogą również zostać wywołane skrótem klawiszowym. Nazywanie właściwości po interakcjach specyficznych dla aplikacji np. `onPlayMovie` pozwala ci wygodnie zmieniać, w jaki sposób będą później użyte.
   
 <Note>
   
-Upewnij się, że używasz poprawnego tagu HTML dla swoich procedur obsługi zdarzeń. Np. By obsłużyć kliknięcia używaj [`<button onClick={handleClick}>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) zamiast `<div onClick={handleClick}>`. Wykorzystując przeglądarkowy `<button>` możesz używać wbudowanych w nią zachowań tj. nawigacja klawiaturą. Jeśli nie lubisz domyślnego stylu przycisku, a wolisz by wyglądał bardziej jak link lub inny element interfejsu, możesz to osiągnąć CSSem. [Więcej o pisaniu HTMLa dostępnego dla wszystkich](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+Upewnij się, że używasz poprawnego tagu HTML dla swoich procedur obsługi zdarzeń. Na przykład, by obsłużyć kliknięcia używaj [`<button onClick={handleClick}>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) zamiast `<div onClick={handleClick}>`. Wykorzystując przeglądarkowy `<button>` możesz używać wbudowanych w nią zachowań takich jak nawigacja klawiaturą. Jeśli nie lubisz domyślnego stylu przycisku, a wolisz by wyglądał bardziej jak link lub inny element interfejsu, możesz to osiągnąć używając CSS. [Więcej o pisaniu HTMLa dostępnego dla wszystkich](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
 
 </Note>
 
@@ -322,7 +322,7 @@ Upewnij się, że używasz poprawnego tagu HTML dla swoich procedur obsługi zda
 
 Procedury obsługi zdarzeń wyłapią również zdarzenia z któregokolwiek komponentu potomnego. Mówimy wtedy, że zdarzenie "bąbelkuje" (ang. "bubbles") lub "jest przekazywane" (ang. "propagates") w górę drzewa: Zaczyna się to tam, gdzie zdarzenie miało miejsce, a potem idzie w górę.
 
-Ten `<div>` zawiera dwa przyciski. Oba elementy `<div>` i każdy przycisk mają swoją własną obsługę `onClick`. Jak myślisz, która z nich zostanie uruchomiona gdy naciśniesz przycisk?
+Ten `<div>` zawiera dwa przyciski. Oba elementy `<div>` i każdy przycisk mają swoją własną obsługę `onClick`. Jak myślisz, która z nich zostanie uruchomiona, gdy naciśniesz przycisk?
 
 <Sandpack>
 
@@ -353,11 +353,11 @@ button { margin: 5px; }
 
 </Sandpack>
 
-Naciskając na którykowliek z przycisków, ich `onClick` uruchomi się jako pierwszy. Następnie wykona się `onClick` z nadrzędnego `<div>`a. Zatem pojawią się 2 wiadomości. Jeśli naciśniesz stricte na pasek, jedynie `onClick` `<div>`a zostanie uruchomiony
+Naciskając na którykolwiek z przycisków, ich `onClick` uruchomi się jako pierwszy. Następnie wykona się `onClick` z nadrzędnego `<div>`a, zatem pojawią się 2 wiadomości. Jeśli naciśniesz stricte na pasek, jedynie `onClick` `<div>`a zostanie uruchomiony
 
 <Pitfall>
 
-W Reakcie przekazywane jest każde zdarzenie, poza `onScroll`, które działa tylko na przypisanym do niego tagu JSX
+W Reakcie przekazywane jest każde zdarzenie poza `onScroll`, które działa tylko na przypisanym do niego tagu JSX
 
 </Pitfall>
 
@@ -411,18 +411,18 @@ Gdy naciśniesz przycisk:
 
 1. React wywołuje procedurę `onClick` przekazaną do `<button>`. 
 2. Ta procedura, zdefiniowana w `Button`, wykonuje następujące czynności:
-   * Wywołuje `e.stopPropagation()`, powstrzumując obiekt przed przekazaniem dalej .
+   * Wywołuje `e.stopPropagation()`, powstrzymując obiekt przed przekazaniem dalej.
    * Wywołuje funkcję `onClick`, która jest właściwością otrzymaną z komponentu `Toolbar`.
 3. Ta funkcja, zdefiniowana w komponencie `Toolbar`, wyświetla swój własny alert.
 4. Ponieważ zatrzymaliśmy przekazanie, procedura `onClick` nadrzędnego `<div>`a *nie* uruchamia się.
 
-Jako wynik `e.stopPropagation()`, kliknięcie na przyciski pokazuje teraz pojedynczy alert (z `<button>`), zamiast 2 (z `<button>` i nadrzędnego `<div>`a). Naciśnięcie przycisku, to nie to samo co naciśnięcie otaczającego go paska zadań, zatem powstrzymanie przekazania ma sens dla tego interfejsu.
+Jako wynik `e.stopPropagation()`, kliknięcie przycisków pokazuje teraz pojedynczy alert (z `<button>`), zamiast 2 (z `<button>` i nadrzędnego `<div>`a). Naciśnięcie przycisku, to nie to samo co naciśnięcie otaczającego go paska zadań, zatem powstrzymanie przekazania ma sens dla tego interfejsu.
 
 <DeepDive>
 
 #### Przechwytywanie zdarzeń {/*capture-phase-events*/}
 
-W niewielu przypadkach, możesz musieć przechwycić wyszystkie zdarzenia elementów podrzędnych, *nawet jeśli nie są przekazywane*. Na przykład, możesz chcieć zapisać każde kliknięcie w danych analitycznych, bez wzglądu na logikę przekazywań. możesz to zrobić dodając `Capture` do końca nazwy zdarzenia:
+W niewielu przypadkach możesz musieć przechwycić wszystkie zdarzenia elementów podrzędnych, *nawet jeśli nie są przekazywane*. Na przykład, możesz chcieć zapisać każde kliknięcie w danych analitycznych, bez względu na logikę przekazywań. Możesz to zrobić dodając `Capture` do końca nazwy zdarzenia:
 
 ```js
 <div onClickCapture={() => { /* to działa pierwsze */ }}>
@@ -434,14 +434,14 @@ W niewielu przypadkach, możesz musieć przechwycić wyszystkie zdarzenia elemen
 Każde zdarzenie jest przekazywane w trzech fazach:
 
 1. Podróżuje w dół, wywołując wszystkie procedury `onClickCapture`.
-2. Uruchamia  procedurę `onClick` naciśniętego elementu. 
+2. Uruchamia procedurę `onClick` naciśniętego elementu. 
 3. Podróżuje w górę, wywołując wszystkie procedury `onClick`.
 
 Przechwytywanie zdarzeń przydaje się przy tworzeniu np. routerów czy analityki, ale prawdopodobnie nie znajdzie szerszego zastosowania w kodzie aplikacji
 
 </DeepDive>
 
-### Przekazywanie procedur obsługi jako alternatywa dla porpagacji {/*passing-handlers-as-alternative-to-propagation*/}
+### Przekazywanie procedur obsługi jako alternatywa dla propagacji {/*passing-handlers-as-alternative-to-propagation*/}
 
 Zauważ, jak ta procedura uruchamia linię kodu, _a potem_ wywołuje właściwość `onClick` przekazaną przez rodzica:
 
@@ -458,13 +458,13 @@ function Button({ onClick, children }) {
 }
 ```
 
-Możesz również dodać więcej kodu do tej procedury, przed wywołaniem nadrzędnego `onClick`. Ten wzór pokazuje *alternatywę* dla propagacji. Pozwala ona komponentowi potomnemu zająć się zdarzeniem, podczas gdy ten nadrzędny może określić jakieś dodatkowe zachowanie. W przeciwieństwie do propagacji, nie jest to automatyczne. Ale plusem tego wzoru jest możliwość czystego podążania za całym ciągiem kody, który wykonuje się jako wynik jakiegoś zdarzenia
+Możesz również dodać więcej kodu do tej procedury, przed wywołaniem nadrzędnego `onClick`. Ten wzór pokazuje *alternatywę* dla propagacji. Pozwala ona komponentowi potomnemu zająć się zdarzeniem, podczas gdy ten nadrzędny może określić jakieś dodatkowe zachowanie. W przeciwieństwie do propagacji nie jest to automatyczne, ale plusem tego wzoru jest możliwość czystego podążania za całym ciągiem kody, który wykonuje się jako wynik jakiegoś zdarzenia
 
-Jeśli używając propagacji jest ci ciężko wyśledzić które procedury są wykonywane i dlaczego, spróbuj tego podejścia.
+Jeśli używając propagacji jest ci ciężko wyśledzić, które procedury są wykonywane i dlaczego, spróbuj tego podejścia.
 
 ### Powstrzymywanie domyślnego zachowania {/*preventing-default-behavior*/}
 
-Niektóre zdarzenia przeglądarki mają domyślne zachowanie powiązane z nim. Np. zdarzenie wysłania formularze, które następuje gdy naciśnięty zostanie przycisk w jego wnętrzu, domyślnie przeładuje całą stronę:
+Niektóre zdarzenia przeglądarki mają domyślne zachowanie powiązane z nim. Na przykład zdarzenie wysłania formularza, które następuje, gdy naciśnięty zostanie przycisk w jego wnętrzu, domyślnie przeładuje całą stronę:
 
 <Sandpack>
 
@@ -485,7 +485,7 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-Możesz wywołać `e.preventDefault()` z tego obiektu zdarzenia, aby powstrzymać domyślne zachowanie:
+Możesz wywołać `e.preventDefault()` z tego obiektu zdarzenia, aby powstrzymać domyślne zachowanie formularza:
 
 <Sandpack>
 
@@ -518,17 +518,17 @@ Nie myl `e.stopPropagation()` i `e.preventDefault()`. Oba są użyteczne, ale ni
 
 Oczywiście! Procedury obsługi zdarzeń to najlepsze miejsce na efekty uboczne.
 
-W przeciwieństwie do funkcji renderujących, procedury obsługi zdarzeń nie muszą być [czyste](/learn/keeping-components-pure), więc jest to śwetne miejsce by coś *zmienić* - na przykład, zmień wartość input'a w odpowiedzi na wpisywanie, lub zmień listę po naciśnięciu przycisku. Jednakże, aby cokolwiek pozmieniać, musisz wpierw jakoś to przechować. W Reakcie, używa się do tego [stanu, pamięci komponentu](/learn/state-a-components-memory) Wszystkiego o tym nauczysz się na następnej stronie.
+W przeciwieństwie do funkcji renderujących, procedury obsługi zdarzeń nie muszą być [czyste](/learn/keeping-components-pure), więc jest to świetne miejsce by coś *zmienić* - na przykład, zmień wartość input'a w odpowiedzi na wpisywanie, lub zmień listę po naciśnięciu przycisku. Jednakże, aby cokolwiek pozmieniać, musisz wpierw jakoś to przechować. W Reakcie używa się do tego [stanu, pamięci komponentu](/learn/state-a-components-memory). Wszystkiego o tym nauczysz się na następnej stronie.
 
 <Recap>
 
-* Możesz obsługiwać zdarzenia przekacując funkcję jako właściwość do elementu tj. `<button>`.
+* Możesz obsługiwać zdarzenia przekazując funkcję jako właściwość do elementu takiego jak `<button>`.
 * Procedury obsługi zdarzeń trzeba przekazać, **a nie wywołać!** `onClick={handleClick}`, nie `onClick={handleClick()}`.
-* Możesz zdefiniować procedurę obsługi zdarzeń osobno, lub w lini.
+* Możesz zdefiniować procedurę obsługi zdarzeń osobno lub w linii.
 * Procedury obsługi zdarzeń są wewnątrz komponentu, więc mają dostęp do jego właściwości.
 * Możesz stworzyć procedurę obsługi w komponencie nadrzędnym i przekazać ją do podrzędnego.
 * Możesz definiować właściwości dla procedur obsługi zdarzeń z nazwami nawiązującymi do aplikacji.
-* Zdarzenia przekazywane są do góry. Wywołaj `e.stopPropagation()`, na pierwszym argumencie by temu zapobiec.
+* Zdarzenia przekazywane są do góry. Wywołaj `e.stopPropagation()`, na pierwszym argumencie, by temu zapobiec.
 * Zdarzenia mogą mieć niechciane domyślne zachowania. Wywołaj `e.preventDefault()` by temu zapobiec.
 * Wywoływanie procedury obsługi zdarzeń od razu z procedury podrzędnej, jest dobrą alternatywą dla przekazywania.
 
@@ -567,7 +567,7 @@ export default function LightSwitch() {
 
 <Solution>
 
-Problemem jest to, że `<button onClick={handleClick()}>` _wywołuje_ funkcję `handleClick` zamiast ją _przekazywać_ podczas renderowania. Usunięcie `()` takie że przycisk zostanie w formie `<button onClick={handleClick}>` naprawi bład:
+Problemem jest to, że `<button onClick={handleClick()}>` _wywołuje_ funkcję `handleClick` zamiast ją _przekazywać_ podczas renderowania. Usunięcie `()` aby przycisk został w formie `<button onClick={handleClick}>` naprawi bład:
 
 <Sandpack>
 
@@ -621,9 +621,9 @@ export default function LightSwitch() {
 
 #### Podpinanie zdarzeń {/*wire-up-the-events*/}
 
-Ten komponent `ColorSwitch` renderuje przycisk. Powinien zmieniać kolor strony. Podłącz go do procedury `onChangeColor`, którą otrzymuje od rodzica tak, że kliknięcie w przycisk faktycznie zmieni kolor
+Komponent `ColorSwitch` renderuje przycisk. Powinien on zmieniać kolor strony. Podłącz go do procedury `onChangeColor`, którą otrzymuje od rodzica tak, że kliknięcie przycisku faktycznie zmieni kolor
 
-Gdy już to zrobisz, zauważ że kliknięcie przycisku inkrementuje również licznik kliknięć strony. Twój kolega, który napisał komponent nadrzędny uważa, że `onChangeColor` nie inkrementuje żadnych liczników. Co innego może się dziać? Napraw to tak, że kliknięcie przycisku zmieni *jedynie* kolor i _nie_ zinkrementuje licznika.
+Gdy już to zrobisz zauważ, że kliknięcie przycisku inkrementuje również licznik kliknięć strony. Twój kolega, który napisał komponent nadrzędny uważa, że `onChangeColor` nie inkrementuje żadnych liczników. Co innego może się dziać? Napraw to tak, że kliknięcie przycisku zmieni *jedynie* kolor i _nie_ zinkrementuje licznika.
 
 <Sandpack>
 
