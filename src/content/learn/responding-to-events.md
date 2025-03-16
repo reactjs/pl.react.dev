@@ -18,7 +18,7 @@ React pozwala nam dodać *procedury obsługi zdarzeń* (ang. _event handlers_) d
 
 ## Dodawanie procedur obsługi zdarzeń {/*adding-event-handlers*/}
 
-Aby dodać procedurę obsługi zdarzeń, najpierw zdefiniuj funkcję, a następnie [przekaż ją jako właściwość (ang. prop)](/learn/passing-props-to-a-component) do odpowiedniejgo tagu JSX. Na przykład, oto przycisk, który jeszcze nic nie robi:
+Aby dodać procedurę obsługi zdarzeń, najpierw zdefiniuj funkcję, a następnie [przekaż ją jako właściwość (ang. prop)](/learn/passing-props-to-a-component) do odpowiedniego tagu JSX. Na przykład, oto przycisk, który jeszcze nic nie robi:
 
 <Sandpack>
 
@@ -34,7 +34,7 @@ export default function Button() {
 
 </Sandpack>
 
-Możesz sprawić, aby pokazywał wiadomość po kliknięciu go przez użytkownika, w tych trzech krokach: 
+Możesz sprawić, aby pokazywał wiadomość po kliknięciu go przez użytkownika w tych trzech krokach: 
 
 1. Zadeklaruj funkcję `handleClick` *wewnątrz* twojego komponentu `Button`.
 2. Zaimplementuj logikę wewnątrz tej funkcji (użyj `alert` by pokazać wiadomość).
@@ -69,7 +69,7 @@ Zdefiniowałeś funkcję `handleClick` a potem [przekazałeś ją jako właściw
 
 Często zauważysz `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}` itp.
 
-Zamiast tego, możesz zdefiniować procedurę obsługi zdarzeń w jednej lini z JSX:
+Oprócz tego, możesz zdefiniować procedurę obsługi zdarzeń w jednej lini z JSX:
 
 ```jsx
 <button onClick={function handleClick() {
@@ -229,7 +229,7 @@ Jeśli używasz [systemów projektu](https://uxdesign.cc/everything-you-need-to-
 
 ### Nazywanie właściwości procedur obsługi zdarzeń {/*naming-event-handler-props*/}
 
-Komponenty wbudowane tj. `<button>` i `<div>` wspierają jedynie [nazwy zdarzeń z przeglądarki](/reference/react-dom/components/common#common-props) jak `onClick`. Jednak, gdy budujesz własne komponenty, możesz nazywać ich właściwości procedur obsługi jakkolwiek chcesz.
+Komponenty wbudowane tj. `<button>` i `<div>` wspierają jedynie [nazwy zdarzeń przeglądarki](/reference/react-dom/components/common#common-props) jak `onClick`. Jednak, gdy budujesz własne komponenty, możesz nazywać ich właściwości procedur obsługi jakkolwiek chcesz.
 
 Według konwencji, właściwości procedur obsługi zdarzeń powinny zaczynać się od `on` i wielkiej litery tuż za nim.
 
@@ -458,7 +458,7 @@ function Button({ onClick, children }) {
 }
 ```
 
-Możesz również dodać więcej kodu do tej procedury, przed wywołaniem nadrzędnego `onClick`. Ten wzór pokazuje *alternatywę* dla propagacji. Pozwala ona komponentowi potomnemu zająć się zdarzeniem, podczas gdy ten nadrzędny może określić jakieś dodatkowe zachowanie. W przeciwieństwie do propagacji nie jest to automatyczne, ale plusem tego wzoru jest możliwość czystego podążania za całym ciągiem kody, który wykonuje się jako wynik jakiegoś zdarzenia
+Możesz również dodać więcej kodu do tej procedury, przed wywołaniem nadrzędnego `onClick`. Ten wzór pokazuje *alternatywę* dla propagacji. Pozwala ona komponentowi potomnemu zająć się zdarzeniem, podczas gdy ten nadrzędny może określić jakieś dodatkowe zachowanie. W przeciwieństwie do propagacji nie jest to automatyczne, ale plusem tego wzoru jest możliwość prostego podążania za całym ciągiem kodu, który wykonuje się jako wynik jakiegoś zdarzenia
 
 Jeśli używając propagacji jest ci ciężko wyśledzić, które procedury są wykonywane i dlaczego, spróbuj tego podejścia.
 
@@ -516,9 +516,9 @@ Nie myl `e.stopPropagation()` i `e.preventDefault()`. Oba są użyteczne, ale ni
 
 ## Czy procedury obsługi zdarzeń mają efekty uboczne? {/*can-event-handlers-have-side-effects*/}
 
-Oczywiście! Procedury obsługi zdarzeń to najlepsze miejsce na efekty uboczne.
+Oczywiście! Procedury obsługi zdarzeń to idealne miejsce na efekty uboczne.
 
-W przeciwieństwie do funkcji renderujących, procedury obsługi zdarzeń nie muszą być [czyste](/learn/keeping-components-pure), więc jest to świetne miejsce by coś *zmienić* - na przykład, zmień wartość input'a w odpowiedzi na wpisywanie, lub zmień listę po naciśnięciu przycisku. Jednakże, aby cokolwiek pozmieniać, musisz wpierw jakoś to przechować. W Reakcie używa się do tego [stanu, pamięci komponentu](/learn/state-a-components-memory). Wszystkiego o tym nauczysz się na następnej stronie.
+W przeciwieństwie do funkcji renderujących, procedury obsługi zdarzeń nie muszą być [czyste](/learn/keeping-components-pure), więc jest to świetne miejsce by coś *zmienić* - na przykład, wartość input'a w odpowiedzi na wpisywanie, lub listę po naciśnięciu przycisku. Jednakże, aby cokolwiek pozmieniać, musisz wpierw jakoś to przechować. W Reakcie używa się do tego [stanu, czyli pamięci komponentu](/learn/state-a-components-memory). Wszystkiego o tym nauczysz się na następnej stronie.
 
 <Recap>
 
@@ -529,7 +529,7 @@ W przeciwieństwie do funkcji renderujących, procedury obsługi zdarzeń nie mu
 * Możesz stworzyć procedurę obsługi w komponencie nadrzędnym i przekazać ją do podrzędnego.
 * Możesz definiować właściwości dla procedur obsługi zdarzeń z nazwami nawiązującymi do aplikacji.
 * Zdarzenia przekazywane są do góry. Wywołaj `e.stopPropagation()`, na pierwszym argumencie, by temu zapobiec.
-* Zdarzenia mogą mieć niechciane domyślne zachowania. Wywołaj `e.preventDefault()` by temu zapobiec.
+* Zdarzenia mogą mieć niechciane domyślne zachowania. Wywołaj `e.preventDefault()`, by temu zapobiec.
 * Wywoływanie procedury obsługi zdarzeń od razu z procedury podrzędnej, jest dobrą alternatywą dla przekazywania.
 
 </Recap>
@@ -540,7 +540,7 @@ W przeciwieństwie do funkcji renderujących, procedury obsługi zdarzeń nie mu
 
 #### Napraw procedurę obsługi zdarzeń {/*fix-an-event-handler*/}
 
-Naciśnięcie tego przycisku powinno zmieniać tło strony między białym a czarnym. Jednak gdy to zrobisz, nic się nie dzieje. Napraw błąd (Nie przejmuj się logiką wewnątrz `handleClick` - ta część jest w porządku)
+Naciśnięcie tego przycisku powinno zmieniać tło strony między białym a czarnym. Jednak, gdy go klikniesz to nic się nie dzieje. Napraw błąd (Nie przejmuj się logiką wewnątrz `handleClick` - ta część jest w porządku)
 
 <Sandpack>
 
@@ -567,7 +567,7 @@ export default function LightSwitch() {
 
 <Solution>
 
-Problemem jest to, że `<button onClick={handleClick()}>` _wywołuje_ funkcję `handleClick` zamiast ją _przekazywać_ podczas renderowania. Usunięcie `()` aby przycisk został w formie `<button onClick={handleClick}>` naprawi bład:
+Problemem jest to, że `<button onClick={handleClick()}>` _wywołuje_ funkcję `handleClick` zamiast ją _przekazywać_ podczas renderowania. Usunięcie `()`, aby przycisk został w formie `<button onClick={handleClick}>` naprawi bład:
 
 <Sandpack>
 
@@ -621,9 +621,9 @@ export default function LightSwitch() {
 
 #### Podpinanie zdarzeń {/*wire-up-the-events*/}
 
-Komponent `ColorSwitch` renderuje przycisk. Powinien on zmieniać kolor strony. Podłącz go do procedury `onChangeColor`, którą otrzymuje od rodzica tak, że kliknięcie przycisku faktycznie zmieni kolor
+Komponent `ColorSwitch` renderuje przycisk. Powinien on zmieniać kolor strony. Podłącz go do procedury `onChangeColor`, którą otrzymuje od rodzica tak, aby kliknięcie przycisku faktycznie to zrobiło.
 
-Gdy już to zrobisz zauważ, że kliknięcie przycisku inkrementuje również licznik kliknięć strony. Twój kolega, który napisał komponent nadrzędny uważa, że `onChangeColor` nie inkrementuje żadnych liczników. Co innego może się dziać? Napraw to tak, że kliknięcie przycisku zmieni *jedynie* kolor i _nie_ zinkrementuje licznika.
+Gdy już to zrobisz zauważ, że kliknięcie przycisku inkrementuje również licznik kliknięć strony. Twój kolega, który napisał komponent nadrzędny uważa, że `onChangeColor` nie inkrementuje żadnych liczników. Co innego może się dziać? Napraw to tak, aby kliknięcie przycisku zmieniło *jedynie* kolor i _nie_ zinkrementowało licznika.
 
 <Sandpack>
 
@@ -677,9 +677,9 @@ export default function App() {
 
 <Solution>
 
-Najpierw, musisz dodać procedurę obsługi zdarzeń, w sposób np. taki `<button onClick={onChangeColor}>`.
+Najpierw, musisz dodać procedurę obsługi zdarzeń np. w taki sposób: `<button onClick={onChangeColor}>`.
 
-Jednak to wprowadza problem zmiany licznika. Jeśli, jak twierdzi twój kolega, `onChangeColor` nie robi tego, to problem musi leżeć w przekazywaniu zdarzeń w górę i któraś z nadrzędnych procedur to robi. Aby rozwiązać ten problem, musisz powstrzymać przekazywanie. Nie zapomnij tylko, że nadal musisz wywołać `onChangeColor`.
+Jednak to wprowadza problem zmiany licznika. Jeśli, jak twierdzi twój kolega, `onChangeColor` go nie zmienia, to problem musi leżeć w przekazywaniu zdarzeń w górę i któraś z nadrzędnych procedur to robi. Aby rozwiązać ten problem, musisz powstrzymać przekazywanie. Nie zapomnij tylko, że nadal musisz wywołać `onChangeColor`.
 
 <Sandpack>
 
