@@ -70,9 +70,15 @@ Spróbuj zakomentować wywołanie `root.render()` i zauważ, że komponent znika
 Po początkowym renderowaniu komponentu, możesz wywołać kolejne przerenderowania poprzez aktualizację jego stanu za pomocą [funkcji `set`](/reference/react/useState#setstate). Aktualizacja stanu komponentu automatycznie dodaje renderowanie do kolejki. (Możesz to sobie wyobrazić jako gościa restauracji zamawiającego herbatę, deser i wszelkiego rodzaju rzeczy już po złożeniu pierwszego zamówienia, w zależności od stanu jego pragnienia lub głodu.)
 
 <IllustrationBlock sequential>
+<<<<<<< HEAD
   <Illustration caption="Aktualizacja stanu..." alt="React jako kelner w restauracji, serwujący interfejs użytkownika Card użytkownikowi, przedstawionym jako klient z kursorem jako głową. Klient mówi, że chce komponent Card w kolorze różowym, a nie czarnym!" src="/images/docs/illustrations/i_rerender1.png" />
   <Illustration caption="...wywołuje..." alt="React wraca do Kuchni Komponentów i mówi Kucharzowi Komponentu Card, że potrzebuje komponent Card w kolorze różowym." src="/images/docs/illustrations/i_rerender2.png" />
   <Illustration caption="...renderowanie!" alt="Kucharz Komponentu Card dostarcza Reactowi komponent Card w kolorze różowym." src="/images/docs/illustrations/i_rerender3.png" />
+=======
+  <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. The patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
+  <Illustration caption="...triggers..." alt="React returns to the Component Kitchen and tells the Card Chef they need a pink Card." src="/images/docs/illustrations/i_rerender2.png" />
+  <Illustration caption="...render!" alt="The Card Chef gives React the pink Card." src="/images/docs/illustrations/i_rerender3.png" />
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 </IllustrationBlock>
 
 ## Krok 2: React renderuje twoje komponenty {/*step-2-react-renders-your-components*/}
@@ -84,7 +90,11 @@ Po wywołaniu renderowania, React wywołuje twoje komponenty, aby ustalić, co w
 
 Proces ten jest rekurencyjny: jeśli zaktualizowany komponent zwraca inny komponent, React następnie wyrenderuje _ten_ komponent, a jeśli ten komponent również coś zwraca, wyrenderuje _ten_ komponent, i tak dalej. Proces będzie kontynuowany, aż nie będzie więcej zagnieżdżonych komponentów i React będzie dokładnie wiedział, co powinno być wyświetlane na ekranie.
 
+<<<<<<< HEAD
 W poniższym przykładzie React wywoła `Gallery()` i  `Image()` kilkukrotnie:
+=======
+In the following example, React will call `Gallery()` and `Image()` several times:
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 <Sandpack>
 
@@ -148,10 +158,17 @@ Domyślne zachowanie polegające na renderowaniu wszystkich komponentów zagnie�
 
 ## Krok 3: React aktualizuje zmiany w drzewie DOM {/*step-3-react-commits-changes-to-the-dom*/}
 
+<<<<<<< HEAD
 Po wyrenderowaniu (wywołaniu) twoich komponentów, React zmodyfikuje drzewo DOM.
 
 * **Podczas początkowego renderowania,** React użyje API drzewa DOM o nazwie [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild), aby umieścić na ekranie wszystkie węzły drzewa DOM, które utworzył.
 * **Podczas przerenderowań,** React zastosuje minimum niezbędnych operacji (obliczonych podczas renderowania!), aby dopasować drzewo DOM do wyniku najnowszego renderowania.
+=======
+After rendering (calling) your components, React will modify the DOM.
+
+* **For the initial render,** React will use the [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API to put all the DOM nodes it has created on screen.
+* **For re-renders,** React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
+>>>>>>> ab18d2f0f5151ab0c927a12eb0a64f8170762eff
 
 **React zmienia węzły drzewa DOM tylko wtedy, gdy występuje różnica pomiędzy renderowaniami.** Na przykład, oto komponent, który przerenderowuje się co sekundę z różnymi właściwościami przekazywanymi z jego rodzica. Zauważ, że możesz dodać tekst do elementu `<input>`, aktualizując jego atrybut `value`, ale tekst nie znika, gdy komponent renderuje się ponownie:
 

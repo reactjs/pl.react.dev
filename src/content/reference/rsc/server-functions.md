@@ -82,7 +82,7 @@ export async function createNote() {
 
 ```
 
-When the bundler builds the `EmptyNote` Client Component, it will create a reference to the `createNoteAction` function in the bundle. When the `button` is clicked, React will send a request to the server to execute the `createNoteAction` function using the reference provided:
+When the bundler builds the `EmptyNote` Client Component, it will create a reference to the `createNote` function in the bundle. When the `button` is clicked, React will send a request to the server to execute the `createNote` function using the reference provided:
 
 ```js [[1, 2, "createNote"], [1, 5, "createNote"], [1, 7, "createNote"]]
 "use client";
@@ -90,7 +90,7 @@ import {createNote} from './actions';
 
 function EmptyNote() {
   console.log(createNote);
-  // {$$typeof: Symbol.for("react.server.reference"), $$id: 'createNoteAction'}
+  // {$$typeof: Symbol.for("react.server.reference"), $$id: 'createNote'}
   <button onClick={() => createNote()} />
 }
 ```
@@ -126,7 +126,7 @@ function UpdateName() {
   const submitAction = async () => {
     startTransition(async () => {
       const {error} = await updateName(name);
-      if (!error) {
+      if (error) {
         setError(error);
       } else {
         setName('');
@@ -137,7 +137,7 @@ function UpdateName() {
   return (
     <form action={submitAction}>
       <input type="text" name="name" disabled={isPending}/>
-      {state.error && <span>Failed: {state.error}</span>}
+      {error && <span>Failed: {error}</span>}
     </form>
   )
 }
