@@ -174,7 +174,7 @@
       "tags": ["advanced"],
       "routes": [
         {
-          "title": "Referencing Values with Refs",
+          "title": "Odwoływanie się do wartości za pomocą referencji",
           "path": "/learn/referencing-values-with-refs"
         },
         {
