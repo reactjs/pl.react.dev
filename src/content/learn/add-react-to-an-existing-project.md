@@ -20,15 +20,9 @@ Załóżmy, że masz istniejącą aplikację internetową pod adresem `example.c
 
 Oto jak polecamy to skonfigurować:
 
-<<<<<<< HEAD
 1. **Zbuduj część aplikacji w Reakcie** przy użyciu jednego z [frameworków opartych na Reakcie](/learn/start-a-new-react-project).
-2. **Określ `/some-app` jako *bazową ścieżkę*** w konfiguracji twojego frameworka (oto jak: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+2. **Określ `/some-app` jako *bazową ścieżkę*** w konfiguracji twojego frameworka (oto jak: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Skonfiguruj serwer lub proxy**, aby wszystkie żądania pod adresem `/some-app/` były obsługiwane przez twoją aplikację w Reakcie.
-=======
-1. **Build the React part of your app** using one of the [React-based frameworks](/learn/start-a-new-react-project).
-2. **Specify `/some-app` as the *base path*** in your framework's configuration (here's how: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
-3. **Configure your server or a proxy** so that all requests under `/some-app/` are handled by your React app.
->>>>>>> 9000e6e003854846c4ce5027703b5ce6f81aad80
 
 
 Dzięki temu część aplikacji napisana w Reakcie będzie mogła [korzystać z najlepszych praktyk](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) wbudowanych w te frameworki.
