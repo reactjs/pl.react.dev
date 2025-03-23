@@ -21,7 +21,7 @@ Załóżmy, że masz istniejącą aplikację internetową pod adresem `example.c
 Oto jak polecamy to skonfigurować:
 
 1. **Zbuduj część aplikacji w Reakcie** przy użyciu jednego z [frameworków opartych na Reakcie](/learn/start-a-new-react-project).
-2. **Określ `/some-app` jako *bazową ścieżkę*** w konfiguracji twojego frameworka (oto jak: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+2. **Określ `/some-app` jako *bazową ścieżkę*** w konfiguracji twojego frameworka (oto jak: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Skonfiguruj serwer lub proxy**, aby wszystkie żądania pod adresem `/some-app/` były obsługiwane przez twoją aplikację w Reakcie.
 
 
