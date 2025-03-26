@@ -186,7 +186,7 @@ na
 const [index, setIndex] = useState(0);
 ```
 
-`index` jest zmienną stanu i `setIndex` to funkcja ustawiająca stan.
+`index` jest zmienną stanu a `setIndex` to funkcja ustawiająca stan.
 
 > Składnia `[` i `]` nazywana jest [destrukturyzacją tablicy](https://javascript.info/destructuring-assignment) i pozwala na odczyt wartości z tablicy. Tablica zwrócona przez `useState` zawsze zawiera dokładnie dwa elementy.
 
