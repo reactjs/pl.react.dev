@@ -4,7 +4,7 @@ title: "Stan - Pamięć komponentu"
 
 <Intro>
 
-Komponenty często muszą zmieniać to, co jest wyświetlane na ekranie w wyniku interakcji. Wpisywanie w formularzu powinno aktualizować jego pole, kliknięcie "następny" w kolejce obrazów powinno zmieniać wyświetlany obraz, kliknięcie "kup" powinno umieścić produkt w koszyku. Komponenty muszą „pamiętać” różne rzeczy: bieżącą wartość pola, bieżący obraz, zawartość koszyka. W Reakcie tego rodzaju pamięć specyficzna dla komponentu nazywana jest *stanem*.
+Komponenty często muszą zmieniać to, co jest wyświetlane na ekranie w wyniku interakcji. Wpisywanie w formularzu powinno aktualizować jego pole, kliknięcie "następny" w kolejce obrazów powinno zmieniać wyświetlany obraz, kliknięcie "kup" powinno umieścić produkt w koszyku. Komponenty muszą „pamiętać” różne rzeczy: bieżącą wartość pola, bieżący obraz, zawartość koszyka. W Reakcie tego rodzaju pamięć specyficzna dla komponentu nazywana jest *stanem* (ang. _state_).
 
 </Intro>
 
