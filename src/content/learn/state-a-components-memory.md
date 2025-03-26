@@ -161,7 +161,7 @@ Aby zaktualizować komponent nowymi danymi, muszą zajść dwie rzeczy:
 1. **Zachować** dane między renderowaniami.
 2. **Wywołać** ponowne renderowanie komponentu przez Reacta z nowymi danymi (re-rendering).
 
-Hook [`useState`](/reference/react/useState) zapewnie te dwie rzeczy:
+Hook [`useState`](/reference/react/useState) zapewnia te dwie rzeczy:
 
 1. **Zmienna stanu** do zachowania danych między renderowaniami.
 2. **Funkcja ustawiająca stan** do aktualizacji zmiennej i wywołania ponownego renderowania komponentu przez Reacta.
