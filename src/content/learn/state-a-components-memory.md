@@ -899,7 +899,7 @@ Co jeśli chciałbyś, aby obie galerie miały zsynchronizowany stan? W Reakcie 
 
 <Recap>
 
-* Użyj zmiennej stanu, gdy komponent musi "zapamiętać" pewne informacje między renderami.
+* Użyj zmiennej stanu, gdy komponent musi "zapamiętać" pewne informacje pomiędzy renderowaniami.
 * Zmienne stanu deklaruje się poprzez wywołanie Hooka `useState`.
 * Hooki to specjalne funkcje rozpoczynające się od `use`. Pozwalają one „podłączyć się” do funkcji Reacta, takich jak stan.
 * Hooki mogą przypominać importy: muszą być wywoływane bezwarunkowo. Wywoływanie Hooków, w tym `useState`, jest poprawne tylko na najwyższym poziomie komponentu lub innego Hooka.
