@@ -1504,7 +1504,7 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Zmienna stanu jest konieczna tylko wtedy, gdy musisz zachować informacje między kolejnymi renderami komponentu. W ramach pojedynczego obsługiwania zdarzenia wystarczy zwykła zmienna. Nie wprowadzaj zmiennych stanu, gdy zwykła zmienna działa dobrze.
+Zmienna stanu jest konieczna tylko wtedy, gdy musisz zachować informacje między kolejnymi renderowaniami komponentu. W ramach pojedynczego obsługiwania zdarzenia wystarczy zwykła zmienna. Nie wprowadzaj zmiennych stanu, gdy zwykła zmienna działa dobrze.
 
 </Solution>
 
