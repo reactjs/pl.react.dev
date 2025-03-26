@@ -153,7 +153,7 @@ button {
 
 Procedura obsługi zdarzenia `handleClick` aktualizuje lokalną zmienną `index`. Jednak dwie rzeczy uniemożliwiają zobaczenie tej zmiany:
 
-1. **Lokalne zmienne nie są zachowywane między renderowaniami.** Gdy React renderuje ten komponent po raz drugi, renderuje go od zera—nie uwzględnia żadnych zmian w lokalnych zmiennych.
+1. **Lokalne zmienne nie są zachowywane między renderowaniami.** Gdy React renderuje ten komponent po raz drugi, renderuje go od zera — nie uwzględnia żadnych zmian w lokalnych zmiennych.
 2. **Zmiany w lokalnych zmiennych nie wywołają renderowania.** React nie zdaje sobie sprawy, że musi ponownie wyrenderować komponent z nowymi danymi.
 
 Aby zaktualizować komponent nowymi danymi, muszą zajść dwie rzeczy:
@@ -188,9 +188,9 @@ const [index, setIndex] = useState(0);
 
 `index` jest zmienną stanu a `setIndex` to funkcja ustawiająca stan.
 
-> Składnia `[` i `]` nazywana jest [destrukturyzacją tablicy](https://javascript.info/destructuring-assignment) i pozwala na odczyt wartości z tablicy. Tablica zwrócona przez `useState` zawsze zawiera dokładnie dwa elementy.
+> Składnia `[` i `]` nazywana jest [destrukturyzacją tablicy](https://javascript.info/destructuring-assignment) i pozwala na odczyt wartości z tablicy. Tablica zwracana przez `useState` zawsze zawiera dokładnie dwa elementy.
 
-Oto jak współpracują ze sobą w `handleClick`:
+Oto jak współpracują one ze sobą w `handleClick`:
 
 ```js
 function handleClick() {
@@ -347,7 +347,7 @@ Stan to tylko jedna z tych funkcji, inne hooki poznasz później.
 
 ### Anatomia `useState` {/*anatomy-of-usestate*/}
 
-Kiedy wywołujesz [`useState`](/reference/react/useState),  informujesz Reacta, że chcesz, aby ten komponent coś zapamiętał:
+Kiedy wywołujesz [`useState`](/reference/react/useState), informujesz Reacta, że chcesz, aby ten komponent coś zapamiętał:
 
 ```js
 const [index, setIndex] = useState(0);
@@ -366,7 +366,7 @@ Jedynym argumentem dla `useState` jest **początkowa wartość** zmiennej stanu.
 Za każdym razem, gdy twój komponent jest renderowany, `useState` zwraca tablicę zawierającą dwie wartości: 
 
 1. **Zmienną stanu** (`index`) z wartością, którą przechowujesz.
-2. **Funkcję ustawiającą stan** (`setIndex`), która może zaktualizować  zmienną stanu i spowodować ponowne renderowanie komponentu przez Reacta.
+2. **Funkcję ustawiającą stan** (`setIndex`), która może zaktualizować zmienną stanu i spowodować ponowne renderowanie komponentu przez Reacta.
 
 Oto jak to wygląda w praktyce:
 
@@ -374,9 +374,9 @@ Oto jak to wygląda w praktyce:
 const [index, setIndex] = useState(0);
 ```
 
-1. **Twój komponent renderuje się po raz pierwszy.** Ponieważ przekazałeś `0` do `useState` jako początkową wartość dla `index`, zwróci ono `[0, setIndex]`. React zapamiętuje, że `0` to najnowsza wartość stanu.
-2. **Aktualizujesz stan.** Kiedy użytkownik kliknie przycisk, wywołuje to `setIndex(index + 1)`. `index` wynosi `0`, więc wywołane zostanie `setIndex(1)`. To informuje Reacta, że teraz `index` wynosi `1` i  wywołuje ponowny render.
-3. **Drugi render twojego komponentu.** React nadal widzi `useState(0)`, ale ponieważ React *pamięta*, że ustawiłeś `index` na `1`,  zwraca zamiast tego `[1, setIndex]`.
+1. **Twój komponent renderuje się po raz pierwszy.** Ponieważ do `useState` przekazano `0` jako początkową wartość dla `index`, zwróci on `[0, setIndex]`. React zapamiętuje, że `0` to najnowsza wartość stanu.
+2. **Aktualizujesz stan.** Kiedy użytkownik kliknie przycisk, wywołuje to `setIndex(index + 1)`. `index` wynosi `0`, więc wywołane zostanie `setIndex(1)`. To informuje Reacta, że teraz `index` wynosi `1` i wywołuje ponowne renderowanie.
+3. **Drugie renderowanie twojego komponentu.** React nadal widzi `useState(0)`, ale ponieważ React *pamięta*, że ustawiono `index` na `1`, zwraca zamiast tego `[1, setIndex]`.
 4. I tak dalej!
 
 ## Nadawanie komponentowi wielu zmiennych stanu {/*giving-a-component-multiple-state-variables*/}
@@ -520,19 +520,19 @@ button {
 
 </Sandpack>
 
-Dobrym pomysłem jest posiadanie wielu zmiennych stanu, jeśli ich stan nie jest powiązany, jak w przypadku `index` i `showMore` w tym przykładzie.  Jednak jeśli zauważysz, że często zmieniasz dwie zmienne stanu razem, może być łatwiej połączyć je w jedną. Na przykład, jeśli masz formularz z wieloma polami, wygodniej jest mieć jedną zmienną stanu przechowującą obiekt niż zmienną stanu dla każdego pola. Przeczytaj [dobieranie struktury stanu](/learn/choosing-the-state-structure) po więcej wskazówek.
+Dobrym pomysłem jest posiadanie wielu zmiennych stanu, jeśli ich stan nie jest powiązany, jak w przypadku `index` i `showMore` w tym przykładzie. Jednak jeśli zauważysz, że często zmieniasz dwie zmienne stanu razem, może być łatwiej połączyć je w jedną. Na przykład, jeśli masz formularz z wieloma polami, wygodniej jest mieć jedną zmienną stanu przechowującą obiekt niż zmienną stanu dla każdego pola. Przeczytaj [dobieranie struktury stanu](/learn/choosing-the-state-structure) po więcej wskazówek.
 
 <DeepDive>
 
-#### Jak React wie, który stan zwrócić? {/*how-does-react-know-which-state-to-return*/}
+#### Skąd React wie, który stan zwrócić? {/*how-does-react-know-which-state-to-return*/}
 
-Być może zauważyłeś, że wywołanie `useState` nie otrzymuje żadnych informacji o tym, do *której* zmiennej stanu się odnosi. Nie ma żadnego "identyfikatora", który jest przekazywany do `useState`, więc jak React wie, którą zmienną stanu zwrócić? Czy polega to na jakiejś magii, jak analizowanie twoich funkcji? Odpowiedź brzmi nie.
+Być może zauważyłeś/aś, że wywołanie `useState` nie otrzymuje żadnych informacji o tym, do *której* zmiennej stanu się odnosi. Nie ma żadnego "identyfikatora", który jest przekazywany do `useState`, więc skąd React wie, którą zmienną stanu zwrócić? Czy polega on na jakiejś magii, jak analizowanie twoich funkcji? Odpowiedź brzmi: nie.
 
 Zamiast tego, aby umożliwić ich zwięzłą składnię, hooki **opierają się na stabilnej kolejności wywołań przy każdym renderze tego samego komponentu.** Działa to dobrze w praktyce, ponieważ jeśli przestrzegasz zasady powyżej ("wywołuj hooki tylko na najwyższym poziomie"), hooki będą zawsze wywoływane w tej samej kolejności. Dodatkowo [plugin lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks) wychwytuje większość błędów.
 
 Wewnątrz Reacta, dla każdego komponentu przechowywana jest tablica par stanu. React utrzymuje również bieżący indeks pary, który jest ustawiony na `0` przed renderowaniem. Za każdym razem, gdy wywołujesz `useState`, React zwraca kolejną parę stanu i inkrementuje indeks. Możesz poczytać więcej o tym mechanizmie w artykule [React hooks: Not Magic, Just Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
-Ten przykład  **nie używa Reacta**  ale da ci wyobrażenie o tym, jak `useState` działa od środka:
+Ten przykład **nie używa Reacta**, ale da ci wyobrażenie o tym, jak `useState` działa od środka:
 
 <Sandpack>
 
@@ -544,7 +544,7 @@ let currentHookIndex = 0;
 function useState(initialState) {
   let pair = componentHooks[currentHookIndex];
   if (pair) {
-    // To nie jest pierwszy render,
+    // To nie jest pierwsze renderowanie,
     // więc para stanu już istnieje.
     // Zwróć ją i przygotuj się na następne wywołanie hooka.
     currentHookIndex++;
@@ -603,8 +603,8 @@ function updateDOM() {
   currentHookIndex = 0;
   let output = Gallery();
 
-  // Zaktualizuj DOM, aby pasował do wynikowego wyjścia.
-  // To jest część, którą React wykonuje za Ciebie.
+  // Zaktualizuj DOM, aby pasował do rezultatu.
+  // To jest część, którą React wykonuje za ciebie.
   nextButton.onclick = output.onNextClick;
   header.textContent = output.header;
   moreButton.onclick = output.onMoreClick;
@@ -728,7 +728,7 @@ Nie musisz tego rozumieć, aby używać Reacta, ale możesz uznać to za pomocny
 
 </DeepDive>
 
-## Stan jest izolowany i prywatny. {/*state-is-isolated-and-private*/}
+## Stan jest izolowany i prywatny {/*state-is-isolated-and-private*/}
 
 Stan jest lokalny dla instancji komponentu na ekranie. Innymi słowy, **jeśli renderujesz ten sam komponent dwa razy, każda kopia będzie miała całkowicie wyizolowany stan!** Zmiana jednego z nich nie wpłynie na drugi.
 
@@ -893,9 +893,9 @@ button {
 
 To właśnie sprawia, że stan różni się od zwykłych zmiennych, które możesz zadeklarować na początku swojego modułu. Stan nie jest powiązany z konkretnym wywołaniem funkcji ani miejscem w kodzie, ale jest "lokalny" dla konkretnego miejsca na ekranie. Wyrenderowano dwa komponenty `<Gallery />`, więc ich stan jest przechowywany osobno.
 
-Zwróć również uwagę, że komponent `Page` nie "wie" nic o stanie `Gallery`  ani nawet o tym, czy w ogóle go posiada. W przeciwieństwie do właściwości (ang. *props*) **stan jest całkowicie prywatny dla komponentu, który go deklaruje.** Komponent nadrzędny nie może go zmienić. Dzięki temu możesz dodać stan do dowolnego komponentu lub go usunąć, nie wpływając na resztę komponentów.
+Zwróć również uwagę, że komponent `Page` nie "wie" nic o stanie `Gallery` ani nawet o tym, czy w ogóle go posiada. W przeciwieństwie do właściwości (ang. *props*) **stan jest całkowicie prywatny dla komponentu, który go deklaruje.** Komponent nadrzędny nie może go zmienić. Dzięki temu możesz dodać stan do dowolnego komponentu lub go usunąć, nie wpływając na resztę komponentów.
 
-Co jeśli chciałbyś, aby obie galerie miały zsynchronizowany stan? W Reakcie właściwym sposobem na to jest *usunięcie* stanu z komponentów potomnych i dodanie go do ich najbliższego wspólnego rodzica. Kolejne strony skupią się na organizowaniu stanu pojedynczego komponentu, ale wrócimy do tego tematu w rozdziale [Współdzielenie stanu między komponentami.](/learn/sharing-state-between-components)
+Co jeśli chcesz, aby obie galerie miały zsynchronizowany stan? W Reakcie właściwym sposobem na to jest *usunięcie* stanu z komponentów potomnych i dodanie go do ich najbliższego wspólnego rodzica. Kolejne strony skupią się na organizowaniu stanu pojedynczego komponentu, ale wrócimy do tego tematu w rozdziale [Współdzielenie stanu między komponentami.](/learn/sharing-state-between-components)
 
 <Recap>
 
@@ -1219,13 +1219,13 @@ img { width: 120px; height: 120px; }
 
 </Sandpack>
 
-Zauważ, jak `hasPrev` i `hasNext` są używane *zarówno* w zwróconym JSX jak i w obsługach zdarzeń! Ten przydatny wzorzec działa, ponieważ funkcje obsługi zdarzeń  ["zamykają się"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) nad wszystkimi zmiennymi deklarowanymi podczas renderowania.
+Zauważ, jak `hasPrev` i `hasNext` są używane *zarówno* w zwróconym JSX jak i w obsługach zdarzeń! Ten przydatny wzorzec działa, ponieważ funkcje obsługi zdarzeń ["zamykają się"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) nad wszystkimi zmiennymi deklarowanymi podczas renderowania.
 
 </Solution>
 
 #### Napraw zablokowane pola formularza {/*fix-stuck-form-inputs*/}
 
-Kiedy wpisujesz dane w pola formularza, nic się nie pojawia. Wygląda to tak, jakby wartości wejściowe były „zablokowane” na pustych ciągach. `Wartość` pierwszego `<input>` jest ustawiona tak, aby zawsze pasowała do zmiennej `firstName` a  `wartość` drugiego`<input>` jest ustawiona tak, aby zawsze pasowała do zmiennej `lastName`. Tak powinno być. Oba pola mają obsługiwane zdarzenie `onChange`, które próbuje zaktualizować zmienne na podstawie najnowszego wejścia użytkownika (`e.target.value`). Jednak zmienne wydają się nie "pamiętać" swoich wartości między renderami. Napraw to, używając zamiast tego zmiennych stanu.
+Kiedy wpisujesz dane w pola formularza, nic się nie pojawia. Wygląda to tak, jakby wartości wejściowe były „zablokowane” na pustych ciągach. Dla pierwszego `<input>`, `value` jest ustawiony tak, aby zawsze pasował do zmiennej `firstName` a `value` drugiego `<input>` jest ustawiony tak, aby zawsze pasowała do zmiennej `lastName`. Tak powinno być. Oba pola mają obsługiwane zdarzenie `onChange`, które próbuje zaktualizować zmienne na podstawie najnowszych danych wejściowych użytkownika (`e.target.value`). Jednak zmienne wydają się nie "pamiętać" swoich wartości między renderowaniami. Napraw to, używając zamiast tego zmiennych stanu.
 
 <Sandpack>
 
@@ -1274,7 +1274,7 @@ h1 { margin-top: 10px; }
 
 <Solution>
 
-Po pierwsze, zaimportuj `useState` z Reacta. Następnie zamień `firstName` i `lastName`na zmienne stanu zadeklarowane za pomocą `useState`. Na końcu zamień każde przypisanie `firstName = ...` na `setFirstName(...)`, oraz zrób to samo dla `lastName`. Nie zapomnij także zaktualizować `handleReset`  aby przycisk resetowania mógł działać.
+Po pierwsze, zaimportuj `useState` z Reacta. Następnie zamień `firstName` i `lastName`na zmienne stanu zadeklarowane za pomocą `useState`. Na końcu zamień każde przypisanie `firstName = ...` na `setFirstName(...)` oraz zrób to samo dla `lastName`. Nie zapomnij także zaktualizować `handleReset`, aby przycisk resetowania mógł działać.
 
 <Sandpack>
 
@@ -1444,17 +1444,17 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Spróbuj przenieść drugie wywołanie  `useState` po warunku `if` i zauważ, jak to znowu powoduje błąd.
+Spróbuj przenieść drugie wywołanie `useState` po warunku `if` i zauważ, jak to znowu powoduje błąd.
 
-Jeśli Twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting), powinieneś zobaczyć błąd lintera, gdy popełnisz taki błąd. Jeśli nie widzisz błędu, gdy próbujesz uruchomić błędny kod lokalnie, musisz skonfigurować lintera dla swojego projektu.
+Jeśli Twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting), powinien wyświetlić się błąd lintera, gdy popełnisz pomyłkę taką jak ta. Jeśli nie widzisz błędu, gdy próbujesz uruchomić błędny kod lokalnie, musisz skonfigurować lintera dla swojego projektu.
 
 </Solution>
 
 #### Usuń niepotrzebny stan {/*remove-unnecessary-state*/}
 
-Kiedy przycisk jest kliknięty, ten przykład powinien zapytać o imię użytkownika, a następnie wyświetlić alert z powitaniem. Próbowałeś użyć stanu do przechowywania imienia, ale z jakiegoś powodu zawsze wyświetla się "Witaj, !".
+Kiedy przycisk jest kliknięty, ten przykład powinien zapytać o imię użytkownika, a następnie wyświetlić alert z powitaniem. Próbowano użyć stanu do przechowywania imienia, ale z jakiegoś powodu zawsze wyświetla się "Witaj, !".
 
-Aby naprawić ten kod, usuń niepotrzebną zmienną stanu. (Omówimy, [dlaczego to nie zadziałało](/learn/state-as-a-snapshot), później.)
+Aby naprawić ten kod, usuń niepotrzebną zmienną stanu. (Omówimy, [dlaczego to nie zadziałało](/learn/state-as-a-snapshot) później.)
 
 Czy możesz wyjaśnić, dlaczego ta zmienna stanu była niepotrzebna?
 
