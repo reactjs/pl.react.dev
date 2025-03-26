@@ -562,7 +562,7 @@ function useState(initialState) {
     updateDOM();
   }
 
-  // Przechowaj parę na przyszłe rendery
+  // Przechowaj parę na przyszłe renderowania
   // i przygotuj się na następne wywołanie Hooka
   componentHooks[currentHookIndex] = pair;
   currentHookIndex++;
