@@ -891,7 +891,7 @@ button {
 
 </Sandpack>
 
-To właśnie sprawia, że stan różni się od zwykłych zmiennych, które możesz zadeklarować na początku swojego modułu. Stan nie jest powiązany z konkretnym wywołaniem funkcji ani miejscem w kodzie, ale jest "lokalny" dla konkretnego miejsca na ekranie. Wyrenderowałeś dwa komponenty `<Gallery />`, więc ich stan jest przechowywany osobno.
+To właśnie sprawia, że stan różni się od zwykłych zmiennych, które możesz zadeklarować na początku swojego modułu. Stan nie jest powiązany z konkretnym wywołaniem funkcji ani miejscem w kodzie, ale jest "lokalny" dla konkretnego miejsca na ekranie. Wyrenderowano dwa komponenty `<Gallery />`, więc ich stan jest przechowywany osobno.
 
 Zwróć również uwagę, że komponent `Page` nie "wie" nic o stanie `Gallery`  ani nawet o tym, czy w ogóle go posiada. W przeciwieństwie do właściwości (ang. *props*) **stan jest całkowicie prywatny dla komponentu, który go deklaruje.** Komponent nadrzędny nie może go zmienić. Dzięki temu możesz dodać stan do dowolnego komponentu lub go usunąć, nie wpływając na resztę komponentów.
 
