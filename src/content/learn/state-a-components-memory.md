@@ -10,8 +10,8 @@ Komponenty często muszą zmieniać to, co jest wyświetlane na ekranie w wyniku
 
 <YouWillLearn>
 
-* Jak dodać zmienną stanu za pomocą Hooka [`useState`](/reference/react/useState) 
-* Jaką parę wartości zwraca Hook `useState`
+* Jak dodać zmienną stanu za pomocą hooka [`useState`](/reference/react/useState) 
+* Jaką parę wartości zwraca hook `useState`
 * Jak dodać więcej niż jedną zmienną stanu
 * Dlaczego stan nazywa się lokalnym
 
@@ -331,17 +331,17 @@ button {
 
 </Sandpack>
 
-### Poznaj swój pierwszy Hook {/*meet-your-first-hook*/}
+### Poznaj swój pierwszy hook {/*meet-your-first-hook*/}
 
-W Reakcie, `useState`, a także każda inna funkcja zaczynająca się od "`use`", nazywana jest Hookiem.
+W Reakcie, `useState`, a także każda inna funkcja zaczynająca się od "`use`", nazywana jest hookiem.
 
 *Hooki* to specjalne funkcje, które są dostępne tylko podczas [renderowania](/learn/render-and-commit#step-1-trigger-a-render) (o czym opowiemy szczegółowo na następnej stronie). Pozwalają one na "podłączenie się" do różnych funkcji Reacta.
 
-Stan to tylko jedna z tych funkcji, inne Hooki poznasz później.
+Stan to tylko jedna z tych funkcji, inne hooki poznasz później.
 
 <Pitfall>
 
-**Hooki—funkcje rozpoczynające się od `use`—można wywoływać tylko na najwyższym poziomie komponentów lub [własnych Hooków.](/learn/reusing-logic-with-custom-hooks)** Nie możesz wywoływać Hooków wewnątrz warunków, pętli ani innych zagnieżdżonych funkcji. Hooki to funkcje, ale warto myśleć o nich jako o bezwarunkowych deklaracjach dotyczących potrzeb komponentu. "Używasz" funkcji Reacta na górze komponentu, podobnie jak "importujesz" moduły na górze pliku.
+**Hooki—funkcje rozpoczynające się od `use`—można wywoływać tylko na najwyższym poziomie komponentów lub [własnych hooków.](/learn/reusing-logic-with-custom-hooks)** Nie możesz wywoływać hooków wewnątrz warunków, pętli ani innych zagnieżdżonych funkcji. hooki to funkcje, ale warto myśleć o nich jako o bezwarunkowych deklaracjach dotyczących potrzeb komponentu. "Używasz" funkcji Reacta na górze komponentu, podobnie jak "importujesz" moduły na górze pliku.
 
 </Pitfall>
 
@@ -528,9 +528,9 @@ Dobrym pomysłem jest posiadanie wielu zmiennych stanu, jeśli ich stan nie jest
 
 Być może zauważyłeś, że wywołanie `useState` nie otrzymuje żadnych informacji o tym, do *której* zmiennej stanu się odnosi. Nie ma żadnego "identyfikatora", który jest przekazywany do `useState`, więc jak React wie, którą zmienną stanu zwrócić? Czy polega to na jakiejś magii, jak analizowanie twoich funkcji? Odpowiedź brzmi nie.
 
-Zamiast tego, aby umożliwić ich zwięzłą składnię, Hooki **opierają się na stabilnej kolejności wywołań przy każdym renderze tego samego komponentu.** Działa to dobrze w praktyce, ponieważ jeśli przestrzegasz zasady powyżej ("wywołuj Hooki tylko na najwyższym poziomie"), Hooki będą zawsze wywoływane w tej samej kolejności. Dodatkowo [plugin lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks) wychwytuje większość błędów.
+Zamiast tego, aby umożliwić ich zwięzłą składnię, hooki **opierają się na stabilnej kolejności wywołań przy każdym renderze tego samego komponentu.** Działa to dobrze w praktyce, ponieważ jeśli przestrzegasz zasady powyżej ("wywołuj hooki tylko na najwyższym poziomie"), hooki będą zawsze wywoływane w tej samej kolejności. Dodatkowo [plugin lintera](https://www.npmjs.com/package/eslint-plugin-react-hooks) wychwytuje większość błędów.
 
-Wewnątrz Reacta, dla każdego komponentu przechowywana jest tablica par stanu. React utrzymuje również bieżący indeks pary, który jest ustawiony na `0` przed renderowaniem. Za każdym razem, gdy wywołujesz `useState`, React zwraca kolejną parę stanu i inkrementuje indeks. Możesz poczytać więcej o tym mechanizmie w artykule [React Hooks: Not Magic, Just Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
+Wewnątrz Reacta, dla każdego komponentu przechowywana jest tablica par stanu. React utrzymuje również bieżący indeks pary, który jest ustawiony na `0` przed renderowaniem. Za każdym razem, gdy wywołujesz `useState`, React zwraca kolejną parę stanu i inkrementuje indeks. Możesz poczytać więcej o tym mechanizmie w artykule [React hooks: Not Magic, Just Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
 Ten przykład  **nie używa Reacta**  ale da ci wyobrażenie o tym, jak `useState` działa od środka:
 
@@ -546,7 +546,7 @@ function useState(initialState) {
   if (pair) {
     // To nie jest pierwszy render,
     // więc para stanu już istnieje.
-    // Zwróć ją i przygotuj się na następne wywołanie Hooka.
+    // Zwróć ją i przygotuj się na następne wywołanie hooka.
     currentHookIndex++;
     return pair;
   }
@@ -563,7 +563,7 @@ function useState(initialState) {
   }
 
   // Przechowaj parę na przyszłe renderowania
-  // i przygotuj się na następne wywołanie Hooka
+  // i przygotuj się na następne wywołanie hooka
   componentHooks[currentHookIndex] = pair;
   currentHookIndex++;
   return pair;
@@ -598,7 +598,7 @@ function Gallery() {
 }
 
 function updateDOM() {
-  // Zresetuj bieżący indeks Hooka
+  // Zresetuj bieżący indeks hooka
   // przed renderowaniem komponentu.
   currentHookIndex = 0;
   let output = Gallery();
@@ -900,9 +900,9 @@ Co jeśli chciałbyś, aby obie galerie miały zsynchronizowany stan? W Reakcie 
 <Recap>
 
 * Użyj zmiennej stanu, gdy komponent musi "zapamiętać" pewne informacje pomiędzy renderowaniami.
-* Zmienne stanu deklaruje się poprzez wywołanie Hooka `useState`.
+* Zmienne stanu deklaruje się poprzez wywołanie hooka `useState`.
 * Hooki to specjalne funkcje rozpoczynające się od `use`. Pozwalają one „podłączyć się” do funkcji Reacta, takich jak stan.
-* Hooki mogą przypominać importy: muszą być wywoływane bezwarunkowo. Wywoływanie Hooków, w tym `useState`, jest poprawne tylko na najwyższym poziomie komponentu lub innego Hooka.
+* Hooki mogą przypominać importy: muszą być wywoływane bezwarunkowo. Wywoływanie hooków, w tym `useState`, jest poprawne tylko na najwyższym poziomie komponentu lub innego hooka.
 * Hook `useState` zwraca parę wartości: aktualny stan oraz funkcję do jego aktualizacji.
 * Możesz mieć więcej niż jedną zmienną stanu. Wewnętrznie React dopasowuje je według kolejności.
 * Stan jest prywatny dla komponentu. Jeśli renderujesz go w dwóch miejscach, każda kopia ma swój własny stan.
@@ -1331,7 +1331,7 @@ Oto mały formularz, który ma pozwolić użytkownikowi zostawić opinię. Kiedy
 
 <Hint>
 
-Czy istnieją jakieś ograniczenia dotyczące _gdzie_ można wywoływać Hooki? Does this component break any rules? Czy ten komponent łamie jakieś zasady? Sprawdź, czy w kodzie znajdują się komentarze wyłączające sprawdzanie przez lintera — to tam często ukrywają się błędy!
+Czy istnieją jakieś ograniczenia dotyczące _gdzie_ można wywoływać hooki? Does this component break any rules? Czy ten komponent łamie jakieś zasady? Sprawdź, czy w kodzie znajdują się komentarze wyłączające sprawdzanie przez lintera — to tam często ukrywają się błędy!
 
 </Hint>
 
@@ -1407,9 +1407,9 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Pamiętaj, że Hooki muszą być wywoływane bezwarunkowo i zawsze w tej samej kolejności!
+Pamiętaj, że hooki muszą być wywoływane bezwarunkowo i zawsze w tej samej kolejności!
 
-Możesz również usunąć niepotrzebną gałąź `else`, aby zredukować zagnieżdżenie. Ważne jest jednak, aby wszystkie wywołania Hooków miały miejsce *przed* pierwszym `return`.
+Możesz również usunąć niepotrzebną gałąź `else`, aby zredukować zagnieżdżenie. Ważne jest jednak, aby wszystkie wywołania hooków miały miejsce *przed* pierwszym `return`.
 
 <Sandpack>
 
