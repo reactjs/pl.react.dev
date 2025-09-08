@@ -23,7 +23,7 @@ useEffect(setup, dependencies?)
 Aby zadeklarować efekt, wywołaj `useEffect` na głównym poziomie swojego komponentu:
 
 ```js
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 function ChatRoom({ roomId }) {
@@ -81,7 +81,7 @@ Niektóre komponenty muszą pozostać połączone z siecią, pewnym interfejsem 
 Aby [połączyć swój komponent z zewnętrznym systemem,](/learn/synchronizing-with-effects) wywołaj funkcję `useEffect` na głównym poziomie swojego komponentu:
 
 ```js [[1, 8, "const connection = createConnection(serverUrl, roomId);"], [1, 9, "connection.connect();"], [2, 11, "connection.disconnect();"], [3, 13, "[serverUrl, roomId]"]]
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 function ChatRoom({ roomId }) {
@@ -895,7 +895,11 @@ W tym przykładzie nie jest potrzebna funkcja czyszcząca, ponieważ klasa `MapW
 
 ### Pobieranie danych przy użyciu efektów {/*fetching-data-with-effects*/}
 
+<<<<<<< HEAD
 Możesz użyć efektu do pobierania danych dla swojego komponentu. Zauważ, że [jeśli korzystasz z frameworka,](/learn/start-a-new-react-project#production-grade-react-frameworks) użycie mechanizmu pobierania danych dostarczonego przez niego będzie o wiele wydajniejsze niż ręczne pisanie efektów.
+=======
+You can use an Effect to fetch data for your component. Note that [if you use a framework,](/learn/start-a-new-react-project#full-stack-frameworks) using your framework's data fetching mechanism will be a lot more efficient than writing Effects manually.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 Jeśli chcesz ręcznie pobierać dane za pomocą efektu, twój kod może wyglądać tak:
 
@@ -1047,8 +1051,13 @@ Pisanie wywołań `fetch` wewnątrz efektów to [popularny sposób na pobieranie
 
 Te wady nie dotyczą tylko Reacta. Występują one przy pobieraniu danych podczas montowania komponentu przy użyciu dowolnej biblioteki. Podobnie jak w przypadku routingu, poprawne wykonywanie pobierania danych nie jest proste, dlatego polecamy następujące podejścia:
 
+<<<<<<< HEAD
 - **Jeśli używasz [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks), wykorzystaj jego wbudowany mechanizm pobierania danych.** Współczesne frameworki reactowe mają zintegrowane mechanizmy pobierania danych, które są wydajne i rozwiązują powyższe problemy.
 - **W przeciwnym razie rozważ użycie lub zbudowanie pamięci podręcznej po stronie klienta.** Popularne rozwiązania open source obejmują [React Query](https://react-query.tanstack.com/), [useSWR](https://swr.vercel.app/) oraz [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Możesz także zbudować swoje własne rozwiązanie, w którym byłyby użyte efekty, ale także zawarte byłyby: logika do unikania zduplikowanych zapytań, buforowania odpowiedzi i unikania kaskad żądań sieciowych (poprzez wstępne wczytywanie danych lub przeniesienie wymagań dot. danych do ścieżek).
+=======
+- **If you use a [framework](/learn/start-a-new-react-project#full-stack-frameworks), use its built-in data fetching mechanism.** Modern React frameworks have integrated data fetching mechanisms that are efficient and don't suffer from the above pitfalls.
+- **Otherwise, consider using or building a client-side cache.** Popular open source solutions include [React Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), and [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) You can build your own solution too, in which case you would use Effects under the hood but also add logic for deduplicating requests, caching responses, and avoiding network waterfalls (by preloading data or hoisting data requirements to routes).
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 Możesz nadal pobierać dane bezpośrednio w efektach, jeśli żadne z wymienionych podejść nie spełnia twoich potrzeb.
 
@@ -1732,7 +1741,11 @@ function Page({ url, shoppingCart }) {
 
 ### Wyświetlanie różnych treści na serwerze i kliencie {/*displaying-different-content-on-the-server-and-the-client*/}
 
+<<<<<<< HEAD
 Jeśli twoja aplikacja korzysta z renderowania na serwerze (zarówno [bezpośrednio](/reference/react-dom/server) lub za pomocą [frameworka](/learn/start-a-new-react-project#production-grade-react-frameworks)), twój komponent będzie renderowany w dwóch różnych środowiskach. Na serwerze zostanie on wyrenderowany, aby wygenerować początkowy kod HTML. Na kliencie React uruchomi kod renderowania ponownie, aby mógł podpiąć do tego kodu HTML funkcje obsługujące zdarzenia. Dlatego, aby [hydratacja](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) działała, wynik początkowego renderowania musi być identyczny na kliencie i na serwerze.
+=======
+If your app uses server rendering (either [directly](/reference/react-dom/server) or via a [framework](/learn/start-a-new-react-project#full-stack-frameworks)), your component will render in two different environments. On the server, it will render to produce the initial HTML. On the client, React will run the rendering code again so that it can attach your event handlers to that HTML. This is why, for [hydration](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) to work, your initial render output must be identical on the client and the server.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 W rzadkich przypadkach może zajść potrzeba, aby wyświetlić inną treść na kliencie. Na przykład, jeśli twoja aplikacja odczytuje pewne dane z [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), to nie jest to możliwe do wykonania na serwerze. Oto jak można to zrealizować:
 
