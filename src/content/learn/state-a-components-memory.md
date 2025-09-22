@@ -23,7 +23,7 @@ Oto komponent, który renderuje obraz rzeźby. Kliknięcie przycisku "Następny"
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7]}}
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
@@ -1229,7 +1229,7 @@ Kiedy wpisujesz dane w pola formularza, nic się nie pojawia. Wygląda to tak, j
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [6]}}
 export default function Form() {
   let firstName = '';
   let lastName = '';
@@ -1337,7 +1337,7 @@ Czy istnieją jakieś ograniczenia dotyczące _gdzie_ można wywoływać hooki? 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [9]}}
 import { useState } from 'react';
 
 export default function FeedbackForm() {
@@ -1452,7 +1452,11 @@ Jeśli Twój linter jest [skonfigurowany pod Reacta](/learn/editor-setup#linting
 
 #### Usuń niepotrzebny stan {/*remove-unnecessary-state*/}
 
+<<<<<<< HEAD
 Kiedy przycisk jest kliknięty, ten przykład powinien zapytać o imię użytkownika, a następnie wyświetlić alert z powitaniem. Próbowano użyć stanu do przechowywania imienia, ale z jakiegoś powodu zawsze wyświetla się "Witaj, !".
+=======
+When the button is clicked, this example should ask for the user's name and then display an alert greeting them. You tried to use state to keep the name, but for some reason the first time it shows "Hello, !", and then "Hello, [name]!" with the previous input every time after.
+>>>>>>> 366b5fbdadefecbbf9f6ef36c0342c083248c691
 
 Aby naprawić ten kod, usuń niepotrzebną zmienną stanu. (Omówimy, [dlaczego to nie zadziałało](/learn/state-as-a-snapshot) później.)
 
