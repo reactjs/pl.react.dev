@@ -12,6 +12,12 @@ const cachedFn = useCallback(fn, dependencies)
 
 </Intro>
 
+<Note>
+
+[React Compiler](/learn/react-compiler) automatically memoizes values and functions, reducing the need for manual `useCallback` calls. You can use the compiler to handle memoization automatically.
+
+</Note>
+
 <InlineToc />
 
 ---
@@ -46,7 +52,11 @@ export default function ProductPage({ productId, referrer, theme }) {
 
 Podczas pierwszego renderowania `useCallback` zwróci funkcję `fn`, która została mu przekazana.
 
+<<<<<<< HEAD
 Podczas kolejnych renderowań zwróci on już zapamiętaną funkcję `fn` z poprzedniego renderowania (jeśli zależności nie uległy zmianie) albo zwróci funkcję `fn`, którą przekazano podczas tego renderowania.
+=======
+During subsequent renders, it will either return an already stored `fn` function from the last render (if the dependencies haven't changed), or return the `fn` function you have passed during this render.
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 
 #### Zastrzeżenia {/*caveats*/}
 
@@ -124,7 +134,7 @@ function ProductPage({ productId, referrer, theme }) {
       orderDetails,
     });
   }
-  
+
   return (
     <div className={theme}>
       {/* ... więc właściwości ShippingForm nigdy nie będą takie same i komponent ten przerenderuje się za każdym razem */}
@@ -201,8 +211,13 @@ Różnica polega na tym, *co* pozwalają ci zapamiętać:
 
 Jeśli już rozumiesz zasadę działania [`useMemo`,](/reference/react/useMemo), pomocne może być myślenie o `useCallback` w ten sposób:
 
+<<<<<<< HEAD
 ```js
 // Uproszczona implementacja (wewnątrz Reacta)
+=======
+```js {expectedErrors: {'react-compiler': [3]}}
+// Simplified implementation (inside React)
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 function useCallback(fn, dependencies) {
   return useMemo(() => fn, dependencies);
 }
@@ -216,9 +231,15 @@ function useCallback(fn, dependencies) {
 
 #### Czy należy używać useCallback wszędzie? {/*should-you-add-usecallback-everywhere*/}
 
+<<<<<<< HEAD
 Jeśli twoja aplikacja jest podobna do tej strony i większość interakcji jest prostych (takich jak zastępowanie strony lub całej sekcji), to zazwyczaj zapamiętywanie nie jest konieczne. Z drugiej strony, jeśli twoja aplikacja przypomina edytor rysunków i większość interakcji jest dość szczegółowa (takie jak przesuwanie kształtów), to możliwe, że zapamiętywanie będzie bardzo pomocne.
 
 Zapamiętywanie funkcji za pomocą `useCallback` daje wyraźne korzyści tylko w kilku przypadkach:
+=======
+If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
+
+Caching a function with `useCallback` is only valuable in a few cases:
+>>>>>>> 0d05d9b6ef0f115ec0b96a2726ab0699a9ebafe1
 
 - Przekazujesz ją jako właściwość do potomka, który jest owinięty w [`memo`.](/reference/react/memo) Chcesz pominąć przerenderowanie, jeśli wartość się nie zmieniła. Zapamiętywanie pozwala komponentowi przerenderować się tylko wtedy, gdy zmienią się zależności.
 - Funkcja, którą przekazujesz, jest później używana jako zależność jakiegoś Hooka. Na przykład inna funkcja owinięta w `useCallback` zależy od niej lub ty zależysz od tej funkcji w hooku [`useEffect.`](/reference/react/useEffect)
@@ -304,7 +325,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -443,7 +464,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -862,7 +883,7 @@ Kiedy znajdziesz zależność psującą memoizację, znajdź sposób, aby ją us
 
 Załóżmy, że komponent `Chart` jest owinięty w [`memo`](/reference/react/memo). Chcesz uniknąć przerenderowania każdego komponentu `Chart` na liście, gdy komponent `ReportList` zostanie ponownie przerenderowany. Jednak nie możesz wywołać `useCallback` w pętli:
 
-```js {5-14}
+```js {expectedErrors: {'react-compiler': [6]}} {5-14}
 function ReportList({ items }) {
   return (
     <article>
