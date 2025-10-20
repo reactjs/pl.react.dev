@@ -12,6 +12,12 @@ const cachedFn = useCallback(fn, dependencies)
 
 </Intro>
 
+<Note>
+
+[React Compiler](/learn/react-compiler) automatically memoizes values and functions, reducing the need for manual `useCallback` calls. You can use the compiler to handle memoization automatically.
+
+</Note>
+
 <InlineToc />
 
 ---
@@ -46,7 +52,11 @@ export default function ProductPage({ productId, referrer, theme }) {
 
 Podczas pierwszego renderowania `useCallback` zwróci funkcję `fn`, która została mu przekazana.
 
+<<<<<<< HEAD
 Podczas kolejnych renderowań zwróci on już zapamiętaną funkcję `fn` z poprzedniego renderowania (jeśli zależności nie uległy zmianie) albo zwróci funkcję `fn`, którą przekazano podczas tego renderowania.
+=======
+During subsequent renders, it will either return an already stored `fn` function from the last render (if the dependencies haven't changed), or return the `fn` function you have passed during this render.
+>>>>>>> f8c81a0f4f8e454c850f0c854ad054b32313345c
 
 #### Zastrzeżenia {/*caveats*/}
 
@@ -124,7 +134,7 @@ function ProductPage({ productId, referrer, theme }) {
       orderDetails,
     });
   }
-  
+
   return (
     <div className={theme}>
       {/* ... więc właściwości ShippingForm nigdy nie będą takie same i komponent ten przerenderuje się za każdym razem */}
@@ -201,8 +211,13 @@ Różnica polega na tym, *co* pozwalają ci zapamiętać:
 
 Jeśli już rozumiesz zasadę działania [`useMemo`,](/reference/react/useMemo), pomocne może być myślenie o `useCallback` w ten sposób:
 
+<<<<<<< HEAD
 ```js
 // Uproszczona implementacja (wewnątrz Reacta)
+=======
+```js {expectedErrors: {'react-compiler': [3]}}
+// Simplified implementation (inside React)
+>>>>>>> f8c81a0f4f8e454c850f0c854ad054b32313345c
 function useCallback(fn, dependencies) {
   return useMemo(() => fn, dependencies);
 }
@@ -216,9 +231,15 @@ function useCallback(fn, dependencies) {
 
 #### Czy należy używać useCallback wszędzie? {/*should-you-add-usecallback-everywhere*/}
 
+<<<<<<< HEAD
 Jeśli twoja aplikacja jest podobna do tej strony i większość interakcji jest prostych (takich jak zastępowanie strony lub całej sekcji), to zazwyczaj zapamiętywanie nie jest konieczne. Z drugiej strony, jeśli twoja aplikacja przypomina edytor rysunków i większość interakcji jest dość szczegółowa (takie jak przesuwanie kształtów), to możliwe, że zapamiętywanie będzie bardzo pomocne.
 
 Zapamiętywanie funkcji za pomocą `useCallback` daje wyraźne korzyści tylko w kilku przypadkach:
+=======
+If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
+
+Caching a function with `useCallback` is only valuable in a few cases:
+>>>>>>> f8c81a0f4f8e454c850f0c854ad054b32313345c
 
 - Przekazujesz ją jako właściwość do potomka, który jest owinięty w [`memo`.](/reference/react/memo) Chcesz pominąć przerenderowanie, jeśli wartość się nie zmieniła. Zapamiętywanie pozwala komponentowi przerenderować się tylko wtedy, gdy zmienią się zależności.
 - Funkcja, którą przekazujesz, jest później używana jako zależność jakiegoś Hooka. Na przykład inna funkcja owinięta w `useCallback` zależy od niej lub ty zależysz od tej funkcji w hooku [`useEffect.`](/reference/react/useEffect)
@@ -229,11 +250,19 @@ Należy zaznaczyć, że `useCallback` nie zapobiega *tworzeniu* funkcji. Zawsze 
 
 **W praktyce możesz uniknąć wielu przypadków zapamiętywania, stosując kilka zasad:**
 
+<<<<<<< HEAD
 1. Gdy komponent wizualnie zawiera inne komponenty, pozwól mu [przyjmować JSX jako komponenty potomne.](/learn/passing-props-to-a-component#passing-jsx-as-children) Wtedy, jeśli komponent opakowujący zaktualizuje swój własny stan, React będzie wiedzieć, że jego komponenty potomne nie muszą być ponownie wyrenderowane.
 1. Preferuj stan lokalny i nie [wynoś stanu wyżej](/learn/sharing-state-between-components) niż to jest konieczne. Nie przechowuj chwilowego stanu, takiego jak formularze czy informacji o tym, czy element został najechany kursorem, na samej górze drzewa komponentów lub w bibliotece globalnego stanu.
 1. Utrzymuj swoją [logikę renderowania w czystości.](/learn/keeping-components-pure) Jeśli przerenderowanie komponentu powoduje problem lub widoczne wizualne artefakty, błąd tkwi w twoim komponencie! Napraw go, zamiast dodawać memoizację.
 1. Unikaj [niepotrzebnych efektów, które aktualizują stan.](/learn/you-might-not-need-an-effect) Większość problemów wydajnościowych w aplikacjach reactowych wynika z serii aktualizacji, które mają swoje źródło w efektach i prowadzą do wielokrotnego przerenderowania komponentów.
 1. Postaraj się [usunąć niepotrzebne zależności z efektów.](/learn/removing-effect-dependencies) Na przykład, zamiast zapamiętywania, często prostsze jest przeniesienie jakiegoś obiektu lub funkcji do efektu lub na zewnątrz komponentu.
+=======
+1. When a component visually wraps other components, let it [accept JSX as children.](/learn/passing-props-to-a-component#passing-jsx-as-children) Then, if the wrapper component updates its own state, React knows that its children don't need to re-render.
+2. Prefer local state and don't [lift state up](/learn/sharing-state-between-components) any further than necessary. Don't keep transient state like forms and whether an item is hovered at the top of your tree or in a global state library.
+3. Keep your [rendering logic pure.](/learn/keeping-components-pure) If re-rendering a component causes a problem or produces some noticeable visual artifact, it's a bug in your component! Fix the bug instead of adding memoization.
+4. Avoid [unnecessary Effects that update state.](/learn/you-might-not-need-an-effect) Most performance problems in React apps are caused by chains of updates originating from Effects that cause your components to render over and over.
+5. Try to [remove unnecessary dependencies from your Effects.](/learn/removing-effect-dependencies) For example, instead of memoization, it's often simpler to move some object or a function inside an Effect or outside the component.
+>>>>>>> f8c81a0f4f8e454c850f0c854ad054b32313345c
 
 Jeśli jakaś interakcja wciąż działa opornie, [użyj narzędzi do profilowania w narzędziach deweloperskich Reacta](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html), aby zobaczyć, które komponenty najwięcej zyskują na zapamiętywaniu i dodaj zapamiętywanie tam, gdzie jest to potrzebne. Te zasady sprawiają, że twoje komponenty będą łatwiejsze do debugowania i zrozumienia, więc warto się nimi kierować w każdym przypadku. Długoterminowo pracujemy nad [automatycznym zapamiętywaniem](https://www.youtube.com/watch?v=lGEMwh32soc), aby rozwiązać ten problem raz na zawsze.
 
@@ -304,7 +333,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -443,7 +472,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -862,7 +891,7 @@ Kiedy znajdziesz zależność psującą memoizację, znajdź sposób, aby ją us
 
 Załóżmy, że komponent `Chart` jest owinięty w [`memo`](/reference/react/memo). Chcesz uniknąć przerenderowania każdego komponentu `Chart` na liście, gdy komponent `ReportList` zostanie ponownie przerenderowany. Jednak nie możesz wywołać `useCallback` w pętli:
 
-```js {5-14}
+```js {expectedErrors: {'react-compiler': [6]}} {5-14}
 function ReportList({ items }) {
   return (
     <article>
