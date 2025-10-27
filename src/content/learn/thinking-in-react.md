@@ -37,9 +37,15 @@ Zacznij od narysowania na designach prostokątów wokół każdego komponentu i 
 
 Zależnie od tego, z jakiej działki się wywodzisz, możesz myśleć o podziale na komponenty na różne sposoby:
 
+<<<<<<< HEAD
 * **Programowanie** - zastosuj te same techniki, co przy decydowaniu, czy warto stworzyć nową funkcję lub obiekt. Jedną z takich technik jest [zasada jednej odpowiedzialności](https://pl.wikipedia.org/wiki/Zasada_jednej_odpowiedzialno%C5%9Bci), to znaczy, że idealnie by było, gdyby komponent robił tylko jedną rzeczy. Jeśli za bardzo się rozrośnie, warto zastanowić się nad podzialeniem go na kilka mniejszych.
 * **CSS** - pomyśl, co powinno otrzymać swój własny selektor CSS-owy. (Chociaż komponenty zwykle są nieco bardziej rozdrobnione.)
 * **Design** - pomyśl, jak należałoby zorganizować warstwy projektu graficznego.
+=======
+* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents. 
+* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
+* **Design**--consider how you would organize the design's layers.
+>>>>>>> 2c7798dcc51fbd07ebe41f49e5ded4839a029f72
 
 Jeśli dane z API są dobrze zorganizowane, często naturalnie mapują się na strukturę komponentów UI, ponieważ mają taką samą strukturę informacyjną - czyli kształt. Porozdzielaj komponenty od siebie tak, by każdy z nich pasował do jednej części modelu danych.
 
