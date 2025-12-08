@@ -215,7 +215,11 @@ Twoja aplikacja reactowa zaczyna się w komponencie głównym (_ang._ root - "ko
 
 Większość aplikacji reactowych używa komponentów "od góry do dołu". Oznacza to, że nie tylko fragmenty wielokrotnego użytku, jak przyciski, stają się komponentami, lecz także większe kawałki interfejsu, jak paski boczne, listy czy nawet całe strony! Komponenty doskonale sprawdzają się w porządkowaniu kodu UI, nawet jeśli niektórych z nich używamy tylko jeden raz.
 
+<<<<<<< HEAD
 Frameworki takie jak Next.js idą o krok dalej. Zamiast tworzyć pusty plik HTML i pozwolić Reactowi "przejąć kontrolę" nad stroną poprzez JavaScript, niektóre frameworki _również_ automatycznie generują kod HTML z komponentów. Umożliwia to wyświetlenie choć części treści strony, podczas gdy kod javascriptowy jest ładowany.
+=======
+[React-based frameworks](/learn/creating-a-react-app) take this a step further. Instead of using an empty HTML file and letting React "take over" managing the page with JavaScript, they *also* generate the HTML automatically from your React components. This allows your app to show some content before the JavaScript code loads.
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 Mimo wszystko wiele stron używa Reacta tylko po to, by [dodać do nich "szczyptę interaktywności"](/learn/add-react-to-a-website). Mają one wiele komponentów głównych zamiast jednego na całą stronę. Świadczy to o tym, że Reacta można używać w takim stopniu, jaki jest aktualnie potrzebny.
 
