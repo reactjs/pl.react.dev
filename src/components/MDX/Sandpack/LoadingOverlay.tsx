@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {useState} from 'react';
 
 import {
@@ -17,7 +24,7 @@ export const LoadingOverlay = ({
   clientId: string;
   dependenciesLoading: boolean;
   forceLoading: boolean;
-} & React.HTMLAttributes<HTMLDivElement>): JSX.Element | null => {
+} & React.HTMLAttributes<HTMLDivElement>): React.ReactNode | null => {
   const loadingOverlayState = useLoadingOverlayState(
     clientId,
     dependenciesLoading,
@@ -63,7 +70,12 @@ export const LoadingOverlay = ({
         opacity: stillLoading ? 1 : 0,
         transition: `opacity ${FADE_ANIMATION_DURATION}ms ease-out`,
       }}>
+<<<<<<< HEAD
       <div className="sp-cube-wrapper" title="Otwórz w CodeSandbox">
+=======
+      <div className="sp-cube-wrapper" title="Open in CodeSandbox">
+        {/* @ts-ignore: the OpenInCodeSandboxButton type from '@codesandbox/sandpack-react/unstyled' is incompatible with JSX in React 19 */}
+>>>>>>> 2da4f7fbd90ddc09835c9f85d61fd5644a271abc
         <OpenInCodeSandboxButton />
         <div className="sp-cube">
           <div className="sp-sides">
