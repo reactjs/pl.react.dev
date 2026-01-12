@@ -474,7 +474,7 @@ Pisząc komponenty w formie czystych funkcji możesz ustrzec się przed masą k�
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {
