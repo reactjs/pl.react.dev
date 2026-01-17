@@ -323,7 +323,7 @@ export default function Bio() {
       <p className="summary">
         Wrzucam na nią swoje przemyślenia.
         <br /><br />
-        <b>I <i>zdjęcia</i></b> of naukowców!
+        <b>I <i>zdjęcia</i></b> naukowców!
       </p>
     </div>
   );
