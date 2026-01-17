@@ -60,7 +60,7 @@ Każdy komponent reactowy jest funkcją javascriptową, która może zwracać st
 
 <Note>
 
-JSX i React to dwie różne rzeczy. Zwykle używa się ich razem, jednak *możesz* [używać ich niezależnie od siebie](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform). JSX rozszerzeniem składni, podczas gdy React jest biblioteką javascriptową.
+JSX i React to dwie różne rzeczy. Zwykle używa się ich razem, jednak *możesz* [używać ich niezależnie od siebie](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform). JSX to rozszerzenie składni, podczas gdy React jest biblioteką javascriptową.
 
 </Note>
 
