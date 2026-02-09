@@ -546,7 +546,7 @@ Naciśnięcie tego przycisku powinno zmieniać tło strony między białym a cza
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5, 7]}}
 export default function LightSwitch() {
   function handleClick() {
     let bodyStyle = document.body.style;
