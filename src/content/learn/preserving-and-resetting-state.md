@@ -672,7 +672,11 @@ label {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Stan licznika zostaje zresetowany, gdy klikniesz pole wyboru. Chociaż renderujesz komponent `Counter`, pierwszy potomek elementu `div` zmienia się z `div` na `section`. Kiedy potomek `div` został usunięty z drzewa DOM, całe drzewo poniżej niego (w tym komponent `Counter` i jego stan) zostało również zniszczone.
+=======
+The counter state gets reset when you click the checkbox. Although you render a `Counter`, the first child of the `div` changes from a `section` to a `div`. When the child `section` was removed from the DOM, the whole tree below it (including the `Counter` and its state) was destroyed as well.
+>>>>>>> a1cc2ab4bf06b530f86a7049923c402baf86aca1
 
 <DiagramGroup>
 
@@ -704,7 +708,7 @@ Tutaj funkcja komponentu `MyTextField` jest zdefiniowana *wewnątrz* komponentu 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7]}}
 import { useState } from 'react';
 
 export default function MyComponent() {
@@ -2011,7 +2015,7 @@ export default function ContactList() {
       <label>
         <input
           type="checkbox"
-          value={reverse}
+          checked={reverse}
           onChange={e => {
             setReverse(e.target.checked)
           }}
@@ -2110,7 +2114,7 @@ export default function ContactList() {
       <label>
         <input
           type="checkbox"
-          value={reverse}
+          checked={reverse}
           onChange={e => {
             setReverse(e.target.checked)
           }}
