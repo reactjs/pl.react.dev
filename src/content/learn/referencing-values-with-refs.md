@@ -211,7 +211,7 @@ Gdyby spróbować zaimplementować to za pomocą referencji, React nigdy nie prz
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [13]}}
 import { useRef } from 'react';
 
 export default function Counter() {
@@ -313,7 +313,7 @@ Zwykłe zmienne, takie jak `let timeoutID`, nie "przetrwają" między ponownymi 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useState } from 'react';
 
 export default function Chat() {
@@ -418,7 +418,7 @@ Ten przycisk powinien przełączać się między wyświetlaniem "Włącz" a "Wy�
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useRef } from 'react';
 
 export default function Toggle() {
@@ -464,7 +464,11 @@ export default function Toggle() {
 
 #### Napraw debouncing {/*fix-debouncing*/}
 
+<<<<<<< HEAD
 W tym przykładzie wszystkie procedury obsługi kliknięć przycisków są ["debouncowane".](https://redd.one/blog/debounce-vs-throttle) Aby zobaczyć, co to oznacza, naciśnij jeden z przycisków. Zauważ, że komunikat pojawi się sekundę później. Jeśli naciśniesz przycisk podczas oczekiwania na komunikat, licznik zostanie zresetowany. Dlatego, jeśli będziesz szybko klikać ten sam przycisk wiele razy, komunikat nie pojawi się, dopóki nie przestaniesz klikać przez sekundę. Debouncing pozwala opóźnić wykonanie jakiejś akcji, dopóki użytkownik "nie przestanie robić rzeczy".
+=======
+In this example, all button click handlers are ["debounced".](https://kettanaito.com/blog/debounce-vs-throttle) To see what this means, press one of the buttons. Notice how the message appears a second later. If you press the button while waiting for the message, the timer will reset. So if you keep clicking the same button fast many times, the message won't appear until a second *after* you stop clicking. Debouncing lets you delay some action until the user "stops doing things".
+>>>>>>> 427f24d694674be458f0fe7cb97ab1c8fe736586
 
 Ten przykład działa, ale nie do końca zgodnie z założeniami. Przyciski nie są niezależne. Aby zobaczyć problem, kliknij jeden z przycisków, a następnie natychmiast kliknij inny przycisk. Można się spodziewać, że po opóźnieniu pojawią się komunikaty obu przycisków. Pojawia się jednak tylko komunikat ostatniego przycisku. Wiadomość pierwszego przycisku zostaje utracona.
 
