@@ -37,9 +37,15 @@ Zacznij od narysowania na designach prostokątów wokół każdego komponentu i 
 
 Zależnie od tego, z jakiej działki się wywodzisz, możesz myśleć o podziale na komponenty na różne sposoby:
 
+<<<<<<< HEAD
 * **Programowanie** - zastosuj te same techniki, co przy decydowaniu, czy warto stworzyć nową funkcję lub obiekt. Jedną z takich technik jest [zasada jednej odpowiedzialności](https://pl.wikipedia.org/wiki/Zasada_jednej_odpowiedzialno%C5%9Bci), to znaczy, że idealnie by było, gdyby komponent robił tylko jedną rzeczy. Jeśli za bardzo się rozrośnie, warto zastanowić się nad podzialeniem go na kilka mniejszych.
 * **CSS** - pomyśl, co powinno otrzymać swój własny selektor CSS-owy. (Chociaż komponenty zwykle są nieco bardziej rozdrobnione.)
 * **Design** - pomyśl, jak należałoby zorganizować warstwy projektu graficznego.
+=======
+* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
+* **Design**--consider how you would organize the design's layers.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Jeśli dane z API są dobrze zorganizowane, często naturalnie mapują się na strukturę komponentów UI, ponieważ mają taką samą strukturę informacyjną - czyli kształt. Porozdzielaj komponenty od siebie tak, by każdy z nich pasował do jednej części modelu danych.
 
@@ -228,10 +234,17 @@ Wszystko inne najprawdopodobniej jest stanem.
 
 Przejdźmy przez wszystkie pozycje krok po kroku:
 
+<<<<<<< HEAD
 1. Oryginalna lista produktów **jest przekazywana przez właściwości, więc nie jest stanem**. 
 2. Tekst wyszukiwarki wydaje się być stanem, bo zmienia się w czasie i nie można go obliczyć na podstawie niczego innego.
 3. Wartość pola wyboru wydaje się być stanem, bo zmienia się w czasie i nie można go obliczyć na podstawie niczego innego.
 4. Przefiltrowana lista produktów **nie jest stanem, bo można ją wyliczyć**, biorąc oryginalną listę produktów i filtrując ją zgodnie z tekstem wyszukiwarki i wartością pola wyboru.
+=======
+1. The original list of products is **passed in as props, so it's not state.**
+2. The search text seems to be state since it changes over time and can't be computed from anything.
+3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
+4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Oznacza to, że jedynie tekst wyszukiwarki i wartość pola wyboru są stanem! Dobra robota!
 
@@ -265,6 +278,7 @@ W poprzednim kroku znaleźliśmy dwa fragmenty stanu aplikacji: tekst wyszukiwar
 
 Zastosujmy na tym stanie poznaną przez nas strategię:
 
+<<<<<<< HEAD
 1. **Zidentyfikuj komponenty, które korzystają z tego stanu:**
     * `ProductTable` musi filtrować produkty na podstawie tego stanu (tekstu wyszukiwarki i wartości pola wyboru). 
     * `SearchBar` musi wyświetlać ten stan (tekst wyszukiwarki i wartość pola wyboru).
@@ -272,23 +286,32 @@ Zastosujmy na tym stanie poznaną przez nas strategię:
 3. **Zdecyduj, gdzie stan powinien być umieszczony**: Będziemy trzymać go w `FilterableProductTable`.
 
 Tak więc wartości stanu będą przechowywane w komponencie `FilterableProductTable`. 
+=======
+1. **Identify components that use state:**
+    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value).
+    * `SearchBar` needs to display that state (search text and checkbox value).
+2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
+3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
+
+So the state values will live in `FilterableProductTable`.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Aby dodać stan do komponentu, użyj [hooka `useState()`](/reference/react/useState). Hooki pozwalają "zahaczyć" się o [cykl renderowania (ang. *render cycle*)](/learn/render-and-commit) komponentu. Dodaj dwie zmienne stanu na górze ciała komponentu `FilterableProductTable` i określ początkowy stan aplikacji:
 
 ```js
 function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);  
+  const [inStockOnly, setInStockOnly] = useState(false);
 ```
 
 Następnie przekaż właściwości `filterText` i `inStockOnly` do komponentów `ProductTable` i `SearchBar`:
 
 ```js
 <div>
-  <SearchBar 
-    filterText={filterText} 
+  <SearchBar
+    filterText={filterText}
     inStockOnly={inStockOnly} />
-  <ProductTable 
+  <ProductTable
     products={products}
     filterText={filterText}
     inStockOnly={inStockOnly} />
@@ -308,10 +331,10 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly} />
-      <ProductTable 
+      <ProductTable
         products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
@@ -389,13 +412,13 @@ function ProductTable({ products, filterText, inStockOnly }) {
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} 
+      <input
+        type="text"
+        value={filterText}
         placeholder="Search..."/>
       <label>
-        <input 
-          type="checkbox" 
+        <input
+          type="checkbox"
           checked={inStockOnly} />
         {' '}
         Only show products in stock
@@ -453,10 +476,17 @@ W powyższym kodzie komponenty `ProductTable` i `SearchBar` odczytują właściw
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
+<<<<<<< HEAD
       <input 
         type="text" 
         value={filterText} 
         placeholder="Wyszukaj..."/>
+=======
+      <input
+        type="text"
+        value={filterText}
+        placeholder="Search..."/>
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 ```
 
 Nie dodaliśmy jeszcze żadnego kodu, który by obsłużył akcje użytkownika, jak na przykład wpisywanie tekstu. To będzie nasze ostatnie zadanie.
@@ -465,7 +495,11 @@ Nie dodaliśmy jeszcze żadnego kodu, który by obsłużył akcje użytkownika, 
 
 Aktualnie nasza aplikacja poprawnie renderuje się na podstawie właściwości i stanu płynących z góry hierarchii. Jednak aby można było zmienić stan na podstawie danych wprowadzonych przez użytkownika, należy dodać przepływ w drugą stronę: komponenty formularza będące głęboko w hierarchii muszą móc aktualizować stan z `FilterableProductTable`. 
 
+<<<<<<< HEAD
 React wymusza jawność tego przepływu danych, co wymaga trochę więcej pisania kodu niż wiązanie dwukierunkowe (ang. *two-way data binding*). Jeśli spróbujesz wpisać tekst lub zmienić zaznaczenie w przykładzie powyżej, zauważysz, że React ignoruje twoje zmiany. I robi to celowo. Pisząc `<input value={filterText} />` ustawiasz właściwość `value` elementu `input` tak, by zawsze odzwierciedlała stan `filterText` przekazany z `FilterableProductTable`. A ponieważ stan `filterText` nigdy się nie zmienia, również polem tekstowym się nie zmienia.
+=======
+Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Naszym celem jest, aby każdorazowa zmiana kontrolek formularza powodowała zmianę stanu. Stan jest zarządzany przez komponent `FilterableProductTable`, dlatego tylko on może wywołać `setFilterText` i `setInStockOnly`. Aby umożliwić komponentowi `SearchBar` aktualizację stanu w `FilterableProductTable`, trzeba przekazać te funkcje do `SearchBar`:
 
@@ -476,8 +510,8 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly}
         onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
@@ -520,13 +554,13 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
-        inStockOnly={inStockOnly} 
-        onFilterTextChange={setFilterText} 
+      <SearchBar
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+        onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
-      <ProductTable 
-        products={products} 
+      <ProductTable
+        products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
     </div>
@@ -608,14 +642,14 @@ function SearchBar({
 }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} placeholder="Search..." 
+      <input
+        type="text"
+        value={filterText} placeholder="Search..."
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
-        <input 
-          type="checkbox" 
-          checked={inStockOnly} 
+        <input
+          type="checkbox"
+          checked={inStockOnly}
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
         Only show products in stock
