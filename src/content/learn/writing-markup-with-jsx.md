@@ -69,10 +69,17 @@ JSX i React to dwie różne rzeczy. Zwykle używa się ich razem, jednak *możes
 Załóżmy, że mamy taki (całkowicie poprawny) kod HTML:
 
 ```html
+<<<<<<< HEAD
 <h1>Lista zadań Hedy Lamarr</h1>
 <img 
   src="https://i.imgur.com/yXOvdOSs.jpg" 
   alt="Hedy Lamarr" 
+=======
+<h1>Hedy Lamarr's Todos</h1>
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
   class="photo"
 >
 <ul>
@@ -99,11 +106,19 @@ Jeśli zwyczajnie skopiujesz kod taki, jaki jest, nie zadziała:
 ```js
 export default function TodoList() {
   return (
+<<<<<<< HEAD
     // Nie chce działać!
     <h1>Lista zadań Hedy Lamarr</h1>
     <img 
       src="https://i.imgur.com/yXOvdOSs.jpg" 
       alt="Hedy Lamarr" 
+=======
+    // This doesn't quite work!
+    <h1>Hedy Lamarr's Todos</h1>
+    <img
+      src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+      alt="Hedy Lamarr"
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
       class="photo"
     >
     <ul>
@@ -139,10 +154,17 @@ Możesz, na przykład, użyć znacznika `<div>`:
 
 ```js {1,11}
 <div>
+<<<<<<< HEAD
   <h1>Lista zadań Hedy Lamarr</h1>
   <img 
     src="https://i.imgur.com/yXOvdOSs.jpg" 
     alt="Hedy Lamarr" 
+=======
+  <h1>Hedy Lamarr's Todos</h1>
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
     class="photo"
   >
   <ul>
@@ -156,10 +178,17 @@ Jeśli nie chcesz wstawiać dodatkowego `<div>` do struktury, zamiast tego może
 
 ```js {1,11}
 <>
+<<<<<<< HEAD
   <h1>Lista zadań Hedy Lamarr</h1>
   <img 
     src="https://i.imgur.com/yXOvdOSs.jpg" 
     alt="Hedy Lamarr" 
+=======
+  <h1>Hedy Lamarr's Todos</h1>
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
     class="photo"
   >
   <ul>
@@ -186,9 +215,9 @@ Tak wyglądałoby zdjęcie Hedy Lamarr i jej lista zadań z domkniętymi znaczni
 
 ```js {2-6,8-10}
 <>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
    />
   <ul>
@@ -206,9 +235,9 @@ JSX przekształcany jest w JavaScript, a atrybuty zapisane w JSX-ie stają się 
 To dlatego w Reakcie wiele atrybutów HTML-owych i SVG zapisujemy camelCasem. Dla przykładu, zamiast pisać `stroke-width`, piszemy `strokeWidth`. Z uwagi na fakt, że `class` jest słowem zarezerwowanym, w Reakcie zapisujemy go jako `className`, idąc w ślady za nomenklaturą [odpowiadającej mu właściwości DOM](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
 
 ```js {4}
-<img 
-  src="https://i.imgur.com/yXOvdOSs.jpg" 
-  alt="Hedy Lamarr" 
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
   className="photo"
 />
 ```
@@ -233,11 +262,19 @@ Oto nasz rezultat końcowy:
 export default function TodoList() {
   return (
     <>
+<<<<<<< HEAD
       <h1>Lista zadań Hedy Lamarr</h1>
       <img 
         src="https://i.imgur.com/yXOvdOSs.jpg" 
         alt="Hedy Lamarr" 
         className="photo" 
+=======
+      <h1>Hedy Lamarr's Todos</h1>
+      <img
+        src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        className="photo"
+>>>>>>> 6ec61348646040795fdaa9de14a9bec603260f87
       />
       <ul>
         <li>Wynaleźć nową sygnalizację świetlną</li>
