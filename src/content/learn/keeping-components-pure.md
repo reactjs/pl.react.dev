@@ -27,6 +27,7 @@ Być może znasz już jeden przykład funkcji czystych: formuły matematyczne.
 
 Rozważ taki wzór: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
+<<<<<<< HEAD
 Jeśli <Math><MathI>x</MathI> = 2</Math>, to wtedy <Math><MathI>y</MathI> = 4</Math>. Zawsze. 
 
 Jeśli <Math><MathI>x</MathI> = 3</Math>, to wtedy <Math><MathI>y</MathI> = 6</Math>. Zawsze. 
@@ -34,6 +35,15 @@ Jeśli <Math><MathI>x</MathI> = 3</Math>, to wtedy <Math><MathI>y</MathI> = 6</M
 Jeśli <Math><MathI>x</MathI> = 3</Math>, to <MathI>y</MathI> nie będzie czasami wynosić <Math>9</Math> albo <Math>–1</Math>, albo <Math>2.5</Math> zależnie od pory dnia czy notowań na giełdzie. 
 
 Jeśli <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> oraz <Math><MathI>x</MathI> = 3</Math>, to <MathI>y</MathI> _zawsze_ będzie wynosić <Math>6</Math>. 
+=======
+If <Math><MathI>x</MathI> = 2</Math> then <Math><MathI>y</MathI> = 4</Math>. Always.
+
+If <Math><MathI>x</MathI> = 3</Math> then <Math><MathI>y</MathI> = 6</Math>. Always.
+
+If <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> won't sometimes be <Math>9</Math> or <Math>–1</Math> or <Math>2.5</Math> depending on the time of day or the state of the stock market.
+
+If <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> and <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> will _always_ be <Math>6</Math>.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 Jeśli zamienilibyśmy to na funkcję javascriptową, wyglądałaby ona tak:
 
@@ -52,10 +62,17 @@ React jest zaprojektowany wokół tego konceptu. **React zakłada, że każdy ko
 ```js src/App.js
 function Recipe({ drinkers }) {
   return (
+<<<<<<< HEAD
     <ol>    
       <li>Zagotuj {drinkers} filiżanki wody.</li>
       <li>Dodaj {drinkers} łyżki herbaty i {0.5 * drinkers} łyżkę/łyżki przypraw.</li>
       <li>Dodaj {0.5 * drinkers} filiżankę/filiżanki mleka i cukier dla smaku.</li>
+=======
+    <ol>
+      <li>Boil {drinkers} cups of water.</li>
+      <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
+      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
     </ol>
   );
 }
@@ -75,11 +92,19 @@ export default function App() {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Kiedy przekażesz `drinkers={2}` do `Recipe`, zawsze zwróci on JSX zawierający `2 filiżanki wody`.
+=======
+When you pass `drinkers={2}` to `Recipe`, it will return JSX containing `2 cups of water`. Always.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 Jeśli przekażesz `drinkers={4}`, zawsze zwróci on JSX zawierający `4 filiżanki wody`.
 
+<<<<<<< HEAD
 Dokładnie tak jak formuła matematyczna.
+=======
+Just like a math formula.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 Możesz myśleć o swoich komponentach jak o przepisach kuchennych: jeśli będziesz stosować się do nich i nie wprowadzisz nowych składników podczas procesu gotowania, otrzymasz ten sam posiłek za każdym razem. To "danie" to JSX, który komponent dostarcza do Reacta na potrzeby [renderowania.](/learn/render-and-commit)
 
@@ -92,7 +117,7 @@ Proces renderowania w Reakcie zawsze musi być czysty. Komponenty powinny jedyni
 Oto komponent, który łamie tę zasadę:
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {
@@ -174,7 +199,7 @@ function Cup({ guest }) {
 }
 
 export default function TeaGathering() {
-  let cups = [];
+  const cups = [];
   for (let i = 1; i <= 12; i++) {
     cups.push(<Cup key={i} guest={i} />);
   }
@@ -214,6 +239,7 @@ Każda nowa funkcjonalność Reacta, którą budujemy, opiera się na tej z czys
 
 <Recap>
 
+<<<<<<< HEAD
 * Komponent musi być czysty, co oznacza:
   * **Dba o swoje sprawy.** Nie powinien zmieniać żadnych obiektów ani zmiennych, które istniały przed renderowaniem.
   * **Takie same dane wejściowe, taki sam wynik.** Dla tych samych danych wejściowych komponent powinien zawsze zwracać ten sam JSX.
@@ -221,11 +247,20 @@ Każda nowa funkcjonalność Reacta, którą budujemy, opiera się na tej z czys
 * Nie powinno się zmieniać żadnych danych wejściowych, których używają twoje komponenty do renderowania. Obejmuje to właściwości, stan i kontekst. Aby zaktualizować widok, [ustaw stan](/learn/state-a-components-memory) zamiast modyfikować istniejące obiekty.
 * Staraj się wyrażać logikę swojego komponentu przez zwracany JSX. Gdy potrzeba "coś zmienić", zazwyczaj powinno się zrobić to w obsłudze zdarzeń. W ostateczności można użyć `useEffect`.
 * Pisanie czystych funkcji wymaga trochę praktyki, ale uwalnia moc paradygmatu Reacta.
+=======
+* A component must be pure, meaning:
+  * **It minds its own business.** It should not change any objects or variables that existed before rendering.
+  * **Same inputs, same output.** Given the same inputs, a component should always return the same JSX.
+* Rendering can happen at any time, so components should not depend on each others' rendering sequence.
+* You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, ["set" state](/learn/state-a-components-memory) instead of mutating preexisting objects.
+* Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can `useEffect`.
+* Writing pure functions takes a bit of practice, but it unlocks the power of React's paradigm.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 </Recap>
 
 
-  
+
 <Challenges>
 
 #### Napraw zepsuty zegar {/*fix-a-broken-clock*/}
@@ -244,7 +279,7 @@ Renderowanie to *obliczanie*, nie powinno ono próbować "wykonywać" żadnych d
 
 ```js src/Clock.js active
 export default function Clock({ time }) {
-  let hours = time.getHours();
+  const hours = time.getHours();
   if (hours >= 0 && hours <= 6) {
     document.getElementById('time').className = 'night';
   } else {
@@ -306,7 +341,7 @@ Ten komponent można naprawić poprzez obliczenie wartości `className` i uwzgl�
 
 ```js src/Clock.js active
 export default function Clock({ time }) {
-  let hours = time.getHours();
+  const hours = time.getHours();
   let className;
   if (hours >= 0 && hours <= 6) {
     className = 'night';
@@ -379,7 +414,7 @@ Błąd znajduje się w pliku `Profile.js`. Upewnij się, że przeczytałeś/prze
 
 <Sandpack>
 
-```js src/Profile.js
+```js {expectedErrors: {'react-compiler': [7]}} src/Profile.js
 import Panel from './Panel.js';
 import { getImageUrl } from './utils.js';
 
@@ -450,7 +485,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -548,7 +583,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -601,18 +636,24 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
+<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia Ankity" },
   {id: 1, label: "Historia Taylora" },
+=======
+const initialStories = [
+  {id: 0, label: "Ankit's Story" },
+  {id: 1, label: "Taylor's Story" },
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
-  let time = useTime();
+  const [stories, setStories] = useState([...initialStories])
+  const time = useTime();
 
   // HACK: Prevent the memory from growing forever while you read docs.
   // We're breaking our own rules here.
@@ -697,18 +738,24 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
+<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia Ankity" },
   {id: 1, label: "Historia Taylora" },
+=======
+const initialStories = [
+  {id: 0, label: "Ankit's Story" },
+  {id: 1, label: "Taylor's Story" },
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
-  let time = useTime();
+  const [stories, setStories] = useState([...initialStories])
+  const time = useTime();
 
   // HACK: Prevent the memory from growing forever while you read docs.
   // We're breaking our own rules here.
@@ -768,8 +815,13 @@ Ewentualnie, możesz utworzyć _nową_ tablicę (poprzez skopiowanie istniejące
 
 ```js src/StoryTray.js active
 export default function StoryTray({ stories }) {
+<<<<<<< HEAD
   // Skopiuj tablicę!
   let storiesToDisplay = stories.slice();
+=======
+  // Copy the array!
+  const storiesToDisplay = stories.slice();
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
   // Nie wpływa na oryginalną tablicę:
   storiesToDisplay.push({
@@ -789,18 +841,24 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
+<<<<<<< HEAD
 let initialStories = [
   {id: 0, label: "Historia Ankity" },
   {id: 1, label: "Historia Taylora" },
+=======
+const initialStories = [
+  {id: 0, label: "Ankit's Story" },
+  {id: 1, label: "Taylor's Story" },
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
-  let time = useTime();
+  const [stories, setStories] = useState([...initialStories])
+  const time = useTime();
 
   // HACK: Prevent the memory from growing forever while you read docs.
   // We're breaking our own rules here.

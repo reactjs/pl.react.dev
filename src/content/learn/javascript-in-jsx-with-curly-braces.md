@@ -28,7 +28,7 @@ export default function Avatar() {
   return (
     <img
       className="avatar"
-      src="https://i.imgur.com/7vQD0fPs.jpg"
+      src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
       alt="Gregorio Y. Zara"
     />
   );
@@ -41,7 +41,11 @@ export default function Avatar() {
 
 </Sandpack>
 
+<<<<<<< HEAD
 W powyższym kodzie wartości `"https://i.imgur.com/7vQD0fPs.jpg"` oraz `"Gregorio Y. Zara"` są przekazywane jako tekst.
+=======
+Here, `"https://react.dev/images/docs/scientists/7vQD0fPs.jpg"` and `"Gregorio Y. Zara"` are being passed as strings.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 Lecz co jeśli wartości dla `src` lub `alt` mają być dynamiczne? Możemy w takiej sytuacji **użyć wartości z JavaScriptu, zastępując parę `"` i `"` nawiasami klamrowymi `{` i `}`**:
 
@@ -49,7 +53,7 @@ Lecz co jeśli wartości dla `src` lub `alt` mają być dynamiczne? Możemy w ta
 
 ```js
 export default function Avatar() {
-  const avatar = 'https://i.imgur.com/7vQD0fPs.jpg';
+  const avatar = 'https://react.dev/images/docs/scientists/7vQD0fPs.jpg';
   const description = 'Gregorio Y. Zara';
   return (
     <img
@@ -190,7 +194,7 @@ export default function TodoList() {
       <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -266,7 +270,7 @@ export default function TodoList() {
       <h1>{person} - lista zadań</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -314,7 +318,7 @@ export default function TodoList() {
       <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -358,7 +362,7 @@ export default function TodoList() {
       <h1>{person.name} - lista zadań</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -388,7 +392,7 @@ Przenieś URL obrazka do właściwości o nazwie `person.imageUrl` i użyj jej j
 ```js
 const person = {
   name: 'Gregorio Y. Zara',
-  imageUrl: "https://i.imgur.com/7vQD0fPs.jpg",
+  imageUrl: "https://react.dev/images/docs/scientists/7vQD0fPs.jpg",
   theme: {
     backgroundColor: 'black',
     color: 'pink'
@@ -428,7 +432,11 @@ body > div > div { padding: 20px; }
 
 W poniższym kodzie pełny adres URL obrazka został rozdzielony na cztery części: URL bazowy, `imageId`, `imageSize` oraz rozszerzenie pliku.
 
+<<<<<<< HEAD
 Chcielibyśmy teraz, żeby finalny URL obrazka składał się z tych wartości połączonych w jeden tekst: URL bazowy (zawsze `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`) oraz rozszerzenie pliku (zawsze `'.jpg'`). Coś jednak jest nie tak z atrybutem `src` znacznika `<img>`.
+=======
+We want the image URL to combine these attributes together: base URL (always `'https://react.dev/images/docs/scientists/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), and file extension (always `'.jpg'`). However, something is wrong with how the `<img>` tag specifies its `src`.
+>>>>>>> 8bb31acb86bf68fa33d97dd0f1b834dfa71e2b1a
 
 Potrafisz to naprawić?
 
@@ -436,7 +444,7 @@ Potrafisz to naprawić?
 
 ```js
 
-const baseUrl = 'https://i.imgur.com/';
+const baseUrl = 'https://react.dev/images/docs/scientists/';
 const person = {
   name: 'Gregorio Y. Zara',
   imageId: '7vQD0fP',
@@ -487,7 +495,7 @@ Możesz zapisać to jako `src={baseUrl + person.imageId + person.imageSize + '.j
 <Sandpack>
 
 ```js
-const baseUrl = 'https://i.imgur.com/';
+const baseUrl = 'https://react.dev/images/docs/scientists/';
 const person = {
   name: 'Gregorio Y. Zara',
   imageId: '7vQD0fP',
@@ -564,7 +572,7 @@ export default function TodoList() {
 ```js src/utils.js
 export function getImageUrl(person) {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     person.imageSize +
     '.jpg'
