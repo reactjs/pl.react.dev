@@ -141,7 +141,11 @@ window.React2 = require('react');
 console.log(window.React1 === window.React2);
 ```
 
+<<<<<<< HEAD
 Jeśli w konsoli pojawi się `false`, to najprawdopodobniej używasz dwóch różnych paczek Reacta i musisz dowiedzieć się, jaka jest tego przyczyna. W [tym zgłoszonym problemie](https://github.com/facebook/react/issues/13991) opisano niektóre z najczęstszych przyczyn tego problemu.
+=======
+If it prints `false` then you might have two Reacts and need to figure out why that happened. [This issue](https://github.com/react/react/issues/13991) includes some common reasons encountered by the community.
+>>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 Inną przyczyną może być użycie polecenia `npm link` lub podobnego. W takim przypadku twój bundler (ang. *narzędzie pakujące*) może "widzieć" dwa Reacty - jeden w folderze aplikacji i jeden w folderze z bibliotekami. Zakładając, że foldery `myapp` i `mylib` znajdują się na tym samym poziomie, pomóc może uruchomienie polecenia `npm link ../myapp/node_modules/react` z folderu `mylib`. Powinno to zmusić bibliotekę do używania kopii Reacta należącej do aplikacji.
 
@@ -153,4 +157,8 @@ Z założenia React pozwala na używanie kilku niezależnych kopii biblioteki na
 
 ## Inne przypadki {/*other-causes*/}
 
+<<<<<<< HEAD
 Jeśli nie pomogło żadne z powyższych rozwiązań, napisz komentarz w [tym wątku](https://github.com/facebook/react/issues/13991), a spróbujemy ci pomóc. Postaraj się przygotować prosty przykład ilustrujący problem - możliwe, że znajdziesz rozwiązanie w trakcie opisywania problemu.
+=======
+If none of this worked, please comment in [this issue](https://github.com/react/react/issues/13991) and we'll try to help. Try to create a small reproducing example — you might discover the problem as you're doing it.
+>>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
