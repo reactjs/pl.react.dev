@@ -4,7 +4,7 @@ title: Acknowledgements
 
 <Intro>
 
-React was originally created by [Jordan Walke.](https://github.com/jordwalke) Today, React has a [dedicated full-time team working on it](/community/team), as well as over a thousand [open source contributors.](https://github.com/facebook/react/graphs/contributors)
+React was originally created by [Jordan Walke.](https://github.com/jordwalke) Today, React has a [dedicated full-time team working on it](/community/team), as well as over a thousand [open source contributors.](https://github.com/react/react/graphs/contributors)
 
 </Intro>
 
@@ -36,6 +36,8 @@ We'd like to recognize a few people who have made significant contributions to R
 * [Joe Critchley](https://github.com/joecritch)
 * [Jeff Morrison](https://github.com/jeffmo)
 * [Luna Ruan](https://github.com/lunaruan)
+* [Luna Wei](https://github.com/lunaleaps)
+* [Noah Lemen](https://github.com/noahlemen)
 * [Kathryn Middleton](https://github.com/kmiddleton14)
 * [Keyan Zhang](https://github.com/keyz)
 * [Marco Salazar](https://github.com/salazarm)
@@ -51,9 +53,10 @@ We'd like to recognize a few people who have made significant contributions to R
 * [Samuel Susla](https://github.com/sammy-SC)
 * [Sander Spies](https://github.com/sanderspies)
 * [Sasha Aickin](https://github.com/aickin)
-* [Sean Keegan](https://github.com/seanryankeegan)
+* [Sathya Gunasekaran](https://github.com/gsathya)
 * [Sophia Shoemaker](https://github.com/mrscobbler)
 * [Sunil Pai](https://github.com/threepointone)
+* [Tianyu Yao](https://github.com/)
 * [Tim Yung](https://github.com/yungsters)
 * [Xuan Huang](https://github.com/huxpro)
 
