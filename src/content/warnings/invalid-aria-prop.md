@@ -8,4 +8,8 @@ Ostrzeżenie `invalid-aria-prop` pojawi się, gdy spróbujesz wyrenderować elem
 
 2. Jeśli używasz `aria-role`, być może chodziło ci o `role`.
 
+<<<<<<< HEAD
 3. W innym przypadku, jeśli używasz najnowszej wersji React DOM i masz pewność, że używasz poprawnej nazwy właściwości wymienionej w specyfikacji ARIA, [zgłoś nam błąd](https://github.com/facebook/react/issues/new/choose).
+=======
+3. Otherwise, if you're on the latest version of React DOM and verified that you're using a valid property name listed in the ARIA specification, please [report a bug](https://github.com/react/react/issues/new/choose).
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
