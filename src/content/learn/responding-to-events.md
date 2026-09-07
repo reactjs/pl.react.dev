@@ -169,7 +169,11 @@ To pozwala tym dwóm przyciskom pokazywać różne wiadomości. Spróbuj je zmie
 
 ### Przekazywanie procedur obsługi zdarzeń jako właściwości {/*passing-event-handlers-as-props*/}
 
+<<<<<<< HEAD
 Często będziesz chcieć, aby komponent nadrzędny zdefiniował dziecku procedurę obsługi zdarzeń. Przyjrzyj się przyciskom: w zależności od tego, gdzie użyjesz komponentu `Button`, możesz chcieć wykonać inną funkcję - być może jeden odtwarza film, a drugi dodaje obrazek?
+=======
+Often you'll want the parent component to specify a child's event handler. Consider buttons: depending on where you're using a `Button` component, you might want to execute a different function—perhaps one plays a movie and another uploads an image.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 Aby to zrobić, przekaż właściwość, którą komponent otrzymał od rodzica, jako procedura obsługi w taki sposób:
 
@@ -312,11 +316,19 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
+<<<<<<< HEAD
 Zwróć uwagę na to, że komponent `App` nie musi wiedzieć *co* `Toolbar` zrobi z `onPlayMovie` lub `onUploadImage`. To szczegół w implementacji `Toolbar`. Tutaj, `Toolbar` przekazuje je niżej jako procedury `onClick` do swoich komponentów `Button`, ale później mogą również zostać wywołane skrótem klawiszowym. Nazywanie właściwości po interakcjach specyficznych dla aplikacji np. `onPlayMovie` pozwala ci wygodnie zmieniać, w jaki sposób będą później użyte.
   
 <Note>
   
 Upewnij się, że używasz poprawnego tagu HTML dla swoich procedur obsługi zdarzeń. Na przykład, by obsłużyć kliknięcia używaj [`<button onClick={handleClick}>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) zamiast `<div onClick={handleClick}>`. Wykorzystując przeglądarkowy `<button>` możesz używać wbudowanych w nią zachowań takich jak nawigacja klawiaturą. Jeśli nie lubisz domyślnego stylu przycisku, a wolisz by wyglądał bardziej jak link lub inny element interfejsu, możesz to osiągnąć używając CSS. [Więcej o pisaniu HTMLa dostępnego dla wszystkich](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+=======
+Notice how the `App` component does not need to know *what* `Toolbar` will do with `onPlayMovie` or `onUploadImage`. That's an implementation detail of the `Toolbar`. Here, `Toolbar` passes them down as `onClick` handlers to its `Button`s, but it could later also trigger them on a keyboard shortcut. Naming props after app-specific interactions like `onPlayMovie` gives you the flexibility to change how they're used later.
+
+<Note>
+
+Make sure that you use the appropriate HTML tags for your event handlers. For example, to handle clicks, use [`<button onClick={handleClick}>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) instead of `<div onClick={handleClick}>`. Using a real browser `<button>` enables built-in browser behaviors like keyboard navigation. If you don't like the default browser styling of a button and want to make it look more like a link or a different UI element, you can achieve it with CSS. [Learn more about writing accessible markup.](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 </Note>
 
@@ -411,12 +423,21 @@ button { margin: 5px; }
 
 Gdy naciskasz przycisk:
 
+<<<<<<< HEAD
 1. React wywołuje procedurę `onClick` przekazaną do `<button>`. 
 2. Ta procedura, zdefiniowana w `Button`, wykonuje następujące czynności:
    * Wywołuje `e.stopPropagation()`, powstrzymując zdarzenie przed przekazaniem dalej.
    * Wywołuje funkcję `onClick`, która jest właściwością przekazaną z komponentu `Toolbar`.
 3. Ta funkcja, zdefiniowana w komponencie `Toolbar`, wyświetla swój własny alert.
 4. Ponieważ zatrzymaliśmy przekazanie, procedura `onClick` nadrzędnego elementu `<div>` *nie* uruchamia się.
+=======
+1. React calls the `onClick` handler passed to `<button>`.
+2. That handler, defined in `Button`, does the following:
+   * Calls `e.stopPropagation()`, preventing the event from bubbling further.
+   * Calls the `onClick` function, which is a prop passed from the `Toolbar` component.
+3. That function, defined in the `Toolbar` component, displays the button's own alert.
+4. Since the propagation was stopped, the parent `<div>`'s `onClick` handler does *not* run.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 Jako wynik `e.stopPropagation()`, kliknięcie przycisków pokazuje teraz pojedynczy alert (z `<button>`), zamiast 2 (z `<button>` i nadrzędnego `<div>`a). Naciśnięcie przycisku, to nie to samo co naciśnięcie otaczającego go paska zadań, zatem powstrzymanie przekazania ma sens dla tego interfejsu.
 
@@ -433,11 +454,19 @@ W niewielu przypadkach możesz musieć przechwycić wszystkie zdarzenia element�
 </div>
 ```
 
+<<<<<<< HEAD
 Każde zdarzenie jest propagowane w trzech fazach:
 
 1. Podróżuje w dół, wywołując wszystkie procedury `onClickCapture`.
 2. Uruchamia procedurę `onClick` naciśniętego elementu. 
 3. Podróżuje w górę, wywołując wszystkie procedury `onClick`.
+=======
+Each event propagates in three phases:
+
+1. It travels down, calling all `onClickCapture` handlers.
+2. It runs the clicked element's `onClick` handler.
+3. It travels upwards, calling all `onClick` handlers.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 Przechwytywanie zdarzeń przydaje się przy tworzeniu np. routerów czy analityki, ale prawdopodobnie nie znajdziesz dla tego szerszego zastosowania w kodzie aplikacji.
 
@@ -546,7 +575,7 @@ Naciśnięcie tego przycisku powinno zmieniać tło strony między białym a cza
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5, 7]}}
 export default function LightSwitch() {
   function handleClick() {
     let bodyStyle = document.body.style;
