@@ -79,6 +79,9 @@ Istnieją dwa rzadko używane wariacje hooka `useEffect`, różniące się momen
 * [`useLayoutEffect`](/reference/react/useLayoutEffect) jest wywoływany zanim przeglądarka wykona ponowne rysowanie treści strony. Można w nim mierzyć elementy układu strony.
 * [`useInsertionEffect`](/reference/react/useInsertionEffect) jest wywoływany zanim React wprowadzi zmiany do DOM. Biblioteki mogą za jego pomocą wstrzyknąć dynamiczne style CSS.
 
+You can also separate events from Effects:
+
+- [`useEffectEvent`](/reference/react/useEffectEvent) creates a non-reactive event to fire from any Effect hook.
 ---
 
 ## Hooki wydajnościowe {/*performance-hooks*/}
