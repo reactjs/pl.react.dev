@@ -283,7 +283,7 @@ In CodeSandbox you'll see three main sections:
 
 ![CodeSandbox with starter code](../images/tutorial/react-starter-code-codesandbox.png)
 
-1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` and a folder called `public`
+1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` in `src` folder and a folder called `public`
 1. The _code editor_ where you'll see the source code of your selected file
 1. The _browser_ section where you'll see how the code you've written will be displayed
 
@@ -295,7 +295,7 @@ export default function Square() {
 }
 ```
 
-The _browser_ section should be displaying a square with a X in it like this:
+The _browser_ section should be displaying a square with an X in it like this:
 
 ![x-filled square](../images/tutorial/x-filled-square.png)
 
@@ -337,7 +337,7 @@ import './styles.css';
 import App from './App';
 ```
 
-Lines 1-5 bring all the necessary pieces together: 
+Lines 1-5 bring all the necessary pieces together:
 
 * React
 * React's library to talk to web browsers (React DOM)
@@ -551,7 +551,7 @@ export default function Board() {
 }
 ```
 
-Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter. 
+Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter.
 
 Let's take a look:
 
@@ -899,19 +899,20 @@ body {
 
 ### React Developer Tools {/*react-developer-tools*/}
 
-React DevTools let you check the props and the state of your React components. You can find the React DevTools tab at the bottom of the _browser_ section in CodeSandbox:
+React Developer Tools let you check the props and the state of your React components. It is available as a [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) browser extension.
 
-![React DevTools in CodeSandbox](../images/tutorial/codesandbox-devtools.png)
+After you install it, a new *Components* tab will appear in your browser Developer Tools for sites using React. If you're following along in CodeSandbox, you'd need to first open your sandbox preview in a new tab:
 
-To inspect a particular component on the screen, use the button in the top left corner of React DevTools:
+![opening in new tab](../images/tutorial/sandbox-new-tab.png)
 
-![Selecting components on the page with React DevTools](../images/tutorial/devtools-select.gif)
+Then, on the preview page, open your browser's DevTools and find the *Components* tab:
 
-<Note>
+![components tab](../images/tutorial/components-tab.png)
 
-For local development, React DevTools is available as a [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) browser extension. Install it, and the *Components* tab will appear in your browser Developer Tools for sites using React.
+To inspect a particular component on the screen, use the button in the top left corner of the Components tab:
 
-</Note>
+![inspecting with devtools](../images/tutorial/devtools-inspect.gif)
+
 
 ## Completing the game {/*completing-the-game*/}
 
@@ -1094,7 +1095,7 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
-Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component: 
+Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component:
 
 ```js {7}
 export default function Board() {
@@ -1325,7 +1326,7 @@ Let's recap what happens when a user clicks the top left square on your board to
 1. `handleClick` uses the argument (`0`) to update the first element of the `squares` array from `null` to `X`.
 1. The `squares` state of the `Board` component was updated, so the `Board` and all of its children re-render. This causes the `value` prop of the `Square` component with index `0` to change from `null` to `X`.
 
-In the end the user sees that the upper left square has changed from empty to having a `X` after clicking it.
+In the end the user sees that the upper left square has changed from empty to having an `X` after clicking it.
 
 <Note>
 
@@ -1406,7 +1407,7 @@ But wait, there's a problem. Try clicking on the same square multiple times:
 
 The `X` is overwritten by an `O`! While this would add a very interesting twist to the game, we're going to stick to the original rules for now.
 
-When you mark a square with a `X` or an `O` you aren't first checking to see if the square already has a `X` or `O` value. You can fix this by *returning early*. You'll check to see if the square already has a `X` or an `O`. If the square is already filled, you will `return` in the `handleClick` function early--before it tries to update the board state.
+When you mark a square with an `X` or an `O` you aren't first checking to see if the square already has an `X` or `O` value. You can fix this by *returning early*. You'll check to see if the square already has an `X` or an `O`. If the square is already filled, you will `return` in the `handleClick` function early--before it tries to update the board state.
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1556,7 +1557,7 @@ It does not matter whether you define `calculateWinner` before or after the `Boa
 
 </Note>
 
-You will call `calculateWinner(squares)` in the `Board` component's `handleClick` function to check if a player has won. You can perform this check at the same time you check if a user has clicked a square that already has a `X` or and `O`. We'd like to return early in both cases:
+You will call `calculateWinner(squares)` in the `Board` component's `handleClick` function to check if a player has won. You can perform this check at the same time you check if a user has clicked a square that already has an `X` or an `O`. We'd like to return early in both cases:
 
 ```js {2}
 function handleClick(i) {
@@ -2073,12 +2074,12 @@ export default function Game() {
 }
 ```
 
-You can see what your code should look like below. Note that you should see an error in the developer tools console that says: 
+You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
 
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
-  
+
 You'll fix this error in the next section.
 
 <Sandpack>
@@ -2247,7 +2248,7 @@ body {
 
 </Sandpack>
 
-As you iterate through `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
+As you iterate through the `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
 
 For each move in the tic-tac-toe game's history, you create a list item `<li>` which contains a button `<button>`. The button has an `onClick` handler which calls a function called `jumpTo` (that you haven't implemented yet).
 
