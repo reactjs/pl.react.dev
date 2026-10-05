@@ -8,7 +8,7 @@ All stable builds of React go through a high level of testing and follow semanti
 
 </Intro>
 
-For a list of previous releases, see the [Versions](/versions) page.
+This versioning policy describes our approach to version numbers for packages such as `react` and `react-dom`. For a list of previous releases, see the [Versions](/versions) page.
 
 ## Stable releases {/*stable-releases*/}
 
@@ -24,7 +24,9 @@ Major releases can also contain new features, and any release can include bug fi
 
 Minor releases are the most common type of release.
 
-### Breaking Changes {/*breaking-changes*/}
+We know our users continue to use old versions of React in production. If we learn of a security vulnerability in React, we release a backported fix for all major versions that are affected by the vulnerability.
+
+### Breaking changes {/*breaking-changes*/}
 
 Breaking changes are inconvenient for everyone, so we try to minimize the number of major releases – for example, React 15 was released in April 2016 and React 16 was released in September 2017, and React 17 was released in October 2020.
 
@@ -134,7 +136,7 @@ If you're the author of a third party React framework, library, developer tool, 
   ```
 - Run your test suite against the updated packages.
 - If everything passes, great! You can expect that your project will work with the next minor React release.
-- If something breaks unexpectedly, please let us know by [filing an issue](https://github.com/facebook/react/issues).
+- If something breaks unexpectedly, please let us know by [filing an issue](https://github.com/react/react/issues).
 
 A project that uses this workflow is Next.js. You can refer to their [CircleCI configuration](https://github.com/zeit/next.js/blob/c0a1c0f93966fe33edd93fb53e5fafb0dcd80a9e/.circleci/config.yml) as an example.
 
@@ -164,4 +166,4 @@ If a feature is not documented, they may be accompanied by an [RFC](https://gith
 
 We will post to the [React blog](/blog) when we're ready to announce new experiments, but that doesn't mean we will publicize every experiment.
 
-You can always refer to our public GitHub repository's [history](https://github.com/facebook/react/commits/main) for a comprehensive list of changes.
+You can always refer to our public GitHub repository's [history](https://github.com/react/react/commits/main) for a comprehensive list of changes.
