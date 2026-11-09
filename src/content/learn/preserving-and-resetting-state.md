@@ -18,7 +18,11 @@ Stan jest izolowany między komponentami. React śledzi, który stan należy do 
 
 ## Stan jest powiązany z pozycją w drzewie renderowania {/*state-is-tied-to-a-position-in-the-tree*/}
 
+<<<<<<< HEAD
 React buduje [drzewa renderowania](learn/understanding-your-ui-as-a-tree#the-render-tree) dla struktury komponentów w twoim interfejsie użytkownika.
+=======
+React builds [render trees](/learn/understanding-your-ui-as-a-tree#the-render-tree) for the component structure in your UI.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Kiedy dodajesz stan do komponentu, możesz myśleć, że stan "żyje" wewnątrz komponentu. Jednak w rzeczywistości jest on przechowywany wewnątrz Reacta. Kojarzy on każdą część stanu, którą przechowuje, z odpowiednim komponentem na podstawie jego miejsca w drzewie renderowania.
 
@@ -86,7 +90,11 @@ label {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Oto jak te komponenty wyglądają jako drzewo:
+=======
+Here's how these look as a tree:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 <DiagramGroup>
 
@@ -186,7 +194,7 @@ export default function App() {
   return (
     <div>
       <Counter />
-      {showB && <Counter />} 
+      {showB && <Counter />}
       <label>
         <input
           type="checkbox"
@@ -288,9 +296,9 @@ export default function App() {
   return (
     <div>
       {isFancy ? (
-        <Counter isFancy={true} /> 
+        <Counter isFancy={true} />
       ) : (
-        <Counter isFancy={false} /> 
+        <Counter isFancy={false} />
       )}
       <label>
         <input
@@ -496,9 +504,13 @@ export default function App() {
   return (
     <div>
       {isPaused ? (
+<<<<<<< HEAD
         <p>Do zobaczenia później!</p> 
+=======
+        <p>See you later!</p>
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
       ) : (
-        <Counter /> 
+        <Counter />
       )}
       <label>
         <input
@@ -596,7 +608,7 @@ export default function App() {
     <div>
       {isFancy ? (
         <div>
-          <Counter isFancy={true} /> 
+          <Counter isFancy={true} />
         </div>
       ) : (
         <section>
@@ -672,7 +684,11 @@ label {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Stan licznika zostaje zresetowany, gdy klikniesz pole wyboru. Chociaż renderujesz komponent `Counter`, pierwszy potomek elementu `div` zmienia się z `div` na `section`. Kiedy potomek `div` został usunięty z drzewa DOM, całe drzewo poniżej niego (w tym komponent `Counter` i jego stan) zostało również zniszczone.
+=======
+The counter state gets reset when you click the checkbox. Although you render a `Counter`, the first child of the `div` changes from a `section` to a `div`. When the child `section` was removed from the DOM, the whole tree below it (including the `Counter` and its state) was destroyed as well.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 <DiagramGroup>
 
@@ -704,7 +720,7 @@ Tutaj funkcja komponentu `MyTextField` jest zdefiniowana *wewnątrz* komponentu 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7]}}
 import { useState } from 'react';
 
 export default function MyComponent() {
@@ -1431,19 +1447,29 @@ export default function App() {
   if (reverse) {
     return (
       <>
+<<<<<<< HEAD
         <Field label="Nazwisko" /> 
         <Field label="Imię" />
+=======
+        <Field label="Last name" />
+        <Field label="First name" />
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         {checkbox}
       </>
     );
   } else {
     return (
       <>
+<<<<<<< HEAD
         <Field label="Imię" /> 
         <Field label="Nazwisko" />
+=======
+        <Field label="First name" />
+        <Field label="Last name" />
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         {checkbox}
       </>
-    );    
+    );
   }
 }
 
@@ -1493,19 +1519,29 @@ export default function App() {
   if (reverse) {
     return (
       <>
+<<<<<<< HEAD
         <Field key="lastName" label="Nazwisko" /> 
         <Field key="firstName" label="Imię" />
+=======
+        <Field key="lastName" label="Last name" />
+        <Field key="firstName" label="First name" />
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         {checkbox}
       </>
     );
   } else {
     return (
       <>
+<<<<<<< HEAD
         <Field key="firstName" label="Imię" /> 
         <Field key="lastName" label="Nazwisko" />
+=======
+        <Field key="firstName" label="First name" />
+        <Field key="lastName" label="Last name" />
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
         {checkbox}
       </>
-    );    
+    );
   }
 }
 
@@ -1887,6 +1923,7 @@ export default function Gallery() {
 }
 
 let images = [{
+<<<<<<< HEAD
   place: 'Penang, Malezja',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
@@ -1895,10 +1932,21 @@ let images = [{
 }, {
   place: 'Bilbao, Hiszpania',
   src: 'https://i.imgur.com/z08o2TS.jpg'
+=======
+  place: 'Penang, Malaysia',
+  src: 'https://react.dev/images/docs/scientists/FJeJR8M.jpg'
+}, {
+  place: 'Lisbon, Portugal',
+  src: 'https://react.dev/images/docs/scientists/dB2LRbj.jpg'
+}, {
+  place: 'Bilbao, Spain',
+  src: 'https://react.dev/images/docs/scientists/z08o2TS.jpg'
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 }, {
   place: 'Valparaíso, Chile',
-  src: 'https://i.imgur.com/Y3utgTi.jpg'
+  src: 'https://react.dev/images/docs/scientists/Y3utgTi.jpg'
 }, {
+<<<<<<< HEAD
   place: 'Schwyz, Szwajcaria',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
@@ -1907,6 +1955,16 @@ let images = [{
 }, {
   place: 'Lublana, Słowenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
+=======
+  place: 'Schwyz, Switzerland',
+  src: 'https://react.dev/images/docs/scientists/JBbMpWY.jpg'
+}, {
+  place: 'Prague, Czechia',
+  src: 'https://react.dev/images/docs/scientists/QwUKKmF.jpg'
+}, {
+  place: 'Ljubljana, Slovenia',
+  src: 'https://react.dev/images/docs/scientists/3aIiwfm.jpg'
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 }];
 ```
 
@@ -1955,6 +2013,7 @@ export default function Gallery() {
 }
 
 let images = [{
+<<<<<<< HEAD
   place: 'Penang, Malezja',
   src: 'https://i.imgur.com/FJeJR8M.jpg'
 }, {
@@ -1963,10 +2022,21 @@ let images = [{
 }, {
   place: 'Bilbao, Hiszpania',
   src: 'https://i.imgur.com/z08o2TS.jpg'
+=======
+  place: 'Penang, Malaysia',
+  src: 'https://react.dev/images/docs/scientists/FJeJR8M.jpg'
+}, {
+  place: 'Lisbon, Portugal',
+  src: 'https://react.dev/images/docs/scientists/dB2LRbj.jpg'
+}, {
+  place: 'Bilbao, Spain',
+  src: 'https://react.dev/images/docs/scientists/z08o2TS.jpg'
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 }, {
   place: 'Valparaíso, Chile',
-  src: 'https://i.imgur.com/Y3utgTi.jpg'
+  src: 'https://react.dev/images/docs/scientists/Y3utgTi.jpg'
 }, {
+<<<<<<< HEAD
   place: 'Schwyz, Szwajcaria',
   src: 'https://i.imgur.com/JBbMpWY.jpg'
 }, {
@@ -1975,6 +2045,16 @@ let images = [{
 }, {
   place: 'Lublana, Słowenia',
   src: 'https://i.imgur.com/3aIiwfm.jpg'
+=======
+  place: 'Schwyz, Switzerland',
+  src: 'https://react.dev/images/docs/scientists/JBbMpWY.jpg'
+}, {
+  place: 'Prague, Czechia',
+  src: 'https://react.dev/images/docs/scientists/QwUKKmF.jpg'
+}, {
+  place: 'Ljubljana, Slovenia',
+  src: 'https://react.dev/images/docs/scientists/3aIiwfm.jpg'
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 }];
 ```
 
@@ -2011,7 +2091,7 @@ export default function ContactList() {
       <label>
         <input
           type="checkbox"
-          value={reverse}
+          checked={reverse}
           onChange={e => {
             setReverse(e.target.checked)
           }}
@@ -2110,7 +2190,7 @@ export default function ContactList() {
       <label>
         <input
           type="checkbox"
-          value={reverse}
+          checked={reverse}
           onChange={e => {
             setReverse(e.target.checked)
           }}
